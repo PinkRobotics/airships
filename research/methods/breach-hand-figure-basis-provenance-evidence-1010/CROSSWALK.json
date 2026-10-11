@@ -1,0 +1,369 @@
+{
+  "schema": "breach-hand-figure.basis-provenance-evidence-map/1",
+  "status": "DOCUMENT_ONLY; dated no-generator/no-sizing correction preserved; actual applicable basis UNKNOWN",
+  "source_revision": "94db332d3dc437708d3ed0dfeb6b619c70d9da25",
+  "correction_metadata": {
+    "path": "docs/PHYSICS.md",
+    "published_date": "2026-10-02",
+    "scope": "Existing source correction only, not a measurement date or new scientific outcome."
+  },
+  "source_fragments": [
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "line": 1022,
+      "character_start": 1,
+      "character_end_exclusive": 44,
+      "fragment": "### Breach hand figures without a generator"
+    },
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "line": 1024,
+      "character_start": 1,
+      "character_end_exclusive": 74,
+      "fragment": "What calculation, load case and material basis support the physics note’s"
+    },
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "line": 1025,
+      "character_start": 1,
+      "character_end_exclusive": 149,
+      "fragment": "They are hand figures without a generator. What would make that breach comparison reproducible and applicable to the proposed cellular architecture?"
+    },
+    {
+      "path": "docs/PHYSICS.md",
+      "line": 187,
+      "character_start": 54,
+      "character_end_exclusive": 89,
+      "fragment": "are hand figures with no generator."
+    },
+    {
+      "path": "docs/PHYSICS.md",
+      "line": 188,
+      "character_start": 3,
+      "character_end_exclusive": 134,
+      "fragment": "Their load and material basis remains an [open question](OPEN-QUESTIONS.md#breach-hand-figures); they do not establish ship sizing."
+    },
+    {
+      "path": "docs/PHYSICS.md",
+      "line": 181,
+      "character_start": 3,
+      "character_end_exclusive": 21,
+      "fragment": "by the BREACH case"
+    },
+    {
+      "path": "docs/PHYSICS.md",
+      "line": 185,
+      "character_start": 3,
+      "character_end_exclusive": 33,
+      "fragment": "sizing load case for the ship."
+    },
+    {
+      "path": "docs/PHYSICS.md",
+      "line": 182,
+      "character_start": 67,
+      "character_end_exclusive": 96,
+      "fragment": "against its neighbours' walls"
+    },
+    {
+      "path": "docs/PHYSICS.md",
+      "line": 183,
+      "character_start": 3,
+      "character_end_exclusive": 17,
+      "fragment": "in compression"
+    },
+    {
+      "path": "docs/PHYSICS.md",
+      "line": 181,
+      "character_start": 67,
+      "character_end_exclusive": 91,
+      "fragment": "its own walls in tension"
+    },
+    {
+      "path": "docs/PHYSICS.md",
+      "line": 141,
+      "character_start": 163,
+      "character_end_exclusive": 253,
+      "fragment": "Compartment membranes are intended to limit breach damage; their arrangement remains open."
+    },
+    {
+      "path": "README.md",
+      "line": 3,
+      "character_start": 186,
+      "character_end_exclusive": 222,
+      "fragment": "No aircraft has been built or flown."
+    }
+  ],
+  "hand_figure_identity_mappings_without_values": [
+    {
+      "source_hand_figure_identity": "TENSION_HAND_FIGURE",
+      "source_locators": [
+        {
+          "path": "docs/PHYSICS.md",
+          "line": 181,
+          "character_start": 67,
+          "character_end_exclusive": 91,
+          "fragment": "its own walls in tension"
+        },
+        {
+          "path": "docs/OPEN-QUESTIONS.md",
+          "line": 1024,
+          "character_start": 1,
+          "character_end_exclusive": 74,
+          "fragment": "What calculation, load case and material basis support the physics note’s"
+        }
+      ],
+      "historical_role": "Earlier source rhetoric describes the flooded-cell own-wall tension comparison; retained as source history, not an adopted cell or design load case.",
+      "current_limit": "Dated correction says the hand figures have no generator and do not establish ship sizing; no actual applicable comparison is supplied.",
+      "numeric_value_copied": false,
+      "actual_original_calculation": null,
+      "actual_generator": null,
+      "actual_loadcase_material_basis": null,
+      "matched_comparison": null,
+      "adopted_criterion": null
+    },
+    {
+      "source_hand_figure_identity": "COMPRESSION_HAND_FIGURE",
+      "source_locators": [
+        {
+          "path": "docs/PHYSICS.md",
+          "line": 183,
+          "character_start": 3,
+          "character_end_exclusive": 17,
+          "fragment": "in compression"
+        },
+        {
+          "path": "docs/OPEN-QUESTIONS.md",
+          "line": 1024,
+          "character_start": 1,
+          "character_end_exclusive": 74,
+          "fragment": "What calculation, load case and material basis support the physics note’s"
+        }
+      ],
+      "historical_role": "Earlier source rhetoric describes the neighbouring-wall compression comparison; retained as source history, not a selected architecture/material or physical result.",
+      "current_limit": "Dated correction says the hand figures have no generator and do not establish ship sizing; no actual applicable comparison is supplied.",
+      "numeric_value_copied": false,
+      "actual_original_calculation": null,
+      "actual_generator": null,
+      "actual_loadcase_material_basis": null,
+      "matched_comparison": null,
+      "adopted_criterion": null
+    }
+  ],
+  "requirements": [
+    {
+      "id": "dated-correction-versus-earlier-sizing-rhetoric",
+      "existing_boundary": "PHYSICS contains earlier breach sizing language and a dated correction withdrawing what the hand figures establish; OPEN-QUESTIONS retains the missing basis.",
+      "source_paths": [
+        "docs/PHYSICS.md",
+        "docs/OPEN-QUESTIONS.md"
+      ],
+      "prospective_record_requirements": [
+        "Exact source/revision/correction metadata and comparison-domain/history custody, with dated limitation preserved"
+      ],
+      "insufficient_or_disconfirming_evidence": "Do not resurrect the preceding sizing rhetoric as a current qualified conclusion; no source figures, margins, densities or dimensions copied.",
+      "proposed_custodian_role": "dated-correction-versus-earlier-sizing-rhetoric hand-figure comparison provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "original_calculation": null,
+      "original_generator": null,
+      "loadcase_record": null,
+      "material_basis": null,
+      "configuration_record": null,
+      "architecture_record": null,
+      "boundary_record": null,
+      "raw_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "custody_record": null,
+      "matched_comparison": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "tension-compression-comparison-identities",
+      "existing_boundary": "Own-wall tension and neighbouring-wall compression are distinct historical hand-figure comparison identities, not supplied original calculations.",
+      "source_paths": [
+        "docs/PHYSICS.md",
+        "docs/OPEN-QUESTIONS.md"
+      ],
+      "prospective_record_requirements": [
+        "Original tension/compression quantity definition, source/domain/convention and explicit comparison applicability records if supplied"
+      ],
+      "insufficient_or_disconfirming_evidence": "A named hand figure cannot supply an original equation/generator or applicable result; no stress, pressure, mass, tension/compression or breach-energy calculation.",
+      "proposed_custodian_role": "tension-compression-comparison-identities hand-figure comparison provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "original_calculation": null,
+      "original_generator": null,
+      "loadcase_record": null,
+      "material_basis": null,
+      "configuration_record": null,
+      "architecture_record": null,
+      "boundary_record": null,
+      "raw_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "custody_record": null,
+      "matched_comparison": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "original-calculation-and-generator-custody",
+      "existing_boundary": "Source explicitly says the hand figures have no generator.",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "docs/PHYSICS.md"
+      ],
+      "prospective_record_requirements": [
+        "Original calculation/generator identity/revision, inputs/assumptions/domain and raw custody if supplied; absence remains explicit"
+      ],
+      "insufficient_or_disconfirming_evidence": "No equations, generator, derivation or independent recomputation reconstructed or run; a prose figure is not a reproducible calculation.",
+      "proposed_custodian_role": "original-calculation-and-generator-custody hand-figure comparison provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "original_calculation": null,
+      "original_generator": null,
+      "loadcase_record": null,
+      "material_basis": null,
+      "configuration_record": null,
+      "architecture_record": null,
+      "boundary_record": null,
+      "raw_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "custody_record": null,
+      "matched_comparison": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "loadcase-and-material-basis",
+      "existing_boundary": "Published load and material basis remain open.",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "docs/PHYSICS.md"
+      ],
+      "prospective_record_requirements": [
+        "Original load-case/material/reference/convention/state records and comparison applicability, with missing or unmatched evidence visible"
+      ],
+      "insufficient_or_disconfirming_evidence": "No loading, material, allowable, cell, geometry, boundary condition, design or criterion selected; earlier narrative is not adopted basis.",
+      "proposed_custodian_role": "loadcase-and-material-basis hand-figure comparison provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "original_calculation": null,
+      "original_generator": null,
+      "loadcase_record": null,
+      "material_basis": null,
+      "configuration_record": null,
+      "architecture_record": null,
+      "boundary_record": null,
+      "raw_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "custody_record": null,
+      "matched_comparison": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "configuration-architecture-and-boundary-applicability",
+      "existing_boundary": "Current architecture says intended compartment arrangement remains open; historical comparison cannot establish applicable installed architecture.",
+      "source_paths": [
+        "docs/PHYSICS.md",
+        "docs/OPEN-QUESTIONS.md"
+      ],
+      "prospective_record_requirements": [
+        "Original configuration/architecture/revision and own/adjacent-wall/boundary identities, source inclusion/exclusion and matched actual records when supplied"
+      ],
+      "insufficient_or_disconfirming_evidence": "Do not transfer old hand figures to an unestablished cell/membrane arrangement or infer physical feasibility, breach isolation or replacement sizing.",
+      "proposed_custodian_role": "configuration-architecture-and-boundary-applicability hand-figure comparison provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "original_calculation": null,
+      "original_generator": null,
+      "loadcase_record": null,
+      "material_basis": null,
+      "configuration_record": null,
+      "architecture_record": null,
+      "boundary_record": null,
+      "raw_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "custody_record": null,
+      "matched_comparison": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "raw-record-calibration-uncertainty-and-comparison",
+      "existing_boundary": "Actual applicable calculation/observation/material/load records, calibration, uncertainty and matched comparison are unsupplied.",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "README.md"
+      ],
+      "prospective_record_requirements": [
+        "Unmodified original raw source records, acquisition/custody/revision, applicable calibration/uncertainty and comparison provenance"
+      ],
+      "insufficient_or_disconfirming_evidence": "No physical test/procedure, measurement, uncertainty estimate or new numerical/scientific outcome invented; repository checks supply no missing physical evidence.",
+      "proposed_custodian_role": "raw-record-calibration-uncertainty-and-comparison hand-figure comparison provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "original_calculation": null,
+      "original_generator": null,
+      "loadcase_record": null,
+      "material_basis": null,
+      "configuration_record": null,
+      "architecture_record": null,
+      "boundary_record": null,
+      "raw_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "custody_record": null,
+      "matched_comparison": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "responsible-custody-and-adoption-source",
+      "existing_boundary": "Proposed custodians remain unassigned, actual comparison adoption unknown.",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "README.md"
+      ],
+      "prospective_record_requirements": [
+        "Responsible record/custody source and adopted criterion/version/domain/applicability only when supplied"
+      ],
+      "insufficient_or_disconfirming_evidence": "A paper, hand figure or source comment cannot adopt a sizing load case, architecture, criterion or physical qualification.",
+      "proposed_custodian_role": "responsible-custody-and-adoption-source hand-figure comparison provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "original_calculation": null,
+      "original_generator": null,
+      "loadcase_record": null,
+      "material_basis": null,
+      "configuration_record": null,
+      "architecture_record": null,
+      "boundary_record": null,
+      "raw_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "custody_record": null,
+      "matched_comparison": null,
+      "adopted_criterion": null
+    }
+  ],
+  "reconstructed_calculation_or_generator": null,
+  "adopted_architecture_cell_material_loadcase_boundary_or_criterion": null,
+  "new_numeric_results": [],
+  "new_measurements": [],
+  "equations_models_or_generators_executed": false
+}
