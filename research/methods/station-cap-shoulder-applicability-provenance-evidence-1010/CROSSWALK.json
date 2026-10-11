@@ -1,0 +1,460 @@
+{
+  "schema": "station-cap-shoulder.applicability-provenance-map/1",
+  "status": "DOCUMENT_ONLY; source station/shoulder applicability question unresolved; actual comparison records UNKNOWN",
+  "source_revision": "94db332d3dc437708d3ed0dfeb6b619c70d9da25",
+  "source_fragments": [
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "line": 980,
+      "character_start": 1,
+      "character_end_exclusive": 42,
+      "fragment": "### Station-aware cap and shoulder checks"
+    },
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "line": 982,
+      "character_start": 1,
+      "character_end_exclusive": 121,
+      "fragment": "What check would resolve station radius, member length, connection stiffness and the load transfer across each shoulder?"
+    },
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "line": 987,
+      "character_start": 1,
+      "character_end_exclusive": 99,
+      "fragment": "Which analysis and physical measurements would establish the applicability of a replacement check?"
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 4,
+      "character_start": 1,
+      "character_end_exclusive": 105,
+      "fragment": "The checks use smeared areas at full radius and do not resolve station lengths, sections or connections."
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 17,
+      "character_start": 1,
+      "character_end_exclusive": 51,
+      "fragment": "Rendering segments are not physical member counts."
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 18,
+      "character_start": 1,
+      "character_end_exclusive": 114,
+      "fragment": "Tonnes price unchanged model sections, including existing allowances; they do not resize or check those sections."
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 19,
+      "character_start": 47,
+      "character_end_exclusive": 74,
+      "fragment": "Unknown mass is never zero."
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 53,
+      "character_start": 1,
+      "character_end_exclusive": 112,
+      "fragment": "The cap grid has no explicit drawing topology. Partial fitting symbols do not establish whole-hull populations."
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 52,
+      "character_start": 1,
+      "character_end_exclusive": 113,
+      "fragment": "The outer cap hoops have no hoop bill line. The cap bars have only an area allowance without station identities."
+    },
+    {
+      "path": "README.md",
+      "line": 3,
+      "character_start": 186,
+      "character_end_exclusive": 222,
+      "fragment": "No aircraft has been built or flown."
+    }
+  ],
+  "declared_billed_drawn_identity_mappings": [
+    {
+      "declared_source_identity": "innerRings / hoopsInner",
+      "source_locator": {
+        "path": "docs/MEMBER-CENSUS.md",
+        "line": 30,
+        "character_start": 1,
+        "character_end_exclusive": 46,
+        "fragment": "| innerRings | hoopsInner | barrel and caps |"
+      },
+      "qualitative_comparison_boundary": "Bill-to-drawing inner-ring identity spanning barrel and caps; station and section applicability remain unknown.",
+      "actual_station_member_connection_record": null,
+      "matched_configuration": null,
+      "applicability": null,
+      "adopted_replacement_check": null
+    },
+    {
+      "declared_source_identity": "junctionShear / junctions",
+      "source_locator": {
+        "path": "docs/MEMBER-CENSUS.md",
+        "line": 33,
+        "character_start": 1,
+        "character_end_exclusive": 78,
+        "fragment": "| junctionShear | junctions; section inferred from smeared bill | shoulders |"
+      },
+      "qualitative_comparison_boundary": "Shoulder shear/diagonal counterpart whose displayed section is inferred from the smeared bill, not a measured connection.",
+      "actual_station_member_connection_record": null,
+      "matched_configuration": null,
+      "applicability": null,
+      "adopted_replacement_check": null
+    },
+    {
+      "declared_source_identity": "longerons / longs",
+      "source_locator": {
+        "path": "docs/MEMBER-CENSUS.md",
+        "line": 29,
+        "character_start": 1,
+        "character_end_exclusive": 52,
+        "fragment": "| longerons | longs | barrel and shoulder overlap |"
+      },
+      "qualitative_comparison_boundary": "Source overlap region identity; no actual station/shoulder transfer or complete installed population inferred.",
+      "actual_station_member_connection_record": null,
+      "matched_configuration": null,
+      "applicability": null,
+      "adopted_replacement_check": null
+    },
+    {
+      "declared_source_identity": "capGrid",
+      "source_locator": {
+        "path": "docs/MEMBER-CENSUS.md",
+        "line": 24,
+        "character_start": 1,
+        "character_end_exclusive": 47,
+        "fragment": "| capGrid | no explicit grid topology | caps |"
+      },
+      "qualitative_comparison_boundary": "Billed cap area allowance lacks explicit grid topology or a complete drawn allocation.",
+      "actual_station_member_connection_record": null,
+      "matched_configuration": null,
+      "applicability": null,
+      "adopted_replacement_check": null
+    },
+    {
+      "declared_source_identity": "cap-hoops",
+      "source_locator": {
+        "path": "docs/MEMBER-CENSUS.md",
+        "line": 73,
+        "character_start": 1,
+        "character_end_exclusive": 68,
+        "fragment": "| cap-hoops | caps | drawn family has no station-mapped bill line |"
+      },
+      "qualitative_comparison_boundary": "Drawn cap hoops lack station-mapped bill counterpart; no invented allocation.",
+      "actual_station_member_connection_record": null,
+      "matched_configuration": null,
+      "applicability": null,
+      "adopted_replacement_check": null
+    },
+    {
+      "declared_source_identity": "cap-bars",
+      "source_locator": {
+        "path": "docs/MEMBER-CENSUS.md",
+        "line": 74,
+        "character_start": 1,
+        "character_end_exclusive": 67,
+        "fragment": "| cap-bars | caps | drawn family has no station-mapped bill line |"
+      },
+      "qualitative_comparison_boundary": "Drawn cap bars lack station-mapped bill counterpart; area allowance does not establish sections or connections.",
+      "actual_station_member_connection_record": null,
+      "matched_configuration": null,
+      "applicability": null,
+      "adopted_replacement_check": null
+    },
+    {
+      "declared_source_identity": "sections",
+      "source_locator": {
+        "path": "docs/MEMBER-CENSUS.md",
+        "line": 76,
+        "character_start": 1,
+        "character_end_exclusive": 95,
+        "fragment": "| sections | whole hull | inner-ring, fan, theta and junction display sections are schematic |"
+      },
+      "qualitative_comparison_boundary": "Source explicitly names schematic section families; illustrative section is not actual member stiffness or qualification.",
+      "actual_station_member_connection_record": null,
+      "matched_configuration": null,
+      "applicability": null,
+      "adopted_replacement_check": null
+    },
+    {
+      "declared_source_identity": "fittings",
+      "source_locator": {
+        "path": "docs/MEMBER-CENSUS.md",
+        "line": 75,
+        "character_start": 1,
+        "character_end_exclusive": 91,
+        "fragment": "| fittings | whole hull | clamp and joint symbols are a close-up, not a whole-hull count |"
+      },
+      "qualitative_comparison_boundary": "Partial fitting depiction cannot supply complete connection inventory or stiffness/load-transfer records.",
+      "actual_station_member_connection_record": null,
+      "matched_configuration": null,
+      "applicability": null,
+      "adopted_replacement_check": null
+    },
+    {
+      "declared_source_identity": "tiJoints",
+      "source_locator": {
+        "path": "docs/MEMBER-CENSUS.md",
+        "line": 38,
+        "character_start": 1,
+        "character_end_exclusive": 63,
+        "fragment": "| tiJoints | GridJoints patch only | whole hull, unallocated |"
+      },
+      "qualitative_comparison_boundary": "Separate joint allowance and patch-only counterpart have no complete allocation; bill price is not an applicable shoulder-connection record.",
+      "actual_station_member_connection_record": null,
+      "matched_configuration": null,
+      "applicability": null,
+      "adopted_replacement_check": null
+    }
+  ],
+  "requirements": [
+    {
+      "id": "source-domain-and-revision",
+      "existing_boundary": "Published station-cap/shoulder applicability question remains open; source census compares bill and drawing.",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "docs/MEMBER-CENSUS.md"
+      ],
+      "prospective_record_requirements": [
+        "Exact question/source/revision, comparison region and representation scope, original discrepancies and missing counterparts"
+      ],
+      "insufficient_or_disconfirming_evidence": "Generated-census disagreement is representation/accounting evidence, not measured physical member/connection or a selected replacement check.",
+      "proposed_custodian_role": "source-domain-and-revision applicability-provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "actual_configuration": null,
+      "station_record": null,
+      "member_record": null,
+      "connection_record": null,
+      "shoulder_transfer_record": null,
+      "section_record": null,
+      "boundary_record": null,
+      "matched_comparison": null,
+      "raw_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "adopted_criterion": null,
+      "adopted_replacement_check": null
+    },
+    {
+      "id": "station-radius-and-boundary",
+      "existing_boundary": "Current source checks smear area at full radius; source cap/shoulder regions do not supply resolved actual station geometry.",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "docs/MEMBER-CENSUS.md"
+      ],
+      "prospective_record_requirements": [
+        "Original station identifiers, source-region/boundary and configuration applicability, actual station-radius/frame/unit provenance when supplied"
+      ],
+      "insufficient_or_disconfirming_evidence": "No station coordinates, radius, geometry, selected frame, load case or complete physical boundary invented.",
+      "proposed_custodian_role": "station-radius-and-boundary applicability-provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "actual_configuration": null,
+      "station_record": null,
+      "member_record": null,
+      "connection_record": null,
+      "shoulder_transfer_record": null,
+      "section_record": null,
+      "boundary_record": null,
+      "matched_comparison": null,
+      "raw_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "adopted_criterion": null,
+      "adopted_replacement_check": null
+    },
+    {
+      "id": "member-length-and-section",
+      "existing_boundary": "Inner-ring and shoulder-diagonal billed/drawn counterparts retain disagreement; census prices unchanged schematic sections.",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "docs/MEMBER-CENSUS.md"
+      ],
+      "prospective_record_requirements": [
+        "Exact member/family/station identities and original length/end-point/section records, units/reference and applicability to matched configuration"
+      ],
+      "insufficient_or_disconfirming_evidence": "No historical lengths/masses/margins copied, sums/prices recalculated, sections resized or actual length/section inferred from rendering.",
+      "proposed_custodian_role": "member-length-and-section applicability-provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "actual_configuration": null,
+      "station_record": null,
+      "member_record": null,
+      "connection_record": null,
+      "shoulder_transfer_record": null,
+      "section_record": null,
+      "boundary_record": null,
+      "matched_comparison": null,
+      "raw_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "adopted_criterion": null,
+      "adopted_replacement_check": null
+    },
+    {
+      "id": "connection-stiffness-and-population",
+      "existing_boundary": "Census fitting symbols are close-up patches, sections schematic and cap topology incomplete.",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "docs/MEMBER-CENSUS.md"
+      ],
+      "prospective_record_requirements": [
+        "Original connection/attachment identifiers and station/member relation, actual stiffness/material/source records and boundary applicability"
+      ],
+      "insufficient_or_disconfirming_evidence": "No stiffness, installed connection population or selected topology/material/design inferred from a patch, area allowance or section illustration.",
+      "proposed_custodian_role": "connection-stiffness-and-population applicability-provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "actual_configuration": null,
+      "station_record": null,
+      "member_record": null,
+      "connection_record": null,
+      "shoulder_transfer_record": null,
+      "section_record": null,
+      "boundary_record": null,
+      "matched_comparison": null,
+      "raw_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "adopted_criterion": null,
+      "adopted_replacement_check": null
+    },
+    {
+      "id": "shoulder-load-transfer-and-joint-allowance",
+      "existing_boundary": "Source asks about transfer across each shoulder; junctionShear and longeron overlap are representation identities with separate joint allowance.",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "docs/MEMBER-CENSUS.md"
+      ],
+      "prospective_record_requirements": [
+        "Original shoulder/adjacent region/member/connection transfer boundaries, load-case record identity only when supplied, inclusion/exclusion and separate joint custody"
+      ],
+      "insufficient_or_disconfirming_evidence": "A source price change or inferred section cannot supply measured transfer, actual loading or complete applicable connection model; no load/strength/margin calculation.",
+      "proposed_custodian_role": "shoulder-load-transfer-and-joint-allowance applicability-provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "actual_configuration": null,
+      "station_record": null,
+      "member_record": null,
+      "connection_record": null,
+      "shoulder_transfer_record": null,
+      "section_record": null,
+      "boundary_record": null,
+      "matched_comparison": null,
+      "raw_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "adopted_criterion": null,
+      "adopted_replacement_check": null
+    },
+    {
+      "id": "replacement-check-comparison-applicability",
+      "existing_boundary": "Published source asks what analysis and physical measurements would establish applicability; no replacement check is adopted.",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "README.md"
+      ],
+      "prospective_record_requirements": [
+        "Matched original source/actual configuration and member/connection/section/boundary records, domain/applicability and adopted check provenance only when supplied"
+      ],
+      "insufficient_or_disconfirming_evidence": "No replacement formula/check, analysis method, threshold, geometry, physical test or procedure selected; passing software is not physical validation.",
+      "proposed_custodian_role": "replacement-check-comparison-applicability applicability-provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "actual_configuration": null,
+      "station_record": null,
+      "member_record": null,
+      "connection_record": null,
+      "shoulder_transfer_record": null,
+      "section_record": null,
+      "boundary_record": null,
+      "matched_comparison": null,
+      "raw_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "adopted_criterion": null,
+      "adopted_replacement_check": null
+    },
+    {
+      "id": "calibration-uncertainty-and-raw-custody",
+      "existing_boundary": "Actual station/member/connection evidence and acquisition/calibration uncertainty records are not supplied.",
+      "source_paths": [
+        "docs/MEMBER-CENSUS.md",
+        "README.md"
+      ],
+      "prospective_record_requirements": [
+        "Unmodified raw-record identities, acquisition/revision/custody, original applicable calibration/uncertainty and missing/unmatched evidence"
+      ],
+      "insufficient_or_disconfirming_evidence": "No fabricated measurements, uncertainty estimate, sample count, stiffness or operational claim.",
+      "proposed_custodian_role": "calibration-uncertainty-and-raw-custody applicability-provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "actual_configuration": null,
+      "station_record": null,
+      "member_record": null,
+      "connection_record": null,
+      "shoulder_transfer_record": null,
+      "section_record": null,
+      "boundary_record": null,
+      "matched_comparison": null,
+      "raw_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "adopted_criterion": null,
+      "adopted_replacement_check": null
+    },
+    {
+      "id": "responsible-comparison-adoption",
+      "existing_boundary": "Comparison custodian roles are proposed and unassigned; actual adoption and applicability remain unknown.",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "README.md"
+      ],
+      "prospective_record_requirements": [
+        "Responsible source/custody and adopted criterion/check version/applicability only when supplied"
+      ],
+      "insufficient_or_disconfirming_evidence": "A paper map, software check or source census cannot answer the design question or adopt a physically applicable replacement check.",
+      "proposed_custodian_role": "responsible-comparison-adoption applicability-provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "actual_configuration": null,
+      "station_record": null,
+      "member_record": null,
+      "connection_record": null,
+      "shoulder_transfer_record": null,
+      "section_record": null,
+      "boundary_record": null,
+      "matched_comparison": null,
+      "raw_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "adopted_criterion": null,
+      "adopted_replacement_check": null
+    }
+  ],
+  "adopted_replacement_check": null,
+  "new_measurements": [],
+  "new_numeric_results": [],
+  "model_or_generation_executed": false
+}
