@@ -1,0 +1,492 @@
+{
+  "schema": "generator-manifest-parameter-custody.provenance-crosswalk/1",
+  "status": "DOCUMENT_ONLY; actual invocation/input/manifest custody and physical applicability UNKNOWN",
+  "source_revision": "682c4b375f7d67484891df7a551d0da03cedcf11",
+  "source_fragments": [
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 995,
+      "character_start": 1,
+      "character_end_exclusive": 20,
+      "fragment": "def main() -> None:",
+      "fragment_sha256": "3759fd2adcb099cb3cc1f2021360fcf3b697aa85dc8c087696c52e44de3862d8"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1140,
+      "character_start": 5,
+      "character_end_exclusive": 15,
+      "fragment": "manifest =",
+      "fragment_sha256": "45101398ff51ec5c26c06845bb1ed75ce0ec6baf8233bfc582cee99d528eeb9f"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1140,
+      "character_start": 17,
+      "character_end_exclusive": 28,
+      "fragment": "\"paramsMm\":",
+      "fragment_sha256": "505703a9585ebd473f9dd844ba6edf91fb6de3f32df4df9803d1cd855ebab084"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1140,
+      "character_start": 33,
+      "character_end_exclusive": 39,
+      "fragment": "prm[k]",
+      "fragment_sha256": "4995379490c6e8793c4480d4757931cf5ed62f907302895870c12306e8898de0"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1146,
+      "character_start": 17,
+      "character_end_exclusive": 31,
+      "fragment": "\"graph\": tally",
+      "fragment_sha256": "3b05ad760b89f4f8e772e32063765829997fb0cbb5672907e1caf6551e601151"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1146,
+      "character_start": 33,
+      "character_end_exclusive": 52,
+      "fragment": "\"jointCheck\": joint",
+      "fragment_sha256": "faef7195ea6ee83879e045b7d5b4515bae64729b5ed563b59f6f051a20b0fa0b"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1146,
+      "character_start": 54,
+      "character_end_exclusive": 69,
+      "fragment": "\"res\": args.res",
+      "fragment_sha256": "393628461f6a36adc80b0dd0d8664417186885c524ec2f80d5f4f15663498973"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1289,
+      "character_start": 5,
+      "character_end_exclusive": 40,
+      "fragment": "(out / \"manifest.json\").write_text(",
+      "fragment_sha256": "482bf5a8b71260f9f9033eb893b87bad04bee8c9d1ac93714462d57a6a1593dd"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1289,
+      "character_start": 40,
+      "character_end_exclusive": 60,
+      "fragment": "json.dumps(manifest,",
+      "fragment_sha256": "5863706aed14727632f22d2d13beb239fef0b097a20c6313b1d5baca391f39b2"
+    },
+    {
+      "path": "README.md",
+      "line": 3,
+      "character_start": 186,
+      "character_end_exclusive": 222,
+      "fragment": "No aircraft has been built or flown.",
+      "fragment_sha256": "bd88446d4305c34307c2acb2bc020e0441e17382f095d6be3beee1076eabdbb9"
+    }
+  ],
+  "hashed_lexical_contexts": [
+    {
+      "path": "tools/gen_nodes.py",
+      "identity": "main selected header",
+      "line_start": 1140,
+      "line_end_inclusive": 1146,
+      "context_sha256": "3c1b31ba8b26603ba78e9140ba037b03a157c2d8940478294488f224913b4e70",
+      "context_bytes": 496,
+      "limit": "Hash only; parameter/comprehension/numeric/serialization contents not reproduced or evaluated."
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "identity": "main final manifest writer",
+      "line_start": 1289,
+      "line_end_inclusive": 1289,
+      "context_sha256": "440e3aaeff4fa86ef095a7b7b241ed3f1f49abb1895e292ed7d3e7b3c2fc87db",
+      "context_bytes": 70,
+      "limit": "Hash only; parameter/comprehension/numeric/serialization contents not reproduced or evaluated."
+    }
+  ],
+  "source_identity_mappings": [
+    {
+      "source_identity": "selected manifest container",
+      "source_role": "The selected manifest declaration is local to main.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 995,
+          "character_start": 1,
+          "character_end_exclusive": 20,
+          "fragment": "def main() -> None:",
+          "fragment_sha256": "3759fd2adcb099cb3cc1f2021360fcf3b697aa85dc8c087696c52e44de3862d8"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1140,
+          "character_start": 5,
+          "character_end_exclusive": 15,
+          "fragment": "manifest =",
+          "fragment_sha256": "45101398ff51ec5c26c06845bb1ed75ce0ec6baf8233bfc582cee99d528eeb9f"
+        }
+      ],
+      "limit": "Selected source container identity only; not a whole-generator map/output schema, actual invocation, acquired manifest or qualified input container.",
+      "actual_invocation_input_configuration_record": null,
+      "actual_serialized_manifest_digest_and_custody": null,
+      "physical_applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "paramsMm and prm input namespace",
+      "source_role": "The selected paramsMm field contains a prm[k] source reference.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1140,
+          "character_start": 17,
+          "character_end_exclusive": 28,
+          "fragment": "\"paramsMm\":",
+          "fragment_sha256": "505703a9585ebd473f9dd844ba6edf91fb6de3f32df4df9803d1cd855ebab084"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1140,
+          "character_start": 33,
+          "character_end_exclusive": 39,
+          "fragment": "prm[k]",
+          "fragment_sha256": "4995379490c6e8793c4480d4757931cf5ed62f907302895870c12306e8898de0"
+        }
+      ],
+      "limit": "Namespace suffix and source reference are not measured dimensions, validated fixture inputs or as-built register. No parameter comprehension/rounding reconstructed, fields enumerated or parameter values copied/evaluated.",
+      "actual_invocation_input_configuration_record": null,
+      "actual_serialized_manifest_digest_and_custody": null,
+      "physical_applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "graph and tally input namespace",
+      "source_role": "The selected graph field references tally.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1146,
+          "character_start": 17,
+          "character_end_exclusive": 31,
+          "fragment": "\"graph\": tally",
+          "fragment_sha256": "3b05ad760b89f4f8e772e32063765829997fb0cbb5672907e1caf6551e601151"
+        }
+      ],
+      "limit": "Source input-container identity only, not a verified physical graph, manufactured inventory, copied tally or actual configuration.",
+      "actual_invocation_input_configuration_record": null,
+      "actual_serialized_manifest_digest_and_custody": null,
+      "physical_applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "jointCheck and joint input namespace",
+      "source_role": "The selected jointCheck field references joint.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1146,
+          "character_start": 33,
+          "character_end_exclusive": 52,
+          "fragment": "\"jointCheck\": joint",
+          "fragment_sha256": "faef7195ea6ee83879e045b7d5b4515bae64729b5ed563b59f6f051a20b0fa0b"
+        }
+      ],
+      "limit": "Name/source container identity only; jointCheck is not acquired physical verification, certified connection or new analytical/physical acceptance.",
+      "actual_invocation_input_configuration_record": null,
+      "actual_serialized_manifest_digest_and_custody": null,
+      "physical_applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "res and args.res input namespace",
+      "source_role": "The selected res field references args.res.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1146,
+          "character_start": 54,
+          "character_end_exclusive": 69,
+          "fragment": "\"res\": args.res",
+          "fragment_sha256": "393628461f6a36adc80b0dd0d8664417186885c524ec2f80d5f4f15663498973"
+        }
+      ],
+      "limit": "Source argument identity only; no chosen resolution, argument value, fixture parameter, computed output or source-to-article applicability.",
+      "actual_invocation_input_configuration_record": null,
+      "actual_serialized_manifest_digest_and_custody": null,
+      "physical_applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "final source serialization identity",
+      "source_role": "The selected manifest.json write_text call references json.dumps(manifest,...).",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1289,
+          "character_start": 5,
+          "character_end_exclusive": 40,
+          "fragment": "(out / \"manifest.json\").write_text(",
+          "fragment_sha256": "482bf5a8b71260f9f9033eb893b87bad04bee8c9d1ac93714462d57a6a1593dd"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1289,
+          "character_start": 40,
+          "character_end_exclusive": 60,
+          "fragment": "json.dumps(manifest,",
+          "fragment_sha256": "5863706aed14727632f22d2d13beb239fef0b097a20c6313b1d5baca391f39b2"
+        },
+        {
+          "path": "README.md",
+          "line": 3,
+          "character_start": 186,
+          "character_end_exclusive": 222,
+          "fragment": "No aircraft has been built or flown.",
+          "fragment_sha256": "bd88446d4305c34307c2acb2bc020e0441e17382f095d6be3beee1076eabdbb9"
+        }
+      ],
+      "limit": "Source writer/call identity only; no serialization algorithm reconstructed/executed, generator manifest serialized/acquired/regenerated or output digest/custody established.",
+      "actual_invocation_input_configuration_record": null,
+      "actual_serialized_manifest_digest_and_custody": null,
+      "physical_applicability": "UNKNOWN",
+      "adoption_record": null
+    }
+  ],
+  "requirements": [
+    {
+      "id": "invocation-and-source-version",
+      "prospective_record_requirements": [
+        "Original generator invocation/source-version and accountable custody records."
+      ],
+      "insufficient_or_disconfirming_evidence": "A source container or writer identity supplies no actual computational invocation.",
+      "proposed_custodian_role": "invocation-and-source-version record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "computational_invocation": null,
+      "source_version_record": null,
+      "argument_input_configuration": null,
+      "serialized_manifest_digest": null,
+      "output_correspondence": null,
+      "raw_custody": null,
+      "physical_article": null,
+      "node": null,
+      "member": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "installations": null,
+      "configuration": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "argument-and-input-configuration",
+      "prospective_record_requirements": [
+        "Original argument/input-configuration lineage tied to that invocation."
+      ],
+      "insufficient_or_disconfirming_evidence": "paramsMm/prm, graph/tally, jointCheck/joint and res/args.res names are not measured/qualified inputs or selected parameters.",
+      "proposed_custodian_role": "argument-and-input-configuration record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "computational_invocation": null,
+      "source_version_record": null,
+      "argument_input_configuration": null,
+      "serialized_manifest_digest": null,
+      "output_correspondence": null,
+      "raw_custody": null,
+      "physical_article": null,
+      "node": null,
+      "member": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "installations": null,
+      "configuration": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "serialized-manifest-digest-and-raw-custody",
+      "prospective_record_requirements": [
+        "Original serialized manifest digest/output correspondence and raw custody."
+      ],
+      "insufficient_or_disconfirming_evidence": "Source hashes and write_text/json.dumps names are not acquired output bytes, digest or manifest custody.",
+      "proposed_custodian_role": "serialized-manifest-digest-and-raw-custody record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "computational_invocation": null,
+      "source_version_record": null,
+      "argument_input_configuration": null,
+      "serialized_manifest_digest": null,
+      "output_correspondence": null,
+      "raw_custody": null,
+      "physical_article": null,
+      "node": null,
+      "member": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "installations": null,
+      "configuration": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "physical-article-and-installation-correspondence",
+      "prospective_record_requirements": [
+        "Matched actual physical article/node/member/material/lot/process/installations records."
+      ],
+      "insufficient_or_disconfirming_evidence": "Header names supply no as-built register, manufactured inventory, physical joint check or installed configuration.",
+      "proposed_custodian_role": "physical-article-and-installation-correspondence record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "computational_invocation": null,
+      "source_version_record": null,
+      "argument_input_configuration": null,
+      "serialized_manifest_digest": null,
+      "output_correspondence": null,
+      "raw_custody": null,
+      "physical_article": null,
+      "node": null,
+      "member": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "installations": null,
+      "configuration": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "calibration-uncertainty-and-applicability",
+      "prospective_record_requirements": [
+        "Applicable original calibration/uncertainty and source-to-article correspondence."
+      ],
+      "insufficient_or_disconfirming_evidence": "No dimension/parameter/count/result, numerical evaluation, physical verification or campaign is supplied.",
+      "proposed_custodian_role": "calibration-uncertainty-and-applicability record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "computational_invocation": null,
+      "source_version_record": null,
+      "argument_input_configuration": null,
+      "serialized_manifest_digest": null,
+      "output_correspondence": null,
+      "raw_custody": null,
+      "physical_article": null,
+      "node": null,
+      "member": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "installations": null,
+      "configuration": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "owner-criterion-and-adoption",
+      "prospective_record_requirements": [
+        "Actual responsible owner and adopted source/version/domain/criterion record when supplied."
+      ],
+      "insufficient_or_disconfirming_evidence": "Custodians UNASSIGNED; no parameters/configuration/design/acceptance, inventory/serial assignment or procedure/campaign selected.",
+      "proposed_custodian_role": "owner-criterion-and-adoption record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "computational_invocation": null,
+      "source_version_record": null,
+      "argument_input_configuration": null,
+      "serialized_manifest_digest": null,
+      "output_correspondence": null,
+      "raw_custody": null,
+      "physical_article": null,
+      "node": null,
+      "member": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "installations": null,
+      "configuration": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    }
+  ],
+  "separate_maps": [
+    {
+      "unit": "robotics-generated-node-file-identity-provenance-evidence-thread-1010",
+      "candidate": "d626b1e9420cbc14463320b0724c3d01ad582de2",
+      "output_dir": "research/methods/generated-node-file-identity-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical outcome, physical applicability, signature, landing or scientific acceptance imported."
+    },
+    {
+      "unit": "robotics-computed-node-mass-custody-provenance-evidence-thread-1010",
+      "candidate": "1f939c39ce0fc1632f76dab0d9e694a691f32f42",
+      "output_dir": "research/methods/computed-node-mass-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical outcome, physical applicability, signature, landing or scientific acceptance imported."
+    },
+    {
+      "unit": "robotics-computed-printability-output-provenance-evidence-thread-1010",
+      "candidate": "04cbb3d1217ce4c438232adf95deec8c57f379d9",
+      "output_dir": "research/methods/computed-printability-output-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical outcome, physical applicability, signature, landing or scientific acceptance imported."
+    },
+    {
+      "unit": "robotics-computed-mesh-closure-provenance-evidence-thread-1010",
+      "candidate": "c23772d8f16c6628b0f24b0c236195a44d3aa0f4",
+      "output_dir": "research/methods/computed-mesh-closure-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical outcome, physical applicability, signature, landing or scientific acceptance imported."
+    },
+    {
+      "unit": "robotics-member-kind-socket-dimension-provenance-evidence-thread-1010",
+      "candidate": "e19c8d02f4c093ab500c58c480e57fb9e73bc550",
+      "output_dir": "research/methods/member-kind-socket-dimension-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical outcome, physical applicability, signature, landing or scientific acceptance imported."
+    },
+    {
+      "unit": "robotics-assembly-coordinate-frame-provenance-evidence-thread-1010",
+      "candidate": "be6e3beaf736cf6ba13784856a31262611f92759",
+      "output_dir": "research/methods/assembly-coordinate-frame-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical outcome, physical applicability, signature, landing or scientific acceptance imported."
+    },
+    {
+      "unit": "robotics-q13-water-drafting-availability-evidence-1010",
+      "candidate": "82f0c88e73600632db9ea9ebd5e32a61659931c2",
+      "output_dir": "research/open-questions/q13-drafting-availability-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical outcome, physical applicability, signature, landing or scientific acceptance imported."
+    }
+  ],
+  "selected_parameters_configuration_design_acceptance_inventory_serial_assignment_or_procedure_or_campaign": null,
+  "new_numeric_results": [],
+  "new_measurements": [],
+  "models_equations_or_generators_executed": false
+}
