@@ -1,0 +1,16 @@
+# Published lightning coverage and acquired article evidence
+
+Date: 2026-10-10. Status: prospective evidence, OPEN. The [verification plan](../../../docs/VERIFICATION-PLAN.md#what-is-still-missing-entirely) names lightning in an explicit coverage gap. These published words establish no completed electrical test or protection. The [member census](../../../docs/MEMBER-CENSUS.md) keeps film schematic and station lengths, sections and connections unresolved; [README](../../../README.md) states that no aircraft has been built or flown.
+
+The [evidence contract](EVIDENCE.json) pins exact nonnumeric source words and reserves actual article/material/film/coating/bond/attachment/conductive-path/installations/configuration/state/environment/incident identity, original electrical observation/timebase/raw custody/calibration/uncertainty/applicability and owner/adopted criterion as null/UNKNOWN.
+
+| Requirement | Published source | Observation units | Missing applicability |
+|---|---|---|---|
+| Published lightning topic coverage gap | `docs/VERIFICATION-PLAN.md missing lightning topic` | topic/source/revision identity | Named missing coverage is neither a completed electrical test nor demonstrated protection. |
+| Article, material and film applicability | `docs/MEMBER-CENSUS.md schematic film and unresolved sections; README.md unbuilt aircraft` | article/material/film/coating/state identity | Schematic or unbuilt article context supplies no qualified electrical specimen or measured property. |
+| Bond, attachment and conductive-path custody | `docs/MEMBER-CENSUS.md unresolved connections and schematic fittings` | bond/attachment/conductive-path/installations identity | Unresolved connections do not establish a conductive path or select grounding or protection. |
+| Incident and configuration applicability | `docs/VERIFICATION-PLAN.md named missing topic; docs/MEMBER-CENSUS.md source limits` | configuration/environment/incident identity | No incident, environment, loadcase, allowable or design is selected by this missing-topic map. |
+| Original electrical observation and raw custody | `docs/VERIFICATION-PLAN.md coverage gap; README.md model output limits` | electrical-record/timebase/raw-custody/calibration identity | Absent evidence remains UNKNOWN; no current, voltage, energy, field, charge, conductivity or damage is inferred. |
+| Applicability, owner and criterion adoption | `README.md unbuilt aircraft and model limits` | applicability/owner/adoption/criterion identity | Hail, gust, weather, seam and thermal evidence cannot supply borrowed lightning acceptance. |
+
+The named hail and gust gaps, weather, seam interface and thermal records remain separate; no acceptance or numerical table is borrowed. This paper copies no lightning current, voltage, energy, strike frequency, field, charge, conductivity or damage value and performs no electromechanical calculation. It selects no path, grounding, protection, incident, specimen, environment, loadcase, design, allowable or criterion and develops no physical/electrical experiment, procedure or campaign. No standard, certification or operating guidance is sought or adopted. Source records remain unchanged; missing physical evidence and acceptance remain UNKNOWN.
