@@ -1,0 +1,766 @@
+{
+  "schema": "ring-crimp-combination.provenance-crosswalk/1",
+  "status": "DOCUMENT_ONLY; actual interaction and applicability UNKNOWN",
+  "source_revision": "682c4b375f7d67484891df7a551d0da03cedcf11",
+  "source_fragments": [
+    {
+      "path": "ship/model.js",
+      "line": 1058,
+      "character_start": 1,
+      "character_end_exclusive": 65,
+      "fragment": "export function shipSkeleton(g, sigmaMat, sf, wall, giKnockdown,"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1061,
+      "character_start": 3,
+      "character_end_exclusive": 35,
+      "fragment": "const E_ = MATERIALS.T700_LAM.E;"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1063,
+      "character_start": 3,
+      "character_end_exclusive": 57,
+      "fragment": "const depth = g.depthM, rIn = g.rIn, bay = SHIP0.bayM;"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1087,
+      "character_start": 3,
+      "character_end_exclusive": 65,
+      "fragment": "const thetaLen = Math.sqrt(depth * depth + circCol * circCol);"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1088,
+      "character_start": 3,
+      "character_end_exclusive": 36,
+      "fragment": "const cosTh = circCol / thetaLen;"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1091,
+      "character_start": 3,
+      "character_end_exclusive": 32,
+      "fragment": "const crimpOf = (aTheta) => {"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1092,
+      "character_start": 5,
+      "character_end_exclusive": 18,
+      "fragment": "if (aTheta <="
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1093,
+      "character_start": 26,
+      "character_end_exclusive": 63,
+      "fragment": "E_ * aTheta * depth * (cosTh * cosTh)"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1094,
+      "character_start": 7,
+      "character_end_exclusive": 26,
+      "fragment": "/ (bay * thetaLen);"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1095,
+      "character_start": 5,
+      "character_end_exclusive": 25,
+      "fragment": "return sShear / g.R;"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1097,
+      "character_start": 3,
+      "character_end_exclusive": 61,
+      "fragment": "const gi = (aISmeared, aTheta, aOExtra, aSpoke, knockdown)"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1101,
+      "character_start": 5,
+      "character_end_exclusive": 36,
+      "fragment": "const qCrimp = crimpOf(aTheta);"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1124,
+      "character_start": 33,
+      "character_end_exclusive": 62,
+      "fragment": "E_ * iEff / (g.R * g.R * g.R)"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1125,
+      "character_start": 7,
+      "character_end_exclusive": 23,
+      "fragment": "qRing = (qRing >"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1125,
+      "character_start": 28,
+      "character_end_exclusive": 39,
+      "fragment": "&& qCrimp >"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1126,
+      "character_start": 22,
+      "character_end_exclusive": 31,
+      "fragment": "/ qRing +"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1126,
+      "character_start": 36,
+      "character_end_exclusive": 45,
+      "fragment": "/ qCrimp)"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1127,
+      "character_start": 7,
+      "character_end_exclusive": 21,
+      "fragment": "const qFound ="
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1129,
+      "character_start": 7,
+      "character_end_exclusive": 22,
+      "fragment": "if (giMembrane)"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1134,
+      "character_start": 7,
+      "character_end_exclusive": 39,
+      "fragment": "const q = qRing + qFound + qMem;"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1137,
+      "character_start": 54,
+      "character_end_exclusive": 71,
+      "fragment": "qCrimpPa: qCrimp,"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1140,
+      "character_start": 3,
+      "character_end_exclusive": 51,
+      "fragment": "const solve = (knockdown, aI0, aTh0, aOe0, aSp0)"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1141,
+      "character_start": 5,
+      "character_end_exclusive": 54,
+      "fragment": "let aI = aI0, aTh = aTh0, aOe = aOe0, aSp = aSp0;"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1142,
+      "character_start": 5,
+      "character_end_exclusive": 54,
+      "fragment": "let rec = gi(aI / bay, aTh, aOe, aSp, knockdown);"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1192,
+      "character_start": 26,
+      "character_end_exclusive": 62,
+      "fragment": "Math.sqrt(bCap * dCap) / (g.R * g.R)"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1193,
+      "character_start": 3,
+      "character_end_exclusive": 34,
+      "fragment": "const capMargin = (aTheta) => {"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1194,
+      "character_start": 5,
+      "character_end_exclusive": 40,
+      "fragment": "const sCap = crimpOf(aTheta) * g.R;"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1195,
+      "character_start": 29,
+      "character_end_exclusive": 40,
+      "fragment": "sCap / g.R;"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1196,
+      "character_start": 5,
+      "character_end_exclusive": 20,
+      "fragment": "if (qCapBend <="
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1196,
+      "character_start": 25,
+      "character_end_exclusive": 40,
+      "fragment": "|| qCapCrimp <="
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1197,
+      "character_start": 32,
+      "character_end_exclusive": 44,
+      "fragment": "/ qCapBend +"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1197,
+      "character_start": 49,
+      "character_end_exclusive": 61,
+      "fragment": "/ qCapCrimp)"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1209,
+      "character_start": 3,
+      "character_end_exclusive": 53,
+      "fragment": "const capBuckle = { marginAtSF: capMargin(aTh1) };"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1273,
+      "character_start": 3,
+      "character_end_exclusive": 84,
+      "fragment": "const skel = shipSkeleton(g, sig, sf_, wall, giKd, giChordal, giMembrane, basis);"
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 4,
+      "character_start": 1,
+      "character_end_exclusive": 105,
+      "fragment": "The checks use smeared areas at full radius and do not resolve station lengths, sections or connections."
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 19,
+      "character_start": 47,
+      "character_end_exclusive": 74,
+      "fragment": "Unknown mass is never zero."
+    },
+    {
+      "path": "README.md",
+      "line": 3,
+      "character_start": 186,
+      "character_end_exclusive": 222,
+      "fragment": "No aircraft has been built or flown."
+    }
+  ],
+  "source_identity_mappings": [
+    {
+      "source_identity": "crimpOf definition and captured domain",
+      "source_role": "crimpOf has its own aTheta parameter within shipSkeleton; E_, depth, cosTh, bay, thetaLen and g are legitimate parent bindings.",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 1058,
+          "character_start": 1,
+          "character_end_exclusive": 65,
+          "fragment": "export function shipSkeleton(g, sigmaMat, sf, wall, giKnockdown,"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1061,
+          "character_start": 3,
+          "character_end_exclusive": 35,
+          "fragment": "const E_ = MATERIALS.T700_LAM.E;"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1063,
+          "character_start": 3,
+          "character_end_exclusive": 57,
+          "fragment": "const depth = g.depthM, rIn = g.rIn, bay = SHIP0.bayM;"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1087,
+          "character_start": 3,
+          "character_end_exclusive": 65,
+          "fragment": "const thetaLen = Math.sqrt(depth * depth + circCol * circCol);"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1088,
+          "character_start": 3,
+          "character_end_exclusive": 36,
+          "fragment": "const cosTh = circCol / thetaLen;"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1091,
+          "character_start": 3,
+          "character_end_exclusive": 32,
+          "fragment": "const crimpOf = (aTheta) => {"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1092,
+          "character_start": 5,
+          "character_end_exclusive": 18,
+          "fragment": "if (aTheta <="
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1093,
+          "character_start": 26,
+          "character_end_exclusive": 63,
+          "fragment": "E_ * aTheta * depth * (cosTh * cosTh)"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1094,
+          "character_start": 7,
+          "character_end_exclusive": 26,
+          "fragment": "/ (bay * thetaLen);"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1095,
+          "character_start": 5,
+          "character_end_exclusive": 25,
+          "fragment": "return sShear / g.R;"
+        }
+      ],
+      "lexical_context": "shipSkeleton parent; nested crimpOf, gi/loop, solve or capMargin as described",
+      "limit": "The nonpositive-input guard and conditional shear-to-pressure source path are documented without copying constants or calculating stiffness/capacity. Parent configuration and a symbol name do not supply an original derivation or measured crimp response.",
+      "actual_matched_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "gi qCrimp caller identity",
+      "source_role": "gi has a separate aTheta parameter; it passes that parameter to crimpOf and stores the return as its local qCrimp.",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 1097,
+          "character_start": 3,
+          "character_end_exclusive": 61,
+          "fragment": "const gi = (aISmeared, aTheta, aOExtra, aSpoke, knockdown)"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1101,
+          "character_start": 5,
+          "character_end_exclusive": 36,
+          "fragment": "const qCrimp = crimpOf(aTheta);"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1137,
+          "character_start": 54,
+          "character_end_exclusive": 71,
+          "fragment": "qCrimpPa: qCrimp,"
+        }
+      ],
+      "lexical_context": "shipSkeleton parent; nested crimpOf, gi/loop, solve or capMargin as described",
+      "limit": "Same parameter spelling in sibling nested functions does not mean the parameter is one lexical variable. qCrimpPa exposes this crimp source term, not the overwritten combined qRing.",
+      "actual_matched_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "qRing before and after combination",
+      "source_role": "Within the gi mode-loop block, let qRing initially holds the source ring expression; the subsequent assignment overwrites that same local binding with the reciprocal combination.",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 1124,
+          "character_start": 33,
+          "character_end_exclusive": 62,
+          "fragment": "E_ * iEff / (g.R * g.R * g.R)"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1125,
+          "character_start": 7,
+          "character_end_exclusive": 23,
+          "fragment": "qRing = (qRing >"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1125,
+          "character_start": 28,
+          "character_end_exclusive": 39,
+          "fragment": "&& qCrimp >"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1126,
+          "character_start": 22,
+          "character_end_exclusive": 31,
+          "fragment": "/ qRing +"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1126,
+          "character_start": 36,
+          "character_end_exclusive": 45,
+          "fragment": "/ qCrimp)"
+        }
+      ],
+      "lexical_context": "shipSkeleton parent; nested crimpOf, gi/loop, solve or capMargin as described",
+      "limit": "The source applies reciprocal combination only when both initial qRing and qCrimp are positive; otherwise it assigns source zero. This is conditional arithmetic, not an accepted failure model or measured coupled response. Zero is a branch result, not physical absence. Numeric constants and mode quantities remain solely in source.",
+      "actual_matched_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "combined contribution to q",
+      "source_role": "The overwritten qRing contributes to the source sum qRing + qFound + qMem; qFound and optional qMem remain separate terms.",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 1127,
+          "character_start": 7,
+          "character_end_exclusive": 21,
+          "fragment": "const qFound ="
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1129,
+          "character_start": 7,
+          "character_end_exclusive": 22,
+          "fragment": "if (giMembrane)"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1134,
+          "character_start": 7,
+          "character_end_exclusive": 39,
+          "fragment": "const q = qRing + qFound + qMem;"
+        }
+      ],
+      "lexical_context": "shipSkeleton parent; nested crimpOf, gi/loop, solve or capMargin as described",
+      "limit": "The contribution is already combined when added. Foundation/membrane implementation and optional-credit outcomes are separate maps, not repeated analyses or evidence of licensed physical response.",
+      "actual_matched_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "solve and ordinary caller custody",
+      "source_role": "solve receives its own input state and knockdown, initializes local areas and passes aTh into gi as aTheta. The ordinary ship caller supplies g, wall and configuration to shipSkeleton.",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 1140,
+          "character_start": 3,
+          "character_end_exclusive": 51,
+          "fragment": "const solve = (knockdown, aI0, aTh0, aOe0, aSp0)"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1141,
+          "character_start": 5,
+          "character_end_exclusive": 54,
+          "fragment": "let aI = aI0, aTh = aTh0, aOe = aOe0, aSp = aSp0;"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1142,
+          "character_start": 5,
+          "character_end_exclusive": 54,
+          "fragment": "let rec = gi(aI / bay, aTh, aOe, aSp, knockdown);"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1273,
+          "character_start": 3,
+          "character_end_exclusive": 84,
+          "fragment": "const skel = shipSkeleton(g, sig, sf_, wall, giKd, giChordal, giMembrane, basis);"
+        }
+      ],
+      "lexical_context": "shipSkeleton parent; nested crimpOf, gi/loop, solve or capMargin as described",
+      "limit": "Lexical/caller lineage identifies declared inputs without executing solve, deriving state, copying numerical results or accepting geometry/material/load configuration.",
+      "actual_matched_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "separate capMargin domain",
+      "source_role": "capMargin has its own aTheta parameter and calls shared crimpOf to form sCap; source qCapCrimp is combined reciprocally with separately defined qCapBend, subject to its own positivity guard, and normalized in the returned margin expression.",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 1192,
+          "character_start": 26,
+          "character_end_exclusive": 62,
+          "fragment": "Math.sqrt(bCap * dCap) / (g.R * g.R)"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1193,
+          "character_start": 3,
+          "character_end_exclusive": 34,
+          "fragment": "const capMargin = (aTheta) => {"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1194,
+          "character_start": 5,
+          "character_end_exclusive": 40,
+          "fragment": "const sCap = crimpOf(aTheta) * g.R;"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1195,
+          "character_start": 29,
+          "character_end_exclusive": 40,
+          "fragment": "sCap / g.R;"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1196,
+          "character_start": 5,
+          "character_end_exclusive": 20,
+          "fragment": "if (qCapBend <="
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1196,
+          "character_start": 25,
+          "character_end_exclusive": 40,
+          "fragment": "|| qCapCrimp <="
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1197,
+          "character_start": 32,
+          "character_end_exclusive": 44,
+          "fragment": "/ qCapBend +"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1197,
+          "character_start": 49,
+          "character_end_exclusive": 61,
+          "fragment": "/ qCapCrimp)"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1209,
+          "character_start": 3,
+          "character_end_exclusive": 53,
+          "fragment": "const capBuckle = { marginAtSF: capMargin(aTh1) };"
+        }
+      ],
+      "lexical_context": "shipSkeleton parent; nested crimpOf, gi/loop, solve or capMargin as described",
+      "limit": "This separate cap bending/crimp domain is not the gi qRing/qCrimp expression. Source giKnockdown, P_ATM and sf context remain in the original source. No cap geometry, topology, world selection, iteration or margin analysis is repeated.",
+      "actual_matched_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    }
+  ],
+  "requirements": [
+    {
+      "id": "original-combination-derivation-and-reference",
+      "prospective_record_requirements": [
+        "Original derivation, reference article, source domain and assumptions tied to the reciprocal combination."
+      ],
+      "insufficient_or_disconfirming_evidence": "A source comment or formula identity cannot establish a licensed interaction/failure model.",
+      "owner_status": "UNASSIGNED",
+      "proposed_custodian_role": "original-combination-derivation-and-reference record custodian",
+      "qualification": "UNKNOWN",
+      "original_derivation": null,
+      "reference_article": null,
+      "source_domain": null,
+      "member": null,
+      "section": null,
+      "connection": null,
+      "configuration": null,
+      "load_boundary": null,
+      "interaction_mode": null,
+      "validation_record": null,
+      "raw_record": null,
+      "custody_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adoption_record": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "actual-member-section-connection-configuration",
+      "prospective_record_requirements": [
+        "Matched actual member, section, connection and configuration records with source revision correspondence."
+      ],
+      "insufficient_or_disconfirming_evidence": "Equivalent source expressions and schematic census do not establish installed architecture or load transfer.",
+      "owner_status": "UNASSIGNED",
+      "proposed_custodian_role": "actual-member-section-connection-configuration record custodian",
+      "qualification": "UNKNOWN",
+      "original_derivation": null,
+      "reference_article": null,
+      "source_domain": null,
+      "member": null,
+      "section": null,
+      "connection": null,
+      "configuration": null,
+      "load_boundary": null,
+      "interaction_mode": null,
+      "validation_record": null,
+      "raw_record": null,
+      "custody_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adoption_record": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "load-boundary-and-interaction-domain",
+      "prospective_record_requirements": [
+        "Applicable load/boundary conditions and interaction-mode/domain correspondence."
+      ],
+      "insufficient_or_disconfirming_evidence": "Shared helper usage does not license transfer between ring and cap domains or prove coupled response.",
+      "owner_status": "UNASSIGNED",
+      "proposed_custodian_role": "load-boundary-and-interaction-domain record custodian",
+      "qualification": "UNKNOWN",
+      "original_derivation": null,
+      "reference_article": null,
+      "source_domain": null,
+      "member": null,
+      "section": null,
+      "connection": null,
+      "configuration": null,
+      "load_boundary": null,
+      "interaction_mode": null,
+      "validation_record": null,
+      "raw_record": null,
+      "custody_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adoption_record": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "matched-validation-and-raw-custody",
+      "prospective_record_requirements": [
+        "Original validation/raw records, acquisition context and responsible custody."
+      ],
+      "insufficient_or_disconfirming_evidence": "Repository checks and arithmetic branches are not observations or physical qualification.",
+      "owner_status": "UNASSIGNED",
+      "proposed_custodian_role": "matched-validation-and-raw-custody record custodian",
+      "qualification": "UNKNOWN",
+      "original_derivation": null,
+      "reference_article": null,
+      "source_domain": null,
+      "member": null,
+      "section": null,
+      "connection": null,
+      "configuration": null,
+      "load_boundary": null,
+      "interaction_mode": null,
+      "validation_record": null,
+      "raw_record": null,
+      "custody_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adoption_record": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "calibration-uncertainty-and-applicability",
+      "prospective_record_requirements": [
+        "Applicable original calibration, uncertainty and domain/applicability records."
+      ],
+      "insufficient_or_disconfirming_evidence": "No new numerical uncertainty, sensitivity experiment, comparison or calibration is supplied.",
+      "owner_status": "UNASSIGNED",
+      "proposed_custodian_role": "calibration-uncertainty-and-applicability record custodian",
+      "qualification": "UNKNOWN",
+      "original_derivation": null,
+      "reference_article": null,
+      "source_domain": null,
+      "member": null,
+      "section": null,
+      "connection": null,
+      "configuration": null,
+      "load_boundary": null,
+      "interaction_mode": null,
+      "validation_record": null,
+      "raw_record": null,
+      "custody_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adoption_record": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "responsible-owner-and-adoption",
+      "prospective_record_requirements": [
+        "Actual responsible owner and adoption source/version/domain/criterion when supplied."
+      ],
+      "insufficient_or_disconfirming_evidence": "Proposed custody roles are UNASSIGNED; paper completion adopts no criterion, check, procedure, design or combination model.",
+      "owner_status": "UNASSIGNED",
+      "proposed_custodian_role": "responsible-owner-and-adoption record custodian",
+      "qualification": "UNKNOWN",
+      "original_derivation": null,
+      "reference_article": null,
+      "source_domain": null,
+      "member": null,
+      "section": null,
+      "connection": null,
+      "configuration": null,
+      "load_boundary": null,
+      "interaction_mode": null,
+      "validation_record": null,
+      "raw_record": null,
+      "custody_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adoption_record": null,
+      "adopted_criterion": null
+    }
+  ],
+  "separate_maps": [
+    {
+      "unit": "robotics-smeared-discrete-homogenization-provenance-evidence-thread-1010",
+      "candidate": "85c95324f8819f5461f3815fabaaa0850c11b3c6",
+      "output_dir": "research/methods/smeared-discrete-homogenization-provenance-evidence-1010",
+      "relation": "Separate prospective provenance map; no numerical outcomes or analysis repeated here. Availability/landing not inferred."
+    },
+    {
+      "unit": "robotics-conditional-laminate-property-provenance-evidence-thread-1010",
+      "candidate": "6fb32839bd91f089ca5d0135923d966c620f14f5",
+      "output_dir": "research/methods/conditional-laminate-property-provenance-evidence-1010",
+      "relation": "Separate prospective provenance map; no numerical outcomes or analysis repeated here. Availability/landing not inferred."
+    },
+    {
+      "unit": "robotics-stability-reserve-basis-provenance-evidence-thread-1010",
+      "candidate": "d9259552f4501de09d7c0ba49b4fc482702e8855",
+      "output_dir": "research/methods/stability-reserve-basis-provenance-evidence-1010",
+      "relation": "Separate prospective provenance map; no numerical outcomes or analysis repeated here. Availability/landing not inferred."
+    }
+  ],
+  "selected_combination_failure_model_geometry_member_section_connection_material_loadcase_criterion_check_procedure_design": null,
+  "new_numeric_results": [],
+  "new_measurements": [],
+  "models_equations_or_generators_executed": false
+}
