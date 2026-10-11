@@ -1,0 +1,513 @@
+{
+  "schema": "skin-cli-input.provenance-crosswalk/1",
+  "status": "DOCUMENT_ONLY; actual computational and physical custody UNKNOWN",
+  "source_revision": "9482358277442f85adb764d73cb83cc48a3642d9",
+  "source_fragments": [
+    {
+      "path": "tools/gen_skin.py",
+      "line": 704,
+      "character_start": 1,
+      "character_end_exclusive": 12,
+      "fragment": "def main():",
+      "fragment_sha256": "2c4c5b0ebed3de9b574a3757903571ebf0dcaec6764f9f8d245ce0740a619321"
+    },
+    {
+      "path": "tools/gen_skin.py",
+      "line": 705,
+      "character_start": 5,
+      "character_end_exclusive": 9,
+      "fragment": "ap =",
+      "fragment_sha256": "c00a745cb65765e04dfdba878e47fd6d5064a22b0131ed967ce365245f82a6f8"
+    },
+    {
+      "path": "tools/gen_skin.py",
+      "line": 705,
+      "character_start": 10,
+      "character_end_exclusive": 33,
+      "fragment": "argparse.ArgumentParser",
+      "fragment_sha256": "4c2cf020f3da712ad440fea8adf8ce2e82752e7a680a6f6a724035cf0d37b4cd"
+    },
+    {
+      "path": "tools/gen_skin.py",
+      "line": 706,
+      "character_start": 5,
+      "character_end_exclusive": 20,
+      "fragment": "ap.add_argument",
+      "fragment_sha256": "c2f1e2555d8b176dbf55b02013572bbc960a38270993d312c0731b4462e456ee"
+    },
+    {
+      "path": "tools/gen_skin.py",
+      "line": 708,
+      "character_start": 5,
+      "character_end_exclusive": 11,
+      "fragment": "args =",
+      "fragment_sha256": "cf39fadcd684c2375a13f6fc9cf1014b7f5f0a77d8ce2bf0981656eec2acfd19"
+    },
+    {
+      "path": "tools/gen_skin.py",
+      "line": 708,
+      "character_start": 12,
+      "character_end_exclusive": 25,
+      "fragment": "ap.parse_args",
+      "fragment_sha256": "bb2b49337338af827cb5d9176d6e56ba7c8b8043a77bd04cfd9a284f10035c43"
+    },
+    {
+      "path": "tools/gen_skin.py",
+      "line": 936,
+      "character_start": 8,
+      "character_end_exclusive": 18,
+      "fragment": "args.check",
+      "fragment_sha256": "14bf4a7af9cdc623798150e9da0ca615204db157240d55144d00ee206b1d97ac"
+    },
+    {
+      "path": "README.md",
+      "line": 3,
+      "character_start": 186,
+      "character_end_exclusive": 222,
+      "fragment": "No aircraft has been built or flown.",
+      "fragment_sha256": "bd88446d4305c34307c2acb2bc020e0441e17382f095d6be3beee1076eabdbb9"
+    }
+  ],
+  "hashed_lexical_contexts": [
+    {
+      "path": "tools/gen_skin.py",
+      "identity": "own main CLI namespaces",
+      "line_start": 704,
+      "line_end_inclusive": 708,
+      "context_sha256": "fa6a36a59692f2db42ff562f4e89307e1edf63815a2d170ce70678f21a81e400",
+      "context_bytes": 211,
+      "limit": "Hash only; option/mode/action/default/help literals/text, parser arguments/options, control/parse/generator algorithms, success/verdict/byte-comparison wording and schema/key/numeric inventory not copied or reconstructed."
+    },
+    {
+      "path": "tools/gen_skin.py",
+      "identity": "selected args.check source identity",
+      "line_start": 936,
+      "line_end_inclusive": 936,
+      "context_sha256": "e949ea33e43d9729c8a30ad4731f5d1abc0d0aa129da505121f8ce69a50bd19a",
+      "context_bytes": 18,
+      "limit": "Hash only; option/mode/action/default/help literals/text, parser arguments/options, control/parse/generator algorithms, success/verdict/byte-comparison wording and schema/key/numeric inventory not copied or reconstructed."
+    }
+  ],
+  "source_identity_mappings": [
+    {
+      "source_identity": "own main parser namespace",
+      "source_role": "Selected main binds ap and names argparse.ArgumentParser and ap.add_argument.",
+      "source_locators": [
+        {
+          "path": "tools/gen_skin.py",
+          "line": 704,
+          "character_start": 1,
+          "character_end_exclusive": 12,
+          "fragment": "def main():",
+          "fragment_sha256": "2c4c5b0ebed3de9b574a3757903571ebf0dcaec6764f9f8d245ce0740a619321"
+        },
+        {
+          "path": "tools/gen_skin.py",
+          "line": 705,
+          "character_start": 5,
+          "character_end_exclusive": 9,
+          "fragment": "ap =",
+          "fragment_sha256": "c00a745cb65765e04dfdba878e47fd6d5064a22b0131ed967ce365245f82a6f8"
+        },
+        {
+          "path": "tools/gen_skin.py",
+          "line": 705,
+          "character_start": 10,
+          "character_end_exclusive": 33,
+          "fragment": "argparse.ArgumentParser",
+          "fragment_sha256": "4c2cf020f3da712ad440fea8adf8ce2e82752e7a680a6f6a724035cf0d37b4cd"
+        },
+        {
+          "path": "tools/gen_skin.py",
+          "line": 706,
+          "character_start": 5,
+          "character_end_exclusive": 20,
+          "fragment": "ap.add_argument",
+          "fragment_sha256": "c2f1e2555d8b176dbf55b02013572bbc960a38270993d312c0731b4462e456ee"
+        }
+      ],
+      "limit": "Bare names only; no option/action/default/help literal/text, parser argument/option or configuration selection.",
+      "actual_computational_record": null,
+      "actual_physical_article_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "own argument namespace",
+      "source_role": "Selected main binds args and names ap.parse_args.",
+      "source_locators": [
+        {
+          "path": "tools/gen_skin.py",
+          "line": 708,
+          "character_start": 5,
+          "character_end_exclusive": 11,
+          "fragment": "args =",
+          "fragment_sha256": "cf39fadcd684c2375a13f6fc9cf1014b7f5f0a77d8ce2bf0981656eec2acfd19"
+        },
+        {
+          "path": "tools/gen_skin.py",
+          "line": 708,
+          "character_start": 12,
+          "character_end_exclusive": 25,
+          "fragment": "ap.parse_args",
+          "fragment_sha256": "bb2b49337338af827cb5d9176d6e56ba7c8b8043a77bd04cfd9a284f10035c43"
+        }
+      ],
+      "limit": "Source binding/callee only; no actual argv/environment/configuration, parser execution or imported-source correspondence acquired.",
+      "actual_computational_record": null,
+      "actual_physical_article_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "selected argument attribute",
+      "source_role": "The selected main source names args.check.",
+      "source_locators": [
+        {
+          "path": "tools/gen_skin.py",
+          "line": 936,
+          "character_start": 8,
+          "character_end_exclusive": 18,
+          "fragment": "args.check",
+          "fragment_sha256": "14bf4a7af9cdc623798150e9da0ca615204db157240d55144d00ee206b1d97ac"
+        }
+      ],
+      "limit": "Name only; no mode selected, control/parse/generator algorithm reconstructed, successful invocation or output verdict established.",
+      "actual_computational_record": null,
+      "actual_physical_article_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "computational versus physical boundary",
+      "source_role": "The unchanged root source says no aircraft has been built or flown.",
+      "source_locators": [
+        {
+          "path": "README.md",
+          "line": 3,
+          "character_start": 186,
+          "character_end_exclusive": 222,
+          "fragment": "No aircraft has been built or flown.",
+          "fragment_sha256": "bd88446d4305c34307c2acb2bc020e0441e17382f095d6be3beee1076eabdbb9"
+        }
+      ],
+      "limit": "Source CLI names/hashes/software gates cannot qualify installed skin or supply film/gores/seams/bonds/state/metrology acceptance.",
+      "actual_computational_record": null,
+      "actual_physical_article_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    }
+  ],
+  "requirements": [
+    {
+      "id": "invocation-version-and-argv-environment-configuration",
+      "prospective_record_requirements": [
+        "Original actual invocation/version/argv/environment/configuration and accountable custody."
+      ],
+      "insufficient_or_disconfirming_evidence": "Source ap/args names cannot identify actual invocation or independently verified configuration.",
+      "proposed_custodian_role": "invocation-version-and-argv-environment-configuration record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "argv": null,
+      "environment": null,
+      "configuration": null,
+      "selected_mode": null,
+      "parser_source": null,
+      "source_correspondence": null,
+      "input_record_digests": null,
+      "output_digests": null,
+      "raw_custody": null,
+      "article": null,
+      "film_material": null,
+      "lot": null,
+      "process": null,
+      "gores": null,
+      "seams": null,
+      "bonds": null,
+      "installed_skin": null,
+      "state": null,
+      "metrology": null,
+      "referenceframe": null,
+      "timebase": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "selected-mode-and-parser-source-correspondence",
+      "prospective_record_requirements": [
+        "Original selected-mode/parser-source/correspondence records."
+      ],
+      "insufficient_or_disconfirming_evidence": "Source attribute/callee identity does not establish selected mode, actual parser execution or imported correspondence.",
+      "proposed_custodian_role": "selected-mode-and-parser-source-correspondence record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "argv": null,
+      "environment": null,
+      "configuration": null,
+      "selected_mode": null,
+      "parser_source": null,
+      "source_correspondence": null,
+      "input_record_digests": null,
+      "output_digests": null,
+      "raw_custody": null,
+      "article": null,
+      "film_material": null,
+      "lot": null,
+      "process": null,
+      "gores": null,
+      "seams": null,
+      "bonds": null,
+      "installed_skin": null,
+      "state": null,
+      "metrology": null,
+      "referenceframe": null,
+      "timebase": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "input-record-output-digests-and-raw-custody",
+      "prospective_record_requirements": [
+        "Original input-record/output digests and unmodified raw custody."
+      ],
+      "insufficient_or_disconfirming_evidence": "CLI names cannot supply acquired inputs/outputs, success or comparison custody.",
+      "proposed_custodian_role": "input-record-output-digests-and-raw-custody record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "argv": null,
+      "environment": null,
+      "configuration": null,
+      "selected_mode": null,
+      "parser_source": null,
+      "source_correspondence": null,
+      "input_record_digests": null,
+      "output_digests": null,
+      "raw_custody": null,
+      "article": null,
+      "film_material": null,
+      "lot": null,
+      "process": null,
+      "gores": null,
+      "seams": null,
+      "bonds": null,
+      "installed_skin": null,
+      "state": null,
+      "metrology": null,
+      "referenceframe": null,
+      "timebase": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "article-film-process-and-installed-skin",
+      "prospective_record_requirements": [
+        "Matched actual article/film-material/lot/process/gores/seams/bonds/installed skin/state records."
+      ],
+      "insufficient_or_disconfirming_evidence": "Computational argument naming cannot qualify a membrane or supply installed physical identity.",
+      "proposed_custodian_role": "article-film-process-and-installed-skin record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "argv": null,
+      "environment": null,
+      "configuration": null,
+      "selected_mode": null,
+      "parser_source": null,
+      "source_correspondence": null,
+      "input_record_digests": null,
+      "output_digests": null,
+      "raw_custody": null,
+      "article": null,
+      "film_material": null,
+      "lot": null,
+      "process": null,
+      "gores": null,
+      "seams": null,
+      "bonds": null,
+      "installed_skin": null,
+      "state": null,
+      "metrology": null,
+      "referenceframe": null,
+      "timebase": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "metrology-referenceframe-timebase-and-calibration",
+      "prospective_record_requirements": [
+        "Original metrology/referenceframe/timebase/calibration/uncertainty and applicability."
+      ],
+      "insufficient_or_disconfirming_evidence": "Source namespaces and hashes do not supply actual measurement or validated uncertainty.",
+      "proposed_custodian_role": "metrology-referenceframe-timebase-and-calibration record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "argv": null,
+      "environment": null,
+      "configuration": null,
+      "selected_mode": null,
+      "parser_source": null,
+      "source_correspondence": null,
+      "input_record_digests": null,
+      "output_digests": null,
+      "raw_custody": null,
+      "article": null,
+      "film_material": null,
+      "lot": null,
+      "process": null,
+      "gores": null,
+      "seams": null,
+      "bonds": null,
+      "installed_skin": null,
+      "state": null,
+      "metrology": null,
+      "referenceframe": null,
+      "timebase": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "owner-criterion-and-adoption",
+      "prospective_record_requirements": [
+        "Actual accountable owner and adopted source/version/domain/criterion record when supplied."
+      ],
+      "insufficient_or_disconfirming_evidence": "Custodians UNASSIGNED; no option/mode/configuration/format/schema/design/acceptance criterion/registry or production/operating/test procedure selected.",
+      "proposed_custodian_role": "owner-criterion-and-adoption record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "argv": null,
+      "environment": null,
+      "configuration": null,
+      "selected_mode": null,
+      "parser_source": null,
+      "source_correspondence": null,
+      "input_record_digests": null,
+      "output_digests": null,
+      "raw_custody": null,
+      "article": null,
+      "film_material": null,
+      "lot": null,
+      "process": null,
+      "gores": null,
+      "seams": null,
+      "bonds": null,
+      "installed_skin": null,
+      "state": null,
+      "metrology": null,
+      "referenceframe": null,
+      "timebase": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    }
+  ],
+  "separate_maps": [
+    {
+      "unit": "robotics-skin-output-readback-input-custody-provenance-evidence-thread-1010",
+      "candidate": "cb95f5dda6da9fcf020b88e43178187a117772e6",
+      "output_dir": "research/methods/skin-output-readback-input-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no computational or physical identity, result, criterion, acceptance/status, signature/landing or applicability transferred."
+    },
+    {
+      "unit": "robotics-skin-output-writer-destination-custody-provenance-evidence-thread-1010",
+      "candidate": "7590784d41157e380145add65ed11ccb41748841",
+      "output_dir": "research/methods/skin-output-writer-destination-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no computational or physical identity, result, criterion, acceptance/status, signature/landing or applicability transferred."
+    },
+    {
+      "unit": "robotics-skin-emitter-input-custody-provenance-evidence-thread-1010",
+      "candidate": "48db043a3074913591d1cfc1554285be0f357ed1",
+      "output_dir": "research/methods/skin-emitter-input-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no computational or physical identity, result, criterion, acceptance/status, signature/landing or applicability transferred."
+    },
+    {
+      "unit": "robotics-generated-skin-literal-input-custody-provenance-evidence-thread-1010",
+      "candidate": "4b68c21b6081b33b4a82ce990241a83a4622e9af",
+      "output_dir": "research/methods/generated-skin-literal-input-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no computational or physical identity, result, criterion, acceptance/status, signature/landing or applicability transferred."
+    },
+    {
+      "unit": "robotics-assembly-json-parser-input-custody-provenance-evidence-thread-1010",
+      "candidate": "58209aad1e8dda2eae0e9488050081bddab72456",
+      "output_dir": "research/methods/assembly-json-parser-input-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no computational or physical identity, result, criterion, acceptance/status, signature/landing or applicability transferred."
+    },
+    {
+      "unit": "robotics-difference-helper-input-custody-provenance-evidence-thread-1010",
+      "candidate": "27643f004109dca8f581f5a5a56510dda94c7d68",
+      "output_dir": "research/methods/difference-helper-input-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no computational or physical identity, result, criterion, acceptance/status, signature/landing or applicability transferred."
+    },
+    {
+      "unit": "robotics-numeric-comparator-input-custody-provenance-evidence-thread-1010",
+      "candidate": "c8b7726aceb0c611dd1cf1bafa16f9960613451d",
+      "output_dir": "research/methods/numeric-comparator-input-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no computational or physical identity, result, criterion, acceptance/status, signature/landing or applicability transferred."
+    },
+    {
+      "unit": "robotics-generator-manifest-parameter-custody-provenance-evidence-thread-1010",
+      "candidate": "5ade02cc5eb257f98aeeb2b96681faf47ea93a3c",
+      "output_dir": "research/methods/generator-manifest-parameter-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no computational or physical identity, result, criterion, acceptance/status, signature/landing or applicability transferred."
+    },
+    {
+      "unit": "robotics-assembly-prover-parameter-input-custody-provenance-evidence-thread-1010",
+      "candidate": "34d18e4d773cf71df8cefda1333479a04c4a9cf8",
+      "output_dir": "research/methods/assembly-prover-parameter-input-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no computational or physical identity, result, criterion, acceptance/status, signature/landing or applicability transferred."
+    },
+    {
+      "unit": "robotics-membrane-shape-volume-provenance-evidence-thread-1010",
+      "candidate": "22286315ae919b9e454bd7aa38d09e84119b31d8",
+      "output_dir": "research/methods/membrane-shape-volume-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no computational or physical identity, result, criterion, acceptance/status, signature/landing or applicability transferred."
+    }
+  ],
+  "selected_criterion_design_registry_or_procedure": null,
+  "new_numeric_results": [],
+  "new_measurements": [],
+  "models_equations_or_generators_executed": false
+}
