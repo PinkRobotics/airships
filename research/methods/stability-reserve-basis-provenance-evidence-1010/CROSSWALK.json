@@ -282,50 +282,76 @@
       "assigned_owner": null
     },
     {
-      "declared_identity": "aI / aTh / aOe / aSp reserve increment families",
+      "declared_identity": "Local reserve area-difference term identities",
       "source_locators": [
         {
           "path": "ship/model.js",
-          "line": 1221,
-          "character_start": 5,
-          "character_end_exclusive": 18,
-          "fragment": "innerRingAM2:"
-        },
-        {
-          "path": "ship/model.js",
-          "line": 1222,
-          "character_start": 5,
-          "character_end_exclusive": 17,
-          "fragment": "thetaWebAM2:"
-        },
-        {
-          "path": "ship/model.js",
-          "line": 1224,
-          "character_start": 5,
-          "character_end_exclusive": 20,
-          "fragment": "flangeDoublerT:"
-        },
-        {
-          "path": "ship/model.js",
-          "line": 1225,
-          "character_start": 5,
-          "character_end_exclusive": 19,
-          "fragment": "spokeAM2PerM2:"
-        },
-        {
-          "path": "ship/model.js",
           "line": 1181,
-          "character_start": 7,
-          "character_end_exclusive": 23,
-          "fragment": "reserveKgM2 = (("
+          "character_start": 22,
+          "character_end_exclusive": 33,
+          "fragment": "(aI2 - aI1)"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1182,
+          "character_start": 11,
+          "character_end_exclusive": 24,
+          "fragment": "(aTh2 - aTh1)"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1183,
+          "character_start": 11,
+          "character_end_exclusive": 24,
+          "fragment": "(aOe2 - aOe1)"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1184,
+          "character_start": 11,
+          "character_end_exclusive": 24,
+          "fragment": "(aSp2 - aSp1)"
         }
       ],
-      "qualitative_source_role": "Additional inner-ring, theta-web, outer-extra and spoke area increments contribute to source reserve accounting.",
-      "comparison_gap": "Family identifiers and billed increments do not supply complete drawn station/member/connection allocation or installed inventory.",
+      "qualitative_source_role": "Local second-minus-first inner-ring, theta-web, outer-extra and spoke area differences inside the conditional reserve expression. These reserve increments are not returned as ordinary member keys.",
+      "comparison_gap": "The baseline return keys identify separate ordinary member counterparts. Baseline theta area also changes in the cap loop. None of those fields is a returned reserve increment or complete installed inventory.",
       "actual_applicable_record": null,
       "matched_configuration": null,
       "adopted_allowance_or_criterion": null,
-      "assigned_owner": null
+      "assigned_owner": null,
+      "separate_baseline_counterparts": {
+        "source_locators": [
+          {
+            "path": "ship/model.js",
+            "line": 1221,
+            "character_start": 5,
+            "character_end_exclusive": 18,
+            "fragment": "innerRingAM2:"
+          },
+          {
+            "path": "ship/model.js",
+            "line": 1222,
+            "character_start": 5,
+            "character_end_exclusive": 17,
+            "fragment": "thetaWebAM2:"
+          },
+          {
+            "path": "ship/model.js",
+            "line": 1224,
+            "character_start": 5,
+            "character_end_exclusive": 20,
+            "fragment": "flangeDoublerT:"
+          },
+          {
+            "path": "ship/model.js",
+            "line": 1225,
+            "character_start": 5,
+            "character_end_exclusive": 19,
+            "fragment": "spokeAM2PerM2:"
+          }
+        ],
+        "scope": "Baseline ordinary member return identities only, not reserve differences; baseline theta area also undergoes subsequent cap-loop growth."
+      }
     },
     {
       "declared_identity": "reserveT / junctionAdder / etaMass",
