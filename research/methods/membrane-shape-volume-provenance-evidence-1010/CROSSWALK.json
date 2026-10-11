@@ -1,0 +1,452 @@
+{
+  "schema": "membrane-shape-volume.provenance-evidence-map/1",
+  "status": "DOCUMENT_ONLY; source sag-debit question preserved; actual membrane shape/enclosure comparison UNKNOWN",
+  "source_revision": "94db332d3dc437708d3ed0dfeb6b619c70d9da25",
+  "source_fragments": [
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "line": 1028,
+      "character_start": 1,
+      "character_end_exclusive": 34,
+      "fragment": "### Sag debit and enclosed volume"
+    },
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "line": 1031,
+      "character_start": 1,
+      "character_end_exclusive": 82,
+      "fragment": "How should the drawn mesh’s smaller enclosed volume change the billed lift basis?"
+    },
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "line": 1032,
+      "character_start": 1,
+      "character_end_exclusive": 105,
+      "fragment": "What measured membrane shape would settle this sign change on the same safety factor and material basis?"
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 3,
+      "character_start": 1,
+      "character_end_exclusive": 122,
+      "fragment": "The drawing and the bill disagree. This generated record preserves those disagreements; it does not approve a cap design."
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 54,
+      "character_start": 1,
+      "character_end_exclusive": 93,
+      "fragment": "Film is billed on projected capsule area; the executed mesh has a different area and volume."
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 83,
+      "character_start": 1,
+      "character_end_exclusive": 132,
+      "fragment": "These are separate representations, not additional copies of the hull. The film mesh is a schematic drape, not a measured membrane."
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 17,
+      "character_start": 1,
+      "character_end_exclusive": 51,
+      "fragment": "Rendering segments are not physical member counts."
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 19,
+      "character_start": 47,
+      "character_end_exclusive": 74,
+      "fragment": "Unknown mass is never zero."
+    },
+    {
+      "path": "docs/VERIFICATION-PLAN.md",
+      "line": 22,
+      "character_start": 17,
+      "character_end_exclusive": 192,
+      "fragment": "This budget prices the first-generation hull of many permanently sealed vacuum cells; it has not been re-priced for the current one film on hoop rings over a two-walled truss."
+    },
+    {
+      "path": "docs/VERIFICATION-PLAN.md",
+      "line": 190,
+      "character_start": 1,
+      "character_end_exclusive": 30,
+      "fragment": "### E2 — the sealing membrane"
+    },
+    {
+      "path": "docs/VERIFICATION-PLAN.md",
+      "line": 192,
+      "character_start": 1,
+      "character_end_exclusive": 75,
+      "fragment": "Can a film that only has to *seal*, with load-carrying left to the lattice"
+    },
+    {
+      "path": "README.md",
+      "line": 3,
+      "character_start": 186,
+      "character_end_exclusive": 222,
+      "fragment": "No aircraft has been built or flown."
+    }
+  ],
+  "declared_representation_field_mappings": [
+    {
+      "declared_source_identity": "film / ShipFilm mesh",
+      "source_locator": {
+        "path": "docs/MEMBER-CENSUS.md",
+        "line": 26,
+        "character_start": 1,
+        "character_end_exclusive": 38,
+        "fragment": "| film | ShipFilm mesh | whole hull |"
+      },
+      "comparison_boundary": "Bill film versus drawn mesh representation across whole hull, not an observed complete membrane.",
+      "actual_corresponding_record": null,
+      "matched_configuration": null,
+      "adopted_representation_or_boundary": null
+    },
+    {
+      "declared_source_identity": "vertices",
+      "source_locator": {
+        "path": "docs/MEMBER-CENSUS.md",
+        "line": 90,
+        "character_start": 1,
+        "character_end_exclusive": 13,
+        "fragment": "| vertices |"
+      },
+      "comparison_boundary": "Source mesh vertex census identity only; no vertex coordinates or count copied.",
+      "actual_corresponding_record": null,
+      "matched_configuration": null,
+      "adopted_representation_or_boundary": null
+    },
+    {
+      "declared_source_identity": "triangles",
+      "source_locator": {
+        "path": "docs/MEMBER-CENSUS.md",
+        "line": 91,
+        "character_start": 1,
+        "character_end_exclusive": 14,
+        "fragment": "| triangles |"
+      },
+      "comparison_boundary": "Source rendered mesh triangle identity only; no topology, connectivity or count adopted.",
+      "actual_corresponding_record": null,
+      "matched_configuration": null,
+      "adopted_representation_or_boundary": null
+    },
+    {
+      "declared_source_identity": "areaM2",
+      "source_locator": {
+        "path": "docs/MEMBER-CENSUS.md",
+        "line": 92,
+        "character_start": 1,
+        "character_end_exclusive": 11,
+        "fragment": "| areaM2 |"
+      },
+      "comparison_boundary": "Source mesh area field, distinct from actual measured membrane area and enclosure volume.",
+      "actual_corresponding_record": null,
+      "matched_configuration": null,
+      "adopted_representation_or_boundary": null
+    },
+    {
+      "declared_source_identity": "barrelM2",
+      "source_locator": {
+        "path": "docs/MEMBER-CENSUS.md",
+        "line": 93,
+        "character_start": 1,
+        "character_end_exclusive": 13,
+        "fragment": "| barrelM2 |"
+      },
+      "comparison_boundary": "Source barrel area partition; actual region mapping and membrane applicability unknown.",
+      "actual_corresponding_record": null,
+      "matched_configuration": null,
+      "adopted_representation_or_boundary": null
+    },
+    {
+      "declared_source_identity": "capM2",
+      "source_locator": {
+        "path": "docs/MEMBER-CENSUS.md",
+        "line": 94,
+        "character_start": 1,
+        "character_end_exclusive": 10,
+        "fragment": "| capM2 |"
+      },
+      "comparison_boundary": "Source cap area partition; actual cap shape and continuity unknown.",
+      "actual_corresponding_record": null,
+      "matched_configuration": null,
+      "adopted_representation_or_boundary": null
+    },
+    {
+      "declared_source_identity": "volumeM3",
+      "source_locator": {
+        "path": "docs/MEMBER-CENSUS.md",
+        "line": 95,
+        "character_start": 1,
+        "character_end_exclusive": 13,
+        "fragment": "| volumeM3 |"
+      },
+      "comparison_boundary": "Source mesh enclosed-volume field; no actual observed geometry/volume record supplied.",
+      "actual_corresponding_record": null,
+      "matched_configuration": null,
+      "adopted_representation_or_boundary": null
+    },
+    {
+      "declared_source_identity": "billAreaM2",
+      "source_locator": {
+        "path": "docs/MEMBER-CENSUS.md",
+        "line": 96,
+        "character_start": 1,
+        "character_end_exclusive": 15,
+        "fragment": "| billAreaM2 |"
+      },
+      "comparison_boundary": "Billed projected area identity; neither measured shape nor same-boundary enclosure volume.",
+      "actual_corresponding_record": null,
+      "matched_configuration": null,
+      "adopted_representation_or_boundary": null
+    }
+  ],
+  "requirements": [
+    {
+      "id": "source-question-and-representation",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "docs/MEMBER-CENSUS.md"
+      ],
+      "existing_boundary": "Published sag-debit question asks about measured membrane shape and billed lift basis; census distinguishes projected film bill and schematic drape.",
+      "prospective_record_requirements": [
+        "Exact source/revision and representation identities, purpose and limitations; history retained without numerical reproduction"
+      ],
+      "insufficient_or_disconfirming_evidence": "A generated mesh or source ratio cannot establish a measured membrane or repair billed lift. No source numerical ratios, altitude, volume or safety-factor values are copied.",
+      "proposed_custodian_role": "source-question-and-representation provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "actual_observed_shape": null,
+      "geometry_volume_record": null,
+      "source_configuration": null,
+      "membrane_state": null,
+      "material_record": null,
+      "safety_factor_basis": null,
+      "reference_frame": null,
+      "mesh_record": null,
+      "enclosure_boundary": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "matched_comparison": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "matched-configuration-material-and-safety-basis",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "docs/VERIFICATION-PLAN.md"
+      ],
+      "existing_boundary": "Question requires the same declared material and safety-factor basis, rather than silently changing the comparison.",
+      "prospective_record_requirements": [
+        "Original configuration/material/state identities, source-declared comparison basis and applicability, treatment of unmatched or missing records"
+      ],
+      "insufficient_or_disconfirming_evidence": "Actual material/configuration and adopted safety basis remain UNKNOWN; no material, safety factor, load case or design is chosen.",
+      "proposed_custodian_role": "matched-configuration-material-and-safety-basis provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "actual_observed_shape": null,
+      "geometry_volume_record": null,
+      "source_configuration": null,
+      "membrane_state": null,
+      "material_record": null,
+      "safety_factor_basis": null,
+      "reference_frame": null,
+      "mesh_record": null,
+      "enclosure_boundary": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "matched_comparison": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "membrane-state-and-shape-record",
+      "source_paths": [
+        "docs/MEMBER-CENSUS.md",
+        "docs/VERIFICATION-PLAN.md"
+      ],
+      "existing_boundary": "Census says the film is a schematic drape; verification plan separates sealing from load carrying and retains an older architecture budget.",
+      "prospective_record_requirements": [
+        "Unmodified observed shape record and responsible source, membrane/load/environmental state metadata and applicability to the declared configuration"
+      ],
+      "insufficient_or_disconfirming_evidence": "Schematic drape, old sealed-cell budget and sealing coupon scope cannot supply observed full membrane shape. No preparation, loading, measurement or test procedure is specified.",
+      "proposed_custodian_role": "membrane-state-and-shape-record provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "actual_observed_shape": null,
+      "geometry_volume_record": null,
+      "source_configuration": null,
+      "membrane_state": null,
+      "material_record": null,
+      "safety_factor_basis": null,
+      "reference_frame": null,
+      "mesh_record": null,
+      "enclosure_boundary": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "matched_comparison": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "reference-frame-and-registration",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "docs/MEMBER-CENSUS.md"
+      ],
+      "existing_boundary": "A source mesh and an eventual shape observation require declared comparable frames before interpretation.",
+      "prospective_record_requirements": [
+        "Original coordinate/length conventions, frame/orientation/registration provenance and source transformations already recorded; missing or unmatched correspondence explicit"
+      ],
+      "insufficient_or_disconfirming_evidence": "No reference frame, units conversion, coordinates, fitted shape, registration operation or geometry is selected or computed.",
+      "proposed_custodian_role": "reference-frame-and-registration provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "actual_observed_shape": null,
+      "geometry_volume_record": null,
+      "source_configuration": null,
+      "membrane_state": null,
+      "material_record": null,
+      "safety_factor_basis": null,
+      "reference_frame": null,
+      "mesh_record": null,
+      "enclosure_boundary": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "matched_comparison": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "mesh-provenance-and-regional-correspondence",
+      "source_paths": [
+        "docs/MEMBER-CENSUS.md"
+      ],
+      "existing_boundary": "Film census identifies vertices, triangles, area partitions and volume as generated representation fields; render segments do not establish physical members.",
+      "prospective_record_requirements": [
+        "Exact source mesh/revision, provenance of vertices/connectivity/regions and applicable observation correspondence, representation limitations and coverage gaps"
+      ],
+      "insufficient_or_disconfirming_evidence": "A rendered triangle/vertex census or cap/barrel partition proves no observed topology, complete physical allocation or mesh convergence. No code, viewer or mesh generation is run.",
+      "proposed_custodian_role": "mesh-provenance-and-regional-correspondence provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "actual_observed_shape": null,
+      "geometry_volume_record": null,
+      "source_configuration": null,
+      "membrane_state": null,
+      "material_record": null,
+      "safety_factor_basis": null,
+      "reference_frame": null,
+      "mesh_record": null,
+      "enclosure_boundary": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "matched_comparison": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "enclosure-boundary-and-completeness",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "docs/MEMBER-CENSUS.md"
+      ],
+      "existing_boundary": "Projected area, mesh area and enclosed volume are different source quantities. Schematic shape cannot establish complete enclosure.",
+      "prospective_record_requirements": [
+        "Original enclosure definition, region inclusion/exclusion and boundary/cap/opening/continuity provenance; applicable observations and missing closure evidence visible"
+      ],
+      "insufficient_or_disconfirming_evidence": "Open or unmatched boundaries cannot be silently treated as enclosed measured volume; no sealing procedure, boundary completion, volume integration, sag/lift/mass computation or corrected lift bill supplied.",
+      "proposed_custodian_role": "enclosure-boundary-and-completeness provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "actual_observed_shape": null,
+      "geometry_volume_record": null,
+      "source_configuration": null,
+      "membrane_state": null,
+      "material_record": null,
+      "safety_factor_basis": null,
+      "reference_frame": null,
+      "mesh_record": null,
+      "enclosure_boundary": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "matched_comparison": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "observation-calibration-uncertainty-and-applicability",
+      "source_paths": [
+        "docs/MEMBER-CENSUS.md",
+        "docs/VERIFICATION-PLAN.md",
+        "README.md"
+      ],
+      "existing_boundary": "Neither generated census nor older verification plan supplies actual membrane shape/volume observation records for this comparison.",
+      "prospective_record_requirements": [
+        "Original observed shape/geometry/volume records when supplied, source/acquisition custody, applicable calibration/uncertainty and representation applicability"
+      ],
+      "insufficient_or_disconfirming_evidence": "Unknown shape, volume, calibration or applicability remains missing; repository/source regeneration is not physical validation and no uncertainty estimate is invented.",
+      "proposed_custodian_role": "observation-calibration-uncertainty-and-applicability provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "actual_observed_shape": null,
+      "geometry_volume_record": null,
+      "source_configuration": null,
+      "membrane_state": null,
+      "material_record": null,
+      "safety_factor_basis": null,
+      "reference_frame": null,
+      "mesh_record": null,
+      "enclosure_boundary": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "matched_comparison": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "matched-comparison-custody-and-adoption",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "README.md"
+      ],
+      "existing_boundary": "Published sign-change question remains unsettled by this paper; proposed custodians are unassigned.",
+      "prospective_record_requirements": [
+        "Matched original source/observation records and revisions, responsible role/custody, criterion source/version/applicability and adopted disposition only when supplied"
+      ],
+      "insufficient_or_disconfirming_evidence": "No assigned owner, criterion, sign-change verdict, corrected feasibility/safety or design adoption inferred from a method map or passing gates.",
+      "proposed_custodian_role": "matched-comparison-custody-and-adoption provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "actual_observed_shape": null,
+      "geometry_volume_record": null,
+      "source_configuration": null,
+      "membrane_state": null,
+      "material_record": null,
+      "safety_factor_basis": null,
+      "reference_frame": null,
+      "mesh_record": null,
+      "enclosure_boundary": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "matched_comparison": null,
+      "adopted_criterion": null
+    }
+  ],
+  "new_measurements": [],
+  "new_numeric_results": [],
+  "adopted_shape_geometry_material_frame_or_criterion": null,
+  "corrected_lift_bill_or_feasibility": null,
+  "code_model_viewer_fixture_or_solver_executed": false
+}
