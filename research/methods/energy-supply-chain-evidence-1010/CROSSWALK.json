@@ -1,0 +1,261 @@
+{
+  "schema": "energy.supply-chain-evidence-map/1",
+  "status": "DOCUMENT_ONLY; demonstrated upstream and replenishment chain UNKNOWN",
+  "source_revision": "94db332d3dc437708d3ed0dfeb6b619c70d9da25",
+  "requirements": [
+    {
+      "id": "published-aircraft-versus-system-scope",
+      "sources": [
+        "docs/VERIFICATION-PLAN.md#what-is-still-missing-entirely",
+        "README.md",
+        "docs/OPEN-QUESTIONS.md#what-would-change-our-minds"
+      ],
+      "existing_boundary": "The verification plan labels the published daily effort/assumed solar comparison as aircraft-only and the tender fleet as deliberately unmodelled. The root README says no aircraft has been built/flown and that an infeasible row establishes no delivery/endurance. Existing effort quotients do not demonstrate upstream energy provision. The verification plan says the tender fleet is named in README, but the pinned current root README contains no tender reference. OPEN-QUESTIONS still names the intended battery tender mechanism and says it is deliberately unmodelled. This source-reference discrepancy is retained, not repaired or treated as a system demonstration.",
+      "prospective_evidence_requirements": [
+        "Source revision/basis and original diagnostic record, precise aircraft-only boundary and intended system claim domain; explicit model-versus-observed status and any changed source-reference provenance"
+      ],
+      "units_and_interface_conventions": [
+        "source/basis identifiers",
+        "original declared effort/solar units retained",
+        "system boundary descriptors"
+      ],
+      "prospective_custodian_role": "Supply-chain scope and source-provenance custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "matched_configuration": null,
+      "operating_state": null,
+      "interface_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "adopted_acceptance_criterion": null,
+      "qualification": "UNKNOWN",
+      "insufficient_or_disconfirming_evidence": "A daily quotient, intended tender story, aircraft model predicate or reference to absent text cannot demonstrate an energy import chain, supply availability, achieved throughput or rescue time."
+    },
+    {
+      "id": "upstream-input-and-production",
+      "sources": [
+        "docs/VERIFICATION-PLAN.md",
+        "docs/OPEN-QUESTIONS.md"
+      ],
+      "existing_boundary": "No demonstrated upstream production or charging plant is provided by the named unmodelled mechanism. Aircraft-level supplied effort and assumed solar do not specify an installed upstream process or its usable output.",
+      "prospective_evidence_requirements": [
+        "Responsible input and production boundaries, actual configuration and initial/final state, carrier identity and complete inclusions/exclusions; original contemporaneous input/output/loss and auxiliary-load observations with units, instrumentation/calibration, source provenance and applicability"
+      ],
+      "units_and_interface_conventions": [
+        "carrier/source identifiers",
+        "source-declared energy/mass/power units",
+        "operating-state and record identifiers"
+      ],
+      "prospective_custodian_role": "Upstream production and boundary-record custodians",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "matched_configuration": null,
+      "operating_state": null,
+      "interface_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "adopted_acceptance_criterion": null,
+      "qualification": "UNKNOWN",
+      "insufficient_or_disconfirming_evidence": "A nominal rating, assumed solar budget or lossless recovery quotient cannot establish usable produced supply, cold readiness, retention or sustained production. No plant, charging method, schedule or capacity is chosen."
+    },
+    {
+      "id": "storage-and-custody",
+      "sources": [
+        "docs/VERIFICATION-PLAN.md",
+        "docs/OPEN-QUESTIONS.md"
+      ],
+      "existing_boundary": "The published recovery caveats distinguish plant rating, tank capacity, cold maintenance, startup and retention evidence. Storage or charged-cell inventory is an interface in an unmodelled chain, not a demonstrated replenishment record.",
+      "prospective_evidence_requirements": [
+        "Storage/article or batch identity, configuration and containment/protection boundary, initial/final usable state, retention/conditioning/auxiliary-load observations and custody event records; losses and unavailable inventory kept explicit with calibration and uncertainty"
+      ],
+      "units_and_interface_conventions": [
+        "batch/article identifiers",
+        "source-declared storage/state/quantity units",
+        "custody event identifiers"
+      ],
+      "prospective_custodian_role": "Storage and inventory-custody evidence custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "matched_configuration": null,
+      "operating_state": null,
+      "interface_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "adopted_acceptance_criterion": null,
+      "qualification": "UNKNOWN",
+      "insufficient_or_disconfirming_evidence": "A nameplate capacity, geometric allowance, charged label or omitted loss cannot establish usable stored supply or retention. No storage size, state-of-charge window or reserve policy is adopted."
+    },
+    {
+      "id": "transport-and-handoff",
+      "sources": [
+        "docs/VERIFICATION-PLAN.md",
+        "docs/OPEN-QUESTIONS.md#what-would-change-our-minds"
+      ],
+      "existing_boundary": "The intended tender mechanism names swapping charged cells but supplies no demonstrated transport/transfer chain. Neither a named vehicle nor mechanical-speed prose establishes a measured handoff.",
+      "prospective_evidence_requirements": [
+        "Carrier and custody identity across upstream/transport/receiving boundaries, actual transport configuration/state, inclusion/exclusion of support inputs, original receipt/dispatch and condition/quantity observations, handling/interface compatibility and unavailable/rejected transfers"
+      ],
+      "units_and_interface_conventions": [
+        "carrier/batch/configuration identifiers",
+        "source-declared input/output/state units",
+        "handoff/receipt identifiers"
+      ],
+      "prospective_custodian_role": "Transport, custody and interface evidence custodians",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "matched_configuration": null,
+      "operating_state": null,
+      "interface_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "adopted_acceptance_criterion": null,
+      "qualification": "UNKNOWN",
+      "insufficient_or_disconfirming_evidence": "A proposed tender, assumed swap or presumed transit time cannot establish a usable delivered carrier, loss boundary or compatible handoff. No route, fleet count, transport design or transfer method is selected."
+    },
+    {
+      "id": "aircraft-transfer-and-replenishment",
+      "sources": [
+        "docs/VERIFICATION-PLAN.md",
+        "README.md",
+        "docs/OPEN-QUESTIONS.md"
+      ],
+      "existing_boundary": "The aircraft-only study does not model a replenishment system. Supplied effort and existing bus/storage diagnostics retain their original domains; they cannot silently become accepted external transfer or reusable mission inventory.",
+      "prospective_evidence_requirements": [
+        "Exact receiving aircraft/configuration and source-carrier/interface identities, actual transfer/input acceptance and initial/final stores, simultaneous auxiliary/conditioning loads and available/unavailable states, rejected/partial transfers and instrument/calibration provenance"
+      ],
+      "units_and_interface_conventions": [
+        "configuration/interface/receipt identifiers",
+        "source-declared usable inventory/input units",
+        "operating-state identifiers"
+      ],
+      "prospective_custodian_role": "Receiving-interface and replenishment evidence custodians",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "matched_configuration": null,
+      "operating_state": null,
+      "interface_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "adopted_acceptance_criterion": null,
+      "qualification": "UNKNOWN",
+      "insufficient_or_disconfirming_evidence": "Delivered nominal energy or cells do not establish accepted usable stores, complete replenishment, compatible interfaces or operational readiness. No charging/transfer hardware, recharge schedule or reserve threshold is chosen."
+    },
+    {
+      "id": "complete-chain-matching",
+      "sources": [
+        "docs/VERIFICATION-PLAN.md",
+        "docs/OPEN-QUESTIONS.md"
+      ],
+      "existing_boundary": "The published sustainment question requires an energy import chain, while no complete-chain observation is supplied. Aircraft-only quotients and separate favourable boundary records cannot be joined without matched configurations, carrier custody and original interface records.",
+      "prospective_evidence_requirements": [
+        "Matched record set across production/storage/transport/transfer/receiving boundaries, identities and responsibility at each handoff, common quantity definitions and original units, operating-state/applicability and interval provenance, losses/auxiliaries/inclusions/exclusions and failed/rejected records"
+      ],
+      "units_and_interface_conventions": [
+        "linked original record/interface IDs",
+        "original quantity units with declared basis",
+        "configuration/custody descriptors"
+      ],
+      "prospective_custodian_role": "Complete-chain evidence and interface-custody custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "matched_configuration": null,
+      "operating_state": null,
+      "interface_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "adopted_acceptance_criterion": null,
+      "qualification": "UNKNOWN",
+      "insufficient_or_disconfirming_evidence": "Unmatched article batches, incompatible quantity bases, omitted support inputs or successful pieces alone cannot demonstrate the whole chain, repeated availability or the published aircraft rate. No sum, energy balance, duty or fleet calculation is made."
+    },
+    {
+      "id": "calibration-uncertainty-and-criteria",
+      "sources": [
+        "docs/VERIFICATION-PLAN.md",
+        "README.md",
+        "docs/OPEN-QUESTIONS.md"
+      ],
+      "existing_boundary": "No physical observation, calibration, uncertainty or adopted system acceptance criterion is provided here. Existing conditional diagnostics and historical claims remain source records, not observed outcomes or an acceptance policy.",
+      "prospective_evidence_requirements": [
+        "Unmodified raw record IDs and instrument/channel definitions, applicable calibration evidence, matched configuration and inclusion boundary, uncertainty and gaps, responsible criterion source/version/domain and claim applicability; custody roles named as prospective and still unassigned"
+      ],
+      "units_and_interface_conventions": [
+        "calibration/record/configuration identifiers",
+        "uncertainty units and convention declared",
+        "criterion source/version descriptors"
+      ],
+      "prospective_custodian_role": "Instrumentation, comparison and criterion-provenance custodians",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "matched_configuration": null,
+      "operating_state": null,
+      "interface_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "adopted_acceptance_criterion": null,
+      "qualification": "UNKNOWN",
+      "insufficient_or_disconfirming_evidence": "Unknown is not zero. A guessed acceptance rule, favourable model row, legacy days-to-hours assertion or missing chain record cannot establish replenishment, economics, flight, rescue, safety or system capability. No criterion, supply choice, numerical threshold or recommendation is adopted."
+    }
+  ],
+  "historical_source_excerpts": [
+    {
+      "path": "docs/VERIFICATION-PLAN.md",
+      "first_line": 266,
+      "last_line": 271,
+      "text": "<!-- solar:daily:start -->\n3. **The energy supply chain.** 275.1 MWh of supplied effort per P-100 per day at the accepted median-leg rate,\n   against 4.96 MWh/day of assumed solar. The tender fleet is named in the README and deliberately never\n   modelled. **Every 24-hour figure in this folder is a claim about the aircraft, not about a\n   system shown to supply it.**\n<!-- solar:daily:end -->"
+    },
+    {
+      "path": "README.md",
+      "first_line": 3,
+      "last_line": 3,
+      "text": "Pink Robotics asks whether a vacuum-lift airship could carry and deliver water under checkable physical assumptions; the public study is at [pinkrobotics.ca](https://pinkrobotics.ca/). No aircraft has been built or flown."
+    },
+    {
+      "path": "README.md",
+      "first_line": 58,
+      "last_line": 58,
+      "text": "   An infeasible row establishes no delivery or endurance."
+    },
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "first_line": 226,
+      "last_line": 226,
+      "text": "**Solar recovery days are lossless energy quotients.** The generated recovery question below uses the current day-average solar budget after hotel load. Those quotients are neither a worst-case time nor a demonstration that a real plant can operate at that average input and retain the ballast. The ground-tank sensitivities show why a storage-loss requirement is needed; they do not prove recovery impossible with every tank."
+    },
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "first_line": 228,
+      "last_line": 230,
+      "text": "**This is what battery tenders are for.** Delivering charged cells collapses the recovery\nfrom days to hours and is the same mechanism that sets the normal cycle rate — the tender\nfleet is not only a throughput story, it is the rescue story."
+    },
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "first_line": 1287,
+      "last_line": 1294,
+      "text": "- **Sustainment.** Every class already runs a per-cycle deficit on these assumptions: solar at\n  45 W/m² plus nitrogen recovery does not cover propulsion, pumping and the cryogenic plant, and\n  `selftest()` asserts that this stays visibly true. The intended answer is battery tender ships\n  swapping charged cells for discharged ones at mechanical speed — named, but deliberately not\n  modelled here. If no plausible energy import chain closes the gap at the cycle rates claimed,\n  the throughput figures are fiction. A related limit, which we would rather state than hide: a\n  hull that runs its storage down may be unable to descend until solar, nitrogen expansion or a\n  swap restores it."
+    }
+  ],
+  "readme_tender_reference": {
+    "needle": "tender",
+    "case_sensitive": false,
+    "matched_source_lines": [],
+    "source_reference_discrepancy": "The verification plan says the tender fleet is named in README, but the pinned current root README contains no tender reference. OPEN-QUESTIONS still names the intended battery tender mechanism and says it is deliberately unmodelled. This source-reference discrepancy is retained, not repaired or treated as a system demonstration.",
+    "qualification": "Static source-reference inspection only; no operational or scientific measurement."
+  },
+  "new_measurements": [],
+  "new_numeric_results": [],
+  "selected_supply": null,
+  "selected_transport_or_charging_design": null,
+  "selected_capacity_or_schedule": null,
+  "selected_reserve_threshold": null,
+  "adopted_acceptance_criterion": null,
+  "physical_action": null,
+  "remote_action": null,
+  "system_qualification_conclusion": null
+}
