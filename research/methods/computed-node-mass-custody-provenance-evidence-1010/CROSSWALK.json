@@ -1,0 +1,619 @@
+{
+  "schema": "computed-node-mass.custody-crosswalk/1",
+  "status": "DOCUMENT_ONLY; actual computation/output and physical article evidence UNKNOWN",
+  "source_revision": "682c4b375f7d67484891df7a551d0da03cedcf11",
+  "source_fragments": [
+    {
+      "path": "ship/model.js",
+      "line": 47,
+      "character_start": 1,
+      "character_end_exclusive": 35,
+      "fragment": "export const NODE_MASS_COMPUTED_KG"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 40,
+      "character_start": 1,
+      "character_end_exclusive": 28,
+      "fragment": "export const NODE_MASS_FRAC"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 41,
+      "character_start": 4,
+      "character_end_exclusive": 102,
+      "fragment": "Joint masses COMPUTED from geometry and assumed print density: tools/gen_nodes.py integrates every"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 42,
+      "character_start": 4,
+      "character_end_exclusive": 90,
+      "fragment": "node from its own signed distance field and writes the total to the geometry manifest."
+    },
+    {
+      "path": "ship/model.js",
+      "line": 43,
+      "character_start": 4,
+      "character_end_exclusive": 88,
+      "fragment": "The browser cannot read that file, so the number is carried here and the parity gate"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 44,
+      "character_start": 4,
+      "character_end_exclusive": 45,
+      "fragment": "holds it to the manifest the Python reads"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 45,
+      "character_start": 34,
+      "character_end_exclusive": 79,
+      "fragment": "NODE_MASS_FRAC survives only for the in-array"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 46,
+      "character_start": 4,
+      "character_end_exclusive": 35,
+      "fragment": "where it is still an assertion."
+    },
+    {
+      "path": "ship/model.js",
+      "line": 701,
+      "character_start": 1,
+      "character_end_exclusive": 29,
+      "fragment": "export function stockBuild()"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 739,
+      "character_start": 3,
+      "character_end_exclusive": 41,
+      "fragment": "const nodesKg = NODE_MASS_COMPUTED_KG;"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 738,
+      "character_start": 6,
+      "character_end_exclusive": 69,
+      "fragment": "reads the figure the Python read from the generator's manifest."
+    },
+    {
+      "path": "ship/model.js",
+      "line": 286,
+      "character_start": 1,
+      "character_end_exclusive": 65,
+      "fragment": "export function totalShell(m, cellSpanM, p = P_ATM, film = true)"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 289,
+      "character_start": 28,
+      "character_end_exclusive": 57,
+      "fragment": "nodes: t.rho * NODE_MASS_FRAC"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 995,
+      "character_start": 1,
+      "character_end_exclusive": 20,
+      "fragment": "def main() -> None:"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1036,
+      "character_start": 5,
+      "character_end_exclusive": 28,
+      "fragment": "ap.add_argument(\"--rho\""
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1036,
+      "character_start": 64,
+      "character_end_exclusive": 83,
+      "fragment": "print density, kg/m"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 696,
+      "character_start": 1,
+      "character_end_exclusive": 23,
+      "fragment": "def mesh_volume(v, t):"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1191,
+      "character_start": 9,
+      "character_end_exclusive": 63,
+      "fragment": "F3 = node_sdf(P, arms, lands_p, prm, role == \"hexHub\","
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1194,
+      "character_start": 9,
+      "character_end_exclusive": 32,
+      "fragment": "v, t = surface_nets(F3,"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1200,
+      "character_start": 9,
+      "character_end_exclusive": 32,
+      "fragment": "vol = mesh_volume(v, t)"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1201,
+      "character_start": 26,
+      "character_end_exclusive": 36,
+      "fragment": "args.rho *"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1202,
+      "character_start": 9,
+      "character_end_exclusive": 19,
+      "fragment": "total += g"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1253,
+      "character_start": 5,
+      "character_end_exclusive": 32,
+      "fragment": "manifest[\"totalNodeMassKg\"]"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1287,
+      "character_start": 26,
+      "character_end_exclusive": 89,
+      "fragment": "measured by integrating each joint's own SDF over the mesh that"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1288,
+      "character_start": 26,
+      "character_end_exclusive": 84,
+      "fragment": "was written \u2014 this retires NODE_MASS_FRAC at article scale"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1289,
+      "character_start": 5,
+      "character_end_exclusive": 68,
+      "fragment": "(out / \"manifest.json\").write_text(json.dumps(manifest, indent="
+    },
+    {
+      "path": "README.md",
+      "line": 3,
+      "character_start": 186,
+      "character_end_exclusive": 222,
+      "fragment": "No aircraft has been built or flown."
+    }
+  ],
+  "source_identity_mappings": [
+    {
+      "source_identity": "computed constant and header attribution",
+      "source_role": "Source header attributes joint masses to geometry and assumed print density, integrating a signed-distance-field-derived mesh and writing a manifest.",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 47,
+          "character_start": 1,
+          "character_end_exclusive": 35,
+          "fragment": "export const NODE_MASS_COMPUTED_KG"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 41,
+          "character_start": 4,
+          "character_end_exclusive": 102,
+          "fragment": "Joint masses COMPUTED from geometry and assumed print density: tools/gen_nodes.py integrates every"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 42,
+          "character_start": 4,
+          "character_end_exclusive": 90,
+          "fragment": "node from its own signed distance field and writes the total to the geometry manifest."
+        }
+      ],
+      "limit": "Computed source representation, not physically weighed hardware, calibrated density or independently verified generation.",
+      "actual_computational_run_or_output_record": null,
+      "actual_physical_article_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "browser mirror and parity source claim",
+      "source_role": "The header says the browser carries a constant and parity holds it to the manifest read by Python. stockBuild consumes NODE_MASS_COMPUTED_KG as its local nodesKg.",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 43,
+          "character_start": 4,
+          "character_end_exclusive": 88,
+          "fragment": "The browser cannot read that file, so the number is carried here and the parity gate"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 44,
+          "character_start": 4,
+          "character_end_exclusive": 45,
+          "fragment": "holds it to the manifest the Python reads"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 701,
+          "character_start": 1,
+          "character_end_exclusive": 29,
+          "fragment": "export function stockBuild()"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 739,
+          "character_start": 3,
+          "character_end_exclusive": 41,
+          "fragment": "const nodesKg = NODE_MASS_COMPUTED_KG;"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 738,
+          "character_start": 6,
+          "character_end_exclusive": 69,
+          "fragment": "reads the figure the Python read from the generator's manifest."
+        }
+      ],
+      "limit": "Source claim only: no manifest looked up or matched, no generator/extraction/parity execution performed for this paper, and no new numerical parity verification asserted.",
+      "actual_computational_run_or_output_record": null,
+      "actual_physical_article_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "residual in-array assertion",
+      "source_role": "NODE_MASS_FRAC remains a separate asserted in-array source input; totalShell is one selected illustrative consumer.",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 40,
+          "character_start": 1,
+          "character_end_exclusive": 28,
+          "fragment": "export const NODE_MASS_FRAC"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 45,
+          "character_start": 34,
+          "character_end_exclusive": 79,
+          "fragment": "NODE_MASS_FRAC survives only for the in-array"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 46,
+          "character_start": 4,
+          "character_end_exclusive": 35,
+          "fragment": "where it is still an assertion."
+        },
+        {
+          "path": "ship/model.js",
+          "line": 286,
+          "character_start": 1,
+          "character_end_exclusive": 65,
+          "fragment": "export function totalShell(m, cellSpanM, p = P_ATM, film = true)"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 289,
+          "character_start": 28,
+          "character_end_exclusive": 57,
+          "fragment": "nodes: t.rho * NODE_MASS_FRAC"
+        }
+      ],
+      "limit": "The source header scopes its survival to in-array rows. This is not a comprehensive consumer inventory or proof of physical article mass; no fraction or source outcome copied.",
+      "actual_computational_run_or_output_record": null,
+      "actual_physical_article_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "generator density argument and extraction context",
+      "source_role": "main declares --rho as print density input; source node_sdf, surface_nets and mesh_volume feed volume with args.rho usage and accumulation.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 995,
+          "character_start": 1,
+          "character_end_exclusive": 20,
+          "fragment": "def main() -> None:"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1036,
+          "character_start": 5,
+          "character_end_exclusive": 28,
+          "fragment": "ap.add_argument(\"--rho\""
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1036,
+          "character_start": 64,
+          "character_end_exclusive": 83,
+          "fragment": "print density, kg/m"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 696,
+          "character_start": 1,
+          "character_end_exclusive": 23,
+          "fragment": "def mesh_volume(v, t):"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1191,
+          "character_start": 9,
+          "character_end_exclusive": 63,
+          "fragment": "F3 = node_sdf(P, arms, lands_p, prm, role == \"hexHub\","
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1194,
+          "character_start": 9,
+          "character_end_exclusive": 32,
+          "fragment": "v, t = surface_nets(F3,"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1200,
+          "character_start": 9,
+          "character_end_exclusive": 32,
+          "fragment": "vol = mesh_volume(v, t)"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1201,
+          "character_start": 26,
+          "character_end_exclusive": 36,
+          "fragment": "args.rho *"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1202,
+          "character_start": 9,
+          "character_end_exclusive": 19,
+          "fragment": "total += g"
+        }
+      ],
+      "limit": "Static identifiers and caller context only; source assertions about integration are not an independent proof of mesh correctness, physical volume or actual print density. No geometry or integration is executed.",
+      "actual_computational_run_or_output_record": null,
+      "actual_physical_article_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "manifest output and computational note",
+      "source_role": "main writes totalNodeMassKg to manifest, retains measured-by-integrating attribution and writes manifest.json.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1253,
+          "character_start": 5,
+          "character_end_exclusive": 32,
+          "fragment": "manifest[\"totalNodeMassKg\"]"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1287,
+          "character_start": 26,
+          "character_end_exclusive": 89,
+          "fragment": "measured by integrating each joint's own SDF over the mesh that"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1288,
+          "character_start": 26,
+          "character_end_exclusive": 84,
+          "fragment": "was written \u2014 this retires NODE_MASS_FRAC at article scale"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1289,
+          "character_start": 5,
+          "character_end_exclusive": 68,
+          "fragment": "(out / \"manifest.json\").write_text(json.dumps(manifest, indent="
+        }
+      ],
+      "limit": "Measured-by-integrating is computational extraction/mesh context, not a scale reading, calibrated material density or current output/source-version match. No fresh output manifest generated or assumed matching.",
+      "actual_computational_run_or_output_record": null,
+      "actual_physical_article_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    }
+  ],
+  "requirements": [
+    {
+      "id": "computational-run-output-and-source-custody",
+      "prospective_record_requirements": [
+        "Exact original computational run/output-manifest/source-version correspondence and unmodified raw custody."
+      ],
+      "insufficient_or_disconfirming_evidence": "Static source fields, mirrored constant and parity claim do not supply a measured current output match.",
+      "proposed_custodian_role": "computational-run-output-and-source-custody record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "computational_run": null,
+      "output_manifest": null,
+      "source_version_correspondence": null,
+      "raw_custody": null,
+      "manufactured_node": null,
+      "article": null,
+      "lot": null,
+      "density_record": null,
+      "print_state": null,
+      "process": null,
+      "scale_calibration": null,
+      "physical_weighing": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "manufactured-node-article-and-lot",
+      "prospective_record_requirements": [
+        "Actual manufactured node/article/lot identities and configuration."
+      ],
+      "insufficient_or_disconfirming_evidence": "Computed geometry or a source label is not a built object, weighed node or inventory.",
+      "proposed_custodian_role": "manufactured-node-article-and-lot record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "computational_run": null,
+      "output_manifest": null,
+      "source_version_correspondence": null,
+      "raw_custody": null,
+      "manufactured_node": null,
+      "article": null,
+      "lot": null,
+      "density_record": null,
+      "print_state": null,
+      "process": null,
+      "scale_calibration": null,
+      "physical_weighing": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "actual-density-printstate-and-process",
+      "prospective_record_requirements": [
+        "Original matched density, print state and process records with responsible custody."
+      ],
+      "insufficient_or_disconfirming_evidence": "Generator print-density argument is an assumption/input, not calibrated actual lot density.",
+      "proposed_custodian_role": "actual-density-printstate-and-process record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "computational_run": null,
+      "output_manifest": null,
+      "source_version_correspondence": null,
+      "raw_custody": null,
+      "manufactured_node": null,
+      "article": null,
+      "lot": null,
+      "density_record": null,
+      "print_state": null,
+      "process": null,
+      "scale_calibration": null,
+      "physical_weighing": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "physical-weighing-and-scale-calibration",
+      "prospective_record_requirements": [
+        "Unmodified physical weighing/raw acquisition and scale calibration records."
+      ],
+      "insufficient_or_disconfirming_evidence": "Measured-by-integrating refers to computation, not a physical weighing record or calibrated scale.",
+      "proposed_custodian_role": "physical-weighing-and-scale-calibration record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "computational_run": null,
+      "output_manifest": null,
+      "source_version_correspondence": null,
+      "raw_custody": null,
+      "manufactured_node": null,
+      "article": null,
+      "lot": null,
+      "density_record": null,
+      "print_state": null,
+      "process": null,
+      "scale_calibration": null,
+      "physical_weighing": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "uncertainty-and-applicability",
+      "prospective_record_requirements": [
+        "Original applicable uncertainty and computational-to-actual domain correspondence."
+      ],
+      "insufficient_or_disconfirming_evidence": "No new uncertainty, sensitivity, geometry/mass comparison or physical validation is supplied.",
+      "proposed_custodian_role": "uncertainty-and-applicability record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "computational_run": null,
+      "output_manifest": null,
+      "source_version_correspondence": null,
+      "raw_custody": null,
+      "manufactured_node": null,
+      "article": null,
+      "lot": null,
+      "density_record": null,
+      "print_state": null,
+      "process": null,
+      "scale_calibration": null,
+      "physical_weighing": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "responsible-owner-criterion-and-adoption",
+      "prospective_record_requirements": [
+        "Actual responsible owner and adoption source/version/domain/criterion when supplied."
+      ],
+      "insufficient_or_disconfirming_evidence": "Custodian roles are proposals, UNASSIGNED; no density/material/geometry/inventory/criterion/design or campaign/procedure chosen.",
+      "proposed_custodian_role": "responsible-owner-criterion-and-adoption record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "computational_run": null,
+      "output_manifest": null,
+      "source_version_correspondence": null,
+      "raw_custody": null,
+      "manufactured_node": null,
+      "article": null,
+      "lot": null,
+      "density_record": null,
+      "print_state": null,
+      "process": null,
+      "scale_calibration": null,
+      "physical_weighing": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    }
+  ],
+  "separate_maps": [
+    {
+      "unit": "robotics-material-density-input-custody-provenance-evidence-thread-1010",
+      "candidate": "199a1320a14292d251c262b73db50e8f2a6db588",
+      "output_dir": "research/methods/material-density-input-custody-provenance-evidence-1010",
+      "status": "SCOPED_STOP_UNRESOLVED_MEDIUM_FINDING_SEVEN_COLLECTED",
+      "relation": "Separate recorded provenance status; no numerical outcome, applicability or landing inferred."
+    },
+    {
+      "unit": "robotics-whole-hull-fitting-manifest-provenance-evidence-thread-1010",
+      "candidate": "7f8a3b9b5b912d2759a841feb6ae7c32667c92d1",
+      "output_dir": "research/methods/whole-hull-fitting-manifest-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance status; no numerical outcome, applicability or landing inferred."
+    }
+  ],
+  "selected_density_material_geometry_inventory_criterion_design_or_procedure": null,
+  "new_numeric_results": [],
+  "new_measurements": [],
+  "models_equations_or_generators_executed": false
+}
