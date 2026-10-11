@@ -1,0 +1,677 @@
+{
+  "schema": "assembly-coordinate-frame.provenance-crosswalk/1",
+  "status": "DOCUMENT_ONLY; actual computational output/frame and installed assembly metrology UNKNOWN",
+  "source_revision": "682c4b375f7d67484891df7a551d0da03cedcf11",
+  "source_fragments": [
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 995,
+      "character_start": 1,
+      "character_end_exclusive": 20,
+      "fragment": "def main() -> None:",
+      "fragment_sha256": "3759fd2adcb099cb3cc1f2021360fcf3b697aa85dc8c087696c52e44de3862d8"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1070,
+      "character_start": 5,
+      "character_end_exclusive": 13,
+      "fragment": "pos_of =",
+      "fragment_sha256": "69d551272917fa8949322e7fa2a0ff306997a5e08bc1fde8bd363ba7bbd93c33"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1166,
+      "character_start": 12,
+      "character_end_exclusive": 24,
+      "fragment": "asm_v, asm_t",
+      "fragment_sha256": "2730f0a110dcbae3998ed4ef746335bfe91193bce219674e82c9d019e588064c"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1187,
+      "character_start": 9,
+      "character_end_exclusive": 25,
+      "fragment": "R = print_frame(",
+      "fragment_sha256": "a28c1e4e1effc2466080f4afb19e0cf92f0a7ada961ffe305298ae3fe177e5e2"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1194,
+      "character_start": 9,
+      "character_end_exclusive": 29,
+      "fragment": "v, t = surface_nets(",
+      "fragment_sha256": "a697b09798e526e399892799c38dd371101ce0aab31e95b1d7d046416b5e5ceb"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1208,
+      "character_start": 9,
+      "character_end_exclusive": 36,
+      "fragment": "write_stl(out / name, v, t)",
+      "fragment_sha256": "fa2f284ac8dc46faf9070459bbea3234499fd52f3e55a93b3828c6b76e68e74b"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1209,
+      "character_start": 9,
+      "character_end_exclusive": 26,
+      "fragment": "if args.assembly:",
+      "fragment_sha256": "cf1ac02cc195b7fda371b8203919beb375deede0be8298b15e3ad888a9274d2a"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1210,
+      "character_start": 15,
+      "character_end_exclusive": 90,
+      "fragment": "`off`, not `base`: this used to rebind the slot start to the running vertex",
+      "fragment_sha256": "3fdbb8b56193ff05e61f9ee1dcd94bed234c3c901236434d4fef844ea9d09ed5"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1212,
+      "character_start": 15,
+      "character_end_exclusive": 77,
+      "fragment": "instead. The STLs were fine and nothing downstream could tell.",
+      "fragment_sha256": "8f7b5567f391dfeb179fdd74748069d4e3908d27b833e10db5db3c78abd070e2"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1213,
+      "character_start": 13,
+      "character_end_exclusive": 18,
+      "fragment": "off =",
+      "fragment_sha256": "6a930e1ac684270e466b4356120b28e52bebfa01d8803129f67566bff85f019a"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1214,
+      "character_start": 13,
+      "character_end_exclusive": 20,
+      "fragment": "world =",
+      "fragment_sha256": "fd349f5a687baaa9555275a02c3d269236207269c1acbe60c54a1b4a903ca490"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1214,
+      "character_start": 29,
+      "character_end_exclusive": 38,
+      "fragment": "pos_of[u]",
+      "fragment_sha256": "009e538f9a54025986a21b3dbc2fd59050a60bb8780912b70eecffdca84f3e8a"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1214,
+      "character_start": 61,
+      "character_end_exclusive": 78,
+      "fragment": "R is orthonormal:",
+      "fragment_sha256": "cd19a726f2eb5faf9960b3da600fcd3e99c34a9dd206929c096d0036b0a59d96"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1215,
+      "character_start": 13,
+      "character_end_exclusive": 32,
+      "fragment": "asm_v.append(world)",
+      "fragment_sha256": "14fc9c65c85b7b4ab530eca60bff6a5adc9a6b56fc69ff95deb9404d083f007d"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1216,
+      "character_start": 13,
+      "character_end_exclusive": 26,
+      "fragment": "asm_t.append(",
+      "fragment_sha256": "7265ae1e279d2853adc189208f388586429d2e9cd34eacdb45a7f6c50a79cb4c"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1290,
+      "character_start": 5,
+      "character_end_exclusive": 32,
+      "fragment": "if args.assembly and asm_v:",
+      "fragment_sha256": "e70b50b7c89e062cb18638719cb470d5a0d8de006da6ea73caeed07267b71f53"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1291,
+      "character_start": 9,
+      "character_end_exclusive": 39,
+      "fragment": "write_stl(out / \"article.stl\",",
+      "fragment_sha256": "dc94de7a99e194e05de8481377a9045ec7bf936af0d6dc02f83d73eb3b6e1453"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1291,
+      "character_start": 40,
+      "character_end_exclusive": 56,
+      "fragment": "np.vstack(asm_v)",
+      "fragment_sha256": "1903e58f23c0c6081b784db50c7f90c97d181f053b3ebce3c356103ecc7b3b05"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1291,
+      "character_start": 58,
+      "character_end_exclusive": 74,
+      "fragment": "np.vstack(asm_t)",
+      "fragment_sha256": "8695a90b5a92e58b03554e14ed0c47d2f4b7f721c303e686f8cdc53ef29a69e4"
+    },
+    {
+      "path": "README.md",
+      "line": 3,
+      "character_start": 186,
+      "character_end_exclusive": 222,
+      "fragment": "No aircraft has been built or flown.",
+      "fragment_sha256": "bd88446d4305c34307c2acb2bc020e0441e17382f095d6be3beee1076eabdbb9"
+    },
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "line": 831,
+      "character_start": 40,
+      "character_end_exclusive": 59,
+      "fragment": "boundary unchecked,",
+      "fragment_sha256": "102282e7f96e82e3a83cf3e3ea45f0d3b535386100dafd647d37357682dbe2d6"
+    }
+  ],
+  "hashed_lexical_contexts": [
+    {
+      "path": "tools/gen_nodes.py",
+      "identity": "main position namespace",
+      "line_start": 1064,
+      "line_end_inclusive": 1072,
+      "context_sha256": "cfc02c2a7676d7e5dc27f5aee2a678c1cdd3533765a5030cd761e38318e7be6b",
+      "context_bytes": 643,
+      "limit": "Hash only; coordinate/matrix/count/dimension contents not reproduced or evaluated."
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "identity": "main extraction namespace",
+      "line_start": 1166,
+      "line_end_inclusive": 1194,
+      "context_sha256": "c2c06b8fae0a69f8e7a54569075433d1610bb6c26cadd142325cf5b731231835",
+      "context_bytes": 1708,
+      "limit": "Hash only; coordinate/matrix/count/dimension contents not reproduced or evaluated."
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "identity": "main optional assembly namespace",
+      "line_start": 1208,
+      "line_end_inclusive": 1216,
+      "context_sha256": "0da1211016c8bd9965d2e5e51fd6c8e1ab5e0da8a4aa351630acb713877b7ecb",
+      "context_bytes": 499,
+      "limit": "Hash only; coordinate/matrix/count/dimension contents not reproduced or evaluated."
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "identity": "main assembled output namespace",
+      "line_start": 1290,
+      "line_end_inclusive": 1293,
+      "context_sha256": "421febe14592c623cb8e3607dac1cdde982647cb54ba242af946dbe15e01e9ba",
+      "context_bytes": 256,
+      "limit": "Hash only; coordinate/matrix/count/dimension contents not reproduced or evaluated."
+    }
+  ],
+  "source_identity_mappings": [
+    {
+      "source_identity": "selected main coordinate and extraction namespace",
+      "source_role": "main owns selected pos_of, R, v and t identifiers; the selected declarations/calls locate their source contexts.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 995,
+          "character_start": 1,
+          "character_end_exclusive": 20,
+          "fragment": "def main() -> None:",
+          "fragment_sha256": "3759fd2adcb099cb3cc1f2021360fcf3b697aa85dc8c087696c52e44de3862d8"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1070,
+          "character_start": 5,
+          "character_end_exclusive": 13,
+          "fragment": "pos_of =",
+          "fragment_sha256": "69d551272917fa8949322e7fa2a0ff306997a5e08bc1fde8bd363ba7bbd93c33"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1187,
+          "character_start": 9,
+          "character_end_exclusive": 25,
+          "fragment": "R = print_frame(",
+          "fragment_sha256": "a28c1e4e1effc2466080f4afb19e0cf92f0a7ada961ffe305298ae3fe177e5e2"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1194,
+          "character_start": 9,
+          "character_end_exclusive": 29,
+          "fragment": "v, t = surface_nets(",
+          "fragment_sha256": "a697b09798e526e399892799c38dd371101ce0aab31e95b1d7d046416b5e5ceb"
+        }
+      ],
+      "limit": "Identifier/caller identity only; no frame choice, coordinate/vector/matrix value, transform formula reconstruction, datum metrology or comprehensive variable-use inventory.",
+      "actual_computational_run_output_frame_record": null,
+      "actual_installed_assembly_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "per-node versus optional assembly output",
+      "source_role": "The selected per-node writer names v and t. A separate args.assembly branch collects optional assembled buffers.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1208,
+          "character_start": 9,
+          "character_end_exclusive": 36,
+          "fragment": "write_stl(out / name, v, t)",
+          "fragment_sha256": "fa2f284ac8dc46faf9070459bbea3234499fd52f3e55a93b3828c6b76e68e74b"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1209,
+          "character_start": 9,
+          "character_end_exclusive": 26,
+          "fragment": "if args.assembly:",
+          "fragment_sha256": "cf1ac02cc195b7fda371b8203919beb375deede0be8298b15e3ad888a9274d2a"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1166,
+          "character_start": 12,
+          "character_end_exclusive": 24,
+          "fragment": "asm_v, asm_t",
+          "fragment_sha256": "2730f0a110dcbae3998ed4ef746335bfe91193bce219674e82c9d019e588064c"
+        }
+      ],
+      "limit": "Output path/source identities only; no actual invocation, per-node/assembled output or manufacturing article acquired or regenerated.",
+      "actual_computational_run_output_frame_record": null,
+      "actual_installed_assembly_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "selected world and assembly buffers",
+      "source_role": "The selected world assignment has a pos_of[u] consumer, and the assembly branch appends world into asm_v and uses asm_t.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1214,
+          "character_start": 13,
+          "character_end_exclusive": 20,
+          "fragment": "world =",
+          "fragment_sha256": "fd349f5a687baaa9555275a02c3d269236207269c1acbe60c54a1b4a903ca490"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1214,
+          "character_start": 29,
+          "character_end_exclusive": 38,
+          "fragment": "pos_of[u]",
+          "fragment_sha256": "009e538f9a54025986a21b3dbc2fd59050a60bb8780912b70eecffdca84f3e8a"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1215,
+          "character_start": 13,
+          "character_end_exclusive": 32,
+          "fragment": "asm_v.append(world)",
+          "fragment_sha256": "14fc9c65c85b7b4ab530eca60bff6a5adc9a6b56fc69ff95deb9404d083f007d"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1216,
+          "character_start": 13,
+          "character_end_exclusive": 26,
+          "fragment": "asm_t.append(",
+          "fragment_sha256": "7265ae1e279d2853adc189208f388586429d2e9cd34eacdb45a7f6c50a79cb4c"
+        }
+      ],
+      "limit": "No transformation formula, triangle offset algorithm, counts, coordinates or correctness claim reproduced/evaluated. Same spelling elsewhere does not establish the same lexical binding.",
+      "actual_computational_run_output_frame_record": null,
+      "actual_installed_assembly_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "orthonormal source claim",
+      "source_role": "The selected source comment calls R orthonormal.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1214,
+          "character_start": 61,
+          "character_end_exclusive": 78,
+          "fragment": "R is orthonormal:",
+          "fragment_sha256": "cd19a726f2eb5faf9960b3da600fcd3e99c34a9dd206929c096d0036b0a59d96"
+        }
+      ],
+      "limit": "Attributed source comment only, not newly proved transform correctness, inverse relation, numerical matrix, physical datum alignment or qualified assembly geometry.",
+      "actual_computational_run_output_frame_record": null,
+      "actual_installed_assembly_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "historical offset correction attribution",
+      "source_role": "The source comment describes an off/base rebinding correction and its historical manifest attribution.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1210,
+          "character_start": 15,
+          "character_end_exclusive": 90,
+          "fragment": "`off`, not `base`: this used to rebind the slot start to the running vertex",
+          "fragment_sha256": "3fdbb8b56193ff05e61f9ee1dcd94bed234c3c901236434d4fef844ea9d09ed5"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1212,
+          "character_start": 15,
+          "character_end_exclusive": 77,
+          "fragment": "instead. The STLs were fine and nothing downstream could tell.",
+          "fragment_sha256": "8f7b5567f391dfeb179fdd74748069d4e3908d27b833e10db5db3c78abd070e2"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1213,
+          "character_start": 13,
+          "character_end_exclusive": 18,
+          "fragment": "off =",
+          "fragment_sha256": "6a930e1ac684270e466b4356120b28e52bebfa01d8803129f67566bff85f019a"
+        }
+      ],
+      "limit": "Historical source framing only; no reconstructed fix, remeasured bug, numerical outcome, current independent correctness or actual physical fit established.",
+      "actual_computational_run_output_frame_record": null,
+      "actual_installed_assembly_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "selected assembled output identity",
+      "source_role": "The separate guarded article.stl writer references stacked asm_v and asm_t.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1290,
+          "character_start": 5,
+          "character_end_exclusive": 32,
+          "fragment": "if args.assembly and asm_v:",
+          "fragment_sha256": "e70b50b7c89e062cb18638719cb470d5a0d8de006da6ea73caeed07267b71f53"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1291,
+          "character_start": 9,
+          "character_end_exclusive": 39,
+          "fragment": "write_stl(out / \"article.stl\",",
+          "fragment_sha256": "dc94de7a99e194e05de8481377a9045ec7bf936af0d6dc02f83d73eb3b6e1453"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1291,
+          "character_start": 40,
+          "character_end_exclusive": 56,
+          "fragment": "np.vstack(asm_v)",
+          "fragment_sha256": "1903e58f23c0c6081b784db50c7f90c97d181f053b3ebce3c356103ecc7b3b05"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1291,
+          "character_start": 58,
+          "character_end_exclusive": 74,
+          "fragment": "np.vstack(asm_t)",
+          "fragment_sha256": "8695a90b5a92e58b03554e14ed0c47d2f4b7f721c303e686f8cdc53ef29a69e4"
+        }
+      ],
+      "limit": "Selected guarded output identity only; no output bytes, run parameters, installed-coordinate/referenceframe, acceptance or actual article supplied.",
+      "actual_computational_run_output_frame_record": null,
+      "actual_installed_assembly_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    }
+  ],
+  "requirements": [
+    {
+      "id": "computational-invocation-and-source-version",
+      "prospective_record_requirements": [
+        "Original invocation/source-version/parameters and accountable custody records."
+      ],
+      "insufficient_or_disconfirming_evidence": "Source names and optional branch identity cannot identify an actual computational run.",
+      "proposed_custodian_role": "computational-invocation-and-source-version record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "computational_invocation": null,
+      "source_version_record": null,
+      "parameters_record": null,
+      "per_node_output": null,
+      "assembly_output": null,
+      "frame_transform_custody": null,
+      "manufactured_article": null,
+      "node_serial": null,
+      "member_serial": null,
+      "configuration": null,
+      "installed_coordinate_referenceframe": null,
+      "measurement_datum": null,
+      "instrument": null,
+      "raw_custody": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "per-node-and-assembly-output-correspondence",
+      "prospective_record_requirements": [
+        "Original per-node/assembled output and frame-transform custody tied to that run."
+      ],
+      "insufficient_or_disconfirming_evidence": "Source output paths are not generated or acquired output evidence; no equality or transformed correspondence assumed.",
+      "proposed_custodian_role": "per-node-and-assembly-output-correspondence record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "computational_invocation": null,
+      "source_version_record": null,
+      "parameters_record": null,
+      "per_node_output": null,
+      "assembly_output": null,
+      "frame_transform_custody": null,
+      "manufactured_article": null,
+      "node_serial": null,
+      "member_serial": null,
+      "configuration": null,
+      "installed_coordinate_referenceframe": null,
+      "measurement_datum": null,
+      "instrument": null,
+      "raw_custody": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "manufactured-article-serial-and-configuration",
+      "prospective_record_requirements": [
+        "Matched actual manufactured article/node/member serial/configuration records."
+      ],
+      "insufficient_or_disconfirming_evidence": "Software coordinates and source declarations do not supply installed geometry or joint fit.",
+      "proposed_custodian_role": "manufactured-article-serial-and-configuration record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "computational_invocation": null,
+      "source_version_record": null,
+      "parameters_record": null,
+      "per_node_output": null,
+      "assembly_output": null,
+      "frame_transform_custody": null,
+      "manufactured_article": null,
+      "node_serial": null,
+      "member_serial": null,
+      "configuration": null,
+      "installed_coordinate_referenceframe": null,
+      "measurement_datum": null,
+      "instrument": null,
+      "raw_custody": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "installed-referenceframe-datum-and-instrument",
+      "prospective_record_requirements": [
+        "Actual installed-coordinate referenceframe/datum/instrument/raw measurement custody."
+      ],
+      "insufficient_or_disconfirming_evidence": "No source frame is adopted as a physical datum; no coordinate or metrology result is supplied.",
+      "proposed_custodian_role": "installed-referenceframe-datum-and-instrument record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "computational_invocation": null,
+      "source_version_record": null,
+      "parameters_record": null,
+      "per_node_output": null,
+      "assembly_output": null,
+      "frame_transform_custody": null,
+      "manufactured_article": null,
+      "node_serial": null,
+      "member_serial": null,
+      "configuration": null,
+      "installed_coordinate_referenceframe": null,
+      "measurement_datum": null,
+      "instrument": null,
+      "raw_custody": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "calibration-uncertainty-and-applicability",
+      "prospective_record_requirements": [
+        "Applicable original calibration/uncertainty and source-to-article domain correspondence."
+      ],
+      "insufficient_or_disconfirming_evidence": "No numerical uncertainty, transform comparison, correctness proof or physical campaign is supplied.",
+      "proposed_custodian_role": "calibration-uncertainty-and-applicability record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "computational_invocation": null,
+      "source_version_record": null,
+      "parameters_record": null,
+      "per_node_output": null,
+      "assembly_output": null,
+      "frame_transform_custody": null,
+      "manufactured_article": null,
+      "node_serial": null,
+      "member_serial": null,
+      "configuration": null,
+      "installed_coordinate_referenceframe": null,
+      "measurement_datum": null,
+      "instrument": null,
+      "raw_custody": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "responsible-owner-criterion-and-adoption",
+      "prospective_record_requirements": [
+        "Actual responsible owner and adopted source/version/domain/criterion record when supplied."
+      ],
+      "insufficient_or_disconfirming_evidence": "Custodians UNASSIGNED; no referenceframe/geometry/assembly design or manufacturing/operating/test/campaign procedure/criterion selected.",
+      "proposed_custodian_role": "responsible-owner-criterion-and-adoption record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "computational_invocation": null,
+      "source_version_record": null,
+      "parameters_record": null,
+      "per_node_output": null,
+      "assembly_output": null,
+      "frame_transform_custody": null,
+      "manufactured_article": null,
+      "node_serial": null,
+      "member_serial": null,
+      "configuration": null,
+      "installed_coordinate_referenceframe": null,
+      "measurement_datum": null,
+      "instrument": null,
+      "raw_custody": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    }
+  ],
+  "separate_maps": [
+    {
+      "unit": "robotics-whole-hull-fitting-manifest-provenance-evidence-thread-1010",
+      "candidate": "7f8a3b9b5b912d2759a841feb6ae7c32667c92d1",
+      "output_dir": "research/methods/whole-hull-fitting-manifest-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical result, scientific acceptance, applicability, signature or landing imported."
+    },
+    {
+      "unit": "robotics-member-kind-socket-dimension-provenance-evidence-thread-1010",
+      "candidate": "e19c8d02f4c093ab500c58c480e57fb9e73bc550",
+      "output_dir": "research/methods/member-kind-socket-dimension-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical result, scientific acceptance, applicability, signature or landing imported."
+    },
+    {
+      "unit": "robotics-computed-node-mass-custody-provenance-evidence-thread-1010",
+      "candidate": "1f939c39ce0fc1632f76dab0d9e694a691f32f42",
+      "output_dir": "research/methods/computed-node-mass-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical result, scientific acceptance, applicability, signature or landing imported."
+    },
+    {
+      "unit": "robotics-computed-printability-output-provenance-evidence-thread-1010",
+      "candidate": "04cbb3d1217ce4c438232adf95deec8c57f379d9",
+      "output_dir": "research/methods/computed-printability-output-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical result, scientific acceptance, applicability, signature or landing imported."
+    },
+    {
+      "unit": "robotics-computed-mesh-closure-provenance-evidence-thread-1010",
+      "candidate": "c23772d8f16c6628b0f24b0c236195a44d3aa0f4",
+      "output_dir": "research/methods/computed-mesh-closure-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical result, scientific acceptance, applicability, signature or landing imported."
+    },
+    {
+      "unit": "robotics-q13-water-drafting-availability-evidence-1010",
+      "candidate": "82f0c88e73600632db9ea9ebd5e32a61659931c2",
+      "output_dir": "research/open-questions/q13-drafting-availability-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical result, scientific acceptance, applicability, signature or landing imported."
+    }
+  ],
+  "separate_boundaries": [
+    {
+      "identity": "Q16 sim/3d interface",
+      "source_locator": {
+        "path": "docs/OPEN-QUESTIONS.md",
+        "line": 831,
+        "character_start": 40,
+        "character_end_exclusive": 59,
+        "fragment": "boundary unchecked,",
+        "fragment_sha256": "102282e7f96e82e3a83cf3e3ea45f0d3b535386100dafd647d37357682dbe2d6"
+      },
+      "limit": "Distinct existing interface question; no sim-geometry analysis, full build-path contract, numeric values or model outcomes repeated."
+    }
+  ],
+  "selected_referenceframe_geometry_assembly_design_or_procedure_or_criterion": null,
+  "new_numeric_results": [],
+  "new_measurements": [],
+  "models_equations_or_generators_executed": false
+}
