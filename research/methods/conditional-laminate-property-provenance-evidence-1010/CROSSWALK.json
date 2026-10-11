@@ -1,0 +1,471 @@
+{
+  "schema": "conditional-laminate.property-provenance-evidence-map/1",
+  "status": "DOCUMENT_ONLY; conditional arithmetic preserved; actual measured member-property/adoption UNKNOWN",
+  "source_revision": "94db332d3dc437708d3ed0dfeb6b619c70d9da25",
+  "source_fragments": [
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "line": 989,
+      "character_start": 1,
+      "character_end_exclusive": 47,
+      "fragment": "### Conditional laminate-stiffness sensitivity"
+    },
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "line": 991,
+      "character_start": 1,
+      "character_end_exclusive": 133,
+      "fragment": "What measured axial, hoop and shear properties, layup, coupling terms and compression allowables should describe the discrete tubes?"
+    },
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "line": 992,
+      "character_start": 1,
+      "character_end_exclusive": 48,
+      "fragment": "The code’s co-critical effective-modulus factor"
+    },
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "line": 992,
+      "character_start": 96,
+      "character_end_exclusive": 119,
+      "fragment": "fixed-tube idealisation"
+    },
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "line": 994,
+      "character_start": 1,
+      "character_end_exclusive": 100,
+      "fragment": "The executed sensitivity also uses consistent axial and global moduli under that same idealisation."
+    },
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "line": 995,
+      "character_start": 1,
+      "character_end_exclusive": 90,
+      "fragment": "**This is conditional arithmetic, not measured laminate data or a corrected prediction.**"
+    },
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "line": 1002,
+      "character_start": 1,
+      "character_end_exclusive": 114,
+      "fragment": "Which laminate measurements would settle this difference before those moduli are used in a physical member check?"
+    },
+    {
+      "path": "docs/audit/26-10-02-stiffness-sensitivity.json",
+      "line": 2,
+      "character_start": 14,
+      "character_end_exclusive": 79,
+      "fragment": "recorded conditional sensitivity, not a replacement for the model"
+    },
+    {
+      "path": "docs/audit/26-10-02-stiffness-sensitivity.json",
+      "line": 3,
+      "character_start": 85,
+      "character_end_exclusive": 117,
+      "fragment": "no person checked the arithmetic"
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 4,
+      "character_start": 1,
+      "character_end_exclusive": 105,
+      "fragment": "The checks use smeared areas at full radius and do not resolve station lengths, sections or connections."
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 76,
+      "character_start": 27,
+      "character_end_exclusive": 93,
+      "fragment": "inner-ring, fan, theta and junction display sections are schematic"
+    },
+    {
+      "path": "README.md",
+      "line": 3,
+      "character_start": 186,
+      "character_end_exclusive": 222,
+      "fragment": "No aircraft has been built or flown."
+    }
+  ],
+  "property_question_mappings": [
+    {
+      "declared_question_identity": "axial property",
+      "source_locator": {
+        "path": "docs/OPEN-QUESTIONS.md",
+        "line": 991,
+        "character_start": 15,
+        "character_end_exclusive": 47,
+        "fragment": "axial, hoop and shear properties"
+      },
+      "prospective_record_requirement": "Original discrete-member/specimen axial-property definition, orientation, material/state/configuration, applicable raw record/calibration/uncertainty; no property estimate.",
+      "actual_property_or_allowable": null,
+      "member_specimen_record": null,
+      "configuration_material_state": null,
+      "calibration": null,
+      "uncertainty": null,
+      "assigned_owner": null,
+      "adopted_criterion": null
+    },
+    {
+      "declared_question_identity": "hoop property",
+      "source_locator": {
+        "path": "docs/OPEN-QUESTIONS.md",
+        "line": 991,
+        "character_start": 15,
+        "character_end_exclusive": 47,
+        "fragment": "axial, hoop and shear properties"
+      },
+      "prospective_record_requirement": "Original hoop-property definition and orientation with applicable member/specimen and source state/custody; no selected hoop modulus.",
+      "actual_property_or_allowable": null,
+      "member_specimen_record": null,
+      "configuration_material_state": null,
+      "calibration": null,
+      "uncertainty": null,
+      "assigned_owner": null,
+      "adopted_criterion": null
+    },
+    {
+      "declared_question_identity": "shear property",
+      "source_locator": {
+        "path": "docs/OPEN-QUESTIONS.md",
+        "line": 991,
+        "character_start": 15,
+        "character_end_exclusive": 47,
+        "fragment": "axial, hoop and shear properties"
+      },
+      "prospective_record_requirement": "Original shear-property definition/reference and applicable member/specimen record; no isotropic or effective-factor substitution without source provenance.",
+      "actual_property_or_allowable": null,
+      "member_specimen_record": null,
+      "configuration_material_state": null,
+      "calibration": null,
+      "uncertainty": null,
+      "assigned_owner": null,
+      "adopted_criterion": null
+    },
+    {
+      "declared_question_identity": "layup",
+      "source_locator": {
+        "path": "docs/OPEN-QUESTIONS.md",
+        "line": 991,
+        "character_start": 49,
+        "character_end_exclusive": 70,
+        "fragment": "layup, coupling terms"
+      },
+      "prospective_record_requirement": "Original layup/configuration and specimen-to-member applicability, if supplied; no layup or material chosen.",
+      "actual_property_or_allowable": null,
+      "member_specimen_record": null,
+      "configuration_material_state": null,
+      "calibration": null,
+      "uncertainty": null,
+      "assigned_owner": null,
+      "adopted_criterion": null
+    },
+    {
+      "declared_question_identity": "coupling terms",
+      "source_locator": {
+        "path": "docs/OPEN-QUESTIONS.md",
+        "line": 991,
+        "character_start": 56,
+        "character_end_exclusive": 97,
+        "fragment": "coupling terms and compression allowables"
+      },
+      "prospective_record_requirement": "Original declared coupling property identities and conventions plus raw applicable source evidence; no invented coupling matrix or assumed absent terms.",
+      "actual_property_or_allowable": null,
+      "member_specimen_record": null,
+      "configuration_material_state": null,
+      "calibration": null,
+      "uncertainty": null,
+      "assigned_owner": null,
+      "adopted_criterion": null
+    },
+    {
+      "declared_question_identity": "compression allowables",
+      "source_locator": {
+        "path": "docs/OPEN-QUESTIONS.md",
+        "line": 991,
+        "character_start": 75,
+        "character_end_exclusive": 133,
+        "fragment": "compression allowables should describe the discrete tubes?"
+      },
+      "prospective_record_requirement": "Original allowable definition, material/state/source and adoption applicability only when supplied; no allowable or acceptance policy adopted.",
+      "actual_property_or_allowable": null,
+      "member_specimen_record": null,
+      "configuration_material_state": null,
+      "calibration": null,
+      "uncertainty": null,
+      "assigned_owner": null,
+      "adopted_criterion": null
+    }
+  ],
+  "conditional_source_result_identities_without_values": [
+    {
+      "source": {
+        "path": "docs/audit/26-10-02-stiffness-sensitivity.json",
+        "json_pointer": "/coCriticalFactor"
+      },
+      "source_role": "Source co-critical effective-factor result identity only; no numeric value copied.",
+      "value_copied": false,
+      "actual_applicable_property_or_comparison": null
+    },
+    {
+      "source": {
+        "path": "docs/audit/26-10-02-stiffness-sensitivity.json",
+        "json_pointer": "/fixedTubeFactor"
+      },
+      "source_role": "Source fixed-tube fibre-only idealisation result identity only; not a measured discrete laminate property.",
+      "value_copied": false,
+      "actual_applicable_property_or_comparison": null
+    },
+    {
+      "source": {
+        "path": "docs/audit/26-10-02-stiffness-sensitivity.json",
+        "json_pointer": "/capacityRatio"
+      },
+      "source_role": "Conditional local-capacity comparison result identity only; no ratio copied or recomputed.",
+      "value_copied": false,
+      "actual_applicable_property_or_comparison": null
+    },
+    {
+      "source": {
+        "path": "docs/audit/26-10-02-stiffness-sensitivity.json",
+        "json_pointer": "/byBasis/record"
+      },
+      "source_role": "Named record comparison source branch, not an adopted material or allowable.",
+      "value_copied": false,
+      "actual_applicable_property_or_comparison": null
+    },
+    {
+      "source": {
+        "path": "docs/audit/26-10-02-stiffness-sensitivity.json",
+        "json_pointer": "/byBasis/favourable"
+      },
+      "source_role": "Named favourable comparison source branch, not an accepted physical result.",
+      "value_copied": false,
+      "actual_applicable_property_or_comparison": null
+    }
+  ],
+  "original_execution_boundary": {
+    "path": "docs/audit/26-10-02-stiffness-sensitivity.json",
+    "status_pointer": "/status",
+    "execution_pointer": "/execution",
+    "published_status": "recorded conditional sensitivity, not a replacement for the model",
+    "limitation": "Recorded computational rerun in the original source, with no person checking arithmetic. This paper reads source only and does not verify or rerun that calculation."
+  },
+  "requirements": [
+    {
+      "id": "conditional-idealisation-and-execution-custody",
+      "existing_boundary": "Published co-critical versus fixed-tube fibre-only comparison is conditional arithmetic, not measured laminate data or corrected prediction.",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "docs/audit/26-10-02-stiffness-sensitivity.json"
+      ],
+      "prospective_record_requirements": [
+        "Exact source/revision, original status/execution custody, conditional assumptions and limits; distinguish recorded computational execution from new physical evidence"
+      ],
+      "insufficient_or_disconfirming_evidence": "Original record says it is not a replacement for the model and no person checked the arithmetic. No equations rerun and no new verification of source arithmetic asserted.",
+      "proposed_custodian_role": "conditional-idealisation-and-execution-custody material-property provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "actual_property_record": null,
+      "specimen_record": null,
+      "member_record": null,
+      "configuration_revision": null,
+      "material_state": null,
+      "layup_record": null,
+      "coupling_record": null,
+      "compression_allowable": null,
+      "raw_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "matched_comparison": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "axial-hoop-shear-property-definitions",
+      "existing_boundary": "Source question separately names axial, hoop and shear properties for discrete tubes.",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md"
+      ],
+      "prospective_record_requirements": [
+        "Original property definitions/units/orientation/reference, material/state and matched member/specimen identities with missing or incomparable records visible"
+      ],
+      "insufficient_or_disconfirming_evidence": "A scalar effective factor or stipulated fibre-only idealisation cannot supply all measured discrete-member properties; no modulus/property estimate or substitution selected.",
+      "proposed_custodian_role": "axial-hoop-shear-property-definitions material-property provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "actual_property_record": null,
+      "specimen_record": null,
+      "member_record": null,
+      "configuration_revision": null,
+      "material_state": null,
+      "layup_record": null,
+      "coupling_record": null,
+      "compression_allowable": null,
+      "raw_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "matched_comparison": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "layup-and-coupling-applicability",
+      "existing_boundary": "Source asks which layup and coupling terms describe actual discrete tubes.",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "docs/MEMBER-CENSUS.md"
+      ],
+      "prospective_record_requirements": [
+        "Original layup/configuration and applicable coupling identities/conventions, source material/state, member/specimen applicability and raw record custody"
+      ],
+      "insufficient_or_disconfirming_evidence": "Schematic member section and assumed tube idealisation cannot identify actual layup or coupling. No layup, material, geometry or coupling model chosen.",
+      "proposed_custodian_role": "layup-and-coupling-applicability material-property provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "actual_property_record": null,
+      "specimen_record": null,
+      "member_record": null,
+      "configuration_revision": null,
+      "material_state": null,
+      "layup_record": null,
+      "coupling_record": null,
+      "compression_allowable": null,
+      "raw_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "matched_comparison": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "compression-allowable-and-adoption-source",
+      "existing_boundary": "Source asks for compression allowables before use in a physical member check.",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "README.md"
+      ],
+      "prospective_record_requirements": [
+        "Original allowable definition and adoption source/version/applicability to member/specimen/material/state, supporting raw evidence and criterion custody"
+      ],
+      "insufficient_or_disconfirming_evidence": "A conditional model result supplies no adopted allowable, threshold, check or physical test procedure.",
+      "proposed_custodian_role": "compression-allowable-and-adoption-source material-property provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "actual_property_record": null,
+      "specimen_record": null,
+      "member_record": null,
+      "configuration_revision": null,
+      "material_state": null,
+      "layup_record": null,
+      "coupling_record": null,
+      "compression_allowable": null,
+      "raw_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "matched_comparison": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "matched-member-specimen-configuration",
+      "existing_boundary": "Census section identities are schematic; source comparison branches retain assumed accounting worlds.",
+      "source_paths": [
+        "docs/MEMBER-CENSUS.md",
+        "docs/audit/26-10-02-stiffness-sensitivity.json"
+      ],
+      "prospective_record_requirements": [
+        "Actual discrete-member and specimen/source/configuration/revision/material-state records and original comparison-domain applicability"
+      ],
+      "insufficient_or_disconfirming_evidence": "Source section depiction, branch label or conditional mass/ratio output cannot supply observed material properties, installed configuration or corrected prediction.",
+      "proposed_custodian_role": "matched-member-specimen-configuration material-property provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "actual_property_record": null,
+      "specimen_record": null,
+      "member_record": null,
+      "configuration_revision": null,
+      "material_state": null,
+      "layup_record": null,
+      "coupling_record": null,
+      "compression_allowable": null,
+      "raw_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "matched_comparison": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "calibration-uncertainty-and-raw-record",
+      "existing_boundary": "No actual property acquisition/calibration/uncertainty or matched specimen/member records are supplied.",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "docs/audit/26-10-02-stiffness-sensitivity.json",
+        "README.md"
+      ],
+      "prospective_record_requirements": [
+        "Unmodified property/raw source record identities, acquisition/custody, applicable calibration and uncertainty provenance, missing evidence explicitly retained"
+      ],
+      "insufficient_or_disconfirming_evidence": "No measurements, uncertainty estimate, numerical values/ratios/moduli/masses/safety factors, sample count or new scientific result invented.",
+      "proposed_custodian_role": "calibration-uncertainty-and-raw-record material-property provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "actual_property_record": null,
+      "specimen_record": null,
+      "member_record": null,
+      "configuration_revision": null,
+      "material_state": null,
+      "layup_record": null,
+      "coupling_record": null,
+      "compression_allowable": null,
+      "raw_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "matched_comparison": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "responsible-comparison-and-adoption",
+      "existing_boundary": "Proposed evidence custodians remain unassigned; applicable adoption is unknown.",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "README.md"
+      ],
+      "prospective_record_requirements": [
+        "Responsible source/custody role, adopted property/allowable/criterion version/domain/applicability only when supplied"
+      ],
+      "insufficient_or_disconfirming_evidence": "A paper, computed sensitivity or repository check cannot select a physical member property/allowable or establish design feasibility/qualification.",
+      "proposed_custodian_role": "responsible-comparison-and-adoption material-property provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "actual_property_record": null,
+      "specimen_record": null,
+      "member_record": null,
+      "configuration_revision": null,
+      "material_state": null,
+      "layup_record": null,
+      "coupling_record": null,
+      "compression_allowable": null,
+      "raw_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "matched_comparison": null,
+      "adopted_criterion": null
+    }
+  ],
+  "selected_layup_material_property_allowable_or_criterion": null,
+  "new_numeric_results": [],
+  "new_measurements": [],
+  "equations_or_models_executed": false
+}
