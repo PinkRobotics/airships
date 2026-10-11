@@ -1,0 +1,104 @@
+{
+  "schema": "robotics.method-evidence-thread/1",
+  "unit": "robotics-vacuum-retention-metrology-evidence-thread-1010",
+  "date": "2026-10-10",
+  "scope": "Prospective evidence only; immutable source context, no computation, physical procedure, scientific acceptance or remote action.",
+  "source_pins": [
+    {
+      "path": "docs/VERIFICATION-PLAN.md",
+      "bytes": 24397,
+      "sha256": "d6f00f39868e349be5095cbc80ae66091a097be7a15aa509678f4550acbc681e"
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "bytes": 18871,
+      "sha256": "138195a325fde17a89f30ef75bf2a1ace32337f3324c321b974afa9e6627e4a0"
+    }
+  ],
+  "entries": [
+    {
+      "id": "sealed-state",
+      "requirement_or_owner": "Matched sealed article, coupon and assembly states",
+      "existing_model_reference": "docs/VERIFICATION-PLAN.md E1 and E2; docs/MEMBER-CENSUS.md Film, close-up fittings and outfit",
+      "units": "article/component identity; enclosed volume m3; pressure Pa",
+      "method": "Request article/barrier/joint/seal identities and assembly/configuration history with declared coupon/component/full-cell boundaries and uncertainty provenance.",
+      "missing_comparison_or_applicability": "A membrane coupon or component observation does not establish whole assembled-cell retention; drawn parts and unknown outfit do not complete the sealed configuration.",
+      "prospective_evidence_id": "RETENTION:sealed-state",
+      "observation": null,
+      "evidence_record": null,
+      "measured_uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN"
+    },
+    {
+      "id": "pressure-log",
+      "requirement_or_owner": "Pressure observations and calibrated temperature/time basis",
+      "existing_model_reference": "docs/VERIFICATION-PLAN.md E1 \u2014 what a sealed vacuum cell actually weighs",
+      "units": "pressure Pa; temperature K; timestamp; interval s",
+      "method": "Request raw synchronized pressure/temperature records, sensor ranges/locations, calibration, drift, timebase/synchronization uncertainty and missing-data flags for the same sealed configuration.",
+      "missing_comparison_or_applicability": "A pressure log is an observation channel, not an identified leak rate or demonstrated service life. Missing calibration or thermal/time context prevents attribution.",
+      "prospective_evidence_id": "RETENTION:pressure-log",
+      "observation": null,
+      "evidence_record": null,
+      "measured_uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN"
+    },
+    {
+      "id": "gas-sources",
+      "requirement_or_owner": "Ingress, outgassing and permeation kept distinct",
+      "existing_model_reference": "docs/VERIFICATION-PLAN.md E1 printed demonstrator and E2 sealing membrane",
+      "units": "pressure Pa; gas/species identity; time s; evidence identity",
+      "method": "Request independently attributable gas-source/provenance records, material/barrier/interface states and matched pressure/temperature history with uncertainty; retain unresolved attribution.",
+      "missing_comparison_or_applicability": "The source expects early outgassing rather than leakage and requires separation. Pressure rise alone cannot choose between ingress, outgassing, permeation or thermal/sensor effects.",
+      "prospective_evidence_id": "RETENTION:gas-sources",
+      "observation": null,
+      "evidence_record": null,
+      "measured_uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN"
+    },
+    {
+      "id": "conditioning",
+      "requirement_or_owner": "Humidity, dry-state and conditioning provenance",
+      "existing_model_reference": "docs/VERIFICATION-PLAN.md E1 printed demonstrator build sequence",
+      "units": "temperature K; humidity fraction; state/record identity; time s",
+      "method": "Request documented material moisture/dry-state, storage and conditioning history with calibration and uncertainty, linked to the same sealed article and observation interval.",
+      "missing_comparison_or_applicability": "Published dry-state and bake-out language is retained as source context; this paper selects no material, seal, temperature, conditioning sequence or physical procedure.",
+      "prospective_evidence_id": "RETENTION:conditioning",
+      "observation": null,
+      "evidence_record": null,
+      "measured_uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN"
+    },
+    {
+      "id": "duration",
+      "requirement_or_owner": "Long-duration and service applicability",
+      "existing_model_reference": "docs/VERIFICATION-PLAN.md E1 months of pressure log; E2 permanent creep",
+      "units": "observation interval s; configuration identity; uncertainty units per quantity",
+      "method": "Request duration/coverage, environmental and configuration changes, raw observations, instrument drift and uncertainty with retained failures and gaps before any duration transfer.",
+      "missing_comparison_or_applicability": "A short record or coupon result is not a demonstrated assembled-cell service lifetime. No leak-rate, pressure-rise or lifetime extrapolation is calculated.",
+      "prospective_evidence_id": "RETENTION:duration",
+      "observation": null,
+      "evidence_record": null,
+      "measured_uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN"
+    },
+    {
+      "id": "allowance",
+      "requirement_or_owner": "Proposed degradation allowance versus adopted criteria",
+      "existing_model_reference": "docs/VERIFICATION-PLAN.md E1 vacuum-degradation allowance",
+      "units": "source/decision identity; uncertainty units per quantity",
+      "method": "Request explicit separately recorded criterion ownership, source version and adoption/acceptance disposition with matched observations and uncertainty; retain proposed status until such evidence exists.",
+      "missing_comparison_or_applicability": "The source says the vacuum-degradation allowance is not chosen and labels its example proposed. This paper adopts no allowance or prorated threshold; physical acceptance remains UNKNOWN.",
+      "prospective_evidence_id": "RETENTION:allowance",
+      "observation": null,
+      "evidence_record": null,
+      "measured_uncertainty": null,
+      "physical_acceptance_criterion": null,
+      "status": "UNKNOWN"
+    }
+  ]
+}
