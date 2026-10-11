@@ -1,0 +1,401 @@
+{
+  "schema": "whole-hull-fitting-manifest.provenance-evidence-map/1",
+  "status": "DOCUMENT_ONLY; complete physical-joint manifest and allowance applicability UNKNOWN",
+  "source_revision": "94db332d3dc437708d3ed0dfeb6b619c70d9da25",
+  "source_fragments": [
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "line": 1013,
+      "character_start": 1,
+      "character_end_exclusive": 46,
+      "fragment": "### Fittings, torsion straps and retired skin"
+    },
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "line": 1015,
+      "character_start": 1,
+      "character_end_exclusive": 59,
+      "fragment": "What whole-hull fitting manifest replaces the area-derived"
+    },
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "line": 1016,
+      "character_start": 1,
+      "character_end_exclusive": 34,
+      "fragment": "Which physical joints support the"
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 53,
+      "character_start": 48,
+      "character_end_exclusive": 112,
+      "fragment": "Partial fitting symbols do not establish whole-hull populations."
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 3,
+      "character_start": 1,
+      "character_end_exclusive": 122,
+      "fragment": "The drawing and the bill disagree. This generated record preserves those disagreements; it does not approve a cap design."
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 17,
+      "character_start": 1,
+      "character_end_exclusive": 51,
+      "fragment": "Rendering segments are not physical member counts."
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 19,
+      "character_start": 47,
+      "character_end_exclusive": 74,
+      "fragment": "Unknown mass is never zero."
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 4,
+      "character_start": 1,
+      "character_end_exclusive": 105,
+      "fragment": "The checks use smeared areas at full radius and do not resolve station lengths, sections or connections."
+    },
+    {
+      "path": "README.md",
+      "line": 3,
+      "character_start": 186,
+      "character_end_exclusive": 222,
+      "fragment": "No aircraft has been built or flown."
+    }
+  ],
+  "declared_accounting_representation_mappings": [
+    {
+      "declared_source_identity": "clamps / GridClamps patch",
+      "source_locator": {
+        "path": "docs/MEMBER-CENSUS.md",
+        "line": 27,
+        "character_start": 1,
+        "character_end_exclusive": 48,
+        "fragment": "| clamps | GridClamps patch only | whole hull |"
+      },
+      "qualitative_accounting_representation_boundary": "Area-derived clamp bill has a patch-only counterpart; neither is a complete installed clamp/joint inventory.",
+      "actual_complete_manifest": null,
+      "actual_installation_or_counterpart": null,
+      "count_definition_record": null,
+      "matched_configuration": null,
+      "adopted_joint_or_count": null
+    },
+    {
+      "declared_source_identity": "pads / not drawn",
+      "source_locator": {
+        "path": "docs/MEMBER-CENSUS.md",
+        "line": 28,
+        "character_start": 1,
+        "character_end_exclusive": 34,
+        "fragment": "| pads | not drawn | whole hull |"
+      },
+      "qualitative_accounting_representation_boundary": "Area-derived pad bill has no drawn counterpart. Not drawn is a representation gap, not physical absence or adopted pad population.",
+      "actual_complete_manifest": null,
+      "actual_installation_or_counterpart": null,
+      "count_definition_record": null,
+      "matched_configuration": null,
+      "adopted_joint_or_count": null
+    },
+    {
+      "declared_source_identity": "tiJoints / GridJoints patch",
+      "source_locator": {
+        "path": "docs/MEMBER-CENSUS.md",
+        "line": 38,
+        "character_start": 1,
+        "character_end_exclusive": 63,
+        "fragment": "| tiJoints | GridJoints patch only | whole hull, unallocated |"
+      },
+      "qualitative_accounting_representation_boundary": "Source record/favourable joint allowance and patch-only representation remain unallocated, not a complete physical-joint manifest.",
+      "actual_complete_manifest": null,
+      "actual_installation_or_counterpart": null,
+      "count_definition_record": null,
+      "matched_configuration": null,
+      "adopted_joint_or_count": null
+    },
+    {
+      "declared_source_identity": "fittings",
+      "source_locator": {
+        "path": "docs/MEMBER-CENSUS.md",
+        "line": 75,
+        "character_start": 1,
+        "character_end_exclusive": 91,
+        "fragment": "| fittings | whole hull | clamp and joint symbols are a close-up, not a whole-hull count |"
+      },
+      "qualitative_accounting_representation_boundary": "Explicit close-up limitation cannot be scaled or counted into a complete whole-hull physical inventory.",
+      "actual_complete_manifest": null,
+      "actual_installation_or_counterpart": null,
+      "count_definition_record": null,
+      "matched_configuration": null,
+      "adopted_joint_or_count": null
+    },
+    {
+      "declared_source_identity": "pads-allocation",
+      "source_locator": {
+        "path": "docs/MEMBER-CENSUS.md",
+        "line": 68,
+        "character_start": 1,
+        "character_end_exclusive": 64,
+        "fragment": "| pads-allocation | whole hull | no complete drawn allocation |"
+      },
+      "qualitative_accounting_representation_boundary": "Missing complete drawn allocation is separately retained from no pad drawing and any physical record.",
+      "actual_complete_manifest": null,
+      "actual_installation_or_counterpart": null,
+      "count_definition_record": null,
+      "matched_configuration": null,
+      "adopted_joint_or_count": null
+    },
+    {
+      "declared_source_identity": "tiJoints-allocation",
+      "source_locator": {
+        "path": "docs/MEMBER-CENSUS.md",
+        "line": 71,
+        "character_start": 1,
+        "character_end_exclusive": 81,
+        "fragment": "| tiJoints-allocation | whole hull, unallocated | no complete drawn allocation |"
+      },
+      "qualitative_accounting_representation_boundary": "Unallocated joint allowance cannot supply actual joint identities, placement or fit to the assumed bill.",
+      "actual_complete_manifest": null,
+      "actual_installation_or_counterpart": null,
+      "count_definition_record": null,
+      "matched_configuration": null,
+      "adopted_joint_or_count": null
+    },
+    {
+      "declared_source_identity": "GridClamps",
+      "source_locator": {
+        "path": "docs/MEMBER-CENSUS.md",
+        "line": 105,
+        "character_start": 1,
+        "character_end_exclusive": 15,
+        "fragment": "| GridClamps |"
+      },
+      "qualitative_accounting_representation_boundary": "Existing local grid symbol identity only. The source symbol count is not copied or treated as a whole-hull installed population.",
+      "actual_complete_manifest": null,
+      "actual_installation_or_counterpart": null,
+      "count_definition_record": null,
+      "matched_configuration": null,
+      "adopted_joint_or_count": null
+    }
+  ],
+  "requirements": [
+    {
+      "id": "source-domain-revision-and-manifest-question",
+      "existing_boundary": "Published question contrasts area-derived fitting accounting with a whole-hull manifest and asks which physical joints support the allowance.",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "docs/MEMBER-CENSUS.md"
+      ],
+      "prospective_record_requirements": [
+        "Original source/domain/revision and exact clamp/pad/joint accounting definitions, question custody and comparison scope"
+      ],
+      "insufficient_or_disconfirming_evidence": "Neither bill quantity nor symbol census supplies a completed physical manifest. No source count/area/mass values copied or calculated.",
+      "proposed_custodian_role": "source-domain-revision-and-manifest-question fitting-manifest provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "complete_actual_manifest": null,
+      "configuration_revision": null,
+      "installation_record": null,
+      "count_definition": null,
+      "inclusion_exclusion_record": null,
+      "correspondence_record": null,
+      "raw_record": null,
+      "custody_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "matched_comparison": null,
+      "adopted_manifest_or_count": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "clamp-accounting-versus-local-patch",
+      "existing_boundary": "Clamps are area-derived accounting and GridClamps is a patch-only drawing counterpart.",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "docs/MEMBER-CENSUS.md"
+      ],
+      "prospective_record_requirements": [
+        "Original count definition and applicability, source bill versus local depiction correspondence and explicit completeness limits, actual installation record only when supplied"
+      ],
+      "insufficient_or_disconfirming_evidence": "A local patch or rendering segment cannot supply whole-hull population; no scaling, counting, selected clamp or fastener.",
+      "proposed_custodian_role": "clamp-accounting-versus-local-patch fitting-manifest provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "complete_actual_manifest": null,
+      "configuration_revision": null,
+      "installation_record": null,
+      "count_definition": null,
+      "inclusion_exclusion_record": null,
+      "correspondence_record": null,
+      "raw_record": null,
+      "custody_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "matched_comparison": null,
+      "adopted_manifest_or_count": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "pad-accounting-versus-no-drawing",
+      "existing_boundary": "Pads are a bill label with no drawn counterpart and no complete drawn allocation.",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "docs/MEMBER-CENSUS.md"
+      ],
+      "prospective_record_requirements": [
+        "Original pad count/inclusion conventions, source representation gap and applicable actual installation/manifest correspondence when supplied"
+      ],
+      "insufficient_or_disconfirming_evidence": "No drawing is not physical absence; unknown counterpart is not zero or a selected pad count/design.",
+      "proposed_custodian_role": "pad-accounting-versus-no-drawing fitting-manifest provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "complete_actual_manifest": null,
+      "configuration_revision": null,
+      "installation_record": null,
+      "count_definition": null,
+      "inclusion_exclusion_record": null,
+      "correspondence_record": null,
+      "raw_record": null,
+      "custody_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "matched_comparison": null,
+      "adopted_manifest_or_count": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "physical-joint-allowance-and-correspondence",
+      "existing_boundary": "Source joint allowance has patch-only symbols and no complete allocation; record/favourable bill worlds remain source labels.",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "docs/MEMBER-CENSUS.md"
+      ],
+      "prospective_record_requirements": [
+        "Original allowance definition/domain/revision and physical-joint identities supporting it when supplied, bill/manifest correspondence and missing or unmatched records"
+      ],
+      "insufficient_or_disconfirming_evidence": "An allowance is not actual joint mass, complete installed inventory or chosen section/load path. No pricing or source mass recomputation.",
+      "proposed_custodian_role": "physical-joint-allowance-and-correspondence fitting-manifest provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "complete_actual_manifest": null,
+      "configuration_revision": null,
+      "installation_record": null,
+      "count_definition": null,
+      "inclusion_exclusion_record": null,
+      "correspondence_record": null,
+      "raw_record": null,
+      "custody_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "matched_comparison": null,
+      "adopted_manifest_or_count": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "whole-hull-manifest-completeness-and-inclusions",
+      "existing_boundary": "Complete actual fitting/joint manifest, configuration and installation are unsupplied.",
+      "source_paths": [
+        "docs/MEMBER-CENSUS.md",
+        "README.md"
+      ],
+      "prospective_record_requirements": [
+        "Original responsible manifest/source/configuration/revision, physical joint/fitting identity and installation custody, inclusion/exclusion/deduplication and coverage conventions"
+      ],
+      "insufficient_or_disconfirming_evidence": "Do not fill incomplete records from generic outfit symbols, partial fittings or other allowance maps. No completed manifest, selected connection/geometry/material or procedure invented.",
+      "proposed_custodian_role": "whole-hull-manifest-completeness-and-inclusions fitting-manifest provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "complete_actual_manifest": null,
+      "configuration_revision": null,
+      "installation_record": null,
+      "count_definition": null,
+      "inclusion_exclusion_record": null,
+      "correspondence_record": null,
+      "raw_record": null,
+      "custody_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "matched_comparison": null,
+      "adopted_manifest_or_count": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "raw-custody-calibration-uncertainty-and-applicability",
+      "existing_boundary": "No actual raw installation/count/manifest acquisition/calibration/uncertainty record establishes applicability.",
+      "source_paths": [
+        "docs/MEMBER-CENSUS.md",
+        "README.md"
+      ],
+      "prospective_record_requirements": [
+        "Unmodified raw source/installation/manifest identities, revision/custody, applicable calibration/uncertainty and matched comparison records"
+      ],
+      "insufficient_or_disconfirming_evidence": "Source generation or software checks cannot supply measured completeness, calibrated quantities or physical applicability; no uncertainty/count estimate.",
+      "proposed_custodian_role": "raw-custody-calibration-uncertainty-and-applicability fitting-manifest provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "complete_actual_manifest": null,
+      "configuration_revision": null,
+      "installation_record": null,
+      "count_definition": null,
+      "inclusion_exclusion_record": null,
+      "correspondence_record": null,
+      "raw_record": null,
+      "custody_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "matched_comparison": null,
+      "adopted_manifest_or_count": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "responsible-manifest-adoption",
+      "existing_boundary": "Custodian roles are proposals and actual manifest/adoption source unknown.",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "README.md"
+      ],
+      "prospective_record_requirements": [
+        "Responsible source/custody role, adopted manifest/count-definition/criterion version/domain/applicability only when supplied"
+      ],
+      "insufficient_or_disconfirming_evidence": "No physical-joint selection, adopted inventory, criterion, feasibility or qualification follows from this paper map.",
+      "proposed_custodian_role": "responsible-manifest-adoption fitting-manifest provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "complete_actual_manifest": null,
+      "configuration_revision": null,
+      "installation_record": null,
+      "count_definition": null,
+      "inclusion_exclusion_record": null,
+      "correspondence_record": null,
+      "raw_record": null,
+      "custody_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "matched_comparison": null,
+      "adopted_manifest_or_count": null,
+      "adopted_criterion": null
+    }
+  ],
+  "completed_or_adopted_manifest": null,
+  "selected_joint_fastener_pad_clamp_count_section_or_loadpath": null,
+  "new_numeric_results": [],
+  "new_measurements": [],
+  "model_or_generation_executed": false
+}
