@@ -1,0 +1,576 @@
+{
+  "schema": "computed-mesh-closure.provenance-crosswalk/1",
+  "status": "DOCUMENT_ONLY; actual computational mesh and physical seal/manufacturing custody UNKNOWN",
+  "source_revision": "682c4b375f7d67484891df7a551d0da03cedcf11",
+  "source_fragments": [
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 684,
+      "character_start": 1,
+      "character_end_exclusive": 23,
+      "fragment": "def mesh_health(tris):",
+      "fragment_sha256": "f36e6ff2855bfc131a3c295f4c4290a5a9c7411779419d597b686f2b6af60693"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 685,
+      "character_start": 8,
+      "character_end_exclusive": 31,
+      "fragment": "CLOSED means printable:",
+      "fragment_sha256": "755da8bfd5c157b837bd4268ae322b75a088bb1836aa49883b2bd3badc90b919"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 686,
+      "character_start": 5,
+      "character_end_exclusive": 92,
+      "fragment": "Saddle cells leave a few NON-MANIFOLD pinch edges; the surface stays closed and slicers",
+      "fragment_sha256": "c9bf3834bd0b6514f385187271d028a85d6383fb971f3c7e39243cf314bf8f56"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 687,
+      "character_start": 5,
+      "character_end_exclusive": 59,
+      "fragment": "take it, and the count is reported rather than hidden.",
+      "fragment_sha256": "0a9d227a83ac08398f62488f0f7655d25d0b727e556bb80411c2f5245f3a20e8"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 688,
+      "character_start": 5,
+      "character_end_exclusive": 15,
+      "fragment": "edges = {}",
+      "fragment_sha256": "abdddb4b05e2fbe8e176b3d12243492c1a4c24dc9bdfd611308c325e2d717a5f"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 689,
+      "character_start": 5,
+      "character_end_exclusive": 25,
+      "fragment": "for a, b, c in tris:",
+      "fragment_sha256": "8814f1db4bce180f9474e14f1e60dc121042f8f6f891af5e4766c05426b02ea8"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 692,
+      "character_start": 5,
+      "character_end_exclusive": 25,
+      "fragment": "closed = bool(edges)",
+      "fragment_sha256": "cc5195aa2fb4d65a0fc0391783c451081773a1981a7114906e5182b7c997ff1c"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 693,
+      "character_start": 5,
+      "character_end_exclusive": 19,
+      "fragment": "return closed,",
+      "fragment_sha256": "d3d1aec04e0f4a8ac9475a39949a49f271daedf3858635dec8b5c82ef6001a66"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 995,
+      "character_start": 1,
+      "character_end_exclusive": 20,
+      "fragment": "def main() -> None:",
+      "fragment_sha256": "3759fd2adcb099cb3cc1f2021360fcf3b697aa85dc8c087696c52e44de3862d8"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1199,
+      "character_start": 9,
+      "character_end_exclusive": 40,
+      "fragment": "closed, nonman = mesh_health(t)",
+      "fragment_sha256": "2d37897f9a9140283ea5d1a70efde51e7a783f45d238a38b37bea20840959fc8"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1217,
+      "character_start": 9,
+      "character_end_exclusive": 35,
+      "fragment": "manifest[\"nodes\"].append({",
+      "fragment_sha256": "abbaf3c23668173ae8034767fce03ca1712780a7d84f727519525618b9a5713d"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1219,
+      "character_start": 60,
+      "character_end_exclusive": 77,
+      "fragment": "\"closed\": closed,",
+      "fragment_sha256": "aa68c8c1822ddca67567595f2a0d3b9ba5fd44cd5e088178ce83a5a7aafdf04d"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1225,
+      "character_start": 13,
+      "character_end_exclusive": 40,
+      "fragment": "\"nonManifoldEdges\": nonman,",
+      "fragment_sha256": "d80a1ae59d8a7b1dbbc4fde1985f840f25a93da5d963208c01c61a3644e1ab45"
+    },
+    {
+      "path": "README.md",
+      "line": 3,
+      "character_start": 186,
+      "character_end_exclusive": 222,
+      "fragment": "No aircraft has been built or flown.",
+      "fragment_sha256": "bd88446d4305c34307c2acb2bc020e0441e17382f095d6be3beee1076eabdbb9"
+    },
+    {
+      "path": "docs/VERIFICATION-PLAN.md",
+      "line": 180,
+      "character_start": 26,
+      "character_end_exclusive": 90,
+      "fragment": "The printed wall is structure, not barrier: as-printed FDM walls",
+      "fragment_sha256": "c70912816ec27316b0985855034debbfef02766ecbfc27899e5409ac7a4d97e9"
+    },
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "line": 185,
+      "character_start": 103,
+      "character_end_exclusive": 140,
+      "fragment": "production and retention remain open.",
+      "fragment_sha256": "4821655136ae281d7ecaf6463753b5bc5ac86cc71bd86e132970f933b8643963"
+    }
+  ],
+  "hashed_lexical_contexts": [
+    {
+      "path": "tools/gen_nodes.py",
+      "identity": "mesh_health",
+      "line_start": 684,
+      "line_end_inclusive": 693,
+      "context_sha256": "ac49476d980535ae5ac6b2571bc51d010a74a9ccb81144e05fe9e67df6f0ec3c",
+      "context_bytes": 529,
+      "limit": "Hash only; source contents not reconstructed or evaluated."
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "identity": "main selected call",
+      "line_start": 1191,
+      "line_end_inclusive": 1200,
+      "context_sha256": "d8870356e6fb1d6ceb3a62a47f3707201978dd0b0786783623153dcd5041ba43",
+      "context_bytes": 524,
+      "limit": "Hash only; source contents not reconstructed or evaluated."
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "identity": "main manifest selected fields",
+      "line_start": 1217,
+      "line_end_inclusive": 1225,
+      "context_sha256": "73b7a9744af09f6517b4fe2b37596bcfbf9465b358921a982eaac1af7784395e",
+      "context_bytes": 636,
+      "limit": "Hash only; source contents not reconstructed or evaluated."
+    }
+  ],
+  "source_identity_mappings": [
+    {
+      "source_identity": "mesh_health input and local namespace",
+      "source_role": "mesh_health owns the tris parameter and a local edges dictionary. Selected identifier fragments and hashed context locate them.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 684,
+          "character_start": 1,
+          "character_end_exclusive": 23,
+          "fragment": "def mesh_health(tris):",
+          "fragment_sha256": "f36e6ff2855bfc131a3c295f4c4290a5a9c7411779419d597b686f2b6af60693"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 688,
+          "character_start": 5,
+          "character_end_exclusive": 15,
+          "fragment": "edges = {}",
+          "fragment_sha256": "abdddb4b05e2fbe8e176b3d12243492c1a4c24dc9bdfd611308c325e2d717a5f"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 689,
+          "character_start": 5,
+          "character_end_exclusive": 25,
+          "fragment": "for a, b, c in tris:",
+          "fragment_sha256": "8814f1db4bce180f9474e14f1e60dc121042f8f6f891af5e4766c05426b02ea8"
+        }
+      ],
+      "limit": "No reconstruction of the directional-edge algorithm, edge/triangle inventory, evaluation or correctness proof.",
+      "actual_run_mesh_manifest_record": null,
+      "actual_fabricated_seal_or_manufacturing_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "historical printable/closed source framing",
+      "source_role": "The source docstring frames CLOSED as printable and describes closed surfaces being taken by slicers.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 685,
+          "character_start": 8,
+          "character_end_exclusive": 31,
+          "fragment": "CLOSED means printable:",
+          "fragment_sha256": "755da8bfd5c157b837bd4268ae322b75a088bb1836aa49883b2bd3badc90b919"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 686,
+          "character_start": 5,
+          "character_end_exclusive": 92,
+          "fragment": "Saddle cells leave a few NON-MANIFOLD pinch edges; the surface stays closed and slicers",
+          "fragment_sha256": "c9bf3834bd0b6514f385187271d028a85d6383fb971f3c7e39243cf314bf8f56"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 687,
+          "character_start": 5,
+          "character_end_exclusive": 59,
+          "fragment": "take it, and the count is reported rather than hidden.",
+          "fragment_sha256": "0a9d227a83ac08398f62488f0f7655d25d0b727e556bb80411c2f5245f3a20e8"
+        }
+      ],
+      "limit": "Attributed source wording only, not a current slicer acceptance, manufacturing success, gas-tightness, physical seal or independently validated printability.",
+      "actual_run_mesh_manifest_record": null,
+      "actual_fabricated_seal_or_manufacturing_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "closed return identity",
+      "source_role": "The local closed identifier appears in the return statement.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 692,
+          "character_start": 5,
+          "character_end_exclusive": 25,
+          "fragment": "closed = bool(edges)",
+          "fragment_sha256": "cc5195aa2fb4d65a0fc0391783c451081773a1981a7114906e5182b7c997ff1c"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 693,
+          "character_start": 5,
+          "character_end_exclusive": 19,
+          "fragment": "return closed,",
+          "fragment_sha256": "d3d1aec04e0f4a8ac9475a39949a49f271daedf3858635dec8b5c82ef6001a66"
+        }
+      ],
+      "limit": "Computational source field identity only; no result value, count, proof of closure or qualified article supplied.",
+      "actual_run_mesh_manifest_record": null,
+      "actual_fabricated_seal_or_manufacturing_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "selected main call lineage",
+      "source_role": "Within main, the selected mesh_health(t) call binds closed and nonman.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 995,
+          "character_start": 1,
+          "character_end_exclusive": 20,
+          "fragment": "def main() -> None:",
+          "fragment_sha256": "3759fd2adcb099cb3cc1f2021360fcf3b697aa85dc8c087696c52e44de3862d8"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1199,
+          "character_start": 9,
+          "character_end_exclusive": 40,
+          "fragment": "closed, nonman = mesh_health(t)",
+          "fragment_sha256": "2d37897f9a9140283ea5d1a70efde51e7a783f45d238a38b37bea20840959fc8"
+        }
+      ],
+      "limit": "Selected call only, not a comprehensive caller inventory or verified source-to-output/physical-article correspondence.",
+      "actual_run_mesh_manifest_record": null,
+      "actual_fabricated_seal_or_manufacturing_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "manifest output namespace",
+      "source_role": "The selected main manifest node row contains closed and nonManifoldEdges fields populated by those identifiers.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1217,
+          "character_start": 9,
+          "character_end_exclusive": 35,
+          "fragment": "manifest[\"nodes\"].append({",
+          "fragment_sha256": "abbaf3c23668173ae8034767fce03ca1712780a7d84f727519525618b9a5713d"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1219,
+          "character_start": 60,
+          "character_end_exclusive": 77,
+          "fragment": "\"closed\": closed,",
+          "fragment_sha256": "aa68c8c1822ddca67567595f2a0d3b9ba5fd44cd5e088178ce83a5a7aafdf04d"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1225,
+          "character_start": 13,
+          "character_end_exclusive": 40,
+          "fragment": "\"nonManifoldEdges\": nonman,",
+          "fragment_sha256": "d80a1ae59d8a7b1dbbc4fde1985f840f25a93da5d963208c01c61a3644e1ab45"
+        }
+      ],
+      "limit": "Manifest schema identity only; no manifest acquired, regenerated, inspected for outcomes or matched to an actual run/mesh.",
+      "actual_run_mesh_manifest_record": null,
+      "actual_fabricated_seal_or_manufacturing_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "physical barrier and retention separation",
+      "source_role": "The existing plan distinguishes a printed structural wall from a barrier; recovery production/retention remain open.",
+      "source_locators": [
+        {
+          "path": "docs/VERIFICATION-PLAN.md",
+          "line": 180,
+          "character_start": 26,
+          "character_end_exclusive": 90,
+          "fragment": "The printed wall is structure, not barrier: as-printed FDM walls",
+          "fragment_sha256": "c70912816ec27316b0985855034debbfef02766ecbfc27899e5409ac7a4d97e9"
+        },
+        {
+          "path": "docs/OPEN-QUESTIONS.md",
+          "line": 185,
+          "character_start": 103,
+          "character_end_exclusive": 140,
+          "fragment": "production and retention remain open.",
+          "fragment_sha256": "4821655136ae281d7ecaf6463753b5bc5ac86cc71bd86e132970f933b8643963"
+        },
+        {
+          "path": "README.md",
+          "line": 3,
+          "character_start": 186,
+          "character_end_exclusive": 222,
+          "fragment": "No aircraft has been built or flown.",
+          "fragment_sha256": "bd88446d4305c34307c2acb2bc020e0441e17382f095d6be3beee1076eabdbb9"
+        }
+      ],
+      "limit": "Independent source limitations only; computational mesh closure cannot settle fabricated sealing, leakage, pressure behavior, retention or manufacturing qualification.",
+      "actual_run_mesh_manifest_record": null,
+      "actual_fabricated_seal_or_manufacturing_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    }
+  ],
+  "requirements": [
+    {
+      "id": "computational-run-and-source-version",
+      "prospective_record_requirements": [
+        "Original computational invocation/source-version records and accountable custody."
+      ],
+      "insufficient_or_disconfirming_evidence": "Source call identity supplies neither an actual invocation nor a qualified result.",
+      "proposed_custodian_role": "computational-run-and-source-version record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "computational_run": null,
+      "source_version_record": null,
+      "mesh_output": null,
+      "manifest": null,
+      "raw_custody": null,
+      "part": null,
+      "lot": null,
+      "printer": null,
+      "process": null,
+      "configuration": null,
+      "connection": null,
+      "seal": null,
+      "pressure_state": null,
+      "observation": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "mesh-output-manifest-and-raw-custody",
+      "prospective_record_requirements": [
+        "Original mesh/output/manifest records with preserved raw custody and correspondence."
+      ],
+      "insufficient_or_disconfirming_evidence": "Field names, hashes of source context and software gates do not supply generated output or closure outcomes.",
+      "proposed_custodian_role": "mesh-output-manifest-and-raw-custody record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "computational_run": null,
+      "source_version_record": null,
+      "mesh_output": null,
+      "manifest": null,
+      "raw_custody": null,
+      "part": null,
+      "lot": null,
+      "printer": null,
+      "process": null,
+      "configuration": null,
+      "connection": null,
+      "seal": null,
+      "pressure_state": null,
+      "observation": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "physical-part-lot-and-manufacturing-state",
+      "prospective_record_requirements": [
+        "Matched actual part/lot/printer/process/configuration records."
+      ],
+      "insufficient_or_disconfirming_evidence": "A computational closed field cannot identify or qualify a manufactured article.",
+      "proposed_custodian_role": "physical-part-lot-and-manufacturing-state record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "computational_run": null,
+      "source_version_record": null,
+      "mesh_output": null,
+      "manifest": null,
+      "raw_custody": null,
+      "part": null,
+      "lot": null,
+      "printer": null,
+      "process": null,
+      "configuration": null,
+      "connection": null,
+      "seal": null,
+      "pressure_state": null,
+      "observation": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "joint-seal-pressure-and-observation",
+      "prospective_record_requirements": [
+        "Original connection/seal/pressure-state and observation records with custody."
+      ],
+      "insufficient_or_disconfirming_evidence": "Closed mesh topology does not establish physical sealing, gas-tightness or leak/retention behavior.",
+      "proposed_custodian_role": "joint-seal-pressure-and-observation record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "computational_run": null,
+      "source_version_record": null,
+      "mesh_output": null,
+      "manifest": null,
+      "raw_custody": null,
+      "part": null,
+      "lot": null,
+      "printer": null,
+      "process": null,
+      "configuration": null,
+      "connection": null,
+      "seal": null,
+      "pressure_state": null,
+      "observation": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "calibration-uncertainty-and-applicability",
+      "prospective_record_requirements": [
+        "Applicable original calibration/uncertainty and source-to-article domain correspondence."
+      ],
+      "insufficient_or_disconfirming_evidence": "No numerical uncertainty, edge-defect count, physical comparison, measurement or campaign is supplied.",
+      "proposed_custodian_role": "calibration-uncertainty-and-applicability record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "computational_run": null,
+      "source_version_record": null,
+      "mesh_output": null,
+      "manifest": null,
+      "raw_custody": null,
+      "part": null,
+      "lot": null,
+      "printer": null,
+      "process": null,
+      "configuration": null,
+      "connection": null,
+      "seal": null,
+      "pressure_state": null,
+      "observation": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "owner-criterion-and-adoption",
+      "prospective_record_requirements": [
+        "Actual responsible owner and adopted source/version/domain/criterion record when supplied."
+      ],
+      "insufficient_or_disconfirming_evidence": "Proposed custodians UNASSIGNED; no mesh/manufacturing design, operating/test/campaign procedure or criterion selected.",
+      "proposed_custodian_role": "owner-criterion-and-adoption record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "computational_run": null,
+      "source_version_record": null,
+      "mesh_output": null,
+      "manifest": null,
+      "raw_custody": null,
+      "part": null,
+      "lot": null,
+      "printer": null,
+      "process": null,
+      "configuration": null,
+      "connection": null,
+      "seal": null,
+      "pressure_state": null,
+      "observation": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    }
+  ],
+  "separate_maps": [
+    {
+      "unit": "robotics-computed-node-mass-custody-provenance-evidence-thread-1010",
+      "candidate": "1f939c39ce0fc1632f76dab0d9e694a691f32f42",
+      "output_dir": "research/methods/computed-node-mass-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded source-provenance map; no numerical outcome, scientific acceptance, applicability or landing inferred."
+    },
+    {
+      "unit": "robotics-computed-printability-output-provenance-evidence-thread-1010",
+      "candidate": "04cbb3d1217ce4c438232adf95deec8c57f379d9",
+      "output_dir": "research/methods/computed-printability-output-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded source-provenance map; no numerical outcome, scientific acceptance, applicability or landing inferred."
+    },
+    {
+      "unit": "robotics-member-kind-socket-dimension-provenance-evidence-thread-1010",
+      "candidate": "e19c8d02f4c093ab500c58c480e57fb9e73bc550",
+      "output_dir": "research/methods/member-kind-socket-dimension-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded source-provenance map; no numerical outcome, scientific acceptance, applicability or landing inferred."
+    },
+    {
+      "unit": "robotics-q13-water-drafting-availability-evidence-1010",
+      "candidate": "82f0c88e73600632db9ea9ebd5e32a61659931c2",
+      "output_dir": "research/open-questions/q13-drafting-availability-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded source-provenance map; no numerical outcome, scientific acceptance, applicability or landing inferred."
+    }
+  ],
+  "selected_mesh_manufacturing_design_operating_test_campaign_procedure_or_criterion": null,
+  "new_numeric_results": [],
+  "new_measurements": [],
+  "models_equations_or_generators_executed": false
+}
