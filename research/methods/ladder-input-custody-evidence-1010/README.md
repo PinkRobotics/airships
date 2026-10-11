@@ -1,0 +1,16 @@
+# ladder source input names and acquired configuration custody
+
+Date: 2026-10-10. Status: prospective evidence, OPEN. [Model source](../../../ship/model.js) declares `ladder` with its own parameter names `m`, `levels`, `film`, `nodes`. These lexical names establish no acquired ladder, ranking, configuration, printing chain, buildability, qualified article or production process. The [member census](../../../docs/MEMBER-CENSUS.md) leaves station lengths, sections and connections unresolved and calls the film mesh schematic; [README](../../../README.md) states that no aircraft has been built or flown.
+
+The [evidence contract](EVIDENCE.json) pins exact nonnumeric parameter-name fragments and whole-source bytes. Numeric-bearing declaration context remains solely a byte count, line boundary and hash. Actual invocation/version/configuration/correspondence/input and output digests/raw custody/article/material-lot/process/installations/state/reference frame/metrology/timebase/calibration/uncertainty/applicability/owner/criterion/adoption remain null/UNKNOWN.
+
+| Requirement | Published source | Observation units | Missing applicability |
+|---|---|---|---|
+| Own source input-name identity | `ship/model.js ladder own parameters` | declaration/input/configuration identity | Source names establish no acquired configuration or selected inputs. |
+| Invocation and output correspondence | `ship/model.js hash-only bounded declaration context` | invocation/input/output/digest correspondence identity | No actual output or source execution is acquired, looked up, read, parsed or matched. |
+| Configured article and installation custody | `docs/MEMBER-CENSUS.md unresolved sections/connections` | article/material/installation/state identity | Source names establish no acquired ladder, ranking, printing chain, buildability, qualified article or production process. |
+| Raw observation and metrology custody | `docs/MEMBER-CENSUS.md schematic film` | raw-custody/metrology/reference-frame identity | A lexical source reference provides no acquired physical record. |
+| Observation timebase and calibration custody | `docs/MEMBER-CENSUS.md schematic film` | timebase/calibration/uncertainty identity | No observation, calibration or uncertainty record is acquired or accepted. |
+| Applicability and responsible adoption | `README.md unbuilt aircraft` | applicability/owner/criterion/adoption identity | Separate maps provide no binding, criterion, result or status transfer. |
+
+Pressure-state, sealed-retraction, rim, flange, skin, geometry, seam, material, comparator and acceptance-owner maps remain separate; no binding, evidence, result, criterion or status transfers. Signature defaults and references, internal binding/callee/rung/label/component/return-key inventories, dimensions, outputs, selected configuration, numerical values, traversal, algorithms, operators and formulas are omitted. No numerical value is copied, evaluated or selected. No actual artifact is looked up, read, parsed, matched, refreshed, regenerated or frozen. No acquired configuration, design, operating, production, measurement or test procedure is selected or developed. No source, model, fixture, native, physical or external execution occurs. Public sources and historical conclusions remain unchanged; physical custody and acceptance remain UNKNOWN.
