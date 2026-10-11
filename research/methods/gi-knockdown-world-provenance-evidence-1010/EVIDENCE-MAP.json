@@ -166,7 +166,7 @@
         "ovHarsh",
         "SHIP0.giKnockdown"
       ],
-      "qualitative_source_identity": "Source solve sizes using passed giKnockdown; separate gi calls report ovFrame and ovHarsh on the same selected source member-area identifiers. This traces the code only, without running it or asserting measured margins/capacity.",
+      "qualitative_source_identity": "Source solve sizes using passed giKnockdown; separate gi calls report ovFrame and ovHarsh on the same source member-area identifiers at that point, before later cap growth. The separate later capMargin path also uses giKnockdown. Code identity only; no numeric output, final-area equality or measured capacity inferred.",
       "status": "SOURCE_CONTEXT_ONLY; CAMPAIGN_AND_PHYSICAL_ADOPTION_UNKNOWN",
       "numeric_policy": "Numeric factors, world values, stiffness, capacity, mass and margins omitted and not evaluated; source span metadata only."
     },
@@ -203,6 +203,24 @@
         "skel"
       ],
       "qualitative_source_identity": "ship0 returns the source giKd input identity alongside skeleton; returned bookkeeping is not a matched campaign or qualification record.",
+      "status": "SOURCE_CONTEXT_ONLY; CAMPAIGN_AND_PHYSICAL_ADOPTION_UNKNOWN",
+      "numeric_policy": "Numeric factors, world values, stiffness, capacity, mass and margins omitted and not evaluated; source span metadata only."
+    },
+    {
+      "id": "later-cap-sizing-world-input",
+      "path": "ship/model.js",
+      "line_start": 1193,
+      "line_end": 1209,
+      "bytes": 699,
+      "sha256": "d7b9db606e0732c2b63208f1f12ad20f1bd8b9c4f8179b7fe35e506c99eae2be",
+      "source_symbols": [
+        "capMargin",
+        "giKnockdown",
+        "aTh1",
+        "guardC",
+        "capBuckle"
+      ],
+      "qualitative_source_identity": "Later capMargin also uses the passed giKnockdown during cap growth of aTh1 and supplies capBuckle. The adjacent ovalization records were formed before this growth; no recomputation, equality to final member areas or physical outcome inferred. Identifier-only world correspondence; stopping details remain in the separate solver scope.",
       "status": "SOURCE_CONTEXT_ONLY; CAMPAIGN_AND_PHYSICAL_ADOPTION_UNKNOWN",
       "numeric_policy": "Numeric factors, world values, stiffness, capacity, mass and margins omitted and not evaluated; source span metadata only."
     }
