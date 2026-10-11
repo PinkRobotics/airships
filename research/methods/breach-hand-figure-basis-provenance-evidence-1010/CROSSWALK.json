@@ -91,6 +91,34 @@
       "character_start": 186,
       "character_end_exclusive": 222,
       "fragment": "No aircraft has been built or flown."
+    },
+    {
+      "path": "docs/PHYSICS.md",
+      "line": 145,
+      "character_start": 1,
+      "character_end_exclusive": 88,
+      "fragment": "**THE HULL IS NOT ONE ENVELOPE** describes the first-generation cell-array architecture"
+    },
+    {
+      "path": "docs/PHYSICS.md",
+      "line": 146,
+      "character_start": 68,
+      "character_end_exclusive": 88,
+      "fragment": "This architecture is"
+    },
+    {
+      "path": "docs/PHYSICS.md",
+      "line": 147,
+      "character_start": 1,
+      "character_end_exclusive": 43,
+      "fragment": "superseded by the drawing described above."
+    },
+    {
+      "path": "docs/PHYSICS.md",
+      "line": 149,
+      "character_start": 1,
+      "character_end_exclusive": 76,
+      "fragment": "The following cell-array discussion belongs to that first-generation study."
     }
   ],
   "hand_figure_identity_mappings_without_values": [
@@ -119,7 +147,8 @@
       "actual_generator": null,
       "actual_loadcase_material_basis": null,
       "matched_comparison": null,
-      "adopted_criterion": null
+      "adopted_criterion": null,
+      "historical_source_domain": "First-generation cell-array study explicitly superseded by the current drawing; source date retained separately as historical metadata."
     },
     {
       "source_hand_figure_identity": "COMPRESSION_HAND_FIGURE",
@@ -146,7 +175,8 @@
       "actual_generator": null,
       "actual_loadcase_material_basis": null,
       "matched_comparison": null,
-      "adopted_criterion": null
+      "adopted_criterion": null,
+      "historical_source_domain": "First-generation cell-array study explicitly superseded by the current drawing; source date retained separately as historical metadata."
     }
   ],
   "requirements": [
@@ -272,7 +302,7 @@
     },
     {
       "id": "configuration-architecture-and-boundary-applicability",
-      "existing_boundary": "Current architecture says intended compartment arrangement remains open; historical comparison cannot establish applicable installed architecture.",
+      "existing_boundary": "The source scopes the following cell-array discussion and its breach hand figures to the explicitly superseded first-generation cell-array study. Current compartment arrangement remains open; neither historical provenance nor current intent supplies actual installed architecture applicability.",
       "source_paths": [
         "docs/PHYSICS.md",
         "docs/OPEN-QUESTIONS.md"
@@ -365,5 +395,42 @@
   "adopted_architecture_cell_material_loadcase_boundary_or_criterion": null,
   "new_numeric_results": [],
   "new_measurements": [],
-  "equations_models_or_generators_executed": false
+  "equations_models_or_generators_executed": false,
+  "historical_architecture_source_domain": {
+    "source": "First-generation cell-array architecture, explicitly superseded by the current drawing. The following cell-array discussion contains the breach hand figures.",
+    "recorded_date": "2026-08-10",
+    "date_scope": "Existing source history metadata, not an observation or measurement date.",
+    "source_locators": [
+      {
+        "path": "docs/PHYSICS.md",
+        "line": 145,
+        "character_start": 1,
+        "character_end_exclusive": 88,
+        "fragment": "**THE HULL IS NOT ONE ENVELOPE** describes the first-generation cell-array architecture"
+      },
+      {
+        "path": "docs/PHYSICS.md",
+        "line": 146,
+        "character_start": 68,
+        "character_end_exclusive": 88,
+        "fragment": "This architecture is"
+      },
+      {
+        "path": "docs/PHYSICS.md",
+        "line": 147,
+        "character_start": 1,
+        "character_end_exclusive": 43,
+        "fragment": "superseded by the drawing described above."
+      },
+      {
+        "path": "docs/PHYSICS.md",
+        "line": 149,
+        "character_start": 1,
+        "character_end_exclusive": 76,
+        "fragment": "The following cell-array discussion belongs to that first-generation study."
+      }
+    ],
+    "actual_installed_architecture_record": null,
+    "applicability": "UNKNOWN; superseded source domain is not current installed architecture evidence."
+  }
 }
