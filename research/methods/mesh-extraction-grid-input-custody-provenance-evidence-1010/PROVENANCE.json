@@ -1,0 +1,18 @@
+{
+  "schema": "mesh-extraction-grid-input.source-provenance/1",
+  "source_revision": "682c4b375f7d67484891df7a551d0da03cedcf11",
+  "sources": [
+    {
+      "path": "tools/gen_nodes.py",
+      "bytes": 74681,
+      "sha256": "33baaa7fb22f0d564c322ab3103ff750727df945d106f60923ab09586aa2bbc7"
+    },
+    {
+      "path": "README.md",
+      "bytes": 16911,
+      "sha256": "746f77b23a5d4e63324d2a258ba708e3819715898d4592dd2be23be4b806e15b"
+    }
+  ],
+  "locator_convention": "One-based lines/character starts, ends exclusive. Exact nonnumeric input/namespace/call fragments; bare assignments locate identifiers, not formulas. F3 is an identifier, not a source quantity. Context hashes use inclusive source lines joined LF/UTF8/no trailing LF; grid/spacing/vector/numeric contents not reproduced or evaluated.",
+  "method": "Static selected surface_nets own input/caller/output namespaces and separate print_frame search context only. No grid/mesh/manifest lookup, counts/dimensions/spacing/resolution/error/property copying/evaluation, surface-nets/SDF/interpolation/formula reconstruction, convergence study, generator/CAD/model/fixture/parity/physical execution."
+}

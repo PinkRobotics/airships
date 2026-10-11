@@ -1,0 +1,648 @@
+{
+  "schema": "mesh-extraction-grid-input.provenance-crosswalk/1",
+  "status": "DOCUMENT_ONLY; actual input-grid/output and physical resolution custody UNKNOWN",
+  "source_revision": "682c4b375f7d67484891df7a551d0da03cedcf11",
+  "source_fragments": [
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 622,
+      "character_start": 1,
+      "character_end_exclusive": 39,
+      "fragment": "def surface_nets(sdf_grid, origin, h):",
+      "fragment_sha256": "d9f4cb7b3ad42e09610ea354cb228849bf43bc912aa5ad2d53af42bb0673b9e9"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 624,
+      "character_start": 5,
+      "character_end_exclusive": 17,
+      "fragment": "s = sdf_grid",
+      "fragment_sha256": "4b471228eee32c196e0d4beffd2f0ea3f89bbcabed675f161ce5fab6a34f8b8b"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 995,
+      "character_start": 1,
+      "character_end_exclusive": 20,
+      "fragment": "def main() -> None:",
+      "fragment_sha256": "3759fd2adcb099cb3cc1f2021360fcf3b697aa85dc8c087696c52e44de3862d8"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1090,
+      "character_start": 5,
+      "character_end_exclusive": 11,
+      "fragment": "axis =",
+      "fragment_sha256": "316242ba33f6c75c8bed14eae3b90da869876e6f17b77bb110aa0a07e9b4ef7f"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1090,
+      "character_start": 35,
+      "character_end_exclusive": 43,
+      "fragment": "args.res",
+      "fragment_sha256": "0d870531f15035963651faa3909a1ff3062b000dd93c5c2d2dd5c3b9e89e4394"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1091,
+      "character_start": 5,
+      "character_end_exclusive": 8,
+      "fragment": "h =",
+      "fragment_sha256": "aab2e63b7dbcf82a92d46502fee69a68dc18e112819ec869152cf57b20c7ed47"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1191,
+      "character_start": 9,
+      "character_end_exclusive": 23,
+      "fragment": "F3 = node_sdf(",
+      "fragment_sha256": "94e4eb2544fa4cffe6d06c6b9d3df353efe2c53a0c5fc7a75d7afd48b4d281e9"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1193,
+      "character_start": 56,
+      "character_end_exclusive": 65,
+      "fragment": ".reshape(",
+      "fragment_sha256": "579cdb5c26312e9ca6bfa558f77c3af1b2c0a04d0efad4316ff9660e322c5fe9"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1193,
+      "character_start": 66,
+      "character_end_exclusive": 74,
+      "fragment": "args.res",
+      "fragment_sha256": "0d870531f15035963651faa3909a1ff3062b000dd93c5c2d2dd5c3b9e89e4394"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1194,
+      "character_start": 9,
+      "character_end_exclusive": 32,
+      "fragment": "v, t = surface_nets(F3,",
+      "fragment_sha256": "435d6abe0e060ae7b8a490380cd485a6b99b6a92881ae4cb4796ca6c76e4a7ed"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1194,
+      "character_start": 33,
+      "character_end_exclusive": 42,
+      "fragment": "np.array(",
+      "fragment_sha256": "7ee55a3bf822e9b829003b4beb92cbeaa3eb7417f3c5afececa94237fb98314c"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1194,
+      "character_start": 53,
+      "character_end_exclusive": 57,
+      "fragment": ", h)",
+      "fragment_sha256": "c2b6224897e7de1f3cd0de32ae437fbddc8f4116269847d7815c6471c68f4785"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 894,
+      "character_start": 1,
+      "character_end_exclusive": 17,
+      "fragment": "def print_frame(",
+      "fragment_sha256": "f35be4e295b055ea460170bac88157ca2138e0f2e39243a4c13926a4649969cf"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 876,
+      "character_start": 1,
+      "character_end_exclusive": 23,
+      "fragment": "PRINT_SEARCH_CELL_MM =",
+      "fragment_sha256": "7859868f9f24f3c534af110d559d5de9b10de37709a681301fb2a5d6154283bb"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 953,
+      "character_start": 5,
+      "character_end_exclusive": 10,
+      "fragment": "res =",
+      "fragment_sha256": "ddebee0e469cfc9520663bb0b6ec628f8680b8a04362f025b7a3380fee04961e"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 953,
+      "character_start": 27,
+      "character_end_exclusive": 47,
+      "fragment": "PRINT_SEARCH_CELL_MM",
+      "fragment_sha256": "807ec79002c7538991ac9010f57b891cbfcf000c23e51fd58172da529b45bb7f"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 954,
+      "character_start": 5,
+      "character_end_exclusive": 11,
+      "fragment": "axis =",
+      "fragment_sha256": "316242ba33f6c75c8bed14eae3b90da869876e6f17b77bb110aa0a07e9b4ef7f"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 955,
+      "character_start": 5,
+      "character_end_exclusive": 9,
+      "fragment": "hh =",
+      "fragment_sha256": "1f62e9881e1f8d435abfadd54eed8d72b860b9f2888b89b2ad6672488f3a7d88"
+    },
+    {
+      "path": "README.md",
+      "line": 3,
+      "character_start": 186,
+      "character_end_exclusive": 222,
+      "fragment": "No aircraft has been built or flown.",
+      "fragment_sha256": "bd88446d4305c34307c2acb2bc020e0441e17382f095d6be3beee1076eabdbb9"
+    }
+  ],
+  "hashed_lexical_contexts": [
+    {
+      "path": "tools/gen_nodes.py",
+      "identity": "surface_nets own input namespace",
+      "line_start": 622,
+      "line_end_inclusive": 624,
+      "context_sha256": "8688d20251ae3e592d91768244955c98d6ebc1b4eb98cc7f77937c53d838056f",
+      "context_bytes": 149,
+      "limit": "Hash only; grid/spacing/vector/geometry/formula/numeric contents not reproduced or evaluated."
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "identity": "main selected axis-spacing",
+      "line_start": 1090,
+      "line_end_inclusive": 1093,
+      "context_sha256": "1719d15ec13644ebf8ca73f31a051e248bcf02f8ec3547657840742767e205d5",
+      "context_bytes": 194,
+      "limit": "Hash only; grid/spacing/vector/geometry/formula/numeric contents not reproduced or evaluated."
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "identity": "main selected extraction input-call",
+      "line_start": 1191,
+      "line_end_inclusive": 1194,
+      "context_sha256": "01ca9ebcb8343833f77fe1ad8f05299fed1438a79e0597224b65604854a736fe",
+      "context_bytes": 248,
+      "limit": "Hash only; grid/spacing/vector/geometry/formula/numeric contents not reproduced or evaluated."
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "identity": "print_frame separate search spacing",
+      "line_start": 953,
+      "line_end_inclusive": 956,
+      "context_sha256": "5e76f2078e65e401bf2699735ef9adee58bcb157c045ee21295aa5c6257ab649",
+      "context_bytes": 179,
+      "limit": "Hash only; grid/spacing/vector/geometry/formula/numeric contents not reproduced or evaluated."
+    }
+  ],
+  "source_identity_mappings": [
+    {
+      "source_identity": "surface_nets own input namespace",
+      "source_role": "surface_nets has its own sdf_grid/origin/h parameters and an s alias of sdf_grid.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 622,
+          "character_start": 1,
+          "character_end_exclusive": 39,
+          "fragment": "def surface_nets(sdf_grid, origin, h):",
+          "fragment_sha256": "d9f4cb7b3ad42e09610ea354cb228849bf43bc912aa5ad2d53af42bb0673b9e9"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 624,
+          "character_start": 5,
+          "character_end_exclusive": 17,
+          "fragment": "s = sdf_grid",
+          "fragment_sha256": "4b471228eee32c196e0d4beffd2f0ea3f89bbcabed675f161ce5fab6a34f8b8b"
+        }
+      ],
+      "limit": "Source namespace only; no SDF/interpolation/surface algorithm reconstructed or evaluated, grid acquired or cells/vertices/triangles counted.",
+      "actual_run_input_grid_origin_spacing_output_record": null,
+      "actual_physical_resolution_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "selected main axis-spacing namespace",
+      "source_role": "main owns selected axis and h declarations with an args.res source reference.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 995,
+          "character_start": 1,
+          "character_end_exclusive": 20,
+          "fragment": "def main() -> None:",
+          "fragment_sha256": "3759fd2adcb099cb3cc1f2021360fcf3b697aa85dc8c087696c52e44de3862d8"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1090,
+          "character_start": 5,
+          "character_end_exclusive": 11,
+          "fragment": "axis =",
+          "fragment_sha256": "316242ba33f6c75c8bed14eae3b90da869876e6f17b77bb110aa0a07e9b4ef7f"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1090,
+          "character_start": 35,
+          "character_end_exclusive": 43,
+          "fragment": "args.res",
+          "fragment_sha256": "0d870531f15035963651faa3909a1ff3062b000dd93c5c2d2dd5c3b9e89e4394"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1091,
+          "character_start": 5,
+          "character_end_exclusive": 8,
+          "fragment": "h =",
+          "fragment_sha256": "aab2e63b7dbcf82a92d46502fee69a68dc18e112819ec869152cf57b20c7ed47"
+        }
+      ],
+      "limit": "Bare assignment locators deliberately do not define grid/spacing/vector formulas or choose a resolution. Source identifiers are not actual input configuration, convergence, error or physical precision.",
+      "actual_run_input_grid_origin_spacing_output_record": null,
+      "actual_physical_resolution_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "selected main field input namespace",
+      "source_role": "The selected main F3 declaration calls node_sdf; its selected reshape context has an args.res reference.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1191,
+          "character_start": 9,
+          "character_end_exclusive": 23,
+          "fragment": "F3 = node_sdf(",
+          "fragment_sha256": "94e4eb2544fa4cffe6d06c6b9d3df353efe2c53a0c5fc7a75d7afd48b4d281e9"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1193,
+          "character_start": 56,
+          "character_end_exclusive": 65,
+          "fragment": ".reshape(",
+          "fragment_sha256": "579cdb5c26312e9ca6bfa558f77c3af1b2c0a04d0efad4316ff9660e322c5fe9"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1193,
+          "character_start": 66,
+          "character_end_exclusive": 74,
+          "fragment": "args.res",
+          "fragment_sha256": "0d870531f15035963651faa3909a1ff3062b000dd93c5c2d2dd5c3b9e89e4394"
+        }
+      ],
+      "limit": "Selected input-field identity only, no SDF/geometry/grid/formula reconstruction, generation, invocation parameters or measured field acquired.",
+      "actual_run_input_grid_origin_spacing_output_record": null,
+      "actual_physical_resolution_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "selected extraction call and output binding",
+      "source_role": "The selected main call passes F3, an np.array origin-expression context and main h to surface_nets, binding v and t.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1194,
+          "character_start": 9,
+          "character_end_exclusive": 32,
+          "fragment": "v, t = surface_nets(F3,",
+          "fragment_sha256": "435d6abe0e060ae7b8a490380cd485a6b99b6a92881ae4cb4796ca6c76e4a7ed"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1194,
+          "character_start": 33,
+          "character_end_exclusive": 42,
+          "fragment": "np.array(",
+          "fragment_sha256": "7ee55a3bf822e9b829003b4beb92cbeaa3eb7417f3c5afececa94237fb98314c"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1194,
+          "character_start": 53,
+          "character_end_exclusive": 57,
+          "fragment": ", h)",
+          "fragment_sha256": "c2b6224897e7de1f3cd0de32ae437fbddc8f4116269847d7815c6471c68f4785"
+        }
+      ],
+      "limit": "Call-position identity only; second-argument expression contents/hash-context not reproduced or evaluated. Own sdf_grid/origin/h parameter names and caller F3/origin-expression/h are different lexical bindings; no output correspondence/digest supplied.",
+      "actual_run_input_grid_origin_spacing_output_record": null,
+      "actual_physical_resolution_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "separate print search context",
+      "source_role": "print_frame has a separate search res/axis/hh context with a PRINT_SEARCH_CELL_MM source reference.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 894,
+          "character_start": 1,
+          "character_end_exclusive": 17,
+          "fragment": "def print_frame(",
+          "fragment_sha256": "f35be4e295b055ea460170bac88157ca2138e0f2e39243a4c13926a4649969cf"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 876,
+          "character_start": 1,
+          "character_end_exclusive": 23,
+          "fragment": "PRINT_SEARCH_CELL_MM =",
+          "fragment_sha256": "7859868f9f24f3c534af110d559d5de9b10de37709a681301fb2a5d6154283bb"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 953,
+          "character_start": 5,
+          "character_end_exclusive": 10,
+          "fragment": "res =",
+          "fragment_sha256": "ddebee0e469cfc9520663bb0b6ec628f8680b8a04362f025b7a3380fee04961e"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 953,
+          "character_start": 27,
+          "character_end_exclusive": 47,
+          "fragment": "PRINT_SEARCH_CELL_MM",
+          "fragment_sha256": "807ec79002c7538991ac9010f57b891cbfcf000c23e51fd58172da529b45bb7f"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 954,
+          "character_start": 5,
+          "character_end_exclusive": 11,
+          "fragment": "axis =",
+          "fragment_sha256": "316242ba33f6c75c8bed14eae3b90da869876e6f17b77bb110aa0a07e9b4ef7f"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 955,
+          "character_start": 5,
+          "character_end_exclusive": 9,
+          "fragment": "hh =",
+          "fragment_sha256": "1f62e9881e1f8d435abfadd54eed8d72b860b9f2888b89b2ad6672488f3a7d88"
+        }
+      ],
+      "limit": "Separate function context from main extraction h; same axis/res spelling does not establish shared binding. No equal resolution, convergence, current correctness or physical print precision inferred.",
+      "actual_run_input_grid_origin_spacing_output_record": null,
+      "actual_physical_resolution_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "source versus physical resolution evidence",
+      "source_role": "The unchanged project source states that no aircraft has been built or flown.",
+      "source_locators": [
+        {
+          "path": "README.md",
+          "line": 3,
+          "character_start": 186,
+          "character_end_exclusive": 222,
+          "fragment": "No aircraft has been built or flown.",
+          "fragment_sha256": "bd88446d4305c34307c2acb2bc020e0441e17382f095d6be3beee1076eabdbb9"
+        }
+      ],
+      "limit": "Source configuration and software gates cannot establish actual printer/process resolution, metrology, calibrated physical dimensions or manufactured applicability.",
+      "actual_run_input_grid_origin_spacing_output_record": null,
+      "actual_physical_resolution_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    }
+  ],
+  "requirements": [
+    {
+      "id": "invocation-source-version-and-custody",
+      "prospective_record_requirements": [
+        "Original actual invocation/source-version and accountable custody."
+      ],
+      "insufficient_or_disconfirming_evidence": "Selected source input/call names do not identify an actual extraction invocation.",
+      "proposed_custodian_role": "invocation-source-version-and-custody record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "input_grid_configuration": null,
+      "origin_record": null,
+      "spacing_record": null,
+      "output_correspondence": null,
+      "output_digest": null,
+      "raw_custody": null,
+      "article": null,
+      "printer": null,
+      "process": null,
+      "state": null,
+      "metrology_resolution": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "grid-origin-spacing-and-input-configuration",
+      "prospective_record_requirements": [
+        "Original input-grid configuration/origin/spacing records tied to that run."
+      ],
+      "insufficient_or_disconfirming_evidence": "No grid, origin or spacing values acquired; source context does not select or validate a resolution.",
+      "proposed_custodian_role": "grid-origin-spacing-and-input-configuration record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "input_grid_configuration": null,
+      "origin_record": null,
+      "spacing_record": null,
+      "output_correspondence": null,
+      "output_digest": null,
+      "raw_custody": null,
+      "article": null,
+      "printer": null,
+      "process": null,
+      "state": null,
+      "metrology_resolution": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "output-correspondence-digest-and-raw-custody",
+      "prospective_record_requirements": [
+        "Original output correspondence/digest and preserved raw custody."
+      ],
+      "insufficient_or_disconfirming_evidence": "Hashed source contexts are not grid/mesh outputs, original manifest, convergence or input-to-output evidence.",
+      "proposed_custodian_role": "output-correspondence-digest-and-raw-custody record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "input_grid_configuration": null,
+      "origin_record": null,
+      "spacing_record": null,
+      "output_correspondence": null,
+      "output_digest": null,
+      "raw_custody": null,
+      "article": null,
+      "printer": null,
+      "process": null,
+      "state": null,
+      "metrology_resolution": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "article-printer-and-process-correspondence",
+      "prospective_record_requirements": [
+        "Matched actual article/printer/process/state records."
+      ],
+      "insufficient_or_disconfirming_evidence": "Computational extraction/search settings cannot identify a physical part or establish print precision.",
+      "proposed_custodian_role": "article-printer-and-process-correspondence record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "input_grid_configuration": null,
+      "origin_record": null,
+      "spacing_record": null,
+      "output_correspondence": null,
+      "output_digest": null,
+      "raw_custody": null,
+      "article": null,
+      "printer": null,
+      "process": null,
+      "state": null,
+      "metrology_resolution": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "metrology-resolution-calibration-and-uncertainty",
+      "prospective_record_requirements": [
+        "Original metrology-resolution/calibration/uncertainty and applicability."
+      ],
+      "insufficient_or_disconfirming_evidence": "No error/resolution property, counts, physical observation, convergence study or numerical comparison supplied.",
+      "proposed_custodian_role": "metrology-resolution-calibration-and-uncertainty record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "input_grid_configuration": null,
+      "origin_record": null,
+      "spacing_record": null,
+      "output_correspondence": null,
+      "output_digest": null,
+      "raw_custody": null,
+      "article": null,
+      "printer": null,
+      "process": null,
+      "state": null,
+      "metrology_resolution": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "owner-criterion-and-adoption",
+      "prospective_record_requirements": [
+        "Actual responsible owner and adopted source/version/domain/criterion record when supplied."
+      ],
+      "insufficient_or_disconfirming_evidence": "Custodians UNASSIGNED; no resolution/design/threshold selection or operating/test/campaign guidance developed.",
+      "proposed_custodian_role": "owner-criterion-and-adoption record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "input_grid_configuration": null,
+      "origin_record": null,
+      "spacing_record": null,
+      "output_correspondence": null,
+      "output_digest": null,
+      "raw_custody": null,
+      "article": null,
+      "printer": null,
+      "process": null,
+      "state": null,
+      "metrology_resolution": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    }
+  ],
+  "separate_maps": [
+    {
+      "unit": "robotics-computed-node-mass-custody-provenance-evidence-thread-1010",
+      "candidate": "1f939c39ce0fc1632f76dab0d9e694a691f32f42",
+      "output_dir": "research/methods/computed-node-mass-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical outcome, physical applicability, signature, landing or scientific acceptance imported."
+    },
+    {
+      "unit": "robotics-computed-mesh-closure-provenance-evidence-thread-1010",
+      "candidate": "c23772d8f16c6628b0f24b0c236195a44d3aa0f4",
+      "output_dir": "research/methods/computed-mesh-closure-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical outcome, physical applicability, signature, landing or scientific acceptance imported."
+    },
+    {
+      "unit": "robotics-computed-printability-output-provenance-evidence-thread-1010",
+      "candidate": "04cbb3d1217ce4c438232adf95deec8c57f379d9",
+      "output_dir": "research/methods/computed-printability-output-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical outcome, physical applicability, signature, landing or scientific acceptance imported."
+    },
+    {
+      "unit": "robotics-assembly-coordinate-frame-provenance-evidence-thread-1010",
+      "candidate": "be6e3beaf736cf6ba13784856a31262611f92759",
+      "output_dir": "research/methods/assembly-coordinate-frame-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical outcome, physical applicability, signature, landing or scientific acceptance imported."
+    },
+    {
+      "unit": "robotics-generated-node-file-identity-provenance-evidence-thread-1010",
+      "candidate": "d626b1e9420cbc14463320b0724c3d01ad582de2",
+      "output_dir": "research/methods/generated-node-file-identity-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical outcome, physical applicability, signature, landing or scientific acceptance imported."
+    },
+    {
+      "unit": "robotics-generator-manifest-parameter-custody-provenance-evidence-thread-1010",
+      "candidate": "5ade02cc5eb257f98aeeb2b96681faf47ea93a3c",
+      "output_dir": "research/methods/generator-manifest-parameter-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical outcome, physical applicability, signature, landing or scientific acceptance imported."
+    },
+    {
+      "unit": "robotics-q13-water-drafting-availability-evidence-1010",
+      "candidate": "82f0c88e73600632db9ea9ebd5e32a61659931c2",
+      "output_dir": "research/open-questions/q13-drafting-availability-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical outcome, physical applicability, signature, landing or scientific acceptance imported."
+    }
+  ],
+  "selected_resolution_design_threshold_or_operating_test_campaign_guidance": null,
+  "new_numeric_results": [],
+  "new_measurements": [],
+  "models_equations_or_generators_executed": false
+}
