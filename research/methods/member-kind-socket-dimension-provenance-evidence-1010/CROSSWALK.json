@@ -1,0 +1,683 @@
+{
+  "schema": "member-kind-socket.dimension-crosswalk/1",
+  "status": "DOCUMENT_ONLY; actual member/dimension/fit custody UNKNOWN",
+  "source_revision": "682c4b375f7d67484891df7a551d0da03cedcf11",
+  "source_fragments": [
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 330,
+      "character_start": 1,
+      "character_end_exclusive": 25,
+      "fragment": "def arm_pipe(kind, prm):",
+      "fragment_sha256": "9f0b9556f383e34cc69b22962abb152fb68a38fa6c5c2ebc02a7a7caa2b6661d"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 345,
+      "character_start": 5,
+      "character_end_exclusive": 22,
+      "fragment": "if kind == \"rim\":",
+      "fragment_sha256": "18306e99ba0cbf6d020e84068b51ff8c8c835cf86b71b021d1ba09d521b9da85"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 346,
+      "character_start": 9,
+      "character_end_exclusive": 54,
+      "fragment": "return prm[\"rim_pipe_od\"], prm[\"rim_pipe_id\"]",
+      "fragment_sha256": "33bc9b3aa79733db775adab2f109609b36a9c63b9793938e8b7b9c0ad8c640d7"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 347,
+      "character_start": 5,
+      "character_end_exclusive": 42,
+      "fragment": "return prm[\"pipe_od\"], prm[\"pipe_id\"]",
+      "fragment_sha256": "20959749c9191ce7b4d585ab3759ba22e98f514e67f699f731a99ff3813c5398"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 343,
+      "character_start": 5,
+      "character_end_exclusive": 71,
+      "fragment": "kind through is the whole fix; nothing else special-cases the rim.",
+      "fragment_sha256": "9fd4b3843d60f663034cd6cea07834cdc50729461ae413b09a60a47e5d708acf"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 397,
+      "character_start": 1,
+      "character_end_exclusive": 38,
+      "fragment": "def slot_base(dirs, prm, kinds=None):",
+      "fragment_sha256": "86ce3c38bd3bf4c5a3e392a1f768298d781ffa2af928b861b0e165f243e0270e"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 431,
+      "character_start": 5,
+      "character_end_exclusive": 68,
+      "fragment": "kinds = [\"octet\"] * len(dirs) if kinds is None else list(kinds)",
+      "fragment_sha256": "0cc75884db549c26ce391fac50d8664124f9d61b983538e64bcc03ad3a596bb8"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 434,
+      "character_start": 9,
+      "character_end_exclusive": 35,
+      "fragment": "od, idm = arm_pipe(k, prm)",
+      "fragment_sha256": "0a0f06965f309a3ac842dfa0259c91257a017eb26dad192ea1cfa2751a1f0e10"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 420,
+      "character_start": 5,
+      "character_end_exclusive": 91,
+      "fragment": "PER-ARM RADII. `kinds` gives each direction its member kind, and every radius below is",
+      "fragment_sha256": "d5f357529c1f63861f952a9c38bb79505668e5bd0b26bdb518877cdb2f77a13d"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 492,
+      "character_start": 1,
+      "character_end_exclusive": 89,
+      "fragment": "def node_sdf(P, arms, lands, prm, is_hub, base=None, stubs=None, bores=None, kinds=None,",
+      "fragment_sha256": "9ea787e9466fe5d2006e39e8162f6928de3fd83cbae5f1819343fcbd9f31d179"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 527,
+      "character_start": 5,
+      "character_end_exclusive": 68,
+      "fragment": "kinds = [\"octet\"] * len(arms) if kinds is None else list(kinds)",
+      "fragment_sha256": "f867c56ab6aeb68721b61da22cae0c508936e8beea63bd254744883293f2bdb6"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 530,
+      "character_start": 9,
+      "character_end_exclusive": 35,
+      "fragment": "od, idm = arm_pipe(k, prm)",
+      "fragment_sha256": "0a0f06965f309a3ac842dfa0259c91257a017eb26dad192ea1cfa2751a1f0e10"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 526,
+      "character_start": 7,
+      "character_end_exclusive": 97,
+      "fragment": "to the main SKU on every arm, which is exactly the V2 field, so old callers are unchanged.",
+      "fragment_sha256": "22e74af4c5d29a8155357a0772f394531ee3f6454418116e460ba04dd8d03c97"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 995,
+      "character_start": 1,
+      "character_end_exclusive": 20,
+      "fragment": "def main() -> None:",
+      "fragment_sha256": "3759fd2adcb099cb3cc1f2021360fcf3b697aa85dc8c087696c52e44de3862d8"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1171,
+      "character_start": 9,
+      "character_end_exclusive": 28,
+      "fragment": "kinds = kinds_of(u)",
+      "fragment_sha256": "e6c79911e845e64aa65052790940d788886886b9a08009adbd884bfedc61c9d5"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1172,
+      "character_start": 9,
+      "character_end_exclusive": 58,
+      "fragment": "base, min_ang, need = slot_base(dirs, prm, kinds)",
+      "fragment_sha256": "4bc418c88ae3077672fcae26fefd110f59a81a142a855e83a877c88ea457b2e4"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1191,
+      "character_start": 9,
+      "character_end_exclusive": 63,
+      "fragment": "F3 = node_sdf(P, arms, lands_p, prm, role == \"hexHub\",",
+      "fragment_sha256": "1e5a89f2e2ddce462665b38324dc19b2ffc66bac0e6cd05055df2d174f197ff9"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1192,
+      "character_start": 23,
+      "character_end_exclusive": 49,
+      "fragment": "base, stubs, bores, kinds,",
+      "fragment_sha256": "b71852f1145116aa73381d604673b739d266eca01f536ba38033cf792385c390"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 510,
+      "character_start": 26,
+      "character_end_exclusive": 93,
+      "fragment": "check_assembly measures the FULL field analytically; no mesh at any",
+      "fragment_sha256": "b7fe0282c1418a644f3634fb3eb86bc2f0252316518202c41d369fc1c7d2fd07"
+    },
+    {
+      "path": "README.md",
+      "line": 93,
+      "character_start": 1,
+      "character_end_exclusive": 82,
+      "fragment": "Higher factored loads buy heavier members, joint allowance and stability reserve.",
+      "fragment_sha256": "a0a915ba4467e1a1bbff0a25a95068757562f2cf13c2432cecac0f960a7b7b5e"
+    },
+    {
+      "path": "docs/VERIFICATION-PLAN.md",
+      "line": 169,
+      "character_start": 13,
+      "character_end_exclusive": 59,
+      "fragment": "What it measures: print yield and tolerance at",
+      "fragment_sha256": "1e3ce0f531eadc6a92b33a0470863a5dff2fedb951220713850563b1db63eb16"
+    },
+    {
+      "path": "README.md",
+      "line": 3,
+      "character_start": 186,
+      "character_end_exclusive": 222,
+      "fragment": "No aircraft has been built or flown.",
+      "fragment_sha256": "bd88446d4305c34307c2acb2bc020e0441e17382f095d6be3beee1076eabdbb9"
+    }
+  ],
+  "hashed_lexical_contexts": [
+    {
+      "path": "tools/gen_nodes.py",
+      "identity": "arm_pipe",
+      "line_start": 330,
+      "line_end_inclusive": 348,
+      "context_sha256": "0883d0b66c9031ebbbe09d5106910dd31f3418a55b322ee2c8c20011354446ce",
+      "context_bytes": 1076,
+      "limit": "Context hash only; source numerical contents not reproduced or evaluated."
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "identity": "slot_base selected identity",
+      "line_start": 397,
+      "line_end_inclusive": 439,
+      "context_sha256": "a9a2a3c5b62e40cf17fd2bc859beed8c499b08a50433408c9b87b9bfa81396c5",
+      "context_bytes": 2797,
+      "limit": "Context hash only; source numerical contents not reproduced or evaluated."
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "identity": "node_sdf selected identity",
+      "line_start": 492,
+      "line_end_inclusive": 533,
+      "context_sha256": "ad6cd6aaf5873e0a5e903cf3acfd59553e4f7469788f03a5df03bf3fa284c6ee",
+      "context_bytes": 2972,
+      "limit": "Context hash only; source numerical contents not reproduced or evaluated."
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "identity": "main selected callers",
+      "line_start": 1168,
+      "line_end_inclusive": 1194,
+      "context_sha256": "6b1dd2858782102a03de9e013ffce127550845523e8851865e4bed3af9bb4098",
+      "context_bytes": 1608,
+      "limit": "Context hash only; source numerical contents not reproduced or evaluated."
+    }
+  ],
+  "source_identity_mappings": [
+    {
+      "source_identity": "arm_pipe kind/prm namespace",
+      "source_role": "arm_pipe has its own kind/prm parameters. The literal rim branch returns rim_pipe_od/rim_pipe_id; the default branch returns pipe_od/pipe_id.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 330,
+          "character_start": 1,
+          "character_end_exclusive": 25,
+          "fragment": "def arm_pipe(kind, prm):",
+          "fragment_sha256": "9f0b9556f383e34cc69b22962abb152fb68a38fa6c5c2ebc02a7a7caa2b6661d"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 345,
+          "character_start": 5,
+          "character_end_exclusive": 22,
+          "fragment": "if kind == \"rim\":",
+          "fragment_sha256": "18306e99ba0cbf6d020e84068b51ff8c8c835cf86b71b021d1ba09d521b9da85"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 346,
+          "character_start": 9,
+          "character_end_exclusive": 54,
+          "fragment": "return prm[\"rim_pipe_od\"], prm[\"rim_pipe_id\"]",
+          "fragment_sha256": "33bc9b3aa79733db775adab2f109609b36a9c63b9793938e8b7b9c0ad8c640d7"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 347,
+          "character_start": 5,
+          "character_end_exclusive": 42,
+          "fragment": "return prm[\"pipe_od\"], prm[\"pipe_id\"]",
+          "fragment_sha256": "20959749c9191ce7b4d585ab3759ba22e98f514e67f699f731a99ff3813c5398"
+        }
+      ],
+      "limit": "Declared source configuration identity only; no tube, socket or dimensions selected or measured.",
+      "actual_member_kind_and_configuration": null,
+      "actual_socket_tube_dimension_or_fit_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "historical correction attribution",
+      "source_role": "Source history attributes its correction to passing each member kind through arm_pipe.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 343,
+          "character_start": 5,
+          "character_end_exclusive": 71,
+          "fragment": "kind through is the whole fix; nothing else special-cases the rim.",
+          "fragment_sha256": "9fd4b3843d60f663034cd6cea07834cdc50729461ae413b09a60a47e5d708acf"
+        }
+      ],
+      "limit": "Attributed source history only, not independently remeasured defect/fix or actual fit. Historical numerical dimensions/slop/counts/outcomes are not copied.",
+      "actual_member_kind_and_configuration": null,
+      "actual_socket_tube_dimension_or_fit_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "selected slot_base kind consumer",
+      "source_role": "slot_base has its own kinds parameter and local k iteration. Its default is the octet source namespace; the selected call supplies k and prm to arm_pipe.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 397,
+          "character_start": 1,
+          "character_end_exclusive": 38,
+          "fragment": "def slot_base(dirs, prm, kinds=None):",
+          "fragment_sha256": "86ce3c38bd3bf4c5a3e392a1f768298d781ffa2af928b861b0e165f243e0270e"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 431,
+          "character_start": 5,
+          "character_end_exclusive": 68,
+          "fragment": "kinds = [\"octet\"] * len(dirs) if kinds is None else list(kinds)",
+          "fragment_sha256": "0cc75884db549c26ce391fac50d8664124f9d61b983538e64bcc03ad3a596bb8"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 434,
+          "character_start": 9,
+          "character_end_exclusive": 35,
+          "fragment": "od, idm = arm_pipe(k, prm)",
+          "fragment_sha256": "0a0f06965f309a3ac842dfa0259c91257a017eb26dad192ea1cfa2751a1f0e10"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 420,
+          "character_start": 5,
+          "character_end_exclusive": 91,
+          "fragment": "PER-ARM RADII. `kinds` gives each direction its member kind, and every radius below is",
+          "fragment_sha256": "d5f357529c1f63861f952a9c38bb79505668e5bd0b26bdb518877cdb2f77a13d"
+        }
+      ],
+      "limit": "Selected lexical consumer only; no complete caller inventory, seating algorithm or clearance formula reconstruction. Defaults are retained source behavior, not an adopted member kind.",
+      "actual_member_kind_and_configuration": null,
+      "actual_socket_tube_dimension_or_fit_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "selected node_sdf kind consumer",
+      "source_role": "node_sdf has its own kinds parameter and local k iteration, with source default octet on each arm and a selected call to arm_pipe(k, prm).",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 492,
+          "character_start": 1,
+          "character_end_exclusive": 89,
+          "fragment": "def node_sdf(P, arms, lands, prm, is_hub, base=None, stubs=None, bores=None, kinds=None,",
+          "fragment_sha256": "9ea787e9466fe5d2006e39e8162f6928de3fd83cbae5f1819343fcbd9f31d179"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 527,
+          "character_start": 5,
+          "character_end_exclusive": 68,
+          "fragment": "kinds = [\"octet\"] * len(arms) if kinds is None else list(kinds)",
+          "fragment_sha256": "f867c56ab6aeb68721b61da22cae0c508936e8beea63bd254744883293f2bdb6"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 530,
+          "character_start": 9,
+          "character_end_exclusive": 35,
+          "fragment": "od, idm = arm_pipe(k, prm)",
+          "fragment_sha256": "0a0f06965f309a3ac842dfa0259c91257a017eb26dad192ea1cfa2751a1f0e10"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 526,
+          "character_start": 7,
+          "character_end_exclusive": 97,
+          "fragment": "to the main SKU on every arm, which is exactly the V2 field, so old callers are unchanged.",
+          "fragment_sha256": "22e74af4c5d29a8155357a0772f394531ee3f6454418116e460ba04dd8d03c97"
+        }
+      ],
+      "limit": "Same local identifier spelling in slot_base and node_sdf is not the same lexical variable. No SDF/mesh/geometry execution, radius calculation or physical socket evidence supplied.",
+      "actual_member_kind_and_configuration": null,
+      "actual_socket_tube_dimension_or_fit_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "selected main caller lineage",
+      "source_role": "main obtains kinds_of(u), passes kinds to slot_base and to node_sdf in the extraction caller.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 995,
+          "character_start": 1,
+          "character_end_exclusive": 20,
+          "fragment": "def main() -> None:",
+          "fragment_sha256": "3759fd2adcb099cb3cc1f2021360fcf3b697aa85dc8c087696c52e44de3862d8"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1171,
+          "character_start": 9,
+          "character_end_exclusive": 28,
+          "fragment": "kinds = kinds_of(u)",
+          "fragment_sha256": "e6c79911e845e64aa65052790940d788886886b9a08009adbd884bfedc61c9d5"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1172,
+          "character_start": 9,
+          "character_end_exclusive": 58,
+          "fragment": "base, min_ang, need = slot_base(dirs, prm, kinds)",
+          "fragment_sha256": "4bc418c88ae3077672fcae26fefd110f59a81a142a855e83a877c88ea457b2e4"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1191,
+          "character_start": 9,
+          "character_end_exclusive": 63,
+          "fragment": "F3 = node_sdf(P, arms, lands_p, prm, role == \"hexHub\",",
+          "fragment_sha256": "1e5a89f2e2ddce462665b38324dc19b2ffc66bac0e6cd05055df2d174f197ff9"
+        },
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1192,
+          "character_start": 23,
+          "character_end_exclusive": 49,
+          "fragment": "base, stubs, bores, kinds,",
+          "fragment_sha256": "b71852f1145116aa73381d604673b739d266eca01f536ba38033cf792385c390"
+        }
+      ],
+      "limit": "Input lineage only, not verified correspondence to actual tube/node/serial/configuration or as-built metrology. Other call sites are not claimed absent or mapped exhaustively.",
+      "actual_member_kind_and_configuration": null,
+      "actual_socket_tube_dimension_or_fit_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "fit versus source checking boundary",
+      "source_role": "Source distinguishes its analytical check context from mesh representation.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 510,
+          "character_start": 26,
+          "character_end_exclusive": 93,
+          "fragment": "check_assembly measures the FULL field analytically; no mesh at any",
+          "fragment_sha256": "b7fe0282c1418a644f3634fb3eb86bc2f0252316518202c41d369fc1c7d2fd07"
+        }
+      ],
+      "limit": "Retained source claim only; no source-check correctness, clearance proof, fabricated connection, actual physical fit or current parity result established.",
+      "actual_member_kind_and_configuration": null,
+      "actual_socket_tube_dimension_or_fit_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    }
+  ],
+  "requirements": [
+    {
+      "id": "source-kind-and-configuration-custody",
+      "prospective_record_requirements": [
+        "Original source member-kind/configuration correspondence and responsible custody."
+      ],
+      "insufficient_or_disconfirming_evidence": "Passing a source kind selects a declared namespace, not an actual member/tube/node.",
+      "proposed_custodian_role": "source-kind-and-configuration-custody record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "member": null,
+      "tube": null,
+      "node": null,
+      "serial": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "state": null,
+      "member_kind": null,
+      "configuration": null,
+      "as_built_socket_dimension": null,
+      "as_built_tube_dimension": null,
+      "fit_observation": null,
+      "calibration": null,
+      "raw_custody": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "member-tube-node-serial-and-lot",
+      "prospective_record_requirements": [
+        "Actual member/tube/node/serial/material/lot records tied to configuration."
+      ],
+      "insufficient_or_disconfirming_evidence": "A source key or historical correction story is not a fabricated inventory or matched physical article.",
+      "proposed_custodian_role": "member-tube-node-serial-and-lot record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "member": null,
+      "tube": null,
+      "node": null,
+      "serial": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "state": null,
+      "member_kind": null,
+      "configuration": null,
+      "as_built_socket_dimension": null,
+      "as_built_tube_dimension": null,
+      "fit_observation": null,
+      "calibration": null,
+      "raw_custody": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "process-state-and-as-built-dimensions",
+      "prospective_record_requirements": [
+        "Original actual process/state/socket-and-tube dimension records with applicable metrology."
+      ],
+      "insufficient_or_disconfirming_evidence": "Source dimensions and software branches cannot supply actual as-built geometry or tolerance.",
+      "proposed_custodian_role": "process-state-and-as-built-dimensions record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "member": null,
+      "tube": null,
+      "node": null,
+      "serial": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "state": null,
+      "member_kind": null,
+      "configuration": null,
+      "as_built_socket_dimension": null,
+      "as_built_tube_dimension": null,
+      "fit_observation": null,
+      "calibration": null,
+      "raw_custody": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "physical-fit-observations-and-raw-custody",
+      "prospective_record_requirements": [
+        "Unmodified actual fit observations/raw acquisition and custody context."
+      ],
+      "insufficient_or_disconfirming_evidence": "Source checking or mesh representation is not a fabricated fit or physical qualification.",
+      "proposed_custodian_role": "physical-fit-observations-and-raw-custody record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "member": null,
+      "tube": null,
+      "node": null,
+      "serial": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "state": null,
+      "member_kind": null,
+      "configuration": null,
+      "as_built_socket_dimension": null,
+      "as_built_tube_dimension": null,
+      "fit_observation": null,
+      "calibration": null,
+      "raw_custody": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "calibration-uncertainty-and-applicability",
+      "prospective_record_requirements": [
+        "Applicable original calibration/uncertainty and source-to-article domain correspondence."
+      ],
+      "insufficient_or_disconfirming_evidence": "No new dimensional uncertainty, interference estimate, comparison or fit campaign is supplied.",
+      "proposed_custodian_role": "calibration-uncertainty-and-applicability record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "member": null,
+      "tube": null,
+      "node": null,
+      "serial": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "state": null,
+      "member_kind": null,
+      "configuration": null,
+      "as_built_socket_dimension": null,
+      "as_built_tube_dimension": null,
+      "fit_observation": null,
+      "calibration": null,
+      "raw_custody": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "responsible-owner-criterion-and-adoption",
+      "prospective_record_requirements": [
+        "Actual responsible owner and adoption source/version/domain/criterion when supplied."
+      ],
+      "insufficient_or_disconfirming_evidence": "Custodian roles are proposals UNASSIGNED; no tube/socket/dimension/interference/tolerance/material/process/adhesive/geometry/design/procedure/campaign selected.",
+      "proposed_custodian_role": "responsible-owner-criterion-and-adoption record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "member": null,
+      "tube": null,
+      "node": null,
+      "serial": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "state": null,
+      "member_kind": null,
+      "configuration": null,
+      "as_built_socket_dimension": null,
+      "as_built_tube_dimension": null,
+      "fit_observation": null,
+      "calibration": null,
+      "raw_custody": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    }
+  ],
+  "separate_maps": [
+    {
+      "unit": "robotics-q13-water-drafting-availability-evidence-1010",
+      "candidate": "82f0c88e73600632db9ea9ebd5e32a61659931c2",
+      "output_dir": "research/open-questions/q13-drafting-availability-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance, no numerical outcome, applicability or landing inferred."
+    },
+    {
+      "unit": "robotics-whole-hull-fitting-manifest-provenance-evidence-thread-1010",
+      "candidate": "7f8a3b9b5b912d2759a841feb6ae7c32667c92d1",
+      "output_dir": "research/methods/whole-hull-fitting-manifest-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance, no numerical outcome, applicability or landing inferred."
+    },
+    {
+      "unit": "robotics-computed-node-mass-custody-provenance-evidence-thread-1010",
+      "candidate": "1f939c39ce0fc1632f76dab0d9e694a691f32f42",
+      "output_dir": "research/methods/computed-node-mass-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance, no numerical outcome, applicability or landing inferred."
+    },
+    {
+      "unit": "robotics-computed-printability-output-provenance-evidence-thread-1010",
+      "candidate": "04cbb3d1217ce4c438232adf95deec8c57f379d9",
+      "output_dir": "research/methods/computed-printability-output-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance, no numerical outcome, applicability or landing inferred."
+    }
+  ],
+  "separate_boundaries": [
+    {
+      "identity": "joint allowance inclusion",
+      "source_locator": {
+        "path": "README.md",
+        "line": 93,
+        "character_start": 1,
+        "character_end_exclusive": 82,
+        "fragment": "Higher factored loads buy heavier members, joint allowance and stability reserve.",
+        "fragment_sha256": "a0a915ba4467e1a1bbff0a25a95068757562f2cf13c2432cecac0f960a7b7b5e"
+      },
+      "limit": "Existing source accounting statement only, not repeated bill reconciliation."
+    },
+    {
+      "identity": "print yield and tolerance",
+      "source_locator": {
+        "path": "docs/VERIFICATION-PLAN.md",
+        "line": 169,
+        "character_start": 13,
+        "character_end_exclusive": 59,
+        "fragment": "What it measures: print yield and tolerance at",
+        "fragment_sha256": "1e3ce0f531eadc6a92b33a0470863a5dff2fedb951220713850563b1db63eb16"
+      },
+      "limit": "Existing prospective plan only, no completed test, adopted tolerance or campaign."
+    }
+  ],
+  "selected_tube_socket_dimension_interference_tolerance_material_process_adhesive_geometry_design_procedure_or_campaign": null,
+  "new_numeric_results": [],
+  "new_measurements": [],
+  "models_equations_or_generators_executed": false
+}
