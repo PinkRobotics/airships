@@ -270,6 +270,38 @@
       "line": 1064,
       "exact_nonnumeric_fragment": "const lng = shipSizeCompression(P_ATM * Math.PI * (g.R * g.R) / g.nLong,",
       "fragment_sha256": "ecc5a6a5fc53dee429b2bfe8796800b46e4eec9d0c8f8986de0a34fd5e1fdcbe"
+    },
+    {
+      "entry": "face-argument",
+      "path": "ship/model.js",
+      "lexical_context": "memberDemands faceShares forwarding caller",
+      "line": 560,
+      "exact_nonnumeric_fragment": "const shares = faceShares(span, p);",
+      "fragment_sha256": "4d9d34cb3b54e929284d1b5562294da384374b14bcec4a704ba16897c0f7f12f"
+    },
+    {
+      "entry": "panel-argument",
+      "path": "ship/model.js",
+      "lexical_context": "filmEdgeLoads explicit P_ATM panelTension caller",
+      "line": 596,
+      "exact_nonnumeric_fragment": "const tension = (ir) => panelTension(ir, P_ATM);",
+      "fragment_sha256": "51227c3e6bff11da786ae9ed5d9dfeb29804010ebd65ad8e675f8a8245169ab0"
+    },
+    {
+      "entry": "face-argument",
+      "path": "ship/model.js",
+      "lexical_context": "filmEdgeLoads explicit P_ATM faceShares caller",
+      "line": 609,
+      "exact_nonnumeric_fragment": "const hub = faceShares(span, P_ATM).hexToHubN;",
+      "fragment_sha256": "336a25c97f0d1b3c1d07a6886d3ccdc1530db83161f817c49f9a539d4c51f7c3"
+    },
+    {
+      "entry": "member-argument",
+      "path": "ship/model.js",
+      "lexical_context": "stockBuild memberDemands caller omitting pressure and using source defaults",
+      "line": 711,
+      "exact_nonnumeric_fragment": "const dem = memberDemands(spanM);",
+      "fragment_sha256": "0cf8db4b4c260a529a7804bec28e5d4ddba2f85e41dbeefab4f1e1c35fb1bcff"
     }
   ],
   "fragment_scope": "Exact nonnumeric source fragments; constant numeric literal intentionally excluded. Defining/default/forwarding/fixed-use identities only; actual datum and physical applicability remain UNKNOWN."
