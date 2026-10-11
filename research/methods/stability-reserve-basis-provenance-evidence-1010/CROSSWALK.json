@@ -1,0 +1,595 @@
+{
+  "schema": "stability-reserve-basis.provenance-evidence-map/1",
+  "status": "DOCUMENT_ONLY; favourable reserve inclusion and imperfection allowance unresolved; actual adoption UNKNOWN",
+  "source_revision": "94db332d3dc437708d3ed0dfeb6b619c70d9da25",
+  "source_fragments": [
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "line": 1034,
+      "character_start": 1,
+      "character_end_exclusive": 44,
+      "fragment": "### Reserve omitted on the favourable basis"
+    },
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "line": 1036,
+      "character_start": 1,
+      "character_end_exclusive": 84,
+      "fragment": "Should the favourable figure include the stability reserve it currently leaves out?"
+    },
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "line": 1038,
+      "character_start": 1,
+      "character_end_exclusive": 60,
+      "fragment": "Which imperfection allowance should govern that comparison?"
+    },
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "line": 1037,
+      "character_start": 1,
+      "character_end_exclusive": 76,
+      "fragment": "What justifies `ship/model.js` gating that purchase on the record knockdown"
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 39,
+      "character_start": 1,
+      "character_end_exclusive": 94,
+      "fragment": "| stabilityReserve | additional solved areas; no separate drawing | whole hull, unallocated |"
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 72,
+      "character_start": 1,
+      "character_end_exclusive": 89,
+      "fragment": "| stabilityReserve-allocation | whole hull, unallocated | no complete drawn allocation |"
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 3,
+      "character_start": 1,
+      "character_end_exclusive": 122,
+      "fragment": "The drawing and the bill disagree. This generated record preserves those disagreements; it does not approve a cap design."
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 19,
+      "character_start": 47,
+      "character_end_exclusive": 74,
+      "fragment": "Unknown mass is never zero."
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 4,
+      "character_start": 1,
+      "character_end_exclusive": 105,
+      "fragment": "The checks use smeared areas at full radius and do not resolve station lengths, sections or connections."
+    },
+    {
+      "path": "README.md",
+      "line": 3,
+      "character_start": 186,
+      "character_end_exclusive": 222,
+      "fragment": "No aircraft has been built or flown."
+    }
+  ],
+  "declared_accounting_gating_mappings": [
+    {
+      "declared_identity": "shipBasis / basis",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 1045,
+          "character_start": 1,
+          "character_end_exclusive": 44,
+          "fragment": "export function shipBasis(basis, knockdown)"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1048,
+          "character_start": 64,
+          "character_end_exclusive": 80,
+          "fragment": "return 'record';"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1049,
+          "character_start": 47,
+          "character_end_exclusive": 67,
+          "fragment": "return 'favourable';"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1050,
+          "character_start": 22,
+          "character_end_exclusive": 78,
+          "fragment": "custom knockdown requires basis='record' or 'favourable'"
+        }
+      ],
+      "qualitative_source_role": "Named record/favourable basis is validated; legacy null-basis calls infer the named basis from named knockdown identity. Other custom knockdowns require explicit basis.",
+      "comparison_gap": "A source basis label or legacy default cannot adopt a physical allowance or establish matched evidence.",
+      "actual_applicable_record": null,
+      "matched_configuration": null,
+      "adopted_allowance_or_criterion": null,
+      "assigned_owner": null
+    },
+    {
+      "declared_identity": "SHIP0.giKnockdown / SHIP0.giKnockdownFrame / giKd",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 1268,
+          "character_start": 3,
+          "character_end_exclusive": 36,
+          "fragment": "const giKd = giKnockdown === null"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1269,
+          "character_start": 5,
+          "character_end_exclusive": 69,
+          "fragment": "? SHIP0[basis === 'record' ? 'giKnockdown' : 'giKnockdownFrame']"
+        }
+      ],
+      "qualitative_source_role": "Whole-ship ledger chooses named default knockdown by basis when none is supplied; explicit custom input stays distinct.",
+      "comparison_gap": "No source numeric knockdown copied; no selected default/allowance or matched configuration asserted.",
+      "actual_applicable_record": null,
+      "matched_configuration": null,
+      "adopted_allowance_or_criterion": null,
+      "assigned_owner": null
+    },
+    {
+      "declared_identity": "sigmaKey / sigmaMat / sf / MATERIALS.T700_LAM",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 1266,
+          "character_start": 3,
+          "character_end_exclusive": 32,
+          "fragment": "const key = sigmaKey === null"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1267,
+          "character_start": 3,
+          "character_end_exclusive": 26,
+          "fragment": "const sf_ = sf === null"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1271,
+          "character_start": 3,
+          "character_end_exclusive": 40,
+          "fragment": "const sig = SHIP0.sigmaWorldsMPa[key]"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1061,
+          "character_start": 3,
+          "character_end_exclusive": 35,
+          "fragment": "const E_ = MATERIALS.T700_LAM.E;"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1012,
+          "character_start": 3,
+          "character_end_exclusive": 38,
+          "fragment": "const rho = MATERIALS.T700_LAM.rho;"
+        }
+      ],
+      "qualitative_source_role": "Declared source material-world, safety-basis and skeleton stiffness/density identities feed source accounting.",
+      "comparison_gap": "Declared model identities are not observed material properties or an adopted physical material/safety-factor policy.",
+      "actual_applicable_record": null,
+      "matched_configuration": null,
+      "adopted_allowance_or_criterion": null,
+      "assigned_owner": null
+    },
+    {
+      "declared_identity": "shipSkeleton / solve / giKnockdown",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 1058,
+          "character_start": 1,
+          "character_end_exclusive": 30,
+          "fragment": "export function shipSkeleton("
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1060,
+          "character_start": 3,
+          "character_end_exclusive": 41,
+          "fragment": "basis = shipBasis(basis, giKnockdown);"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1172,
+          "character_start": 35,
+          "character_end_exclusive": 73,
+          "fragment": "= solve(giKnockdown, inner0.A, aThMin,"
+        }
+      ],
+      "qualitative_source_role": "Skeleton receives basis and knockdown and first sizes under that source input.",
+      "comparison_gap": "A sizing call and its source result do not establish calibration or a physical collapse/eigenvalue result.",
+      "actual_applicable_record": null,
+      "matched_configuration": null,
+      "adopted_allowance_or_criterion": null,
+      "assigned_owner": null
+    },
+    {
+      "declared_identity": "ovFrame / ovHarsh / ov02 / K_SHELL",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 1174,
+          "character_start": 3,
+          "character_end_exclusive": 22,
+          "fragment": "const ovFrame = gi("
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1175,
+          "character_start": 3,
+          "character_end_exclusive": 22,
+          "fragment": "const ovHarsh = gi("
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1176,
+          "character_start": 3,
+          "character_end_exclusive": 19,
+          "fragment": "const ov02 = gi("
+        }
+      ],
+      "qualitative_source_role": "Source reports separate comparison worlds, including shell imperfection identity, on the source-sized member state.",
+      "comparison_gap": "Separate source-world diagnostics are not matched measurements or an adopted imperfection allowance; no numeric suffix value interpreted as actual evidence.",
+      "actual_applicable_record": null,
+      "matched_configuration": null,
+      "adopted_allowance_or_criterion": null,
+      "assigned_owner": null
+    },
+    {
+      "declared_identity": "reserveKgM2 / record-only reserve branch",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 1178,
+          "character_start": 29,
+          "character_end_exclusive": 51,
+          "fragment": "&& basis === 'record')"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1179,
+          "character_start": 42,
+          "character_end_exclusive": 82,
+          "fragment": "= solve(K_SHELL, aI1, aTh1, aOe1, aSp1);"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1181,
+          "character_start": 7,
+          "character_end_exclusive": 23,
+          "fragment": "reserveKgM2 = (("
+        }
+      ],
+      "qualitative_source_role": "Reserve starts uncharged; only the record-basis branch with an insufficient source shell-check margin invokes additional sizing, and only successful follow-up margin charges additional member increments. Favourable basis skips this branch.",
+      "comparison_gap": "Record basis alone does not guarantee a charged reserve. Model-uncharged is not observed absence, negligible requirement or physical adequacy; no source numerical margin threshold copied/adopted.",
+      "actual_applicable_record": null,
+      "matched_configuration": null,
+      "adopted_allowance_or_criterion": null,
+      "assigned_owner": null
+    },
+    {
+      "declared_identity": "aI / aTh / aOe / aSp reserve increment families",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 1221,
+          "character_start": 5,
+          "character_end_exclusive": 18,
+          "fragment": "innerRingAM2:"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1222,
+          "character_start": 5,
+          "character_end_exclusive": 17,
+          "fragment": "thetaWebAM2:"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1224,
+          "character_start": 5,
+          "character_end_exclusive": 20,
+          "fragment": "flangeDoublerT:"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1225,
+          "character_start": 5,
+          "character_end_exclusive": 19,
+          "fragment": "spokeAM2PerM2:"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1181,
+          "character_start": 7,
+          "character_end_exclusive": 23,
+          "fragment": "reserveKgM2 = (("
+        }
+      ],
+      "qualitative_source_role": "Additional inner-ring, theta-web, outer-extra and spoke area increments contribute to source reserve accounting.",
+      "comparison_gap": "Family identifiers and billed increments do not supply complete drawn station/member/connection allocation or installed inventory.",
+      "actual_applicable_record": null,
+      "matched_configuration": null,
+      "adopted_allowance_or_criterion": null,
+      "assigned_owner": null
+    },
+    {
+      "declared_identity": "reserveT / junctionAdder / etaMass",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 1280,
+          "character_start": 3,
+          "character_end_exclusive": 36,
+          "fragment": "const reserveT = skel.reserveKgM2"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1281,
+          "character_start": 14,
+          "character_end_exclusive": 51,
+          "fragment": "SHIP0.junctionAdder) / SHIP0.etaMass;"
+        }
+      ],
+      "qualitative_source_role": "Whole-ship ledger converts source areal reserve into the bill and includes source joint/efficiency accounting factors.",
+      "comparison_gap": "Only identities/qualitative inclusion are traced; no mass/strength/lift calculation, source numeric coefficients or corrected bill supplied.",
+      "actual_applicable_record": null,
+      "matched_configuration": null,
+      "adopted_allowance_or_criterion": null,
+      "assigned_owner": null
+    },
+    {
+      "declared_identity": "totalT / ledgerT.stabilityReserve",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 1284,
+          "character_start": 3,
+          "character_end_exclusive": 35,
+          "fragment": "const totalT = memberT + jointsT"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1285,
+          "character_start": 30,
+          "character_end_exclusive": 48,
+          "fragment": "skinsT + reserveT;"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1310,
+          "character_start": 41,
+          "character_end_exclusive": 68,
+          "fragment": "stabilityReserve: reserveT,"
+        }
+      ],
+      "qualitative_source_role": "Reserve enters totalT and is returned as the named stabilityReserve ledger line.",
+      "comparison_gap": "Source line inclusion differs from complete observed mass, approved comparison scope and physical feasibility.",
+      "actual_applicable_record": null,
+      "matched_configuration": null,
+      "adopted_allowance_or_criterion": null,
+      "assigned_owner": null
+    },
+    {
+      "declared_identity": "ovalizationAtK02 / capBuckle / checksPass",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 1227,
+          "character_start": 34,
+          "character_end_exclusive": 57,
+          "fragment": "ovalizationAtK02: ov02,"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1209,
+          "character_start": 3,
+          "character_end_exclusive": 34,
+          "fragment": "const capBuckle = { marginAtSF:"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1292,
+          "character_start": 3,
+          "character_end_exclusive": 42,
+          "fragment": "const checksPass = wall.ring.marginAtSF"
+        }
+      ],
+      "qualitative_source_role": "Source returns separate imperfection diagnostic and cap/other check identities; the main checksPass predicate is a model output.",
+      "comparison_gap": "No passing source predicate or census generation can select the disputed reserve basis or establish complete physical collapse qualification.",
+      "actual_applicable_record": null,
+      "matched_configuration": null,
+      "adopted_allowance_or_criterion": null,
+      "assigned_owner": null
+    }
+  ],
+  "requirements": [
+    {
+      "id": "unresolved-source-comparison",
+      "existing_boundary": "Published favourable-reserve and imperfection-allowance questions remain unresolved.",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "docs/MEMBER-CENSUS.md"
+      ],
+      "prospective_record_requirements": [
+        "Original question/revision and comparison domain, source basis identities and historical custody"
+      ],
+      "insufficient_or_disconfirming_evidence": "This paper does not answer whether favourable should include reserve or choose an imperfection allowance.",
+      "proposed_custodian_role": "unresolved-source-comparison comparison-provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "source_configuration": null,
+      "actual_material_record": null,
+      "imperfection_basis_record": null,
+      "comparison_inclusion_record": null,
+      "matched_evidence": null,
+      "raw_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "custody_record": null,
+      "adopted_allowance": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "material-configuration-and-basis",
+      "existing_boundary": "Record/favourable/default/custom source inputs and conditional reserve branch have distinct accounting scope.",
+      "source_paths": [
+        "ship/model.js",
+        "docs/OPEN-QUESTIONS.md"
+      ],
+      "prospective_record_requirements": [
+        "Original source configuration/material/revision and declared basis/imperfection provenance; comparable state and explicit unmatched inputs"
+      ],
+      "insufficient_or_disconfirming_evidence": "Named defaults or source constants are not adopted physical criteria; preserve conditional branch behaviour without numeric copying.",
+      "proposed_custodian_role": "material-configuration-and-basis comparison-provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "source_configuration": null,
+      "actual_material_record": null,
+      "imperfection_basis_record": null,
+      "comparison_inclusion_record": null,
+      "matched_evidence": null,
+      "raw_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "custody_record": null,
+      "adopted_allowance": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "inclusion-and-allocation",
+      "existing_boundary": "Reserve is a separately billed line; census records additional solved areas with no separate drawing and no complete allocation.",
+      "source_paths": [
+        "docs/MEMBER-CENSUS.md",
+        "ship/model.js"
+      ],
+      "prospective_record_requirements": [
+        "Declared inclusion/exclusion and member-family/station/connection applicability from responsible sources, missing counterparts visible"
+      ],
+      "insufficient_or_disconfirming_evidence": "An uncharged source line is not measured absence; extra source increments are not complete installed population or qualified design.",
+      "proposed_custodian_role": "inclusion-and-allocation comparison-provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "source_configuration": null,
+      "actual_material_record": null,
+      "imperfection_basis_record": null,
+      "comparison_inclusion_record": null,
+      "matched_evidence": null,
+      "raw_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "custody_record": null,
+      "adopted_allowance": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "applicable-matched-evidence",
+      "existing_boundary": "Source imperfection worlds and source-sized states do not provide applicable matched observations.",
+      "source_paths": [
+        "ship/model.js",
+        "README.md"
+      ],
+      "prospective_record_requirements": [
+        "Original unmodified matched material/imperfection/configuration record identities and domain applicability, supplied source comparison conventions"
+      ],
+      "insufficient_or_disconfirming_evidence": "No record/favourable ranking or adoption follows from a formula, source-world label or generated predicate.",
+      "proposed_custodian_role": "applicable-matched-evidence comparison-provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "source_configuration": null,
+      "actual_material_record": null,
+      "imperfection_basis_record": null,
+      "comparison_inclusion_record": null,
+      "matched_evidence": null,
+      "raw_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "custody_record": null,
+      "adopted_allowance": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "raw-custody-calibration-and-uncertainty",
+      "existing_boundary": "Actual raw evidence, calibration, uncertainty and comparison records are unsupplied.",
+      "source_paths": [
+        "docs/MEMBER-CENSUS.md",
+        "README.md"
+      ],
+      "prospective_record_requirements": [
+        "Raw source/acquisition/custody/revision, applicable calibration and uncertainty provenance and missing/incomparable evidence"
+      ],
+      "insufficient_or_disconfirming_evidence": "No physical test, collapse/eigenvalue analysis, uncertainty estimate, sample count or measured allowance is invented.",
+      "proposed_custodian_role": "raw-custody-calibration-and-uncertainty comparison-provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "source_configuration": null,
+      "actual_material_record": null,
+      "imperfection_basis_record": null,
+      "comparison_inclusion_record": null,
+      "matched_evidence": null,
+      "raw_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "custody_record": null,
+      "adopted_allowance": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "responsible-adoption-and-limit",
+      "existing_boundary": "Proposed comparison custodians remain unassigned; adoption source and criterion are unknown.",
+      "source_paths": [
+        "docs/OPEN-QUESTIONS.md",
+        "README.md"
+      ],
+      "prospective_record_requirements": [
+        "Responsible source owner and adopted allowance/criterion provenance/version/applicability only when supplied; original decision custody"
+      ],
+      "insufficient_or_disconfirming_evidence": "Passing repository checks and source comments cannot adopt an allowance, answer the design question or establish physical feasibility/safety.",
+      "proposed_custodian_role": "responsible-adoption-and-limit comparison-provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "source_configuration": null,
+      "actual_material_record": null,
+      "imperfection_basis_record": null,
+      "comparison_inclusion_record": null,
+      "matched_evidence": null,
+      "raw_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "custody_record": null,
+      "adopted_allowance": null,
+      "adopted_criterion": null
+    }
+  ],
+  "selected_allowance_material_geometry_or_criterion": null,
+  "source_design_question_answer": null,
+  "new_numeric_results": [],
+  "new_measurements": [],
+  "model_or_generation_executed": false
+}
