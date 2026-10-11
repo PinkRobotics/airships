@@ -1,0 +1,534 @@
+{
+  "schema": "assembly-json-parser-input.provenance-crosswalk/1",
+  "status": "DOCUMENT_ONLY; actual text/parse/refusal and physical custody UNKNOWN",
+  "source_revision": "682c4b375f7d67484891df7a551d0da03cedcf11",
+  "source_fragments": [
+    {
+      "path": "tools/check_assembly.py",
+      "line": 77,
+      "character_start": 1,
+      "character_end_exclusive": 25,
+      "fragment": "from data_compare import",
+      "fragment_sha256": "d57be70a109f59f978629a7a17e9d64d20d9719f1e2ffa2fd5459cf3c150e599"
+    },
+    {
+      "path": "tools/check_assembly.py",
+      "line": 4262,
+      "character_start": 24,
+      "character_end_exclusive": 34,
+      "fragment": "parse_json",
+      "fragment_sha256": "e75a7c8a15ba7e96295a66a109e5095bc69746e4544794d385de2f0d0747a010"
+    },
+    {
+      "path": "tools/data_compare.py",
+      "line": 49,
+      "character_start": 1,
+      "character_end_exclusive": 22,
+      "fragment": "def parse_json(text):",
+      "fragment_sha256": "1edacb86811e6fb6ca52fff0f1bed108e6ee71f47b83e04aeb6c6c8a037a47d0"
+    },
+    {
+      "path": "tools/data_compare.py",
+      "line": 50,
+      "character_start": 8,
+      "character_end_exclusive": 61,
+      "fragment": "Refuse duplicate keys and non-JSON numeric constants.",
+      "fragment_sha256": "3e65dac598bd8060d3a7b88a8321c86d81d5145bf6130af95469b12b8960dadc"
+    },
+    {
+      "path": "tools/data_compare.py",
+      "line": 51,
+      "character_start": 5,
+      "character_end_exclusive": 14,
+      "fragment": "def pairs",
+      "fragment_sha256": "cb3c78dca4e3401326ccf27379f2e3180cb098e63fe53fd5458df9f807980b04"
+    },
+    {
+      "path": "tools/data_compare.py",
+      "line": 59,
+      "character_start": 5,
+      "character_end_exclusive": 16,
+      "fragment": "def invalid",
+      "fragment_sha256": "448f44f906bc5d688fd5fa6116fb026cbee5a488c1296714018645ab2c7365bd"
+    },
+    {
+      "path": "tools/data_compare.py",
+      "line": 62,
+      "character_start": 12,
+      "character_end_exclusive": 22,
+      "fragment": "json.loads",
+      "fragment_sha256": "11633437248876a8923ac018e882227bf77e7b4bbfdce8e1be1ccb91ca5974cb"
+    },
+    {
+      "path": "tools/data_compare.py",
+      "line": 62,
+      "character_start": 23,
+      "character_end_exclusive": 27,
+      "fragment": "text",
+      "fragment_sha256": "982d9e3eb996f559e633f4d194def3761d909f5a3b647d1a851fead67c32c9d1"
+    },
+    {
+      "path": "tools/data_compare.py",
+      "line": 62,
+      "character_start": 29,
+      "character_end_exclusive": 52,
+      "fragment": "object_pairs_hook=pairs",
+      "fragment_sha256": "3cd8dcf2ed5f5a3621612fdfc55c922f37fa529413fba947325a0399a1a93887"
+    },
+    {
+      "path": "tools/data_compare.py",
+      "line": 62,
+      "character_start": 54,
+      "character_end_exclusive": 76,
+      "fragment": "parse_constant=invalid",
+      "fragment_sha256": "83874d03ea9c42d0d402743e4ae270e124794ba190c9e5b0bbe7c3223ed18839"
+    },
+    {
+      "path": "README.md",
+      "line": 3,
+      "character_start": 186,
+      "character_end_exclusive": 222,
+      "fragment": "No aircraft has been built or flown.",
+      "fragment_sha256": "bd88446d4305c34307c2acb2bc020e0441e17382f095d6be3beee1076eabdbb9"
+    }
+  ],
+  "hashed_lexical_contexts": [
+    {
+      "path": "tools/check_assembly.py",
+      "identity": "selected import source identity",
+      "line_start": 77,
+      "line_end_inclusive": 77,
+      "context_sha256": "947a2171bcefcd90781135049b06cf62cdf9af04c180dd7ead466cee14822932",
+      "context_bytes": 68,
+      "limit": "Hash only; parser/branch/iteration/error/duplicate-key/constant/return algorithms and caller-key inventories not reconstructed or evaluated."
+    },
+    {
+      "path": "tools/check_assembly.py",
+      "identity": "selected caller name",
+      "line_start": 4262,
+      "line_end_inclusive": 4262,
+      "context_sha256": "39509acaea7919d99215e6b90af31de61ebc2b9a11facd00f20274382af54c43",
+      "context_bytes": 53,
+      "limit": "Hash only; parser/branch/iteration/error/duplicate-key/constant/return algorithms and caller-key inventories not reconstructed or evaluated."
+    },
+    {
+      "path": "tools/data_compare.py",
+      "identity": "own parser input and attributed refusal intent",
+      "line_start": 49,
+      "line_end_inclusive": 50,
+      "context_sha256": "7c3d9def5085fd9a5adf3165af666d886ab1667e0550536df9d2e8af71c23ef7",
+      "context_bytes": 85,
+      "limit": "Hash only; parser/branch/iteration/error/duplicate-key/constant/return algorithms and caller-key inventories not reconstructed or evaluated."
+    },
+    {
+      "path": "tools/data_compare.py",
+      "identity": "selected loads input and hook names",
+      "line_start": 62,
+      "line_end_inclusive": 62,
+      "context_sha256": "8d0bd336f860020334d4dad1f63b05d19b932444d7fab96ea542a84f1e5f0a9e",
+      "context_bytes": 76,
+      "limit": "Hash only; parser/branch/iteration/error/duplicate-key/constant/return algorithms and caller-key inventories not reconstructed or evaluated."
+    }
+  ],
+  "source_identity_mappings": [
+    {
+      "source_identity": "selected import and caller source identity",
+      "source_role": "check_assembly imports from data_compare and the selected recorded-report read site names parse_json.",
+      "source_locators": [
+        {
+          "path": "tools/check_assembly.py",
+          "line": 77,
+          "character_start": 1,
+          "character_end_exclusive": 25,
+          "fragment": "from data_compare import",
+          "fragment_sha256": "d57be70a109f59f978629a7a17e9d64d20d9719f1e2ffa2fd5459cf3c150e599"
+        },
+        {
+          "path": "tools/check_assembly.py",
+          "line": 4262,
+          "character_start": 24,
+          "character_end_exclusive": 34,
+          "fragment": "parse_json",
+          "fragment_sha256": "e75a7c8a15ba7e96295a66a109e5095bc69746e4544794d385de2f0d0747a010"
+        }
+      ],
+      "limit": "Source names only; no actual imported-source correspondence, executed caller, exhaustive caller/key inventory or acquired text.",
+      "actual_text_parse_or_refusal_record": null,
+      "actual_physical_article_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "own parser input namespace",
+      "source_role": "data_compare defines parse_json with its own text parameter; selected loads names text.",
+      "source_locators": [
+        {
+          "path": "tools/data_compare.py",
+          "line": 49,
+          "character_start": 1,
+          "character_end_exclusive": 22,
+          "fragment": "def parse_json(text):",
+          "fragment_sha256": "1edacb86811e6fb6ca52fff0f1bed108e6ee71f47b83e04aeb6c6c8a037a47d0"
+        },
+        {
+          "path": "tools/data_compare.py",
+          "line": 62,
+          "character_start": 12,
+          "character_end_exclusive": 22,
+          "fragment": "json.loads",
+          "fragment_sha256": "11633437248876a8923ac018e882227bf77e7b4bbfdce8e1be1ccb91ca5974cb"
+        },
+        {
+          "path": "tools/data_compare.py",
+          "line": 62,
+          "character_start": 23,
+          "character_end_exclusive": 27,
+          "fragment": "text",
+          "fragment_sha256": "982d9e3eb996f559e633f4d194def3761d909f5a3b647d1a851fead67c32c9d1"
+        }
+      ],
+      "limit": "Own lexical input names only; no actual text digest, successful parsing, acquired valid report or parser algorithm reconstruction.",
+      "actual_text_parse_or_refusal_record": null,
+      "actual_physical_article_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "nested hook namespaces",
+      "source_role": "Selected object_pairs_hook/pairs and parse_constant/invalid source names refer to nested parser names.",
+      "source_locators": [
+        {
+          "path": "tools/data_compare.py",
+          "line": 51,
+          "character_start": 5,
+          "character_end_exclusive": 14,
+          "fragment": "def pairs",
+          "fragment_sha256": "cb3c78dca4e3401326ccf27379f2e3180cb098e63fe53fd5458df9f807980b04"
+        },
+        {
+          "path": "tools/data_compare.py",
+          "line": 59,
+          "character_start": 5,
+          "character_end_exclusive": 16,
+          "fragment": "def invalid",
+          "fragment_sha256": "448f44f906bc5d688fd5fa6116fb026cbee5a488c1296714018645ab2c7365bd"
+        },
+        {
+          "path": "tools/data_compare.py",
+          "line": 62,
+          "character_start": 29,
+          "character_end_exclusive": 52,
+          "fragment": "object_pairs_hook=pairs",
+          "fragment_sha256": "3cd8dcf2ed5f5a3621612fdfc55c922f37fa529413fba947325a0399a1a93887"
+        },
+        {
+          "path": "tools/data_compare.py",
+          "line": 62,
+          "character_start": 54,
+          "character_end_exclusive": 76,
+          "fragment": "parse_constant=invalid",
+          "fragment_sha256": "83874d03ea9c42d0d402743e4ae270e124794ba190c9e5b0bbe7c3223ed18839"
+        }
+      ],
+      "limit": "Source bindings only; no duplicate-key/constant/branch/iteration/error/return algorithm reconstructed or evaluated, actual hook configuration or observed refusal.",
+      "actual_text_parse_or_refusal_record": null,
+      "actual_physical_article_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "attributed refusal intent",
+      "source_role": "The parser docstring describes refusing duplicate keys and non-JSON numeric constants.",
+      "source_locators": [
+        {
+          "path": "tools/data_compare.py",
+          "line": 50,
+          "character_start": 8,
+          "character_end_exclusive": 61,
+          "fragment": "Refuse duplicate keys and non-JSON numeric constants.",
+          "fragment_sha256": "3e65dac598bd8060d3a7b88a8321c86d81d5145bf6130af95469b12b8960dadc"
+        }
+      ],
+      "limit": "Attributed source intent only; not actual successful parsing, acquired valid report, independently verified configuration, schema-policy adoption or scientific acceptance.",
+      "actual_text_parse_or_refusal_record": null,
+      "actual_physical_article_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "computational versus physical boundary",
+      "source_role": "The unchanged root source says no aircraft has been built or flown.",
+      "source_locators": [
+        {
+          "path": "README.md",
+          "line": 3,
+          "character_start": 186,
+          "character_end_exclusive": 222,
+          "fragment": "No aircraft has been built or flown.",
+          "fragment_sha256": "bd88446d4305c34307c2acb2bc020e0441e17382f095d6be3beee1076eabdbb9"
+        }
+      ],
+      "limit": "Parser names, source hashes and software gates cannot establish actual report/raw custody, physical parts/installation/metrology or acceptance.",
+      "actual_text_parse_or_refusal_record": null,
+      "actual_physical_article_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    }
+  ],
+  "requirements": [
+    {
+      "id": "invocation-version-and-import-correspondence",
+      "prospective_record_requirements": [
+        "Original actual invocation/version/imported-source correspondence and accountable custody."
+      ],
+      "insufficient_or_disconfirming_evidence": "Static import/caller names do not identify actual imported source or execution.",
+      "proposed_custodian_role": "invocation-version-and-import-correspondence record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "imported_source_correspondence": null,
+      "text_input_digest": null,
+      "parser_configuration": null,
+      "output_record": null,
+      "observed_refusal": null,
+      "raw_custody": null,
+      "article": null,
+      "parts": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "installed_configuration": null,
+      "referenceframe": null,
+      "metrology": null,
+      "timebase": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "text-input-digest-and-parser-configuration",
+      "prospective_record_requirements": [
+        "Original text-input digest and parser configuration."
+      ],
+      "insufficient_or_disconfirming_evidence": "Own parameter/hook names cannot identify an acquired text or independently verified configuration.",
+      "proposed_custodian_role": "text-input-digest-and-parser-configuration record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "imported_source_correspondence": null,
+      "text_input_digest": null,
+      "parser_configuration": null,
+      "output_record": null,
+      "observed_refusal": null,
+      "raw_custody": null,
+      "article": null,
+      "parts": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "installed_configuration": null,
+      "referenceframe": null,
+      "metrology": null,
+      "timebase": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "output-record-observed-refusal-and-raw-custody",
+      "prospective_record_requirements": [
+        "Original output record/observed refusal and unmodified raw custody."
+      ],
+      "insufficient_or_disconfirming_evidence": "Refusal docstring intent is not actual successful parsing, observed refusal or acquired valid report.",
+      "proposed_custodian_role": "output-record-observed-refusal-and-raw-custody record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "imported_source_correspondence": null,
+      "text_input_digest": null,
+      "parser_configuration": null,
+      "output_record": null,
+      "observed_refusal": null,
+      "raw_custody": null,
+      "article": null,
+      "parts": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "installed_configuration": null,
+      "referenceframe": null,
+      "metrology": null,
+      "timebase": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "article-parts-material-process-and-installations",
+      "prospective_record_requirements": [
+        "Matched actual article/parts/material/lot/process/installed configuration records."
+      ],
+      "insufficient_or_disconfirming_evidence": "Computational input validity cannot supply physical part identity or acceptance.",
+      "proposed_custodian_role": "article-parts-material-process-and-installations record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "imported_source_correspondence": null,
+      "text_input_digest": null,
+      "parser_configuration": null,
+      "output_record": null,
+      "observed_refusal": null,
+      "raw_custody": null,
+      "article": null,
+      "parts": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "installed_configuration": null,
+      "referenceframe": null,
+      "metrology": null,
+      "timebase": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "referenceframe-metrology-timebase-and-calibration",
+      "prospective_record_requirements": [
+        "Original referenceframe/metrology/timebase/calibration/uncertainty and applicability."
+      ],
+      "insufficient_or_disconfirming_evidence": "Parser source names and hashes do not supply physical measurement or validated applicability.",
+      "proposed_custodian_role": "referenceframe-metrology-timebase-and-calibration record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "imported_source_correspondence": null,
+      "text_input_digest": null,
+      "parser_configuration": null,
+      "output_record": null,
+      "observed_refusal": null,
+      "raw_custody": null,
+      "article": null,
+      "parts": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "installed_configuration": null,
+      "referenceframe": null,
+      "metrology": null,
+      "timebase": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "owner-criterion-and-adoption",
+      "prospective_record_requirements": [
+        "Actual accountable owner and adopted source/version/domain/criterion record when supplied."
+      ],
+      "insufficient_or_disconfirming_evidence": "Custodians UNASSIGNED; no acceptance/schema policy, criterion/design/registry or production/operating/test/campaign procedure selected.",
+      "proposed_custodian_role": "owner-criterion-and-adoption record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "imported_source_correspondence": null,
+      "text_input_digest": null,
+      "parser_configuration": null,
+      "output_record": null,
+      "observed_refusal": null,
+      "raw_custody": null,
+      "article": null,
+      "parts": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "installed_configuration": null,
+      "referenceframe": null,
+      "metrology": null,
+      "timebase": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    }
+  ],
+  "separate_maps": [
+    {
+      "unit": "robotics-assembly-recorded-report-reader-input-custody-provenance-evidence-thread-1010",
+      "candidate": "d42a114011c40121880243439f0e21477a16704e",
+      "output_dir": "research/methods/assembly-recorded-report-reader-input-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no identity, numerical result, acceptance, criterion, status, signature/landing or physical applicability transferred."
+    },
+    {
+      "unit": "robotics-assembly-report-comparison-source-custody-provenance-evidence-thread-1010",
+      "candidate": "7be988cbb2a82295f8898d1d953a14b7ba88fa4d",
+      "output_dir": "research/methods/assembly-report-comparison-source-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no identity, numerical result, acceptance, criterion, status, signature/landing or physical applicability transferred."
+    },
+    {
+      "unit": "robotics-assembly-prover-report-output-custody-provenance-evidence-thread-1010",
+      "candidate": "26341a42857881cb8be173b473d52cf6e3c5363b",
+      "output_dir": "research/methods/assembly-prover-report-output-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no identity, numerical result, acceptance, criterion, status, signature/landing or physical applicability transferred."
+    },
+    {
+      "unit": "robotics-assembly-prover-manifest-reader-input-custody-provenance-evidence-thread-1010",
+      "candidate": "c116ecc756e8fef93065a6bd0545c5e56270c9ff",
+      "output_dir": "research/methods/assembly-prover-manifest-reader-input-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no identity, numerical result, acceptance, criterion, status, signature/landing or physical applicability transferred."
+    },
+    {
+      "unit": "robotics-node-manifest-consumer-input-custody-provenance-evidence-thread-1010",
+      "candidate": "616798c9293e97e483f8d41f8479529420ead9da",
+      "output_dir": "research/methods/node-manifest-consumer-input-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no identity, numerical result, acceptance, criterion, status, signature/landing or physical applicability transferred."
+    },
+    {
+      "unit": "robotics-mesh-extraction-grid-input-custody-provenance-evidence-thread-1010",
+      "candidate": "a3e390f743dc535744b72a97bfb868a6a63c9d77",
+      "output_dir": "research/methods/mesh-extraction-grid-input-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no identity, numerical result, acceptance, criterion, status, signature/landing or physical applicability transferred."
+    },
+    {
+      "unit": "robotics-assembly-coordinate-frame-provenance-evidence-thread-1010",
+      "candidate": "be6e3beaf736cf6ba13784856a31262611f92759",
+      "output_dir": "research/methods/assembly-coordinate-frame-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no identity, numerical result, acceptance, criterion, status, signature/landing or physical applicability transferred."
+    }
+  ],
+  "selected_acceptance_or_schema_policy": null,
+  "selected_criterion_design_registry_or_procedure": null,
+  "new_numeric_results": [],
+  "new_measurements": [],
+  "models_equations_or_generators_executed": false
+}
