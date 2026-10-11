@@ -233,6 +233,27 @@
       "character_start": 71,
       "character_end_exclusive": 143,
       "fragment": "layout and process dependent, not an allowable for a hierarchical strut."
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1184,
+      "character_start": 33,
+      "character_end_exclusive": 68,
+      "fragment": "SHIP0.rhoSpoke * SHIP0.spokeFitting"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1381,
+      "character_start": 1,
+      "character_end_exclusive": 30,
+      "fragment": "export function ship0Summary("
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1477,
+      "character_start": 9,
+      "character_end_exclusive": 49,
+      "fragment": "/ (SHIP0.rhoSpoke * SHIP0.spokeFitting);"
     }
   ],
   "source_identity_mappings": [
@@ -478,7 +499,7 @@
     },
     {
       "source_identity": "separate spoke-density input",
-      "source_role": "SHIP0 defines a separate rhoSpoke input; source shipSkeleton baseline spokeT and nested solve kgSp reference that module property.",
+      "source_role": "SHIP0 defines a separate rhoSpoke input. All four references are identified lexically: shipSkeleton baseline spokeT, nested solve kgSp, record-basis reserveKgM2 expression, and ship0Summary spokeNet ledger-volume conversion. No expression or reserve/cord outcome is evaluated.",
       "source_locators": [
         {
           "path": "ship/model.js",
@@ -514,6 +535,27 @@
           "character_start": 5,
           "character_end_exclusive": 77,
           "fragment": "const kgSp = dSp * g.R * SHIP0.rhoSpoke * SHIP0.spokeFitting * g.areaM2;"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1184,
+          "character_start": 33,
+          "character_end_exclusive": 68,
+          "fragment": "SHIP0.rhoSpoke * SHIP0.spokeFitting"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1381,
+          "character_start": 1,
+          "character_end_exclusive": 30,
+          "fragment": "export function ship0Summary("
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1477,
+          "character_start": 9,
+          "character_end_exclusive": 49,
+          "fragment": "/ (SHIP0.rhoSpoke * SHIP0.spokeFitting);"
         }
       ],
       "limit": "The separate input is not inferred to be any MATERIALS row or a measured cord density. Caller identity only; P45 cord stiffness and reserve growth comparison are not repeated. No spoke mass, allowance or geometry is calculated.",
