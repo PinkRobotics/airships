@@ -1,0 +1,282 @@
+{
+  "schema": "pretreatment.effect-evidence-map/1",
+  "status": "DOCUMENT_ONLY; usefulness, persistence, effectiveness metric and physical outcome UNKNOWN",
+  "source_revision": "94db332d3dc437708d3ed0dfeb6b619c70d9da25",
+  "requirements": [
+    {
+      "id": "published-question-and-claim-domain",
+      "sources": [
+        "docs/VERIFICATION-PLAN.md#needs-an-expert",
+        "docs/VERIFICATION-PLAN.md#what-we-would-ask-external-evaluators",
+        "README.md"
+      ],
+      "existing_boundary": "The verification plan leaves pre-treatment usefulness/value, persistence and the right effectiveness metric as unanswered expert questions. Its operations prompt contains conditional historical delivery/line quantities and its science prompt stipulates unlimited water/no crews; neither is observed efficacy. Root README says no aircraft has been built or flown.",
+      "prospective_evidence_requirements": [
+        "Exact source revision and original question, intended claim domain, responsible question/metric provenance and explicit model-versus-observed status; preserve conditional quantities and unlimited-supply stipulation as source context"
+      ],
+      "units_and_comparison_conventions": [
+        "source/question identifiers",
+        "claim-domain descriptors",
+        "original quantity basis retained"
+      ],
+      "prospective_custodian_role": "Effect-question and source-provenance custodian",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "matched_configuration": null,
+      "treatment_record": null,
+      "comparator_record": null,
+      "fuel_weather_history": null,
+      "timing_persistence_record": null,
+      "response_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "adopted_effectiveness_metric": null,
+      "adopted_acceptance_criterion": null,
+      "benefit_or_safety_conclusion": null,
+      "qualification": "UNKNOWN",
+      "insufficient_or_disconfirming_evidence": "A concept, expert prompt, historical geometric line or unlimited-supply stipulation cannot establish usefulness, persistence, achieved delivery, operational benefit or a selected effectiveness metric."
+    },
+    {
+      "id": "matched-treatment-and-comparator",
+      "sources": [
+        "docs/VERIFICATION-PLAN.md"
+      ],
+      "existing_boundary": "No matched treatment/untreated comparison is supplied here. A delivered-water or line-geometry model does not identify an observed treatment/comparator pair or control confounding.",
+      "prospective_evidence_requirements": [
+        "Existing treatment/comparator record identities and applicability, original intended/actual condition and configuration, inclusion/exclusion boundaries, comparability evidence, prior histories and other interventions or missing/confounded observations explicitly retained"
+      ],
+      "units_and_comparison_conventions": [
+        "treatment/comparator/site/configuration identifiers",
+        "source-declared condition units",
+        "history/event identifiers"
+      ],
+      "prospective_custodian_role": "Comparator and record-applicability evidence custodians",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "matched_configuration": null,
+      "treatment_record": null,
+      "comparator_record": null,
+      "fuel_weather_history": null,
+      "timing_persistence_record": null,
+      "response_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "adopted_effectiveness_metric": null,
+      "adopted_acceptance_criterion": null,
+      "benefit_or_safety_conclusion": null,
+      "qualification": "UNKNOWN",
+      "insufficient_or_disconfirming_evidence": "Unmatched locations/times, absent untreated/comparator history or uncontrolled differences cannot establish attributable effect. No allocation scheme, experimental procedure, field treatment or causal estimator is selected."
+    },
+    {
+      "id": "vegetation-and-fuel-state",
+      "sources": [
+        "docs/VERIFICATION-PLAN.md"
+      ],
+      "existing_boundary": "The published usefulness question supplies no matched vegetation/fuel observation. A geometric line or water mass is not a fuel-condition or response record.",
+      "prospective_evidence_requirements": [
+        "Original vegetation/fuel identity and configuration, condition/state observations and relevant history, observation method and applicability, spatial/sample identity, gaps and uncertainty; relation to treatment and comparator records"
+      ],
+      "units_and_comparison_conventions": [
+        "source-declared vegetation/fuel/condition units",
+        "spatial/configuration/sample identifiers"
+      ],
+      "prospective_custodian_role": "Vegetation, fuel-state and observation-provenance custodians",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "matched_configuration": null,
+      "treatment_record": null,
+      "comparator_record": null,
+      "fuel_weather_history": null,
+      "timing_persistence_record": null,
+      "response_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "adopted_effectiveness_metric": null,
+      "adopted_acceptance_criterion": null,
+      "benefit_or_safety_conclusion": null,
+      "qualification": "UNKNOWN",
+      "insufficient_or_disconfirming_evidence": "Unknown or unmatched fuel/vegetation state cannot be replaced by a generic terrain label, delivered water quantity or assumed equivalence. No material, fuel condition or treatment prescription is chosen."
+    },
+    {
+      "id": "weather-exposure-and-other-history",
+      "sources": [
+        "docs/VERIFICATION-PLAN.md"
+      ],
+      "existing_boundary": "No matched weather/exposure/history evidence accompanies the conceptual prompt. Actual environmental history and other influences remain necessary provenance before interpreting any difference.",
+      "prospective_evidence_requirements": [
+        "Original weather/environment and exposure records applicable to treatment/comparator locations, site and prior event/intervention history, record periods and configuration, acquisition/calibration/uncertainty and gaps; original exposure provenance without prescribing an exposure"
+      ],
+      "units_and_comparison_conventions": [
+        "source-declared environmental/exposure units",
+        "record/site/event identifiers",
+        "time reference declared"
+      ],
+      "prospective_custodian_role": "Environmental-history and exposure-provenance custodians",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "matched_configuration": null,
+      "treatment_record": null,
+      "comparator_record": null,
+      "fuel_weather_history": null,
+      "timing_persistence_record": null,
+      "response_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "adopted_effectiveness_metric": null,
+      "adopted_acceptance_criterion": null,
+      "benefit_or_safety_conclusion": null,
+      "qualification": "UNKNOWN",
+      "insufficient_or_disconfirming_evidence": "A favourable stipulated condition, unmatched weather/history or missing exposure provenance cannot establish comparable response or attributable benefit. No ignition, fire, exposure or physical procedure is specified."
+    },
+    {
+      "id": "timing-and-persistence",
+      "sources": [
+        "docs/VERIFICATION-PLAN.md#what-we-would-ask-external-evaluators"
+      ],
+      "existing_boundary": "How long a water line persists is explicitly unanswered. Prescribed delivery timing and unlimited-water framing cannot become observed persistence or a sustained useful condition.",
+      "prospective_evidence_requirements": [
+        "Original event-relative timing, state/response observations and intervals relevant to persistence, source clock identity and record applicability, intervening weather/history and missing/censored observations; declared persistence definition only when actually adopted by the responsible question owner"
+      ],
+      "units_and_comparison_conventions": [
+        "source-declared time/state units",
+        "event/record identifiers",
+        "persistence-definition provenance"
+      ],
+      "prospective_custodian_role": "Persistence and event-history evidence custodians",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "matched_configuration": null,
+      "treatment_record": null,
+      "comparator_record": null,
+      "fuel_weather_history": null,
+      "timing_persistence_record": null,
+      "response_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "adopted_effectiveness_metric": null,
+      "adopted_acceptance_criterion": null,
+      "benefit_or_safety_conclusion": null,
+      "qualification": "UNKNOWN",
+      "insufficient_or_disconfirming_evidence": "One appearance, a model phase duration, assumed reapplication or absent follow-up cannot establish persistence. No duration threshold, reapplication schedule, time alignment or intervention policy is chosen."
+    },
+    {
+      "id": "response-versus-operational-benefit",
+      "sources": [
+        "docs/VERIFICATION-PLAN.md",
+        "README.md"
+      ],
+      "existing_boundary": "Water delivery and geometric coverage-level quantities are not a demonstrated change in fire behaviour or operational benefit. The verification plan asks what usefulness means rather than supplying an adopted response metric.",
+      "prospective_evidence_requirements": [
+        "Original response records and domain/quantity definitions for matched treatment/comparator conditions, observation/calibration method, spatial/temporal applicability, alternative influences and missing outcomes; operational-benefit question and evidence boundary separately identified"
+      ],
+      "units_and_comparison_conventions": [
+        "source-declared response units and definitions",
+        "record/configuration identifiers",
+        "benefit-domain descriptors"
+      ],
+      "prospective_custodian_role": "Fire-behaviour response and outcome-provenance custodians",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "matched_configuration": null,
+      "treatment_record": null,
+      "comparator_record": null,
+      "fuel_weather_history": null,
+      "timing_persistence_record": null,
+      "response_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "adopted_effectiveness_metric": null,
+      "adopted_acceptance_criterion": null,
+      "benefit_or_safety_conclusion": null,
+      "qualification": "UNKNOWN",
+      "insufficient_or_disconfirming_evidence": "A model water total, apparent wetness, geometric line or response label alone cannot establish useful fire-behaviour change, value, coverage or operational benefit. No metric, benefit/value/cost calculation or effectiveness outcome is selected."
+    },
+    {
+      "id": "measurement-uncertainty-and-criterion",
+      "sources": [
+        "docs/VERIFICATION-PLAN.md",
+        "README.md"
+      ],
+      "existing_boundary": "Actual measurements, calibration, uncertainty and adopted effectiveness/acceptance criteria are absent. The source asks external evaluators to determine the appropriate question and metric; it does not establish a physical test result or permission.",
+      "prospective_evidence_requirements": [
+        "Unmodified raw records, quantity definitions, instrument/observation and calibration provenance, matched configuration/comparator/history, uncertainty and gaps, responsible metric/criterion source/version/domain and applicability before any comparison or conclusion"
+      ],
+      "units_and_comparison_conventions": [
+        "record/calibration/configuration identifiers",
+        "uncertainty units and convention declared",
+        "metric/criterion source/version descriptors"
+      ],
+      "prospective_custodian_role": "Observation, uncertainty and responsible criterion-provenance custodians",
+      "assigned_owner": "UNASSIGNED",
+      "actual_observation": null,
+      "evidence_id": null,
+      "matched_configuration": null,
+      "treatment_record": null,
+      "comparator_record": null,
+      "fuel_weather_history": null,
+      "timing_persistence_record": null,
+      "response_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "adopted_effectiveness_metric": null,
+      "adopted_acceptance_criterion": null,
+      "benefit_or_safety_conclusion": null,
+      "qualification": "UNKNOWN",
+      "insufficient_or_disconfirming_evidence": "Unknown is not zero. Unsupported metric/threshold choices, incomparable records or a repository check cannot qualify an effect, benefit, safety or actual fire outcome. No adoption, deployment or acceptance rule is made."
+    }
+  ],
+  "historical_source_excerpts": [
+    {
+      "path": "docs/VERIFICATION-PLAN.md",
+      "first_line": 113,
+      "last_line": 113,
+      "text": "| **Does pre-treatment work, and what is it worth?** | fire behaviour / operations research — *the primary mission, and the least analysed thing here* |"
+    },
+    {
+      "path": "docs/VERIFICATION-PLAN.md",
+      "first_line": 241,
+      "last_line": 244,
+      "text": "4. **A BC Wildfire Service operations chief.** *\"One aircraft, 5,500 tonnes of water a day,\n   113 km of geometric line in retardant coverage-level units, under suitable conditions — and its best use may be soaking\n   ground **before** a fire arrives rather than fighting one. Is that useful, and would it\n   compete with the skimmers for the same lakes?\"* **This decides what the vehicle is for.**"
+    },
+    {
+      "path": "docs/VERIFICATION-PLAN.md",
+      "first_line": 245,
+      "last_line": 247,
+      "text": "5. **A fire-behaviour scientist.** *\"What is pre-treatment worth, how long does a water line\n   persist, and what is the right effectiveness metric for a machine with unlimited water and\n   no crews under it?\"*"
+    },
+    {
+      "path": "README.md",
+      "first_line": 3,
+      "last_line": 3,
+      "text": "Pink Robotics asks whether a vacuum-lift airship could carry and deliver water under checkable physical assumptions; the public study is at [pinkrobotics.ca](https://pinkrobotics.ca/). No aircraft has been built or flown."
+    },
+    {
+      "path": "README.md",
+      "first_line": 58,
+      "last_line": 58,
+      "text": "   An infeasible row establishes no delivery or endurance."
+    },
+    {
+      "path": "README.md",
+      "first_line": 196,
+      "last_line": 196,
+      "text": "Cite **Pink Robotics, Airships: a checkable study**, the [repository](https://github.com/PinkRobotics/airships), and the full commit SHA you used. [CITATION.cff](CITATION.cff) supplies the project citation metadata; also name the particular document or generated record, its dated basis and any assumptions relevant to the number you quote. A citation to this study does not establish flight, physical validation or an outcome for a real fire."
+    }
+  ],
+  "new_measurements": [],
+  "new_numeric_results": [],
+  "adopted_effectiveness_metric": null,
+  "adopted_acceptance_criterion": null,
+  "selected_tactic_or_material": null,
+  "selected_threshold": null,
+  "physical_or_fire_procedure": null,
+  "field_deployment": null,
+  "remote_action": null,
+  "benefit_or_safety_conclusion": null
+}
