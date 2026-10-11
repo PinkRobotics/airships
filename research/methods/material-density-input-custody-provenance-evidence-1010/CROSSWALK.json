@@ -1,0 +1,708 @@
+{
+  "schema": "material-density-input.custody-crosswalk/1",
+  "status": "DOCUMENT_ONLY; actual density and article applicability UNKNOWN",
+  "source_revision": "682c4b375f7d67484891df7a551d0da03cedcf11",
+  "source_fragments": [
+    {
+      "path": "ship/model.js",
+      "line": 65,
+      "character_start": 1,
+      "character_end_exclusive": 27,
+      "fragment": "export const MATERIALS = {"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 878,
+      "character_start": 1,
+      "character_end_exclusive": 23,
+      "fragment": "export const SHIP0 = {"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 886,
+      "character_start": 17,
+      "character_end_exclusive": 26,
+      "fragment": "rhoSpoke:"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 942,
+      "character_start": 1,
+      "character_end_exclusive": 42,
+      "fragment": "export function shipSection(odMm, wallMm)"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 948,
+      "character_start": 12,
+      "character_end_exclusive": 46,
+      "fragment": "kgPerM: a * MATERIALS.T700_LAM.rho"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1010,
+      "character_start": 1,
+      "character_end_exclusive": 42,
+      "fragment": "export function shipWall(g, sigmaMat, sf)"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1012,
+      "character_start": 3,
+      "character_end_exclusive": 38,
+      "fragment": "const rho = MATERIALS.T700_LAM.rho;"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1058,
+      "character_start": 1,
+      "character_end_exclusive": 65,
+      "fragment": "export function shipSkeleton(g, sigmaMat, sf, wall, giKnockdown,"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1062,
+      "character_start": 3,
+      "character_end_exclusive": 38,
+      "fragment": "const rho = MATERIALS.T700_LAM.rho;"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1207,
+      "character_start": 3,
+      "character_end_exclusive": 66,
+      "fragment": "const spokeT = aSp1 * g.R * SHIP0.rhoSpoke * SHIP0.spokeFitting"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1149,
+      "character_start": 5,
+      "character_end_exclusive": 77,
+      "fragment": "const kgSp = dSp * g.R * SHIP0.rhoSpoke * SHIP0.spokeFitting * g.areaM2;"
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 18,
+      "character_start": 1,
+      "character_end_exclusive": 114,
+      "fragment": "Tonnes price unchanged model sections, including existing allowances; they do not resize or check those sections."
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 19,
+      "character_start": 47,
+      "character_end_exclusive": 74,
+      "fragment": "Unknown mass is never zero."
+    },
+    {
+      "path": "README.md",
+      "line": 3,
+      "character_start": 186,
+      "character_end_exclusive": 222,
+      "fragment": "No aircraft has been built or flown."
+    },
+    {
+      "path": "ship/model.js",
+      "line": 66,
+      "character_start": 3,
+      "character_end_exclusive": 16,
+      "fragment": "\"M60J_LAM\": {"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 71,
+      "character_start": 5,
+      "character_end_exclusive": 11,
+      "fragment": "\"rho\":"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 74,
+      "character_start": 116,
+      "character_end_exclusive": 179,
+      "fragment": "https://www.toraycma.com/wp-content/uploads/M60J-Data-Sheet.pdf"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 75,
+      "character_start": 125,
+      "character_end_exclusive": 188,
+      "fragment": "https://www.toraycma.com/wp-content/uploads/M60J-Data-Sheet.pdf"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 79,
+      "character_start": 3,
+      "character_end_exclusive": 16,
+      "fragment": "\"T700_LAM\": {"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 84,
+      "character_start": 5,
+      "character_end_exclusive": 11,
+      "fragment": "\"rho\":"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 87,
+      "character_start": 98,
+      "character_end_exclusive": 162,
+      "fragment": "https://www.toraycma.com/wp-content/uploads/T700S-Data-Sheet.pdf"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 88,
+      "character_start": 107,
+      "character_end_exclusive": 171,
+      "fragment": "https://www.toraycma.com/wp-content/uploads/T700S-Data-Sheet.pdf"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 92,
+      "character_start": 3,
+      "character_end_exclusive": 11,
+      "fragment": "\"CFF\": {"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 97,
+      "character_start": 5,
+      "character_end_exclusive": 11,
+      "fragment": "\"rho\":"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 100,
+      "character_start": 92,
+      "character_end_exclusive": 157,
+      "fragment": "https://static.markforged.com/downloads/composites-data-sheet.pdf"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 101,
+      "character_start": 127,
+      "character_end_exclusive": 192,
+      "fragment": "https://static.markforged.com/downloads/composites-data-sheet.pdf"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 77,
+      "character_start": 198,
+      "character_end_exclusive": 238,
+      "fragment": "density are the prior mixture estimates."
+    },
+    {
+      "path": "ship/model.js",
+      "line": 77,
+      "character_start": 78,
+      "character_end_exclusive": 153,
+      "fragment": "typical UD coupon values, not allowables for the undrawn hierarchical wall."
+    },
+    {
+      "path": "ship/model.js",
+      "line": 90,
+      "character_start": 105,
+      "character_end_exclusive": 164,
+      "fragment": "Modulus and density retain the prior representative inputs;"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 90,
+      "character_start": 165,
+      "character_end_exclusive": 241,
+      "fragment": "these are not coupon allowables for the built tubes or hull strength worlds."
+    },
+    {
+      "path": "ship/model.js",
+      "line": 103,
+      "character_start": 144,
+      "character_end_exclusive": 168,
+      "fragment": "The prior representative"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 103,
+      "character_start": 180,
+      "character_end_exclusive": 242,
+      "fragment": "density is retained; it is not the datasheet's plaque density."
+    },
+    {
+      "path": "ship/model.js",
+      "line": 103,
+      "character_start": 71,
+      "character_end_exclusive": 143,
+      "fragment": "layout and process dependent, not an allowable for a hierarchical strut."
+    }
+  ],
+  "source_identity_mappings": [
+    {
+      "source_identity": "M60J_LAM rho input custody",
+      "source_role": "Source rho namespace plus source description as a prior mixture estimate.",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 65,
+          "character_start": 1,
+          "character_end_exclusive": 27,
+          "fragment": "export const MATERIALS = {"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 66,
+          "character_start": 3,
+          "character_end_exclusive": 16,
+          "fragment": "\"M60J_LAM\": {"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 71,
+          "character_start": 5,
+          "character_end_exclusive": 11,
+          "fragment": "\"rho\":"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 77,
+          "character_start": 198,
+          "character_end_exclusive": 238,
+          "fragment": "density are the prior mixture estimates."
+        },
+        {
+          "path": "ship/model.js",
+          "line": 77,
+          "character_start": 78,
+          "character_end_exclusive": 153,
+          "fragment": "typical UD coupon values, not allowables for the undrawn hierarchical wall."
+        },
+        {
+          "path": "ship/model.js",
+          "line": 74,
+          "character_start": 116,
+          "character_end_exclusive": 179,
+          "fragment": "https://www.toraycma.com/wp-content/uploads/M60J-Data-Sheet.pdf"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 75,
+          "character_start": 125,
+          "character_end_exclusive": 188,
+          "fragment": "https://www.toraycma.com/wp-content/uploads/M60J-Data-Sheet.pdf"
+        }
+      ],
+      "limit": "Object properties and strength-reference URL identities do not source an actual density measurement or original mixture derivation. No external retrieval, current vendor validation, numerical value or property transfer is supplied.",
+      "actual_density_record": null,
+      "actual_matched_article": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "T700_LAM rho input custody",
+      "source_role": "Source rho namespace plus source description as a prior representative input.",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 65,
+          "character_start": 1,
+          "character_end_exclusive": 27,
+          "fragment": "export const MATERIALS = {"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 79,
+          "character_start": 3,
+          "character_end_exclusive": 16,
+          "fragment": "\"T700_LAM\": {"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 84,
+          "character_start": 5,
+          "character_end_exclusive": 11,
+          "fragment": "\"rho\":"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 90,
+          "character_start": 105,
+          "character_end_exclusive": 164,
+          "fragment": "Modulus and density retain the prior representative inputs;"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 90,
+          "character_start": 165,
+          "character_end_exclusive": 241,
+          "fragment": "these are not coupon allowables for the built tubes or hull strength worlds."
+        },
+        {
+          "path": "ship/model.js",
+          "line": 87,
+          "character_start": 98,
+          "character_end_exclusive": 162,
+          "fragment": "https://www.toraycma.com/wp-content/uploads/T700S-Data-Sheet.pdf"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 88,
+          "character_start": 107,
+          "character_end_exclusive": 171,
+          "fragment": "https://www.toraycma.com/wp-content/uploads/T700S-Data-Sheet.pdf"
+        }
+      ],
+      "limit": "Object properties and strength-reference URL identities do not source an actual density measurement or original mixture derivation. No external retrieval, current vendor validation, numerical value or property transfer is supplied.",
+      "actual_density_record": null,
+      "actual_matched_article": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "CFF rho input custody",
+      "source_role": "Source rho namespace plus prior representative input explicitly distinct from the datasheet plaque density.",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 65,
+          "character_start": 1,
+          "character_end_exclusive": 27,
+          "fragment": "export const MATERIALS = {"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 92,
+          "character_start": 3,
+          "character_end_exclusive": 11,
+          "fragment": "\"CFF\": {"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 97,
+          "character_start": 5,
+          "character_end_exclusive": 11,
+          "fragment": "\"rho\":"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 103,
+          "character_start": 144,
+          "character_end_exclusive": 168,
+          "fragment": "The prior representative"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 103,
+          "character_start": 180,
+          "character_end_exclusive": 242,
+          "fragment": "density is retained; it is not the datasheet's plaque density."
+        },
+        {
+          "path": "ship/model.js",
+          "line": 103,
+          "character_start": 71,
+          "character_end_exclusive": 143,
+          "fragment": "layout and process dependent, not an allowable for a hierarchical strut."
+        },
+        {
+          "path": "ship/model.js",
+          "line": 100,
+          "character_start": 92,
+          "character_end_exclusive": 157,
+          "fragment": "https://static.markforged.com/downloads/composites-data-sheet.pdf"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 101,
+          "character_start": 127,
+          "character_end_exclusive": 192,
+          "fragment": "https://static.markforged.com/downloads/composites-data-sheet.pdf"
+        }
+      ],
+      "limit": "Object properties and strength-reference URL identities do not source an actual density measurement or original mixture derivation. No external retrieval, current vendor validation, numerical value or property transfer is supplied.",
+      "actual_density_record": null,
+      "actual_matched_article": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "T700 source caller identity",
+      "source_role": "shipSection references the module MATERIALS.T700_LAM.rho directly; shipWall and shipSkeleton each capture it into their own local rho binding.",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 942,
+          "character_start": 1,
+          "character_end_exclusive": 42,
+          "fragment": "export function shipSection(odMm, wallMm)"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 948,
+          "character_start": 12,
+          "character_end_exclusive": 46,
+          "fragment": "kgPerM: a * MATERIALS.T700_LAM.rho"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1010,
+          "character_start": 1,
+          "character_end_exclusive": 42,
+          "fragment": "export function shipWall(g, sigmaMat, sf)"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1012,
+          "character_start": 3,
+          "character_end_exclusive": 38,
+          "fragment": "const rho = MATERIALS.T700_LAM.rho;"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1058,
+          "character_start": 1,
+          "character_end_exclusive": 65,
+          "fragment": "export function shipSkeleton(g, sigmaMat, sf, wall, giKnockdown,"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1062,
+          "character_start": 3,
+          "character_end_exclusive": 38,
+          "fragment": "const rho = MATERIALS.T700_LAM.rho;"
+        }
+      ],
+      "limit": "Distinct local variables share a declared source input; their accounting usage does not establish actual article/lot/process density, installed mass or an inventory. No source call is executed and no accounting expression evaluated.",
+      "actual_density_record": null,
+      "actual_matched_article": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "separate spoke-density input",
+      "source_role": "SHIP0 defines a separate rhoSpoke input; source shipSkeleton baseline spokeT and nested solve kgSp reference that module property.",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 878,
+          "character_start": 1,
+          "character_end_exclusive": 23,
+          "fragment": "export const SHIP0 = {"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 886,
+          "character_start": 17,
+          "character_end_exclusive": 26,
+          "fragment": "rhoSpoke:"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1058,
+          "character_start": 1,
+          "character_end_exclusive": 65,
+          "fragment": "export function shipSkeleton(g, sigmaMat, sf, wall, giKnockdown,"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1207,
+          "character_start": 3,
+          "character_end_exclusive": 66,
+          "fragment": "const spokeT = aSp1 * g.R * SHIP0.rhoSpoke * SHIP0.spokeFitting"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1149,
+          "character_start": 5,
+          "character_end_exclusive": 77,
+          "fragment": "const kgSp = dSp * g.R * SHIP0.rhoSpoke * SHIP0.spokeFitting * g.areaM2;"
+        }
+      ],
+      "limit": "The separate input is not inferred to be any MATERIALS row or a measured cord density. Caller identity only; P45 cord stiffness and reserve growth comparison are not repeated. No spoke mass, allowance or geometry is calculated.",
+      "actual_density_record": null,
+      "actual_matched_article": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    }
+  ],
+  "requirements": [
+    {
+      "id": "original-source-and-mixture-derivation",
+      "prospective_record_requirements": [
+        "Original density source/domain and applicable mixture derivation identity, assumptions and custody."
+      ],
+      "insufficient_or_disconfirming_evidence": "A retained prior estimate/representative input or strength-reference URL cannot supply measured density or derivation.",
+      "proposed_custodian_role": "original-source-and-mixture-derivation record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "material": null,
+      "lot": null,
+      "article": null,
+      "process": null,
+      "state": null,
+      "configuration": null,
+      "density_record": null,
+      "raw_measurement": null,
+      "original_mixture_derivation": null,
+      "source_domain": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "custodian": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "actual-material-lot-article",
+      "prospective_record_requirements": [
+        "Actual material, lot and article identity tied to source revision and responsible custody."
+      ],
+      "insufficient_or_disconfirming_evidence": "A MATERIALS key or separate spoke input is not an installed article record or inventory.",
+      "proposed_custodian_role": "actual-material-lot-article record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "material": null,
+      "lot": null,
+      "article": null,
+      "process": null,
+      "state": null,
+      "configuration": null,
+      "density_record": null,
+      "raw_measurement": null,
+      "original_mixture_derivation": null,
+      "source_domain": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "custodian": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "process-state-and-configuration",
+      "prospective_record_requirements": [
+        "Matched process, state and configuration records with actual density applicability."
+      ],
+      "insufficient_or_disconfirming_evidence": "Typical coupon/plaque description does not license transfer to an actual tube, strut, cord or hull.",
+      "proposed_custodian_role": "process-state-and-configuration record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "material": null,
+      "lot": null,
+      "article": null,
+      "process": null,
+      "state": null,
+      "configuration": null,
+      "density_record": null,
+      "raw_measurement": null,
+      "original_mixture_derivation": null,
+      "source_domain": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "custodian": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "raw-density-measurement-and-custody",
+      "prospective_record_requirements": [
+        "Original unmodified actual density measurement/raw record and acquisition/custody context."
+      ],
+      "insufficient_or_disconfirming_evidence": "Source accounting and repository checks are not article measurements or weighed installed mass.",
+      "proposed_custodian_role": "raw-density-measurement-and-custody record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "material": null,
+      "lot": null,
+      "article": null,
+      "process": null,
+      "state": null,
+      "configuration": null,
+      "density_record": null,
+      "raw_measurement": null,
+      "original_mixture_derivation": null,
+      "source_domain": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "custodian": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "calibration-uncertainty-and-applicability",
+      "prospective_record_requirements": [
+        "Applicable original calibration, uncertainty and matched source/article/domain records."
+      ],
+      "insufficient_or_disconfirming_evidence": "No new uncertainty estimate, mixture comparison, sensitivity or density campaign is supplied.",
+      "proposed_custodian_role": "calibration-uncertainty-and-applicability record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "material": null,
+      "lot": null,
+      "article": null,
+      "process": null,
+      "state": null,
+      "configuration": null,
+      "density_record": null,
+      "raw_measurement": null,
+      "original_mixture_derivation": null,
+      "source_domain": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "custodian": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "responsible-owner-criterion-and-adoption",
+      "prospective_record_requirements": [
+        "Actual custodian, responsible owner and adoption source/version/domain/criterion when supplied."
+      ],
+      "insufficient_or_disconfirming_evidence": "Proposed roles remain UNASSIGNED; paper completion chooses no material, density, loadcase, criterion, design or test procedure.",
+      "proposed_custodian_role": "responsible-owner-criterion-and-adoption record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "material": null,
+      "lot": null,
+      "article": null,
+      "process": null,
+      "state": null,
+      "configuration": null,
+      "density_record": null,
+      "raw_measurement": null,
+      "original_mixture_derivation": null,
+      "source_domain": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "custodian": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    }
+  ],
+  "separate_maps": [
+    {
+      "unit": "robotics-conditional-laminate-property-provenance-evidence-thread-1010",
+      "candidate": "6fb32839bd91f089ca5d0135923d966c620f14f5",
+      "output_dir": "research/methods/conditional-laminate-property-provenance-evidence-1010",
+      "relation": "Separate prospective provenance map; no prior numerical outcomes, property transfer or landing inferred."
+    },
+    {
+      "unit": "robotics-whole-hull-fitting-manifest-provenance-evidence-thread-1010",
+      "candidate": "7f8a3b9b5b912d2759a841feb6ae7c32667c92d1",
+      "output_dir": "research/methods/whole-hull-fitting-manifest-provenance-evidence-1010",
+      "relation": "Separate prospective provenance map; no prior numerical outcomes, property transfer or landing inferred."
+    }
+  ],
+  "selected_material_density_loadcase_criterion_design_or_test_procedure": null,
+  "new_numeric_results": [],
+  "new_measurements": [],
+  "models_equations_or_generators_executed": false
+}
