@@ -1,0 +1,18 @@
+# Membrane seam and attachment interface provenance
+
+Date: 2026-10-10. Status: prospective evidence, OPEN. The [complete-bill question](../../../docs/OPEN-QUESTIONS.md#fittings-torsion-straps-and-retired-skin) explicitly names seals, coatings, bonds, seams and equipment attachments. The [member census](../../../docs/MEMBER-CENSUS.md#film-close-up-fittings-and-outfit) calls the film a schematic drape and leaves outfit mass unknown. Neither is an installed seam or attachment record.
+
+The [evidence contract](EVIDENCE.json) reserves matched source, interface, drawing and inclusion/exclusion records. Actual configuration, geometry, material, bond, acquired record, calibration, applicability, owner and adopted physical criterion remain null/UNKNOWN. No item is selected or measured.
+
+| Requirement | Published source | Observation units | Missing applicability |
+|---|---|---|---|
+| Current versus retired and historical source state | `docs/OPEN-QUESTIONS.md Fittings, torsion straps and retired skin; docs/VERIFICATION-PLAN.md costed-budget architecture caveat` | source/revision identity | A retired structural-skin line or historical sealed-cell barrier does not define the current schematic film interface. |
+| Drawing and installed configuration identity | `docs/MEMBER-CENSUS.md Film, close-up fittings and outfit` | drawing/configuration/revision identity | The film is a schematic drape, not a measured membrane; a mesh depiction does not identify installed seams or attachments. |
+| Membrane edge, seal, bond and seam provenance | `docs/OPEN-QUESTIONS.md Fittings, torsion straps and retired skin` | interface/material/geometry/record identity | The complete-bill question asks which items belong; no measured interface, material, bond or adopted inclusion is supplied here. |
+| Equipment attachment boundary | `docs/OPEN-QUESTIONS.md Fittings, torsion straps and retired skin; docs/MEMBER-CENSUS.md outfit` | attachment/equipment/boundary identity | Outfit context does not establish installed attachment hardware, interface ownership or completeness; person/wrap context is not an added member. |
+| Complete-bill inclusion and omission custody | `docs/OPEN-QUESTIONS.md Fittings, torsion straps and retired skin` | inventory/source/disposition identity | A schematic or retired skin allowance cannot silently become a complete current interface inventory; no allowance or hardware is chosen. |
+| Applicability, owner and adopted criterion | `docs/MEMBER-CENSUS.md Film, close-up fittings and outfit; docs/VERIFICATION-PLAN.md architecture caveat` | evidence/decision/owner identity | Observed geometry, material/bond performance, owner, applicability and adopted criterion remain absent; physical acceptance is UNKNOWN. |
+
+The [verification plan](../../../docs/VERIFICATION-PLAN.md#the-critical-path-one-number-decides-whether-this-can-exist) retains the first-generation permanently sealed-cell budget separately from the current film on hoop rings over a truss. Historical barrier and membrane-coupon language remains historical; it does not identify a current installed joint. This map reserves evidence provenance only, without choosing an architecture, seam, coating, bond, attachment, material, hardware or inclusion allowance.
+
+Q4 quantities, dry mass, assumed stiffness, barrier cycling, retention and ground/pickup load paths remain separate evidence threads. This paper performs no area, mass, force, stress or leak calculation and prescribes no fabrication, bonding, testing or physical procedure. Failure or exclusion records must remain explicit. Physical acceptance remains UNKNOWN.
