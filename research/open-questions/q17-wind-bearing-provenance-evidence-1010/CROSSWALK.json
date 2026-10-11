@@ -1,0 +1,341 @@
+{
+  "schema": "q17.wind-bearing-provenance-evidence-map/1",
+  "status": "DOCUMENT_ONLY; Q17 remains CLOSED; actual wind/bearing input evidence UNKNOWN",
+  "source_revision": "94db332d3dc437708d3ed0dfeb6b619c70d9da25",
+  "closed_question_metadata": {
+    "question": "Q17",
+    "published_status": "CLOSED",
+    "published_closed_at": "2026-10-03",
+    "scope": "Existing flag/input-contract correction only, no physical validation or reopened bug."
+  },
+  "requirements": [
+    {
+      "id": "closed-correction-and-regression-boundary",
+      "source_locators": [
+        "docs/OPEN-QUESTIONS.md#17-windused-requires-a-route-bearing",
+        "tests/cases/sim-plan.cases.js"
+      ],
+      "existing_boundary": "Q17 is CLOSED on its published source date. The corrected input-use flag and ordinary regression do not establish measured wind, a flown route or operational performance.",
+      "prospective_record_requirements": [
+        "Original source revision and closure metadata, exact fixture identity and software-contract scope; actual observation/comparison evidence kept separate"
+      ],
+      "convention_provenance": "Closure date and test identity are source metadata, not weather observations. Historical numerical reproduction remains only in the unchanged source.",
+      "prospective_custodian_role": "Closed-contract source and regression-provenance custodian",
+      "assigned_owner": null,
+      "owner_status": "UNASSIGNED",
+      "actual_wind_input": null,
+      "actual_bearing_input": null,
+      "source_configuration": null,
+      "reference_frame": null,
+      "angular_convention": null,
+      "observation_interval": null,
+      "observation_record": null,
+      "comparison_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "adopted_acceptance_criterion": null,
+      "qualification": "UNKNOWN",
+      "insufficient_or_disconfirming_evidence": "Do not reopen the fixed flag bug or turn a regression assertion into measured meteorology or physical validation. No fixture is executed by this paper."
+    },
+    {
+      "id": "bearing-presence-versus-truthiness",
+      "source_locators": [
+        "docs/OPEN-QUESTIONS.md#17-windused-requires-a-route-bearing",
+        "tests/cases/sim-plan.cases.js",
+        "sim/wind.js"
+      ],
+      "existing_boundary": "The fixture distinguishes NULL and MISSING bearings from the valid ZERO-degree bearing. Current helper checks wind/bearing presence rather than truthiness, so valid zero bearing is present.",
+      "prospective_record_requirements": [
+        "Original input-field presence/type/validity and missingness provenance, applicable source/configuration and declared conventions; original record identity before treating supplied input as observed"
+      ],
+      "convention_provenance": "NULL, MISSING and VALID_ZERO_BEARING below are regression categories. No numeric bearing, speed, route or direction is chosen or copied.",
+      "prospective_custodian_role": "Input-presence and missingness-provenance custodian",
+      "assigned_owner": null,
+      "owner_status": "UNASSIGNED",
+      "actual_wind_input": null,
+      "actual_bearing_input": null,
+      "source_configuration": null,
+      "reference_frame": null,
+      "angular_convention": null,
+      "observation_interval": null,
+      "observation_record": null,
+      "comparison_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "adopted_acceptance_criterion": null,
+      "qualification": "UNKNOWN",
+      "insufficient_or_disconfirming_evidence": "Missing is not zero and zero is not missing. A false flag proves no observed calm condition; a true flag proves no sensor quality, measured vector or operating permission."
+    },
+    {
+      "id": "current-plan-helper-and-validity-contract",
+      "source_locators": [
+        "sim/plan.js",
+        "sim/wind.js",
+        "tests/cases/sim-plan.cases.js"
+      ],
+      "existing_boundary": "Current planCycle delegates trackWind and returns track.windUsed with windBasis. The helper uses non-null wind and non-null bearing for the flag and guards used-vector speed/direction/bearing validity; bearing absence leaves the vector unused.",
+      "prospective_record_requirements": [
+        "Exact plan/helper revisions and imported input contract, field identities and validity/missingness provenance; documented differences between the closed historical description and current code location"
+      ],
+      "convention_provenance": "Read-only source contract: wind.spd, wind.dir and wind.bearing. A present vector can have zero speed under the source guard; the flag remains branch metadata, not measured magnitude. No code guard is adopted as physical acceptance.",
+      "prospective_custodian_role": "Input-contract and source-configuration custodian",
+      "assigned_owner": null,
+      "owner_status": "UNASSIGNED",
+      "actual_wind_input": null,
+      "actual_bearing_input": null,
+      "source_configuration": null,
+      "reference_frame": null,
+      "angular_convention": null,
+      "observation_interval": null,
+      "observation_record": null,
+      "comparison_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "adopted_acceptance_criterion": null,
+      "qualification": "UNKNOWN",
+      "insufficient_or_disconfirming_evidence": "Published historical speed-and-bearing wording cannot replace the exact current imported contract. Invalid or absent input provenance cannot be silently treated as observed wind. No code/model/schema change or vector computation is made."
+    },
+    {
+      "id": "frame-and-angular-convention-provenance",
+      "source_locators": [
+        "sim/wind.js",
+        "sim/plan.js",
+        "tests/cases/sim-plan.cases.js"
+      ],
+      "existing_boundary": "Source code reverses direction before comparing it with route bearing and converts angular input for its calculation. The fixture labels the valid-zero case in degrees. An actual geographic/true/magnetic frame is not established by the flag.",
+      "prospective_record_requirements": [
+        "Original source/configuration/reference frame and angular-unit/orientation convention, bearing/direction meaning and applicability, conversions already recorded by responsible sources and explicit unknowns"
+      ],
+      "convention_provenance": "The source transformation identifies a model convention; any meteorological from/to, geographic reference or true/magnetic convention must be supplied with actual records. No numeric angles, formula or selected route is reproduced.",
+      "prospective_custodian_role": "Reference-frame and angular-convention provenance custodian",
+      "assigned_owner": null,
+      "owner_status": "UNASSIGNED",
+      "actual_wind_input": null,
+      "actual_bearing_input": null,
+      "source_configuration": null,
+      "reference_frame": null,
+      "angular_convention": null,
+      "observation_interval": null,
+      "observation_record": null,
+      "comparison_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "adopted_acceptance_criterion": null,
+      "qualification": "UNKNOWN",
+      "insufficient_or_disconfirming_evidence": "A degree label or code transformation cannot prove actual bearing origin, direction convention or matched frames. No navigation, route, site, direction or operating guidance is provided."
+    },
+    {
+      "id": "wind-and-bearing-record-applicability",
+      "source_locators": [
+        "sim/wind.js",
+        "sim/plan.js",
+        "docs/OPEN-QUESTIONS.md"
+      ],
+      "existing_boundary": "The source input fields and basis string describe a model vector for a route, not an acquired weather record. Straight-leg and omitted-weather qualifications remain model scope.",
+      "prospective_record_requirements": [
+        "Original wind/bearing source and record identities, applicable configuration, original speed/direction/bearing quantity definitions and reference level/location provenance when supplied, representation limits and gaps"
+      ],
+      "convention_provenance": "Original units/reference conventions and applicability must be supplied; the model basis label cannot establish measurement or observation location.",
+      "prospective_custodian_role": "Wind-vector and bearing record-applicability custodian",
+      "assigned_owner": null,
+      "owner_status": "UNASSIGNED",
+      "actual_wind_input": null,
+      "actual_bearing_input": null,
+      "source_configuration": null,
+      "reference_frame": null,
+      "angular_convention": null,
+      "observation_interval": null,
+      "observation_record": null,
+      "comparison_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "adopted_acceptance_criterion": null,
+      "qualification": "UNKNOWN",
+      "insufficient_or_disconfirming_evidence": "Input-use metadata, a pressure-level label or an assumed vector cannot identify measured weather or its applicability. No forecast, external lookup, weather choice, projection, groundspeed or performance computation is made."
+    },
+    {
+      "id": "interval-observation-calibration-and-uncertainty",
+      "source_locators": [
+        "sim/wind.js",
+        "tests/cases/sim-plan.cases.js",
+        "README.md"
+      ],
+      "existing_boundary": "No actual observation interval, calibration, uncertainty or matched wind/bearing/comparison record is supplied by the closed regression.",
+      "prospective_record_requirements": [
+        "Unmodified original observation/interval and comparison record identities, applicable configuration/frame/convention, acquisition/calibration and uncertainty provenance and missing/invalid intervals"
+      ],
+      "convention_provenance": "Time interval and uncertainty conventions come only from original supplied records; generic mission timebase and atmosphere/gust models remain separate.",
+      "prospective_custodian_role": "Observation-interval, calibration and uncertainty-provenance custodian",
+      "assigned_owner": null,
+      "owner_status": "UNASSIGNED",
+      "actual_wind_input": null,
+      "actual_bearing_input": null,
+      "source_configuration": null,
+      "reference_frame": null,
+      "angular_convention": null,
+      "observation_interval": null,
+      "observation_record": null,
+      "comparison_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "adopted_acceptance_criterion": null,
+      "qualification": "UNKNOWN",
+      "insufficient_or_disconfirming_evidence": "A fixed fixture or branch label cannot establish observed variability, timing, calibration or uncertainty. No schedule, uncertainty calculation, atmosphere model, gust structural load or physical observation is selected."
+    },
+    {
+      "id": "custody-and-responsible-comparison-criterion",
+      "source_locators": [
+        "docs/OPEN-QUESTIONS.md",
+        "README.md",
+        "tests/cases/sim-plan.cases.js"
+      ],
+      "existing_boundary": "Assigned owners and adopted comparison criteria are unknown; Q17 closure concerns the software contract only.",
+      "prospective_record_requirements": [
+        "Original record custody/revision and responsible comparison domain, criterion source/version/applicability only when adopted; explicit gaps and uncertainty"
+      ],
+      "convention_provenance": "All proposed roles remain UNASSIGNED and actual criteria NULL; no physical qualification is inherited from CLOSED.",
+      "prospective_custodian_role": "Record-custody and responsible comparison-criterion custodian",
+      "assigned_owner": null,
+      "owner_status": "UNASSIGNED",
+      "actual_wind_input": null,
+      "actual_bearing_input": null,
+      "source_configuration": null,
+      "reference_frame": null,
+      "angular_convention": null,
+      "observation_interval": null,
+      "observation_record": null,
+      "comparison_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "adopted_acceptance_criterion": null,
+      "qualification": "UNKNOWN",
+      "insufficient_or_disconfirming_evidence": "A passing repository check cannot supply actual wind/bearing evidence, qualify a vehicle or establish benefit/safety. No threshold or permission is adopted."
+    }
+  ],
+  "source_contract_excerpts": [
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "line": 884,
+      "text": "**Closed 2026-10-03.** The returned flag now uses the same speed-and-bearing condition as the wind calculation in `sim/plan.js`."
+    },
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "line": 885,
+      "text": "A wind without a bearing leaves both ground speeds unchanged and reports `windUsed: false`."
+    },
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "line": 886,
+      "text": "The ordinary case in `tests/cases/sim-plan.cases.js` checks null and missing bearings, plus the valid zero-degree bearing."
+    },
+    {
+      "path": "sim/plan.js",
+      "line": 13,
+      "text": "import {trackWind} from './wind.js?v=01e992e3';"
+    },
+    {
+      "path": "sim/plan.js",
+      "line": 29,
+      "text": "  const track = trackWind(kph, wind);"
+    },
+    {
+      "path": "sim/plan.js",
+      "line": 252,
+      "text": "    gsOut, gsRet, tailOut, crossOut, alongAirKph: track.alongAirKph, selectedAirKph: kph, windUsed: track.windUsed, windBasis: windBasis(track), trackPossible: true, trackReason: null,"
+    },
+    {
+      "path": "sim/wind.js",
+      "line": 7,
+      "text": "  const windUsed = wind != null && wind.bearing != null;"
+    },
+    {
+      "path": "sim/wind.js",
+      "line": 10,
+      "text": "    throw new RangeError('Route wind requires finite speed, direction and bearing');"
+    },
+    {
+      "path": "sim/wind.js",
+      "line": 2,
+      "text": " * Boundary cases use stipulated test inputs, never incident operating limits. */"
+    },
+    {
+      "path": "sim/wind.js",
+      "line": 31,
+      "text": "    ? 'Wind basis: one pressure-level wind vector per route; straight level legs; no shear, turns, gusts or vertical air motion.'"
+    },
+    {
+      "path": "sim/wind.js",
+      "line": 32,
+      "text": "    : 'Wind not measured; still-air plan.';"
+    },
+    {
+      "path": "tests/cases/sim-plan.cases.js",
+      "line": 152,
+      "text": "  it('windUsed is false when the wind was not applied', () => {"
+    },
+    {
+      "path": "tests/cases/sim-plan.cases.js",
+      "line": 154,
+      "text": "    for (const bearing of [null, undefined]) {"
+    },
+    {
+      "path": "tests/cases/sim-plan.cases.js",
+      "line": 156,
+      "text": "      eq(p.windUsed, false, 'windUsed');"
+    },
+    {
+      "path": "tests/cases/sim-plan.cases.js",
+      "line": 159,
+      "text": "    eq(north.windUsed, true, 'a zero-degree bearing is present');"
+    },
+    {
+      "path": "README.md",
+      "line": 3,
+      "text": "Pink Robotics asks whether a vacuum-lift airship could carry and deliver water under checkable physical assumptions; the public study is at [pinkrobotics.ca](https://pinkrobotics.ca/). No aircraft has been built or flown."
+    }
+  ],
+  "regression_categories_without_values": [
+    {
+      "source": {
+        "path": "tests/cases/sim-plan.cases.js",
+        "section_title": "windUsed is false when the wind was not applied"
+      },
+      "category": "NULL_BEARING",
+      "source_expected_flag": false,
+      "extent": "Existing stipulated regression assertion only; no numerical input copied and no fixture executed.",
+      "actual_observation": null,
+      "actual_bearing": null,
+      "actual_wind": null
+    },
+    {
+      "source": {
+        "path": "tests/cases/sim-plan.cases.js",
+        "section_title": "windUsed is false when the wind was not applied"
+      },
+      "category": "MISSING_BEARING",
+      "source_expected_flag": false,
+      "extent": "Existing stipulated regression assertion only; no numerical input copied and no fixture executed.",
+      "actual_observation": null,
+      "actual_bearing": null,
+      "actual_wind": null
+    },
+    {
+      "source": {
+        "path": "tests/cases/sim-plan.cases.js",
+        "section_title": "windUsed is false when the wind was not applied"
+      },
+      "category": "VALID_ZERO_BEARING",
+      "source_expected_flag": true,
+      "extent": "Existing stipulated regression assertion only; no numerical input copied and no fixture executed.",
+      "actual_observation": null,
+      "actual_bearing": null,
+      "actual_wind": null
+    }
+  ],
+  "new_measurements": [],
+  "new_numeric_results": [],
+  "fixture_executed": false,
+  "selected_route_direction_site_forecast_schedule": null,
+  "adopted_acceptance_criterion": null,
+  "physical_qualification_or_safety_conclusion": null
+}

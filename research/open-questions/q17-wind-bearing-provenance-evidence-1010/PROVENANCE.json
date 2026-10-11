@@ -1,0 +1,36 @@
+{
+  "schema": "q17.wind-bearing-provenance/1",
+  "source_revision": "94db332d3dc437708d3ed0dfeb6b619c70d9da25",
+  "sources": [
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "bytes": 113704,
+      "sha256": "6b2d9b00563f6a051a2d405c2dadc3bce2a3e4359653f1a97a7cd86ddeab7736"
+    },
+    {
+      "path": "README.md",
+      "bytes": 16911,
+      "sha256": "746f77b23a5d4e63324d2a258ba708e3819715898d4592dd2be23be4b806e15b"
+    },
+    {
+      "path": "sim/plan.js",
+      "bytes": 17722,
+      "sha256": "546dbce77d524a7f6d8f5202d1b3ff8dae135997490aad0e7e8bc09f10b7da4d"
+    },
+    {
+      "path": "tests/cases/sim-plan.cases.js",
+      "bytes": 18165,
+      "sha256": "ff19637f1fefeede46266cc5590d4247dab5bdbacb5e8ae1898b518e461b32d6"
+    },
+    {
+      "path": "sim/wind.js",
+      "bytes": 2242,
+      "sha256": "aad07d5e34ead2ac61484ae238ffe64f6253d0370d478c7d76662369b56869b9"
+    }
+  ],
+  "supplemental_source": {
+    "path": "sim/wind.js",
+    "reason": "Read-only imported trackWind/windBasis implementation needed to trace the current plan flag; no scope expansion or code change."
+  },
+  "method": "Read existing CLOSED correction, plan delegation, imported helper and regression fixture without execution. Copy only metadata/contract excerpts; preserve valid-zero versus null/missing while copying no historical numerical reproduction or vector/projection/performance calculation."
+}
