@@ -1,0 +1,354 @@
+{
+  "schema": "barrel-flange-doubler.provenance.crosswalk/1",
+  "status": "DOCUMENT_ONLY; actual correspondence/applicability UNKNOWN",
+  "source_revision": "94db332d3dc437708d3ed0dfeb6b619c70d9da25",
+  "source_fragments": [
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 3,
+      "character_start": 1,
+      "character_end_exclusive": 35,
+      "fragment": "The drawing and the bill disagree."
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 4,
+      "character_start": 1,
+      "character_end_exclusive": 105,
+      "fragment": "The checks use smeared areas at full radius and do not resolve station lengths, sections or connections."
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 17,
+      "character_start": 1,
+      "character_end_exclusive": 51,
+      "fragment": "Rendering segments are not physical member counts."
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 19,
+      "character_start": 47,
+      "character_end_exclusive": 74,
+      "fragment": "Unknown mass is never zero."
+    },
+    {
+      "path": "README.md",
+      "line": 3,
+      "character_start": 186,
+      "character_end_exclusive": 222,
+      "fragment": "No aircraft has been built or flown."
+    },
+    {
+      "path": "docs/MEMBER-CENSUS.md",
+      "line": 35,
+      "character_start": 1,
+      "character_end_exclusive": 53,
+      "fragment": "| flangeDoubler | not independently drawn | barrel |"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1172,
+      "character_start": 3,
+      "character_end_exclusive": 42,
+      "fragment": "let [aI1, aTh1, aOe1, aSp1, ov] = solve"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1206,
+      "character_start": 3,
+      "character_end_exclusive": 23,
+      "fragment": "const flangeT = aOe1"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1224,
+      "character_start": 5,
+      "character_end_exclusive": 29,
+      "fragment": "flangeDoublerT: flangeT,"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1276,
+      "character_start": 8,
+      "character_end_exclusive": 46,
+      "fragment": "+ skel.flangeDoublerT + skel.junctionT"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1307,
+      "character_start": 7,
+      "character_end_exclusive": 41,
+      "fragment": "flangeDoubler: skel.flangeDoublerT"
+    },
+    {
+      "path": "ship/model.js",
+      "line": 1276,
+      "character_start": 57,
+      "character_end_exclusive": 76,
+      "fragment": "SHIP0.junctionAdder"
+    }
+  ],
+  "source_identity_mappings": [
+    {
+      "source_identity": "flangeDoubler census row",
+      "source_role": "Barrel accounting area row with no independently drawn counterpart.",
+      "source_locators": [
+        {
+          "path": "docs/MEMBER-CENSUS.md",
+          "line": 35,
+          "character_start": 1,
+          "character_end_exclusive": 53,
+          "fragment": "| flangeDoubler | not independently drawn | barrel |"
+        }
+      ],
+      "limit": "Source bill domain and declared unit identity only. Drawn quantity and counterpart remain unknown; no area, mass, count or dimension copied.",
+      "actual_matched_record": null,
+      "adoption_record": null,
+      "applicability": "UNKNOWN"
+    },
+    {
+      "source_identity": "first-solve baseline aOe1",
+      "source_role": "Source baseline outer extra-area state, not a physical flange section.",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 1172,
+          "character_start": 3,
+          "character_end_exclusive": 42,
+          "fragment": "let [aI1, aTh1, aOe1, aSp1, ov] = solve"
+        }
+      ],
+      "limit": "State depends on model configuration/basis and source solve path. No state evaluated or adopted. This is the first-solve baseline, not a later reserve difference.",
+      "actual_matched_record": null,
+      "adoption_record": null,
+      "applicability": "UNKNOWN"
+    },
+    {
+      "source_identity": "flangeT accounting conversion",
+      "source_role": "Baseline aOe1 is used in a density/barrel-domain derived-mass expression.",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 1206,
+          "character_start": 3,
+          "character_end_exclusive": 23,
+          "fragment": "const flangeT = aOe1"
+        }
+      ],
+      "limit": "Source uses model density, outer radius and cylindrical length with a mass-unit conversion. No factors, values or formula evaluation copied; this is conditional source accounting, not weighed reinforcement.",
+      "actual_matched_record": null,
+      "adoption_record": null,
+      "applicability": "UNKNOWN"
+    },
+    {
+      "source_identity": "flangeDoublerT returned identity",
+      "source_role": "Returned skeleton accounting field names the baseline flangeT.",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 1224,
+          "character_start": 5,
+          "character_end_exclusive": 29,
+          "fragment": "flangeDoublerT: flangeT,"
+        }
+      ],
+      "limit": "Return identity does not establish an independent drawing, installed member, location, section, material or connection.",
+      "actual_matched_record": null,
+      "adoption_record": null,
+      "applicability": "UNKNOWN"
+    },
+    {
+      "source_identity": "ordinary member aggregation",
+      "source_role": "The source includes the returned baseline flange mass in member aggregation with its joint adder convention.",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 1276,
+          "character_start": 8,
+          "character_end_exclusive": 46,
+          "fragment": "+ skel.flangeDoublerT + skel.junctionT"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1276,
+          "character_start": 57,
+          "character_end_exclusive": 76,
+          "fragment": "SHIP0.junctionAdder"
+        }
+      ],
+      "limit": "Inclusion in source member accounting is separate from actual installed coverage. No reserve, allowance or other member maps are reproduced.",
+      "actual_matched_record": null,
+      "adoption_record": null,
+      "applicability": "UNKNOWN"
+    },
+    {
+      "source_identity": "flangeDoubler ledger key",
+      "source_role": "The ordinary ledger key derives from skel.flangeDoublerT with the source joint adder.",
+      "source_locators": [
+        {
+          "path": "ship/model.js",
+          "line": 1307,
+          "character_start": 7,
+          "character_end_exclusive": 41,
+          "fragment": "flangeDoubler: skel.flangeDoublerT"
+        },
+        {
+          "path": "ship/model.js",
+          "line": 1276,
+          "character_start": 57,
+          "character_end_exclusive": 76,
+          "fragment": "SHIP0.junctionAdder"
+        }
+      ],
+      "limit": "The ledger entry is conditional source mass accounting, not a complete physical manifest or evidence of actual reinforcement installation.",
+      "actual_matched_record": null,
+      "adoption_record": null,
+      "applicability": "UNKNOWN"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "source-term-domain-convention",
+      "existing_boundary": "Match flangeDoubler census barrel-area domain with baseline return and ordinary ledger conventions without treating them as installed geometry.",
+      "prospective_record_requirements": [
+        "Original term/configuration/revision/domain/unit/inclusion and exclusion records, plus conditional accounting lineage."
+      ],
+      "insufficient_or_disconfirming_evidence": "An area-row label or derived ledger mass cannot establish a drawn or installed member.",
+      "proposed_custodian_role": "source-term-domain-convention provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "physical_reinforcement_identity": null,
+      "drawing_member_correspondence": null,
+      "installed_configuration": null,
+      "station_span_connection_coverage": null,
+      "raw_record": null,
+      "custody_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "adoption_record": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "actual-reinforcement-correspondence",
+      "existing_boundary": "Census explicitly labels this reinforcement not independently drawn.",
+      "prospective_record_requirements": [
+        "Actual reinforcement identity, drawing-to-member correspondence, source revision and unmodified installed configuration records when supplied."
+      ],
+      "insufficient_or_disconfirming_evidence": "Undrawn counterpart, omitted geometry or source zero does not establish physical absence or selected removal.",
+      "proposed_custodian_role": "actual-reinforcement-correspondence provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "physical_reinforcement_identity": null,
+      "drawing_member_correspondence": null,
+      "installed_configuration": null,
+      "station_span_connection_coverage": null,
+      "raw_record": null,
+      "custody_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "adoption_record": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "station-span-and-connection-coverage",
+      "existing_boundary": "No actual reinforcement station/span/connection coverage is supplied by a barrel bill domain.",
+      "prospective_record_requirements": [
+        "Actual station/span/connection coverage and inclusion/exclusion correspondence tied to configuration and source custody."
+      ],
+      "insufficient_or_disconfirming_evidence": "A global barrel domain is not a station manifest, coverage map, member count or completed installation record.",
+      "proposed_custodian_role": "station-span-and-connection-coverage provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "physical_reinforcement_identity": null,
+      "drawing_member_correspondence": null,
+      "installed_configuration": null,
+      "station_span_connection_coverage": null,
+      "raw_record": null,
+      "custody_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "adoption_record": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "raw-custody-calibration-and-uncertainty",
+      "existing_boundary": "No actual installed or acquisition record accompanies the accounting field.",
+      "prospective_record_requirements": [
+        "Unmodified original raw records, responsible custody, acquisition context and applicable calibration/uncertainty records."
+      ],
+      "insufficient_or_disconfirming_evidence": "Passing software checks and algebraic identity do not measure member presence, area or mass.",
+      "proposed_custodian_role": "raw-custody-calibration-and-uncertainty provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "physical_reinforcement_identity": null,
+      "drawing_member_correspondence": null,
+      "installed_configuration": null,
+      "station_span_connection_coverage": null,
+      "raw_record": null,
+      "custody_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "adoption_record": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "matched-applicability",
+      "existing_boundary": "Conditional accounting and schematic absence do not establish physical applicability.",
+      "prospective_record_requirements": [
+        "Matched configuration/domain/reference and applicability evidence connecting accounting to actual reinforcement records."
+      ],
+      "insufficient_or_disconfirming_evidence": "No physical feasibility, section/load path/material validation, selection or qualification follows from a source name.",
+      "proposed_custodian_role": "matched-applicability provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "physical_reinforcement_identity": null,
+      "drawing_member_correspondence": null,
+      "installed_configuration": null,
+      "station_span_connection_coverage": null,
+      "raw_record": null,
+      "custody_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "adoption_record": null,
+      "adopted_criterion": null
+    },
+    {
+      "id": "responsible-owner-and-adoption",
+      "existing_boundary": "Custody roles and any future adoption are unassigned/unknown.",
+      "prospective_record_requirements": [
+        "Responsible record owner and adoption source/version/domain/criterion only when actually supplied."
+      ],
+      "insufficient_or_disconfirming_evidence": "Proposed roles are not appointments; paper completion does not choose a criterion, procedure or design.",
+      "proposed_custodian_role": "responsible-owner-and-adoption provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "assigned_owner": null,
+      "physical_reinforcement_identity": null,
+      "drawing_member_correspondence": null,
+      "installed_configuration": null,
+      "station_span_connection_coverage": null,
+      "raw_record": null,
+      "custody_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability": null,
+      "adoption_record": null,
+      "adopted_criterion": null
+    }
+  ],
+  "actual_physical_manifest": null,
+  "selected_geometry_member_section_connection_material_criterion_check_or_procedure": null,
+  "new_numeric_results": [],
+  "new_measurements": [],
+  "models_equations_or_generators_executed": false
+}
