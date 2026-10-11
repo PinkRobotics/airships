@@ -1,0 +1,698 @@
+{
+  "schema": "dual-power.comparison-provenance-evidence-map/1",
+  "status": "DOCUMENT_ONLY; published dispute retained; actual comparison evidence UNKNOWN",
+  "source_revision": "94db332d3dc437708d3ed0dfeb6b619c70d9da25",
+  "historical_and_current_boundary": "Historical published two-accounting disagreement remains in OPEN-QUESTIONS; current plan/state share drawAt according to pinned code and source comments. This paper reconciles neither historical evidence nor physical validity.",
+  "source_excerpt_fragments": [
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "line": 1229,
+      "character_start": 33,
+      "character_end_exclusive": 98,
+      "fragment": "Both are shipped; the page shows the first as the headline energy"
+    },
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "line": 1230,
+      "character_start": 1,
+      "character_end_exclusive": 99,
+      "fragment": "figure and the second on the instruments. At least one is wrong and they cannot both be right, and"
+    },
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "line": 1231,
+      "character_start": 1,
+      "character_end_exclusive": 50,
+      "fragment": "fixing #1 widened the gap rather than closing it."
+    },
+    {
+      "path": "README.md",
+      "line": 119,
+      "character_start": 66,
+      "character_end_exclusive": 130,
+      "fragment": "The force ledger and energy integrals now share one calculation."
+    },
+    {
+      "path": "README.md",
+      "line": 120,
+      "character_start": 1,
+      "character_end_exclusive": 120,
+      "fragment": "All rows below are unsupported prescribed profiles; their requested mass and supplied effort are not achieved delivery."
+    },
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "line": 33,
+      "character_start": 1,
+      "character_end_exclusive": 143,
+      "fragment": "The old “seventeen things”, “two already fixed” and “#5 is still open” framing below is retained as historical text, not the current register."
+    },
+    {
+      "path": "README.md",
+      "line": 3,
+      "character_start": 186,
+      "character_end_exclusive": 222,
+      "fragment": "No aircraft has been built or flown."
+    },
+    {
+      "path": "sim/state.js",
+      "line": 11,
+      "character_start": 4,
+      "character_end_exclusive": 58,
+      "fragment": "defect 2's fix: planCycle integrates the same `drawAt`"
+    },
+    {
+      "path": "sim/plan.js",
+      "line": 211,
+      "character_start": 3,
+      "character_end_exclusive": 48,
+      "fragment": "const I = integrateCycle(cls, mode, partial);"
+    },
+    {
+      "path": "sim/state.js",
+      "line": 55,
+      "character_start": 3,
+      "character_end_exclusive": 49,
+      "fragment": "const P = drawAt(cls, m.mode, plan, id, prog);"
+    },
+    {
+      "path": "sim/power.js",
+      "line": 388,
+      "character_start": 5,
+      "character_end_exclusive": 90,
+      "fragment": "Quadrature is for energy only. Limits and extrema use a separate seam-inclusive mesh."
+    },
+    {
+      "path": "sim/power.js",
+      "line": 336,
+      "character_start": 6,
+      "character_end_exclusive": 96,
+      "fragment": "This production-only draw has no startup, standby or restart term (cold-ready assumption)."
+    }
+  ],
+  "declared_term_mappings": [
+    {
+      "declared_identity": "draw.hotel",
+      "source_locators": [
+        {
+          "path": "sim/power.js",
+          "line": 332,
+          "character_start": 18,
+          "character_end_exclusive": 34,
+          "fragment": "hotel: cls.genMW"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 376,
+          "character_start": 36,
+          "character_end_exclusive": 49,
+          "fragment": "hotelPowerMW:"
+        }
+      ],
+      "qualitative_source_role": "Hotel draw channel with an assumed source coefficient; not an acquired installed-load record.",
+      "comparison_boundary": "Included in draw channel accumulation, not generation.",
+      "actual_component_or_meter_record": null,
+      "matched_configuration": null,
+      "matched_interval": null,
+      "uncertainty": null,
+      "assigned_owner": null,
+      "adopted_criterion": null
+    },
+    {
+      "declared_identity": "draw.prop",
+      "source_locators": [
+        {
+          "path": "sim/power.js",
+          "line": 332,
+          "character_start": 49,
+          "character_end_exclusive": 68,
+          "fragment": "prop: zeroLiftDragN"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 359,
+          "character_start": 3,
+          "character_end_exclusive": 28,
+          "fragment": "draw.prop += inducedDragN"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 374,
+          "character_start": 24,
+          "character_end_exclusive": 42,
+          "fragment": "propulsionPowerMW:"
+        }
+      ],
+      "qualitative_source_role": "Zero-lift drag and induced-drag contribution to propulsion; electrical propulsion combines prop with rotors.",
+      "comparison_boundary": "Keep prop and rotor channel identities separate before comparing combined electrical propulsion.",
+      "actual_component_or_meter_record": null,
+      "matched_configuration": null,
+      "matched_interval": null,
+      "uncertainty": null,
+      "assigned_owner": null,
+      "adopted_criterion": null
+    },
+    {
+      "declared_identity": "draw.rotors",
+      "source_locators": [
+        {
+          "path": "sim/power.js",
+          "line": 357,
+          "character_start": 3,
+          "character_end_exclusive": 26,
+          "fragment": "draw.rotors = inducedMW"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 374,
+          "character_start": 24,
+          "character_end_exclusive": 42,
+          "fragment": "propulsionPowerMW:"
+        }
+      ],
+      "qualitative_source_role": "Supplied induced rotor draw under the source force/bus split.",
+      "comparison_boundary": "Requested rotorAskMW and clipping diagnostics differ from supplied draw.rotors; no requested-power substitution.",
+      "actual_component_or_meter_record": null,
+      "matched_configuration": null,
+      "matched_interval": null,
+      "uncertainty": null,
+      "assigned_owner": null,
+      "adopted_criterion": null
+    },
+    {
+      "declared_identity": "draw.winch",
+      "source_locators": [
+        {
+          "path": "sim/power.js",
+          "line": 333,
+          "character_start": 3,
+          "character_end_exclusive": 43,
+          "fragment": "if (id === 'SOURCE_APPROACH') draw.winch"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 335,
+          "character_start": 3,
+          "character_end_exclusive": 32,
+          "fragment": "if (id === 'OUTBOUND_TRANSIT'"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 376,
+          "character_start": 5,
+          "character_end_exclusive": 18,
+          "fragment": "winchPowerMW:"
+        }
+      ],
+      "qualitative_source_role": "Approach idle/hoist and early outbound handling draw, under source conditionals.",
+      "comparison_boundary": "Phase and progress applicability required; hoist subset cannot be added again to gross channel total.",
+      "actual_component_or_meter_record": null,
+      "matched_configuration": null,
+      "matched_interval": null,
+      "uncertainty": null,
+      "assigned_owner": null,
+      "adopted_criterion": null
+    },
+    {
+      "declared_identity": "draw.pumps",
+      "source_locators": [
+        {
+          "path": "sim/power.js",
+          "line": 334,
+          "character_start": 3,
+          "character_end_exclusive": 38,
+          "fragment": "if (id === 'WATER_FILL') draw.pumps"
+        },
+        {
+          "path": "sim/physics.js",
+          "line": 10,
+          "character_start": 1,
+          "character_end_exclusive": 28,
+          "fragment": "export function pumpMW(cls)"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 375,
+          "character_start": 39,
+          "character_end_exclusive": 51,
+          "fragment": "pumpPowerMW:"
+        }
+      ],
+      "qualitative_source_role": "Fill-phase pump draw reads plan pump term; physical helper declares pump relation.",
+      "comparison_boundary": "Power channel and acquired electrical/hydraulic records remain distinct; do not repeat it as additional phase energy.",
+      "actual_component_or_meter_record": null,
+      "matched_configuration": null,
+      "matched_interval": null,
+      "uncertainty": null,
+      "assigned_owner": null,
+      "adopted_criterion": null
+    },
+    {
+      "declared_identity": "draw.cryo",
+      "source_locators": [
+        {
+          "path": "sim/power.js",
+          "line": 337,
+          "character_start": 3,
+          "character_end_exclusive": 60,
+          "fragment": "if (id === 'RETURN_TRANSIT' && prog < cryoFrac) draw.cryo"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 375,
+          "character_start": 5,
+          "character_end_exclusive": 22,
+          "fragment": "cryogenicPowerMW:"
+        }
+      ],
+      "qualitative_source_role": "Return production-only cryogenic draw under cryoFrac condition.",
+      "comparison_boundary": "Cold-ready accounting excludes startup, standby and restart; source omission is not measured insignificance.",
+      "actual_component_or_meter_record": null,
+      "matched_configuration": null,
+      "matched_interval": null,
+      "uncertainty": null,
+      "assigned_owner": null,
+      "adopted_criterion": null
+    },
+    {
+      "declared_identity": "gen.solar",
+      "source_locators": [
+        {
+          "path": "sim/power.js",
+          "line": 328,
+          "character_start": 3,
+          "character_end_exclusive": 23,
+          "fragment": "const gen = { solar:"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 377,
+          "character_start": 5,
+          "character_end_exclusive": 18,
+          "fragment": "solarPowerMW:"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 378,
+          "character_start": 5,
+          "character_end_exclusive": 20,
+          "fragment": "batteryPowerMW:"
+        }
+      ],
+      "qualitative_source_role": "Model solar supply enters bus and instantaneous battery-power accounting.",
+      "comparison_boundary": "Current integrateCycle accumulates draw and nitrogen recovery, without a solar subtraction in E; do not equate eCycleMWh with solar-net electrical battery energy.",
+      "actual_component_or_meter_record": null,
+      "matched_configuration": null,
+      "matched_interval": null,
+      "uncertainty": null,
+      "assigned_owner": null,
+      "adopted_criterion": null
+    },
+    {
+      "declared_identity": "gen.regen / regen / eBack / E.recovery",
+      "source_locators": [
+        {
+          "path": "sim/power.js",
+          "line": 329,
+          "character_start": 3,
+          "character_end_exclusive": 36,
+          "fragment": "if (regen > 0) gen.regen = regen;"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 399,
+          "character_start": 7,
+          "character_end_exclusive": 16,
+          "fragment": "eBack += "
+        },
+        {
+          "path": "sim/power.js",
+          "line": 405,
+          "character_start": 3,
+          "character_end_exclusive": 23,
+          "fragment": "E.recovery = -eBack;"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 377,
+          "character_start": 51,
+          "character_end_exclusive": 70,
+          "fragment": "ln2RecoveryPowerMW:"
+        }
+      ],
+      "qualitative_source_role": "Nitrogen-recovery supply has a signed negative aggregate recovery line; eBack is its separate magnitude.",
+      "comparison_boundary": "Gross channel accumulation excludes recovery credit; separate positive generation and negative energy line before comparison, without recalculation.",
+      "actual_component_or_meter_record": null,
+      "matched_configuration": null,
+      "matched_interval": null,
+      "uncertainty": null,
+      "assigned_owner": null,
+      "adopted_criterion": null
+    },
+    {
+      "declared_identity": "electrical.generatorPowerMW",
+      "source_locators": [
+        {
+          "path": "sim/power.js",
+          "line": 377,
+          "character_start": 30,
+          "character_end_exclusive": 47,
+          "fragment": "generatorPowerMW:"
+        }
+      ],
+      "qualitative_source_role": "The electrical result does not book generator nameplate as independent fuel generation.",
+      "comparison_boundary": "genMW used as a hotel-draw scaling input is not an observed generated-energy record; source term names cannot imply actual generation.",
+      "actual_component_or_meter_record": null,
+      "matched_configuration": null,
+      "matched_interval": null,
+      "uncertainty": null,
+      "assigned_owner": null,
+      "adopted_criterion": null
+    },
+    {
+      "declared_identity": "E / Echan / eCycleMWh",
+      "source_locators": [
+        {
+          "path": "sim/power.js",
+          "line": 390,
+          "character_start": 3,
+          "character_end_exclusive": 27,
+          "fragment": "const E = {}, chan = {};"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 398,
+          "character_start": 7,
+          "character_end_exclusive": 51,
+          "fragment": "for (const [k, v] of Object.entries(s.draw))"
+        },
+        {
+          "path": "sim/power.js",
+          "line": 403,
+          "character_start": 5,
+          "character_end_exclusive": 16,
+          "fragment": "E[id] = eP;"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 243,
+          "character_start": 5,
+          "character_end_exclusive": 22,
+          "fragment": "E, Echan: I.chan,"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 237,
+          "character_start": 25,
+          "character_end_exclusive": 42,
+          "fragment": "eCycleMWh: eCycle"
+        }
+      ],
+      "qualitative_source_role": "Phase draw-energy entries plus signed recovery feed returned aggregate; Echan returns gross draw channels.",
+      "comparison_boundary": "Phase totals, gross channels and recovery-adjusted total are different views, not additive independent quantities; source integration semantics are not a measured comparison.",
+      "actual_component_or_meter_record": null,
+      "matched_configuration": null,
+      "matched_interval": null,
+      "uncertainty": null,
+      "assigned_owner": null,
+      "adopted_criterion": null
+    },
+    {
+      "declared_identity": "letdownMWh / anchorHoistMWh / rotorClipMWh",
+      "source_locators": [
+        {
+          "path": "sim/power.js",
+          "line": 407,
+          "character_start": 5,
+          "character_end_exclusive": 70,
+          "fragment": "letdownMWh: letdown, anchorHoistMWh: hoist, rotorClipMWh: clipMWh"
+        },
+        {
+          "path": "sim/plan.js",
+          "line": 248,
+          "character_start": 5,
+          "character_end_exclusive": 29,
+          "fragment": "letdownMWh: I.letdownMWh"
+        }
+      ],
+      "qualitative_source_role": "Named subset or requested-minus-supplied diagnostics returned beside the principal ledger.",
+      "comparison_boundary": "Do not add subset letdown/hoist or missing-demand clipping diagnostics to the gross ledger again; source-scope only, no numeric value copied.",
+      "actual_component_or_meter_record": null,
+      "matched_configuration": null,
+      "matched_interval": null,
+      "uncertainty": null,
+      "assigned_owner": null,
+      "adopted_criterion": null
+    },
+    {
+      "declared_identity": "stateAt draw / gen / electrical",
+      "source_locators": [
+        {
+          "path": "sim/state.js",
+          "line": 190,
+          "character_start": 3,
+          "character_end_exclusive": 51,
+          "fragment": "let draw = P.draw, gs = P.gs, anchor = P.anchor;"
+        },
+        {
+          "path": "sim/state.js",
+          "line": 192,
+          "character_start": 5,
+          "character_end_exclusive": 15,
+          "fragment": "draw = {};"
+        },
+        {
+          "path": "sim/state.js",
+          "line": 199,
+          "character_start": 5,
+          "character_end_exclusive": 64,
+          "fragment": "draw, gen: P.gen, electrical: stopped ? null : P.electrical"
+        }
+      ],
+      "qualitative_source_role": "Running state passes through drawAt results; stopped state empties draw and returns null electrical, while gen remains passed through.",
+      "comparison_boundary": "Stand-down/idle early returns and stopped branch must be identified, rather than pairing an inactive state with a whole running-cycle aggregate.",
+      "actual_component_or_meter_record": null,
+      "matched_configuration": null,
+      "matched_interval": null,
+      "uncertainty": null,
+      "assigned_owner": null,
+      "adopted_criterion": null
+    },
+    {
+      "declared_identity": "ledger / dragMW / diskMW / pumpMW",
+      "source_locators": [
+        {
+          "path": "sim/physics.js",
+          "line": 57,
+          "character_start": 1,
+          "character_end_exclusive": 37,
+          "fragment": "export function ledger(cls, altMslM)"
+        },
+        {
+          "path": "sim/physics.js",
+          "line": 14,
+          "character_start": 1,
+          "character_end_exclusive": 33,
+          "fragment": "export function dragMW(cls, mode"
+        },
+        {
+          "path": "sim/physics.js",
+          "line": 20,
+          "character_start": 1,
+          "character_end_exclusive": 36,
+          "fragment": "export function diskMW(cls, thrustN"
+        },
+        {
+          "path": "sim/physics.js",
+          "line": 10,
+          "character_start": 1,
+          "character_end_exclusive": 28,
+          "fragment": "export function pumpMW(cls)"
+        }
+      ],
+      "qualitative_source_role": "Declared physical-helper identities supply source assumptions; current power draw uses ledger/pump and its own induced-force accounting.",
+      "comparison_boundary": "These helpers are not independent acquired measurements or extra energy channels; altitude/configuration/reference conventions must match.",
+      "actual_component_or_meter_record": null,
+      "matched_configuration": null,
+      "matched_interval": null,
+      "uncertainty": null,
+      "assigned_owner": null,
+      "adopted_criterion": null
+    }
+  ],
+  "requirements": [
+    {
+      "id": "history-versus-current-source",
+      "existing_boundary": "Published known-defect two retains a disagreement between historical headline and instruments. Current state source calls shared drawAt defect two's fix and README says the integrals share a calculation.",
+      "prospective_record_requirements": [
+        "Historical and current exact revisions, original sampled records and scope, disposition of the published dispute by a responsible owner"
+      ],
+      "insufficient_or_disconfirming_evidence": "Preserve both statements. No assertion that historical divergence still characterizes this current implementation, and no new reconciliation, winner or physical validation is claimed.",
+      "proposed_custodian_role": "history-versus-current-source provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "assigned_owner": null,
+      "actual_observations": null,
+      "energy_meter_records": null,
+      "matched_configuration": null,
+      "mission_state": null,
+      "observation_interval": null,
+      "reference_convention": null,
+      "component_inventory": null,
+      "inclusion_exclusion_record": null,
+      "source_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "matched_comparison": null,
+      "adopted_reconciliation_criterion": null
+    },
+    {
+      "id": "matched-configuration",
+      "existing_boundary": "Current plan receives class, mode, distance, wind and options; state receives mission class/mode/plan plus runtime status.",
+      "prospective_record_requirements": [
+        "Matched source/configuration identities and applicable options, actual equipment/component and meter inventory, exclusions and missing inputs"
+      ],
+      "insufficient_or_disconfirming_evidence": "An assumed class, shared helper or same term name cannot supply actual matched configuration.",
+      "proposed_custodian_role": "matched-configuration provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "assigned_owner": null,
+      "actual_observations": null,
+      "energy_meter_records": null,
+      "matched_configuration": null,
+      "mission_state": null,
+      "observation_interval": null,
+      "reference_convention": null,
+      "component_inventory": null,
+      "inclusion_exclusion_record": null,
+      "source_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "matched_comparison": null,
+      "adopted_reconciliation_criterion": null
+    },
+    {
+      "id": "mission-state-and-interval",
+      "existing_boundary": "Aggregate follows plan phases and durations; state selects phase/progress from mission time and flags.",
+      "prospective_record_requirements": [
+        "Same source-defined phase/state/interval applicability, active/idle/stand-down/stopped status, interval endpoints and observation provenance"
+      ],
+      "insufficient_or_disconfirming_evidence": "A momentary draw, running-cycle quadrature and stopped instrument state are not interchangeable records. No schedule or integration selected.",
+      "proposed_custodian_role": "mission-state-and-interval provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "assigned_owner": null,
+      "actual_observations": null,
+      "energy_meter_records": null,
+      "matched_configuration": null,
+      "mission_state": null,
+      "observation_interval": null,
+      "reference_convention": null,
+      "component_inventory": null,
+      "inclusion_exclusion_record": null,
+      "source_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "matched_comparison": null,
+      "adopted_reconciliation_criterion": null
+    },
+    {
+      "id": "units-reference-and-sign",
+      "existing_boundary": "Source identities distinguish power channels, phase energy, gross channel energy, recovery credit and battery-power supply subtraction.",
+      "prospective_record_requirements": [
+        "Original units, electrical/system boundary, gross/net and generation/draw sign conventions; conversion provenance already recorded by responsible sources"
+      ],
+      "insufficient_or_disconfirming_evidence": "Never silently compare gross draw to battery-net energy or double-count phase/channel/subset views. No numeric conversion or energy calculation performed.",
+      "proposed_custodian_role": "units-reference-and-sign provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "assigned_owner": null,
+      "actual_observations": null,
+      "energy_meter_records": null,
+      "matched_configuration": null,
+      "mission_state": null,
+      "observation_interval": null,
+      "reference_convention": null,
+      "component_inventory": null,
+      "inclusion_exclusion_record": null,
+      "source_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "matched_comparison": null,
+      "adopted_reconciliation_criterion": null
+    },
+    {
+      "id": "components-and-inclusions-exclusions",
+      "existing_boundary": "Explicit term mappings below describe current source accounting, including cold-ready omissions and distinct solar/recovery treatment.",
+      "prospective_record_requirements": [
+        "Original component/meter identities, applicability of every channel and subset, inclusion/exclusion and loss conventions with unsupplied items visible"
+      ],
+      "insufficient_or_disconfirming_evidence": "No historical five-term identities inferred from a count, no physical completeness inferred from a code census, and no omitted contribution declared negligible.",
+      "proposed_custodian_role": "components-and-inclusions-exclusions provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "assigned_owner": null,
+      "actual_observations": null,
+      "energy_meter_records": null,
+      "matched_configuration": null,
+      "mission_state": null,
+      "observation_interval": null,
+      "reference_convention": null,
+      "component_inventory": null,
+      "inclusion_exclusion_record": null,
+      "source_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "matched_comparison": null,
+      "adopted_reconciliation_criterion": null
+    },
+    {
+      "id": "source-record-and-calibration",
+      "existing_boundary": "No actual meter/observation or matched comparison is provided by these source definitions.",
+      "prospective_record_requirements": [
+        "Unmodified observations and energy/meter source records, acquisition/custody, applicable calibration and systematic/interval uncertainty provenance"
+      ],
+      "insufficient_or_disconfirming_evidence": "A formula, model label, source claim or repository check cannot substitute for observed energy or calibrated comparison.",
+      "proposed_custodian_role": "source-record-and-calibration provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "assigned_owner": null,
+      "actual_observations": null,
+      "energy_meter_records": null,
+      "matched_configuration": null,
+      "mission_state": null,
+      "observation_interval": null,
+      "reference_convention": null,
+      "component_inventory": null,
+      "inclusion_exclusion_record": null,
+      "source_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "matched_comparison": null,
+      "adopted_reconciliation_criterion": null
+    },
+    {
+      "id": "responsible-comparison-adoption",
+      "existing_boundary": "Published disagreement has no adopted reconciliation in this paper.",
+      "prospective_record_requirements": [
+        "Responsible custodian roles, criterion source/version/applicability and adopted comparison disposition only when supplied"
+      ],
+      "insufficient_or_disconfirming_evidence": "Owners remain UNASSIGNED and actual criteria UNKNOWN; no model winner, repaired headline, feasibility, safety or benefit follows.",
+      "proposed_custodian_role": "responsible-comparison-adoption provenance custodian",
+      "owner_status": "UNASSIGNED",
+      "assigned_owner": null,
+      "actual_observations": null,
+      "energy_meter_records": null,
+      "matched_configuration": null,
+      "mission_state": null,
+      "observation_interval": null,
+      "reference_convention": null,
+      "component_inventory": null,
+      "inclusion_exclusion_record": null,
+      "source_record": null,
+      "calibration": null,
+      "uncertainty": null,
+      "matched_comparison": null,
+      "adopted_reconciliation_criterion": null
+    }
+  ],
+  "selected_model_winner": null,
+  "actual_matched_comparisons": null,
+  "adopted_reconciliation_criterion": null,
+  "new_numeric_results": [],
+  "new_measurements": [],
+  "models_executed_or_integrated": false
+}

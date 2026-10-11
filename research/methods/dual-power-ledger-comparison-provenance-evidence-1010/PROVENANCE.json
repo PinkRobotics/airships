@@ -1,0 +1,47 @@
+{
+  "schema": "dual-power.comparison-provenance/1",
+  "source_revision": "94db332d3dc437708d3ed0dfeb6b619c70d9da25",
+  "sources": [
+    {
+      "path": "docs/OPEN-QUESTIONS.md",
+      "bytes": 113704,
+      "sha256": "6b2d9b00563f6a051a2d405c2dadc3bce2a3e4359653f1a97a7cd86ddeab7736"
+    },
+    {
+      "path": "README.md",
+      "bytes": 16911,
+      "sha256": "746f77b23a5d4e63324d2a258ba708e3819715898d4592dd2be23be4b806e15b"
+    },
+    {
+      "path": "sim/plan.js",
+      "bytes": 17722,
+      "sha256": "546dbce77d524a7f6d8f5202d1b3ff8dae135997490aad0e7e8bc09f10b7da4d"
+    },
+    {
+      "path": "sim/physics.js",
+      "bytes": 3553,
+      "sha256": "b03760ee25367aa2780aae63bb351552ad8c77ab2dc54fcc2c6bf164a7136931"
+    },
+    {
+      "path": "sim/power.js",
+      "bytes": 29270,
+      "sha256": "a149fe9466bdab4f14373a2deb54f8cc9867f92a7963ecc62498298b61c40a4d"
+    },
+    {
+      "path": "sim/state.js",
+      "bytes": 13102,
+      "sha256": "943d42b3d422822bcd69309243617fd95d1a06ca63517ca40ba146079fec7c99"
+    }
+  ],
+  "supplemental_sources": [
+    {
+      "path": "sim/power.js",
+      "reason": "Current plan import owns draw channels and aggregate integration; read-only dependency needed for exact declared-term mapping."
+    },
+    {
+      "path": "sim/state.js",
+      "reason": "Current stateAt definition is here, not in physics.js; read-only pass-through and status boundaries."
+    }
+  ],
+  "method": "Static source reading and exact identifier/prose fragment locators only. No historical numerical ratio/energy/constant/schedule/output copied; no model execution, fixture execution, quadrature or computation."
+}
