@@ -1,0 +1,669 @@
+{
+  "schema": "assembly-prover-parameter-input.provenance-crosswalk/1",
+  "status": "DOCUMENT_ONLY; actual prover input/run and printed-part custody UNKNOWN",
+  "source_revision": "682c4b375f7d67484891df7a551d0da03cedcf11",
+  "source_fragments": [
+    {
+      "path": "tools/check_assembly.py",
+      "line": 93,
+      "character_start": 1,
+      "character_end_exclusive": 39,
+      "fragment": "MANIFEST = NODES_DIR / \"manifest.json\"",
+      "fragment_sha256": "9f4566a069a10eeb5d7e3fd7649576b1d38e632418028bbd915934e31b150f7b"
+    },
+    {
+      "path": "tools/check_assembly.py",
+      "line": 1986,
+      "character_start": 1,
+      "character_end_exclusive": 20,
+      "fragment": "def main() -> None:",
+      "fragment_sha256": "3759fd2adcb099cb3cc1f2021360fcf3b697aa85dc8c087696c52e44de3862d8"
+    },
+    {
+      "path": "tools/check_assembly.py",
+      "line": 2042,
+      "character_start": 5,
+      "character_end_exclusive": 79,
+      "fragment": "manifest = json.loads(MANIFEST.read_text()) if MANIFEST.exists() else None",
+      "fragment_sha256": "5809a144d59f1ee493db6fa08989fbf7990aa77287fb08d25f56cdff14f1d759"
+    },
+    {
+      "path": "tools/check_assembly.py",
+      "line": 2043,
+      "character_start": 5,
+      "character_end_exclusive": 47,
+      "fragment": "prm, params_source = load_params(manifest)",
+      "fragment_sha256": "e946f6eb0d20813d1b94f6d80093cc6a2bb87c02fa4f1b962c7825637f5dfe83"
+    },
+    {
+      "path": "tools/check_assembly.py",
+      "line": 361,
+      "character_start": 1,
+      "character_end_exclusive": 27,
+      "fragment": "def load_params(manifest):",
+      "fragment_sha256": "e9fba648c1a3d51aad27a619bce8a0b0cb9f2fcf2bafcc7d15f2b13c4f98ca75"
+    },
+    {
+      "path": "tools/check_assembly.py",
+      "line": 353,
+      "character_start": 1,
+      "character_end_exclusive": 21,
+      "fragment": "GEN_NODES_DEFAULTS =",
+      "fragment_sha256": "7fd8940585de129aa5e5f1737806fbb436232fc1fed984562a15e57e42941dd0"
+    },
+    {
+      "path": "tools/check_assembly.py",
+      "line": 358,
+      "character_start": 1,
+      "character_end_exclusive": 15,
+      "fragment": "EXTRA_PARAMS =",
+      "fragment_sha256": "bc21ca12c75c09dd4ef8b3aeebe677d86c9a03c68dd9f4781682c7fdf1cfbda5"
+    },
+    {
+      "path": "tools/check_assembly.py",
+      "line": 368,
+      "character_start": 5,
+      "character_end_exclusive": 64,
+      "fragment": "if manifest and isinstance(manifest.get(\"paramsMm\"), dict):",
+      "fragment_sha256": "f875b3b96a410383ca675f9c9c4fd493d56159fe6ce44314269362fb9b382bf9"
+    },
+    {
+      "path": "tools/check_assembly.py",
+      "line": 373,
+      "character_start": 9,
+      "character_end_exclusive": 39,
+      "fragment": "prm = dict(GEN_NODES_DEFAULTS)",
+      "fragment_sha256": "18d706030701cfd1b152c91cd6c7328227bc87e2481a3d697e6b1848afd67803"
+    },
+    {
+      "path": "tools/check_assembly.py",
+      "line": 374,
+      "character_start": 9,
+      "character_end_exclusive": 41,
+      "fragment": "prm.update(manifest[\"paramsMm\"])",
+      "fragment_sha256": "f07b07ff8ce37438732595c949434aa0bd47cf18ace5e16dc8fcc38778ef94e0"
+    },
+    {
+      "path": "tools/check_assembly.py",
+      "line": 375,
+      "character_start": 9,
+      "character_end_exclusive": 33,
+      "fragment": "prm.update(EXTRA_PARAMS)",
+      "fragment_sha256": "ce5de4f694b524ef22a5571bbaa43037c755f1ff3b90e555205dabb188b7ec2c"
+    },
+    {
+      "path": "tools/check_assembly.py",
+      "line": 376,
+      "character_start": 9,
+      "character_end_exclusive": 40,
+      "fragment": "return prm, \"manifest.paramsMm\"",
+      "fragment_sha256": "a5b7d2d7fd8264e0c28963dfd05f6344778bb1a2654bdb239e7f71ff1e9101de"
+    },
+    {
+      "path": "tools/check_assembly.py",
+      "line": 377,
+      "character_start": 5,
+      "character_end_exclusive": 35,
+      "fragment": "prm = dict(GEN_NODES_DEFAULTS)",
+      "fragment_sha256": "18d706030701cfd1b152c91cd6c7328227bc87e2481a3d697e6b1848afd67803"
+    },
+    {
+      "path": "tools/check_assembly.py",
+      "line": 378,
+      "character_start": 5,
+      "character_end_exclusive": 29,
+      "fragment": "prm.update(EXTRA_PARAMS)",
+      "fragment_sha256": "ce5de4f694b524ef22a5571bbaa43037c755f1ff3b90e555205dabb188b7ec2c"
+    },
+    {
+      "path": "tools/check_assembly.py",
+      "line": 379,
+      "character_start": 5,
+      "character_end_exclusive": 37,
+      "fragment": "return prm, \"gen_nodes defaults\"",
+      "fragment_sha256": "be37f9df44578d24cbc5aadd295c6b0428891eefb00fea8c37f13bd4e8780a7d"
+    },
+    {
+      "path": "tools/check_assembly.py",
+      "line": 364,
+      "character_start": 49,
+      "character_end_exclusive": 86,
+      "fragment": "the prover measures WHAT WAS PRINTED.",
+      "fragment_sha256": "323eea447a9e9341760db3288237baaf53e023a180d678a9605a834b769c358b"
+    },
+    {
+      "path": "tools/check_assembly.py",
+      "line": 349,
+      "character_start": 3,
+      "character_end_exclusive": 32,
+      "fragment": "THE RIM SKU BELONGS HERE TOO.",
+      "fragment_sha256": "63acd75c061ae76561d557881f37c0c0528a3863e2453a6aa4f78acaa873eac2"
+    },
+    {
+      "path": "tools/check_assembly.py",
+      "line": 351,
+      "character_start": 3,
+      "character_end_exclusive": 64,
+      "fragment": "KeyError on the first rim arm rather than measuring anything.",
+      "fragment_sha256": "b8bb29dc973a130499984fedc2cbab51148a41e27fe32cd6e1c8341a5ac9f55e"
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "line": 1140,
+      "character_start": 17,
+      "character_end_exclusive": 28,
+      "fragment": "\"paramsMm\":",
+      "fragment_sha256": "505703a9585ebd473f9dd844ba6edf91fb6de3f32df4df9803d1cd855ebab084"
+    },
+    {
+      "path": "README.md",
+      "line": 3,
+      "character_start": 186,
+      "character_end_exclusive": 222,
+      "fragment": "No aircraft has been built or flown.",
+      "fragment_sha256": "bd88446d4305c34307c2acb2bc020e0441e17382f095d6be3beee1076eabdbb9"
+    }
+  ],
+  "hashed_lexical_contexts": [
+    {
+      "path": "tools/check_assembly.py",
+      "identity": "load_params namespace and source labels",
+      "line_start": 361,
+      "line_end_inclusive": 379,
+      "context_sha256": "de4a835dc0cc72870713ce554efff6c3537d79f81d88f37a7bec65c797e352bf",
+      "context_bytes": 1045,
+      "limit": "Hash only; defaults/parameters/geometry/numeric contents not reproduced or evaluated."
+    },
+    {
+      "path": "tools/check_assembly.py",
+      "identity": "default and historical fallback context",
+      "line_start": 346,
+      "line_end_inclusive": 358,
+      "context_sha256": "eee634e450a174cfa369e409cb2b07325b07a10420a65bc9cbaab50d2df76d18",
+      "context_bytes": 1083,
+      "limit": "Hash only; defaults/parameters/geometry/numeric contents not reproduced or evaluated."
+    },
+    {
+      "path": "tools/check_assembly.py",
+      "identity": "selected main read/call",
+      "line_start": 2042,
+      "line_end_inclusive": 2043,
+      "context_sha256": "ba9e0c2076d152b61f30099f931f72115c26fe7d045b8253b114eed1c24aefb8",
+      "context_bytes": 125,
+      "limit": "Hash only; defaults/parameters/geometry/numeric contents not reproduced or evaluated."
+    },
+    {
+      "path": "tools/gen_nodes.py",
+      "identity": "generator header field identity",
+      "line_start": 1140,
+      "line_end_inclusive": 1146,
+      "context_sha256": "3c1b31ba8b26603ba78e9140ba037b03a157c2d8940478294488f224913b4e70",
+      "context_bytes": 496,
+      "limit": "Hash only; defaults/parameters/geometry/numeric contents not reproduced or evaluated."
+    }
+  ],
+  "source_identity_mappings": [
+    {
+      "source_identity": "selected main manifest-to-loader lineage",
+      "source_role": "main has the selected MANIFEST/read_text/json.loads input and binds prm/params_source from load_params(manifest).",
+      "source_locators": [
+        {
+          "path": "tools/check_assembly.py",
+          "line": 93,
+          "character_start": 1,
+          "character_end_exclusive": 39,
+          "fragment": "MANIFEST = NODES_DIR / \"manifest.json\"",
+          "fragment_sha256": "9f4566a069a10eeb5d7e3fd7649576b1d38e632418028bbd915934e31b150f7b"
+        },
+        {
+          "path": "tools/check_assembly.py",
+          "line": 1986,
+          "character_start": 1,
+          "character_end_exclusive": 20,
+          "fragment": "def main() -> None:",
+          "fragment_sha256": "3759fd2adcb099cb3cc1f2021360fcf3b697aa85dc8c087696c52e44de3862d8"
+        },
+        {
+          "path": "tools/check_assembly.py",
+          "line": 2042,
+          "character_start": 5,
+          "character_end_exclusive": 79,
+          "fragment": "manifest = json.loads(MANIFEST.read_text()) if MANIFEST.exists() else None",
+          "fragment_sha256": "5809a144d59f1ee493db6fa08989fbf7990aa77287fb08d25f56cdff14f1d759"
+        },
+        {
+          "path": "tools/check_assembly.py",
+          "line": 2043,
+          "character_start": 5,
+          "character_end_exclusive": 47,
+          "fragment": "prm, params_source = load_params(manifest)",
+          "fragment_sha256": "e946f6eb0d20813d1b94f6d80093cc6a2bb87c02fa4f1b962c7825637f5dfe83"
+        }
+      ],
+      "limit": "Source read/caller lineage only, not an acquired manifest, actual invocation/configuration, run source label, file correspondence or physical article.",
+      "actual_invocation_manifest_config_source_label_record": null,
+      "actual_printed_article_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "default and extras namespaces",
+      "source_role": "load_params uses the GEN_NODES_DEFAULTS and EXTRA_PARAMS source namespaces.",
+      "source_locators": [
+        {
+          "path": "tools/check_assembly.py",
+          "line": 361,
+          "character_start": 1,
+          "character_end_exclusive": 27,
+          "fragment": "def load_params(manifest):",
+          "fragment_sha256": "e9fba648c1a3d51aad27a619bce8a0b0cb9f2fcf2bafcc7d15f2b13c4f98ca75"
+        },
+        {
+          "path": "tools/check_assembly.py",
+          "line": 353,
+          "character_start": 1,
+          "character_end_exclusive": 21,
+          "fragment": "GEN_NODES_DEFAULTS =",
+          "fragment_sha256": "7fd8940585de129aa5e5f1737806fbb436232fc1fed984562a15e57e42941dd0"
+        },
+        {
+          "path": "tools/check_assembly.py",
+          "line": 358,
+          "character_start": 1,
+          "character_end_exclusive": 15,
+          "fragment": "EXTRA_PARAMS =",
+          "fragment_sha256": "bc21ca12c75c09dd4ef8b3aeebe677d86c9a03c68dd9f4781682c7fdf1cfbda5"
+        }
+      ],
+      "limit": "Own source dictionaries only; no numeric defaults/keys inventory copied, selected input/default design, geometry/formula reconstruction or validation.",
+      "actual_invocation_manifest_config_source_label_record": null,
+      "actual_printed_article_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "manifest branch exact merge precedence",
+      "source_role": "When manifest is truthy and its paramsMm is a dict, source seeds defaults, updates with manifest.paramsMm, then updates with EXTRA_PARAMS.",
+      "source_locators": [
+        {
+          "path": "tools/check_assembly.py",
+          "line": 368,
+          "character_start": 5,
+          "character_end_exclusive": 64,
+          "fragment": "if manifest and isinstance(manifest.get(\"paramsMm\"), dict):",
+          "fragment_sha256": "f875b3b96a410383ca675f9c9c4fd493d56159fe6ce44314269362fb9b382bf9"
+        },
+        {
+          "path": "tools/check_assembly.py",
+          "line": 373,
+          "character_start": 9,
+          "character_end_exclusive": 39,
+          "fragment": "prm = dict(GEN_NODES_DEFAULTS)",
+          "fragment_sha256": "18d706030701cfd1b152c91cd6c7328227bc87e2481a3d697e6b1848afd67803"
+        },
+        {
+          "path": "tools/check_assembly.py",
+          "line": 374,
+          "character_start": 9,
+          "character_end_exclusive": 41,
+          "fragment": "prm.update(manifest[\"paramsMm\"])",
+          "fragment_sha256": "f07b07ff8ce37438732595c949434aa0bd47cf18ace5e16dc8fcc38778ef94e0"
+        },
+        {
+          "path": "tools/check_assembly.py",
+          "line": 375,
+          "character_start": 9,
+          "character_end_exclusive": 33,
+          "fragment": "prm.update(EXTRA_PARAMS)",
+          "fragment_sha256": "ce5de4f694b524ef22a5571bbaa43037c755f1ff3b90e555205dabb188b7ec2c"
+        },
+        {
+          "path": "tools/check_assembly.py",
+          "line": 376,
+          "character_start": 9,
+          "character_end_exclusive": 40,
+          "fragment": "return prm, \"manifest.paramsMm\"",
+          "fragment_sha256": "a5b7d2d7fd8264e0c28963dfd05f6344778bb1a2654bdb239e7f71ff1e9101de"
+        }
+      ],
+      "limit": "Order is defaults then manifest then extras; extras take precedence on overlap. Returned manifest.paramsMm is a branch label, not a universal claim every returned key comes from manifest or a physical print record.",
+      "actual_invocation_manifest_config_source_label_record": null,
+      "actual_printed_article_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "fallback branch and label",
+      "source_role": "Otherwise source seeds GEN_NODES_DEFAULTS, updates EXTRA_PARAMS and returns the gen_nodes defaults label.",
+      "source_locators": [
+        {
+          "path": "tools/check_assembly.py",
+          "line": 377,
+          "character_start": 5,
+          "character_end_exclusive": 35,
+          "fragment": "prm = dict(GEN_NODES_DEFAULTS)",
+          "fragment_sha256": "18d706030701cfd1b152c91cd6c7328227bc87e2481a3d697e6b1848afd67803"
+        },
+        {
+          "path": "tools/check_assembly.py",
+          "line": 378,
+          "character_start": 5,
+          "character_end_exclusive": 29,
+          "fragment": "prm.update(EXTRA_PARAMS)",
+          "fragment_sha256": "ce5de4f694b524ef22a5571bbaa43037c755f1ff3b90e555205dabb188b7ec2c"
+        },
+        {
+          "path": "tools/check_assembly.py",
+          "line": 379,
+          "character_start": 5,
+          "character_end_exclusive": 37,
+          "fragment": "return prm, \"gen_nodes defaults\"",
+          "fragment_sha256": "be37f9df44578d24cbc5aadd295c6b0428891eefb00fea8c37f13bd4e8780a7d"
+        }
+      ],
+      "limit": "Fallback source lineage only; extras remain part of this branch, label is not pure default-only provenance, historical correctness or actual default/run applicability.",
+      "actual_invocation_manifest_config_source_label_record": null,
+      "actual_printed_article_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "printed and historical fallback attribution",
+      "source_role": "Docstring WHAT WAS PRINTED and historical rim-fallback correction wording are attributed source context.",
+      "source_locators": [
+        {
+          "path": "tools/check_assembly.py",
+          "line": 364,
+          "character_start": 49,
+          "character_end_exclusive": 86,
+          "fragment": "the prover measures WHAT WAS PRINTED.",
+          "fragment_sha256": "323eea447a9e9341760db3288237baaf53e023a180d678a9605a834b769c358b"
+        },
+        {
+          "path": "tools/check_assembly.py",
+          "line": 349,
+          "character_start": 3,
+          "character_end_exclusive": 32,
+          "fragment": "THE RIM SKU BELONGS HERE TOO.",
+          "fragment_sha256": "63acd75c061ae76561d557881f37c0c0528a3863e2453a6aa4f78acaa873eac2"
+        },
+        {
+          "path": "tools/check_assembly.py",
+          "line": 351,
+          "character_start": 3,
+          "character_end_exclusive": 64,
+          "fragment": "KeyError on the first rim arm rather than measuring anything.",
+          "fragment_sha256": "b8bb29dc973a130499984fedc2cbab51148a41e27fe32cd6e1c8341a5ac9f55e"
+        }
+      ],
+      "limit": "Computational wording/history only, not identified printed parts, fresh bug remeasurement, current check/proof correctness, metrology or successful physical assembly.",
+      "actual_invocation_manifest_config_source_label_record": null,
+      "actual_printed_article_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    },
+    {
+      "source_identity": "separate generator header context",
+      "source_role": "The generator source has a separately pinned paramsMm namespace; the prover source consumes a same-named manifest field.",
+      "source_locators": [
+        {
+          "path": "tools/gen_nodes.py",
+          "line": 1140,
+          "character_start": 17,
+          "character_end_exclusive": 28,
+          "fragment": "\"paramsMm\":",
+          "fragment_sha256": "505703a9585ebd473f9dd844ba6edf91fb6de3f32df4df9803d1cd855ebab084"
+        },
+        {
+          "path": "README.md",
+          "line": 3,
+          "character_start": 186,
+          "character_end_exclusive": 222,
+          "fragment": "No aircraft has been built or flown.",
+          "fragment_sha256": "bd88446d4305c34307c2acb2bc020e0441e17382f095d6be3beee1076eabdbb9"
+        }
+      ],
+      "limit": "Namespace correspondence only; no generated-file lookup, input/output match, repeated full schema/build-path contract or imported model/physical result.",
+      "actual_invocation_manifest_config_source_label_record": null,
+      "actual_printed_article_or_metrology_record": null,
+      "applicability": "UNKNOWN",
+      "adoption_record": null
+    }
+  ],
+  "requirements": [
+    {
+      "id": "run-source-version-and-argument-custody",
+      "prospective_record_requirements": [
+        "Original actual invocation/source-version and responsible argument/input custody."
+      ],
+      "insufficient_or_disconfirming_evidence": "Selected source call is not an actual prover run or selected physical configuration.",
+      "proposed_custodian_role": "run-source-version-and-argument-custody record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "manifest_digest": null,
+      "input_configuration": null,
+      "source_label_record": null,
+      "input_output_correspondence": null,
+      "raw_custody": null,
+      "printed_part": null,
+      "serial": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "drawing": null,
+      "installation": null,
+      "metrology": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "manifest-digest-and-input-configuration",
+      "prospective_record_requirements": [
+        "Original manifest digest/input configuration and correspondence tied to that run."
+      ],
+      "insufficient_or_disconfirming_evidence": "Source namespaces/hashes cannot supply an acquired manifest or exact argument-to-output correspondence.",
+      "proposed_custodian_role": "manifest-digest-and-input-configuration record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "manifest_digest": null,
+      "input_configuration": null,
+      "source_label_record": null,
+      "input_output_correspondence": null,
+      "raw_custody": null,
+      "printed_part": null,
+      "serial": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "drawing": null,
+      "installation": null,
+      "metrology": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "source-label-and-raw-custody",
+      "prospective_record_requirements": [
+        "Original actual source-label/run record and preserved raw custody."
+      ],
+      "insufficient_or_disconfirming_evidence": "Branch label alone does not identify the origin of every merged key or certify printed geometry.",
+      "proposed_custodian_role": "source-label-and-raw-custody record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "manifest_digest": null,
+      "input_configuration": null,
+      "source_label_record": null,
+      "input_output_correspondence": null,
+      "raw_custody": null,
+      "printed_part": null,
+      "serial": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "drawing": null,
+      "installation": null,
+      "metrology": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "printed-part-serial-material-process-installation",
+      "prospective_record_requirements": [
+        "Matched actual printed part/serial/material/lot/process/drawing/installation records."
+      ],
+      "insufficient_or_disconfirming_evidence": "WHAT WAS PRINTED source wording is not fabricated article identity, inspection or assembly acceptance.",
+      "proposed_custodian_role": "printed-part-serial-material-process-installation record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "manifest_digest": null,
+      "input_configuration": null,
+      "source_label_record": null,
+      "input_output_correspondence": null,
+      "raw_custody": null,
+      "printed_part": null,
+      "serial": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "drawing": null,
+      "installation": null,
+      "metrology": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "metrology-calibration-uncertainty-and-applicability",
+      "prospective_record_requirements": [
+        "Original metrology/calibration/uncertainty and source-to-article applicability."
+      ],
+      "insufficient_or_disconfirming_evidence": "No physical measurement, current correctness/proof result, numerical comparison or campaign supplied.",
+      "proposed_custodian_role": "metrology-calibration-uncertainty-and-applicability record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "manifest_digest": null,
+      "input_configuration": null,
+      "source_label_record": null,
+      "input_output_correspondence": null,
+      "raw_custody": null,
+      "printed_part": null,
+      "serial": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "drawing": null,
+      "installation": null,
+      "metrology": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    },
+    {
+      "id": "owner-criterion-and-adoption",
+      "prospective_record_requirements": [
+        "Actual responsible owner and adopted source/version/domain/criterion record when supplied."
+      ],
+      "insufficient_or_disconfirming_evidence": "Custodians UNASSIGNED; no input/default design, freeze/proof/contract, acceptance/operating/test/campaign guidance selected.",
+      "proposed_custodian_role": "owner-criterion-and-adoption record custodian",
+      "owner_status": "UNASSIGNED",
+      "qualification": "UNKNOWN",
+      "actual_invocation": null,
+      "source_version_record": null,
+      "manifest_digest": null,
+      "input_configuration": null,
+      "source_label_record": null,
+      "input_output_correspondence": null,
+      "raw_custody": null,
+      "printed_part": null,
+      "serial": null,
+      "material": null,
+      "lot": null,
+      "process": null,
+      "drawing": null,
+      "installation": null,
+      "metrology": null,
+      "calibration": null,
+      "uncertainty": null,
+      "applicability_record": null,
+      "assigned_owner": null,
+      "adopted_criterion": null,
+      "adoption_record": null
+    }
+  ],
+  "separate_maps": [
+    {
+      "unit": "robotics-generator-manifest-parameter-custody-provenance-evidence-thread-1010",
+      "candidate": "5ade02cc5eb257f98aeeb2b96681faf47ea93a3c",
+      "output_dir": "research/methods/generator-manifest-parameter-custody-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical outcome, physical applicability, signature, landing or scientific acceptance imported."
+    },
+    {
+      "unit": "robotics-generated-node-file-identity-provenance-evidence-thread-1010",
+      "candidate": "d626b1e9420cbc14463320b0724c3d01ad582de2",
+      "output_dir": "research/methods/generated-node-file-identity-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical outcome, physical applicability, signature, landing or scientific acceptance imported."
+    },
+    {
+      "unit": "robotics-member-kind-socket-dimension-provenance-evidence-thread-1010",
+      "candidate": "e19c8d02f4c093ab500c58c480e57fb9e73bc550",
+      "output_dir": "research/methods/member-kind-socket-dimension-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical outcome, physical applicability, signature, landing or scientific acceptance imported."
+    },
+    {
+      "unit": "robotics-assembly-coordinate-frame-provenance-evidence-thread-1010",
+      "candidate": "be6e3beaf736cf6ba13784856a31262611f92759",
+      "output_dir": "research/methods/assembly-coordinate-frame-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical outcome, physical applicability, signature, landing or scientific acceptance imported."
+    },
+    {
+      "unit": "robotics-whole-hull-fitting-manifest-provenance-evidence-thread-1010",
+      "candidate": "7f8a3b9b5b912d2759a841feb6ae7c32667c92d1",
+      "output_dir": "research/methods/whole-hull-fitting-manifest-provenance-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical outcome, physical applicability, signature, landing or scientific acceptance imported."
+    },
+    {
+      "unit": "robotics-q13-water-drafting-availability-evidence-1010",
+      "candidate": "82f0c88e73600632db9ea9ebd5e32a61659931c2",
+      "output_dir": "research/open-questions/q13-drafting-availability-evidence-1010",
+      "status": "SCOPED_PAPER_SEVEN_PASS_ONE_REVIEW_COLLECTED_EXACT_XO_PENDING",
+      "relation": "Separate recorded provenance map; no numerical outcome, physical applicability, signature, landing or scientific acceptance imported."
+    }
+  ],
+  "selected_inputs_default_design_acceptance_operating_test_campaign_guidance": null,
+  "new_numeric_results": [],
+  "new_measurements": [],
+  "models_equations_or_generators_executed": false
+}
