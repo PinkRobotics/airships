@@ -53,6 +53,7 @@ class Context:
         self.root, self.files = root, files
         self.float_blocks = None
         self.emissions = {}
+        self.emission_errors = {}
         self.region_issues = {}
         self.contexts = None
         self.sections = {}
@@ -210,26 +211,32 @@ class Context:
             return None
         # Recompute only the producer, never its browser-based gate. These producers
         # emit files or have pure rendering APIs; the full gates retain deeper checks.
+        if generator in self.emission_errors:
+            raise ValueError(self.emission_errors[generator])
         if generator not in self.emissions:
-            if generator == 'tools/gen_float_pages.py':
-                import gen_float_pages as gen
-                old = gen.ROOT
-                try:
-                    gen.ROOT = self.root
-                    self.emissions[generator] = {page: result.html for page, result in gen.render(self.root).items()}
-                finally:
-                    gen.ROOT = old
-            elif generator == 'tools/noticegen.py':
-                import noticecheck, noticegen
-                recs, errors = noticecheck.records(self.root)
-                if errors:
-                    raise ValueError('notice provenance records failed: ' + '; '.join(errors))
-                self.emissions[generator] = noticegen.outputs(recs)
-            else:
-                p = subprocess.run(['python3' if generator.endswith('.py') else 'node', generator, '--emit'], cwd=self.root, capture_output=True, text=True, timeout=120)
-                if p.returncode:
-                    raise ValueError('region producer failed: ' + generator)
-                self.emissions[generator] = json.loads(p.stdout)
+            try:
+                if generator == 'tools/gen_float_pages.py':
+                    import gen_float_pages as gen
+                    old = gen.ROOT
+                    try:
+                        gen.ROOT = self.root
+                        self.emissions[generator] = {page: result.html for page, result in gen.render(self.root).items()}
+                    finally:
+                        gen.ROOT = old
+                elif generator == 'tools/noticegen.py':
+                    import noticecheck, noticegen
+                    recs, errors = noticecheck.records(self.root)
+                    if errors:
+                        raise ValueError('notice provenance records failed: ' + '; '.join(errors))
+                    self.emissions[generator] = noticegen.outputs(recs)
+                else:
+                    p = subprocess.run(['python3' if generator.endswith('.py') else 'node', generator, '--emit'], cwd=self.root, capture_output=True, text=True, timeout=120)
+                    if p.returncode:
+                        raise ValueError('region producer failed: ' + generator)
+                    self.emissions[generator] = json.loads(p.stdout)
+            except (OSError, ValueError, subprocess.TimeoutExpired) as exc:
+                self.emission_errors[generator] = str(exc)
+                raise
         expected_text = self.emissions[generator][occ['file']]
         actual = self.body(occ['file'])
         if owner['region'] != 'whole-file':

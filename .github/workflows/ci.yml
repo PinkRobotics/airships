@@ -20,6 +20,7 @@ jobs:
     env:
       A3D_TEST_TIMEOUT: '1800'
       FLOAT_PLANT_TIMEOUT: '1800'
+      FLOAT_PLANT_WORKERS: '2'
     steps:
       - uses: actions/checkout@v5
         with:
@@ -72,6 +73,7 @@ jobs:
         shard: [1, 2, 3, 4]
     env:
       FLOAT_PLANT_TIMEOUT: '1800'
+      FLOAT_PLANT_WORKERS: '2'
     steps:
       - uses: actions/checkout@v5
         with:

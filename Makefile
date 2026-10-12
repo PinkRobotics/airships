@@ -387,6 +387,7 @@ censuscheck:  ## Known drawing/bill disagreements must match fresh measurement
 
 .PHONY: ledgercheck-selftest floatplants floatplantshard floatplantcheck
 ledgercheck-selftest:  ## Exercise float-record rules and mutation refusals on fixture trees
+	$(PY) -m unittest discover -v -s tools/tests -p 'test_generated_producer_failures.py'
 	$(PY) -m unittest discover -v -s tools/tests -p 'test_float_motion.py'
 	$(PY) -m unittest discover -v -s tools/tests -p 'test_float_claims.py'
 	$(PY) -m unittest discover -v -s tools/tests -p 'test_float_runner.py'

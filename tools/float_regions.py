@@ -25,6 +25,7 @@ class Regions:
         self.tracked = tracked(root)
         self.cache = {}
         self.emissions = {}
+        self.emission_errors = {}
 
     def check(self, entry, hit):
         key = json.dumps({k:entry.get(k) for k in ('file','generator','gate','region','verifier')},sort_keys=True)
@@ -62,11 +63,19 @@ class Regions:
             return errors+[str(exc)], None
         command = ['node' if gen.endswith(('.mjs','.js')) else 'python3',gen,'--emit']
         try:
+            if gen in self.emission_errors:
+                raise ValueError(self.emission_errors[gen])
             if gen not in self.emissions:
-                p = subprocess.run(command,cwd=self.root,capture_output=True,text=True,timeout=120)
-                if p.returncode:
-                    raise ValueError('fresh region regeneration failed')
-                self.emissions[gen] = json.loads(p.stdout)
+                try:
+                    p = subprocess.run(command,cwd=self.root,capture_output=True,text=True,timeout=120)
+                    if p.returncode:
+                        raise ValueError('fresh region regeneration failed')
+                    self.emissions[gen] = json.loads(p.stdout)
+                except (OSError, ValueError, subprocess.TimeoutExpired) as exc:
+                    # Cache the ERROR, never an empty successful emission. Other
+                    # regions still fail, but this verifier will not retry it.
+                    self.emission_errors[gen] = str(exc)
+                    raise
             outputs = self.emissions[gen]
             fresh, _, _ = region(outputs[entry['file']],start,end)
             if fresh != actual:

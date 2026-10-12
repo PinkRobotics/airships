@@ -258,7 +258,9 @@ FAST_CASES = (
 
 def workers():
     value = os.environ.get('FLOAT_PLANT_WORKERS')
-    count = int(value) if value is not None else (os.cpu_count() or 1)
+    # Producers compete for CPU inside each plant; keep the default bounded even
+    # when the host advertises more cores than the runner can sustain.
+    count = int(value) if value is not None else min(os.cpu_count() or 1, 2)
     if count < 1:
         raise ValueError('FLOAT_PLANT_WORKERS must be a positive integer')
     return min(count, 8)
