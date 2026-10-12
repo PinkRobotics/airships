@@ -12,7 +12,7 @@ import test_float_hardening as plants
 class RunnerPolicy(unittest.TestCase):
     def test_worker_limit_and_default(self):
         with patch.dict(os.environ, {}, clear=True), patch.object(os, 'cpu_count', return_value=64):
-            self.assertEqual(plants.workers(), 8)
+            self.assertEqual(plants.workers(), 2)
         for requested, expected in [('1', 1), ('2', 2), ('8', 8), ('99', 8)]:
             with patch.dict(os.environ, FLOAT_PLANT_WORKERS=requested):
                 self.assertEqual(plants.workers(), expected)
