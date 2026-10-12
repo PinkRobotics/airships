@@ -614,3 +614,23 @@
 | Order | sha256 `f72f68741dfaa431…` (informational) |
 | Foreign route | order-named preserve_paths `research/claims/register.json, research/claims/carry-history.json, research/claims/rule-changes.json, research/claims/accepted-defects.json` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
 
+## Landing 46 — CI producer-timeout fix
+
+| field | value |
+|---|---|
+| Landed | 2026-10-11 22:41:13 PDT by the lander using `ship/tools/land.py`, a pure **FAST-FORWARD**: main `f10a7d519811f9b67cc381fa349d51f123d7fee2` → `444e6f6bba349e7d135aa56629cdd9b75e59a84a`; pushed main-only, non-force, origin verified equal. The signed sha IS main; the landed tree equals the signed tree by identity. |
+| The object | SIGNED `444e6f6bba349e7d135aa56629cdd9b75e59a84a`, tree `7a9c46f1ec66ccc33d2ef23ffe6cc5ffb95aadc6`, from branch `worker/ci-producer-timeout-fix-1011`, parent `83ebdbc3625025079a63170575e971e06bf139a2`, governance `gov-fe08da2f0ef3` preserved. Unit `robotics-ci-producer-timeout-fix-1011`. |
+| Rebase | law I.3c.5, mechanised: the signed object `4f903503059acca0a0bb67741a57f2d93e06ed44` was rebased off `1a4ec99e8a8338245419a8ab9821e9dfa193f531` onto the moved main `f10a7d519811f9b67cc381fa349d51f123d7fee2`, landing as `444e6f6bba349e7d135aa56629cdd9b75e59a84a`. `git range-diff` showed every pair `=`; each new commit was re-governed mechanically with that pair as its reason. The gate below honours the OLD sha's EXISTING record — no fresh signature was asked or given. Range-diff:
+
+```
+1:  6e24577e = 1:  83ebdbc3 Cache failed generated producers and bound claim plant concurrency
+2:  4f903503 = 2:  444e6f6b Update plant runner test for two-worker default
+``` |
+| Pre-checks under the lock | primary on main; HEAD == main == the named base; origin/main == the named base; merge-base(main, candidate) == main and candidate != main; tree == the named tree; Helm-Audit-ID on every commit in base..candidate; tracked tree clean; object imported exact from the source. |
+| Gate | `tools/land_gate.py 4f9035030…` → rc=0, HONOURED-XO 4f903503059acca0a0bb67741a57f2d93e06ed44 — the last record for this sha (store line 1751) is XO-SIGNED. (store `fo-verdicts.tsv`) |
+| Governance records | `83ebdbc36` ← `gov-ack-83ebdbc36250` (reconcile record; trailer `gov-e3d1e0808cae` is bound to another sha); `444e6f6bb` ← `gov-ack-444e6f6bba34` (reconcile record; trailer `gov-fe08da2f0ef3` is bound to another sha). Each record names the landed sha as the commit it governed. |
+| Evidence before landing | `PYTHONDONTWRITEBYTECODE=1 make ciparity reposizecheck claimscheck ledgercheck linkcheck buildercheck readmecheck evaccheck` rc=0 (environment PATH, TMPDIR set to host paths, not shown) (gate timeout 1200 s, named by the order) |
+| Tool | `ship/tools/land.py` sha256 `3f4d36dddae3efb1…` from helm (informational) |
+| Order | sha256 `a10435c2a7c77ae7…` (informational) |
+| Foreign route | order-named preserve_paths `research/claims/register.json, research/claims/carry-history.json, research/claims/rule-changes.json, research/claims/accepted-defects.json` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
+
