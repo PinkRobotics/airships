@@ -1,0 +1,181 @@
+{
+ "unit": "R3-I028",
+ "basis": "frozen data copied from the accepted records at landing72 e3a6f7b854ef0683fbcdacd6db330a7c3b94044b (tree 91c7eadb15f641e918fd94faf87c70599a418363); read as data, never imported or executed",
+ "source_hashes": {
+  "R3-I019/termination.json": "0fb204a2362f17f342b1582fb2e41981f7207402b509db81ba3bbf5c38a2cc6a",
+  "R3-I023/loadpath.json": "5094e61bcf60f98ff7e89d7d3798f633528b67a02cc1552857c2158f29c99b63"
+ },
+ "materialLedger": {
+  "cord": {
+   "EPa": 70000000000.0,
+   "rhoKgM3": 970.0,
+   "identity": "UHMWPE-class (Dyneema-type) per its source documentation tools/ship_scoping.py:138-139",
+   "strength": "UNKNOWN"
+  },
+  "potResin": {
+   "designShearPa": 12000000.0,
+   "rhoKgM3": 1150.0,
+   "provenance": "ASSUMED design value, unverified"
+  },
+  "terminationMetal": {
+   "EPa": 114000000000.0,
+   "rhoKgM3": 4430.0,
+   "sigmaYPa": 880000000.0,
+   "identity": "Ti-6Al-4V (retained studs, nuts, anchor blocks, bolts)"
+  }
+ },
+ "constants": {
+  "FITTING": 1.3,
+  "NOSE_M": 0.008,
+  "ASSEMBLY_SHARE": 0.05,
+  "TAU_BOND_PA": 12000000.0
+ },
+ "families": {
+  "d60": {
+   "diaMm": 7.87,
+   "boreMm": 9.0,
+   "bodyOdMm": 23.5,
+   "bodyLenMm": 76.0,
+   "gripLgMm": 60.0,
+   "noseM": 0.008,
+   "ends": 21390,
+   "stations": 10695,
+   "sectionM2": 4.863837539556058e-05,
+   "T0kN": 6.809,
+   "TfitkN": 17.7,
+   "lSerM": 0.02104,
+   "lAPerEndM": 0.05904,
+   "lEffM": 12.242397,
+   "lEffMeanM": 69.713634,
+   "lFreeM": 12.124317,
+   "lFreeMeanM": 69.595554,
+   "meanCordM": 69.731554,
+   "etaDrawnMeanCord": 1.000257048,
+   "perEndKg": {
+    "bodyKg": 0.1247,
+    "nutKg": 0.0092,
+    "resinKg": 0.0017,
+    "studKg": 0.0549,
+    "totalKg": 0.1905
+   },
+   "cordInterfaceShearV1MPa": 13.771544,
+   "wallInterfaceShearMPa": 10.379,
+   "attachmentShankMm": 45.0,
+   "attachmentUtilisation": 0.247
+  },
+  "d180/11": {
+   "diaMm": 12.72,
+   "boreMm": 14.6,
+   "bodyOdMm": 38.0,
+   "bodyLenMm": 113.0,
+   "gripLgMm": 97.0,
+   "noseM": 0.008,
+   "ends": 21080,
+   "stations": 10540,
+   "sectionM2": 0.00012712302660203344,
+   "T0kN": 17.797,
+   "TfitkN": 46.27,
+   "lSerM": 0.03322,
+   "lAPerEndM": 0.08972,
+   "lEffM": 17.360698,
+   "lEffMeanM": 80.238931,
+   "lFreeM": 17.181259,
+   "lFreeMeanM": 80.059492,
+   "meanCordM": 80.269492,
+   "etaDrawnMeanCord": 1.000380871,
+   "perEndKg": {
+    "bodyKg": 0.4848,
+    "nutKg": 0.0388,
+    "resinKg": 0.0061,
+    "studKg": 0.2321,
+    "totalKg": 0.7619
+   },
+   "cordInterfaceShearV1MPa": 13.782541,
+   "wallInterfaceShearMPa": 10.379,
+   "attachmentShankMm": 50.0,
+   "attachmentUtilisation": 0.735
+  }
+ },
+ "bill": {
+  "socketsT": 20.14,
+  "cordT": 139.51,
+  "clipsT": 63.64,
+  "anchorBlocksT": 6.17,
+  "doublerPadsT": 2.86,
+  "attachmentBoltsT": 1.41,
+  "assemblyT": 11.69,
+  "totalT": 2233.4,
+  "spokesLineNewT": 245.42,
+  "marginSLT": 16.4,
+  "margin2500T": -476.1,
+  "x15IncrementT": 16.05,
+  "stackedStationHardwareX1_5_SLT": 0.3
+ },
+ "sf12": {
+  "afterT": 2562.4,
+  "afterSpokesT": 243.98,
+  "afterMarginSLT": -312.6,
+  "baselineDeltaT": 9.25,
+  "deltaVsCompletedT": 16.3,
+  "point": "force:d60+d20",
+  "verdict": "STILL FAILS at sea level (mass failure inherited and unchanged in kind); the delta is measured against the COMPLETED baseline \u2014 the +9.2 t completion change is inherited, not new termination mass"
+ },
+ "slack": {
+  "d60": {
+   "n5FirstSlackDeclaredMm": {
+    "+cos5": 26.758565,
+    "+sin5": 26.655487,
+    "-cos5": 26.621275,
+    "-sin5": 26.655487
+   },
+   "n5FirstSlackChordBasisMm": {
+    "+cos5": 26.797732,
+    "+sin5": 26.694504,
+    "-cos5": 26.660242,
+    "-sin5": 26.694504
+   }
+  },
+  "d180/11": {
+   "n5FirstSlackDeclaredMm": {
+    "+cos5": 25.623592,
+    "+sin5": 25.524887,
+    "-cos5": 25.492126,
+    "-sin5": 25.524887
+   },
+   "n5FirstSlackChordBasisMm": {
+    "+cos5": 25.668698,
+    "+sin5": 25.569819,
+    "-cos5": 25.537001,
+    "-sin5": 25.569819
+   }
+  }
+ },
+ "energy": {
+  "licensedQuotableMargin": 1.000811196,
+  "coupledMinEqualsScalar": 1.000811196,
+  "note": "carried predecessor values; NOT recomputed under the changed body spring \u2014 dependent claim"
+ },
+ "newAssumptions": {
+  "alBody": {
+   "identity": "machined 6061-T6-CLASS aluminium socket body at the SAME drawn dimensions (bore, OD, body length, grip, nose)",
+   "EPa": 69000000000.0,
+   "rhoKgM3": 2700.0,
+   "sigmaWPa": 150000000.0,
+   "provenance": "ASSUMED modelling inputs chosen for this hypothesis; NOT sourced, certified or qualified; 150 MPa is the chosen working normal-stress limit with no hidden second material safety factor; fitting-demand factor and pressure safety cases stay distinct; no laminate or cord strength borrowed; alloy name alone does not qualify body, bond, thread or wet/creep service"
+  },
+  "provision": {
+   "name": "Ti/Al galvanic-contact isolation set (bushing pair, epoxy-glass class, plus primer/sealant film) with its installation stock",
+   "perEndInstalledKg": 0.025,
+   "appliesTo": "every cord end, both families",
+   "provenance": "ASSUMED declared provision priced so the necessary barrier is not at zero mass; sufficiency UNKNOWN"
+  },
+  "machining": {
+   "fractionOfNewBodyMass": 0.03,
+   "provenance": "ASSUMED bar/finish machining-and-assembly stock for the changed metal"
+  },
+  "assemblyShareOnIncrement": {
+   "share": 0.05,
+   "provenance": "the record own ASSEMBLY share applied to the INCREMENT (x1.5 precedent in the I019 record)"
+  }
+ }
+}

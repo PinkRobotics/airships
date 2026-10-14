@@ -1,0 +1,158 @@
+{
+ "unit": "R3-I028",
+ "candidate": "machined ASSUMED 6061-T6-class aluminium socket bodies at the frozen drawn dimensions; everything else retained",
+ "inputs": {
+  "baselineJsonSha256": "dce7fd4d3c8650e71788a7c3e55decb0f95e8899dd43b463b12f47697aa7034e",
+  "sourcesJsonPins": "dce7fd4d3c8650e71788a7c3e55decb0f95e8899dd43b463b12f47697aa7034e"
+ },
+ "families": {
+  "d60": {
+   "ends": 21390,
+   "netBodySectionM2": 0.0003701188845010475,
+   "bodyVolumeM3": 2.8129035222079608e-05,
+   "bodyKgPerEndOldTi": 0.12461162603381266,
+   "bodyKgPerEndNewAl": 0.07594839509961494,
+   "geometricVsFrozenBodyKgPct": -0.07086925917188545,
+   "fittingDemandkN": 17.7,
+   "netSectionSigmaMPa": 47.82247202506606,
+   "netSectionUtilisationVs150MPa": 0.31881648016710706,
+   "netSectionVerdict": "CONDITIONAL PASS on the ASSUMED record",
+   "lSerFrozenM": 0.02104,
+   "lBodyTermOldM": 0.006132599407492279,
+   "lBodyTermNewM": 0.010132120760204635,
+   "lSerNewM": 0.025039521352712354,
+   "lSerDeltaM": 0.003999521352712355,
+   "lSerRebuiltFromKDimsM": 0.021045517243361216,
+   "rebuildReconciliationM": -5.517243361216617e-06,
+   "lAPerEndOldM": 0.05904,
+   "lAPerEndNewM": 0.06303952135271235,
+   "lEffOldM": 12.242397,
+   "lEffNewM": 12.250396042705425,
+   "lEffMeanNewM": 69.72163304270542,
+   "denominatorRatioNewOverOld": 1.0006533886056321,
+   "etaDrawnMeanCordOld": 1.000257048,
+   "etaDrawnMeanCordNew": 1.000142293817021,
+   "etaDelta": -0.0001147541829789045,
+   "T0kNSetpoint": 6.809,
+   "T0kNAtSameInstalledEps0": 6.804553981961777,
+   "extraStudTakeupToHoldT0mm": 0.015997210121280997,
+   "wallInterfaceShearMPa": 10.379,
+   "bondUtilVsAssumed12MPa": 0.8649166666666667,
+   "firstSlackPropagated": {
+    "n5FirstSlackDeclaredMm": {
+     "+cos5": 26.776049,
+     "+sin5": 26.672903,
+     "-cos5": 26.638669,
+     "-sin5": 26.672903
+    },
+    "n5FirstSlackChordBasisMm": {
+     "+cos5": 26.815241,
+     "+sin5": 26.711946,
+     "-cos5": 26.677661,
+     "-sin5": 26.711946
+    }
+   },
+   "firstSlackMinDeclaredOldMm": 26.621275,
+   "firstSlackMinDeclaredNewMm": 26.638669
+  },
+  "d180/11": {
+   "ends": 21080,
+   "netBodySectionM2": 0.0009666994754361152,
+   "bodyVolumeM3": 0.00010923704072428101,
+   "bodyKgPerEndOldTi": 0.4839200904085649,
+   "bodyKgPerEndNewAl": 0.29494000995555875,
+   "geometricVsFrozenBodyKgPct": -0.181499503183815,
+   "fittingDemandkN": 46.27,
+   "netSectionSigmaMPa": 47.86389273577068,
+   "netSectionUtilisationVs150MPa": 0.3190926182384712,
+   "netSectionVerdict": "CONDITIONAL PASS on the ASSUMED record",
+   "lSerFrozenM": 0.03322,
+   "lBodyTermOldM": 0.009124401209975135,
+   "lBodyTermNewM": 0.01507509765126327,
+   "lSerNewM": 0.039170696441288136,
+   "lSerDeltaM": 0.005950696441288136,
+   "lSerRebuiltFromKDimsM": 0.033239853410077326,
+   "rebuildReconciliationM": -1.9853410077326494e-05,
+   "lAPerEndOldM": 0.08972,
+   "lAPerEndNewM": 0.09567069644128814,
+   "lEffOldM": 17.360698,
+   "lEffNewM": 17.372599392882577,
+   "lEffMeanNewM": 80.25083239288257,
+   "denominatorRatioNewOverOld": 1.0006855365425156,
+   "etaDrawnMeanCordOld": 1.000380871,
+   "etaDrawnMeanCordNew": 1.000232516056981,
+   "etaDelta": -0.00014835494301901342,
+   "T0kNSetpoint": 17.797,
+   "T0kNAtSameInstalledEps0": 17.7848078643074,
+   "extraStudTakeupToHoldT0mm": 0.02380248654650467,
+   "wallInterfaceShearMPa": 10.379,
+   "bondUtilVsAssumed12MPa": 0.8649166666666667,
+   "firstSlackPropagated": {
+    "n5FirstSlackDeclaredMm": {
+     "+cos5": 25.641158,
+     "+sin5": 25.542385,
+     "-cos5": 25.509602,
+     "-sin5": 25.542385
+    },
+    "n5FirstSlackChordBasisMm": {
+     "+cos5": 25.686295,
+     "+sin5": 25.587348,
+     "-cos5": 25.554508,
+     "-sin5": 25.587348
+    }
+   },
+   "firstSlackMinDeclaredOldMm": 25.492126,
+   "firstSlackMinDeclaredNewMm": 25.509602
+  }
+ },
+ "bill": {
+  "bodiesOldTiT": 12.866478186675801,
+  "bodiesNewAlT": 7.841871581043942,
+  "protectionProvisionT": 1.06175,
+  "machiningStockT": 0.23525614743131826,
+  "deltaHardwareT": -3.7276004582005395,
+  "assemblyShareOnIncrementT": -0.18638002291002698,
+  "deltaTotalT": -3.9139804811105665,
+  "socketsTOld": 20.14,
+  "socketsTNewHardwareOnly": 16.41239954179946,
+  "totalTOld": 2233.4,
+  "totalTNew": 2229.4860195188894,
+  "spokesLineTOld": 245.42,
+  "spokesLineTNew": 241.50601951888942,
+  "marginSLTOld": 16.4,
+  "marginSLTNew": 20.313980481110566,
+  "margin2500TOld": -476.1,
+  "margin2500TNew": -472.18601951888945
+ },
+ "sf12": {
+  "afterTOld": 2562.4,
+  "afterTNew": 2558.4860195188894,
+  "afterSpokesTOld": 243.98,
+  "afterSpokesTNew": 240.06601951888942,
+  "afterMarginSLTOld": -312.6,
+  "afterMarginSLTNew": -308.68601951888945
+ },
+ "hardwareSensitivity": {
+  "inheritedX15IncrementT": 16.05,
+  "inheritedX15SLt": 0.3,
+  "note": "the x1.5 block/doubler/attachment scenario does not scale socket bodies and is carried UNCHANGED; the new protection/machining lines are not part of that frozen scenario"
+ },
+ "verdicts": {
+  "seaLevelConditional": "SL conditional margin improves to +20.3 t (was +16.4 t); still CONDITIONAL on the known-subtotal basis",
+  "altitude2500": "FAIL persists: -472.2 t at 2,500 m (was -476.1 t)",
+  "sf12Adverse": "FAIL persists (inherited, unchanged in kind): after-margin -308.7 t (was -312.6 t)",
+  "netSection": "both families CONDITIONAL PASS vs the ASSUMED 150 MPa record (utilisation 0.319 / 0.319)",
+  "compliance": "chain denominators grow 0.065%/0.069% (d60/d180-11); eta drops ~1.1e-4; holding T0 needs 16.0/23.8 um extra stud take-up"
+ },
+ "unknowns": {
+  "bondOnAluminiumSubstrate": "the 12 MPa design bond shear is ASSUMED and NOT qualified on machined aluminium; required grips stay 59.68/96.48 mm vs drawn 60/97 \u2014 capacity UNKNOWN on the new substrate",
+  "threadStripping": "UNKNOWN \u2014 the frozen record does not pin the drawn Ti-stud/Al-body thread engagement length, so no bounded justified screen exists",
+  "fatigue": "UNKNOWN \u2014 no cyclic qualified record for the aluminium body, stud thread or bond",
+  "creep": "UNKNOWN \u2014 cord/bond creep behaviour unverified; aluminium creep service unassessed",
+  "corrosionContact": "UNKNOWN beyond the declared isolation provision mass \u2014 galvanic sufficiency, sealing and wet service are unqualified",
+  "coupledEigenMargin": "dependent claim NOT recomputed under the changed body spring (predecessor licensed value 1.000811196 carried as history); analytic bound: denominators move <0.07%",
+  "installationAndEquilibrium": "I023 common-strain equilibrium closure remains withdrawn; no installation-after-evacuation, extra travel or pressure-bearing tensile-cord licence is claimed; installation/global-equilibrium work stays UNKNOWN",
+  "laminateAndAttachment": "laminate bearing, block local bending, pull-through, contact/creep: UNKNOWN (inherited)"
+ },
+ "bounds": "single pure-Python process, stdlib only; frozen inputs; analytic propagation only; no ancestor import/execution; no solver, search or optimisation; the changed spring term is propagated everywhere the frozen record uses the denominator law"
+}

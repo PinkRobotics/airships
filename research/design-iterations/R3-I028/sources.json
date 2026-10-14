@@ -1,0 +1,23 @@
+{
+ "unit": "R3-I028",
+ "purpose": "frozen saved inputs read by socket_body.py (standard library only); ancestor records are pinned as data provenance and are NOT imported, executed or regenerated",
+ "calculator_reads": {
+  "baseline.json": {
+   "sha256": "dce7fd4d3c8650e71788a7c3e55decb0f95e8899dd43b463b12f47697aa7034e",
+   "role": "every inherited number used by the unit, copied verbatim from the two ancestor records at the frozen base, plus this unit FROZEN new assumptions (aluminium body record, isolation provision, machining stock, assembly share on the increment)"
+  }
+ },
+ "ancestor_provenance": {
+  "R3-I019/termination.json": {
+   "sha256": "0fb204a2362f17f342b1582fb2e41981f7207402b509db81ba3bbf5c38a2cc6a",
+   "at": "landing72 e3a6f7b854ef0683fbcdacd6db330a7c3b94044b",
+   "rev": "v3.1"
+  },
+  "R3-I023/loadpath.json": {
+   "sha256": "5094e61bcf60f98ff7e89d7d3798f633528b67a02cc1552857c2158f29c99b63",
+   "at": "landing72 e3a6f7b854ef0683fbcdacd6db330a7c3b94044b",
+   "role": "pressure-path context only; its equilibrium closure is withdrawn and no I023 claim is recomputed here"
+  }
+ },
+ "run_boundary": "ONE process/thread, <=60 CPU s, <=120 wall s, <=1 GiB; no ancestor import, no solver, no field search, no optimisation; analytic propagation of the frozen n=2..12 class only"
+}
