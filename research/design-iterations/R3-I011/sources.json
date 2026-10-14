@@ -1,0 +1,31 @@
+{
+  "accessed": "2026-10-14",
+  "sources": [
+    {
+      "id": "toray-t700s",
+      "url": "https://www.toraycma.com/wp-content/uploads/T700S-Data-Sheet.pdf",
+      "revision": "11/24/2025",
+      "use": "Context for provisional carbon inputs only: typical composite tensile modulus 134 GPa and compressive strength 1450 MPa, epoxy at 130 C, normalized to 60% fiber volume. I008 comparison still uses E=135 GPa and density=1600 kg/m3; this is not a tube laminate specification."
+    },
+    {
+      "id": "ssab-steel",
+      "url": "https://www.ssab.com/en/support/product-material-data/steel/20-questions",
+      "use": "Steel density approximately 7850 kg/m3 and modulus approximately 200 GPa for screening mass/stiffness."
+    },
+    {
+      "id": "ssab-domex-355mc",
+      "url": "https://www.ssab.com/en-gb/brands-and-products/ssab-domex/product-offer/355mc",
+      "use": "355 MPa minimum yield for specified sheet product. Applied as a nominal plate/formed-sleeve screen; no welded assembly, formed box or machined-pin rating is established."
+    }
+  ],
+  "unqualified_inputs": {
+    "carbonTubeLaminate": "UNKNOWN; proxies retained for comparison",
+    "ringEndAxialStiffnessNPerM": 1000000000.0,
+    "webEndAxialStiffnessNPerM": 100000000.0,
+    "adhesiveDensityKgPerM3": 1200,
+    "liningDensityKgPerM3": 1100,
+    "adhesiveStrengthPa": null,
+    "pinMaterialCertification": null,
+    "formedWeldedAssemblyProperties": null
+  }
+}

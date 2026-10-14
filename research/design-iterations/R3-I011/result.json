@@ -1,0 +1,1300 @@
+{
+  "unit": "R3-I011",
+  "baselineSha256": "4006a13b412058408fe462b7b7cb53c2b205b18f5b17d414a880aaa56a4141cb",
+  "geometry": {
+    "pressureSurfaceDiameterM": 80,
+    "totalLengthM": 160,
+    "barrelLengthM": 80,
+    "centrelineDepthM": 4.615384615384615,
+    "outerFrameRadiusM": 39.869,
+    "innerFrameRadiusM": 35.25361538461539,
+    "columnCount": 111,
+    "indexOffset": 2,
+    "angleRad": 0.11321054607530787,
+    "webPinLengthM": 6.2687041644432036,
+    "webCarbonCutM": 5.668704164443204,
+    "axialFamilyPlanesM": [
+      -0.2,
+      0.2
+    ],
+    "familyClearanceM": 0.10000000000000003,
+    "oldNominalEndpointLengthM": 6.278763110174862
+  },
+  "sections": {
+    "ring": {
+      "odM": 0.25,
+      "wallM": 0.012,
+      "areaM2": 0.008972388618652447,
+      "inertiaM4": 6.36905006095044e-05,
+      "sectionModulusM3": 0.0005095240048760353,
+      "kgPerM": 14.355821789843915
+    },
+    "web": {
+      "odM": 0.3,
+      "wallM": 0.0025,
+      "areaM2": 0.002336559536107413,
+      "inertiaM4": 2.5851840742463435e-05,
+      "sectionModulusM3": 0.00017234560494975624,
+      "kgPerM": 3.7384952577718606
+    }
+  },
+  "counts": {
+    "stations": 41,
+    "outerSegments": 4551,
+    "innerSegments": 4551,
+    "webs": 9102,
+    "webEnds": 18204,
+    "ringNodes": 9102
+  },
+  "mechanics": {
+    "factoredPressurePa": 121590.0,
+    "nodeLoadPerPaM2": 4.527817293298895,
+    "uniformDisplacementAtFactoredPressureM": [
+      -0.29348401625974974,
+      0.0,
+      -0.31499624203890575,
+      0.0
+    ],
+    "axialForcesAtFactoredPressureN": {
+      "outer": -4300000.582650429,
+      "inner": -4888078.825400542,
+      "plus": -198875.84176455185,
+      "minus": -198875.84176454705
+    },
+    "sectionScreens": {
+      "outer": {
+        "pinLengthM": 2.25649434583167,
+        "carbonCutLengthM": 2.25649434583167,
+        "compressionN": 4300000.582650429,
+        "eulerN": 16666318.499130161,
+        "localProxyPa": 1408131907.5630252,
+        "directStressPa": 479248142.8759426,
+        "gravityMomentNm": 107.52476259689765,
+        "amplifiedGravityMomentNm": 144.91313842054186,
+        "interaction": 0.3405451926446686,
+        "proxyPass": true,
+        "status": "Conditional section screen only; laminate, joints and bracing unqualified."
+      },
+      "inner": {
+        "pinLengthM": 1.995274117372119,
+        "carbonCutLengthM": 1.995274117372119,
+        "compressionN": 4888078.825400542,
+        "eulerN": 21315868.799990825,
+        "localProxyPa": 1408131907.5630252,
+        "directStressPa": 544791251.6003655,
+        "gravityMomentNm": 84.07079048938533,
+        "amplifiedGravityMomentNm": 109.08600260626041,
+        "interaction": 0.38704140046460456,
+        "proxyPass": true,
+        "status": "Conditional section screen only; laminate, joints and bracing unqualified."
+      },
+      "plus": {
+        "pinLengthM": 6.2687041644432036,
+        "carbonCutLengthM": 5.668704164443204,
+        "compressionN": 198875.84176455185,
+        "eulerN": 876535.3507519668,
+        "localProxyPa": 234688651.26050422,
+        "directStressPa": 85114818.8998722,
+        "gravityMomentNm": 216.1047528365567,
+        "amplifiedGravityMomentNm": 279.52600504315535,
+        "interaction": 0.3695820428790764,
+        "proxyPass": true,
+        "status": "Conditional section screen only; laminate, joints and bracing unqualified."
+      },
+      "minus": {
+        "pinLengthM": 6.268704164443195,
+        "carbonCutLengthM": 5.668704164443195,
+        "compressionN": 198875.84176454705,
+        "eulerN": 876535.3507519694,
+        "localProxyPa": 234688651.26050422,
+        "directStressPa": 85114818.89987014,
+        "gravityMomentNm": 216.1047528365561,
+        "amplifiedGravityMomentNm": 279.5260050431523,
+        "interaction": 0.3695820428790676,
+        "proxyPass": true,
+        "status": "Conditional section screen only; laminate, joints and bracing unqualified."
+      }
+    },
+    "rigidMotionChecks": [
+      {
+        "mode": 0,
+        "relativeResidual": 4.776283975503216e-16
+      },
+      {
+        "mode": 1,
+        "relativeResidual": 8.0753974760917e-17
+      }
+    ],
+    "modes": [
+      {
+        "mode": 2,
+        "normalizedVector": [
+          1.0,
+          -0.4128738440604761,
+          1.003134855901262,
+          -0.5860974008976614
+        ],
+        "condensedNPerM": 3015989.511514901,
+        "twiceEnergyByFamily": {
+          "outer": 1382397.444347566,
+          "inner": 1404207.0991561795,
+          "plus": 114692.48400614318,
+          "minus": 114692.48400541581
+        },
+        "negativeGeometricCoefficientThresholdM": 24.80458517571265,
+        "bucklingPressurePa": null,
+        "matrixNPerM": [
+          [
+            1789270914.2495549,
+            91825196.70083861,
+            -1530133851.9068046,
+            364123951.79627144
+          ],
+          [
+            91825196.70083861,
+            1363683187.753883,
+            -289987974.0570862,
+            -1300297470.1975784
+          ],
+          [
+            -1530133851.9068046,
+            -289987974.0570862,
+            1462820402.7967548,
+            97254708.09988447
+          ],
+          [
+            364123951.79627144,
+            -1300297470.1975784,
+            97254708.09988447,
+            1703714012.0481622
+          ]
+        ]
+      },
+      {
+        "mode": 3,
+        "normalizedVector": [
+          1.0,
+          -0.19141027139228142,
+          1.0032969820522917,
+          -0.4763223583059526
+        ],
+        "condensedNPerM": 20013325.5868103,
+        "twiceEnergyByFamily": {
+          "outer": 8235240.621790716,
+          "inner": 8895303.471293315,
+          "plus": 1441390.7468631696,
+          "minus": 1441390.7468628585
+        },
+        "negativeGeometricCoefficientThresholdM": 164.5968055498832,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 4,
+        "normalizedVector": [
+          1.0,
+          -0.07324584366472296,
+          0.9944600115320154,
+          -0.43310469301770116
+        ],
+        "condensedNPerM": 63984571.480227865,
+        "twiceEnergyByFamily": {
+          "outer": 22636367.85121723,
+          "inner": 26704329.992396027,
+          "plus": 7321936.8183072135,
+          "minus": 7321936.818307269
+        },
+        "negativeGeometricCoefficientThresholdM": 526.2321858724226,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 5,
+        "normalizedVector": [
+          1.0,
+          -0.006203254625275792,
+          0.9707015925213478,
+          -0.40834277625349996
+        ],
+        "condensedNPerM": 145415827.51090524,
+        "twiceEnergyByFamily": {
+          "outer": 42335327.62599918,
+          "inner": 56158985.08582564,
+          "plus": 23460757.39954059,
+          "minus": 23460757.399539903
+        },
+        "negativeGeometricCoefficientThresholdM": 1195.952195993957,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 6,
+        "normalizedVector": [
+          1.0,
+          0.02853192009534716,
+          0.9275891497005722,
+          -0.3867331849772092
+        ],
+        "condensedNPerM": 268542451.7350492,
+        "twiceEnergyByFamily": {
+          "outer": 61495988.65960674,
+          "inner": 94776174.75190851,
+          "plus": 56135144.161767155,
+          "minus": 56135144.16176675
+        },
+        "negativeGeometricCoefficientThresholdM": 2208.5899476523496,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 7,
+        "normalizedVector": [
+          1.0,
+          0.041114743785579645,
+          0.8629655316389532,
+          -0.3630425741868964
+        ],
+        "condensedNPerM": 429862162.28051436,
+        "twiceEnergyByFamily": {
+          "outer": 73797196.39270553,
+          "inner": 137240149.84534204,
+          "plus": 109412408.0212331,
+          "minus": 109412408.02123334
+        },
+        "negativeGeometricCoefficientThresholdM": 3535.3414119624504,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 8,
+        "normalizedVector": [
+          1.0,
+          0.0386482025706928,
+          0.7770602119074942,
+          -0.3360496391659803
+        ],
+        "condensedNPerM": 618944057.5647693,
+        "twiceEnergyByFamily": {
+          "outer": 75515616.04473376,
+          "inner": 177367939.06286126,
+          "plus": 183030251.22858724,
+          "minus": 183030251.22858682
+        },
+        "negativeGeometricCoefficientThresholdM": 5090.419093385716,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 9,
+        "normalizedVector": [
+          1.0,
+          0.02664888591347803,
+          0.6720846162085586,
+          -0.3062420690225617
+        ],
+        "condensedNPerM": 820776465.6078583,
+        "twiceEnergyByFamily": {
+          "outer": 66818311.89209857,
+          "inner": 209944553.92213994,
+          "plus": 272006799.8968102,
+          "minus": 272006799.8968096
+        },
+        "negativeGeometricCoefficientThresholdM": 6750.361589011089,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 10,
+        "normalizedVector": [
+          1.0,
+          0.009434531729378066,
+          0.5515692572283585,
+          -0.2747392956023156
+        ],
+        "condensedNPerM": 1018641197.302932,
+        "twiceEnergyByFamily": {
+          "outer": 51058038.67961748,
+          "inner": 231761561.6000761,
+          "plus": 367910798.5116193,
+          "minus": 367910798.5116192
+        },
+        "negativeGeometricCoefficientThresholdM": 8377.672483781002,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 11,
+        "normalizedVector": [
+          1.0,
+          -0.00973843038189129,
+          0.41967688176331436,
+          -0.24275350254174222
+        ],
+        "condensedNPerM": 1196692408.0190477,
+        "twiceEnergyByFamily": {
+          "outer": 32982695.53183561,
+          "inner": 241783350.72617555,
+          "plus": 460963180.88051814,
+          "minus": 460963180.8805182
+        },
+        "negativeGeometricCoefficientThresholdM": 9842.029838136752,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 12,
+        "normalizedVector": [
+          1.0,
+          -0.028554677620038015,
+          0.2806396239188183,
+          -0.21133609679264498
+        ],
+        "condensedNPerM": 1341798272.2771878,
+        "twiceEnergyByFamily": {
+          "outer": 16949387.334872197,
+          "inner": 240726784.29373074,
+          "plus": 542061050.3242925,
+          "minus": 542061050.3242927
+        },
+        "negativeGeometricCoefficientThresholdM": 11035.43278458087,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 13,
+        "normalizedVector": [
+          1.0,
+          -0.04549256832580288,
+          0.13837734071712018,
+          -0.18128486252301262
+        ],
+        "condensedNPerM": 1444552920.8552182,
+        "twiceEnergyByFamily": {
+          "outer": 5802575.99758254,
+          "inner": 230412829.53019363,
+          "plus": 604168757.6637211,
+          "minus": 604168757.663721
+        },
+        "negativeGeometricCoefficientThresholdM": 11880.524063288249,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 14,
+        "normalizedVector": [
+          1.0,
+          -0.059661225023722925,
+          -0.0037097304946074744,
+          -0.1531378875725991
+        ],
+        "condensedNPerM": 1499583523.1765468,
+        "twiceEnergyByFamily": {
+          "outer": 548461.807167273,
+          "inner": 213151327.41327086,
+          "plus": 642941866.9780543,
+          "minus": 642941866.9780546
+        },
+        "negativeGeometricCoefficientThresholdM": 12333.115578390878,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 15,
+        "normalizedVector": [
+          1.0,
+          -0.07064286107539804,
+          -0.14281247081076337,
+          -0.12720857561088242
+        ],
+        "condensedNPerM": 1505361706.7225223,
+        "twiceEnergyByFamily": {
+          "outer": 625655.5434993654,
+          "inner": 191283891.8001501,
+          "plus": 656726079.6894362,
+          "minus": 656726079.6894367
+        },
+        "negativeGeometricCoefficientThresholdM": 12380.637443231535,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 16,
+        "normalizedVector": [
+          1.0,
+          -0.07835504015180683,
+          -0.2766943108745379,
+          -0.10363474122031696
+        ],
+        "condensedNPerM": 1463723907.6388652,
+        "twiceEnergyByFamily": {
+          "outer": 4472589.459281921,
+          "inner": 166907055.82208818,
+          "plus": 646172131.1787474,
+          "minus": 646172131.1787479
+        },
+        "negativeGeometricCoefficientThresholdM": 12038.193170810637,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 17,
+        "normalizedVector": [
+          1.0,
+          -0.08293929543327819,
+          -0.40362241589439374,
+          -0.08242732078596922
+        ],
+        "condensedNPerM": 1379259403.5654454,
+        "twiceEnergyByFamily": {
+          "outer": 10139055.782217208,
+          "inner": 141744207.96112865,
+          "plus": 613688069.9110497,
+          "minus": 613688069.9110496
+        },
+        "negativeGeometricCoefficientThresholdM": 11343.526635129907,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 18,
+        "normalizedVector": [
+          1.0,
+          -0.08467635941246647,
+          -0.5222778179043431,
+          -0.0635121452029347
+        ],
+        "condensedNPerM": 1258670585.4646363,
+        "twiceEnergyByFamily": {
+          "outer": 15787497.269886792,
+          "inner": 117118822.4389389,
+          "plus": 562882132.8779054,
+          "minus": 562882132.877905
+        },
+        "negativeGeometricCoefficientThresholdM": 10351.760716050961,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 19,
+        "normalizedVector": [
+          1.0,
+          -0.08392481278732845,
+          -0.6316632844851084,
+          -0.04676278116547333
+        ],
+        "condensedNPerM": 1110163999.209041,
+        "twiceEnergyByFamily": {
+          "outer": 20020606.4747566,
+          "inner": 93985709.55784546,
+          "plus": 498078841.58821976,
+          "minus": 498078841.5882193
+        },
+        "negativeGeometricCoefficientThresholdM": 9130.389005749166,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 20,
+        "normalizedVector": [
+          1.0,
+          -0.08107862735110494,
+          -0.7310195477050535,
+          -0.03202477872979892
+        ],
+        "condensedNPerM": 942897968.6457431,
+        "twiceEnergyByFamily": {
+          "outer": 22033612.763249442,
+          "inner": 72988507.58607283,
+          "plus": 423937924.1482106,
+          "minus": 423937924.1482102
+        },
+        "negativeGeometricCoefficientThresholdM": 7754.732861631245,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 21,
+        "normalizedVector": [
+          1.0,
+          -0.07653902386157833,
+          -0.819754925421086,
+          -0.01913264407218612
+        ],
+        "condensedNPerM": 766492435.5220739,
+        "twiceEnergyByFamily": {
+          "outer": 21622303.093230307,
+          "inner": 54523327.70543089,
+          "plus": 345173402.361706,
+          "minus": 345173402.36170626
+        },
+        "negativeGeometricCoefficientThresholdM": 6303.910153154649,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 22,
+        "normalizedVector": [
+          1.0,
+          -0.0706966374150306,
+          -0.8973899393959802,
+          -0.007921099589017213
+        ],
+        "condensedNPerM": 590596118.748091,
+        "twiceEnergyByFamily": {
+          "outer": 19089539.4709192,
+          "inner": 38797579.588447,
+          "plus": 266354499.84436288,
+          "minus": 266354499.8443623
+        },
+        "negativeGeometricCoefficientThresholdM": 4857.275423538868,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 23,
+        "normalizedVector": [
+          1.0,
+          -0.06392076574962523,
+          -0.9635166615167824,
+          0.0017679176308338074
+        ],
+        "condensedNPerM": 424502145.3739218,
+        "twiceEnergyByFamily": {
+          "outer": 15092622.174560405,
+          "inner": 25879123.78151201,
+          "plus": 191765199.70892456,
+          "minus": 191765199.70892465
+        },
+        "negativeGeometricCoefficientThresholdM": 3491.2587003365556,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 24,
+        "normalizedVector": [
+          1.0,
+          -0.056553249014124396,
+          -1.0177716427548062,
+          0.010081314287711815
+        ],
+        "condensedNPerM": 276803479.60679877,
+        "twiceEnergyByFamily": {
+          "outer": 10467829.17277585,
+          "inner": 15734553.02273029,
+          "plus": 125300548.70564637,
+          "minus": 125300548.70564623
+        },
+        "negativeGeometricCoefficientThresholdM": 2276.531619432509,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 25,
+        "normalizedVector": [
+          1.0,
+          -0.04890519732357738,
+          -1.0598209731918522,
+          0.01715302010824111
+        ],
+        "condensedNPerM": 155082042.57736582,
+        "twiceEnergyByFamily": {
+          "outer": 6060715.18742995,
+          "inner": 8257346.138408003,
+          "plus": 70381990.6257636,
+          "minus": 70381990.62576424
+        },
+        "negativeGeometricCoefficientThresholdM": 1275.4506339120471,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 26,
+        "normalizedVector": [
+          1.0,
+          -0.04125531998464015,
+          -1.0893559918206854,
+          0.02310359140588259
+        ],
+        "condensedNPerM": 65629232.781819955,
+        "twiceEnergyByFamily": {
+          "outer": 2583118.9736969266,
+          "inner": 3287514.4771917043,
+          "plus": 29879299.665466025,
+          "minus": 29879299.66546523
+        },
+        "negativeGeometricCoefficientThresholdM": 539.7584734091615,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 27,
+        "normalizedVector": [
+          1.0,
+          -0.03384902679675109,
+          -1.1060982242773685,
+          0.02804073637085108
+        ],
+        "condensedNPerM": 13199871.122793104,
+        "twiceEnergyByFamily": {
+          "outer": 510882.0177028985,
+          "inner": 624638.3085411154,
+          "plus": 6032175.3982744645,
+          "minus": 6032175.398274265
+        },
+        "negativeGeometricCoefficientThresholdM": 108.56049940614446,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 28,
+        "normalizedVector": [
+          1.0,
+          -0.026897789166504545,
+          -1.1098121643240775,
+          0.032060406601760745
+        ],
+        "condensedNPerM": 805856.6621001113,
+        "twiceEnergyByFamily": {
+          "outer": 29973.859228473157,
+          "inner": 36165.66719161114,
+          "plus": 369858.56784051727,
+          "minus": 369858.5678397099
+        },
+        "negativeGeometricCoefficientThresholdM": 6.627655745539199,
+        "bucklingPressurePa": null,
+        "matrixNPerM": [
+          [
+            1766081034.7493844,
+            812754887.6485949,
+            1569582972.985562,
+            -45900607.50691116
+          ],
+          [
+            812754887.6485949,
+            30297966939.080696,
+            36555200.81350203,
+            1333821068.3300602
+          ],
+          [
+            1569582972.985562,
+            36555200.81350203,
+            1438259334.128334,
+            860812088.5658438
+          ],
+          [
+            -45900607.50691116,
+            1333821068.3300602,
+            860812088.5658438,
+            32348846518.35094
+          ]
+        ]
+      },
+      {
+        "mode": 29,
+        "normalizedVector": [
+          1.0,
+          -0.020578490100453765,
+          -1.1003244739484246,
+          0.03524820588469737
+        ],
+        "condensedNPerM": 29559554.446675185,
+        "twiceEnergyByFamily": {
+          "outer": 1032807.9790785387,
+          "inner": 1262687.021974299,
+          "plus": 13632029.722811006,
+          "minus": 13632029.722811418
+        },
+        "negativeGeometricCoefficientThresholdM": 243.10843364318765,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 30,
+        "normalizedVector": [
+          1.0,
+          -0.015032676703475611,
+          -1.0775480398160517,
+          0.037680941321209666
+        ],
+        "condensedNPerM": 98579668.59357864,
+        "twiceEnergyByFamily": {
+          "outer": 3160867.7981933905,
+          "inner": 4021687.7861690708,
+          "plus": 45698556.50460772,
+          "minus": 45698556.504608
+        },
+        "negativeGeometricCoefficientThresholdM": 810.7547380013046,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 31,
+        "normalizedVector": [
+          1.0,
+          -0.010365769923746538,
+          -1.0415091036990094,
+          0.03942819172794292
+        ],
+        "condensedNPerM": 204973587.1144248,
+        "twiceEnergyByFamily": {
+          "outer": 5884441.255446323,
+          "inner": 8011045.897417406,
+          "plus": 95539049.98078066,
+          "minus": 95539049.98078038
+        },
+        "negativeGeometricCoefficientThresholdM": 1685.7766848788947,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 32,
+        "normalizedVector": [
+          1.0,
+          -0.006646391188224525,
+          -0.9923754202404308,
+          0.04055380097806764
+        ],
+        "condensedNPerM": 343909443.93608063,
+        "twiceEnergyByFamily": {
+          "outer": 8605678.58401633,
+          "inner": 12913283.762993107,
+          "plus": 161195240.79453564,
+          "minus": 161195240.79453588
+        },
+        "negativeGeometricCoefficientThresholdM": 2828.4352655323682,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 33,
+        "normalizedVector": [
+          1.0,
+          -0.003906036321491166,
+          -0.9304831467318454,
+          0.04111722569653294
+        ],
+        "condensedNPerM": 508788058.14986676,
+        "twiceEnergyByFamily": {
+          "outer": 10767982.488342496,
+          "inner": 18401292.52641716,
+          "plus": 239809391.56755337,
+          "minus": 239809391.56755376
+        },
+        "negativeGeometricCoefficientThresholdM": 4184.456436794693,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 34,
+        "normalizedVector": [
+          1.0,
+          -0.002139362252630046,
+          -0.8563600100471942,
+          0.041174682395293975
+        ],
+        "condensedNPerM": 691519335.4367698,
+        "twiceEnergyByFamily": {
+          "outer": 11953650.612243794,
+          "inner": 24145914.492195014,
+          "plus": 327709885.1661652,
+          "minus": 327709885.1661656
+        },
+        "negativeGeometricCoefficientThresholdM": 5687.304346054526,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 35,
+        "normalizedVector": [
+          1.0,
+          -0.0013053486616284012,
+          -0.7707423019547421,
+          0.04078005256479305
+        ],
+        "condensedNPerM": 882899855.217937,
+        "twiceEnergyByFamily": {
+          "outer": 11953317.530852197,
+          "inner": 29825401.803433165,
+          "plus": 420560567.94182545,
+          "minus": 420560567.9418262
+        },
+        "negativeGeometricCoefficientThresholdM": 7261.2867441231765,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 36,
+        "normalizedVector": [
+          1.0,
+          -0.0013295532326309133,
+          -0.6745834901186082,
+          0.039985518096462905
+        ],
+        "condensedNPerM": 1073078860.1142619,
+        "twiceEnergyByFamily": {
+          "outer": 10795284.096649503,
+          "inner": 35136389.11265415,
+          "plus": 513573593.4524793,
+          "minus": 513573593.45247906
+        },
+        "negativeGeometricCoefficientThresholdM": 8825.387450565522,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 37,
+        "normalizedVector": [
+          1.0,
+          -0.0021075974707742804,
+          -0.569052733644017,
+          0.038841915147059806
+        ],
+        "condensedNPerM": 1252089799.8741765,
+        "twiceEnergyByFamily": {
+          "outer": 8729851.286652112,
+          "inner": 39805665.751253895,
+          "plus": 601777141.418135,
+          "minus": 601777141.4181352
+        },
+        "negativeGeometricCoefficientThresholdM": 10297.637962613508,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 38,
+        "normalizedVector": [
+          1.0,
+          -0.0035099073210598853,
+          -0.45552235052864987,
+          0.03739881235904415
+        ],
+        "condensedNPerM": 1410415392.769398,
+        "twiceEnergyByFamily": {
+          "outer": 6172177.329863263,
+          "inner": 43601760.87591806,
+          "plus": 680320727.281808,
+          "minus": 680320727.2818084
+        },
+        "negativeGeometricCoefficientThresholdM": 11599.764723821021,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 39,
+        "normalizedVector": [
+          1.0,
+          -0.005387602125638128,
+          -0.33554423942237765,
+          0.035704338237769806
+        ],
+        "condensedNPerM": 1539547408.5227778,
+        "twiceEnergyByFamily": {
+          "outer": 3615290.7719992786,
+          "inner": 46345214.76516172,
+          "plus": 744793451.4928089,
+          "minus": 744793451.4928079
+        },
+        "negativeGeometricCoefficientThresholdM": 12661.792980695598,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 40,
+        "normalizedVector": [
+          1.0,
+          -0.007579294449121231,
+          -0.21081630052984726,
+          0.03380480056726876
+        ],
+        "condensedNPerM": 1632499415.9756632,
+        "twiceEnergyByFamily": {
+          "outer": 1530886.1649000966,
+          "inner": 47916437.032664426,
+          "plus": 791526046.3890492,
+          "minus": 791526046.3890495
+        },
+        "negativeGeometricCoefficientThresholdM": 13426.263804389038,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 41,
+        "normalizedVector": [
+          1.0,
+          -0.00991845157098557,
+          -0.0831408887056689,
+          0.031744155687686314
+        ],
+        "condensedNPerM": 1684232432.4237435,
+        "twiceEnergyByFamily": {
+          "outer": 277905.94316377444,
+          "inner": 48260255.736162335,
+          "plus": 817847135.3722092,
+          "minus": 817847135.3722082
+        },
+        "negativeGeometricCoefficientThresholdM": 13851.73478430581,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 42,
+        "normalizedVector": [
+          1.0,
+          -0.012240894684824621,
+          0.0456218813840373,
+          0.029563395056522994
+        ],
+        "condensedNPerM": 1691959859.6037817,
+        "twiceEnergyByFamily": {
+          "outer": 36985.91772419412,
+          "inner": 47386612.82216084,
+          "plus": 822268130.4319485,
+          "minus": 822268130.4319482
+        },
+        "negativeGeometricCoefficientThresholdM": 13915.287931604422,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 43,
+        "normalizedVector": [
+          1.0,
+          -0.014391986049006164,
+          0.1736026942283466,
+          0.027299919267665344
+        ],
+        "condensedNPerM": 1655308553.962147,
+        "twiceEnergyByFamily": {
+          "outer": 783002.4575150148,
+          "inner": 45367301.673207685,
+          "plus": 804579124.9157119,
+          "minus": 804579124.9157124
+        },
+        "negativeGeometricCoefficientThresholdM": 13613.854379160679,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 44,
+        "normalizedVector": [
+          1.0,
+          -0.016233081077697647,
+          0.29897010058731555,
+          0.024986965200909286
+        ],
+        "condensedNPerM": 1576325896.8720543,
+        "twiceEnergyByFamily": {
+          "outer": 2299605.623233754,
+          "inner": 42329093.04685724,
+          "plus": 765848599.1009816,
+          "minus": 765848599.1009815
+        },
+        "negativeGeometricCoefficientThresholdM": 12964.272529583472,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 45,
+        "normalizedVector": [
+          1.0,
+          -0.017646896040680628,
+          0.41997305778399135,
+          0.02265314103929028
+        ],
+        "condensedNPerM": 1459336424.5268574,
+        "twiceEnergyByFamily": {
+          "outer": 4230770.934929347,
+          "inner": 38443977.18133267,
+          "plus": 708330838.2052974,
+          "minus": 708330838.2052977
+        },
+        "negativeGeometricCoefficientThresholdM": 12002.108927764268,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 46,
+        "normalizedVector": [
+          1.0,
+          -0.01854154930146834,
+          0.5349765579234549,
+          0.02032210838353369
+        ],
+        "condensedNPerM": 1310664044.2920165,
+        "twiceEnergyByFamily": {
+          "outer": 6157107.613411147,
+          "inner": 33917501.2303028,
+          "plus": 635294717.7241514,
+          "minus": 635294717.7241513
+        },
+        "negativeGeometricCoefficientThresholdM": 10779.373667999149,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 47,
+        "normalizedVector": [
+          1.0,
+          -0.018853156932796086,
+          0.6424888237910166,
+          0.01801243309041608
+        ],
+        "condensedNPerM": 1138245559.5666618,
+        "twiceEnergyByFamily": {
+          "outer": 7680453.190879815,
+          "inner": 28976272.4474862,
+          "plus": 550794416.9641476,
+          "minus": 550794416.9641484
+        },
+        "negativeGeometricCoefficientThresholdM": 9361.341883104382,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 48,
+        "normalizedVector": [
+          1.0,
+          -0.018546983533760265,
+          0.7411794966122088,
+          0.015737609323996597
+        ],
+        "condensedNPerM": 951167228.5655584,
+        "twiceEnergyByFamily": {
+          "outer": 8499812.415875264,
+          "inner": 23855633.190450143,
+          "plus": 459405891.4796162,
+          "minus": 459405891.4796167
+        },
+        "negativeGeometricCoefficientThresholdM": 7822.742236742812,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 49,
+        "normalizedVector": [
+          1.0,
+          -0.01761725052996868,
+          0.8298891336637949,
+          0.013506246783219022
+        ],
+        "condensedNPerM": 759158192.8224311,
+        "twiceEnergyByFamily": {
+          "outer": 8464671.92526146,
+          "inner": 18788327.16619908,
+          "plus": 365952596.8654851,
+          "minus": 365952596.86548525
+        },
+        "negativeGeometricCoefficientThresholdM": 6243.590696787821,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 50,
+        "normalizedVector": [
+          1.0,
+          -0.016085776955076472,
+          0.9076310750861363,
+          0.011322400561064568
+        ],
+        "condensedNPerM": 572073270.1820523,
+        "twiceEnergyByFamily": {
+          "outer": 7597124.129714067,
+          "inner": 13994717.591564847,
+          "plus": 275240714.2303869,
+          "minus": 275240714.2303865
+        },
+        "negativeGeometricCoefficientThresholdM": 4704.936838408194,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 51,
+        "normalizedVector": [
+          1.0,
+          -0.013999667735704687,
+          0.9735872667553845,
+          0.009186017142473505
+        ],
+        "condensedNPerM": 399393700.350052,
+        "twiceEnergyByFamily": {
+          "outer": 6080688.80883273,
+          "inner": 9674840.585955027,
+          "plus": 191819085.47763228,
+          "minus": 191819085.47763193
+        },
+        "negativeGeometricCoefficientThresholdM": 3284.757795460581,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 52,
+        "normalizedVector": [
+          1.0,
+          -0.011428273578436746,
+          1.0270999199166924,
+          0.0070934684192267726
+        ],
+        "condensedNPerM": 249769040.1278981,
+        "twiceEnergyByFamily": {
+          "outer": 4219876.368159759,
+          "inner": 6002326.744072183,
+          "plus": 119773418.5078336,
+          "minus": 119773418.50783275
+        },
+        "negativeGeometricCoefficientThresholdM": 2054.1906417295672,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 53,
+        "normalizedVector": [
+          1.0,
+          -0.008459630625150708,
+          1.0676609627736204,
+          0.0050381474712383155
+        ],
+        "condensedNPerM": 130617576.30711542,
+        "twiceEnergyByFamily": {
+          "outer": 2379344.585811829,
+          "inner": 3120031.585624883,
+          "plus": 62559100.067839675,
+          "minus": 62559100.06783877
+        },
+        "negativeGeometricCoefficientThresholdM": 1074.2460424962203,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 54,
+        "normalizedVector": [
+          1.0,
+          -0.005196555358139603,
+          1.0949011306827656,
+          0.003011104096885944
+        ],
+        "condensedNPerM": 47797198.784200326,
+        "twiceEnergyByFamily": {
+          "outer": 914351.3513245173,
+          "inner": 1137096.5178374704,
+          "plus": 22872875.45751915,
+          "minus": 22872875.457519338
+        },
+        "negativeGeometricCoefficientThresholdM": 393.1013963664802,
+        "bucklingPressurePa": null
+      },
+      {
+        "mode": 55,
+        "normalizedVector": [
+          1.0,
+          -0.0017525296380563838,
+          1.108580295528331,
+          0.0010017034510778225
+        ],
+        "condensedNPerM": 5354202.773087189,
+        "twiceEnergyByFamily": {
+          "outer": 104924.55297494345,
+          "inner": 127117.21913234286,
+          "plus": 2561080.5004898184,
+          "minus": 2561080.5004904377
+        },
+        "negativeGeometricCoefficientThresholdM": 44.03489409562619,
+        "bucklingPressurePa": null,
+        "matrixNPerM": [
+          [
+            1743404329.3046863,
+            23002338.405433286,
+            -1567696900.7084918,
+            -91764449.2806799
+          ],
+          [
+            23002338.405433286,
+            58591957422.187515,
+            73081121.43157604,
+            -1332218296.7768228
+          ],
+          [
+            -1567696900.7084918,
+            73081121.43157604,
+            1414241782.8686688,
+            24362438.49848151
+          ],
+          [
+            -91764449.2806799,
+            -1332218296.7768228,
+            24362438.49848151,
+            62315825999.81531
+          ]
+        ]
+      }
+    ],
+    "minimumElasticMode": 28,
+    "diagnosticWebShearNPerM": 2359770973.0449667,
+    "finiteExtensionEnergyJ": 18.28163367939883,
+    "linearEnergyJ": 18.281633681455226,
+    "globalStability": "UNKNOWN: no prestress/follower-load geometric tangent or out-of-plane connection analysis; elastic stiffness is not a pressure capacity."
+  },
+  "hardware": {
+    "webEndKg": {
+      "insert": 6.4588474604050505,
+      "endPlate": 5.050675677323238,
+      "clevisLugs": 9.330412770167298,
+      "pin": 1.183752111872634,
+      "washers": 0.11319629569782062,
+      "retainers": 0.02,
+      "bond": 0.16625308322797186
+    },
+    "webEndTotalKg": 22.323137398694012,
+    "nodeKg": {
+      "twoMiteredHalfCuffs": 9.5070091484771,
+      "cuffBond": 0.2827433388230814,
+      "crossarm": 16.880640000000003,
+      "weld": 0.067824
+    },
+    "nodeTotalKg": 26.738216487300186,
+    "ringCuff": {
+      "odM": 0.262,
+      "wallM": 0.005,
+      "areaM2": 0.004036946559862888,
+      "inertiaM4": 3.334215087454756e-05,
+      "sectionModulusM3": 0.0002545202356835692,
+      "kgPerM": 31.690030494923672
+    },
+    "crossarmAreaM2": 0.0035840000000000004,
+    "crossarmIM4": 7.531178666666666e-06,
+    "crossarmZM3": 0.00012551964444444444,
+    "ringEndBondAreaM2": 0.11780972450961724,
+    "webEndBondAreaM2": 0.27708847204661974,
+    "pinDoubleShearAreaM2": 0.0025132741228718345,
+    "lugBearingAreaM2": 0.00128
+  },
+  "connectionScreens": {
+    "ringForceN": 4888078.825400542,
+    "ringCuffYieldScreenN": 1433116.0287513253,
+    "ringCuffRequiredYieldPa": 1210835653.3623674,
+    "ringBondRequiredMeanShearPa": 41491301.72188383,
+    "webForceN": 198875.84176455185,
+    "webBondRequiredMeanShearPa": 717734.0879453522,
+    "pinDoubleShearScreenN": 515119.01944251783,
+    "lugBearingScreenN": 454400.00000000006,
+    "oneCrossarmMomentNm": 39775.168352910376,
+    "crossarmYieldMomentNm": 44559.47377777778,
+    "status": "FAIL: ring cuff axial yield screen. Other checks are conditional, and actual bond/end stiffness is UNKNOWN."
+  },
+  "erectionAttachment": {
+    "partsKg": {
+      "band": 1.2799319709622854,
+      "flanges": 0.2700966183183453,
+      "twoM12Shanks": 0.10653769006853706,
+      "nutsHeadsWashers": 0.12,
+      "twoJaws": 0.15072000000000002,
+      "lining": 0.11611326447667879,
+      "twoPatchPlies": 0.00926599655172414
+    },
+    "eachKg": 2.052665540377571,
+    "barrelCount": 20286,
+    "capEquivalentCount": 20107,
+    "totalCount": 40393,
+    "totalT": 82.91331917247122,
+    "sameConventionDemandN": 7018.732990352584,
+    "requiredNominalN": 10528.099485528877,
+    "strapTensionAreaM2": 0.0006000000000000001,
+    "strapYieldScreenN": 213000.00000000003,
+    "twoBoltShearScreenN": 46360.71174982661,
+    "twoJawCantileverStressPa": 877341623.7940732,
+    "bandBearingThresholdPa": 634222.8605740287,
+    "twoLapMeanShearThresholdPa": 1645015.544613887,
+    "qualifiedNominalCapacityN": null,
+    "status": "FAIL retained: 3 mm jaw bending fails the nominal steel screen; film grip, bolt grade, hoop bearing and patch/bond transfer are also unqualified."
+  },
+  "mass": {
+    "baselineHullT": 1128.552229463235,
+    "replacedStationFraction": 0.3942307692307692,
+    "removedInnerThetaMembersT": 174.75959539324774,
+    "removedAttributedJointsT": 30.83992859880843,
+    "removedOldClampsT": 5.648293597986425,
+    "retainedOtherHullT": 917.3044118731924,
+    "newBillT": {
+      "outerRingT": 147.4243235091005,
+      "innerRingT": 130.35793221116512,
+      "webTubeT": 192.89343993926386,
+      "webEndHardwareT": 406.37039320582585,
+      "ringNodeHardwareT": 243.37124646740628,
+      "newAttachmentsT": 82.91331917247122
+    },
+    "hullT": 2120.635066378425,
+    "retainedGasT": 8.087556921488705,
+    "knownSubtotalT": 2128.7226232999137,
+    "at": [
+      {
+        "altitudeM": 0,
+        "liftT": 819.4717050698429,
+        "knownMarginT": -1309.250918230071,
+        "baselineMarginT": -317.16808131488085
+      },
+      {
+        "altitudeM": 2500,
+        "liftT": 640.0949368477134,
+        "knownMarginT": -1488.6276864522004,
+        "baselineMarginT": -496.54484953701035
+      }
+    ],
+    "fullOldFamilyIncludingJointsT": 521.5207437847279,
+    "baselineWholeFamilyBalanceLimitT": 204.35266246984702,
+    "newFrameAndNodeT": 1120.4173353327617,
+    "maximumNewFrameAndNodeT": -188.8335828973095,
+    "allUpMassT": null,
+    "allUpMarginT": null
+  },
+  "qualification": "FAIL for represented mass, ring-cuff load transfer and erection jaw; global stability and all-up physical confidence UNKNOWN.",
+  "nextGeometry": "Retain the 80 m envelope for one continuous-ring/locally thickened node concept to remove the failed sleeve splice; replace the jaw with an 8 mm plate only as a new untested sizing trial. Re-derive stiffness, mass and interface load transfer before credit."
+}
