@@ -1,8 +1,7 @@
 # R3-I012 — a dimensioned four-bay payload/trim arrangement for the gas P-100
 
-Status: design iteration, 2026-10-14 (consolidated first-review successor; second targeted correction),
-on the corrected R3-I007 equipment set and trim laws (accepted candidate `481e6ed6`; a byte-identical
-landing57 package is in custody — landing not established at this writing). Internal, conditional design
+Status: design iteration, 2026-10-14, on the corrected [R3-I007](../R3-I007/README.md) equipment set
+and trim laws. Internal, conditional design
 hypothesis pending applicable claim review; no positive public claim is made here. No aircraft has been
 built or flown. Every number below is either copied from a recorded source, computed by
 [`layout.py`](layout.py) (deterministic, stdlib only; this revision's figures are from one bounded

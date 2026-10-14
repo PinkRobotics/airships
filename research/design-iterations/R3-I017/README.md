@@ -1,9 +1,8 @@
 # R3-I017 — the drawn four-bay arrangement: tanks, cradles, load path, occupancy
 
-Status: design iteration, 2026-10-14 (consolidated first-review successor; targeted correction), on
-the twice-corrected R3-I012 state (in-tree governed successor `0ba417da`; the earlier `7bbc5c23`
-line's own review findings are under targeted correction here), which itself sits on the corrected
-R3-I007 equipment set. Internal, conditional design hypothesis pending applicable claim review; no
+Status: design iteration, 2026-10-14, on the corrected [R3-I012](../R3-I012/README.md) state,
+which itself sits on the corrected [R3-I007](../R3-I007/README.md) equipment set.
+Internal, conditional design hypothesis pending applicable claim review; no
 positive public claim is made here. No aircraft has been built or flown. Every number below is either
 copied from a recorded source, computed by [`layout.py`](layout.py) (deterministic, stdlib only; this
 revision's figures are from one bounded recorded execution), or labelled assumed / UNKNOWN. This is
@@ -66,7 +65,7 @@ suspension allowance), so the saddles tie directly into structure that is declar
   y = 12.53, z = −22.93; their best corner 5.30 m) against the declared 0.50 m minimum; the upper
   row (B1-FL/B4-AR) runs worst **3.54 m** (y = 12.53, z = −20.43) to best **7.53 m** — the earlier
   ledger's sign filter had shown intermediate corners for the positive-y bays and omitted their
-  worst corner; every corner of every bay now prints. Hull half-width 19.9 m at z = −19.0 and
+  worst corner; each bay's worst and best corner now print. Hull half-width 19.9 m at z = −19.0 and
   17.1 m at z = −21.5 against the 12.53 m bay outboard edge — outboard maintenance gaps
   **7.4 / 4.6 m** (≥ 0.9 m scaffold declared). Inboard, both rows leave |y| < 9.47 m open to the
   keel corridor (lower-row bottom −22.9 m down to the hull floor −27.5 m at y = 0) for hose, ducts
