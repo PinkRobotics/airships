@@ -1,0 +1,65 @@
+{
+  "unit": "R3-I029",
+  "inputFiles": {
+    "research/design-iterations/R3-I024/README.md": "d65128a13ded7d22320670a7cabdbc452405bd13766542ad08e1ff3b30eaef7e",
+    "research/design-iterations/R3-I024/result.json": "dc510d5d483dc0edd39ce949b612f99f28111df9c4797eb6c9902c7d5b4f4dee",
+    "research/design-iterations/R3-I024/sources.json": "25c671ccb51598a56255f63316b60732d654d57c9b37b17701273ada9db8d996"
+  },
+  "sourceContext": {
+    "accessed": "Carried from corrected I020; no new external access",
+    "sources": [
+      {
+        "id": "toray-t700s",
+        "url": "https://www.toraycma.com/wp-content/uploads/T700S-Data-Sheet.pdf",
+        "revision": "11/24/2025",
+        "use": "Context for provisional carbon inputs only: typical composite tensile modulus 134 GPa and compressive strength 1450 MPa, epoxy at 130 C, normalized to 60% fiber volume. I008 comparison still uses E=135 GPa and density=1600 kg/m3; this is not a tube laminate specification."
+      },
+      {
+        "id": "ssab-steel",
+        "url": "https://www.ssab.com/en/support/product-material-data/steel/20-questions",
+        "use": "Steel density approximately 7850 kg/m3 and modulus approximately 200 GPa for screening mass/stiffness."
+      },
+      {
+        "id": "ssab-domex-355mc",
+        "url": "https://www.ssab.com/en-gb/brands-and-products/ssab-domex/product-offer/355mc",
+        "use": "355 MPa minimum yield for specified sheet product. Applied as a nominal plate/formed-sleeve screen; no welded assembly, formed box or machined-pin rating is established."
+      }
+    ],
+    "unqualified_inputs": {
+      "carbonTubeLaminate": "UNKNOWN; proxies retained for comparison",
+      "adhesiveDensityKgPerM3": 1200,
+      "liningDensityKgPerM3": 1100,
+      "adhesiveStrengthPa": null,
+      "pinMaterialCertification": null,
+      "formedWeldedAssemblyProperties": null,
+      "compositeShearProxyPa": 5000000000.0,
+      "adhesiveShearProxyPa": 1000000000.0,
+      "softTrialCompositeShearPa": 500000000.0,
+      "softTrialAdhesiveShearPa": 100000000.0,
+      "softTrialAdditionalWebEndComplianceMPerN": 1e-08,
+      "frictionCoefficientIllustration": 0.3,
+      "integralNodeLaminateAndProcess": "UNKNOWN",
+      "bearingAndPeelAllowables": "UNKNOWN",
+      "capCouplingAndPrestress": "UNKNOWN",
+      "polarDomeBuckling": "UNKNOWN",
+      "meridianEndFittingAndSaddle": "UNKNOWN",
+      "fineHoopCurvedBeamAndFilmDrape": "UNKNOWN",
+      "steelPlateTrialThicknessM": 0.012,
+      "polymerFilmDensityKgM3": 1400,
+      "polymerFilmThicknessM": 0.001,
+      "polymerTensileProxyPa": 50000000,
+      "polymerMaterialAndCreep": "UNKNOWN; generic construction assumption only",
+      "carbonTubeEpa": 135000000000,
+      "carbonTubeDensityKgM3": 1600,
+      "carbonNormalStressProxyPa": 1450000000,
+      "clipGuideFrictionAndStroke": "UNKNOWN",
+      "rootAdapterNormalStep": "Replaced by one dimensioned two-foot adapter in this unit; installed attachment and inherited clip capacity remain unqualified.",
+      "receivingFrameStiffnessAndMomentTransfer": "UNKNOWN",
+      "pinForkEyeSteelAndWeldCertification": "UNKNOWN;355MPa is only a nominal comparison",
+      "pressureSurfaceAndDisplacement": "R40 unloaded datum; loaded shape UNKNOWN; no new volume credit"
+    },
+    "provenance": "Unchanged primary-source context and material proxies from corrected I020 (public landed equivalent 84864c083961fad534419cd7145a99b696f84834). New geometry, section and connection distributions are explicit unqualified construction assumptions."
+  },
+  "materialCertification": "Unchanged inherited proxies, not certified cassette/ring/bolt/laminate properties.",
+  "historicalExecution": "Predecessor outputs retain their original execution identities; public metadata and this integration revision are not ancestor re-execution."
+}
