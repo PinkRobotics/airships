@@ -635,11 +635,13 @@ python3 tools/check_builder_line.py
 
 `calc.py --write` regenerates `research/design-iterations/R3-I024/result.json`; `draw.py --write` regenerates `research/design-iterations/R3-I024/geometry.svg` from that saved result. The drawing does not run the engineering model. A successful reproduction means the declared numbers and geometry reproduce; it does not change the engineering FAIL/UNKNOWN disposition.
 
-The frozen comparison hashes are:
+The scientific comparison remains the commit and tree above. The README hash below includes a later provenance-only text cleanup; all six non-README comparison files and the saved scientific result are unchanged.
+
+The installed comparison file hashes are:
 
 | Comparison file | SHA-256 |
 | --- | --- |
-| README.md | bb0efb7d07aaaafdc90be0d0e0fc1a21240d67638030b05348204003e2427a26 |
+| README.md | ba91d87d22f49362da14b16c186167a21ebf6eaba6d926a1f6ac915e42fff8f6 |
 | baseline.json | 2975239c8321f9adfa8134b6476f6b3ce41fac3fa58ed9730daa3312ed1115e7 |
 | calc.py | bae28bcd08d4344a157b16153682a8afb91c658bbccb178b684438ccd61ac419 |
 | draw.py | 109d6e0b7aa2a71453f7e6c48d94904c2f70e603c5a23a22b4074ba4c918ffa3 |
