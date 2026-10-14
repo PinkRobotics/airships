@@ -896,3 +896,22 @@
 | Order | sha256 `00160483f1134845…` (informational) |
 | Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
 
+## Landing 63 — Record helium suspension routing and construction mass bounds
+
+| field | value |
+|---|---|
+| Landed | 2026-10-14 04:49:13 PDT by the lander using `ship/tools/land.py`, a pure **FAST-FORWARD**: main `510acd50fb84405952ba2f3b16185746fa1a41cb` → `e914782948438a7141c1f37e1dc5bf82450589b1`; pushed main-only, non-force, origin verified equal. The signed sha IS main; the landed tree equals the signed tree by identity. |
+| The object | SIGNED `e914782948438a7141c1f37e1dc5bf82450589b1`, tree `a9ef3271e6f23318dd04492f69e4203b1a4a283b`, from branch `r3-i013-landing59-package`, parent `510acd50fb84405952ba2f3b16185746fa1a41cb`, governance `gov-861881d01677` preserved. Unit `r3-i013`. |
+| Rebase | law I.3c.5, mechanised: the signed object `087fdfd827df235500e9bda0a9c8860075f47356` was rebased off `daeaf1d09c018c4b8136f819dd0697292c32fbbf` onto the moved main `510acd50fb84405952ba2f3b16185746fa1a41cb`, landing as `e914782948438a7141c1f37e1dc5bf82450589b1`. `git range-diff` showed every pair `=`; each new commit was re-governed mechanically with that pair as its reason. The gate below honours the OLD sha's EXISTING record — no fresh signature was asked or given. Range-diff:
+
+```
+1:  087fdfd8 = 1:  e9147829 research: package finite-support routing on accepted pressure base
+``` |
+| Pre-checks under the lock | primary on main; HEAD == main == the named base; origin/main == the named base; merge-base(main, candidate) == main and candidate != main; tree == the named tree; Helm-Audit-ID on every commit in base..candidate; tracked tree clean; object imported exact from the source. |
+| Gate | `tools/land_gate.py 087fdfd82…` → rc=0, HONOURED-XO 087fdfd827df235500e9bda0a9c8860075f47356 — the last record for this sha (store line 1971) is XO-SIGNED. (store `fo-verdicts.tsv`) |
+| Governance records | `e91478294` ← `gov-ack-e91478294843` (reconcile record; trailer `gov-861881d01677` is bound to another sha). Each record names the landed sha as the commit it governed. |
+| Evidence before landing | `PYTHONDONTWRITEBYTECODE=1 make readmecheck linkcheck buildercheck claimsrestore claimscheck` rc=0 (environment PATH set to host paths, not shown) (gate timeout 1200 s, named by the order) |
+| Tool | `ship/tools/land.py` sha256 `3f4d36dddae3efb1…` from helm (informational) |
+| Order | sha256 `ee40692f17e9255d…` (informational) |
+| Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
+
