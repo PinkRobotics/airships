@@ -2,6 +2,8 @@
 
 Pink Robotics asks whether a vacuum-lift airship could carry and deliver water under checkable physical assumptions; the public study is at [pinkrobotics.ca](https://pinkrobotics.ca/). No aircraft has been built or flown.
 
+`not shown · margin UNKNOWN · confidence UNKNOWN · weakest assumption: required structural mass`
+
 [![CI](https://github.com/PinkRobotics/airships/actions/workflows/ci.yml/badge.svg)](https://github.com/PinkRobotics/airships/actions/workflows/ci.yml)
 
 ![Side silhouette of the conceptual airship](3d/assets/static/p100-side-silhouette.svg)
