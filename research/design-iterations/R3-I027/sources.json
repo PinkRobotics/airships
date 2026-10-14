@@ -1,0 +1,14 @@
+{
+ "unit": "R3-I027",
+ "convention": "tank.py reads only standard-library code plus the frozen saved inputs named here; no ancestor calculator is imported, executed or regenerated; baseline.json is frozen copied data, not an executable snapshot",
+ "runtime_inputs_read_by_tank_py": [
+  {"path": "research/design-iterations/R3-I027/baseline.json", "sha256_at_freeze": "a06b321ae10c86e059161ec42245b79de87be6a696934738045d8e4ab87ce030", "role": "all frozen copied fields: candidate geometry, inherited mission data, I017 comparison record, I012 budget basis"}
+ ],
+ "copied_from_as_data_only": [
+  {"path": "research/design-iterations/R3-I017/README.md", "at": "landing72 e3a6f7b854ef0683fbcdacd6db330a7c3b94044b tree 91c7eadb15f641e918fd94faf87c70599a418363", "sha256": "3f69a96d81307ad79d3816051f515c5021b048c44d31deb3c26f8f45304ba304", "role": "predecessor record: bill lines, DRY/n0/n1, floor/cap, authority datums, corner ledger 1.38 m at z=-22.93, half-widths 19.9/-19.0 and 17.1/-21.5, hull floor -27.5"},
+  {"path": "research/design-iterations/R3-I012/README.md", "at": "landing72 e3a6f7b854ef0683fbcdacd6db330a7c3b94044b", "sha256": "84736fd5a942847b4c4dc6bec01497ca687c1e442beb3e1c2066b59718993e69", "role": "budget basis lines: equipment ex-hull 38.77, gas hull 23.75, correction -2.34"}
+ ],
+ "pre_calculation_drawing": [
+  {"path": "research/design-iterations/R3-I027/geometry.svg", "sha256_at_freeze": "79329f9c87d63f61ad91a08524ca04a763dfc020a25e32674dd365a1b41cfcbd", "role": "source-native arrangement drawing (finite dimensions and attachment locations drawn BEFORE calculation); no drawing process or drawing allowance used"}
+ ]
+}

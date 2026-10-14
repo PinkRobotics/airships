@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 760" font-family="monospace" font-size="13">
+  <!-- R3-I027: four upright curved tanks (barrels) at the inherited P-100 stations.
+       Source-native arrangement drawing: finite dimensions and attachment locations,
+       drawn BEFORE calculation per the issued unit contract. Not to scale. -->
+  <style>
+    .tank { fill:#dce8f2; stroke:#1c3550; stroke-width:2.2 }
+    .hull { fill:none; stroke:#444; stroke-width:1.6 }
+    .band { stroke:#7a1f1f; stroke-width:5; fill:none }
+    .frame { stroke:#2a6b2a; stroke-width:1.4; stroke-dasharray:10 5 }
+    .dim { stroke:#333; stroke-width:1; fill:none }
+    .lbl { fill:#111 } .dlbl { fill:#039 } .note { fill:#555 }
+    .water { fill:#9fc6e8; fill-opacity:0.75; stroke:none }
+  </style>
+
+  <text x="20" y="24" class="lbl" font-size="17" font-weight="bold">R3-I027 — one upright curved tank per bay, four bays at the inherited stations (x = ±14 m, y = ±11 m)</text>
+  <text x="20" y="42" class="note">FROZEN CANDIDATE: OD 3.05 m · straight barrel 3.60 m · two ellipsoidal heads 0.30 m · 3 mm 5083 (selected stock) · two internal baffles · 60 mm freeboard</text>
+
+  <!-- ===== left: tank elevation (one bay) ===== -->
+  <text x="60" y="80" class="lbl" font-weight="bold">ELEVATION — one curved tank (all four identical)</text>
+  <!-- hull outline hint -->
+  <path class="hull" d="M 40 640 C 120 500, 120 260, 300 160 C 480 60, 480 60, 560 60"/>
+  <text x="46" y="700" class="note">hull skin (clearance checked at tank extrema; section below −21.5 m datum: interpolated, exact law UNKNOWN)</text>
+
+  <!-- tank: barrel 3.60 + heads 0.30, centred at (250, 400); 1 m = 100 px vertical, 1 m = 80 px horizontal -->
+  <g>
+    <!-- bottom head (elliptical, 0.30 m deep) -->
+    <path class="tank" d="M 128 400 A 122 30 0 0 0 372 400"/>
+    <!-- barrel (3.60 m) -->
+    <rect class="tank" x="128" y="40" width="244" height="360"/>
+    <!-- top head -->
+    <path class="tank" d="M 128 40 A 122 30 0 0 1 372 40"/>
+    <!-- water fill to 60 mm below top head springline (bottom head full) -->
+    <rect class="water" x="130" y="46" width="240" height="354"/>
+    <path class="water" d="M 130 400 A 120 29 0 0 0 370 400"/>
+    <!-- baffles at 1/3 and 2/3 barrel height -->
+    <line x1="128" y1="160" x2="372" y2="160" stroke="#1c3550" stroke-width="3"/>
+    <line x1="128" y1="280" x2="372" y2="280" stroke="#1c3550" stroke-width="3"/>
+    <text x="380" y="164" class="dlbl">internal baffle 3 mm full-circle (1/3 H)</text>
+    <text x="380" y="284" class="dlbl">internal baffle 3 mm full-circle (2/3 H)</text>
+    <!-- support bands at ±1.20 m from tank mid-height -->
+    <line class="band" x1="126" y1="280" x2="374" y2="280"/>
+    <line class="band" x1="126" y1="520" x2="374" y2="520"/>
+    <!-- pickups/adapter -->
+    <line x1="250" y1="280" x2="250" y2="230" stroke="#7a1f1f" stroke-width="3"/>
+    <line x1="250" y1="520" x2="250" y2="570" stroke="#7a1f1f" stroke-width="3"/>
+    <circle cx="250" cy="225" r="5" fill="#7a1f1f"/>
+    <circle cx="250" cy="575" r="5" fill="#7a1f1f"/>
+    <text x="380" y="524" class="dlbl">circumferential support band 100×6 mm (two per tank)</text>
+    <text x="262" y="222" class="dlbl">adapter assembly (one per tank): band saddle + clevis + links</text>
+    <text x="262" y="592" class="dlbl">upper pickup → curtain plane fitting (x = ±14 m plane)</text>
+    <text x="262" y="610" class="dlbl">lower pickup → curtain plane fitting</text>
+  </g>
+  <!-- dimensions -->
+  <line class="dim" x1="100" y1="40" x2="100" y2="400"/>
+  <text x="40" y="225" class="dlbl">3.60 m</text>
+  <line class="dim" x1="100" y1="10" x2="100" y2="40"/>
+  <text x="40" y="28" class="dlbl">0.30 m</text>
+  <line class="dim" x1="100" y1="400" x2="100" y2="430"/>
+  <text x="40" y="420" class="dlbl">0.30 m</text>
+  <line class="dim" x1="128" y1="668" x2="372" y2="668"/>
+  <text x="228" y="684" class="dlbl">OD 3.05 m</text>
+  <line class="dim" x1="128" y1="72" x2="128" y2="72"/>
+  <text x="380" y="72" class="dlbl">freeboard 60 mm below top-head springline (head = ullage)</text>
+  <text x="380" y="90" class="dlbl">bottom head drains water (usable); sump remainder debited</text>
+
+  <!-- ===== right: plan arrangement ===== -->
+  <text x="640" y="80" class="lbl" font-weight="bold">PLAN — four stations, diagonal stagger (unchanged centres)</text>
+  <g>
+    <!-- curtain planes x = 0, ±7, ±14 (declared) -->
+    <line class="frame" x1="660" y1="100" x2="660" y2="640"/>
+    <line class="frame" x1="870" y1="100" x2="870" y2="640"/>
+    <line class="frame" x1="1080" y1="100" x2="1080" y2="640"/>
+    <text x="648" y="115" class="dlbl">x = −14</text>
+    <text x="858" y="115" class="dlbl">x = 0</text>
+    <text x="1068" y="115" class="dlbl">x = +14</text>
+    <!-- tanks as circles OD 3.05: upper row z=−19.0, lower z=−21.5; y=±11 -->
+    <!-- scale: 1 m = 15 px; y=+11 top, y=−11 bottom; x=−14 at 660, 0 at 870, +14 at 1080 -->
+    <circle class="tank" cx="660" cy="205" r="23"/>
+    <circle class="tank" cx="1080" cy="535" r="23"/>
+    <circle class="tank" cx="660" cy="535" r="23"/>
+    <circle class="tank" cx="1080" cy="205" r="23"/>
+    <text x="690" y="200" class="lbl">B1-FL (−14, +11, −19.0) upper · D1</text>
+    <text x="905" y="560" class="lbl">B4-AR (+14, −11, −19.0) upper · D1</text>
+    <text x="690" y="560" class="lbl">B2-FR (−14, −11, −21.5) lower · D2</text>
+    <text x="905" y="200" class="lbl">B3-AL (+14, +11, −21.5) lower · D2</text>
+    <!-- diagonal pair markers -->
+    <line class="dim" x1="683" y1="224" x2="1057" y2="516" stroke-dasharray="4 4"/>
+    <line class="dim" x1="683" y1="516" x2="1057" y2="224" stroke-dasharray="4 4"/>
+    <text x="850" y="372" class="note">D1 diagonal (fast drop) · D2 diagonal (exchange)</text>
+    <text x="640" y="660" class="note">pair centroids on centreline → zero nominal Mx/My preserved (z-stagger enters neither arm)</text>
+  </g>
+
+  <!-- ===== bottom-right: section notes ===== -->
+  <text x="640" y="700" class="lbl" font-weight="bold">SECTION CONVENTION (declared, interpolated below −21.5 m)</text>
+  <text x="640" y="718" class="note">hull half-width 19.9 m @ z=−19.0 · 17.1 m @ z=−21.5 (I017 recorded data); tank outboard edge |y| = 12.525 m at the equator only (round section pulls in with |z−z_c|)</text>
+  <text x="640" y="736" class="note">worst known-datum clearance 4.58 m (lower-row equator @ −21.5); barrel bottom-head tip reaches z = −23.60 m — below the last recorded section datum, clearance by declared linear interpolation, exact law UNKNOWN</text>
+</svg>
