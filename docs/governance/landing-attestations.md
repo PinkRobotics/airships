@@ -738,3 +738,23 @@
 | Order | sha256 `2cc503031326b89d…` (informational) |
 | Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
 
+## Landing 54 — Reorient the programme toward airship design iterations
+
+| field | value |
+|---|---|
+| Landed | 2026-10-14 00:57:35 PDT by the lander using `ship/tools/land.py`, a pure **FAST-FORWARD**: main `857245e2805dab3217b8f30425ecb3131971a24d` → `20c94a85006e2df5432b6129e2df63c0fc1a6083`; pushed main-only, non-force, origin verified equal. The signed sha IS main; the landed tree equals the signed tree by identity. |
+| The object | SIGNED `20c94a85006e2df5432b6129e2df63c0fc1a6083`, tree `e90f7dc7ee5c3e1937f8983eb77e09e0956594cd`, from branch `worker-r3-programme-claims-repair-1014`, parent `a00020baf3c36101e84498077a3fb8dd322607d4`, governance `gov-a25f54973066` preserved. Unit `r3-programme-claims-repair-1014`. |
+| Rebase | law I.3c.5, mechanised: the signed object `8a7986868133914e38d69267758cba25e2212102` was rebased off `afb2c2d1726b9d9a805f9781085c3dd6a52913e5` onto the moved main `857245e2805dab3217b8f30425ecb3131971a24d`, landing as `20c94a85006e2df5432b6129e2df63c0fc1a6083`. `git range-diff` showed every pair `=`; each new commit was re-governed mechanically with that pair as its reason. The gate below honours the OLD sha's EXISTING record — no fresh signature was asked or given. Range-diff:
+
+```
+1:  9a197434 = 1:  a00020ba Redirect the programme around design iterations
+2:  8a798686 = 2:  20c94a85 Repair programme README claim locations
+``` |
+| Pre-checks under the lock | primary on main; HEAD == main == the named base; origin/main == the named base; merge-base(main, candidate) == main and candidate != main; tree == the named tree; Helm-Audit-ID on every commit in base..candidate; tracked tree clean; object imported exact from the source. |
+| Gate | `tools/land_gate.py 8a7986868…` → rc=0, HONOURED-XO 8a7986868133914e38d69267758cba25e2212102 — the last record for this sha (store line 1962) is XO-SIGNED. (store `fo-verdicts.tsv`) |
+| Governance records | `a00020baf` ← `gov-ack-a00020baf3c3` (reconcile record; trailer `gov-e2958037c0d0` is bound to another sha); `20c94a850` ← `gov-ack-20c94a85006e` (reconcile record; trailer `gov-a25f54973066` is bound to another sha). Each record names the landed sha as the commit it governed. |
+| Evidence before landing | `PYTHONDONTWRITEBYTECODE=1 make readmecheck linkcheck buildercheck claimsrestore claimscheck` rc=0 (environment PATH set to host paths, not shown) (gate timeout 1200 s, named by the order) |
+| Tool | `ship/tools/land.py` sha256 `3f4d36dddae3efb1…` from helm (informational) |
+| Order | sha256 `86901fbb9c5a2d85…` (informational) |
+| Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
+
