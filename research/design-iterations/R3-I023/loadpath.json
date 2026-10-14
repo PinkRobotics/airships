@@ -1,0 +1,558 @@
+{
+ "unit": "R3-I023",
+ "rev": "v1.3-consolidated-correction",
+ "date": "2026-10-14",
+ "dependency": {
+  "inputs": "R3-I019 v3.1 termination.json + corrected R3-I015 coupled.json, both HASH-GUARDED at load (sha256 in loadpath.py; the v1.0 run read the uncorrected termination record; v1.1 pinned the v2 bytes, superseded by this re-pin)",
+  "i019": "3f4533f723e64c7a\u2026 (rev v3.1; grips 60/97 mm; bill spokes 245.42 t; UHMWPE-class ledger with the EPa key; dimensioned bolted attachment, one cord accounting boundary)",
+  "i015": "6090c36e6b4479c5\u2026 (K labelled Pa; numerics unchanged)",
+  "springModel": "both-end compliance carried as kappa = L_chord/L_eff (declared model; no-transfer variant reported as the bound), from the corrected free-length record \u2014 the v3 successor ratified this same law (eta > 1)",
+  "n5MarginBound": {
+   "rigidLicensed": 1.000811196,
+   "drawnCompliant": 1.000874096,
+   "toleranceRigidPct": 0.0811,
+   "toleranceDrawnPct": 0.0874,
+   "quotable": "rigidLicensed \u2014 the drawnCompliant value sits BEYOND the rigid anchor (v3 consistent eta > 1) and is reported, not claimed",
+   "source": "read from the guarded records, replacing the v1.0 prose literals"
+  }
+ },
+ "conventions": {
+  "normal": "outward",
+  "deltaP": -101325.0,
+  "statement": "delta_p = p_in - p_out = -101325 Pa: the vacuum lineage's INWARD traction; record P_ATM magnitudes are |delta_p|. No internal overpressure, helium envelope or outward reaction is introduced anywhere in this unit.",
+  "pricedSystem": "the priced film/bar/ring wall and the caps/longerons CARRY the pressure (traced under the DECLARED model \u2014 see modelStatus); the membrane term stays excluded from the licensed stability calc exactly as the record excludes it (no continuous pressure shell is invented)"
+ },
+ "modelStatus": {
+  "declaredModel": "common hoop strain across the smeared ring box (theta webs asserted to enforce one strain) with both-end termination compliance kappa",
+  "equilibrium": "WITHDRAWN closure claim: the declared kinematics does not balance the priced theta webs \u2014 see equilibriumDeficit, which reproduces the sole first review's demonstrated deficit and recomputes it at the corrected inner-rail area (still unresolved). No reaction is invented; no stiffness, geometry, pretension or load-share coefficient is tuned to force a pass",
+  "conditionals": [
+   "pressure strain eps_box and every epsBox-derived field (box.epsBarrel, states.*, slack counts, threshold radii)",
+   "S1/S2/S1' service forces and rail reactions",
+   "the reset-travel take-up arithmetic (which additionally assumes the model strain state)"
+  ],
+  "withdrawn": [
+   "the v1.2.x zero-mass existing-stud reset claim (resetTravel)",
+   "all studCovers / stud-shortfall capacity verdicts \u2014 the fitting value is a DEMAND, stud capacity UNKNOWN",
+   "the counted-once inner-plane band reconciliation (boundaryReactions.tributary)",
+   "the film trough/support tension split \u2014 the strip tension is CONSTANT p*R_tr",
+   "the denominator-free taut identity dT/T0 = kappa*eps_box/eps0"
+  ],
+  "unknowns": [
+   "the retained construction's compatibility/force balance with the webs participating (nextChange)",
+   "stud/thread/nut capacity for the actual sections and materials",
+   "the installation construction for pump-down tensioning",
+   "cap-edge/junction local bending and traction distribution"
+  ]
+ },
+ "filmStrip": {
+  "spanM": 0.5,
+  "sagM": 0.0625,
+  "troughRM": 0.5312,
+  "tConstantkNm": 53.83,
+  "tTwoCurvaturePricingRefkNm": 26.91,
+  "tEdgeFormkNm": 53.83,
+  "radialPerEdgekNm": 25.33,
+  "axialAtSupportkNm": 47.5,
+  "balance": "one-way circular membrane under uniform normal pressure: CONSTANT tension T = p*R_tr along the arc (2*T*sin(a) = p*s_r exactly). The half-value is the two-curvature PRICING reference the record doubles for mass \u2014 not this strip's trough tension; the doubled thickness pricing stands",
+  "axialCancellation": "T*cos(a) = 15p/32 = 47.5 kN/m at each support: equal and opposite between adjacent strips on every interior barrel ring, UNCANCELLED at the cap edges \u2014 exported unsolved in boundaryReactions.unsolved",
+  "pricedKgM2": 0.11582495689655173
+ },
+ "barrelRing": {
+  "sectionM2": 0.0031667253948185147,
+  "odMm": 174.0,
+  "demandN": 2837100.0,
+  "capacityN": 2892368.9776175357,
+  "governs": "euler",
+  "bracedM": 2.2700540464648826,
+  "lineLoadkNm": 50.66,
+  "utilAlone": 0.9809
+ },
+ "box": {
+  "aRingM2": 0.0031667253948185147,
+  "aInnerM2": 0.001453,
+  "aBoxM2": 0.01412,
+  "aInnerV122M2": 0.002507,
+  "epsBarrel": 0.005953,
+  "aInnerStatement": "the retained replacement inner-rail section ALONE (I005's a_i prices the ENTIRE replacement rail); the v1.2.x box added the pre-replacement skeleton section on top \u2014 a labelled FAILED calculation, pinned in aInnerV122M2",
+  "share": "CONDITIONAL: loads distribute by area share under the DECLARED common-strain kinematics (theta webs asserted to enforce one hoop strain); that kinematics does not balance the priced webs \u2014 see equilibriumDeficit"
+ },
+ "equilibriumDeficit": {
+  "geometry": {
+   "thetaWebAreaM2": 0.0006943030859409637,
+   "recordDepthM": 6.461538461538462,
+   "recordWebPitchM": 2.270054
+  },
+  "statement": "under the declared common-strain model the connected straight theta webs contract with the box, and their inward pulls overwhelm the inner-ring cuts' outward push per station \u2014 the single-DOF common-strain state does not balance the priced webs, so the claimed CLOSED equilibrium is withdrawn and the model's strain/service/slack outputs are CONDITIONAL diagnostics",
+  "reviewWitness": "the sole first review demonstrated this deficit with saved values (979829.344 N inward vs 76000.474 N outward, 903828.870 N unresolved; required web strain 0.000429710 vs imposed 0.005540000); the reviewWitnessInputs row reproduces that arithmetic exactly, the v13CorrectedInputs row recomputes it on the retained section \u2014 still unresolved by an order of magnitude, and NO reaction is invented here",
+  "rows": {
+   "reviewWitnessInputs": {
+    "innerRailAreaM2": 0.002507,
+    "strain": 0.00554,
+    "depthM": 6.4615,
+    "webLengthM": 6.8487,
+    "webInwardN": 979829.3,
+    "ringOutwardN": 76000.5,
+    "unresolvedInwardN": 903828.9,
+    "requiredWebStrain": 0.00042971,
+    "imposedWebStrain": 0.00554
+   },
+   "v13CorrectedInputs": {
+    "innerRailAreaM2": 0.0014534512719466778,
+    "strain": 0.005953,
+    "depthM": 6.461538461538462,
+    "webLengthM": 6.8487,
+    "webInwardN": 1052922.2,
+    "ringOutwardN": 47348.7,
+    "unresolvedInwardN": 1005573.5,
+    "requiredWebStrain": 0.000267712,
+    "imposedWebStrain": 0.005953266
+   }
+  }
+ },
+ "cordWeb": {
+  "d60": {
+   "sinHalf": 0.869384,
+   "perCordSectionM2": 4.863837539556058e-05,
+   "t0kN": 6.809,
+   "n0PerPlanekN": 292.1,
+   "identity": "the box contraction shortens the anchor-centre chord (2 r sin(phi/2), both ends on the same contracted plane) by eps*L_chord, the cord strains on L_eff, so the held strain after a box contraction eps is (eps_set - kappa*eps)/(1+beta*kappa) with kappa = L_chord/L_eff; eps_set is the installed set strain: the compatible hold set is eps0*(1+beta*kappa), the nominal flat set is eps_set = eps0 (eps0 the fixed nominal 0.002)",
+   "springModel": {
+    "chord": 12.260317,
+    "lg": 0.06,
+    "lSer": 0.02104,
+    "lEff": 12.242397,
+    "lEffNT": 12.302397,
+    "kappa": 1.001464,
+    "kappaNT": 0.99658
+   },
+   "install": {
+    "t0NominalkN": 6.809,
+    "tHeldFlatSetkN": 6.324,
+    "loopGainBeta": 0.0766,
+    "strainCouplingKappa": 1.001464,
+    "loopGainBetaKappa": 0.0767,
+    "setStrainToHold": 0.002153,
+    "equilibriumTensionAtSetkN": 6.809,
+    "restrainedInstallLoadkN": 7.33,
+    "installationBooks": "unrestrained installation (rail free) carries the denominator: EA*eps_set/(1+beta*kappa) = 6.809 kN, the equilibrium tension; EA*eps_set = 7.33 kN is the RESTRAINED (undeformed-rail) installation load \u2014 a different named state",
+    "flatSetLossPct": 7.13,
+    "studCapacity": "UNKNOWN \u2014 the record's Tfit (2*T0*1.3) is the design DEMAND that sized the bond grip, not a derived stud/thread/nut capacity; no cover verdict is claimed"
+   },
+   "states": {
+    "planeR": 49.5385,
+    "envR": 56.0,
+    "epsBox": 0.005953,
+    "S1": {
+     "tServicekN": 0.0,
+     "slack": true
+    },
+    "S2": {
+     "tServicekN": 6.809,
+     "n0EffkN": 292.1,
+     "nTotalkN": 11640.5,
+     "ringUtil": 0.9026,
+     "innerUtil": 0.5685
+    },
+    "S1prime": {
+     "epsSetStar": 0.008115,
+     "restrainedSetLoadkN": 27.63,
+     "unrestrainedSetLoadkN": 25.66,
+     "setDemandRatioVsFitting": 1.56,
+     "studCapacity": "UNKNOWN \u2014 Tfit is the design demand (2*T0*1.3) that sized the bond grip, not a stud capacity; the ratio above is a DEMAND comparison, not a shortfall verdict",
+     "heldAtVacuumkN": 6.809,
+     "n0AtVacuumkN": 292.1
+    }
+   },
+   "slackS1": {
+    "planesTotal": 69,
+    "planesSlackS1": 65,
+    "planesSlackS1NoTransferBound": 65,
+    "fraction": 0.942,
+    "tautHeldWorstkN": 1.089
+   }
+  },
+  "d180/11": {
+   "sinHalf": 0.988468,
+   "perCordSectionM2": 0.00012712302660203344,
+   "t0kN": 17.797,
+   "n0PerPlanekN": 868.0,
+   "identity": "the box contraction shortens the anchor-centre chord (2 r sin(phi/2), both ends on the same contracted plane) by eps*L_chord, the cord strains on L_eff, so the held strain after a box contraction eps is (eps_set - kappa*eps)/(1+beta*kappa) with kappa = L_chord/L_eff; eps_set is the installed set strain: the compatible hold set is eps0*(1+beta*kappa), the nominal flat set is eps_set = eps0 (eps0 the fixed nominal 0.002)",
+   "springModel": {
+    "chord": 17.391259,
+    "lg": 0.097,
+    "lSer": 0.03322,
+    "lEff": 17.360698,
+    "lEffNT": 17.457698,
+    "kappa": 1.00176,
+    "kappaNT": 0.996194
+   },
+   "install": {
+    "t0NominalkN": 17.797,
+    "tHeldFlatSetkN": 14.492,
+    "loopGainBeta": 0.2277,
+    "strainCouplingKappa": 1.00176,
+    "loopGainBetaKappa": 0.2281,
+    "setStrainToHold": 0.002456,
+    "equilibriumTensionAtSetkN": 17.797,
+    "restrainedInstallLoadkN": 21.86,
+    "installationBooks": "unrestrained installation (rail free) carries the denominator: EA*eps_set/(1+beta*kappa) = 17.797 kN, the equilibrium tension; EA*eps_set = 21.86 kN is the RESTRAINED (undeformed-rail) installation load \u2014 a different named state",
+    "flatSetLossPct": 18.57,
+    "studCapacity": "UNKNOWN \u2014 the record's Tfit (2*T0*1.3) is the design DEMAND that sized the bond grip, not a derived stud/thread/nut capacity; no cover verdict is claimed"
+   },
+   "states": {
+    "planeR": 49.5385,
+    "envR": 56.0,
+    "epsBox": 0.005953,
+    "S1": {
+     "tServicekN": 0.0,
+     "slack": true
+    },
+    "S2": {
+     "tServicekN": 17.797,
+     "n0EffkN": 868.0,
+     "nTotalkN": 12216.4,
+     "ringUtil": 0.9472,
+     "innerUtil": 0.5967
+    },
+    "S1prime": {
+     "epsSetStar": 0.00842,
+     "restrainedSetLoadkN": 74.93,
+     "unrestrainedSetLoadkN": 61.01,
+     "setDemandRatioVsFitting": 1.62,
+     "studCapacity": "UNKNOWN \u2014 Tfit is the design demand (2*T0*1.3) that sized the bond grip, not a stud capacity; the ratio above is a DEMAND comparison, not a shortfall verdict",
+     "heldAtVacuumkN": 17.797,
+     "n0AtVacuumkN": 868.0
+    }
+   },
+   "slackS1": {
+    "planesTotal": 68,
+    "planesSlackS1": 62,
+    "planesSlackS1NoTransferBound": 62,
+    "fraction": 0.9118,
+    "tautHeldWorstkN": 0.737
+   }
+  }
+ },
+ "slackThreshold": {
+  "envRadiusFlatEps0M": 18.813,
+  "envRadiusHoldSetM": {
+   "d60": 20.227,
+   "d180/11": 23.063
+  },
+  "statement": "slack in S1 wherever kappa*eps_box >= eps0(1+beta*kappa) (declared spring model); no-transfer bound counts in cordWeb.*.slackS1.planesSlackS1NoTransferBound; envelope bound: min(R, r_plane + depth); all counts CONDITIONAL on the declared model (modelStatus)"
+ },
+ "utilizationSF10": [
+  {
+   "member": "barrel ring (smeared share, slack cords)",
+   "demandN": 2545069.0,
+   "capacityN": 2892369.0,
+   "util": 0.8799,
+   "note": "the S1 pressure-only case; record sizes each ring alone at util 0.981 (no inner-rail credit)"
+  },
+  {
+   "member": "barrel ring (smeared share, worst d11 plane)",
+   "demandN": 2739732.0,
+   "capacityN": 2892369.0,
+   "util": 0.9472,
+   "note": "pressure + held pretension N0 (S2/S1'); Euler-governed, braced 2.27 m"
+  },
+  {
+   "member": "inner rail (yield check)",
+   "demandN": 1257472.0,
+   "capacityN": 2107504.0,
+   "util": 0.5967,
+   "note": "Euler stability of the ADDED area rides on the box webs at bay spacing (not re-derived)"
+  },
+  {
+   "member": "longeron (end-cap thrust)",
+   "demandN": 6440370.0,
+   "capacityN": 6448821.0,
+   "util": 0.9987,
+   "note": "unchanged by the cord state; boundary reaction"
+  },
+  {
+   "member": "cord (static, S2)",
+   "demandN": 6809.0,
+   "capacityN": null,
+   "util": null,
+   "note": "stress = E*eps0 = 140 MPa, but cord strength is UNKNOWN in the ledger \u2014 no utilisation claimed"
+  }
+ ],
+ "utilizationSF12onSameConstruction": [
+  {
+   "member": "barrel ring (smeared share, slack cords)",
+   "demandN": 3054082.0,
+   "capacityN": 2892369.0,
+   "util": 1.0559,
+   "note": "the S1 pressure-only case; record sizes each ring alone at util 0.981 (no inner-rail credit)"
+  },
+  {
+   "member": "barrel ring (smeared share, worst d11 plane)",
+   "demandN": 3248746.0,
+   "capacityN": 2892369.0,
+   "util": 1.1232,
+   "note": "pressure + held pretension N0 (S2/S1'); Euler-governed, braced 2.27 m"
+  },
+  {
+   "member": "inner rail (yield check)",
+   "demandN": 1491097.0,
+   "capacityN": 2107504.0,
+   "util": 0.7075,
+   "note": "Euler stability of the ADDED area rides on the box webs at bay spacing (not re-derived)"
+  },
+  {
+   "member": "longeron (end-cap thrust)",
+   "demandN": 7728444.0,
+   "capacityN": 6448821.0,
+   "util": 1.1984,
+   "note": "unchanged by the cord state; boundary reaction"
+  },
+  {
+   "member": "cord (static, S2)",
+   "demandN": 6809.0,
+   "capacityN": null,
+   "util": null,
+   "note": "stress = E*eps0 = 140 MPa, but cord strength is UNKNOWN in the ledger \u2014 no utilisation claimed"
+  }
+ ],
+ "boundaryReactions": {
+  "longeron": {
+   "eachN": 6440370.0,
+   "count": 155,
+   "totalMN": 998.3,
+   "identity": "N x p pi R^2 / 155 = p pi R^2 exactly"
+  },
+  "capMembranekNm": 2837.1,
+  "junctionThrustNPerM": 2837100.0,
+  "signedCapResultant": {
+   "perCapMN": -998.3,
+   "statement": "the SIGNED resultant, kept separate from any scalar area: each cap carries -p*pi*R^2 = -998.3 MN (inward, toward midship); the barrel structure returns the SAME total thrust as axial COMPRESSION p*pi*R^2, transferred serially and counted once: the pR/2 membrane per rim metre feeds the cap/rim/junction path, which delivers the identical p*pi*R^2 total to the 155 longerons (the p*pi*R^2/155 each is that same thrust shared, not an addition to it); the net closed-hull resultant is zero"
+  },
+  "axialClosure": "closes at the sizing identity; the distribution among longerons/rings near the nose taper is UNKNOWN",
+  "filmAxialAtSupportkNm": 47.5,
+  "tributary": {
+   "envelopeAreaM2": 78816.3,
+   "cylinderAreaM2": 39408.1,
+   "twoCapsAreaM2": 39408.1,
+   "barrelBands": 224,
+   "bandAreaM2": 39408.1,
+   "halves": "the caps are EXACTLY HALF the envelope (4*pi*R^2 = 2*pi*R*cylL with cylL = 2R = 112 m), not a ~12% polar remainder; the 224 exterior barrel bands of 2*pi*R*s_r tile the cylinder once; the longitudinal cuts at the 155 anchor stations divide each band among its cords \u2014 a kinematic split, not a solved distribution",
+   "withdrawnV122": "the v1.2.x sum 2*pi*sum(inner cord-plane radii)*BAY = 69469 m2 used INNER cord-plane radii (49.5385 m at the barrel, cap planes below) \u2014 not the pressure surface; retained only as the labelled failed pin"
+  },
+  "unsolved": [
+   "cap-edge/cylinder junction: the film's uncancelled axial traction (47.5 kN/m) plus the moment/shear redistribution between the cap membrane (pR/2) and the first barrel ring \u2014 UNSOLVED here",
+   "longeron/ring axial-compression distribution near the nose taper",
+   "local bending and ring-beam effects inside one bay of the box"
+  ]
+ },
+ "station": {
+  "d60": {
+   "radialResultantkN": 11.84,
+   "eccentricityMm": 36.8,
+   "momentkNm": 0.435,
+   "hardware": {
+    "blockMm": [
+     50,
+     36,
+     24
+    ],
+    "socketBodyOdmM": 23.5,
+    "stud": "M14x79",
+    "gripLgMm": 60.0,
+    "doublerPadMm": [
+     200.0,
+     140.0,
+     3.0
+    ],
+    "ringConnection": "3 x M10 Ti-6Al-4V through-bolts, internal backing nuts, block flange -> doubler pad -> ring wall; 16 mm hole pitch; installed through the adjacent bay before pump-down",
+    "boltsPerStation": 3,
+    "boltShankMm": 45.0,
+    "boltStack": "block 24 + doubler pad 3 + ring wall 6 + backing nut 8 = 41 mm minimum; shank 45 mm leaves 4 mm point protrusion/washers (v2's 30 mm shank could NOT span this stack)",
+    "boltShearCapkN": 124.41,
+    "boltUtilisation": 0.247
+   },
+   "capacityVerdict": "UNKNOWN \u2014 the station moment is carried by the bolted block/pad/ring connection whose laminate bearing, block bending and pull-through capacities are not derived; the metallic bolt set itself is sized (shear util 0.247 vs the worst window); the stud pair's thread/nut capacity is likewise UNKNOWN (the record's fitting value is a demand, not a capacity)"
+  },
+  "d180/11": {
+   "radialResultantkN": 35.18,
+   "eccentricityMm": 51.0,
+   "momentkNm": 1.794,
+   "hardware": {
+    "blockMm": [
+     64,
+     46,
+     30
+    ],
+    "socketBodyOdmM": 38.0,
+    "stud": "M23x127",
+    "gripLgMm": 97.0,
+    "doublerPadMm": [
+     200.0,
+     140.0,
+     3.0
+    ],
+    "ringConnection": "3 x M10 Ti-6Al-4V through-bolts, internal backing nuts, block flange -> doubler pad -> ring wall; 16 mm hole pitch; installed through the adjacent bay before pump-down",
+    "boltsPerStation": 3,
+    "boltShankMm": 50.0,
+    "boltStack": "block 30 + doubler pad 3 + ring wall 6 + backing nut 8 = 47 mm minimum; shank 50 mm leaves 3 mm point protrusion/washers (v2's 30 mm shank could NOT span this stack)",
+    "boltShearCapkN": 124.41,
+    "boltUtilisation": 0.735
+   },
+   "capacityVerdict": "UNKNOWN \u2014 the station moment is carried by the bolted block/pad/ring connection whose laminate bearing, block bending and pull-through capacities are not derived; the metallic bolt set itself is sized (shear util 0.735 vs the worst window); the stud pair's thread/nut capacity is likewise UNKNOWN (the record's fitting value is a demand, not a capacity)"
+  }
+ },
+ "representativeCords": {
+  "d60Shortest": {
+   "rM": 7.0512,
+   "anchorCentreChordM": 12.2603,
+   "freeBetweenSocketMouthsM": 12.1243,
+   "effectiveSpringM": 12.2424,
+   "effectiveSpringNoTransferM": 12.3024,
+   "strainCouplingKappa": 1.001464,
+   "tServicekN": 6.809,
+   "perEndRadialkN": 5.92
+  },
+  "d11Longest": {
+   "rM": 49.5385,
+   "anchorCentreChordM": 97.9344,
+   "freeBetweenSocketMouthsM": 97.7244,
+   "effectiveSpringM": 97.9038,
+   "effectiveSpringNoTransferM": 98.0008,
+   "strainCouplingKappa": 1.000312,
+   "tServicekN": 17.797,
+   "perEndRadialkN": 17.59
+  }
+ },
+ "resetTravel": {
+  "bindingCase": "d180/11 longest representative cord",
+  "chordM": 97.9344,
+  "modelStrainTakeupM": 0.583,
+  "studCombinedLengthM": 0.254,
+  "studs": "2 x M23x127 (the record's d180/11 stud pair): combined LENGTH 0.254 m BEFORE any thread engagement allowance",
+  "shortestCase": "d60 shortest representative cord: take-up 0.0730 m is a barrel-strain diagnostic; it is below the 2 x M14x79 = 0.158 m combined LENGTH only as a gross stock comparison \u2014 usable thread travel after engagement/construction limits is UNKNOWN. The figure 0.254 m / strain = 42.7 m chord (~21.6 m plane radius) is a hypothetical UNIFORM-BARREL-STRAIN comparison, not an actual all-plane threshold: the implemented local strain is eps_box(min(56, r+depth)), smaller at cap-plane radii, so no universal cap-plane travel bound is claimed",
+  "verdict": "WITHDRAWN (v1.3, sole first review) as a claimed existing-stud zero-mass reset: at the declared model's own barrel strain the longest cord's combined take-up exceeds the combined stud LENGTH by >2x before thread engagement, so the existing studs cannot provide the travel. An install-after-evacuation sequence or an added-travel mechanism is UNQUALIFIED with UNKNOWN parts and mass \u2014 a force comparison or a re-tuned set length does not establish it; the strain state itself is CONDITIONAL on the withdrawn-equilibrium model (modelStatus)"
+ },
+ "i019Hypothesis": {
+  "staticEqTensionOuterPlaneKN": {
+   "d60": 234.0,
+   "d180/11": 205.8
+  },
+  "reading": "retained as a SIGNED, mechanically inadmissible hypothetical (v1.3, sole first review): with inward pressure and inward tensile cord pulls, removing the ring support leaves -P_band - 2*155*T*sin(phi/2) = 0, so a web that resisted the band directly would require NEGATIVE T \u2014 compression these cords cannot supply. The magnitudes 234.0/205.8 kN are that bypassed-rings free body's COMPRESSION requirement, recorded as inadmissible: NOT an alternative tensile load path and NOT this construction's demand (the film closes on the ring box; the cord web's static duty is its own pretension, 6.8/17.8 kN, which compatibility only relaxes). The termination record consumed here is its corrected v3.1 (hash-guarded above; its first review's findings stand corrected as follows \u2014 eight closed in the v2 correction; the one cord accounting boundary with the dimensioned bolt stack, and the Pa units label, closed in the v3 correction; the spring model's mechanics were repaired in v3, and v3's overstated physical-amplitude claims were corrected by the immediate v3.1 successor \u2014 that correction is submitted for lead targeted verification; no acceptance is asserted here); this supersedes only its load-path interpretation, not its record",
+  "utilisation": "UNKNOWN \u2014 the corrected ledger carries no cord strength and no fibre ultimate is borrowed (staticEqStress is a string UNKNOWN in the guarded record)",
+  "historicalUtilisationNote": "the withdrawn v1 figure divided an ASSUMED cord stress by a T700 tow UTS \u2014 an invalid pairing, moot under the corrected path"
+ },
+ "materialLedger": {
+  "cord": {
+   "E": 70000000000.0,
+   "rho": 970.0,
+   "strength": null,
+   "identity": "UHMWPE-class (Dyneema-type) per its source documentation \u2014 creep UNVERIFIED",
+   "provenance": "ASSUMED inherited pair (E 70 GPa + rho 970); NOT a fibre spec \u2014 never combined with any UTS; strain limit: the declared eps0 0.2% sets 140 MPa",
+   "termination": {
+    "stud": "Ti-6Al-4V, E 114 GPa, rho 4430 (public datasheet); the fitting value 2*T0*1.3 is the DEMAND that sized the bond grip, NOT a stud capacity",
+    "bond": "design shear 12 MPa, filled epoxy \u2014 ASSUMED, unverified",
+    "attachment": "3x M10 Ti through-bolts, single shear; laminate capacities UNKNOWN"
+   }
+  },
+  "film": {
+   "sigmaBasis": "5.8 GPa at sf 4 x eff 0.5 -> 725 MPa working",
+   "rho": 1560.0,
+   "provenance": "record pricing basis; doubled for the one-way arc"
+  },
+  "laminate": {
+   "E": 135000000000.0,
+   "rho": 1600,
+   "sigmaC": 1450000000.0,
+   "sigmaT": 2860000000.0,
+   "provenance": "sigma_c/sigma_t SOURCED (Toray T700S datasheet SACMA SRM 1R-94 / ASTM D3039, Vf 0.6); E and rho representative inputs, not coupon values"
+  }
+ },
+ "factors": [
+  {
+   "factor": "physical pressure / preload",
+   "value": "delta_p = -101325 Pa; eps0 = 0.2% imposed strain",
+   "appliesTo": "state definition, unfactored"
+  },
+  {
+   "factor": "demand SF",
+   "value": "1.0 / 1.2",
+   "appliesTo": "pressure demand only (SF1.2 world is a separate construction in the record)"
+  },
+  {
+   "factor": "material allowable",
+   "value": "sigma_c 1450 MPa SOURCED; barrel ring Euler 913 MPa governs; film 725 MPa working",
+   "appliesTo": "member statics here"
+  },
+  {
+   "factor": "fitting factor",
+   "value": "1.3 (spokeFitting); a DEMAND of 2 x T0 x 1.3 sized the bond grip \u2014 not a derived stud/thread/nut capacity",
+   "appliesTo": "cord hardware"
+  },
+  {
+   "factor": "capacity knockdown KD",
+   "value": "0.65 \u2014 NOT applied to these statics (it prices the licensed buckling margins)",
+   "appliesTo": "stability licensing only"
+  },
+  {
+   "factor": "assembly allowance",
+   "value": "5%",
+   "appliesTo": "mass only"
+  }
+ ],
+ "bill": {
+  "before": {
+   "accounting": "ONE boundary: anchor centre = grip back face, so anchor-centre chord = free span + 2 embedded (nose+grip) runs; cordT prices FULL anchor-centre chords and therefore already contains the potted embedded cord \u2014 the v2 0.34 t potted-tow line was a double count and is REMOVED; potting resin is inside socketsT; studs/seats beyond the anchor centre are inside socketsT and the series spring L_ser; old 0.35 kg ideal-lug line removed ONCE (inside the spokesLineOldT comparison); sockets, blocks, pads and attachment bolts charged ONCE; ring members, fixed members and gas unchanged",
+   "anchorBlocksT": 6.17,
+   "assemblyT": 11.69,
+   "attachmentBoltsT": 1.41,
+   "clipsT": 63.64,
+   "cordT": 139.51,
+   "deltaT": 16.5,
+   "doublerPadsT": 2.86,
+   "knownSubtotal": "attachment bolts are sized on metallic single shear (traceable); laminate bearing, block local bending and pull-through are UNKNOWN \u2014 the bill is a known subtotal with those unresolved, not a qualified all-up margin",
+   "margin2500T": -476.1,
+   "marginSLT": 16.4,
+   "removedIdealLugT": 14.86,
+   "removedLugAssemblyT": 0.74,
+   "socketsT": 20.14,
+   "spokesLineNewT": 245.42,
+   "spokesLineOldT": 228.91,
+   "stackedStationHardwareX1_5_SLT": 0.3,
+   "totalT": 2233.4,
+   "x15IncrementT": 16.05
+  },
+  "after": {
+   "accounting": "ONE boundary: anchor centre = grip back face, so anchor-centre chord = free span + 2 embedded (nose+grip) runs; cordT prices FULL anchor-centre chords and therefore already contains the potted embedded cord \u2014 the v2 0.34 t potted-tow line was a double count and is REMOVED; potting resin is inside socketsT; studs/seats beyond the anchor centre are inside socketsT and the series spring L_ser; old 0.35 kg ideal-lug line removed ONCE (inside the spokesLineOldT comparison); sockets, blocks, pads and attachment bolts charged ONCE; ring members, fixed members and gas unchanged",
+   "anchorBlocksT": 6.17,
+   "assemblyT": 11.69,
+   "attachmentBoltsT": 1.41,
+   "clipsT": 63.64,
+   "cordT": 139.51,
+   "deltaT": 16.5,
+   "doublerPadsT": 2.86,
+   "knownSubtotal": "attachment bolts are sized on metallic single shear (traceable); laminate bearing, block local bending and pull-through are UNKNOWN \u2014 the bill is a known subtotal with those unresolved, not a qualified all-up margin",
+   "margin2500T": -476.1,
+   "marginSLT": 16.4,
+   "removedIdealLugT": 14.86,
+   "removedLugAssemblyT": 0.74,
+   "socketsT": 20.14,
+   "spokesLineNewT": 245.42,
+   "spokesLineOldT": 228.91,
+   "stackedStationHardwareX1_5_SLT": 0.3,
+   "totalT": 2233.4,
+   "x15IncrementT": 16.05
+  },
+  "statement": "analysis-only unit: no construction change, so after == before line-for-line \u2014 and the bill is the CORRECTED termination record's (drawn sockets 60/97 mm grips, DIMENSIONED bolted attachment priced \u2014 M10 45/50 mm shanks \u2014 one cord accounting boundary with no separate tow line, x1.5 with its assembly share): total 2233.4 t, SL +16.4 t, 2500 m -476.1 t; SF1.2 mass failure carried at 2562.4 t / -312.6 t against the corrected completed baseline (READ from the record's own sf12 block and asserted at load \u2014 no hard-coded prose remains). The v1.0 run copied the pre-correction bill (2230.7 t, SL +19.1, -473.4, stackedFittings 5.3) \u2014 superseded; v1.1 pinned the v2 record (spokes 245.37 t) \u2014 superseded by this v3 re-pin (spokes 245.42 t, bolts 1.41 t, no tow line). NOTHING required-but-unsized is zeroed:",
+  "unknowns": [
+   "deeper-eps0 hardware if S1' is chosen (restrained set demand 1.56x/1.62x the priced fitting demand in cordWeb.*.states.S1prime \u2014 a DEMAND comparison; stud CAPACITY unknown; UNPRICED, no fitted coefficient)",
+   "installation/reset construction at pump-down: existing-stud travel insufficient (resetTravel); alternatives UNKNOWN parts and mass",
+   "the retained construction's theta-web equilibrium (modelStatus, equilibriumDeficit)",
+   "the bolted station connection's laminate bearing/bending/pull-through capacities vs the stated moment",
+   "full-hull axial closure beyond the sizing identity",
+   "cord material strength (ledger row, not a utilisation)"
+  ],
+  "gasBuoyancy": "lift lines unchanged and counted once"
+ },
+ "verdict": "CONDITIONAL on the declared common-strain model, whose claimed closure is WITHDRAWN: the priced theta webs do not balance under that kinematics (see equilibriumDeficit \u2014 the sole first review demonstrated the deficit and this unit reproduces it). Within the model, the pressure resultant is TRACED film -> barrel rings + inner rail (the retained replacement section ALONE, 1 453.5 mm2 \u2014 the v1.2.x 2 507 mm2 double-credit is a labelled failed calculation) -> caps/longerons, and the cords' static duty is their own pretension. The binding model result is kinematic: while taut, dT/T0 = kappa*eps_box / (eps0*(1+beta*kappa)), then slack-clamped; at the barrel eps_box 5.95e-3 exceeds the declared eps0 2.0e-3 by 2.98x, so cords tensioned before pump-down go slack over the barrel (65/69 d60 and 62/68 d11 planes, ~94%) \u2014 against a foundation-loss tolerance of 0.081% rigid licensed (the QUOTABLE bound, from the record), while the drawn-termination compliant state computes 0.087% \u2014 BEYOND the rigid anchor on the v3 consistent spring law (eta > 1), reported and NOT claimed \u2014 which un-licenses the stability PASS within the model. The record's margins are valid only for an assembly that sets (or maintains) the stud length at the pumped-down state \u2014 and resetting through the EXISTING studs is UNAVAILABLE: the longest representative cord needs ~0.58 m combined take-up at the model's own barrel strain against 0.254 m of combined stud LENGTH before thread engagement (resetTravel). Any install-after-evacuation or added-travel construction is UNQUALIFIED with UNKNOWN parts and mass. The deeper-eps0 alternative is quantified as a DEMAND comparison only (restrained set load 1.56x/1.62x the priced fitting demand \u2014 a demand, not a capacity; stud capacity UNKNOWN) and left UNPRICED. The retained construction's compatibility/force balance, full-hull closure, the bolted station connection's laminate capacities and the cord strength remain UNKNOWN.",
+ "nextChange": "Solve the retained construction's compatibility/force balance \u2014 a model in which the theta webs' stiffness participates in the station equilibrium instead of being bypassed by an asserted common strain \u2014 then re-derive the pressure strain, service forces and slack counts under that solved model; separately, write the assembly/installation construction (evacuation sequence, cord-length control, or qualified added travel with priced parts and mass) into the record before any stability margin is re-licensed."
+}
