@@ -758,3 +758,23 @@
 | Order | sha256 `86901fbb9c5a2d85…` (informational) |
 | Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
 
+## Landing 55 — Record near-ambient helium support and pressure-control design
+
+| field | value |
+|---|---|
+| Landed | 2026-10-14 01:25:54 PDT by the lander using `ship/tools/land.py`, a pure **FAST-FORWARD**: main `29230ac279e8b8408d130e71974d6284410e6ec6` → `d8b7f13fd4d64b21eb55c5a7e0b006d87231328c`; pushed main-only, non-force, origin verified equal. The signed sha IS main; the landed tree equals the signed tree by identity. |
+| The object | SIGNED `d8b7f13fd4d64b21eb55c5a7e0b006d87231328c`, tree `f2b91116bca269add0892924aca24f0f29afba93`, from branch `r3-i006-gas-support`, parent `7bc200648eb087b6cd545da7933ebba7e0a8068b`, governance `gov-2e5551fda150` preserved. Unit `r3-i006-gas-support-1014`. |
+| Rebase | law I.3c.5, mechanised: the signed object `300ceae0cfda20c126abc88d8d1f50728ef88c1f` was rebased off `afb2c2d1726b9d9a805f9781085c3dd6a52913e5` onto the moved main `29230ac279e8b8408d130e71974d6284410e6ec6`, landing as `d8b7f13fd4d64b21eb55c5a7e0b006d87231328c`. `git range-diff` showed every pair `=`; each new commit was re-governed mechanically with that pair as its reason. The gate below honours the OLD sha's EXISTING record — no fresh signature was asked or given. Range-diff:
+
+```
+1:  4aefd672 = 1:  7bc20064 Price helium envelope support and gas inventory for R3-I006
+2:  300ceae0 = 2:  d8b7f13f Carry reported I002 landing into I006 source context
+``` |
+| Pre-checks under the lock | primary on main; HEAD == main == the named base; origin/main == the named base; merge-base(main, candidate) == main and candidate != main; tree == the named tree; Helm-Audit-ID on every commit in base..candidate; tracked tree clean; object imported exact from the source. |
+| Gate | `tools/land_gate.py 300ceae0c…` → rc=0, HONOURED-XO 300ceae0cfda20c126abc88d8d1f50728ef88c1f — the last record for this sha (store line 1963) is XO-SIGNED. (store `fo-verdicts.tsv`) |
+| Governance records | `7bc200648` ← `gov-ack-7bc200648eb0` (reconcile record; trailer `gov-f990c50175f4` is bound to another sha); `d8b7f13fd` ← `gov-ack-d8b7f13fd4d6` (reconcile record; trailer `gov-2e5551fda150` is bound to another sha). Each record names the landed sha as the commit it governed. |
+| Evidence before landing | `PYTHONDONTWRITEBYTECODE=1 make readmecheck linkcheck buildercheck claimsrestore claimscheck` rc=0 (environment PATH set to host paths, not shown) (gate timeout 1200 s, named by the order) |
+| Tool | `ship/tools/land.py` sha256 `3f4d36dddae3efb1…` from helm (informational) |
+| Order | sha256 `36deb922aac0d86c…` (informational) |
+| Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
+
