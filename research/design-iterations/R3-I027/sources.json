@@ -1,14 +1,15 @@
 {
  "unit": "R3-I027",
- "convention": "tank.py reads only standard-library code plus the frozen saved inputs named here; no ancestor calculator is imported, executed or regenerated; baseline.json is frozen copied data, not an executable snapshot",
+ "convention": "tank.py was to read only standard-library code plus the frozen saved inputs named here; no ancestor calculator is imported, executed or regenerated; baseline.json is frozen copied data, not an executable snapshot. Three attempts were consumed and none completed; the archived calculator is preserved erroneous (see README W2/W3) and was not executed in the documentation correction.",
  "runtime_inputs_read_by_tank_py": [
-  {"path": "research/design-iterations/R3-I027/baseline.json", "sha256_at_freeze": "a06b321ae10c86e059161ec42245b79de87be6a696934738045d8e4ab87ce030", "role": "all frozen copied fields: candidate geometry, inherited mission data, I017 comparison record, I012 budget basis"}
+  {"path": "research/design-iterations/R3-I027/baseline.json", "role": "FINAL runtime input: the committed file, executed by runs 2 and 3 (run 3 exited at its V1 n1 assertion after numerical sections 1-4)", "sha256": "5ac2d4fe4bc6abf759b5b077d4f815b2f98e6a4ef35d003fe00b0351def86933", "bytes": 4846},
+  {"path": "research/design-iterations/R3-I027/baseline.json", "role": "INITIAL freeze, executed by run 1 only: carried the recorded air density 0.9572 (kg/m3) under the air_density_t_per_m3 key, a 1000x transcription error caught by run 1's coded V2 assertion and corrected before run 2. HISTORICAL, HASH-ONLY: these bytes are absent from the tree; the correction is not independently diffable from them", "sha256_at_freeze": "a06b321ae10c86e059161ec42245b79de87be6a696934738045d8e4ab87ce030"}
  ],
  "copied_from_as_data_only": [
-  {"path": "research/design-iterations/R3-I017/README.md", "at": "landing72 e3a6f7b854ef0683fbcdacd6db330a7c3b94044b tree 91c7eadb15f641e918fd94faf87c70599a418363", "sha256": "3f69a96d81307ad79d3816051f515c5021b048c44d31deb3c26f8f45304ba304", "role": "predecessor record: bill lines, DRY/n0/n1, floor/cap, authority datums, corner ledger 1.38 m at z=-22.93, half-widths 19.9/-19.0 and 17.1/-21.5, hull floor -27.5"},
+  {"path": "research/design-iterations/R3-I017/README.md", "at": "landing72 e3a6f7b854ef0683fbcdacd6db330a7c3b94044b tree 91c7eadb15f641e918fd94faf87c70599a418363", "sha256": "3f69a96d81307ad79d3816051f515c5021b048c44d31deb3c26f8f45304ba304", "role": "predecessor record read as data: bill lines, DRY/n0/n1, floor/cap, authority datums, radial clearances (note: I017's clearance ledger is radial against a circular midbody section - see README W1), half-width datums 19.9/-19.0 and 17.1/-21.5, hull floor -27.5"},
   {"path": "research/design-iterations/R3-I012/README.md", "at": "landing72 e3a6f7b854ef0683fbcdacd6db330a7c3b94044b", "sha256": "84736fd5a942847b4c4dc6bec01497ca687c1e442beb3e1c2066b59718993e69", "role": "budget basis lines: equipment ex-hull 38.77, gas hull 23.75, correction -2.34"}
  ],
  "pre_calculation_drawing": [
-  {"path": "research/design-iterations/R3-I027/geometry.svg", "sha256_at_freeze": "79329f9c87d63f61ad91a08524ca04a763dfc020a25e32674dd365a1b41cfcbd", "role": "source-native arrangement drawing (finite dimensions and attachment locations drawn BEFORE calculation); no drawing process or drawing allowance used"}
+  {"path": "research/design-iterations/R3-I027/geometry.svg", "sha256": "79329f9c87d63f61ad91a08524ca04a763dfc020a25e32674dd365a1b41cfcbd", "role": "ORIGINAL FLAWED SCHEMATIC, bytes preserved unchanged: one support band is drawn below the tank and the adapter is an allowance with no finite stock or dimensioned pickup connection (README W4). It is the attempted pre-calculation sketch, NOT a supported build drawing; no drawing process or allowance was used."}
  ]
 }
