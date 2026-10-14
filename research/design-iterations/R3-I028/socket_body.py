@@ -108,12 +108,26 @@ def main():
         eta_new = F["meanCordM"] / l_effm_new
         t0_n = F["T0kN"] * 1e3
         eps0 = t0_n / ea
-        t0_same_eps = t0_n / ratio                       # T0 if eps0 held
-        takeup = eps0 * 2.0 * d_ser                      # extra stud take-up to HOLD T0
+        # F5: unchanged EA at a FIXED eps0 set-point RETAINS T0.  The
+        # reduced tension below is the unchanged imposed chain EXTENSION
+        # case at the representative shortest-cord denominator.
+        t0_same_extension = t0_n / ratio
+        takeup = eps0 * 2.0 * d_ser   # extra both-end take-up to HOLD the T0 set-point
         slack = B["slack"][fam]
-        prop = {}
-        for key in ("n5FirstSlackDeclaredMm", "n5FirstSlackChordBasisMm"):
-            prop[key] = {ph: round(v * ratio, 6) for ph, v in slack[key].items()}
+        # n=5 tables ONLY (the saved record carries no other propagated mode
+        # tables).  The declared-model denominator changed, so ONLY the
+        # declared-model table is scaled; the chord-basis table is an
+        # UNCHANGED historical comparator (chord geometry, Lmin, cord
+        # modulus and set-point strain did not change).  Full n=2..12
+        # class bounds and the no-transfer/transfer-centroid sensitivity
+        # under the new spring are UNCOMPUTED (dependent UNKNOWN).
+        prop = {
+            "n5FirstSlackDeclaredModelMm": {
+                ph: round(v * ratio, 6)
+                for ph, v in slack["n5FirstSlackDeclaredMm"].items()},
+            "n5FirstSlackChordBasisMm_unchangedHistorical": dict(
+                slack["n5FirstSlackChordBasisMm"]),
+        }
 
         bodies_old_t += ends * body_old_kg / T
         bodies_new_t += ends * body_new_kg / T
@@ -144,14 +158,16 @@ def main():
             "denominatorRatioNewOverOld": ratio,
             "etaDrawnMeanCordOld": eta_old, "etaDrawnMeanCordNew": eta_new,
             "etaDelta": eta_new - eta_old,
-            "T0kNSetpoint": F["T0kN"],
-            "T0kNAtSameInstalledEps0": t0_same_eps / 1e3,
+            "T0kNSetpointFixedEps0": F["T0kN"],
+            "T0kNAtUnchangedImposedExtension": t0_same_extension / 1e3,
+            "comparisonBasis": "unchanged imposed chain extension at the representative shortest-cord denominator; a fixed eps0 set-point retains T0 via the extra take-up",
+            "slackPropagationScope": "n=5 only, declared-model denominator; chord-basis carried unchanged as historical comparator; full n=2..12 class bounds and no-transfer/transfer-centroid sensitivity UNCOMPUTED (UNKNOWN)",
             "extraStudTakeupToHoldT0mm": takeup * 1e3,
             "wallInterfaceShearMPa": F["wallInterfaceShearMPa"],
             "bondUtilVsAssumed12MPa": F["wallInterfaceShearMPa"] / 12.0,
             "firstSlackPropagated": prop,
             "firstSlackMinDeclaredOldMm": min(slack["n5FirstSlackDeclaredMm"].values()),
-            "firstSlackMinDeclaredNewMm": min(prop["n5FirstSlackDeclaredMm"].values()),
+            "firstSlackMinDeclaredNewMm": min(prop["n5FirstSlackDeclaredModelMm"].values()),
         }
 
     # --- whole bill: mass-only propagation ---
@@ -159,6 +175,9 @@ def main():
     delta_hw_t = (bodies_new_t + prov_t + mach_t) - bodies_old_t
     delta_tot_t = delta_hw_t * (1.0 + share)
     bill_o = B["bill"]
+    # F6: the non-body part of socketsT is the RETAINED SOCKET REMAINDER —
+    # studs, nuts, potting resin AND a reconstruction/rounding residual;
+    # not metal only, and nothing in it is retired.
     new_lines = {
         "bodiesOldTiT": bodies_old_t,
         "bodiesNewAlT": bodies_new_t,
@@ -178,24 +197,27 @@ def main():
         "margin2500TOld": bill_o["margin2500T"],
         "margin2500TNew": bill_o["margin2500T"] - delta_tot_t,
     }
+    # F2: SF1.2 is a SEPARATELY sized d60+d20 construction, not this
+    # candidate's nominal d60+d180/11 body bill.  The nominal mass delta
+    # is NOT carried into it.  Historical adverse values preserved with
+    # their source; the candidate SF1.2 substitution is UNCOMPUTED/UNKNOWN.
     sf_o = B["sf12"]
     sf_new = {
-        "afterTOld": sf_o["afterT"], "afterTNew": sf_o["afterT"] + delta_tot_t,
-        "afterSpokesTOld": sf_o["afterSpokesT"],
-        "afterSpokesTNew": sf_o["afterSpokesT"] + delta_tot_t,
-        "afterMarginSLTOld": sf_o["afterMarginSLT"],
-        "afterMarginSLTNew": sf_o["afterMarginSLT"] - delta_tot_t,
+        "historicalAfterT": sf_o["afterT"],
+        "historicalAfterSpokesT": sf_o["afterSpokesT"],
+        "historicalAfterMarginSLT": sf_o["afterMarginSLT"],
+        "historicalVerdict": "FAIL at sea level (inherited, source: the frozen record's d60+d20 adverse construction)",
+        "candidateSubstitution": "UNCOMPUTED/UNKNOWN — would require sizing the aluminium bodies into the distinct d60+d20 SF1.2 construction; the nominal -3.914 t delta is not a valid carry",
     }
     verdicts = {
         "seaLevelConditional": "SL conditional margin improves to %+.1f t (was %+.1f t); still CONDITIONAL on the known-subtotal basis" % (
             new_lines["marginSLTNew"], new_lines["marginSLTOld"]),
         "altitude2500": "FAIL persists: %+.1f t at 2,500 m (was %+.1f t)" % (
             new_lines["margin2500TNew"], new_lines["margin2500TOld"]),
-        "sf12Adverse": "FAIL persists (inherited, unchanged in kind): after-margin %+.1f t (was %+.1f t)" % (
-            sf_new["afterMarginSLTNew"], sf_new["afterMarginSLTOld"]),
+        "sf12Adverse": "historical FAIL stands (after-margin %+.1f t, separately sized d60+d20 construction); the candidate substitution into that construction is UNCOMPUTED/UNKNOWN — the earlier revised -308.7 t figure is WITHDRAWN" % sf_new["historicalAfterMarginSLT"],
         "netSection": "both families CONDITIONAL PASS vs the ASSUMED 150 MPa record (utilisation %.3f / %.3f)" % tuple(
             fam_out[f]["netSectionUtilisationVs150MPa"] for f in ("d60", "d180/11")),
-        "compliance": "chain denominators grow %.3f%%/%.3f%% (d60/d180-11); eta drops ~1.1e-4; holding T0 needs %0.1f/%0.1f um extra stud take-up" % (
+        "compliance": "n=5 declared-model only: chain denominators grow %.3f%%/%.3f%% (d60/d180-11); eta drops ~1.1e-4; unchanged imposed extension lowers T0, and holding the T0 set-point needs %0.1f/%0.1f um extra both-end take-up; full-class bounds UNCOMPUTED" % (
             100 * (fam_out["d60"]["denominatorRatioNewOverOld"] - 1.0),
             100 * (fam_out["d180/11"]["denominatorRatioNewOverOld"] - 1.0),
             fam_out["d60"]["extraStudTakeupToHoldT0mm"] * 1e3,
@@ -219,9 +241,14 @@ def main():
         "bill": new_lines,
         "sf12": sf_new,
         "hardwareSensitivity": {
-            "inheritedX15IncrementT": bill_o["x15IncrementT"],
-            "inheritedX15SLt": bill_o["stackedStationHardwareX1_5_SLT"],
-            "note": "the x1.5 block/doubler/attachment scenario does not scale socket bodies and is carried UNCHANGED; the new protection/machining lines are not part of that frozen scenario",
+            "scope": "the record's own x1.5 station-hardware scenario: 0.5 x (sockets + blocks + doublers + attachment) x (1 + assembly share) — sockets INCLUDED; applied here to the CHANGED socket hardware with the new isolation/machining lines conservatively INCLUDED once inside the new sockets line",
+            "inheritedX15IncrementT_stored": bill_o["x15IncrementT"],
+            "inheritedX15IncrementT_reconstructed": 0.5 * (bill_o["socketsT"] + bill_o["anchorBlocksT"] + bill_o["doublerPadsT"] + bill_o["attachmentBoltsT"]) * (1.0 + share),
+            "inheritedX15SLt_stored": bill_o["stackedStationHardwareX1_5_SLT"],
+            "candidateX15IncrementT": 0.5 * (new_lines["socketsTNewHardwareOnly"] + bill_o["anchorBlocksT"] + bill_o["doublerPadsT"] + bill_o["attachmentBoltsT"]) * (1.0 + share),
+            "candidateX15SLMarginT": new_lines["marginSLTNew"] - 0.5 * (new_lines["socketsTNewHardwareOnly"] + bill_o["anchorBlocksT"] + bill_o["doublerPadsT"] + bill_o["attachmentBoltsT"]) * (1.0 + share),
+            "roundingResidualT": (bill_o["marginSLT"] - bill_o["x15IncrementT"]) - bill_o["stackedStationHardwareX1_5_SLT"],
+            "basis": "blocks/doublers/attachment at stored 2-dp precision; candidate sockets line from this unit's unrounded increment; the separately rounded inherited display totals leave the disclosed residual above — no hidden adjustment is applied",
         },
         "verdicts": verdicts,
         "unknowns": unknowns,
@@ -235,10 +262,14 @@ def main():
     os.replace(tmp, out_path)
     print("R3-I028 socket bodies: bodies %.3f -> %.3f t, provision %.3f t, machining %.3f t, delta_total %+.3f t" % (
         bodies_old_t, bodies_new_t, prov_t, mach_t, delta_tot_t))
-    print("margins: SL %+.1f -> %+.1f t; 2500m %+.1f -> %+.1f t; SF1.2 after %+.1f -> %+.1f t" % (
+    print("margins: SL %+.1f -> %+.1f t; 2500m %+.1f -> %+.1f t; SF1.2 historical FAIL %.1f t, candidate substitution UNCOMPUTED" % (
         new_lines["marginSLTOld"], new_lines["marginSLTNew"],
         new_lines["margin2500TOld"], new_lines["margin2500TNew"],
-        sf_new["afterMarginSLTOld"], sf_new["afterMarginSLTNew"]))
+        sf_new["historicalAfterMarginSLT"]))
+    print("x1.5 station hardware (sockets in scope): increment %.3f -> %.3f t; candidate stacked SL %+.3f t" % (
+        out["hardwareSensitivity"]["inheritedX15IncrementT_reconstructed"],
+        out["hardwareSensitivity"]["candidateX15IncrementT"],
+        out["hardwareSensitivity"]["candidateX15SLMarginT"]))
     print("net section: d60 %.1f MPa (u=%.3f), d180/11 %.1f MPa (u=%.3f)" % (
         fam_out["d60"]["netSectionSigmaMPa"], fam_out["d60"]["netSectionUtilisationVs150MPa"],
         fam_out["d180/11"]["netSectionSigmaMPa"], fam_out["d180/11"]["netSectionUtilisationVs150MPa"]))

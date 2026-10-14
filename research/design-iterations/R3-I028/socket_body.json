@@ -33,23 +33,25 @@
    "etaDrawnMeanCordOld": 1.000257048,
    "etaDrawnMeanCordNew": 1.000142293817021,
    "etaDelta": -0.0001147541829789045,
-   "T0kNSetpoint": 6.809,
-   "T0kNAtSameInstalledEps0": 6.804553981961777,
+   "T0kNSetpointFixedEps0": 6.809,
+   "T0kNAtUnchangedImposedExtension": 6.804553981961777,
+   "comparisonBasis": "unchanged imposed chain extension at the representative shortest-cord denominator; a fixed eps0 set-point retains T0 via the extra take-up",
+   "slackPropagationScope": "n=5 only, declared-model denominator; chord-basis carried unchanged as historical comparator; full n=2..12 class bounds and no-transfer/transfer-centroid sensitivity UNCOMPUTED (UNKNOWN)",
    "extraStudTakeupToHoldT0mm": 0.015997210121280997,
    "wallInterfaceShearMPa": 10.379,
    "bondUtilVsAssumed12MPa": 0.8649166666666667,
    "firstSlackPropagated": {
-    "n5FirstSlackDeclaredMm": {
+    "n5FirstSlackDeclaredModelMm": {
      "+cos5": 26.776049,
      "+sin5": 26.672903,
      "-cos5": 26.638669,
      "-sin5": 26.672903
     },
-    "n5FirstSlackChordBasisMm": {
-     "+cos5": 26.815241,
-     "+sin5": 26.711946,
-     "-cos5": 26.677661,
-     "-sin5": 26.711946
+    "n5FirstSlackChordBasisMm_unchangedHistorical": {
+     "+cos5": 26.797732,
+     "+sin5": 26.694504,
+     "-cos5": 26.660242,
+     "-sin5": 26.694504
     }
    },
    "firstSlackMinDeclaredOldMm": 26.621275,
@@ -82,23 +84,25 @@
    "etaDrawnMeanCordOld": 1.000380871,
    "etaDrawnMeanCordNew": 1.000232516056981,
    "etaDelta": -0.00014835494301901342,
-   "T0kNSetpoint": 17.797,
-   "T0kNAtSameInstalledEps0": 17.7848078643074,
+   "T0kNSetpointFixedEps0": 17.797,
+   "T0kNAtUnchangedImposedExtension": 17.7848078643074,
+   "comparisonBasis": "unchanged imposed chain extension at the representative shortest-cord denominator; a fixed eps0 set-point retains T0 via the extra take-up",
+   "slackPropagationScope": "n=5 only, declared-model denominator; chord-basis carried unchanged as historical comparator; full n=2..12 class bounds and no-transfer/transfer-centroid sensitivity UNCOMPUTED (UNKNOWN)",
    "extraStudTakeupToHoldT0mm": 0.02380248654650467,
    "wallInterfaceShearMPa": 10.379,
    "bondUtilVsAssumed12MPa": 0.8649166666666667,
    "firstSlackPropagated": {
-    "n5FirstSlackDeclaredMm": {
+    "n5FirstSlackDeclaredModelMm": {
      "+cos5": 25.641158,
      "+sin5": 25.542385,
      "-cos5": 25.509602,
      "-sin5": 25.542385
     },
-    "n5FirstSlackChordBasisMm": {
-     "+cos5": 25.686295,
-     "+sin5": 25.587348,
-     "-cos5": 25.554508,
-     "-sin5": 25.587348
+    "n5FirstSlackChordBasisMm_unchangedHistorical": {
+     "+cos5": 25.668698,
+     "+sin5": 25.569819,
+     "-cos5": 25.537001,
+     "-sin5": 25.569819
     }
    },
    "firstSlackMinDeclaredOldMm": 25.492126,
@@ -125,24 +129,28 @@
   "margin2500TNew": -472.18601951888945
  },
  "sf12": {
-  "afterTOld": 2562.4,
-  "afterTNew": 2558.4860195188894,
-  "afterSpokesTOld": 243.98,
-  "afterSpokesTNew": 240.06601951888942,
-  "afterMarginSLTOld": -312.6,
-  "afterMarginSLTNew": -308.68601951888945
+  "historicalAfterT": 2562.4,
+  "historicalAfterSpokesT": 243.98,
+  "historicalAfterMarginSLT": -312.6,
+  "historicalVerdict": "FAIL at sea level (inherited, source: the frozen record's d60+d20 adverse construction)",
+  "candidateSubstitution": "UNCOMPUTED/UNKNOWN \u2014 would require sizing the aluminium bodies into the distinct d60+d20 SF1.2 construction; the nominal -3.914 t delta is not a valid carry"
  },
  "hardwareSensitivity": {
-  "inheritedX15IncrementT": 16.05,
-  "inheritedX15SLt": 0.3,
-  "note": "the x1.5 block/doubler/attachment scenario does not scale socket bodies and is carried UNCHANGED; the new protection/machining lines are not part of that frozen scenario"
+  "scope": "the record's own x1.5 station-hardware scenario: 0.5 x (sockets + blocks + doublers + attachment) x (1 + assembly share) \u2014 sockets INCLUDED; applied here to the CHANGED socket hardware with the new isolation/machining lines conservatively INCLUDED once inside the new sockets line",
+  "inheritedX15IncrementT_stored": 16.05,
+  "inheritedX15IncrementT_reconstructed": 16.0545,
+  "inheritedX15SLt_stored": 0.3,
+  "candidateX15IncrementT": 14.097509759444717,
+  "candidateX15SLMarginT": 6.216470721665848,
+  "roundingResidualT": 0.04999999999999788,
+  "basis": "blocks/doublers/attachment at stored 2-dp precision; candidate sockets line from this unit's unrounded increment; the separately rounded inherited display totals leave the disclosed residual above \u2014 no hidden adjustment is applied"
  },
  "verdicts": {
   "seaLevelConditional": "SL conditional margin improves to +20.3 t (was +16.4 t); still CONDITIONAL on the known-subtotal basis",
   "altitude2500": "FAIL persists: -472.2 t at 2,500 m (was -476.1 t)",
-  "sf12Adverse": "FAIL persists (inherited, unchanged in kind): after-margin -308.7 t (was -312.6 t)",
+  "sf12Adverse": "historical FAIL stands (after-margin -312.6 t, separately sized d60+d20 construction); the candidate substitution into that construction is UNCOMPUTED/UNKNOWN \u2014 the earlier revised -308.7 t figure is WITHDRAWN",
   "netSection": "both families CONDITIONAL PASS vs the ASSUMED 150 MPa record (utilisation 0.319 / 0.319)",
-  "compliance": "chain denominators grow 0.065%/0.069% (d60/d180-11); eta drops ~1.1e-4; holding T0 needs 16.0/23.8 um extra stud take-up"
+  "compliance": "n=5 declared-model only: chain denominators grow 0.065%/0.069% (d60/d180-11); eta drops ~1.1e-4; unchanged imposed extension lowers T0, and holding the T0 set-point needs 16.0/23.8 um extra both-end take-up; full-class bounds UNCOMPUTED"
  },
  "unknowns": {
   "bondOnAluminiumSubstrate": "the 12 MPa design bond shear is ASSUMED and NOT qualified on machined aluminium; required grips stay 59.68/96.48 mm vs drawn 60/97 \u2014 capacity UNKNOWN on the new substrate",

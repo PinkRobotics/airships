@@ -43,7 +43,7 @@ geometric volume reconciles with the frozen per-end body masses to ≤0.2 %.
 | socket bodies (metal only) | 12.866 | 7.842 | −5.024 |
 | isolation/protection provision (0.025 kg/end, 42,470 ends) | — | 1.062 | +1.062 |
 | machining/assembly stock (3 % of new body metal) | — | 0.235 | +0.235 |
-| other socket metal (studs, nuts — unchanged) | 7.274 | 7.274 | 0 |
+| retained socket remainder (studs, nuts, potting resin, rounding residual — unchanged) | 7.274 | 7.274 | 0 |
 | **hardware increment** | | | **−3.728** |
 | 5 % assembly share on the increment | | | −0.186 |
 | **total increment** | | | **−3.914** |
@@ -61,13 +61,16 @@ assembly accounting (the x1.5 station-hardware precedent).
 | whole known subtotal | 2,233.4 t | **2,229.5 t** |
 | sea-level margin | +16.4 t | **+20.3 t** |
 | 2,500 m margin | −476.1 t | **−472.2 t (FAIL persists)** |
-| SF1.2 adverse case: after-mass / after-spokes / after-margin | 2,562.4 t / 243.98 t / −312.6 t | **2,558.5 t / 240.07 t / −308.7 t (FAIL persists)** |
+| SF1.2 adverse (separately sized d60+d20 construction) | 2,562.4 t / 243.98 t / −312.6 t — historical FAIL | **candidate substitution UNCOMPUTED/UNKNOWN** |
 
 The 2,233.4 t / +16.4 t / −476.1 t triple was already a **conditional known
-subtotal**; it stays conditional. The inherited x1.5 station-hardware sensitivity
-(+16.05 t increment, +0.3 t SL with its assembly share) does not scale socket bodies
-and is carried unchanged; the new provision/machining lines are not part of that
-frozen scenario.
+subtotal**; it stays conditional. The record's own x1.5 station-hardware scenario
+includes sockets — `0.5 × (sockets + blocks + doublers + attachment) × 1.05` — so it
+is recomputed on the changed socket hardware (isolation/machining conservatively
+included once inside the new sockets line): increment **16.05 t stored (16.0545
+reconstructed) → 14.10 t**, candidate stacked sea-level margin **+6.22 t** (was the
+inherited 0.3 t stored display). The inherited display totals round separately; the
+0.05 t reconstruction residual is disclosed, not adjusted away.
 
 ## Compliance: the changed spring term, propagated
 
@@ -77,14 +80,25 @@ new modulus — the frozen total minus the recomputed titanium body term keeps e
 retained term exact (rebuild reconciliation ≤ 2×10⁻⁵ m, i.e. published 0.1-mm
 rounding):
 
-| family | L_ser (m) | chain denominator (m) | eta (mean cord) | first slack, declared model (mm) |
+| family | L_ser (m) | chain denominator (m) | eta (mean cord) | first slack, declared model, n=5 (mm) |
 |---|---|---|---|---|
 | d60 | 0.021040 → 0.025040 | 12.242397 → 12.250396 (+0.065 %) | 1.000257 → 1.000142 | 26.6213 → 26.6387 |
 | d180/11 | 0.033220 → 0.039171 | 17.360698 → 17.372599 (+0.069 %) | 1.000381 → 1.000233 | 25.4921 → 25.5096 |
 
-Pretension–extension: at the same installed prestrain the set tension falls
-6.809 → 6.805 kN (d60) and 17.797 → 17.785 kN (d180/11); **holding the T0 set point
-needs 16.0 / 23.8 µm of extra stud take-up** — stated as a demand only, with **no
+**Scope of that propagation (n=5 only).** Only the saved **n=5 declared-model**
+tables are propagated, by the exact changed-denominator ratio; the **chord-basis**
+n=5 tables are carried **unchanged as historical comparators** (chord geometry,
+Lmin, cord modulus and set-point strain did not change). The full n=2..12 class
+bounds and the no-transfer/transfer-centroid sensitivity under the new spring are
+**UNCOMPUTED (dependent UNKNOWN)** — the inherited full field class and its
+conservative/non-sharp distinction stand, and the n=5 table is not a class-wide
+limit. The inherited d60 n=3 single-mode witness (14.105 mm, chord basis) is
+historical context only, not a freshly computed candidate bound.
+
+Pretension–extension: at **unchanged imposed chain extension** (representative
+shortest-cord denominator) the tension falls 6.809 → 6.805 kN (d60) and
+17.797 → 17.785 kN (d180/11) — with unchanged EA a **fixed eps0 set-point retains
+T0**; holding that set point needs **16.0 / 23.8 µm of extra both-end take-up** — stated as a demand only, with **no
 restored stability licence, no free installation-after-evacuation, no extra travel and
 no pressure-bearing tensile-cord path claimed** (the R3-I023 common-strain equilibrium
 closure stays withdrawn; installation and global-equilibrium work stays UNKNOWN).
@@ -138,7 +152,10 @@ claim exposed as UNKNOWN under the changed spring, bounded analytically by the
 
 A real density saving (−3.9 t whole-vehicle) with the compliance cost retained and
 propagated; the net-section screen passes conditionally on the ASSUMED record; the
-inherited **2,500 m and SF1.2 mass FAILs persist unchanged in kind**; the leading
+inherited **2,500 m mass FAIL persists unchanged in kind**; the historical SF1.2 adverse
+FAIL stands with its own separately sized d60+d20 source (the candidate
+substitution into that construction is UNCOMPUTED/UNKNOWN; the earlier revised
+−308.7 t figure is withdrawn); the leading
 uncertainties (bond/thread/fatigue/creep/corrosion on aluminium) are UNKNOWN, not
 priced at zero. This is a **conditional candidate**, not a physical float claim.
 
@@ -153,8 +170,8 @@ local screens hold, the independent R3-I023 equilibrium/installation constructio
 remains the next unresolved vehicle task, separate from this branch.
 
 **Scoreboard (≤180 chars):** R3-I028 Al socket bodies @ fixed dims: known subtotal
-2233.4→2229.5 t; SL +16.4→+20.3 t; 2500 m −476.1→−472.2 FAIL; SF1.2 −312.6→−308.7
-FAIL; bond/thread on Al UNKNOWN.
+2233.4→2229.5 t; SL +16.4→+20.3 t; 2500 m −476.1→−472.2 FAIL; SF1.2 sub UNKNOWN;
+bond/thread on Al UNKNOWN.
 
 ## Reproduction
 
@@ -163,9 +180,17 @@ python3 research/design-iterations/R3-I028/socket_body.py
 ```
 
 Standard library only; reads the frozen `baseline.json` (sha-pinned by
-`sources.json`) and writes `socket_body.json`. Two bounded executions were used for
-this unit (initial + one demonstrated margin-sign correction, both preserved in the
-unit evidence); the design itself was frozen before the first run and never tuned.
+`sources.json`) and writes `socket_body.json`. Three executions are recorded for
+this unit. The first two (initial + one demonstrated margin-sign correction)
+produced the saved pre-correction outputs: the final pre-correction
+calculator/input/output hashes are bound, while the FIRST execution's source is
+represented by its recorded hash and saved output only, and the historical
+resource/isolation enforcement of those runs was not fully captured. The THIRD
+(final) execution is the consolidated claim/labelling correction of the same
+frozen design — no geometry, material or dimension changed — run under the
+controlling launch controls with a pre-science child-enforcement receipt; its
+source/input/output hashes are bound to the committed bytes. The design was frozen
+before the first run and never tuned.
 
 ## Expert-confirmation ledger (short)
 
