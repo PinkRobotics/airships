@@ -718,3 +718,23 @@
 | Order | sha256 `1e0e62b9a8519011…` (informational) |
 | Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
 
+## Landing 53 — Record corrected gas-envelope and partial-vacuum budgets
+
+| field | value |
+|---|---|
+| Landed | 2026-10-14 00:44:03 PDT by the lander using `ship/tools/land.py`, a pure **FAST-FORWARD**: main `985fe3cea7a5b7cf389ad23e6540f8d7e1c5032e` → `b71738ba6a7980aa59ed5484c86d83cbd30d9b1a`; pushed main-only, non-force, origin verified equal. The signed sha IS main; the landed tree equals the signed tree by identity. |
+| The object | SIGNED `b71738ba6a7980aa59ed5484c86d83cbd30d9b1a`, tree `28f1805e395aff9730440458af4c3fdffbf39dbc`, from branch `main`, parent `2dc07d658e506f43dfd79e570013a273ba33667b`, governance `gov-2be9d0122d03` preserved. Unit `r3-i003`. |
+| Rebase | law I.3c.5, mechanised: the signed object `f9bd1a3181b2a255a25ef922db3ab432e4cf53b8` was rebased off `afb2c2d1726b9d9a805f9781085c3dd6a52913e5` onto the moved main `985fe3cea7a5b7cf389ad23e6540f8d7e1c5032e`, landing as `b71738ba6a7980aa59ed5484c86d83cbd30d9b1a`. `git range-diff` showed every pair `=`; each new commit was re-governed mechanically with that pair as its reason. The gate below honours the OLD sha's EXISTING record — no fresh signature was asked or given. Range-diff:
+
+```
+1:  515238ba = 1:  2dc07d65 R3-I003 design iteration: gas-supported vs evacuated hull at P-100 scale
+2:  f9bd1a31 = 2:  b71738ba R3-I003 corrections: payload in every mission case, full-mixture hybrid, membrane equilibrium, connected gas schedule
+``` |
+| Pre-checks under the lock | primary on main; HEAD == main == the named base; origin/main == the named base; merge-base(main, candidate) == main and candidate != main; tree == the named tree; Helm-Audit-ID on every commit in base..candidate; tracked tree clean; object imported exact from the source. |
+| Gate | `tools/land_gate.py f9bd1a318…` → rc=0, HONOURED-XO f9bd1a3181b2a255a25ef922db3ab432e4cf53b8 — the last record for this sha (store line 1961) is XO-SIGNED. (store `fo-verdicts.tsv`) |
+| Governance records | `2dc07d658` ← `gov-ack-2dc07d658e50` (reconcile record; trailer `gov-29889ad1cc9a` is bound to another sha); `b71738ba6` ← `gov-ack-b71738ba6a79` (reconcile record; trailer `gov-2be9d0122d03` is bound to another sha). Each record names the landed sha as the commit it governed. |
+| Evidence before landing | `PYTHONDONTWRITEBYTECODE=1 make readmecheck linkcheck buildercheck` rc=0 (environment PATH set to host paths, not shown) |
+| Tool | `ship/tools/land.py` sha256 `3f4d36dddae3efb1…` from helm (informational) |
+| Order | sha256 `2cc503031326b89d…` (informational) |
+| Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
+
