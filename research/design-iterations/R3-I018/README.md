@@ -214,8 +214,8 @@ The largest valid-domain hanger1.5-limit resultant is34.064kN versus38.170kN ass
 ## Reproduction, confidence and next geometry
 
 ```sh
-timeout 240s python3 -B research/design-iterations/R3-I018/calculate.py > /mnt/scratch/R3-I018.json
-MPLCONFIGDIR=/mnt/scratch/R3-I018-mpl python3 -B research/design-iterations/R3-I018/draw.py /mnt/scratch/R3-I018.json /mnt/scratch/R3-I018-figures
+timeout 240s python3 -B research/design-iterations/R3-I018/calculate.py > R3-I018.json
+MPLCONFIGDIR=R3-I018-mpl python3 -B research/design-iterations/R3-I018/draw.py R3-I018.json R3-I018-figures
 ```
 
 The calculator uses the standard library,180s CPU/512MiB process limits, fixed24-point quadrature and bounded scalar iterations. It exports all four pressure/mass/flow states, all256 hanger rows across unloaded-cuff/contact screens, failure flags and fixed comparison. Figures use Matplotlib and saved output, with deterministic SVG metadata. No broad optimizer, FEA/CFD, new review or repeated unchanged predecessor suite is used.

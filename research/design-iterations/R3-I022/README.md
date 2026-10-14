@@ -259,8 +259,8 @@ Confidence is high in the fixed-envelope intersections and in the recorded condi
 From this directory, with a writable scratch destination:
 
 ```sh
-timeout 240s python3 calculate.py > /mnt/scratch/guide-racks.json
-python3 draw.py /mnt/scratch/guide-racks.json /mnt/scratch/guide-racks-preview
+timeout 240s python3 calculate.py > guide-racks.json
+python3 draw.py guide-racks.json guide-racks-preview
 ```
 
 The numerical bounds are 180 s CPU, 240 s wall and 512 MiB. There is no optimizer, geometric sweep, pressure redesign or global matrix solve. The corrected saved-output execution took 2.617 s wall, exit 0. A separate targeted check took 0.314 s, exit 0, under 30 s CPU, 60 s wall and 512 MiB. It checks both fixed-node length identities for all four states and eight routes, deriving sag excess independently from the integral of squared transverse slope. The maximum corrected length residual is below 5.85e−15 m. Exactly 64 command values and the calculator hash change; every other output value and all stroke classifications are identical to the previous saved output.
