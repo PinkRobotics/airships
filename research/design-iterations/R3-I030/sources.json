@@ -1,0 +1,203 @@
+{
+  "integration_base": "e3a6f7b854ef0683fbcdacd6db330a7c3b94044b",
+  "integration_tree": "91c7eadb15f641e918fd94faf87c70599a418363",
+  "inputs": [
+    {
+      "path": "baseline.json",
+      "sha256": "ff4890f1b5b73f221602bbe4ff82616b9a7ba575db977b278dabfb7ea099fb96",
+      "bytes": 2656923
+    }
+  ],
+  "predecessor_files": [
+    {
+      "path": "../R3-I026/README.md",
+      "sha256": "ba4f956ce30070ea4ac882450f3cd9a385f4f485dff5b1805761c289e370d393",
+      "bytes": 29251
+    },
+    {
+      "path": "../R3-I026/baseline.json",
+      "sha256": "b0907fa2f2589d3d087b099b38e730f45eaaa06351a5bb85efee55367bf59127",
+      "bytes": 884832
+    },
+    {
+      "path": "../R3-I026/geometry.json",
+      "sha256": "16c924ba0aad76a19ff303e0fadd5854a2eded07f659daa7ef086d0d66e23615",
+      "bytes": 2743
+    },
+    {
+      "path": "../R3-I026/calculate.py",
+      "sha256": "30f6e75dea0880e0db8c9c979b43aee9f1b429a1df787878b4c38fe5b0d90124",
+      "bytes": 42563
+    }
+  ],
+  "design": {
+    "hypothesis": "One finite eight-sector circumferential transfer hoop replaces the eight radial yokes and low guide approach hardware; upper racks and all penetration duties remain.",
+    "hoop_radius_m": 29.0,
+    "hoop_z_m": 0.0,
+    "hosts": [
+      9,
+      10,
+      11,
+      12,
+      16,
+      21,
+      22,
+      23
+    ],
+    "guide_azimuth_degrees": [
+      -22.5,
+      -67.5,
+      -112.5,
+      -157.5,
+      -202.5,
+      -247.5,
+      -292.5,
+      -337.5
+    ],
+    "root_azimuth_degrees": [
+      0,
+      -45,
+      -90,
+      -135,
+      -180,
+      -225,
+      -270,
+      -315
+    ],
+    "root_receivers": [
+      [
+        -1,
+        1
+      ],
+      [
+        -1,
+        3
+      ],
+      [
+        -1,
+        0
+      ],
+      [
+        -1,
+        2
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        3
+      ]
+    ],
+    "order_convention": "Clockwise from +x seen from +z; the inherited host list is preserved around the hoop, including any resulting crossovers.",
+    "hoop_rhs_width_m": 0.5,
+    "hoop_rhs_wall_m": 0.012,
+    "receiver_rhs_width_m": 0.3,
+    "receiver_rhs_wall_m": 0.01,
+    "guide_arm_width_m": 0.15,
+    "guide_arm_wall_m": 0.006,
+    "guide_bend_radius_m": 0.45,
+    "guard_radius_m": 0.6,
+    "axle_diameter_m": 0.06,
+    "axle_span_m": 0.12,
+    "groove_width_m": 0.026,
+    "groove_root_radius_m": 0.01,
+    "rope_diameter_m": 0.018,
+    "rope_enclosure_radius_m": 0.035,
+    "rope_E_pa": 50000000000.0,
+    "rope_working_pa": 150000000.0,
+    "rope_density_kg_m3": 1440,
+    "rope_coating_mass_kg_m": 0.2,
+    "rope_coating_density_kg_m3": 1000,
+    "rope_free_length_rule": "Round unloaded curved path upward to0.5m; add two paid1m tails, no post-load trim.",
+    "aluminium_density_kg_m3": 2700,
+    "steel_density_kg_m3": 7850,
+    "laminate_density_kg_m3": 1400,
+    "aluminium_E_pa": 70000000000.0,
+    "aluminium_working_pa": 150000000.0,
+    "steel_working_pa": 160000000.0,
+    "load_factor": 1.5,
+    "splice_cover_plate_count": 4,
+    "splice_plate_dimensions_m": [
+      0.8,
+      0.35,
+      0.02
+    ],
+    "splice_through_bolt_count": 16,
+    "splice_bolt_diameter_m": 0.024,
+    "splice_bolt_length_m": 0.56,
+    "bolt_head_nut_washer_mass_kg": 0.5,
+    "splice_bolt_group_radius_m": 0.21,
+    "root_end_plate_dimensions_m": [
+      0.4,
+      0.4,
+      0.025
+    ],
+    "root_gussets_per_end": 4,
+    "root_gusset_dimensions_m": [
+      0.3,
+      0.25,
+      0.02
+    ],
+    "root_bolts_per_end": 8,
+    "root_bolt_length_m": 0.12,
+    "root_bolt_group_radius_m": 0.15,
+    "root_pin_diameter_m": 0.06,
+    "root_pin_length_m": 0.25,
+    "root_clevis_plate_dimensions_m": [
+      0.25,
+      0.3,
+      0.02
+    ],
+    "root_connection_rule": "Two paid moment flanges and a double-shear axial clevis per receiver member; bolts must provide required couples, not an ideal hinge. Plate prying/peel and attachment stiffness remain UNKNOWN.",
+    "lower_contact_saddle_dimensions_m": [
+      0.4,
+      0.4,
+      0.02
+    ],
+    "lower_contact_pad_dimensions_m": [
+      0.5,
+      0.5,
+      0.01
+    ],
+    "lower_contact_straps": 2,
+    "lower_contact_strap_dimensions_m": [
+      1.0,
+      0.25,
+      0.006
+    ],
+    "bond_fraction": 0.2,
+    "isolation_each_root_kg": 4.0,
+    "earthing_each_root_kg": 1.0,
+    "access_erection_each_sector_kg": 20.0,
+    "arc_subdivisions_per_sector": 32,
+    "bend_subdivisions": 16,
+    "movement_allowance_each_m": 0.2,
+    "nominal_clearance_m": 0.25,
+    "joint_k_n_m": 200000.0,
+    "joint_rotational_k_nm_rad": 200000.0,
+    "sector_model": "Each curved half-sector is a fixed-end cantilever at its adjacent splice/root. Mid-guide force and full local couple split equally; exact sector stock CG gravity retained. This statically admissible allocation does not solve elastic ring/curtain compatibility.",
+    "receiver_model": "Paid RHS cantilever transmits full root force and couple at named existing rack receiver; no ideal pin can erase the required moment.",
+    "sensitivity": "Global ring/curtain stiffness and real load sharing UNKNOWN; report conditional deflection and loss of small-displacement domain without an extra design run.",
+    "free_parameters_after_freeze": 0,
+    "limits": {
+      "numerical_runs": 3,
+      "cpu_seconds": 180,
+      "wall_seconds": 240,
+      "memory_mib": 512,
+      "processes": 1,
+      "threads": 1
+    },
+    "pressure_and_inventory_policy": "Carry four saved endpoint states and100m3 debit only as an explicitly conditional accounting comparison; material/routing fit and physical lift remain UNKNOWN where full bag/structure contact fails. No balloon shrink, ballast release or inventory reset."
+  },
+  "calculation_dependency_policy": "hoop.py imports only Python standard library and reads baseline.json and this sources.json. Predecessor code paths are provenance, not executable dependencies."
+}
