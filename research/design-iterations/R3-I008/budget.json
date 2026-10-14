@@ -1,0 +1,960 @@
+{
+  "unit": "R3-I008",
+  "sourceRevision": "afb2c2d1726b9d9a805f9781085c3dd6a52913e5",
+  "sourceHashes": {
+    "research/analysis/vacuum-cell.py": "21d5a26c3616bb09fab0585e9e8613f84be8ed786d5d509287fd1839efd564a5",
+    "research/analysis/float-ledger.json": "d4c8085510bd80fb6feb0951b6bb33030cd16b5f9452f5fb7c015a97d2916126"
+  },
+  "modelCalls": 2,
+  "noNetSwitch": {
+    "parameter": "SHIP0.eSpoke",
+    "originalPa": 70000000000.0,
+    "scenarioValuePa": 0.0,
+    "sourceUnchanged": true,
+    "meaning": "No installed cords, anchors or credited net stiffness."
+  },
+  "cases": [
+    {
+      "arguments": {
+        "sigma_key": "s1450",
+        "sf": 1.2,
+        "dia_m": 80.0,
+        "gi_knockdown": 0.65,
+        "gi_chordal": false,
+        "gi_membrane": false,
+        "basis": "favourable"
+      },
+      "model": {
+        "sigmaKey": "s1450",
+        "sf": 1.2,
+        "giKnockdown": 0.65,
+        "geom": {
+          "diaM": 80.0,
+          "lenM": 160.0,
+          "R": 40.0,
+          "cylL": 80.0,
+          "vM3": 670206.4327658226,
+          "areaM2": 40212.385965949354,
+          "meridianM": 205.66370614359172,
+          "depthM": 4.615384615384616,
+          "rIn": 35.38461538461539,
+          "nLong": 111,
+          "braceM": 2.264210921506157
+        },
+        "wall": {
+          "ring": {
+            "odMm": 166.0,
+            "wallMm": 6.0,
+            "ro": 0.083,
+            "rm": 0.08,
+            "A": 0.0030159289474462037,
+            "I": 9.66454431209136e-06,
+            "Z": 0.00011644029291676337,
+            "kgPerM": 4.825486315913926,
+            "sigmaCapPa": 832837032.4218752,
+            "sigmaDemandPa": 671932275.3660952,
+            "marginAtSF": 1.0328881135727963,
+            "governs": "euler",
+            "demandN": 2026500.0,
+            "bracedL": 2.264210921506157
+          },
+          "bar": {
+            "odMm": 43.0,
+            "wallMm": 1.0,
+            "ro": 0.0215,
+            "rm": 0.020999999999999998,
+            "A": 0.00013194689145077146,
+            "I": 2.911078292632646e-08,
+            "Z": 1.353989903550068e-06,
+            "kgPerM": 0.21111502632123436,
+            "marginAtSF": 1.0333930672707157,
+            "demandNm": 1583.203125
+          },
+          "ringKgM2": 9.650972631827852,
+          "barKgM2": 0.4222300526424687,
+          "filmKgM2": 0.11582495689655173,
+          "clampKgM2": 0.14046153846153844,
+          "capGridKgM2": 5.7889610871252275,
+          "ringsT": 194.0443182089378,
+          "barsT": 8.489438921641034,
+          "capGridT": 116.3939687886707,
+          "filmT": 4.657597871213586,
+          "clampsT": 5.648293597986425,
+          "membersT": 318.92772591924955,
+          "counts": {
+            "rings": 412,
+            "bars": 503,
+            "panels": 160850,
+            "clamps": 40212
+          }
+        },
+        "skeleton": {
+          "longeron": {
+            "odMm": 182.0,
+            "wallMm": 8.0,
+            "ro": 0.091,
+            "rm": 0.087,
+            "A": 0.004373096973796998,
+            "I": 1.6584970273125116e-05,
+            "Z": 0.00018225242058379247,
+            "kgPerM": 6.996955158075196,
+            "sigmaCapPa": 1263278520.8256845,
+            "sigmaDemandPa": 1049238894.066479,
+            "marginAtSF": 1.003329276717958,
+            "governs": "euler",
+            "demandN": 4588423.432432228,
+            "bracedL": 2.0
+          },
+          "longeronsT": 83.23847951782423,
+          "web": {
+            "odMm": 130.0,
+            "wallMm": 1.0,
+            "ro": 0.065,
+            "rm": 0.0645,
+            "A": 0.00040526545231308535,
+            "I": 8.430534571742944e-07,
+            "Z": 1.2970053187296836e-05,
+            "kgPerM": 0.6484247237009365,
+            "sigmaCapPa": 124282394.4098375,
+            "sigmaDemandPa": 100008524.70565094,
+            "marginAtSF": 1.035598338371907,
+            "governs": "euler",
+            "demandN": 40530.0,
+            "bracedL": 4.722475531744871
+          },
+          "websT": 69.90527017684964,
+          "junctionT": 19.564108920441804,
+          "innerRingAM2": 0.006615752160103602,
+          "nInnerRings": 104,
+          "innerRingsT": 244.75236497177727,
+          "thetaWebAM2": 0.0009343030859409637,
+          "thetaWebLenM": 5.140858512446804,
+          "nThetaWebs": 23088,
+          "thetaWebsT": 177.4310942825262,
+          "flangeDoublerT": 0.0,
+          "spokeAM2PerM2": 0.0,
+          "spokesT": 0.0,
+          "ovalization": {
+            "qCrPa": 122792.50863245006,
+            "critN": 2,
+            "qCrimpPa": 549156.6744906129,
+            "marginAtSF": 1.009889864564932
+          },
+          "ovalizationFramePractice": {
+            "qCrPa": 122792.50863245006,
+            "critN": 2,
+            "qCrimpPa": 549156.6744906129,
+            "marginAtSF": 1.009889864564932
+          },
+          "ovalizationAtHarsh": {
+            "qCrPa": 56673.465522669256,
+            "critN": 2,
+            "qCrimpPa": 549156.6744906129,
+            "marginAtSF": 0.4661030144145839
+          },
+          "ovalizationAtK02": {
+            "qCrPa": 37782.310348446175,
+            "critN": 2,
+            "qCrimpPa": 549156.6744906129,
+            "marginAtSF": 0.310735342943056
+          },
+          "capBuckle": {
+            "marginAtSF": 3.872676376721079
+          },
+          "reserveKgM2": 0.0,
+          "strapsT": 0.9332735999999999,
+          "beamBending": {
+            "sigmaMPa": 2.190941259090178,
+            "marginAtSF": 551.513340816409
+          },
+          "torsion": {
+            "path": "dedicated helical straps, sized at margin 1.0",
+            "marginAtSF": 1.0
+          }
+        },
+        "unpressurised": {
+          "jigPoints": 8,
+          "cradleFlangeMPa": 2.3726557924803178,
+          "cradleOk": true,
+          "windOk": false,
+          "erectionClampN": 7018.732990352584,
+          "stands": true,
+          "allOk": false
+        },
+        "ledgerT": {
+          "rings": 194.0443182089378,
+          "capGrid": 116.3939687886707,
+          "bars": 8.489438921641034,
+          "film": 4.657597871213586,
+          "clamps": 5.648293597986425,
+          "pads": 4.825486315913922,
+          "longerons": 87.40040349371544,
+          "innerRings": 256.9899832203661,
+          "fanWebs": 73.40053368569212,
+          "thetaWebs": 186.30264899665252,
+          "flangeDoubler": 0.0,
+          "junctionShear": 20.542314366463895,
+          "spokes": 0.0,
+          "torsionStraps": 0.9332735999999999,
+          "tiJoints": 166.51122523802468,
+          "skins": 2.4127431579569616,
+          "stabilityReserve": 0.0
+        },
+        "liftDebitT": 1.5393958141575008,
+        "totalT": 1128.552229463235,
+        "liftSLT": 819.4717050698429,
+        "lift2500T": 640.0949368477136,
+        "ratioSL": 0.7261265218177825,
+        "residualSLT": -309.08052439339224,
+        "ratio2500": 0.5671823776841566,
+        "residual2500T": -488.4572926155215,
+        "arealKgM2": 28.064791540070747,
+        "checksPass": true,
+        "floats": false,
+        "floatsAndStands": false
+      },
+      "memberTakeoff": {
+        "families": {
+          "rings": {
+            "lengthM": 40212.385965949354,
+            "areaM2": 0.0030159289474462037,
+            "addition": 1.0,
+            "baseKgPerM": 4.825486315913926,
+            "massT": 194.0443182089378
+          },
+          "bars": {
+            "lengthM": 40212.385965949354,
+            "areaM2": 0.00013194689145077146,
+            "addition": 1.0,
+            "baseKgPerM": 0.21111502632123436,
+            "massT": 8.489438921641034
+          },
+          "longerons": {
+            "count": 111,
+            "eachM": 107.17464881947029,
+            "lengthM": 11896.386018961202,
+            "areaM2": 0.004373096973796998,
+            "addition": 1.05,
+            "baseKgPerM": 6.996955158075196,
+            "massT": 87.40040349371544
+          },
+          "innerRings": {
+            "count": 104,
+            "eachM": 222.32809548481615,
+            "lengthM": 23122.121930420883,
+            "areaM2": 0.006615752160103602,
+            "addition": 1.05,
+            "baseKgPerM": 10.585203456165763,
+            "massT": 256.9899832203662
+          },
+          "fanWebs": {
+            "equivalentCount": 22828.671381938682,
+            "eachM": 4.722475531744871,
+            "lengthM": 107807.84202344979,
+            "areaM2": 0.00040526545231308535,
+            "addition": 1.05,
+            "baseKgPerM": 0.6484247237009365,
+            "massT": 73.40053368569214
+          },
+          "thetaWebs": {
+            "count": 23088,
+            "eachM": 5.140858512446804,
+            "lengthM": 118692.14133537181,
+            "areaM2": 0.0009343030859409637,
+            "addition": 1.05,
+            "baseKgPerM": 1.494884937505542,
+            "massT": 186.30264899665255
+          }
+        },
+        "capGrid": {
+          "areaM2": 20106.192982974677,
+          "axialKgM2": 5.366731034482759,
+          "bendingKgM2": 0.4222300526424687,
+          "massT": 116.3939687886707
+        },
+        "basis": "Continuous/equivalent model lengths. Inner rings use maximum inner circumference even on caps; fan count may be fractional. No fabrication or joint-detail completeness is implied."
+      },
+      "noCreditModes": [
+        {
+          "n": 2,
+          "capacityPa": 122792.50863245006,
+          "marginAtSF": 1.009889864564932,
+          "foundationPa": 0.0,
+          "membranePa": 0.0
+        },
+        {
+          "n": 3,
+          "capacityPa": 208122.23127073116,
+          "marginAtSF": 1.711672269682796,
+          "foundationPa": 0.0,
+          "membranePa": 0.0
+        },
+        {
+          "n": 4,
+          "capacityPa": 258400.43216921468,
+          "marginAtSF": 2.125178321977257,
+          "foundationPa": 0.0,
+          "membranePa": 0.0
+        },
+        {
+          "n": 5,
+          "capacityPa": 288243.54038809304,
+          "marginAtSF": 2.370618804080048,
+          "foundationPa": 0.0,
+          "membranePa": 0.0
+        },
+        {
+          "n": 6,
+          "capacityPa": 306803.84077105025,
+          "marginAtSF": 2.5232654064565363,
+          "foundationPa": 0.0,
+          "membranePa": 0.0
+        },
+        {
+          "n": 7,
+          "capacityPa": 318939.23928640166,
+          "marginAtSF": 2.62307129933713,
+          "foundationPa": 0.0,
+          "membranePa": 0.0
+        },
+        {
+          "n": 8,
+          "capacityPa": 327236.41482302407,
+          "marginAtSF": 2.6913102625464598,
+          "foundationPa": 0.0,
+          "membranePa": 0.0
+        },
+        {
+          "n": 9,
+          "capacityPa": 333129.5222612802,
+          "marginAtSF": 2.7397773029137285,
+          "foundationPa": 0.0,
+          "membranePa": 0.0
+        },
+        {
+          "n": 10,
+          "capacityPa": 337451.7177990325,
+          "marginAtSF": 2.7753245974095937,
+          "foundationPa": 0.0,
+          "membranePa": 0.0
+        },
+        {
+          "n": 11,
+          "capacityPa": 340708.9541337108,
+          "marginAtSF": 2.802113283441984,
+          "foundationPa": 0.0,
+          "membranePa": 0.0
+        },
+        {
+          "n": 12,
+          "capacityPa": 343220.95113358734,
+          "marginAtSF": 2.822772852484475,
+          "foundationPa": 0.0,
+          "membranePa": 0.0
+        }
+      ],
+      "effectiveVolumeM3": 668949.7957043867,
+      "gas": {
+        "pressurePa": 1000.0,
+        "temperatureK": 288.15,
+        "gasConstant": 287.05,
+        "massT": 8.087556921488705,
+        "per100PaT": 0.8087556921488706
+      },
+      "knownSubtotalT": 1136.6397863847237,
+      "at": [
+        {
+          "altitudeM": 0,
+          "rhoAirKgM3": 1.2250122659906946,
+          "liftT": 819.4717050698429,
+          "idealVacuumHullMarginT": -309.08052439339224,
+          "knownSubtotalMarginT": -317.16808131488085,
+          "volumeLossOnePercentCostT": 8.19471705069843
+        },
+        {
+          "altitudeM": 2500,
+          "rhoAirKgM3": 0.9568654343839215,
+          "liftT": 640.0949368477134,
+          "idealVacuumHullMarginT": -488.45729261552174,
+          "knownSubtotalMarginT": -496.54484953701035,
+          "volumeLossOnePercentCostT": 6.400949368477134
+        }
+      ],
+      "allUpMassT": null,
+      "allUpMarginT": null,
+      "physicalConfidence": "UNKNOWN"
+    },
+    {
+      "arguments": {
+        "sigma_key": "s1450",
+        "sf": 1.2,
+        "dia_m": 112.0,
+        "gi_knockdown": 0.65,
+        "gi_chordal": false,
+        "gi_membrane": false,
+        "basis": "favourable"
+      },
+      "model": {
+        "sigmaKey": "s1450",
+        "sf": 1.2,
+        "giKnockdown": 0.65,
+        "geom": {
+          "diaM": 112.0,
+          "lenM": 224.0,
+          "R": 56.0,
+          "cylL": 112.0,
+          "vM3": 1839046.4515094168,
+          "areaM2": 78816.27649326072,
+          "meridianM": 287.9291886010284,
+          "depthM": 6.461538461538462,
+          "rIn": 49.53846153846154,
+          "nLong": 155,
+          "braceM": 2.2700540464648826
+        },
+        "wall": {
+          "ring": {
+            "odMm": 176.0,
+            "wallMm": 7.0,
+            "ro": 0.088,
+            "rm": 0.08449999999999999,
+            "A": 0.003716504109196728,
+            "I": 1.3291147820514794e-05,
+            "Z": 0.00015103577068766814,
+            "kgPerM": 5.946406574714764,
+            "sigmaCapPa": 924674732.4418045,
+            "sigmaDemandPa": 763378679.7058597,
+            "marginAtSF": 1.0094102671713931,
+            "governs": "euler",
+            "demandN": 2837100.0,
+            "bracedL": 2.2700540464648826
+          },
+          "bar": {
+            "odMm": 43.0,
+            "wallMm": 1.0,
+            "ro": 0.0215,
+            "rm": 0.020999999999999998,
+            "A": 0.00013194689145077146,
+            "I": 2.911078292632646e-08,
+            "Z": 1.353989903550068e-06,
+            "kgPerM": 0.21111502632123436,
+            "marginAtSF": 1.0333930672707157,
+            "demandNm": 1583.203125
+          },
+          "ringKgM2": 11.892813149429529,
+          "barKgM2": 0.4222300526424687,
+          "filmKgM2": 0.11582495689655173,
+          "clampKgM2": 0.14892307692307694,
+          "capGridKgM2": 7.935653500918331,
+          "ringsT": 468.6736247340623,
+          "barsT": 16.63930028641642,
+          "capGridT": 312.7293302415458,
+          "filmT": 9.128891827578627,
+          "clampsT": 11.737562406996368,
+          "membersT": 798.0422552620246,
+          "counts": {
+            "rings": 577,
+            "bars": 704,
+            "panels": 315265,
+            "clamps": 78816
+          }
+        },
+        "skeleton": {
+          "longeron": {
+            "odMm": 192.0,
+            "wallMm": 10.0,
+            "ro": 0.096,
+            "rm": 0.091,
+            "A": 0.0057176986295334195,
+            "I": 2.3745602408452295e-05,
+            "Z": 0.00024735002508804473,
+            "kgPerM": 9.148317807253472,
+            "sigmaCapPa": 1383360763.8731885,
+            "sigmaDemandPa": 1126392059.5533507,
+            "marginAtSF": 1.0234452798061375,
+            "governs": "euler",
+            "demandN": 6440370.335225519,
+            "bracedL": 2.0
+          },
+          "longeronsT": 212.76150137704153,
+          "web": {
+            "odMm": 180.0,
+            "wallMm": 1.0,
+            "ro": 0.09,
+            "rm": 0.0895,
+            "A": 0.0005623450849925741,
+            "I": 2.2523326516665035e-06,
+            "Z": 2.502591835185004e-05,
+            "kgPerM": 0.8997521359881185,
+            "sigmaCapPa": 124827995.36630729,
+            "sigmaDemandPa": 100902455.65274087,
+            "marginAtSF": 1.0309296121585234,
+            "governs": "euler",
+            "demandN": 56742.0,
+            "bracedL": 6.538461538461538
+          },
+          "websT": 262.55231460556206,
+          "junctionT": 53.68391487769231,
+          "innerRingAM2": 0.011091150383789753,
+          "nInnerRings": 145,
+          "innerRingsT": 800.9159861398778,
+          "thetaWebAM2": 0.001814303085940966,
+          "thetaWebLenM": 6.848695106647136,
+          "nThetaWebs": 44950,
+          "thetaWebsT": 893.649775306093,
+          "flangeDoublerT": 50.44241695568687,
+          "spokeAM2PerM2": 0.0,
+          "spokesT": 0.0,
+          "ovalization": {
+            "qCrPa": 121721.97437552742,
+            "critN": 2,
+            "qCrimpPa": 453357.0893044017,
+            "marginAtSF": 1.001085404848486
+          },
+          "ovalizationFramePractice": {
+            "qCrPa": 121721.97437552742,
+            "critN": 2,
+            "qCrimpPa": 453357.0893044017,
+            "marginAtSF": 1.001085404848486
+          },
+          "ovalizationAtHarsh": {
+            "qCrPa": 56179.37278870497,
+            "critN": 2,
+            "qCrimpPa": 453357.0893044017,
+            "marginAtSF": 0.4620394176223782
+          },
+          "ovalizationAtK02": {
+            "qCrPa": 37452.915192469976,
+            "critN": 2,
+            "qCrimpPa": 453357.0893044017,
+            "marginAtSF": 0.3080262784149188
+          },
+          "capBuckle": {
+            "marginAtSF": 3.427756540489239
+          },
+          "reserveKgM2": 0.0,
+          "strapsT": 2.5609027584000006,
+          "beamBending": {
+            "sigmaMPa": 2.3520466608156787,
+            "marginAtSF": 513.7369736169644
+          },
+          "torsion": {
+            "path": "dedicated helical straps, sized at margin 1.0",
+            "marginAtSF": 1.0
+          }
+        },
+        "unpressurised": {
+          "jigPoints": 12,
+          "cradleFlangeMPa": 4.61318566558465,
+          "cradleOk": true,
+          "windOk": false,
+          "erectionClampN": 9826.226186493619,
+          "stands": true,
+          "allOk": false
+        },
+        "ledgerT": {
+          "rings": 468.6736247340623,
+          "capGrid": 312.7293302415458,
+          "bars": 16.63930028641642,
+          "film": 9.128891827578627,
+          "clamps": 11.737562406996368,
+          "pads": 9.457953179191287,
+          "longerons": 223.39957644589362,
+          "innerRings": 840.9617854468717,
+          "fanWebs": 275.6799303358402,
+          "thetaWebs": 938.3322640713977,
+          "flangeDoubler": 52.96453780347122,
+          "junctionShear": 56.368110621576925,
+          "spokes": 0.0,
+          "torsionStraps": 2.5609027584000006,
+          "tiJoints": 562.1909047036017,
+          "skins": 4.728976589595644,
+          "stabilityReserve": 0.0
+        },
+        "liftDebitT": 3.017215795748701,
+        "totalT": 3785.5536514524397,
+        "liftSLT": 2249.837245029948,
+        "lift2500T": 1757.363213843166,
+        "ratioSL": 0.594321848844153,
+        "residualSLT": -1535.7164064224917,
+        "ratio2500": 0.4642288488419393,
+        "residual2500T": -2028.1904376092737,
+        "arealKgM2": 48.030100125018315,
+        "checksPass": true,
+        "floats": false,
+        "floatsAndStands": false
+      },
+      "memberTakeoff": {
+        "families": {
+          "rings": {
+            "lengthM": 78816.27649326072,
+            "areaM2": 0.003716504109196728,
+            "addition": 1.0,
+            "baseKgPerM": 5.946406574714764,
+            "massT": 468.6736247340623
+          },
+          "bars": {
+            "lengthM": 78816.27649326072,
+            "areaM2": 0.00013194689145077146,
+            "addition": 1.0,
+            "baseKgPerM": 0.21111502632123436,
+            "massT": 16.63930028641642
+          },
+          "longerons": {
+            "count": 155,
+            "eachM": 150.04450834725841,
+            "lengthM": 23256.898793825054,
+            "areaM2": 0.0057176986295334195,
+            "addition": 1.05,
+            "baseKgPerM": 9.148317807253472,
+            "massT": 223.39957644589362
+          },
+          "innerRings": {
+            "count": 145,
+            "eachM": 311.25933367874256,
+            "lengthM": 45132.60338341768,
+            "areaM2": 0.011091150383789753,
+            "addition": 1.05,
+            "baseKgPerM": 17.745840614063603,
+            "massT": 840.9617854468718
+          },
+          "fanWebs": {
+            "equivalentCount": 44629.0242331594,
+            "eachM": 6.538461538461538,
+            "lengthM": 291805.1584475807,
+            "areaM2": 0.0005623450849925741,
+            "addition": 1.05,
+            "baseKgPerM": 0.8997521359881185,
+            "massT": 275.67993033584025
+          },
+          "thetaWebs": {
+            "count": 44950,
+            "eachM": 6.848695106647136,
+            "lengthM": 307848.8450437888,
+            "areaM2": 0.001814303085940966,
+            "addition": 1.05,
+            "baseKgPerM": 2.9028849375055454,
+            "massT": 938.3322640713978
+          }
+        },
+        "capGrid": {
+          "areaM2": 39408.13824663036,
+          "axialKgM2": 7.513423448275862,
+          "bendingKgM2": 0.4222300526424687,
+          "massT": 312.7293302415458
+        },
+        "basis": "Continuous/equivalent model lengths. Inner rings use maximum inner circumference even on caps; fan count may be fractional. No fabrication or joint-detail completeness is implied."
+      },
+      "noCreditModes": [
+        {
+          "n": 2,
+          "capacityPa": 121721.97437552744,
+          "marginAtSF": 1.0010854048484863,
+          "foundationPa": 0.0,
+          "membranePa": 0.0
+        },
+        {
+          "n": 3,
+          "capacityPa": 192244.07120857568,
+          "marginAtSF": 1.5810845563662774,
+          "foundationPa": 0.0,
+          "membranePa": 0.0
+        },
+        {
+          "n": 4,
+          "capacityPa": 229469.4509130238,
+          "marginAtSF": 1.8872395008884266,
+          "foundationPa": 0.0,
+          "membranePa": 0.0
+        },
+        {
+          "n": 5,
+          "capacityPa": 250235.73157684086,
+          "marginAtSF": 2.058028880474059,
+          "foundationPa": 0.0,
+          "membranePa": 0.0
+        },
+        {
+          "n": 6,
+          "capacityPa": 262687.9697051918,
+          "marginAtSF": 2.160440576570374,
+          "foundationPa": 0.0,
+          "membranePa": 0.0
+        },
+        {
+          "n": 7,
+          "capacityPa": 270646.2792289887,
+          "marginAtSF": 2.2258925835100642,
+          "foundationPa": 0.0,
+          "membranePa": 0.0
+        },
+        {
+          "n": 8,
+          "capacityPa": 276006.4078219155,
+          "marginAtSF": 2.2699762136846413,
+          "foundationPa": 0.0,
+          "membranePa": 0.0
+        },
+        {
+          "n": 9,
+          "capacityPa": 279774.224474037,
+          "marginAtSF": 2.300964096340464,
+          "foundationPa": 0.0,
+          "membranePa": 0.0
+        },
+        {
+          "n": 10,
+          "capacityPa": 282517.2229058959,
+          "marginAtSF": 2.3235235044485227,
+          "foundationPa": 0.0,
+          "membranePa": 0.0
+        },
+        {
+          "n": 11,
+          "capacityPa": 284573.0475046715,
+          "marginAtSF": 2.3404313471886793,
+          "foundationPa": 0.0,
+          "membranePa": 0.0
+        },
+        {
+          "n": 12,
+          "capacityPa": 286151.9142722167,
+          "marginAtSF": 2.3534165167548045,
+          "foundationPa": 0.0,
+          "membranePa": 0.0
+        }
+      ],
+      "effectiveVolumeM3": 1836583.4428690025,
+      "gas": {
+        "pressurePa": 1000.0,
+        "temperatureK": 288.15,
+        "gasConstant": 287.05,
+        "massT": 22.20416723444311,
+        "per100PaT": 2.220416723444311
+      },
+      "knownSubtotalT": 3807.7578186868827,
+      "at": [
+        {
+          "altitudeM": 0,
+          "rhoAirKgM3": 1.2250122659906946,
+          "liftT": 2249.837245029948,
+          "idealVacuumHullMarginT": -1535.7164064224917,
+          "knownSubtotalMarginT": -1557.9205736569347,
+          "volumeLossOnePercentCostT": 22.49837245029948
+        },
+        {
+          "altitudeM": 2500,
+          "rhoAirKgM3": 0.9568654343839215,
+          "liftT": 1757.363213843166,
+          "idealVacuumHullMarginT": -2028.1904376092737,
+          "knownSubtotalMarginT": -2050.3946048437165,
+          "volumeLossOnePercentCostT": 17.57363213843166
+        }
+      ],
+      "allUpMassT": null,
+      "allUpMarginT": null,
+      "physicalConfidence": "UNKNOWN"
+    }
+  ],
+  "historicalBothMovesSensitivity": [
+    {
+      "id": "hull-80m/both-moves/gamma-0.65/chord-1450/sf-1.2",
+      "label": "80 m hull, both moves, favourable stability basis (\u03b3 0.65), chords at 1,450 MPa, SF 1.2",
+      "quantity": "lift \u00f7 mass, mass \u00f7 lift, and the margin lift \u2212 mass",
+      "massUnit": "t",
+      "mass": 767.6,
+      "safetyFactor": {
+        "value": 1.2,
+        "kind": "declared \u2014 applied to every member check"
+      },
+      "knockdowns": [
+        {
+          "id": "gi-frame",
+          "value": 0.65,
+          "status": "assumed"
+        },
+        {
+          "id": "classical",
+          "value": 0.605,
+          "status": "literature"
+        },
+        {
+          "id": "local-wall",
+          "value": 0.3,
+          "status": "assumed"
+        },
+        {
+          "id": "ortho",
+          "value": 0.5699,
+          "status": "assumed"
+        },
+        {
+          "id": "joint-mass",
+          "value": 0.85,
+          "status": "assumed"
+        }
+      ],
+      "inputs": [
+        {
+          "name": "chord axial-compressive allowable",
+          "value": 1450,
+          "unit": "MPa",
+          "status": "literature",
+          "basis": "The scoping tool cites a Toray zero-degree datasheet ceiling (SACMA SRM 1R-94, sixty percent fibre volume): a unidirectional coupon value, not a test of this chord. [TO VERIFY \u2014 coupon campaign]."
+        }
+      ],
+      "designStatus": "a bound, not a design",
+      "evidence": "to-verify",
+      "sizingPressure": {
+        "valuePa": 101325,
+        "basis": "Full vacuum against sea-level pressure; altitude changes lift only. Assumed allowances and literature rows are not structural sizing results."
+      },
+      "codePath": "`research/analysis/vacuum-cell.py`: `ship0()`",
+      "whatWouldMoveIt": "The knockdown tests and the chord coupon campaign, which the model names as the two things that decide it; the two design moves it prices only as bounds; wall depth and ring pitch; joint mass, which is an efficiency factor here and not a design.",
+      "at": {
+        "seaLevel": {
+          "altitudeM": 0,
+          "rhoAirKgPerCubicM": 1.225,
+          "lift": 819.5,
+          "liftToMass": 1.068,
+          "massToLift": 0.937,
+          "margin": 51.9,
+          "floats": true
+        },
+        "target": {
+          "altitudeM": 2500,
+          "rhoAirKgPerCubicM": 0.9569,
+          "lift": 640.1,
+          "liftToMass": 0.834,
+          "massToLift": 1.199,
+          "margin": -127.5,
+          "floats": false
+        }
+      },
+      "readsOneOrMore": true,
+      "floatsToday": false,
+      "notAFloatingDesignBecause": "It stands on the frame-practice knockdown, which no test supports and the model marks [TO VERIFY]; it takes the chord allowable at a datasheet ceiling the coupon campaign has not confirmed; the chordal spoke net is a bound \u2014 cord mass priced at diametral-cord rates, geometry and terminations [SCOPING], nothing drawn; the in-surface shear system is an outer bound \u2014 its stiffness is credited and its own mass is not priced; the hull is scaled from the record by rule and has not been drawn; it clears the float line at sea level only \u2014 at 2,500 m the same row reads 0.834.",
+      "extras": {
+        "hullDiameterM": 80.0,
+        "wallDepthM": 4.62,
+        "enclosedCubicM": 670206,
+        "hullAreaSqM": 40212,
+        "arealKgPerSqM": 19.09,
+        "structureKgPerCubicMEnclosed": 1.145,
+        "memberChecksPass": true
+      },
+      "filmSizing": {
+        "safetyFactor": 4.0,
+        "efficiency": 0.5,
+        "efficiencyStatus": "assumed",
+        "codePath": "research/analysis/vacuum-cell.py: `barrier_kg_per_m2()`",
+        "basis": "Separate film sizing defaults; not the structural factor printed in the row."
+      }
+    },
+    {
+      "id": "hull-112m/both-moves/gamma-0.65/chord-1450/sf-1.2",
+      "label": "112 m hull, both moves, favourable stability basis (\u03b3 0.65), chords at 1,450 MPa, SF 1.2",
+      "quantity": "lift \u00f7 mass, mass \u00f7 lift, and the margin lift \u2212 mass",
+      "massUnit": "t",
+      "mass": 2330.7,
+      "safetyFactor": {
+        "value": 1.2,
+        "kind": "declared \u2014 applied to every member check"
+      },
+      "knockdowns": [
+        {
+          "id": "gi-frame",
+          "value": 0.65,
+          "status": "assumed"
+        },
+        {
+          "id": "classical",
+          "value": 0.605,
+          "status": "literature"
+        },
+        {
+          "id": "local-wall",
+          "value": 0.3,
+          "status": "assumed"
+        },
+        {
+          "id": "ortho",
+          "value": 0.5699,
+          "status": "assumed"
+        },
+        {
+          "id": "joint-mass",
+          "value": 0.85,
+          "status": "assumed"
+        }
+      ],
+      "inputs": [
+        {
+          "name": "chord axial-compressive allowable",
+          "value": 1450,
+          "unit": "MPa",
+          "status": "literature",
+          "basis": "The scoping tool cites a Toray zero-degree datasheet ceiling (SACMA SRM 1R-94, sixty percent fibre volume): a unidirectional coupon value, not a test of this chord. [TO VERIFY \u2014 coupon campaign]."
+        }
+      ],
+      "designStatus": "a bound, not a design",
+      "evidence": "to-verify",
+      "sizingPressure": {
+        "valuePa": 101325,
+        "basis": "Full vacuum against sea-level pressure; altitude changes lift only. Assumed allowances and literature rows are not structural sizing results."
+      },
+      "codePath": "`research/analysis/vacuum-cell.py`: `ship0()`",
+      "whatWouldMoveIt": "The knockdown tests and the chord coupon campaign, which the model names as the two things that decide it; the two design moves it prices only as bounds; wall depth and ring pitch; joint mass, which is an efficiency factor here and not a design.",
+      "at": {
+        "seaLevel": {
+          "altitudeM": 0,
+          "rhoAirKgPerCubicM": 1.225,
+          "lift": 2249.8,
+          "liftToMass": 0.965,
+          "massToLift": 1.036,
+          "margin": -80.9,
+          "floats": false
+        },
+        "target": {
+          "altitudeM": 2500,
+          "rhoAirKgPerCubicM": 0.9569,
+          "lift": 1757.4,
+          "liftToMass": 0.754,
+          "massToLift": 1.326,
+          "margin": -573.4,
+          "floats": false
+        }
+      },
+      "readsOneOrMore": false,
+      "floatsToday": false,
+      "extras": {
+        "hullDiameterM": 112.0,
+        "wallDepthM": 6.46,
+        "enclosedCubicM": 1839046,
+        "hullAreaSqM": 78816,
+        "arealKgPerSqM": 29.57,
+        "structureKgPerCubicMEnclosed": 1.267,
+        "memberChecksPass": true
+      },
+      "filmSizing": {
+        "safetyFactor": 4.0,
+        "efficiency": 0.5,
+        "efficiencyStatus": "assumed",
+        "codePath": "research/analysis/vacuum-cell.py: `barrier_kg_per_m2()`",
+        "basis": "Separate film sizing defaults; not the structural factor printed in the row."
+      }
+    }
+  ],
+  "result": "FAIL for this member bill; all-up mass and physical confidence UNKNOWN",
+  "nextGeometry": {
+    "diameterM": 80,
+    "change": "Reprice a two-column circumferential X-web panel, outer j to inner j+/-2, at unchanged diameter/depth and with no net/membrane credit.",
+    "angleRad": 0.11321054607530787,
+    "straightEndpointLengthM": 6.278763110174862,
+    "tested": false,
+    "requiredSeaLevelSavingT": 317.16808131488085,
+    "savingPercentCurrentHull": 28.10397897718328,
+    "currentInnerAndThetaIncludingJointsT": 521.5207437847279,
+    "maximumRemainingFrameBillT": 204.35266246984702,
+    "requiredCurrentPitchErectionClampCapacityN": 10528.099485528877
+  }
+}

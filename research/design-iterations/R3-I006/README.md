@@ -20,7 +20,7 @@ ballonets, pressure-control hardware and routing provisions are charged below.
 This is a separate sibling candidate from
 `afb2c2d1726b9d9a805f9781085c3dd6a52913e5`, in the existing worker clone.
 I002 at `2da1ca08e9013c4c65cd26984b2b66492da28c46` and its original evidence
-remain frozen. Parent notice `rpt-spock-astra-b-i002-landed52-1014` reports
+remain frozen. The custody notice for I002 landing 52 reports
 XO signature and landing 52 at 00:35 PDT, with attestation
 `985fe3cea7a5b7cf389ad23e6540f8d7e1c5032e`. It reports Captain verification
 of origin; this worker has not independently rechecked public main. The
