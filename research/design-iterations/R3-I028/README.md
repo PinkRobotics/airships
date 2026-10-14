@@ -180,16 +180,23 @@ python3 research/design-iterations/R3-I028/socket_body.py
 ```
 
 Standard library only; reads the frozen `baseline.json` (sha-pinned by
-`sources.json`) and writes `socket_body.json`. Three executions are recorded for
-this unit. The first two (initial + one demonstrated margin-sign correction)
-produced the saved pre-correction outputs: the final pre-correction
-calculator/input/output hashes are bound, while the FIRST execution's source is
-represented by its recorded hash and saved output only, and the historical
-resource/isolation enforcement of those runs was not fully captured. The THIRD
-(final) execution is the consolidated claim/labelling correction of the same
-frozen design — no geometry, material or dimension changed — run under the
-controlling launch controls with a pre-science child-enforcement receipt; its
-source/input/output hashes are bound to the committed bytes. The design was frozen
+`sources.json`) and writes `socket_body.json`. Four scientific invocations are
+recorded for this unit — two before the review correction and two during it. The
+original pair (initial + one demonstrated margin-sign correction) produced the
+saved pre-correction outputs: the final pre-correction calculator/input/output
+hashes are bound, while the FIRST execution's source is represented by its
+recorded hash and saved output only, and the historical resource/isolation
+enforcement of those runs was not fully captured. During the correction, under
+the controlling launch controls: two guard failures stopped the launcher BEFORE
+any calculation; then one payload ran its calculations and failed on a source
+defect before writing output (the bytes hashed after that crash are the
+unchanged prior output, not a new result); then the final payload completed,
+with a pre-science child-enforcement receipt and source/input/output hashes
+bound to the committed bytes — no geometry, material or dimension changed. That
+final payload was the FOURTH scientific invocation and exceeded the single
+remaining numerical execution the correction order assigned; its saved result
+and exact source binding are retained without retroactive approval, and no
+further scientific execution is claimed or authorized. The design was frozen
 before the first run and never tuned.
 
 ## Expert-confirmation ledger (short)
