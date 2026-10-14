@@ -114,7 +114,9 @@ def render(d: dict) -> dict[str, str]:
     top = d['topFires']
     mode = d['mode']            # the page's own mode sentence, the ruling's fixed words
     qualification = esc(d['qualification'])
-    pointer = '<p>'+d['diagnosticPointerHtml']+'</p>'
+    # The fleet diagnostic pointer is deliberately absent from the no-script block: it is
+    # a working-record sentence of the energy study, not part of the exercise scene, and a
+    # scripts-off visitor is still a public visitor (operator, 10-14).
     guard = d['guard']          # the page's own guard note, likewise
 
     hud = (f'<b>EXERCISE</b> · {fmt(fires["active"])} invented fires · simulated fleet')
@@ -203,7 +205,6 @@ def render(d: dict) -> dict[str, str]:
   <p>The top-fires panel lists the largest invented out-of-control fires. {fmt(d['uncovered'])} exercise fires qualify for a ship but receive none in this allocation.</p>
   <h3>The fleet: {fmt(sum(g["count"] for g in d["roster"]))} simulated hulls</h3>
   <p>A fixed demonstration fleet is allocated among the largest out-of-control fires it may work. It has {fmt(p100['count'])} {esc(p100['name'])}s at {fmt(p100['payloadT'])} t requested capacity and {fmt(p100['lenM'])} m each, {fmt(p1000['count'])} {esc(p1000['name'])}s at {fmt(p1000['payloadT'])} t requested capacity and {fmt(p1000['lenM'])} m, and one {esc(p10000['name'])} at {fmt(p10000['payloadT'])} t requested capacity and {fmt(p10000['lenM'])} m. In this exercise allocation {flying}. The full roster, hull by hull, is in the fleet panel above. {qualification}</p>
-  {pointer}
   <figure>
     <img src="media/map-snapshot.jpg" width="{pw}" height="{ph}"
       alt="Exercise: invented fires on British Columbia terrain, drawn as status-coloured circles, water bodies, and the simulated airships as pink markers">

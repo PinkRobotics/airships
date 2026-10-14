@@ -1,6 +1,6 @@
 /* A physically closing threshold is not an operational reserve. */
 import assert from 'node:assert/strict';
-import * as S from '../../sim/index.js?v=01e992e3';
+import * as S from '../../sim/index.js?v=3c39c29e';
 const cls=S.CLASSES.P10000,km=3;
 // Contact geometry can move a fixed numerical fixture away from its boundary.
 // Find the physical boundary on this model; reserve rejection stays independent.

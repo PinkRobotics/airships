@@ -1,6 +1,6 @@
 /* The stricter completed-hoist rule is a sensitivity, not the default force owner. */
 import {producerCheckMode,writeOutputs} from './energy-output.mjs';
-import {CLASSES,MODES,ballastRequirement} from '../../sim/index.js?v=01e992e3';
+import {CLASSES,MODES,ballastRequirement} from '../../sim/index.js?v=3c39c29e';
 const check=producerCheckMode('node research/analysis/energy-bag-comparison.mjs');
 const rows=[];
 for(const c of Object.values(CLASSES))for(const km of [15,60])for(const basis of ['record','favourable']){

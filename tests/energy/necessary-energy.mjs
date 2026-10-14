@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
-import {CLASSES,MODES,planCycle,selectServedPlan} from '../../sim/index.js?v=01e992e3';
+import {CLASSES,MODES,planCycle,selectServedPlan} from '../../sim/index.js?v=3c39c29e';
 import {necessaryEnergy} from '../../research/analysis/energy-necessary.mjs';
 import {proveMutations} from './diagnostic-mutations.mjs';
 // Frozen mathematical counterexamples; changing dispatch cannot retire these failures.

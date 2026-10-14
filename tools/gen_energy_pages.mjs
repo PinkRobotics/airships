@@ -116,8 +116,15 @@ analysis+=sentence('analysis-cryo','The study finds that making the exchange bal
 function region(name,body){return `<!-- served-energy:${name}:start -->\n${body}\n<!-- served-energy:${name}:end -->`;}
 const home=region('home','<details class="d"><summary>Energy · feasible simulated plans</summary><div class="dbody">\n'+text+analysis+'\n</div></details>');
 const concept=region('concept','<details class="d"><summary>What the generated energy records say</summary><div class="dbody">\n'+text.replaceAll('href="concept/','href="')+analysis+'\n</div></details>');
-const homeWorked=region('worked',sentence('worked-record',`The generated ${N(p15.km,0)} km P-100 ${p15.best.mode} example requests ${N(CLASSES.P100.payloadT,0)} t, keeps ${N(p15.best.ballastT)} t aboard and delivers ${N(p15.best.deliveredT)} t in ${N(p15.best.cycleMin)} minutes; supplied energy is ${N(p15.best.cycleMWh)} MWh on the record basis and ${N(fav15.best.cycleMWh)} MWh on the favourable basis. This is a feasible simulated example, separate from each mission's own route. Feasible means quasi-static force and bus closure at every checked instant. Battery hours are reported; they do not determine feasibility. ${MISSION_QUALIFIER} ${COLD_READY_NOTE}${noteText(p15.best)}`,[key('energy-profiles','P100',15,'record','best'),'research/analysis/energy-necessary.json#pairedP100.suppliedMWh']));
-const fleet=region('fleet',`<p class="small" id="fleetNote" style="margin-top:var(--s2);font-size:var(--t-12)">The fleet is simulated. The flight model assumes a hull that floats; <a href="float/">no drawn hull does</a>. ${MISSION_QUALIFIER}</p>`+sentence('fleet-diagnostic-pointer',pointerText,pointerKeys));
+// The monitor page carries neither the worked-example paragraph nor the fleet diagnostic
+// pointer (operator, 10-14): both are working-record sentences about the energy study's
+// own bookkeeping, and they printed on every mode — record-only days included — as though
+// they were part of the day being shown. The worked example lives on the concept page
+// (#worked, rendered from the same accepted plans by app/worked.js); the diagnostic
+// pointer lives in the concept fleet region and the energy-analysis page it names. The
+// monitor's fleet panel keeps the fleetNote disclaimer and nothing else.
+const homeWorked=region('worked','');
+const fleet=region('fleet',`<p class="small" id="fleetNote" style="margin-top:var(--s2);font-size:var(--t-12)">The fleet is simulated. The flight model assumes a hull that floats; <a href="float/">no drawn hull does</a>. ${MISSION_QUALIFIER}</p>`);
 const conceptFleet=region('fleet',sentence('fleet-qualifier',MISSION_QUALIFIER,[])+sentence('fleet-diagnostic-pointer',pointerText.replaceAll('href="concept/','href="'),pointerKeys));
 const outputs={'index.html':{home,worked:homeWorked,fleet},'concept/index.html':{concept,fleet:conceptFleet}};
 const files={};

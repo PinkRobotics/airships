@@ -1,7 +1,7 @@
 /* A path check independent of the force allocation. */
 import {describe,it,ok,close} from '../harness.js';
-import {CLASSES,MODES,PHASES,planCycle,drawAt,cycleGeometry,altAt} from '../../sim/index.js?v=01e992e3';
-import {SERVED_CANDIDATES} from '../../sim/served-candidates.js?v=01e992e3';
+import {CLASSES,MODES,PHASES,planCycle,drawAt,cycleGeometry,altAt} from '../../sim/index.js?v=3c39c29e';
+import {SERVED_CANDIDATES} from '../../sim/served-candidates.js?v=3c39c29e';
 const load=async name=>{
  const url=new URL('../../'+name,import.meta.url);
  return typeof process!=='undefined'&&process.versions?.node

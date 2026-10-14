@@ -77,7 +77,8 @@
     generated: { by: 'tools/fallback_dump.js via tools/gen_fallback.py',
                  inputs: 'data/exercise/exercise.json; invented fires; seed from the file' },
     qualification: SIM.FEASIBILITY_SCOPE,
-    diagnosticPointerHtml: document.querySelector('[data-energy-sentence="fleet-diagnostic-pointer"]').innerHTML,
+    // The fleet diagnostic pointer is no longer scraped or printed: it is a working-record
+    // sentence of the energy study and stays on the concept page (operator, 10-14).
     day: S.day,                     // the day the view shows (America/Vancouver)
     snapshotAt: S.snapshotDate,     // when that day's files were captured (UTC)
     tier: S.tier,

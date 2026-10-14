@@ -1,7 +1,7 @@
 /* Rotor efficiency is a plan option; no class or configuration is mutated. */
 import {producerCheckMode,writeOutputs} from './energy-output.mjs';
-import {ROTOR_POWER_SCOPE} from '../../sim/energy-label.js?v=01e992e3';
-import {CLASSES,MODES,PHASES,ROTOR_EFFICIENCY_VALUES,planCycle,drawAt} from '../../sim/index.js?v=01e992e3';
+import {ROTOR_POWER_SCOPE} from '../../sim/energy-label.js?v=3c39c29e';
+import {CLASSES,MODES,PHASES,ROTOR_EFFICIENCY_VALUES,planCycle,drawAt} from '../../sim/index.js?v=3c39c29e';
 const check=producerCheckMode('node research/analysis/energy-rotor-range.mjs');
 const rows=[];
 for(const c of Object.values(CLASSES))for(const km of [15,60])for(const basis of ['record','favourable'])for(const rotorEfficiency of ROTOR_EFFICIENCY_VALUES){

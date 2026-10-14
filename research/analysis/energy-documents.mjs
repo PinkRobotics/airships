@@ -6,9 +6,9 @@ if(args.length>1||args.some(arg=>!['--check','--emit'].includes(arg))){
  process.exit(2);
 }
 const check=args[0]==='--check';
-const {OPERATING_MARGIN_TEXT}=await import('../../sim/operating-margin.js?v=01e992e3');
-const {MISSION_QUALIFIER,DYNAMIC_PROFILE_NOTE,STORAGE_PROFILE_NOTE}=await import('../../sim/energy-label.js?v=01e992e3');
-const {CLASSES,MODES,CFG,DEFAULTS,PHASES,planCycle,energySummary,dragMW,pumpMW,ledger,TERRAIN_MSL,WORK_ALT_MSL,sourceAltM,PROFILE_SEARCH,resetConfig,setConfig,RHO_SL_ISA,FORCE_TOL,LIMIT_STEPS,PLAN_STEPS,AERO_CL_MAX,AERO_CL_VALUES,VERTICAL_CD,ROTOR_EFFICIENCY_VALUES,HOIST_M,WINCH_ETA}=await import('../../sim/index.js?v=01e992e3');
+const {OPERATING_MARGIN_TEXT}=await import('../../sim/operating-margin.js?v=3c39c29e');
+const {MISSION_QUALIFIER,DYNAMIC_PROFILE_NOTE,STORAGE_PROFILE_NOTE}=await import('../../sim/energy-label.js?v=3c39c29e');
+const {CLASSES,MODES,CFG,DEFAULTS,PHASES,planCycle,energySummary,dragMW,pumpMW,ledger,TERRAIN_MSL,WORK_ALT_MSL,sourceAltM,PROFILE_SEARCH,resetConfig,setConfig,RHO_SL_ISA,FORCE_TOL,LIMIT_STEPS,PLAN_STEPS,AERO_CL_MAX,AERO_CL_VALUES,VERTICAL_CD,ROTOR_EFFICIENCY_VALUES,HOIST_M,WINCH_ETA}=await import('../../sim/index.js?v=3c39c29e');
 const {specificEnergies,batteryMass}=await import('./energy-omissions.mjs');
 const {COLD_READY_NOTE}=await import('./energy-plant.mjs');
 const {storageTables}=await import('./energy-storage.mjs');
