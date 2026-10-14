@@ -1,0 +1,574 @@
+{
+ "bill": {
+  "accounting": "ONE boundary: anchor centre = grip back face, so anchor-centre chord = free span + 2 embedded (nose+grip) runs; cordT prices FULL anchor-centre chords and therefore already contains the potted embedded cord \u2014 the v2 0.34 t potted-tow line was a double count and is REMOVED; potting resin is inside socketsT; studs/seats beyond the anchor centre are inside socketsT and the series spring L_ser; old 0.35 kg ideal-lug line removed ONCE (inside the spokesLineOldT comparison); sockets, blocks, pads and attachment bolts charged ONCE; ring members, fixed members and gas unchanged",
+  "anchorBlocksT": 6.17,
+  "assemblyT": 11.69,
+  "attachmentBoltsT": 1.41,
+  "clipsT": 63.64,
+  "cordT": 139.51,
+  "deltaT": 16.5,
+  "doublerPadsT": 2.86,
+  "knownSubtotal": "attachment bolts are sized on metallic single shear (traceable); laminate bearing, block local bending and pull-through are UNKNOWN \u2014 the bill is a known subtotal with those unresolved, not a qualified all-up margin",
+  "margin2500T": -476.1,
+  "marginSLT": 16.4,
+  "removedIdealLugT": 14.86,
+  "removedLugAssemblyT": 0.74,
+  "socketsT": 20.14,
+  "spokesLineNewT": 245.42,
+  "spokesLineOldT": 228.91,
+  "stackedStationHardwareX1_5_SLT": 0.3,
+  "totalT": 2233.4,
+  "x15IncrementT": 16.05
+ },
+ "bounds": {
+  "cpu": "single pure-Python process; measured wall/RSS receipts live in the unit evidence file (not embedded \u2014 the JSON is deterministic)",
+  "declared": "analytic + <=22-coordinate small-matrix work only; no solver, sweep, optimizer or review family; measured run < 1 s wall, < 25 MB RSS"
+ },
+ "compatibility": "the cord is UHMWPE-CLASS (Dyneema-type) with ASSUMED inherited inputs; swage compatibility is creep/slip-sensitive and NOT QUALIFIED (neither retained nor sized); potting compatibility is an ASSUMED construction on an ASSUMED 12 MPa design bond shear \u2014 not a qualified termination",
+ "construction": "epoxy-potted titanium socket with a threaded adjustment stud and jam nut, per-station titanium anchor block on a carbon-laminate doubler pad, bolted to the ring wall by 3 x M10 Ti through-bolts with internal backing nuts",
+ "date": "2026-10-14",
+ "dependency": "corrected R3-I015 commit 736180fd (record imports); direct commit parent is the v2 correction 5f549f91 \u2014 v3 repairs its open spring model (one signed installed spring model + signed mixed-packet first loss), the bolt stack (buildable, dimensioned) and ONE cord accounting boundary, and the Pa units label",
+ "energy": {
+  "coupledMinEqualsScalar": 1.000811196,
+  "drawnEtaCoupledMin": 1.000874096,
+  "drawnEtaNote": "rebuilt with the drawn per-family eta on the ONE consistent law (eta = mc/(L_free_mean + 2 L_a) > 1 \u2014 v2's eta = mc/(mc + 2 L_a) treated the whole mean chord as free cord and its 1.000438088 is SUPERSEDED): the drawn chain is stiffer than the pin-jointed ideal, so the compliant-state coupled margin 1.000874096 sits just ABOVE the licensed rigid 1.0008112 \u2014 beyond-rigid is an extrapolation of the same linear model and is NOT claimed as a qualification; the quotable margin remains the licensed rigid scalar",
+  "licensedQuotableMargin": 1.000811196,
+  "marginMatrix": "M = K KD/(P_ATM SF); lambda_min(M) worst margin over all fields of unit MODAL norm ||y|| = 1, sum_n (n^2-1)(c_n^2+s_n^2) = 1",
+  "pressureWork": "folded into the licensed constant KD/(P_ATM SF) = 6.41500123365e-06 (SF=1); PARITY to the licensed scalar law, not an independently qualified pressure-loaded structural model",
+  "pureModeCheck": "the pure-mode check is numerical parity with the committed orientation_phase, NOT a physical measurement; pure-mode blocks do NOT uniquely determine the cross entries (diag(a,b) and the sqrt(ab)/2 off-diagonal matrix are both positive definite with identical pure-mode restrictions) \u2014 the cross-mode extension is an EXPLICIT ASSUMPTION carried from I015, pending independent member kinematics/energy normalisation",
+  "yNormMapping": "this unit's slack/norm work is on RADIAL coefficients c (cos+sin pairs); the I015 eigen machinery uses y = sqrt(D) c, D_nn = n^2-1: y_c5 = 1 maps to c5 = 1/sqrt(24) = 0.204124145232 \u2014 cross-basis comparisons carry the sqrt(D) mapping"
+ },
+ "limits": {
+  "accountingBoundary": "anchor centre = grip back face: the embedded (nose+grip) cord is INSIDE the anchor-centre chord and inside cordT; no separate tow line exists anywhere (bill, x1.5, SF1.2 all use the same boundary)",
+  "attachmentUnknowns": "laminate bearing, block local bending, pull-through, bond-film capacity, creep and contact behaviour: UNKNOWN",
+  "boltStack": "the dimensioned stack is block + doubler pad + ring wall + backing nut (+ protrusion); shank lengths 45/50 mm are priced for it; laminate bearing/bending/pull-through remain UNKNOWN",
+  "bondCreepSensitivity": "tau 8-20 MPa -> grips 150%/60% before rounding (table in sensitivities); mass moves less (fixed stud/nut/nose terms)",
+  "largeDisplacement": "first-order linearised in u/r; the stud thread adjustment covers installation tolerance, not geometric nonlinearity",
+  "membrane": "global pressure equilibrium excluded (see loadPath)",
+  "otherModes": "n outside 2..12 (incl. n=1 and bay-local): outside the field family; unchanged from the record",
+  "postSlack": "beyond first slack the tension-only foundation is unmodelled; no redistribution solver is run",
+  "sampledAmplitudes": "w_of amplitudes are GRID-SAMPLED (2^16 theta points) and labelled as sampled wherever reported; the continuous statements are the two-sided class bounds and the exact finite member enumeration",
+  "stationHardwareSensitivity": "block+doubler+attachment geometry is a bounded assumption; the x1.5 scenario is priced WITH its assembly share in the bill",
+  "transferCentroid": "the mid-grip transfer centroid is a DECLARED assumption; the no-transfer variant bounds the taut window from above (both reported)"
+ },
+ "loadPath": {
+  "i023CrossReference": "R3-I023 (same checkout, delivered, unreviewed) reads these teq magnitudes as the force the web would need bypassing the ring box and supersedes them as a load path; the honest static cord demand there is the pretension itself (6.8/17.8 kN)",
+  "staticEqTensionOuterPlaneKN": {
+   "d180/11": 205.8,
+   "d60": 234.0
+  },
+  "staticEqUtilisation": "UNKNOWN \u2014 the UHMWPE-class cord has no qualified strength in this record and no fibre ultimate is borrowed",
+  "verdict": "the record's model excludes the membrane that carries global pressure equilibrium (bounds.membrane) and licenses only the stability margin; the termination is sized to the model's own tension quantities and the vehicle-level pressure load path remains UNKNOWN"
+ },
+ "materialLedger": {
+  "cord": {
+   "EPa": 70000000000.0,
+   "identity": "UHMWPE-class (Dyneema-type) per its source documentation tools/ship_scoping.py:138-139",
+   "provenance": "ASSUMED inherited model inputs, creep UNVERIFIED",
+   "rhoKgM3": 970.0,
+   "strength": "UNKNOWN \u2014 no fibre ultimate is borrowed",
+   "units": "key is EPa = 70e9 Pa = 70 GPa (v2's EMpa key held the Pa value behind an MPa label \u2014 relabelled, numerics unchanged)"
+  },
+  "laminate": {
+   "identity": "T700S/epoxy Vf 0.6 (rings, rails, pads)",
+   "provenance": "record-priced where sourced"
+  },
+  "potResin": {
+   "designShearPa": 12000000.0,
+   "provenance": "ASSUMED design value, unverified",
+   "rhoKgM3": 1150.0
+  },
+  "terminationMetal": {
+   "EPa": 114000000000.0,
+   "identity": "Ti-6Al-4V",
+   "provenance": "public datasheet values",
+   "rhoKgM3": 4430.0,
+   "sigmaYPa": 880000000.0
+  }
+ },
+ "preload": {
+  "perCordT0kN": {
+   "d180/11": 17.797,
+   "d60": 6.809
+  },
+  "perPlaneTotalsKN": {
+   "d180/11": 5453.5,
+   "d60": 1835.2
+  },
+  "statement": "T0 = E a eps0 set as stud force at installation on the declared spring model (increment dT = EA dL/(L_free+2 L_a)); per-plane totals asserted equal to the committed record; the physical pressure demand reference (P 2 pi R bay, no KD) is unchanged and KD=0.65 remains a CAPACITY knockdown \u2014 preload and demand stay separate books"
+ },
+ "rev": "v3.1",
+ "sensitivities": {
+  "bondShear": {
+   "d180/11": {
+    "note": "Lg ~ 1/tau exactly (150%/60% for 12->8/20 MPa before the mm ceiling); stud, nut and nose masses are FIXED so socket mass does not scale with grip length; tau is an UNVERIFIED assumed bond property \u2014 this is geometric sensitivity only",
+    "rows": [
+     {
+      "gripMm": 145.0,
+      "massOverBase": 1.273253,
+      "perEndKg": 0.97,
+      "tauMPa": 8.0
+     },
+     {
+      "gripMm": 97.0,
+      "massOverBase": 1.0,
+      "perEndKg": 0.7619,
+      "tauMPa": 12.0
+     },
+     {
+      "gripMm": 58.0,
+      "massOverBase": 0.777982,
+      "perEndKg": 0.5927,
+      "tauMPa": 20.0
+     }
+    ]
+   },
+   "d60": {
+    "note": "Lg ~ 1/tau exactly (150%/60% for 12->8/20 MPa before the mm ceiling); stud, nut and nose masses are FIXED so socket mass does not scale with grip length; tau is an UNVERIFIED assumed bond property \u2014 this is geometric sensitivity only",
+    "rows": [
+     {
+      "gripMm": 90.0,
+      "massOverBase": 1.261258,
+      "perEndKg": 0.2403,
+      "tauMPa": 8.0
+     },
+     {
+      "gripMm": 60.0,
+      "massOverBase": 1.0,
+      "perEndKg": 0.1905,
+      "tauMPa": 12.0
+     },
+     {
+      "gripMm": 36.0,
+      "massOverBase": 0.790994,
+      "perEndKg": 0.1507,
+      "tauMPa": 20.0
+     }
+    ]
+   }
+  }
+ },
+ "sf12": {
+  "afterMarginSLT": -312.6,
+  "afterSpokesT": 243.98,
+  "afterT": 2562.4,
+  "baseline": "CORRECTED completed R3-I015 case, pinned: before 2536.9 -> after 2546.1 t, margin -296.3 (budgets.sf12Completed at 736180fd)",
+  "baselineDeltaT": 9.25,
+  "baselineSpokesT": 227.66,
+  "deltaVsCompletedT": 16.3,
+  "inheritedCompletionT": 9.2,
+  "point": "force:d60+d20",
+  "verdict": "STILL FAILS at sea level (mass failure inherited and unchanged in kind); the delta is measured against the COMPLETED baseline \u2014 the +9.2 t completion change is inherited, not new termination mass"
+ },
+ "slack": {
+  "d180/11": {
+   "LminM": 17.3913,
+   "adversarialPacket": "x* = g_j*/||g_j*|| centred on the cord midpoint: SIGNED stretch identity on its target (+eps0, T = 2*T0); the slack adversary is -x* \u2014 first-loss results in signedPacket below",
+   "adversarialStretchDeclaredMm": 17.58,
+   "adversarialStretchHistoricalChordMm": 17.611,
+   "adversarialWperNorm": 2.3532,
+   "adversarialWperNormBasis": "GRID-SAMPLED amplitude (2^16 theta points) of the unit-norm packet \u2014 a sampled estimate labelled as such; the exact two-sided bound for any unit-norm x is 1/sqrt(2) <= w(x) <= sqrt(11)",
+   "classBoundBasis": "Cauchy-Schwarz |g.x| <= ||g|| ||x|| with ||x||_2 <= sqrt(2) w(x) \u2014 exact two-sided CONTINUOUS norm relation on RADIAL coefficients c, holds for EVERY field (no sampling)",
+   "classBoundChordBasisMm": 5.292,
+   "classBoundDeclaredModelMm": 5.283,
+   "classBoundNoTransferMm": 5.312,
+   "declaredLawAmplification": 1.001760331,
+   "declaredLawNote": "every strain scales by Lmin/L_eff (g_vec carries 1/L inside): at the historical chord scale the target reaches T/T0 = 2.001760 (past 2*T0) and its negative is already slack (-0.001760); the +-eps0 scale is the chord scale / 1.001760",
+   "endpointBound": "|eps| <= w/r for the ideal chord model (stronger than the modal bound)",
+   "gNormMaxPlaneCords": "all 155 cords of the innermost plane tie (||g_j|| is t_mid-independent)",
+   "gNormPerM": 0.267245,
+   "n5FirstSlackChordBasis": {
+    "+cos5": {
+     "controllingPlane": "innermost (denominator monotone in r; station phase set plane-independent)",
+     "controllingStartMod31": 11,
+     "mostStretchedCordTkN": 35.69,
+     "slackMm": 25.668698
+    },
+    "+sin5": {
+     "controllingPlane": "innermost (denominator monotone in r; station phase set plane-independent)",
+     "controllingStartMod31": 19,
+     "mostStretchedCordTkN": 35.59,
+     "slackMm": 25.569819
+    },
+    "-cos5": {
+     "controllingPlane": "innermost (denominator monotone in r; station phase set plane-independent)",
+     "controllingStartMod31": 27,
+     "mostStretchedCordTkN": 35.5,
+     "slackMm": 25.537001
+    },
+    "-sin5": {
+     "controllingPlane": "innermost (denominator monotone in r; station phase set plane-independent)",
+     "controllingStartMod31": 4,
+     "mostStretchedCordTkN": 35.59,
+     "slackMm": 25.569819
+    }
+   },
+   "n5FirstSlackDeclaredModel": {
+    "+cos5": {
+     "controllingPlane": "innermost (denominator monotone in r; station phase set plane-independent)",
+     "controllingStartMod31": 11,
+     "mostStretchedCordTkN": 35.69,
+     "slackMm": 25.623592
+    },
+    "+sin5": {
+     "controllingPlane": "innermost (denominator monotone in r; station phase set plane-independent)",
+     "controllingStartMod31": 19,
+     "mostStretchedCordTkN": 35.59,
+     "slackMm": 25.524887
+    },
+    "-cos5": {
+     "controllingPlane": "innermost (denominator monotone in r; station phase set plane-independent)",
+     "controllingStartMod31": 27,
+     "mostStretchedCordTkN": 35.5,
+     "slackMm": 25.492126
+    },
+    "-sin5": {
+     "controllingPlane": "innermost (denominator monotone in r; station phase set plane-independent)",
+     "controllingStartMod31": 4,
+     "mostStretchedCordTkN": 35.59,
+     "slackMm": 25.524887
+    }
+   },
+   "n5FirstSlackNoTransfer": {
+    "+cos5": {
+     "controllingPlane": "innermost (denominator monotone in r; station phase set plane-independent)",
+     "controllingStartMod31": 11,
+     "mostStretchedCordTkN": 35.69,
+     "slackMm": 25.76676
+    },
+    "+sin5": {
+     "controllingPlane": "innermost (denominator monotone in r; station phase set plane-independent)",
+     "controllingStartMod31": 19,
+     "mostStretchedCordTkN": 35.59,
+     "slackMm": 25.667503
+    },
+    "-cos5": {
+     "controllingPlane": "innermost (denominator monotone in r; station phase set plane-independent)",
+     "controllingStartMod31": 27,
+     "mostStretchedCordTkN": 35.5,
+     "slackMm": 25.634559
+    },
+    "-sin5": {
+     "controllingPlane": "innermost (denominator monotone in r; station phase set plane-independent)",
+     "controllingStartMod31": 4,
+     "mostStretchedCordTkN": 35.59,
+     "slackMm": 25.667503
+    }
+   },
+   "n5Method": "5*theta quantises the 155 stations into 31 phases (155/5); the controlling station is read off the station topology \u2014 no field search; the v1 50.4 mm evaluated the a=0 endpoint only (SUPERSEDED)",
+   "phiDeg": 162.581,
+   "rMinM": 8.7971,
+   "residualAtV1ThresholdPct": 0.8458,
+   "signedPacket": {
+    "firstLoser": "family d180/11 innermost plane, station 0 of 155 (t = 2 pi a/155 + phi/2)",
+    "firstLoserFamily": "d180/11",
+    "firstLoserIsPacketTarget": true,
+    "firstLoserStation": 0,
+    "firstLossAmplitudeBasis": "vector-norm scale is EXACT; the physical amplitude is the GRID-SAMPLED w_of of the scaled packet; its exact continuous bound is [w/sqrt(2), sqrt(11) w]",
+    "firstLossAmplitudeSampledMm": 17.58,
+    "firstLossVectorNormMm": 7.471,
+    "method": "finite occupied-member enumeration, SIGNED: 155 station phases x both families' innermost planes; plane dimension closed by the asserted monotonicity; no abs() anywhere; first loss from signed tension; the packet attains the Cauchy-Schwarz equality proj = ||g_eff|| ||x|| on its family, so firstLossVectorNormMm = eps0/gn_eff exactly and the sampled first-loss amplitude equals the declared-law stretch scale (same +-eps0 threshold)",
+    "packet": "-x* (the slack adversary of family d180/11)",
+    "remainingCords": {
+     "d180/11": {
+      "mostStretchedCordTkN": 23.777,
+      "nearestSlackCordTkN": 0.0,
+      "signedStretch90": 0,
+      "signedTowardsSlack90": 3,
+      "signedTowardsSlack999": 1
+     },
+     "d60": {
+      "mostStretchedCordTkN": 9.983,
+      "nearestSlackCordTkN": 2.536,
+      "signedStretch90": 0,
+      "signedTowardsSlack90": 0,
+      "signedTowardsSlack999": 0
+     }
+    },
+    "targetTT0AtHistoricalChordScale": 2.001760331,
+    "targetTensionAtHistoricalChordScaleTkN": 35.625
+   },
+   "singleModeCoeffPerM": 0.113091,
+   "singleModeSlackChordBasisMm": 17.685,
+   "singleModeWorstN": 11
+  },
+  "d60": {
+   "LminM": 12.2603,
+   "adversarialPacket": "x* = g_j*/||g_j*|| centred on the cord midpoint: SIGNED stretch identity on its target (+eps0, T = 2*T0); the slack adversary is -x* \u2014 first-loss results in signedPacket below",
+   "adversarialStretchDeclaredMm": 14.09,
+   "adversarialStretchHistoricalChordMm": 14.111,
+   "adversarialWperNorm": 2.4047,
+   "adversarialWperNormBasis": "GRID-SAMPLED amplitude (2^16 theta points) of the unit-norm packet \u2014 a sampled estimate labelled as such; the exact two-sided bound for any unit-norm x is 1/sqrt(2) <= w(x) <= sqrt(11)",
+   "classBoundBasis": "Cauchy-Schwarz |g.x| <= ||g|| ||x|| with ||x||_2 <= sqrt(2) w(x) \u2014 exact two-sided CONTINUOUS norm relation on RADIAL coefficients c, holds for EVERY field (no sampling)",
+   "classBoundChordBasisMm": 4.149,
+   "classBoundDeclaredModelMm": 4.143,
+   "classBoundNoTransferMm": 4.164,
+   "declaredLawAmplification": 1.001463729,
+   "declaredLawNote": "every strain scales by Lmin/L_eff (g_vec carries 1/L inside): at the historical chord scale the target reaches T/T0 = 2.001464 (past 2*T0) and its negative is already slack (-0.001464); the +-eps0 scale is the chord scale / 1.001464",
+   "endpointBound": "|eps| <= w/r for the ideal chord model (stronger than the modal bound)",
+   "gNormMaxPlaneCords": "all 155 cords of the innermost plane tie (||g_j|| is t_mid-independent)",
+   "gNormPerM": 0.340827,
+   "n5FirstSlackChordBasis": {
+    "+cos5": {
+     "controllingPlane": "innermost (denominator monotone in r; station phase set plane-independent)",
+     "controllingStartMod31": 20,
+     "mostStretchedCordTkN": 13.65,
+     "slackMm": 26.797732
+    },
+    "+sin5": {
+     "controllingPlane": "innermost (denominator monotone in r; station phase set plane-independent)",
+     "controllingStartMod31": 28,
+     "mostStretchedCordTkN": 13.62,
+     "slackMm": 26.694504
+    },
+    "-cos5": {
+     "controllingPlane": "innermost (denominator monotone in r; station phase set plane-independent)",
+     "controllingStartMod31": 5,
+     "mostStretchedCordTkN": 13.58,
+     "slackMm": 26.660242
+    },
+    "-sin5": {
+     "controllingPlane": "innermost (denominator monotone in r; station phase set plane-independent)",
+     "controllingStartMod31": 13,
+     "mostStretchedCordTkN": 13.62,
+     "slackMm": 26.694504
+    }
+   },
+   "n5FirstSlackDeclaredModel": {
+    "+cos5": {
+     "controllingPlane": "innermost (denominator monotone in r; station phase set plane-independent)",
+     "controllingStartMod31": 20,
+     "mostStretchedCordTkN": 13.65,
+     "slackMm": 26.758565
+    },
+    "+sin5": {
+     "controllingPlane": "innermost (denominator monotone in r; station phase set plane-independent)",
+     "controllingStartMod31": 28,
+     "mostStretchedCordTkN": 13.62,
+     "slackMm": 26.655487
+    },
+    "-cos5": {
+     "controllingPlane": "innermost (denominator monotone in r; station phase set plane-independent)",
+     "controllingStartMod31": 5,
+     "mostStretchedCordTkN": 13.58,
+     "slackMm": 26.621275
+    },
+    "-sin5": {
+     "controllingPlane": "innermost (denominator monotone in r; station phase set plane-independent)",
+     "controllingStartMod31": 13,
+     "mostStretchedCordTkN": 13.62,
+     "slackMm": 26.655487
+    }
+   },
+   "n5FirstSlackNoTransfer": {
+    "+cos5": {
+     "controllingPlane": "innermost (denominator monotone in r; station phase set plane-independent)",
+     "controllingStartMod31": 20,
+     "mostStretchedCordTkN": 13.65,
+     "slackMm": 26.889709
+    },
+    "+sin5": {
+     "controllingPlane": "innermost (denominator monotone in r; station phase set plane-independent)",
+     "controllingStartMod31": 28,
+     "mostStretchedCordTkN": 13.62,
+     "slackMm": 26.786126
+    },
+    "-cos5": {
+     "controllingPlane": "innermost (denominator monotone in r; station phase set plane-independent)",
+     "controllingStartMod31": 5,
+     "mostStretchedCordTkN": 13.58,
+     "slackMm": 26.751746
+    },
+    "-sin5": {
+     "controllingPlane": "innermost (denominator monotone in r; station phase set plane-independent)",
+     "controllingStartMod31": 13,
+     "mostStretchedCordTkN": 13.62,
+     "slackMm": 26.786126
+    }
+   },
+   "n5Method": "5*theta quantises the 155 stations into 31 phases (155/5); the controlling station is read off the station topology \u2014 no field search; the v1 50.4 mm evaluated the a=0 endpoint only (SUPERSEDED)",
+   "phiDeg": 120.774,
+   "rMinM": 7.0512,
+   "residualAtV1ThresholdPct": 0.7512,
+   "signedPacket": {
+    "firstLoser": "family d60 innermost plane, station 0 of 155 (t = 2 pi a/155 + phi/2)",
+    "firstLoserFamily": "d60",
+    "firstLoserIsPacketTarget": true,
+    "firstLoserStation": 0,
+    "firstLossAmplitudeBasis": "vector-norm scale is EXACT; the physical amplitude is the GRID-SAMPLED w_of of the scaled packet; its exact continuous bound is [w/sqrt(2), sqrt(11) w]",
+    "firstLossAmplitudeSampledMm": 14.09,
+    "firstLossVectorNormMm": 5.86,
+    "method": "finite occupied-member enumeration, SIGNED: 155 station phases x both families' innermost planes; plane dimension closed by the asserted monotonicity; no abs() anywhere; first loss from signed tension; the packet attains the Cauchy-Schwarz equality proj = ||g_eff|| ||x|| on its family, so firstLossVectorNormMm = eps0/gn_eff exactly and the sampled first-loss amplitude equals the declared-law stretch scale (same +-eps0 threshold)",
+    "packet": "-x* (the slack adversary of family d60)",
+    "remainingCords": {
+     "d180/11": {
+      "mostStretchedCordTkN": 22.9,
+      "nearestSlackCordTkN": 10.926,
+      "signedStretch90": 0,
+      "signedTowardsSlack90": 0,
+      "signedTowardsSlack999": 0
+     },
+     "d60": {
+      "mostStretchedCordTkN": 9.31,
+      "nearestSlackCordTkN": 0.0,
+      "signedStretch90": 0,
+      "signedTowardsSlack90": 3,
+      "signedTowardsSlack999": 1
+     }
+    },
+    "targetTT0AtHistoricalChordScale": 2.001463729,
+    "targetTensionAtHistoricalChordScaleTkN": 13.628
+   },
+   "singleModeCoeffPerM": 0.141792,
+   "singleModeSlackChordBasisMm": 14.105,
+   "singleModeWorstN": 3
+  }
+ },
+ "termination": {
+  "d180/11": {
+   "T0kN": 17.797,
+   "TfitkN": 46.27,
+   "attachment": {
+    "boltSetKg": 0.0691,
+    "boltsPerStation": 3,
+    "boltsT": 0.73,
+    "bondFilm": "pad/ring bond film credited ZERO capacity",
+    "construction": "3 x M10 Ti-6Al-4V through-bolts, internal backing nuts, block flange -> doubler pad -> ring wall; 16 mm hole pitch; installed through the adjacent bay before pump-down",
+    "pairLoadkN": 91.48,
+    "shankMm": 50.0,
+    "singleShearCapacitykN": 124.41,
+    "stackDimensioned": "block 30 + doubler pad 3 + ring wall 6 + backing nut 8 = 47 mm minimum; shank 50 mm leaves 3 mm point protrusion/washers (v2's 30 mm shank could NOT span this stack)",
+    "unknowns": "laminate bearing, block local bending, pull-through, contact/creep: UNKNOWN",
+    "utilisation": 0.735
+   },
+   "blockKg": 0.391,
+   "blocksT": 4.12,
+   "bodyLenMm": 113.0,
+   "bodyOdMm": 38.0,
+   "boreMm": 14.6,
+   "cordInterfaceShearV1MPa": 13.782541,
+   "diaMm": 12.72,
+   "doublerKg": 0.134,
+   "doublersT": 1.42,
+   "embeddedAccounting": "embedded (nose+grip) cord lies INSIDE the anchor-centre chord and is contained in the record cordT \u2014 NO separate tow line (the v2 0.27 t potted-tow line was a double count)",
+   "ends": 21080,
+   "freeLength": {
+    "anchorCentreChordMinM": 17.391259,
+    "denominatorLaw": "ONE law everywhere: chain denominator = L_free + 2 L_a with L_free = chord - 2 (NOSE+Lg) (eta uses the mean cord, slack the innermost plane of each family); v2's eta = mc/(mc+2 L_a) treated the whole mean chord as free cord \u2014 SUPERSEDED",
+    "etaDeclared": 0.996277,
+    "etaDrawnMeanCord": 1.000380871,
+    "etaGainPct": 0.412,
+    "etaStifferThanIdeal": "eta > 1: the bonded grip shortens the active cord by more than the stud/body series adds back (Lg - 2 l_ser = 0.03056 m per cord)",
+    "etaV1ChordBasis": 0.991542368,
+    "lAPerEndM": 0.08972,
+    "lEffM": 17.360698,
+    "lEffMeanM": 80.238931,
+    "lEffNoTransferM": 17.457698,
+    "lFreeM": 17.181259,
+    "lFreeMeanM": 80.059492,
+    "lSerM": 0.03322,
+    "meanCordM": 80.269492,
+    "referenceLength": "eta reference = the MEAN anchor-centre chord mc (the coupled matrix's pin-jointed ideal); meanCordM=80.269492",
+    "strainIncrement": "d_eps = dL/(L_free + 2 L_a); slack at -eps0 on the SAME denominator; the mid-grip transfer centroid is a DECLARED assumption, the no-transfer variant is the upper bound"
+   },
+   "gripLgMm": 97.0,
+   "gripOverDia": 7.62,
+   "perEndKg": {
+    "bodyKg": 0.4848,
+    "nutKg": 0.0388,
+    "resinKg": 0.0061,
+    "studKg": 0.2321,
+    "totalKg": 0.7619
+   },
+   "planePreloadKN": 5453.5,
+   "removedLugT": 7.38,
+   "requiredGripUnroundedMm": 96.477784,
+   "sectionM2": 0.00012712302660203344,
+   "socketsT": 16.06,
+   "staticEqStress": "UNKNOWN (cord strength UNKNOWN; no fibre ultimate is borrowed for the UHMWPE-class cord)",
+   "staticEqTensionkN": 205.8,
+   "stationPitchInnermostM": 0.357,
+   "stationPitchVsHardware": "pitch 0.357 m at r_min vs block 0.064 m + 2 sockets 0.076 m \u2014 FITS",
+   "stations": 10540,
+   "studMm": "M23x127",
+   "wallInterfaceShearMPa": 10.379
+  },
+  "d60": {
+   "T0kN": 6.809,
+   "TfitkN": 17.7,
+   "attachment": {
+    "boltSetKg": 0.0639,
+    "boltsPerStation": 3,
+    "boltsT": 0.68,
+    "bondFilm": "pad/ring bond film credited ZERO capacity",
+    "construction": "3 x M10 Ti-6Al-4V through-bolts, internal backing nuts, block flange -> doubler pad -> ring wall; 16 mm hole pitch; installed through the adjacent bay before pump-down",
+    "pairLoadkN": 30.78,
+    "shankMm": 45.0,
+    "singleShearCapacitykN": 124.41,
+    "stackDimensioned": "block 24 + doubler pad 3 + ring wall 6 + backing nut 8 = 41 mm minimum; shank 45 mm leaves 4 mm point protrusion/washers (v2's 30 mm shank could NOT span this stack)",
+    "unknowns": "laminate bearing, block local bending, pull-through, contact/creep: UNKNOWN",
+    "utilisation": 0.247
+   },
+   "blockKg": 0.191,
+   "blocksT": 2.05,
+   "bodyLenMm": 76.0,
+   "bodyOdMm": 23.5,
+   "boreMm": 9.0,
+   "cordInterfaceShearV1MPa": 13.771544,
+   "diaMm": 7.87,
+   "doublerKg": 0.134,
+   "doublersT": 1.44,
+   "embeddedAccounting": "embedded (nose+grip) cord lies INSIDE the anchor-centre chord and is contained in the record cordT \u2014 NO separate tow line (the v2 0.07 t potted-tow line was a double count)",
+   "ends": 21390,
+   "freeLength": {
+    "anchorCentreChordMinM": 12.260317,
+    "denominatorLaw": "ONE law everywhere: chain denominator = L_free + 2 L_a with L_free = chord - 2 (NOSE+Lg) (eta uses the mean cord, slack the innermost plane of each family); v2's eta = mc/(mc+2 L_a) treated the whole mean chord as free cord \u2014 SUPERSEDED",
+    "etaDeclared": 0.995716,
+    "etaDrawnMeanCord": 1.000257048,
+    "etaGainPct": 0.456,
+    "etaStifferThanIdeal": "eta > 1: the bonded grip shortens the active cord by more than the stud/body series adds back (Lg - 2 l_ser = 0.01792 m per cord)",
+    "etaV1ChordBasis": 0.992488488,
+    "lAPerEndM": 0.05904,
+    "lEffM": 12.242397,
+    "lEffMeanM": 69.713634,
+    "lEffNoTransferM": 12.302397,
+    "lFreeM": 12.124317,
+    "lFreeMeanM": 69.595554,
+    "lSerM": 0.02104,
+    "meanCordM": 69.731554,
+    "referenceLength": "eta reference = the MEAN anchor-centre chord mc (the coupled matrix's pin-jointed ideal); meanCordM=69.731554",
+    "strainIncrement": "d_eps = dL/(L_free + 2 L_a); slack at -eps0 on the SAME denominator; the mid-grip transfer centroid is a DECLARED assumption, the no-transfer variant is the upper bound"
+   },
+   "gripLgMm": 60.0,
+   "gripOverDia": 7.62,
+   "perEndKg": {
+    "bodyKg": 0.1247,
+    "nutKg": 0.0092,
+    "resinKg": 0.0017,
+    "studKg": 0.0549,
+    "totalKg": 0.1905
+   },
+   "planePreloadKN": 1835.2,
+   "removedLugT": 7.49,
+   "requiredGripUnroundedMm": 59.676691,
+   "sectionM2": 4.863837539556058e-05,
+   "socketsT": 4.08,
+   "staticEqStress": "UNKNOWN (cord strength UNKNOWN; no fibre ultimate is borrowed for the UHMWPE-class cord)",
+   "staticEqTensionkN": 234.0,
+   "stationPitchInnermostM": 0.286,
+   "stationPitchVsHardware": "pitch 0.286 m at r_min vs block 0.050 m + 2 sockets 0.047 m \u2014 FITS",
+   "stations": 10695,
+   "studMm": "M14x79",
+   "wallInterfaceShearMPa": 10.379
+  }
+ },
+ "unit": "R3-I019",
+ "verdict": {
+  "firstSlack": "signed n=5 first slack over occupied cords (declared model): d180/11 25.492 mm, d60 26.621 mm \u2014 the v1 50.4 mm (a=0 endpoint) is superseded",
+  "massVerdict": "SL margin stays positive with the real termination (+16.5 t vs the completed I015 line); 2500 m and SF1.2 remain failures as before",
+  "mixedPacket": "signed mixed-packet first loss, both packets: the d60 adversary's first loser is d60/station 0 at 5.860 mm vector norm (14.090 mm sampled amplitude); the d180/11 adversary's first loser is d180/11/station 0 at 7.471 mm vector norm (17.580 mm sampled amplitude). Both are the coefficient-norm Cauchy-Schwarz equality case, which fixes the vector-norm scales, NOT physical-amplitude sharpness: the sampled amplitudes exceed the sufficient class bounds and are themselves lower bounds on the continuous maxima. Remaining tensions per family in slack.*.signedPacket",
+  "nextChange": "qualify the cord material record and the bond value; declare the field class the vehicle must resist and re-state the taut window for that restricted class",
+  "scope": "frozen model; licensed law + its EXPLICIT cross-mode assumption; taut window stated on ONE declared spring model with the no-transfer bound alongside; the chord-basis v1 numbers retained as labelled counterexample pins",
+  "weakestAssumption": "the 12 MPa design bond shear and the mid-grip transfer centroid are ASSUMED (grip length, socket mass and the taut window scale with them); station hardware geometry is a bounded assumption"
+ }
+}

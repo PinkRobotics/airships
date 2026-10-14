@@ -1,0 +1,300 @@
+{
+ "bom": {
+  "assemblyT": 10.9,
+  "basis": "explicit enumeration; replaces the R3-I005 spokes line (cord x1.3 + 137-plane clips) exactly as arrangement B did \u2014 no double count; the fixed-member bill, ring members and gas are UNCHANGED from the winner's record and counted exactly once",
+  "clipsT": 63.64,
+  "cordT": 139.51,
+  "deltaT": 9.6,
+  "i005SpokesLineT": 219.3,
+  "marginalMemberFactorNote": "x1.235294 applies to marginal STIFFNESS members in ledger economics; this unit's delta is an enumerated BOM replacement (like I009's), and no ring growth is priced \u2014 the factor is respected where it binds and not applied where it does not",
+  "terminationsT": 14.86,
+  "totalT": 228.91
+ },
+ "bounds": {
+  "axial": "2-bay plane modulation vs the model's licensed axial average \u2014 unchanged from the I009 record",
+  "bayLocal": "outside the model's n=2..12 family, unchanged",
+  "membrane": "excluded, unchanged",
+  "tautWindow": "every linear margin here presumes the cords stay taut: first slack at w = 0.014105 m (shortest d60 polar cord, mode n=3 \u2014 carried from the I009 first-review correction); beyond it the tension-only foundation is unmodelled"
+ },
+ "budgets": {
+  "sf10Completed": {
+   "assemblyT": 10.9,
+   "clipsT": 63.64,
+   "cordT": 139.51,
+   "deltaT": 9.6,
+   "margin2500T": -459.6,
+   "marginSLT": 32.9,
+   "spokesLineT": 228.91,
+   "stackedWorstCaseLugX2_SLT": 17.3,
+   "terminationsT": 14.86,
+   "totalT": 2216.9
+  },
+  "sf12Completed": {
+   "afterMarginSLT": -296.3,
+   "afterT": 2546.1,
+   "beforeT": 2536.9,
+   "point": "force:d60+d20",
+   "verdict": "STILL FAILS at sea level; the completion restores its coupled margins but the mass failure is inherited and unchanged in kind \u2014 retained honestly"
+  }
+ },
+ "comparison": {
+  "dominantCrossEntries": [
+   "(2,3)=0.557",
+   "(4,5)=0.124",
+   "(2,5)=0.124",
+   "(3,4)=0.117",
+   "(2,7)=0.084",
+   "(6,7)=0.076"
+  ],
+  "eigenResidual": 3.0531133177191805e-16,
+  "eigenvector": "c2=+0.4189, s2=-0.2271, c3=+1.0000, s3=-0.9962, c4=-0.1107, s4=+0.2027, c5=+0.1647, s5=-0.1712, c6=-0.0788, s6=-0.0550, c7=+0.0526, s7=-0.1267, c8=-0.0415, s8=+0.0316, s9=-0.0809, s11=-0.0524, s12=-0.0349",
+  "eigenvectorNormalisation": "unit modal norm ||y||=1",
+  "eigenvectorPhysicalAmplitudeM": 0.5162295434055065,
+  "eigenvectorRadialC": [
+   0.15705879537412815,
+   -0.08513138893522873,
+   0.22958570315494845,
+   -0.22870342061667587,
+   -0.018564422486515963,
+   0.03398940627100612,
+   0.021837435145379034,
+   -0.022690699242685002,
+   -0.008645149030119339,
+   -0.006037357801834999,
+   0.00492833216961419,
+   -0.011875522263916393,
+   -0.003398552442663648,
+   0.0025821056857120543,
+   0.00016972930084671562,
+   -0.005874305111804537,
+   0.000954959962058163,
+   -0.0009804718079166215,
+   -0.0009603395949410987,
+   -0.0031064444282782617,
+   -0.0009614165433706279,
+   -0.0018931364836492727
+  ],
+  "eigenvectorY": [
+   0.2720338133635537,
+   -0.1474518909547231,
+   0.6493664302573832,
+   -0.6468709583944431,
+   -0.07189969912223482,
+   0.13164040443508465,
+   0.10698114679459764,
+   -0.11116127010306988,
+   -0.05114539139897228,
+   -0.035717490434774776,
+   0.03414448685739174,
+   -0.08227603171007428,
+   -0.026975173742697343,
+   0.020494828509840007,
+   0.001518105017867075,
+   -0.05254138220227779,
+   0.009501731651876866,
+   -0.009755571313142534,
+   -0.010519993180292278,
+   -0.03402939374008486,
+   -0.011496869708357222,
+   -0.02263861969375612
+  ],
+  "geometry": "UNCHANGED I009 arrangement B: 78 start anchors per family per plane (d60 even-index 69 planes, d180/11 odd-index 68)",
+  "lambdaMin": 0.7819009962571976,
+  "mechanism": "the 78-anchor half-window (starts 0..77 of 155) has Dirichlet-coherent phase sums between ODD modes (window sums up to ~49/78), so odd-mode pairs couple strongly; the licensed scalar law presumed full-circle orthogonality",
+  "perModeWeakestOrientation": 1.0000036585859482,
+  "verdict": "FAIL \u2014 the coupled minimum 0.7819 sits 22% below unity and 22% below the 3.7-ppm per-mode orientation pass; the mixed-mode UNKNOWN of the record resolves to a much worse coupled failure (preserved, not tuned away)"
+ },
+ "context": {
+  "sf12ComparisonMin": 0.7692338135024012,
+  "sf12CompletedMin": 1.004547658225498,
+  "sf12v2RayleighRadialInYSpace": 0.9848609505557187,
+  "v2WinnerFullBlockMin": 0.811590672052418
+ },
+ "conventions": {
+  "coordinates": "matrix coordinates are y = sqrt(D) c with D = diag(n^2-1) per mode (the foundation's 1/sqrt((n^2-1)(m^2-1)) factors); mapped radial field of a matrix vector: c = y/sqrt(D)",
+  "demand": "M = K KD/(P_ATM SF); lambda_min(M) is the worst margin over all fields of unit modal norm ||y||=1, i.e. sum_n (n^2-1)(c_n^2 + s_n^2) = 1; < 1 means some coupled deformation is below demand",
+  "field": "u(t) = sum_{n=2..12} [c_n cos nt + s_n sin nt], radial metres, first-order linearised in u/r",
+  "foundation": "K_f entry = eSpoke a_j sin^2(phi/2) cos(n phi/2) cos(m phi/2) / sqrt((n^2-1)(m^2-1)) / (n_cords/2) * sum_a trig_a(n t_mid) trig_b(m t_mid); pure-mode reduction = the committed orientation_phase (asserted to 1e-9)",
+  "kinematics": "dL_j = sin(phi/2) (u(t_a)+u(t_b)); u(t_a)+u(t_b) = sum_n 2cos(n phi/2)[c_n cos(n t_mid) + s_n sin(n t_mid)] (exact sum-to-product at linear order)",
+  "ring": "axisymmetric per-mode series ring+crimp on the diagonal, as committed finite_phase",
+  "units": "SI: u metres, K Pa (for physical amplitudes y,c in m, y^T K y is N and (A/Lbar)y^T K y is J), M dimensionless; every entry recomputable from the stated formulae and the record constants"
+ },
+ "geometry": {
+  "families": {
+   "d180/11": {
+    "clearanceMm": 41.3,
+    "cords": 10540,
+    "crossings": 727260,
+    "crossingsPP": 10695,
+    "diaMm": 12.72,
+    "ends": 21080,
+    "meanCordM": 80.2695,
+    "planes": 68,
+    "pretensionPerPlaneKN": 5453.5,
+    "sagM": 0.0815,
+    "startsPerPlane": 155
+   },
+   "d60": {
+    "clearanceMm": 133.4,
+    "cords": 10695,
+    "crossings": 545445,
+    "crossingsPP": 7905,
+    "diaMm": 7.87,
+    "ends": 21390,
+    "meanCordM": 69.7316,
+    "planes": 69,
+    "pretensionPerPlaneKN": 1835.2,
+    "sagM": 0.063,
+    "startsPerPlane": 155
+   }
+  },
+  "notes": "every anchor station carries two cord ends per family-plane (own start + the start `step` earlier); between-family contact still zero (disjoint planes); zero standoff hardware; crossings exclude shared endpoints; spacing between chord midpoints UNCHANGED (same stations), so clearance improves by the diameter reduction alone; sag is exactly section-independent (rho g L^2 / 8 E eps0)"
+ },
+ "memberEnergy": {
+  "assumptions": "first-order linearised cord extension (energy quadratic in dL); equal per-cord section a_pc = a_j A/n_cords; the licensed equal-length convention (one Lbar per family \u2014 the assembly carries no 1/L); endpoint kinematics dL = sin(phi/2)(u_a+u_b) evaluated at both endpoints separately",
+  "comparison": {
+   "d180/11": {
+    "directEnergyJ": 8969145.77624584,
+    "exactLengthEnergyJ": 10983605.535283757,
+    "exactVsEqualLengthRatio": 1.2245988424419496,
+    "identityRelErr": 8.306900994580971e-16,
+    "matrixQuadraticYZfKZy": 9134.518945661297,
+    "normalisationM": 981.8957987389131
+   },
+   "d60": {
+    "directEnergyJ": 32226801.79348305,
+    "exactLengthEnergyJ": 41391925.478370965,
+    "exactVsEqualLengthRatio": 1.2843944535241254,
+    "identityRelErr": 4.623841139849313e-16,
+    "matrixQuadraticYZfKZy": 28512.194095218347,
+    "normalisationM": 1130.2813696434414
+   }
+  },
+  "completed": {
+   "d180/11": {
+    "directEnergyJ": 22579970.71911759,
+    "exactLengthEnergyJ": 27651406.005004514,
+    "exactVsEqualLengthRatio": 1.2245988424419496,
+    "identityRelErr": 1.649820694987817e-16,
+    "matrixQuadraticYZfKZy": 22996.30036926314,
+    "normalisationM": 981.8957987389131
+   },
+   "d60": {
+    "directEnergyJ": 4601426.70580361,
+    "exactLengthEnergyJ": 5910046.939231945,
+    "exactVsEqualLengthRatio": 1.2843944535241254,
+    "identityRelErr": 2.0239865462614794e-16,
+    "matrixQuadraticYZfKZy": 4071.0453426788563,
+    "normalisationM": 1130.2813696434414
+   }
+  },
+  "dimensions": "per member E a_pc/L = N/m, dL in m, energy in J for the ||y||=1 field; energies scale quadratically with amplitude",
+  "exactLengthConvention": "with actual per-plane lengths the direct energy is E_Lbar * Lbar * mean(1/L_r) per family (ratios in the rows) \u2014 the licensed equal-length convention is the assembly's own and is disclosed here, not hidden",
+  "identity": "E_direct = (A/Lbar) * (y' K_f y), A the licensed total cord area, Lbar the family mean cord length \u2014 asserted to 1e-12 per family, both geometries (identityRelErr in each row)",
+  "ringNote": "the per-mode ring+crimp diagonal stays in the licensed convention (committed finite_phase); the direct check covers the foundation, the part that carries cross entries",
+  "statement": "direct member-extension energy vs the assembled foundation quadratic form for the unit-modal-norm eigenvector of each geometry: the direct side enumerates members endpoint-by-endpoint through the mapped radial field (no assembly involved)"
+ },
+ "reconciliation": {
+  "asCodedRadialInYSpace": {
+   "note": "the earlier evaluation supplied the radial coefficients directly as matrix coordinates \u2014 inconsistent mapping, kept for the record",
+   "sf10": 0.9701292231425583,
+   "sf12": 0.9848609505557187
+  },
+  "cited": {
+   "note": "historical two-mode figures \u2014 reproduced exactly below under the consistent mapping",
+   "sf10": 0.967922863,
+   "sf12": 0.985215242
+  },
+  "consistentRayleighSF10": 0.9679228632975162,
+  "consistentRayleighSF12": 0.9852152424534183,
+  "mapping": "the foundation entries carry factors 1/sqrt((n^2-1)(m^2-1)), so the matrix coordinates are y = sqrt(D) c with D = diag(n^2-1) and c the declared radial amplitudes (metres); the mapped radial field of any matrix vector is c = y/sqrt(D)",
+  "subspace4x4Modes34": 0.9535949533286869,
+  "supersededBy": "full-block minima: v2 winner 0.8116, v3 winner (the comparison) 0.7819 \u2014 far below any two-mode trial value",
+  "trialField": "u = cos(3t)/sqrt(8) - sin(4t)/sqrt(15)  (c = (1/sqrt8, -1/sqrt15) -> y = (1,-1))",
+  "withdrawal": "the earlier 'no single convention produces both cited numbers / monotone impossibility' argument is WITHDRAWN as false: it compared the as-coded values above against the cited figures. Under the one consistent mapping y = sqrt(D) c both cited figures reproduce on this construction to 5e-10 (asserted). Eigenvalues, eigenvectors and every verdict are unchanged \u2014 the repair is interpretive"
+ },
+ "response": {
+  "change": "complete each family to ALL 155 start anchors per occupied plane (per-cord section x 78/155; same stations, same planes, same licensed total section)",
+  "compliantLugComparison": 0.7808988797775454,
+  "eigenvector": "s5=+1.0000",
+  "eigenvectorNormalisation": "unit modal norm ||y||=1",
+  "eigenvectorPhysicalAmplitudeM": 0.20412414523193154,
+  "eigenvectorRadialC": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.20412414523193154,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "eigenvectorY": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   1.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "equalsScalarMin": 1.0008111963492177,
+  "lambdaMinCompliantLug": 1.0001500274653277,
+  "lambdaMinCompliantLugRoundedInputs": 1.0001500275964208,
+  "lambdaMinRigid": 1.0008111963492177,
+  "limitingMode": "n=5 (cos/sin degenerate pair) \u2014 the scalar binding mode, unchanged",
+  "orthogonalityMaxOffDiagonal": 1.7085863764177707e-16,
+  "roundingIdentity": "NARROWED to a display-rounding identity: this unit's exact routed lengths give 1.000150027465328; the record's 4-decimal mean cord lengths give 1.000150027596421 (both computed here). Both display 1.0002 at 4 decimals (asserted) and differ by ~1.3e-10 at the 9th decimal \u2014 a harmless input-precision difference, NOT full-precision equality; the earlier equality claim is withdrawn",
+  "scalarMinCompliantLug": 1.0002,
+  "selectedBy": "mechanism, not search: the coupling is the half-window coherence; the full circle restores exact DFT orthogonality by identity \u2014 no sweep, no optimisation, no tuning to PASS",
+  "verdictCompliant": "PASS at the declared lug \u2014 coupled minimum 1.000150027 with exact routed lengths; the record's own input precision gives the same value to 1.3e-10 and both display 1.0002 at 4 decimals, no ring buyback needed; compare the arrangement-B compliant state which FAILS at 0.7808989",
+  "verdictRigid": "PASS \u2014 coupled minimum equals the licensed scalar eleven-mode minimum exactly (orthogonality identity)"
+ },
+ "rev": "v1.1-coupled-finite-endpoint-corrected",
+ "unit": "R3-I015",
+ "unknowns": {
+  "anchorZoneCompliance": "per-end La beyond the declared lug remains UNKNOWN (I004 5% point priced as scenario in I009)",
+  "mixedModeSlack": "mixed-mode fields can slack the shortest cord BELOW the single-mode amplitude bound (phase superposition at its endpoints); UNKNOWN, the 0.0141 m window is the single-mode scope"
+ },
+ "verdict": {
+  "comparison": "FAIL (0.781900996) \u2014 preserved",
+  "nextChange": "the taut window under mixed-mode fields and the anchor-zone La per end are now carried by the R3-I019 drawn-termination unit in the same checkout (rigorous class bounds 4.149/5.292 mm; per-end 0.177/0.706 kg hardware); open here: declare the field class the vehicle must resist and the membrane/load-path question",
+  "response": "PASS at SF1.0: coupled minimum equals the licensed scalar minimum exactly (rigid 1.000811196; declared-lug compliant state 1.0001500), at a full bill of +9.6 t on the spokes line (SL +32.9 t, positive; 2,500 m -459.6 t, unchanged failure)",
+  "scope": "PASS is conditional on: the frozen model, the licensed foundation law and its bilinear extension, the taut window w < 0.0141 m, the declared lug compliance, and the corrected crossings \u2014 a matrix improvement with a positive full bill is still NOT a float claim",
+  "weakestAssumption": "the bilinear extension of the licensed law to mixed modes: the pure-mode reduction is committed and reproduced, and the cross entries are SELECTED as the bilinear form of direct member-extension energy (verified member-by-member here to 1e-12) \u2014 pure-mode blocks alone do not determine the cross entries (a block-diagonal form shares them), so the selection rests on the stated member-energy assumptions, not on uniqueness"
+ },
+ "winners": {
+  "sf10v2": "frozen git-9761c65f record (reconciliation input)",
+  "sf10v3": "R3-I005 alloc.json bestFeasible (a_d60 6.6e-6, a_d180/11 1.7e-5, a_i 0.00145; total 2207.3204 t)",
+  "sf12v3": "alloc.json sf1.2 bestFeasible (d60+d20)"
+ }
+}
