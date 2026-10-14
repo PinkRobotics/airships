@@ -117,10 +117,10 @@ def _sha256(path):
 
 
 # dependency guards: this unit consumes the CORRECTED records, byte-exact.
-# R3-I019 v3.1 (commit 3c0305db, directly on the v3 82ce49c2): material
+# R3-I019 v3.1 (following its v3 correction; ../R3-I019/): material
 # ledger UHMWPE-class (EPa key), grips 60/97, dimensioned bolted attachment
 # (M10 45/50 mm shanks), ONE cord accounting boundary (no separate tow line),
-# bill spokes 245.42 t. R3-I015 corrected (736180fd).
+# bill spokes 245.42 t. Corrected R3-I015 record: ../R3-I015/.
 TERM_SHA = "0fb204a2362f17f342b1582fb2e41981f7207402b509db81ba3bbf5c38a2cc6a"
 COUP_SHA = "6090c36e6b4479c5c81bfd47d8ebb9cadd95244ed8bc6fad3e5b5b39b71e620c"
 REV = "v1.3-consolidated-correction"

@@ -5,10 +5,10 @@ cord accounting boundary and the Pa/MPa units label for
 the drawn termination/pretension construction and the mixed-field taut
 window of the completed 155-start arrangement of R3-I015.
 
-v2 (commit 5f549f91) corrected the eleven demonstrated defects of the
+v2 corrected the eleven demonstrated defects of the
 v1 record; its targeted verification left the spring-model and
 accounting repairs partially open and the units label open.  This
-successor repairs exactly those, directly on 5f549f91:
+successor repairs exactly those in the v2 record:
 
 SPRING  ONE spring denominator everywhere.  v2 defined the declared law
      d_eps = dL/(L_free + 2*L_a) with L_free = chord - 2*(NOSE+Lg)
@@ -57,9 +57,9 @@ BOLTS  A buildable bolted stack.  30 mm shanks cannot span block 24/30
 UNITS  materialLedger.cord.EMpa held 70e9 (a Pa value behind an MPa
      label); the key is EPa=70e9 with the narrative in Pa/GPa only.
 
-Direct parent: the CORRECTED R3-I015 commit 736180fd (not original
-I015 6ddf3bd1).  Imported record files are the corrected R3-I015
-outputs at that commit.
+Historical v3 input: the corrected R3-I015 record (not the original
+R3-I015 record).  Imported record files are the corrected R3-I015
+outputs in ../R3-I015/.
 
 Scope (bounded analytic/small-matrix work only; no solver, no sweep,
 no optimizer; 22 coordinates throughout):
