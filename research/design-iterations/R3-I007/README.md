@@ -1,7 +1,7 @@
 # R3-I007 — a priced equipment set and the 100 t trim cycle for the gas P-100
 
-Status: design iteration, 2026-10-14, on the corrected R3-I003 gas hull (landed); **corrected in round
-r3-i007-r1** (one HIGH, one MEDIUM — the trim cycle and economics below are the repaired, conserved
+Status: design iteration, 2026-10-14, on the corrected R3-I003 gas hull (landed); **corrected in the
+design review** (one HIGH, one MEDIUM — the trim cycle and economics below are the repaired, conserved
 version; the first-round two-vent cycle is preserved as a historical attempt in the unit evidence);
 **fuel/reserve/schedule remainder repaired under the 2026-10-14 targeted check** — consumable fuel
 (4.902246 t) is now separated from the permanent 0.50 t tank, and the two published off-nominal
@@ -64,7 +64,7 @@ alone. Consequences, each computed in `budget.py`:
 Sizing: inventory n = 158,703 m³ (SL) → net lift 162.52 t, **balanced at departure sizing** (full fuel +
 100 t payload; bag 7.6 % at 2,500 m, 27.9 % at SL); max inventory 171,851 m³ → lift 175.98 t, margin
 +13.46 t. The loaded ship does not stay neutral: fuel burns at 0.817 t/h and the outing ledger below
-tracks it state by state (r3-i007-r1 MEDIUM repair).
+tracks it state by state (a design-review repair).
 Public data used, with custody split: **PT6A-67B primary** — EASA Type-Certificate Data Sheet
 No. EASA.IM.E.008 Issue 06 (2022-02-18, type certificate holder Pratt & Whitney Canada Corp.):
 895 kW maximum continuous (take-off, 5 min, also 895 kW) and 234.5 kg dry spec weight; **TSFC
@@ -79,9 +79,9 @@ Departure identity (every term once, from `budget.py`): loaded at 2,500 m — di
 31.9 − ballonet air 16.1 = net 162.5 t vs dry+payload 162.5 t; loaded at SL — 269.5 − 31.9 − 75.1 =
 162.5 t. The loaded ship is **not** neutral through the outing: already at top of climb it is 0.41 t
 light and 2.04 t light at the zone-A arrival (fuel burn; the first-round "neutral throughout the
-climb" claim is withdrawn — r3-i007-r1 MEDIUM). The D1 vent sizing absorbs the cruise lightness.
+climb" claim is withdrawn — the review's MEDIUM finding). The D1 vent sizing absorbs the cruise lightness.
 
-## The 100 t trim cycle (corrected, round r3-i007-r1)
+## The 100 t trim cycle (corrected after the design review)
 
 - **Capacity wall.** Empty-balanced inventory is 61,051 m³, needing a 64.5 % bag at 2,500 m against the
   50 % installed: full-drop venting is cap-blocked at working altitude. Max single drop on installed
@@ -132,8 +132,8 @@ climb" claim is withdrawn — r3-i007-r1 MEDIUM). The D1 vent sizing absorbs the
   release and its vent are concurrent (instantaneous residual ≤ ~5 t for ≤ 2 min, declared bound); the
   D2 exchange is rate-matched end to end (2.6 t light → 1.3 → 0). Every tonne of post-vent fuel burn
   closes with water ballast at 1.00 t per t — no helium cost, because the vent is floor-capped
-  (neutralising six hours of burn *by venting* would have cost 0.786 t He: the r3-i007-r1 MEDIUM
-  quantity, restated).
+  (neutralising six hours of burn *by venting* would have cost 0.786 t He: the quantity restated
+  from the review's MEDIUM finding).
 - **Schedule/fuel envelope (targeted-check repair; the former "±0.45 t, 1:1" line here was wrong —
   it assumed fuel existed to absorb the slip).** The 4.902246 t of consumable fuel buys **exactly**
   the 6.00 h nominal outing including the 0.25 h / 0.204260 t reserve — **zero slack**: a timing slip
@@ -194,7 +194,7 @@ hovering water-dropper is not the mission the comparator prices.
 Fabric lines at the hi range −3.80; sundries +50 % −9.82; trim set 3→9 t (undrawn) −6.00; endurance
 6→12 h −4.90; Cd 0.030→0.040 −1.50 (fuel); **TSFC estimate +20 % −0.98** (no primary source; fuel
 scales linearly with it); balance sizing instead of max inventory −13.46 (to zero). Burn-side notes
-(r3-i007-r1 MEDIUM): all six hours burnt = 4.902246 t; neutralising that *by venting* would cost
+(review repair): all six hours burnt = 4.902246 t; neutralising that *by venting* would cost
 0.786070 t He, but the corrected cycle is floor-capped — post-vent burn closes with water ballast at
 1.00 t per t, no helium. Schedule slips are NOT absorbed (targeted-check repair): the nominal
 envelope admits ≤ +15 min; the +33 min and −50 %-pump cases are **fuel FAIL / outside the envelope**
@@ -207,7 +207,7 @@ lines (props, mounts, trim set, 5.2 t combined) plus the TSFC estimate are the h
 
 - **MASS: closes.** 38.8 t of equipment ex-hull against a 103.5 t recorded floor; loaded 162.5 t vs
   175.98 t max-inventory lift at 2,500 m.
-- **TRIM: closes as one conserved outing** (r3-i007-r1 repaired): the SL bag floor caps venting at a
+- **TRIM: closes as one conserved outing** (review-repaired): the SL bag floor caps venting at a
   single 48,703 m³ vent (8.00 t He); D1 fast drop closed by it; D2 a rate-matched lake exchange; return
   on 53.2 t of scooped ballast; base refill 48,703 m³ He; max bag 50.0 % at base arrival; residuals
   ±2.6 t vs 10–15 t authority. A 100 t single drop still needs the ~64 % capacity (R3-I006 interface).
@@ -237,5 +237,5 @@ but not the 0.1603 t/t helium law, so the economics verdict is expected to survi
 
 (155 characters.) Conditional paper result on an assumed-basis hull and allowance-priced equipment: not
 a measured or drawn vehicle, and no public claim is made. First-round cycle preserved in the unit
-evidence as a historical attempt (r3-i007-r1: HIGH inventory inconsistency, MEDIUM fuel-as-trim — both
+evidence as a historical attempt (first review: HIGH inventory inconsistency, MEDIUM fuel-as-trim — both
 repaired here).
