@@ -27,7 +27,7 @@
  "compatibility": "the cord is UHMWPE-CLASS (Dyneema-type) with ASSUMED inherited inputs; swage compatibility is creep/slip-sensitive and NOT QUALIFIED (neither retained nor sized); potting compatibility is an ASSUMED construction on an ASSUMED 12 MPa design bond shear \u2014 not a qualified termination",
  "construction": "epoxy-potted titanium socket with a threaded adjustment stud and jam nut, per-station titanium anchor block on a carbon-laminate doubler pad, bolted to the ring wall by 3 x M10 Ti through-bolts with internal backing nuts",
  "date": "2026-10-14",
- "dependency": "corrected R3-I015 commit 736180fd (record imports); direct commit parent is the v2 correction 5f549f91 \u2014 v3 repairs its open spring model (one signed installed spring model + signed mixed-packet first loss), the bolt stack (buildable, dimensioned) and ONE cord accounting boundary, and the Pa units label",
+ "dependency": "corrected R3-I015 record (record imports); v3.1 follows this unit's v3 correction \u2014 v3 repairs the v2 spring model (one signed installed spring model + signed mixed-packet first loss), the bolt stack (buildable, dimensioned) and ONE cord accounting boundary, and the Pa units label",
  "energy": {
   "coupledMinEqualsScalar": 1.000811196,
   "drawnEtaCoupledMin": 1.000874096,
@@ -152,7 +152,7 @@
   "afterMarginSLT": -312.6,
   "afterSpokesT": 243.98,
   "afterT": 2562.4,
-  "baseline": "CORRECTED completed R3-I015 case, pinned: before 2536.9 -> after 2546.1 t, margin -296.3 (budgets.sf12Completed at 736180fd)",
+  "baseline": "CORRECTED completed R3-I015 case, pinned: before 2536.9 -> after 2546.1 t, margin -296.3 (budgets.sf12Completed in the corrected R3-I015 record)",
   "baselineDeltaT": 9.25,
   "baselineSpokesT": 227.66,
   "deltaVsCompletedT": 16.3,

@@ -1,10 +1,10 @@
 # R3-I019 — one drawn termination and the mixed-field taut window
 
 Status: v3.1, 2026-10-14 — a text-only correction of v3's amplitude
-claims; every numeric result is unchanged. Base: the corrected
-R3-I015 record (commit
-736180fd, same checkout); direct parent is the v2 correction of this
-unit. Internal conditional design hypothesis; no positive claim;
+claims; every numeric result is unchanged. Source: the corrected
+[R3-I015 record](../R3-I015/README.md); this v3.1 text correction
+follows the unit's v3 spring-model and accounting correction.
+Internal conditional design hypothesis; no positive claim;
 `floatsToday` not shown. v1 mis-sized the bonded grip, mis-identified
 the cord material, evaluated the wrong first-slack endpoint and
 under-charged two sensitivities; v2 corrected eight of the eleven

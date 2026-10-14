@@ -852,7 +852,7 @@ def main():
         point=win12["which"],
         baseline="CORRECTED completed R3-I015 case, pinned: before "
                  "2536.9 -> after 2546.1 t, margin -296.3 "
-                 "(budgets.sf12Completed at 736180fd)",
+                 "(budgets.sf12Completed in the corrected R3-I015 record)",
         baselineSpokesT=round(b12_fin, 2),
         baselineDeltaT=round(delta12_base, 2),
         afterSpokesT=round(spokes12, 2),
@@ -1058,13 +1058,12 @@ def main():
     out = dict(
         unit="R3-I019", rev="v3.1",
         date="2026-10-14",
-        dependency="corrected R3-I015 commit 736180fd (record imports); "
-                   "direct commit parent is the v2 correction "
-                   "5f549f91 — v3 repairs its open spring model (one "
-                   "signed installed spring model + signed mixed-packet "
-                   "first loss), the bolt stack (buildable, dimensioned) "
-                   "and ONE cord accounting boundary, and the Pa units "
-                   "label",
+        dependency="corrected R3-I015 record (record imports); "
+                   "v3.1 follows this unit's v3 correction — v3 repairs "
+                   "the v2 spring model (one signed installed spring "
+                   "model + signed mixed-packet first loss), the bolt "
+                   "stack (buildable, dimensioned) and ONE cord "
+                   "accounting boundary, and the Pa units label",
         construction="epoxy-potted titanium socket with a threaded "
                      "adjustment stud and jam nut, per-station titanium "
                      "anchor block on a carbon-laminate doubler pad, "

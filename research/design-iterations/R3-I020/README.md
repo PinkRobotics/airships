@@ -8,7 +8,7 @@ The added stock is **552.332455 t**, with **zero selected retirement credit**. T
 
 ## Fixed comparison and scope
 
-[Corrected I016](../R3-I016/README.md), commit `edfba2f85efae46cab8c02a05c97672c2ed8e6dd`, is the sole comparison. Its complete result and seven SHA256 file pins are frozen in [baseline.json](baseline.json). The calculator checks those files and reads the frozen result; it does not import or execute an ancestor calculator. The correction already includes both adjacent film-bar reactions at a shared clip and distinct terminal contributions. The incoming 72° reaction used here is the corrected, signed single cap-span contribution.
+[Corrected I016](../R3-I016/README.md) is the sole comparison. Its complete result and seven SHA256 file pins are frozen in [baseline.json](baseline.json). The calculator checks those files and reads the frozen result; it does not import or execute an ancestor calculator. The correction already includes both adjacent film-bar reactions at a shared clip and distinct terminal contributions. The incoming 72° reaction used here is the corrected, signed single cap-span contribution.
 
 One geometry is selected, with 37 repeated sectors on each cap and exactly two explicit radial-load limits. The D80 m × 160 m capsule, barrel, all cap stations through 72°, existing 37-node cap frames, 111-node barrel frames, material proxies, residual gas and carried volume remain fixed. This local attempted replacement does not repair the other I016 cap/barrel clashes, strength failures, 888 short posts, remaining cuff/pad collisions, erection failures or global restraint assumptions.
 

@@ -121,14 +121,14 @@ def _sha256(path):
 # ledger UHMWPE-class (EPa key), grips 60/97, dimensioned bolted attachment
 # (M10 45/50 mm shanks), ONE cord accounting boundary (no separate tow line),
 # bill spokes 245.42 t. R3-I015 corrected (736180fd).
-TERM_SHA = "3f4533f723e64c7ae64acc0aefc4cefa37ace4022ddbf47736812ba9e1980694"
+TERM_SHA = "0fb204a2362f17f342b1582fb2e41981f7207402b509db81ba3bbf5c38a2cc6a"
 COUP_SHA = "6090c36e6b4479c5c81bfd47d8ebb9cadd95244ed8bc6fad3e5b5b39b71e620c"
 REV = "v1.3-consolidated-correction"
 assert _sha256(TERM_PATH) == TERM_SHA, "R3-I019 termination.json is not the v3.1 bytes"
 assert _sha256(COUP_PATH) == COUP_SHA, "R3-I015 coupled.json drifted"
 TERM = json.load(open(TERM_PATH, encoding="utf-8"))
 COUP = json.load(open(COUP_PATH, encoding="utf-8"))
-assert TERM["rev"] == "v3.1" and TERM["dependency"].startswith("corrected R3-I015 commit 736180fd")
+assert TERM["rev"] == "v3.1" and TERM["dependency"].startswith("corrected R3-I015 record (record imports);")
 for _n, _lg in (("d60", 60.0), ("d180/11", 97.0)):
     assert TERM["termination"][_n]["gripLgMm"] == _lg
 assert abs(TERM["bill"]["spokesLineNewT"] - 245.42) < 0.005
