@@ -1,0 +1,1616 @@
+{
+ "unit": "R3-I005",
+ "rev": "v3-after-consolidated-review",
+ "base": "afb2c2d1726b9d9a805f9781085c3dd6a52913e5",
+ "world": {
+  "diaM": 112.0,
+  "sigma": "s1450",
+  "giKnockdown": 0.65,
+  "membrane": false,
+  "stiffnessLaw": "per-family f_j(n) = cos^2(delta/2) cos^2(n phi/2), SQUARED (review finding 1)",
+  "families": [
+   {
+    "name": "halfcol",
+    "idealOffsetDeg": 1.161,
+    "offsetDeg": 1.161,
+    "columnsFromAntipodal": 0.5,
+    "step": 77,
+    "doubledAnchorsPerPlane": 1,
+    "unusedAnchors": 0,
+    "interiorCrossingsPerPlane": 3002,
+    "crossings": 411274,
+    "clipT": 20.56,
+    "meanCordM": 80.7,
+    "endpointTopology": "anchor m <-> m+77 in every kept bay plane (137 planes, m = 0..77)"
+   },
+   {
+    "name": "d60",
+    "idealOffsetDeg": 60.0,
+    "offsetDeg": 59.226,
+    "columnsFromAntipodal": 25.5,
+    "step": 52,
+    "doubledAnchorsPerPlane": 26,
+    "unusedAnchors": 25,
+    "interiorCrossingsPerPlane": 2652,
+    "crossings": 363324,
+    "clipT": 18.17,
+    "meanCordM": 70.16,
+    "endpointTopology": "anchor m <-> m+52 in every kept bay plane (137 planes, m = 0..77)"
+   },
+   {
+    "name": "d36",
+    "idealOffsetDeg": 36.0,
+    "offsetDeg": 36.0,
+    "columnsFromAntipodal": 15.5,
+    "step": 62,
+    "doubledAnchorsPerPlane": 16,
+    "unusedAnchors": 15,
+    "interiorCrossingsPerPlane": 2867,
+    "crossings": 392779,
+    "clipT": 19.64,
+    "meanCordM": 76.75,
+    "endpointTopology": "anchor m <-> m+62 in every kept bay plane (137 planes, m = 0..77)"
+   },
+   {
+    "name": "d180/7",
+    "idealOffsetDeg": 25.714,
+    "offsetDeg": 26.71,
+    "columnsFromAntipodal": 11.5,
+    "step": 66,
+    "doubledAnchorsPerPlane": 12,
+    "unusedAnchors": 11,
+    "interiorCrossingsPerPlane": 2925,
+    "crossings": 400725,
+    "clipT": 20.04,
+    "meanCordM": 78.52,
+    "endpointTopology": "anchor m <-> m+66 in every kept bay plane (137 planes, m = 0..77)"
+   },
+   {
+    "name": "d20",
+    "idealOffsetDeg": 20.0,
+    "offsetDeg": 19.742,
+    "columnsFromAntipodal": 8.5,
+    "step": 69,
+    "doubledAnchorsPerPlane": 9,
+    "unusedAnchors": 8,
+    "interiorCrossingsPerPlane": 2958,
+    "crossings": 405246,
+    "clipT": 20.26,
+    "meanCordM": 79.51,
+    "endpointTopology": "anchor m <-> m+69 in every kept bay plane (137 planes, m = 0..77)"
+   },
+   {
+    "name": "d180/11",
+    "idealOffsetDeg": 16.364,
+    "offsetDeg": 17.419,
+    "columnsFromAntipodal": 7.5,
+    "step": 70,
+    "doubledAnchorsPerPlane": 8,
+    "unusedAnchors": 7,
+    "interiorCrossingsPerPlane": 2967,
+    "crossings": 406479,
+    "clipT": 20.32,
+    "meanCordM": 79.77,
+    "endpointTopology": "anchor m <-> m+70 in every kept bay plane (137 planes, m = 0..77)"
+   }
+  ],
+  "routing": "families at separate standoff depths; standoff hardware UNKNOWN and unpriced, not zero",
+  "status": "internal conditional design hypothesis; scalar feasibility is NOT established \u2014 see finitePhase on each bestFeasible (consolidated review finding 1: the scalar pass is a phase average; the demonstrated finite topology fails it)"
+ },
+ "parity": {
+  "sf1.0": {
+   "giParity": true,
+   "massParity": 0.0,
+   "halfcolFactorN3": 0.000924,
+   "halfcolTopologyMatchesI004": true,
+   "ok": true
+  },
+  "sf1.2": {
+   "giParity": true,
+   "massParity": -0.0,
+   "halfcolFactorN3": 0.000924,
+   "halfcolTopologyMatchesI004": true,
+   "ok": true
+  }
+ },
+ "worlds": {
+  "sf1.0": {
+   "baseline": {
+    "point": {
+     "alloc": {
+      "a_i": 0.005053451271946679,
+      "a_th": 0.0009743030859409637,
+      "a_oe": 0.0,
+      "a_halfcol": 2.4e-06,
+      "a_d60": 0.0,
+      "a_d36": 0.0,
+      "a_d180/7": 0.0,
+      "a_d20": 0.0,
+      "a_d180/11": 0.0
+     },
+     "innerRingsT": 364.9206591587153,
+     "thetaWebsT": 479.90092756723993,
+     "flangeDoublerT": 0.0,
+     "spokesByFamilyT": {
+      "halfcol": 39.8,
+      "d60": 0.0,
+      "d36": 0.0,
+      "d180/7": 0.0,
+      "d20": 0.0,
+      "d180/11": 0.0
+     },
+     "spokesT": 39.812846232573364,
+     "totalT": 2519.336026703295,
+     "marginSLT": -269.4987816733469,
+     "margin2500T": -761.9728128601289,
+     "critN": 2,
+     "marginAtSF": 1.0098191064620328,
+     "capMarginAtSF": 2.406576146448129,
+     "feasible": true
+    },
+    "greedySteps": 44,
+    "capSteps": 0,
+    "modeMargins": {
+     "2": 1.0098,
+     "3": 1.0243,
+     "4": 1.2919,
+     "5": 1.3293,
+     "6": 1.4251,
+     "7": 1.4362,
+     "8": 1.4812,
+     "9": 1.484,
+     "10": 1.509,
+     "11": 1.5091,
+     "12": 1.5247
+    },
+    "note": "single half-column family: even modes only in effect \u2014 the honest as-drawn successor"
+   },
+   "nospoke": {
+    "point": {
+     "alloc": {
+      "a_i": 0.009053451271946678,
+      "a_th": 0.0015343030859409652,
+      "a_oe": 0.0006000000000000001,
+      "a_halfcol": 0.0,
+      "a_d60": 0.0,
+      "a_d36": 0.0,
+      "a_d180/7": 0.0,
+      "a_d20": 0.0,
+      "a_d180/11": 0.0
+     },
+     "innerRingsT": 653.7693208125884,
+     "thetaWebsT": 755.7334927264753,
+     "flangeDoublerT": 37.831812716765164,
+     "spokesByFamilyT": {
+      "halfcol": 0.0,
+      "d60": 0.0,
+      "d36": 0.0,
+      "d180/7": 0.0,
+      "d20": 0.0,
+      "d180/11": 0.0
+     },
+     "spokesT": 0.0,
+     "totalT": 3223.8039940076246,
+     "marginSLT": -973.9667489776766,
+     "margin2500T": -1466.4407801644586,
+     "critN": 2,
+     "marginAtSF": 1.002259965800855,
+     "capMarginAtSF": 3.460312038844476,
+     "feasible": true
+    },
+    "greedySteps": 59,
+    "capSteps": 0,
+    "modeMargins": {
+     "2": 1.0023,
+     "3": 1.5917,
+     "4": 1.9054,
+     "5": 2.0812,
+     "6": 2.1869,
+     "7": 2.2546,
+     "8": 2.3002,
+     "9": 2.3323,
+     "10": 2.3557,
+     "11": 2.3732,
+     "12": 2.3867
+    }
+   },
+   "variants": {
+    "free": {
+     "totalT": 2519.3,
+     "marginSLT": -269.5,
+     "margin2500T": -762.0,
+     "critN": 2,
+     "marginAtSF": 1.0098,
+     "capMarginAtSF": 2.4066,
+     "feasible": true,
+     "spokesT": 39.8,
+     "innerRingsT": 364.9,
+     "thetaWebsT": 479.9,
+     "alloc": {
+      "a_i": 0.0050535,
+      "a_th": 0.0009743,
+      "a_oe": 0.0,
+      "a_halfcol": 2.4e-06,
+      "a_d60": 0.0,
+      "a_d36": 0.0,
+      "a_d180/7": 0.0,
+      "a_d20": 0.0,
+      "a_d180/11": 0.0
+     }
+    },
+    "force:halfcol": {
+     "totalT": 2519.3,
+     "marginSLT": -269.5,
+     "margin2500T": -762.0,
+     "critN": 2,
+     "marginAtSF": 1.0098,
+     "capMarginAtSF": 2.4066,
+     "feasible": true,
+     "spokesT": 39.8,
+     "innerRingsT": 364.9,
+     "thetaWebsT": 479.9,
+     "alloc": {
+      "a_i": 0.0050535,
+      "a_th": 0.0009743,
+      "a_oe": 0.0,
+      "a_halfcol": 2.4e-06,
+      "a_d60": 0.0,
+      "a_d36": 0.0,
+      "a_d180/7": 0.0,
+      "a_d20": 0.0,
+      "a_d180/11": 0.0
+     }
+    },
+    "force:d60": {
+     "totalT": 2294.4,
+     "marginSLT": -44.6,
+     "margin2500T": -537.0,
+     "critN": 2,
+     "marginAtSF": 1.001,
+     "capMarginAtSF": 1.9399,
+     "feasible": true,
+     "spokesT": 150.7,
+     "innerRingsT": 191.6,
+     "thetaWebsT": 381.4,
+     "alloc": {
+      "a_i": 0.0026535,
+      "a_th": 0.0007743,
+      "a_oe": 0.0,
+      "a_halfcol": 0.0,
+      "a_d60": 1.9e-05,
+      "a_d36": 0.0,
+      "a_d180/7": 0.0,
+      "a_d20": 0.0,
+      "a_d180/11": 0.0
+     }
+    },
+    "force:d36": {
+     "totalT": 2301.8,
+     "marginSLT": -52.0,
+     "margin2500T": -544.4,
+     "critN": 2,
+     "marginAtSF": 1.0066,
+     "capMarginAtSF": 2.0507,
+     "feasible": true,
+     "spokesT": 62.4,
+     "innerRingsT": 249.4,
+     "thetaWebsT": 401.1,
+     "alloc": {
+      "a_i": 0.0034535,
+      "a_th": 0.0008143,
+      "a_oe": 0.0,
+      "a_halfcol": 0.0,
+      "a_d60": 0.0,
+      "a_d36": 5.6e-06,
+      "a_d180/7": 0.0,
+      "a_d20": 0.0,
+      "a_d180/11": 0.0
+     }
+    },
+    "force:d180/7": {
+     "totalT": 2236.0,
+     "marginSLT": 13.8,
+     "margin2500T": -478.6,
+     "critN": 4,
+     "marginAtSF": 1.0142,
+     "capMarginAtSF": 1.8898,
+     "feasible": true,
+     "spokesT": 163.6,
+     "innerRingsT": 133.8,
+     "thetaWebsT": 381.4,
+     "alloc": {
+      "a_i": 0.0018535,
+      "a_th": 0.0007743,
+      "a_oe": 0.0,
+      "a_halfcol": 0.0,
+      "a_d60": 0.0,
+      "a_d36": 0.0,
+      "a_d180/7": 1.84e-05,
+      "a_d20": 0.0,
+      "a_d180/11": 0.0
+     }
+    },
+    "force:d20": {
+     "totalT": 2298.1,
+     "marginSLT": -48.3,
+     "margin2500T": -540.8,
+     "critN": 3,
+     "marginAtSF": 1.0085,
+     "capMarginAtSF": 1.7782,
+     "feasible": true,
+     "spokesT": 285.8,
+     "innerRingsT": 105.0,
+     "thetaWebsT": 361.7,
+     "alloc": {
+      "a_i": 0.0014535,
+      "a_th": 0.0007343,
+      "a_oe": 0.0,
+      "a_halfcol": 0.0,
+      "a_d60": 0.0,
+      "a_d36": 0.0,
+      "a_d180/7": 0.0,
+      "a_d20": 3.36e-05,
+      "a_d180/11": 0.0
+     }
+    },
+    "force:d180/11": {
+     "totalT": 2340.6,
+     "marginSLT": -90.7,
+     "margin2500T": -583.2,
+     "critN": 3,
+     "marginAtSF": 1.0041,
+     "capMarginAtSF": 1.7374,
+     "feasible": true,
+     "spokesT": 316.8,
+     "innerRingsT": 133.8,
+     "thetaWebsT": 342.0,
+     "alloc": {
+      "a_i": 0.0018535,
+      "a_th": 0.0006943,
+      "a_oe": 0.0,
+      "a_halfcol": 0.0,
+      "a_d60": 0.0,
+      "a_d36": 0.0,
+      "a_d180/7": 0.0,
+      "a_d20": 0.0,
+      "a_d180/11": 3.74e-05
+     }
+    },
+    "force:halfcol+d60": {
+     "totalT": 2224.1,
+     "marginSLT": 25.8,
+     "margin2500T": -466.7,
+     "critN": 4,
+     "marginAtSF": 1.0076,
+     "capMarginAtSF": 1.9183,
+     "feasible": true,
+     "spokesT": 116.0,
+     "innerRingsT": 162.7,
+     "thetaWebsT": 381.4,
+     "alloc": {
+      "a_i": 0.0022535,
+      "a_th": 0.0007743,
+      "a_oe": 0.0,
+      "a_halfcol": 3.2e-06,
+      "a_d60": 7.4e-06,
+      "a_d36": 0.0,
+      "a_d180/7": 0.0,
+      "a_d20": 0.0,
+      "a_d180/11": 0.0
+     }
+    },
+    "force:halfcol+d36": {
+     "totalT": 2214.7,
+     "marginSLT": 35.1,
+     "margin2500T": -457.4,
+     "critN": 3,
+     "marginAtSF": 1.012,
+     "capMarginAtSF": 1.7374,
+     "feasible": true,
+     "spokesT": 191.0,
+     "innerRingsT": 133.8,
+     "thetaWebsT": 342.0,
+     "alloc": {
+      "a_i": 0.0018535,
+      "a_th": 0.0006943,
+      "a_oe": 0.0,
+      "a_halfcol": 7.2e-06,
+      "a_d60": 0.0,
+      "a_d36": 1.22e-05,
+      "a_d180/7": 0.0,
+      "a_d20": 0.0,
+      "a_d180/11": 0.0
+     }
+    },
+    "force:halfcol+d180/7": {
+     "totalT": 2234.1,
+     "marginSLT": 15.7,
+     "margin2500T": -476.7,
+     "critN": 6,
+     "marginAtSF": 1.0033,
+     "capMarginAtSF": 1.8146,
+     "feasible": true,
+     "spokesT": 186.1,
+     "innerRingsT": 133.8,
+     "thetaWebsT": 361.7,
+     "alloc": {
+      "a_i": 0.0018535,
+      "a_th": 0.0007343,
+      "a_oe": 0.0,
+      "a_halfcol": 1.4e-06,
+      "a_d60": 0.0,
+      "a_d36": 0.0,
+      "a_d180/7": 1.72e-05,
+      "a_d20": 0.0,
+      "a_d180/11": 0.0
+     }
+    },
+    "force:halfcol+d20": {
+     "totalT": 2336.4,
+     "marginSLT": -86.6,
+     "margin2500T": -579.1,
+     "critN": 8,
+     "marginAtSF": 1.019,
+     "capMarginAtSF": 1.7374,
+     "feasible": true,
+     "spokesT": 312.7,
+     "innerRingsT": 133.8,
+     "thetaWebsT": 342.0,
+     "alloc": {
+      "a_i": 0.0018535,
+      "a_th": 0.0006943,
+      "a_oe": 0.0,
+      "a_halfcol": 6e-07,
+      "a_d60": 0.0,
+      "a_d36": 0.0,
+      "a_d180/7": 0.0,
+      "a_d20": 3.38e-05,
+      "a_d180/11": 0.0
+     }
+    },
+    "force:halfcol+d180/11": {
+     "totalT": 2364.3,
+     "marginSLT": -114.5,
+     "margin2500T": -606.9,
+     "critN": 3,
+     "marginAtSF": 1.0062,
+     "capMarginAtSF": 1.7374,
+     "feasible": true,
+     "spokesT": 340.6,
+     "innerRingsT": 133.8,
+     "thetaWebsT": 342.0,
+     "alloc": {
+      "a_i": 0.0018535,
+      "a_th": 0.0006943,
+      "a_oe": 0.0,
+      "a_halfcol": 2e-07,
+      "a_d60": 0.0,
+      "a_d36": 0.0,
+      "a_d180/7": 0.0,
+      "a_d20": 0.0,
+      "a_d180/11": 3.76e-05
+     }
+    },
+    "force:d60+d36": {
+     "totalT": 2311.3,
+     "marginSLT": -61.4,
+     "margin2500T": -553.9,
+     "critN": 4,
+     "marginAtSF": 1.0101,
+     "capMarginAtSF": 2.0358,
+     "feasible": true,
+     "spokesT": 107.5,
+     "innerRingsT": 220.5,
+     "thetaWebsT": 401.1,
+     "alloc": {
+      "a_i": 0.0030535,
+      "a_th": 0.0008143,
+      "a_oe": 0.0,
+      "a_halfcol": 0.0,
+      "a_d60": 5.4e-06,
+      "a_d36": 4.2e-06,
+      "a_d180/7": 0.0,
+      "a_d20": 0.0,
+      "a_d180/11": 0.0
+     }
+    },
+    "force:d60+d180/7": {
+     "totalT": 2268.6,
+     "marginSLT": -18.8,
+     "margin2500T": -511.3,
+     "critN": 4,
+     "marginAtSF": 1.0275,
+     "capMarginAtSF": 1.8898,
+     "feasible": true,
+     "spokesT": 196.2,
+     "innerRingsT": 133.8,
+     "thetaWebsT": 381.4,
+     "alloc": {
+      "a_i": 0.0018535,
+      "a_th": 0.0007743,
+      "a_oe": 0.0,
+      "a_halfcol": 0.0,
+      "a_d60": 1.4e-06,
+      "a_d36": 0.0,
+      "a_d180/7": 1.9e-05,
+      "a_d20": 0.0,
+      "a_d180/11": 0.0
+     }
+    },
+    "force:d60+d20": {
+     "totalT": 2207.8,
+     "marginSLT": 42.0,
+     "margin2500T": -450.5,
+     "critN": 3,
+     "marginAtSF": 1.016,
+     "capMarginAtSF": 1.7782,
+     "feasible": true,
+     "spokesT": 195.5,
+     "innerRingsT": 105.0,
+     "thetaWebsT": 361.7,
+     "alloc": {
+      "a_i": 0.0014535,
+      "a_th": 0.0007343,
+      "a_oe": 0.0,
+      "a_halfcol": 0.0,
+      "a_d60": 6.2e-06,
+      "a_d36": 0.0,
+      "a_d180/7": 0.0,
+      "a_d20": 1.44e-05,
+      "a_d180/11": 0.0
+     }
+    },
+    "force:d60+d180/11": {
+     "totalT": 2207.3,
+     "marginSLT": 42.5,
+     "margin2500T": -450.0,
+     "critN": 5,
+     "marginAtSF": 1.0008,
+     "capMarginAtSF": 1.704,
+     "feasible": true,
+     "spokesT": 219.3,
+     "innerRingsT": 105.0,
+     "thetaWebsT": 342.0,
+     "alloc": {
+      "a_i": 0.0014535,
+      "a_th": 0.0006943,
+      "a_oe": 0.0,
+      "a_halfcol": 0.0,
+      "a_d60": 6.6e-06,
+      "a_d36": 0.0,
+      "a_d180/7": 0.0,
+      "a_d20": 0.0,
+      "a_d180/11": 1.7e-05
+     }
+    },
+    "force:d36+d180/7": {
+     "totalT": 2260.2,
+     "marginSLT": -10.4,
+     "margin2500T": -502.8,
+     "critN": 4,
+     "marginAtSF": 1.0143,
+     "capMarginAtSF": 1.8898,
+     "feasible": true,
+     "spokesT": 187.8,
+     "innerRingsT": 133.8,
+     "thetaWebsT": 381.4,
+     "alloc": {
+      "a_i": 0.0018535,
+      "a_th": 0.0007743,
+      "a_oe": 0.0,
+      "a_halfcol": 0.0,
+      "a_d60": 0.0,
+      "a_d36": 8e-07,
+      "a_d180/7": 1.82e-05,
+      "a_d20": 0.0,
+      "a_d180/11": 0.0
+     }
+    },
+    "force:d36+d20": {
+     "totalT": 2228.3,
+     "marginSLT": 21.6,
+     "margin2500T": -470.9,
+     "critN": 3,
+     "marginAtSF": 1.0037,
+     "capMarginAtSF": 1.8146,
+     "feasible": true,
+     "spokesT": 180.2,
+     "innerRingsT": 133.8,
+     "thetaWebsT": 361.7,
+     "alloc": {
+      "a_i": 0.0018535,
+      "a_th": 0.0007343,
+      "a_oe": 0.0,
+      "a_halfcol": 0.0,
+      "a_d60": 0.0,
+      "a_d36": 7e-06,
+      "a_d180/7": 0.0,
+      "a_d20": 1.1e-05,
+      "a_d180/11": 0.0
+     }
+    },
+    "force:d36+d180/11": {
+     "totalT": 2233.0,
+     "marginSLT": 16.9,
+     "margin2500T": -475.6,
+     "critN": 3,
+     "marginAtSF": 1.0124,
+     "capMarginAtSF": 1.8146,
+     "feasible": true,
+     "spokesT": 184.9,
+     "innerRingsT": 133.8,
+     "thetaWebsT": 361.7,
+     "alloc": {
+      "a_i": 0.0018535,
+      "a_th": 0.0007343,
+      "a_oe": 0.0,
+      "a_halfcol": 0.0,
+      "a_d60": 0.0,
+      "a_d36": 8.4e-06,
+      "a_d180/7": 0.0,
+      "a_d20": 0.0,
+      "a_d180/11": 1.02e-05
+     }
+    },
+    "force:d180/7+d20": {
+     "totalT": 2250.2,
+     "marginSLT": -0.4,
+     "margin2500T": -492.9,
+     "critN": 3,
+     "marginAtSF": 1.0107,
+     "capMarginAtSF": 1.8898,
+     "feasible": true,
+     "spokesT": 177.9,
+     "innerRingsT": 133.8,
+     "thetaWebsT": 381.4,
+     "alloc": {
+      "a_i": 0.0018535,
+      "a_th": 0.0007743,
+      "a_oe": 0.0,
+      "a_halfcol": 0.0,
+      "a_d60": 0.0,
+      "a_d36": 0.0,
+      "a_d180/7": 1.54e-05,
+      "a_d20": 2.2e-06,
+      "a_d180/11": 0.0
+     }
+    },
+    "force:d180/7+d180/11": {
+     "totalT": 2253.5,
+     "marginSLT": -3.7,
+     "margin2500T": -496.1,
+     "critN": 3,
+     "marginAtSF": 1.0136,
+     "capMarginAtSF": 1.8898,
+     "feasible": true,
+     "spokesT": 181.1,
+     "innerRingsT": 133.8,
+     "thetaWebsT": 381.4,
+     "alloc": {
+      "a_i": 0.0018535,
+      "a_th": 0.0007743,
+      "a_oe": 0.0,
+      "a_halfcol": 0.0,
+      "a_d60": 0.0,
+      "a_d36": 0.0,
+      "a_d180/7": 1.58e-05,
+      "a_d20": 0.0,
+      "a_d180/11": 2.2e-06
+     }
+    },
+    "force:d20+d180/11": {
+     "totalT": 2320.1,
+     "marginSLT": -70.2,
+     "margin2500T": -562.7,
+     "critN": 3,
+     "marginAtSF": 1.0085,
+     "capMarginAtSF": 1.7782,
+     "feasible": true,
+     "spokesT": 307.7,
+     "innerRingsT": 105.0,
+     "thetaWebsT": 361.7,
+     "alloc": {
+      "a_i": 0.0014535,
+      "a_th": 0.0007343,
+      "a_oe": 0.0,
+      "a_halfcol": 0.0,
+      "a_d60": 0.0,
+      "a_d36": 0.0,
+      "a_d180/7": 0.0,
+      "a_d20": 3.28e-05,
+      "a_d180/11": 1e-06
+     }
+    }
+   },
+   "rejectionEconomics": {
+    "marginGainPerKgPerMillion": {
+     "growInnerRings": 0.5754,
+     "growThetaWebs": 0.4467,
+     "growFlangeDoubler": 0.2138,
+     "growHalfcol": 9.0116,
+     "activate_d60": 0.3028,
+     "activate_d36": 0.8374,
+     "activate_d180/7": 0.8727,
+     "activate_d20": 0.7831,
+     "activate_d180/11": 0.7564
+    },
+    "note": "1e-6 margin units per kg at the baseline exit point; member moves priced at their ledger cost (1+adder)/eta (finding 3); a first-step family move carries its full per-family clip activation (18.2-20.6 t per family)"
+   },
+   "bestFeasible": {
+    "which": "force:d60+d180/11",
+    "totalT": 2207.3204486331847,
+    "marginSLT": 42.51679639676331,
+    "margin2500T": -449.9572347900187,
+    "critN": 5,
+    "point": {
+     "alloc": {
+      "a_i": 0.0014534512719466778,
+      "a_th": 0.0006943030859409637,
+      "a_oe": 0.0,
+      "a_halfcol": 0.0,
+      "a_d60": 6.599999999999995e-06,
+      "a_d36": 0.0,
+      "a_d180/7": 0.0,
+      "a_d20": 0.0,
+      "a_d180/11": 1.7e-05
+     },
+     "innerRingsT": 104.95686367022937,
+     "thetaWebsT": 341.9846449876226,
+     "flangeDoublerT": 0.0,
+     "spokesByFamilyT": {
+      "halfcol": 0.0,
+      "d60": 64.2,
+      "d36": 0.0,
+      "d180/7": 0.0,
+      "d20": 0.0,
+      "d180/11": 155.1
+     },
+     "spokesT": 219.29618812894356,
+     "totalT": 2207.3204486331847,
+     "marginSLT": 42.51679639676331,
+     "margin2500T": -449.9572347900187,
+     "critN": 5,
+     "marginAtSF": 1.0008111963492177,
+     "capMarginAtSF": 1.7040169577853583,
+     "feasible": true
+    },
+    "modeMargins": {
+     "2": 2.7546,
+     "3": 1.0072,
+     "4": 1.0856,
+     "5": 1.0008,
+     "6": 1.0435,
+     "7": 1.0776,
+     "8": 1.0084,
+     "9": 1.1258,
+     "10": 1.0315,
+     "11": 1.1085,
+     "12": 1.0708
+    },
+    "finitePhase": {
+     "bindingModeFinite": 5,
+     "orientationMatrix": [
+      [
+       27060.9753,
+       125.7214
+      ],
+      [
+       125.7214,
+       27073.7162
+      ]
+     ],
+     "weakestEigenvalue": 26941.463,
+     "scalarQFound": 27067.3457,
+     "modeMargins": {
+      "2": {
+       "scalar": 2.754621972,
+       "weakestOrientation": 2.739908338
+      },
+      "3": {
+       "scalar": 1.00723327,
+       "weakestOrientation": 1.005763551
+      },
+      "4": {
+       "scalar": 1.08562031,
+       "weakestOrientation": 1.083677952
+      },
+      "5": {
+       "scalar": 1.000811196,
+       "weakestOrientation": 1.000003659
+      },
+      "6": {
+       "scalar": 1.043530659,
+       "weakestOrientation": 1.042986156
+      },
+      "7": {
+       "scalar": 1.07762057,
+       "weakestOrientation": 1.076824718
+      },
+      "8": {
+       "scalar": 1.008391324,
+       "weakestOrientation": 1.00823361
+      },
+      "9": {
+       "scalar": 1.125786495,
+       "weakestOrientation": 1.125027094
+      },
+      "10": {
+       "scalar": 1.031522824,
+       "weakestOrientation": 1.031493417
+      },
+      "11": {
+       "scalar": 1.108455996,
+       "weakestOrientation": 1.10805645
+      },
+      "12": {
+       "scalar": 1.070794649,
+       "weakestOrientation": 1.070707804
+      }
+     },
+     "marginWeakestOrientation": 1.000003659,
+     "trial": {
+      "field": "cos(3t)/sqrt(8) - sin(4t)/sqrt(15)",
+      "marginSeatConvention": 0.615415166,
+      "marginReviewDemonstrated": 0.967922863,
+      "note": "review values are the demonstrated margins on the SUPERSEDED v2 winner (cited from the consolidated return); this seat reproduces that winner's orientation matrix, eigenvalue and both orientation margins to 1e-4; the review's exact mixed-field ring/foundation combination was not recovered from the published values (seat candidates land within 2-6% of the cited margins), and on the v2 winner every tested convention lands below 1.0; on THIS point the mixed-mode verdict under the review convention is UNKNOWN"
+     },
+     "feasibleFinitePhase": true,
+     "note": "the scalar eleven-mode pass is a phase AVERAGE; margins within ppm of 1.0 are not established feasibility \u2014 the v2 closure remains withdrawn"
+    }
+   },
+   "lift": {
+    "slT": 2249.837245029948,
+    "at2500T": 1757.363213843166
+   }
+  },
+  "sf1.2": {
+   "baseline": {
+    "point": {
+     "alloc": {
+      "a_i": 0.005491150383789758,
+      "a_th": 0.0012143030859409643,
+      "a_oe": 0.0,
+      "a_halfcol": 3.199999999999999e-06,
+      "a_d60": 0.0,
+      "a_d36": 0.0,
+      "a_d180/7": 0.0,
+      "a_d20": 0.0,
+      "a_d180/11": 0.0
+     },
+     "innerRingsT": 396.52785982445585,
+     "thetaWebsT": 598.1148840640552,
+     "flangeDoublerT": 0.0,
+     "spokesByFamilyT": {
+      "halfcol": 46.2,
+      "d60": 0.0,
+      "d36": 0.0,
+      "d180/7": 0.0,
+      "d20": 0.0,
+      "d180/11": 0.0
+     },
+     "spokesT": 46.22922831009781,
+     "totalT": 2904.860872422768,
+     "marginSLT": -655.0236273928199,
+     "margin2500T": -1147.4976585796019,
+     "critN": 3,
+     "marginAtSF": 1.020696938848391,
+     "capMarginAtSF": 2.4644204830062786,
+     "feasible": true
+    },
+    "greedySteps": 55,
+    "capSteps": 0,
+    "modeMargins": {
+     "2": 1.0297,
+     "3": 1.0207,
+     "4": 1.3138,
+     "5": 1.3559,
+     "6": 1.4636,
+     "7": 1.4771,
+     "8": 1.528,
+     "9": 1.5319,
+     "10": 1.5603,
+     "11": 1.5609,
+     "12": 1.5786
+    },
+    "note": "single half-column family: even modes only in effect \u2014 the honest as-drawn successor"
+   },
+   "nospoke": {
+    "point": {
+     "alloc": {
+      "a_i": 0.011091150383789753,
+      "a_th": 0.001814303085940966,
+      "a_oe": 0.0008,
+      "a_halfcol": 0.0,
+      "a_d60": 0.0,
+      "a_d36": 0.0,
+      "a_d180/7": 0.0,
+      "a_d20": 0.0,
+      "a_d180/11": 0.0
+     },
+     "innerRingsT": 800.915986139878,
+     "thetaWebsT": 893.6497753060931,
+     "flangeDoublerT": 50.44241695568687,
+     "spokesByFamilyT": {
+      "halfcol": 0.0,
+      "d60": 0.0,
+      "d36": 0.0,
+      "d180/7": 0.0,
+      "d20": 0.0,
+      "d180/11": 0.0
+     },
+     "spokesT": 0.0,
+     "totalT": 3785.55365145244,
+     "marginSLT": -1535.7164064224921,
+     "margin2500T": -2028.190437609274,
+     "critN": 2,
+     "marginAtSF": 1.001085404848486,
+     "capMarginAtSF": 3.427756540489239,
+     "feasible": true
+    },
+    "greedySteps": 72,
+    "capSteps": 0,
+    "modeMargins": {
+     "2": 1.0011,
+     "3": 1.5811,
+     "4": 1.8872,
+     "5": 2.058,
+     "6": 2.1604,
+     "7": 2.2259,
+     "8": 2.27,
+     "9": 2.301,
+     "10": 2.3235,
+     "11": 2.3404,
+     "12": 2.3534
+    }
+   },
+   "variants": {
+    "free": {
+     "totalT": 2904.9,
+     "marginSLT": -655.0,
+     "margin2500T": -1147.5,
+     "critN": 3,
+     "marginAtSF": 1.0207,
+     "capMarginAtSF": 2.4644,
+     "feasible": true,
+     "spokesT": 46.2,
+     "innerRingsT": 396.5,
+     "thetaWebsT": 598.1,
+     "alloc": {
+      "a_i": 0.0054912,
+      "a_th": 0.0012143,
+      "a_oe": 0.0,
+      "a_halfcol": 3.2e-06,
+      "a_d60": 0.0,
+      "a_d36": 0.0,
+      "a_d180/7": 0.0,
+      "a_d20": 0.0,
+      "a_d180/11": 0.0
+     }
+    },
+    "force:halfcol": {
+     "totalT": 2904.9,
+     "marginSLT": -655.0,
+     "margin2500T": -1147.5,
+     "critN": 3,
+     "marginAtSF": 1.0207,
+     "capMarginAtSF": 2.4644,
+     "feasible": true,
+     "spokesT": 46.2,
+     "innerRingsT": 396.5,
+     "thetaWebsT": 598.1,
+     "alloc": {
+      "a_i": 0.0054912,
+      "a_th": 0.0012143,
+      "a_oe": 0.0,
+      "a_halfcol": 3.2e-06,
+      "a_d60": 0.0,
+      "a_d36": 0.0,
+      "a_d180/7": 0.0,
+      "a_d20": 0.0,
+      "a_d180/11": 0.0
+     }
+    },
+    "force:d60": {
+     "totalT": 2684.2,
+     "marginSLT": -434.4,
+     "margin2500T": -926.9,
+     "critN": 2,
+     "marginAtSF": 1.0125,
+     "capMarginAtSF": 1.9597,
+     "feasible": true,
+     "spokesT": 174.4,
+     "innerRingsT": 252.1,
+     "thetaWebsT": 460.2,
+     "alloc": {
+      "a_i": 0.0034912,
+      "a_th": 0.0009343,
+      "a_oe": 0.0,
+      "a_halfcol": 0.0,
+      "a_d60": 2.24e-05,
+      "a_d36": 0.0,
+      "a_d180/7": 0.0,
+      "a_d20": 0.0,
+      "a_d180/11": 0.0
+     }
+    },
+    "force:d36": {
+     "totalT": 2667.3,
+     "marginSLT": -417.4,
+     "margin2500T": -909.9,
+     "critN": 2,
+     "marginAtSF": 1.0174,
+     "capMarginAtSF": 2.1035,
+     "feasible": true,
+     "spokesT": 73.0,
+     "innerRingsT": 281.0,
+     "thetaWebsT": 499.6,
+     "alloc": {
+      "a_i": 0.0038912,
+      "a_th": 0.0010143,
+      "a_oe": 0.0,
+      "a_halfcol": 0.0,
+      "a_d60": 0.0,
+      "a_d36": 7e-06,
+      "a_d180/7": 0.0,
+      "a_d20": 0.0,
+      "a_d180/11": 0.0
+     }
+    },
+    "force:d180/7": {
+     "totalT": 2571.8,
+     "marginSLT": -321.9,
+     "margin2500T": -814.4,
+     "critN": 4,
+     "marginAtSF": 1.0002,
+     "capMarginAtSF": 1.8396,
+     "feasible": true,
+     "spokesT": 193.3,
+     "innerRingsT": 165.4,
+     "thetaWebsT": 440.5,
+     "alloc": {
+      "a_i": 0.0022912,
+      "a_th": 0.0008943,
+      "a_oe": 0.0,
+      "a_halfcol": 0.0,
+      "a_d60": 0.0,
+      "a_d36": 0.0,
+      "a_d180/7": 2.22e-05,
+      "a_d20": 0.0,
+      "a_d180/11": 0.0
+     }
+    },
+    "force:d20": {
+     "totalT": 2643.7,
+     "marginSLT": -393.9,
+     "margin2500T": -886.4,
+     "critN": 3,
+     "marginAtSF": 1.0011,
+     "capMarginAtSF": 1.7489,
+     "feasible": true,
+     "spokesT": 325.3,
+     "innerRingsT": 136.6,
+     "thetaWebsT": 420.8,
+     "alloc": {
+      "a_i": 0.0018912,
+      "a_th": 0.0008543,
+      "a_oe": 0.0,
+      "a_halfcol": 0.0,
+      "a_d60": 0.0,
+      "a_d36": 0.0,
+      "a_d180/7": 0.0,
+      "a_d20": 3.86e-05,
+      "a_d180/11": 0.0
+     }
+    },
+    "force:d180/11": {
+     "totalT": 2703.7,
+     "marginSLT": -453.9,
+     "margin2500T": -946.4,
+     "critN": 3,
+     "marginAtSF": 1.0002,
+     "capMarginAtSF": 1.7103,
+     "feasible": true,
+     "spokesT": 373.9,
+     "innerRingsT": 165.4,
+     "thetaWebsT": 401.1,
+     "alloc": {
+      "a_i": 0.0022912,
+      "a_th": 0.0008143,
+      "a_oe": 0.0,
+      "a_halfcol": 0.0,
+      "a_d60": 0.0,
+      "a_d36": 0.0,
+      "a_d180/7": 0.0,
+      "a_d20": 0.0,
+      "a_d180/11": 4.46e-05
+     }
+    },
+    "force:halfcol+d60": {
+     "totalT": 2576.0,
+     "marginSLT": -326.2,
+     "margin2500T": -818.7,
+     "critN": 5,
+     "marginAtSF": 1.0017,
+     "capMarginAtSF": 1.879,
+     "feasible": true,
+     "spokesT": 126.2,
+     "innerRingsT": 223.2,
+     "thetaWebsT": 440.5,
+     "alloc": {
+      "a_i": 0.0030912,
+      "a_th": 0.0008943,
+      "a_oe": 0.0,
+      "a_halfcol": 3.6e-06,
+      "a_d60": 8.4e-06,
+      "a_d36": 0.0,
+      "a_d180/7": 0.0,
+      "a_d20": 0.0,
+      "a_d180/11": 0.0
+     }
+    },
+    "force:halfcol+d36": {
+     "totalT": 2547.2,
+     "marginSLT": -297.4,
+     "margin2500T": -789.9,
+     "critN": 4,
+     "marginAtSF": 1.0031,
+     "capMarginAtSF": 1.7103,
+     "feasible": true,
+     "spokesT": 217.4,
+     "innerRingsT": 165.4,
+     "thetaWebsT": 401.1,
+     "alloc": {
+      "a_i": 0.0022912,
+      "a_th": 0.0008143,
+      "a_oe": 0.0,
+      "a_halfcol": 8.4e-06,
+      "a_d60": 0.0,
+      "a_d36": 1.44e-05,
+      "a_d180/7": 0.0,
+      "a_d20": 0.0,
+      "a_d180/11": 0.0
+     }
+    },
+    "force:halfcol+d180/7": {
+     "totalT": 2588.0,
+     "marginSLT": -338.2,
+     "margin2500T": -830.6,
+     "critN": 3,
+     "marginAtSF": 1.0035,
+     "capMarginAtSF": 1.8396,
+     "feasible": true,
+     "spokesT": 209.5,
+     "innerRingsT": 165.4,
+     "thetaWebsT": 440.5,
+     "alloc": {
+      "a_i": 0.0022912,
+      "a_th": 0.0008943,
+      "a_oe": 0.0,
+      "a_halfcol": 1.6e-06,
+      "a_d60": 0.0,
+      "a_d36": 0.0,
+      "a_d180/7": 2e-05,
+      "a_d20": 0.0,
+      "a_d180/11": 0.0
+     }
+    },
+    "force:halfcol+d20": {
+     "totalT": 2672.3,
+     "marginSLT": -422.5,
+     "margin2500T": -915.0,
+     "critN": 3,
+     "marginAtSF": 1.0011,
+     "capMarginAtSF": 1.7489,
+     "feasible": true,
+     "spokesT": 353.9,
+     "innerRingsT": 136.6,
+     "thetaWebsT": 420.8,
+     "alloc": {
+      "a_i": 0.0018912,
+      "a_th": 0.0008543,
+      "a_oe": 0.0,
+      "a_halfcol": 1e-06,
+      "a_d60": 0.0,
+      "a_d36": 0.0,
+      "a_d180/7": 0.0,
+      "a_d20": 3.86e-05,
+      "a_d180/11": 0.0
+     }
+    },
+    "force:halfcol+d180/11": {
+     "totalT": 2725.9,
+     "marginSLT": -476.1,
+     "margin2500T": -968.5,
+     "critN": 3,
+     "marginAtSF": 1.0002,
+     "capMarginAtSF": 1.7103,
+     "feasible": true,
+     "spokesT": 396.1,
+     "innerRingsT": 165.4,
+     "thetaWebsT": 401.1,
+     "alloc": {
+      "a_i": 0.0022912,
+      "a_th": 0.0008143,
+      "a_oe": 0.0,
+      "a_halfcol": 2e-07,
+      "a_d60": 0.0,
+      "a_d36": 0.0,
+      "a_d180/7": 0.0,
+      "a_d20": 0.0,
+      "a_d180/11": 4.46e-05
+     }
+    },
+    "force:d60+d36": {
+     "totalT": 2683.3,
+     "marginSLT": -433.5,
+     "margin2500T": -925.9,
+     "critN": 2,
+     "marginAtSF": 1.0154,
+     "capMarginAtSF": 2.0891,
+     "feasible": true,
+     "spokesT": 124.8,
+     "innerRingsT": 252.1,
+     "thetaWebsT": 499.6,
+     "alloc": {
+      "a_i": 0.0034912,
+      "a_th": 0.0010143,
+      "a_oe": 0.0,
+      "a_halfcol": 0.0,
+      "a_d60": 7e-06,
+      "a_d36": 5e-06,
+      "a_d180/7": 0.0,
+      "a_d20": 0.0,
+      "a_d180/11": 0.0
+     }
+    },
+    "force:d60+d180/7": {
+     "totalT": 2595.0,
+     "marginSLT": -345.2,
+     "margin2500T": -837.6,
+     "critN": 4,
+     "marginAtSF": 1.0011,
+     "capMarginAtSF": 1.8396,
+     "feasible": true,
+     "spokesT": 216.5,
+     "innerRingsT": 165.4,
+     "thetaWebsT": 440.5,
+     "alloc": {
+      "a_i": 0.0022912,
+      "a_th": 0.0008943,
+      "a_oe": 0.0,
+      "a_halfcol": 0.0,
+      "a_d60": 1.4e-06,
+      "a_d36": 0.0,
+      "a_d180/7": 2.16e-05,
+      "a_d20": 0.0,
+      "a_d180/11": 0.0
+     }
+    },
+    "force:d60+d20": {
+     "totalT": 2536.9,
+     "marginSLT": -287.0,
+     "margin2500T": -779.5,
+     "critN": 3,
+     "marginAtSF": 1.0045,
+     "capMarginAtSF": 1.7489,
+     "feasible": true,
+     "spokesT": 218.4,
+     "innerRingsT": 136.6,
+     "thetaWebsT": 420.8,
+     "alloc": {
+      "a_i": 0.0018912,
+      "a_th": 0.0008543,
+      "a_oe": 0.0,
+      "a_halfcol": 0.0,
+      "a_d60": 7e-06,
+      "a_d36": 0.0,
+      "a_d180/7": 0.0,
+      "a_d20": 1.66e-05,
+      "a_d180/11": 0.0
+     }
+    },
+    "force:d60+d180/11": {
+     "totalT": 2565.5,
+     "marginSLT": -315.7,
+     "margin2500T": -808.2,
+     "critN": 3,
+     "marginAtSF": 1.0102,
+     "capMarginAtSF": 1.7489,
+     "feasible": true,
+     "spokesT": 247.1,
+     "innerRingsT": 136.6,
+     "thetaWebsT": 420.8,
+     "alloc": {
+      "a_i": 0.0018912,
+      "a_th": 0.0008543,
+      "a_oe": 0.0,
+      "a_halfcol": 0.0,
+      "a_d60": 7.4e-06,
+      "a_d36": 0.0,
+      "a_d180/7": 0.0,
+      "a_d20": 0.0,
+      "a_d180/11": 1.98e-05
+     }
+    },
+    "force:d36+d180/7": {
+     "totalT": 2597.5,
+     "marginSLT": -347.6,
+     "margin2500T": -840.1,
+     "critN": 4,
+     "marginAtSF": 1.0007,
+     "capMarginAtSF": 1.8396,
+     "feasible": true,
+     "spokesT": 219.0,
+     "innerRingsT": 165.4,
+     "thetaWebsT": 440.5,
+     "alloc": {
+      "a_i": 0.0022912,
+      "a_th": 0.0008943,
+      "a_oe": 0.0,
+      "a_halfcol": 0.0,
+      "a_d60": 0.0,
+      "a_d36": 1e-06,
+      "a_d180/7": 2.2e-05,
+      "a_d20": 0.0,
+      "a_d180/11": 0.0
+     }
+    },
+    "force:d36+d20": {
+     "totalT": 2565.6,
+     "marginSLT": -315.8,
+     "margin2500T": -808.3,
+     "critN": 3,
+     "marginAtSF": 1.0011,
+     "capMarginAtSF": 1.7756,
+     "feasible": true,
+     "spokesT": 211.5,
+     "innerRingsT": 165.4,
+     "thetaWebsT": 420.8,
+     "alloc": {
+      "a_i": 0.0022912,
+      "a_th": 0.0008543,
+      "a_oe": 0.0,
+      "a_halfcol": 0.0,
+      "a_d60": 0.0,
+      "a_d36": 8.2e-06,
+      "a_d180/7": 0.0,
+      "a_d20": 1.38e-05,
+      "a_d180/11": 0.0
+     }
+    },
+    "force:d36+d180/11": {
+     "totalT": 2573.4,
+     "marginSLT": -323.6,
+     "margin2500T": -816.0,
+     "critN": 3,
+     "marginAtSF": 1.0169,
+     "capMarginAtSF": 1.7756,
+     "feasible": true,
+     "spokesT": 219.3,
+     "innerRingsT": 165.4,
+     "thetaWebsT": 420.8,
+     "alloc": {
+      "a_i": 0.0022912,
+      "a_th": 0.0008543,
+      "a_oe": 0.0,
+      "a_halfcol": 0.0,
+      "a_d60": 0.0,
+      "a_d36": 1.02e-05,
+      "a_d180/7": 0.0,
+      "a_d20": 0.0,
+      "a_d180/11": 1.28e-05
+     }
+    },
+    "force:d180/7+d20": {
+     "totalT": 2582.9,
+     "marginSLT": -333.1,
+     "margin2500T": -825.6,
+     "critN": 3,
+     "marginAtSF": 1.0014,
+     "capMarginAtSF": 1.8396,
+     "feasible": true,
+     "spokesT": 204.5,
+     "innerRingsT": 165.4,
+     "thetaWebsT": 440.5,
+     "alloc": {
+      "a_i": 0.0022912,
+      "a_th": 0.0008943,
+      "a_oe": 0.0,
+      "a_halfcol": 0.0,
+      "a_d60": 0.0,
+      "a_d36": 0.0,
+      "a_d180/7": 1.82e-05,
+      "a_d20": 2.8e-06,
+      "a_d180/11": 0.0
+     }
+    },
+    "force:d180/7+d180/11": {
+     "totalT": 2583.0,
+     "marginSLT": -333.1,
+     "margin2500T": -825.6,
+     "critN": 3,
+     "marginAtSF": 1.0028,
+     "capMarginAtSF": 1.8396,
+     "feasible": true,
+     "spokesT": 204.5,
+     "innerRingsT": 165.4,
+     "thetaWebsT": 440.5,
+     "alloc": {
+      "a_i": 0.0022912,
+      "a_th": 0.0008943,
+      "a_oe": 0.0,
+      "a_halfcol": 0.0,
+      "a_d60": 0.0,
+      "a_d36": 0.0,
+      "a_d180/7": 1.9e-05,
+      "a_d20": 0.0,
+      "a_d180/11": 2e-06
+     }
+    },
+    "force:d20+d180/11": {
+     "totalT": 2665.7,
+     "marginSLT": -415.8,
+     "margin2500T": -908.3,
+     "critN": 3,
+     "marginAtSF": 1.001,
+     "capMarginAtSF": 1.7489,
+     "feasible": true,
+     "spokesT": 347.2,
+     "innerRingsT": 136.6,
+     "thetaWebsT": 420.8,
+     "alloc": {
+      "a_i": 0.0018912,
+      "a_th": 0.0008543,
+      "a_oe": 0.0,
+      "a_halfcol": 0.0,
+      "a_d60": 0.0,
+      "a_d36": 0.0,
+      "a_d180/7": 0.0,
+      "a_d20": 3.78e-05,
+      "a_d180/11": 1e-06
+     }
+    }
+   },
+   "rejectionEconomics": {
+    "marginGainPerKgPerMillion": {
+     "growInnerRings": 0.5358,
+     "growThetaWebs": 0.6945,
+     "growFlangeDoubler": 0.1722,
+     "growHalfcol": 0.0054,
+     "activate_d60": 0.3613,
+     "activate_d36": 0.2617,
+     "activate_d180/7": 0.1699,
+     "activate_d20": 0.1015,
+     "activate_d180/11": 0.0809
+    },
+    "note": "1e-6 margin units per kg at the baseline exit point; member moves priced at their ledger cost (1+adder)/eta (finding 3); a first-step family move carries its full per-family clip activation (18.2-20.6 t per family)"
+   },
+   "bestFeasible": {
+    "which": "force:d60+d20",
+    "totalT": 2536.8732041977637,
+    "marginSLT": -287.0359591678157,
+    "margin2500T": -779.5099903545977,
+    "critN": 3,
+    "point": {
+     "alloc": {
+      "a_i": 0.0018911503837897563,
+      "a_th": 0.0008543030859409637,
+      "a_oe": 0.0,
+      "a_halfcol": 0.0,
+      "a_d60": 6.999999999999995e-06,
+      "a_d36": 0.0,
+      "a_d180/7": 0.0,
+      "a_d20": 1.6599999999999997e-05,
+      "a_d180/11": 0.0
+     },
+     "innerRingsT": 136.56406433596993,
+     "thetaWebsT": 420.79394931883246,
+     "flangeDoublerT": 0.0,
+     "spokesByFamilyT": {
+      "halfcol": 0.0,
+      "d60": 67.0,
+      "d36": 0.0,
+      "d180/7": 0.0,
+      "d20": 151.4,
+      "d180/11": 0.0
+     },
+     "spokesT": 218.41681507967502,
+     "totalT": 2536.8732041977637,
+     "marginSLT": -287.0359591678157,
+     "margin2500T": -779.5099903545977,
+     "critN": 3,
+     "marginAtSF": 1.004547658225498,
+     "capMarginAtSF": 1.7489380322547812,
+     "feasible": true
+    },
+    "modeMargins": {
+     "2": 2.2665,
+     "3": 1.0045,
+     "4": 1.016,
+     "5": 1.0255,
+     "6": 1.032,
+     "7": 1.0977,
+     "8": 1.0265,
+     "9": 1.1383,
+     "10": 1.0618,
+     "11": 1.1208,
+     "12": 1.1046
+    },
+    "finitePhase": {
+     "bindingModeFinite": 3,
+     "orientationMatrix": [
+      [
+       80894.917,
+       190.4436
+      ],
+      [
+       190.4436,
+       80503.3897
+      ]
+     ],
+     "weakestEigenvalue": 80426.0377,
+     "scalarQFound": 80699.1534,
+     "modeMargins": {
+      "2": {
+       "scalar": 2.266487058,
+       "weakestOrientation": 2.254801626
+      },
+      "3": {
+       "scalar": 1.004547658,
+       "weakestOrientation": 1.003087627
+      },
+      "4": {
+       "scalar": 1.015957878,
+       "weakestOrientation": 1.014594613
+      },
+      "5": {
+       "scalar": 1.025513124,
+       "weakestOrientation": 1.024721869
+      },
+      "6": {
+       "scalar": 1.031987317,
+       "weakestOrientation": 1.031668206
+      },
+      "7": {
+       "scalar": 1.097698581,
+       "weakestOrientation": 1.096980337
+      },
+      "8": {
+       "scalar": 1.026496157,
+       "weakestOrientation": 1.026417342
+      },
+      "9": {
+       "scalar": 1.138277199,
+       "weakestOrientation": 1.137625807
+      },
+      "10": {
+       "scalar": 1.061845213,
+       "weakestOrientation": 1.061811917
+      },
+      "11": {
+       "scalar": 1.120831778,
+       "weakestOrientation": 1.120523988
+      },
+      "12": {
+       "scalar": 1.104563412,
+       "weakestOrientation": 1.104476165
+      }
+     },
+     "marginWeakestOrientation": 1.003087627,
+     "trial": {
+      "field": "cos(3t)/sqrt(8) - sin(4t)/sqrt(15)",
+      "marginSeatConvention": 0.632717857,
+      "marginReviewDemonstrated": 0.985215242,
+      "note": "review values are the demonstrated margins on the SUPERSEDED v2 winner (cited from the consolidated return); this seat reproduces that winner's orientation matrix, eigenvalue and both orientation margins to 1e-4; the review's exact mixed-field ring/foundation combination was not recovered from the published values (seat candidates land within 2-6% of the cited margins), and on the v2 winner every tested convention lands below 1.0; on THIS point the mixed-mode verdict under the review convention is UNKNOWN"
+     },
+     "feasibleFinitePhase": true,
+     "note": "the scalar eleven-mode pass is a phase AVERAGE; margins within ppm of 1.0 are not established feasibility \u2014 the v2 closure remains withdrawn"
+    }
+   },
+   "lift": {
+    "slT": 2249.837245029948,
+    "at2500T": 1757.363213843166
+   }
+  }
+ }
+}

@@ -1,0 +1,304 @@
+{
+ "unit": "R3-I004",
+ "rev": "v2-corrected-after-review",
+ "review": "lead review 2026-10-14 (seven findings, all reproduced; see reviewDisposition)",
+ "base": "afb2c2d1726b9d9a805f9781085c3dd6a52913e5",
+ "verdict": "FAIL \u2014 the drawn half-column-offset net does not deliver the odd-mode foundation the both-moves rows credit; mode-3 capacity 84.1 kPa vs 101.325 kPa demand (before knockdown) at the frozen allocation. The +180.7 t feasible-bound claim is withdrawn. Not generalised to all vacuum designs.",
+ "assumptions": {
+  "pairing": "anchor m <-> m + floor(nLong/2), 0.5-column antipodal offset, one doubled anchor per plane (topology unchanged from v1)",
+  "engagementLaw": "amplitude sin(phi/2)|cos(n phi/2)| with phi the SUBTENDED angle; stiffness scales as its square",
+  "polarCutoffM": 6.0,
+  "fittingKept": 1.3,
+  "crossingClipKg": 0.05,
+  "routingHardware": "UNKNOWN and unpriced: 20.3 mm barrel / 2.9 mm smallest-plane chord-midpoint spacing vs 11.9 mm cord \u2014 v1's no-contact claim withdrawn",
+  "status": "internal conditional design hypothesis, not measured"
+ },
+ "worlds": {
+  "sf1.0": {
+   "net": {
+    "nLong": 155,
+    "step": 77,
+    "offsetDeg": 1.1613,
+    "subtendDeg": 178.8387,
+    "planes": 137,
+    "planesTotal": 145,
+    "cords": 10686,
+    "anchorEnds": 21372,
+    "doubledAnchors": 137,
+    "lengthM": 862351.6128,
+    "meanCordM": 80.6992,
+    "interiorCrossingsPerPlane": 3002,
+    "crossings": 411274,
+    "sharedEndpointPairsPerPlane": 1,
+    "missRadiusMaxM": 0.502,
+    "midpointSpacingMmBarrel": 20.3503,
+    "midpointSpacingMmSmallestPlane": 2.8966
+   },
+   "engageByMode": {
+    "2": 0.999743,
+    "3": 0.030396,
+    "4": 0.999127,
+    "5": 0.050647,
+    "6": 0.998101,
+    "7": 0.070876,
+    "8": 0.996664,
+    "9": 0.091076,
+    "10": 0.994818,
+    "11": 0.111239,
+    "12": 0.992564
+   },
+   "stiffnessFactorByMode": {
+    "2": 0.999487,
+    "3": 0.000924,
+    "4": 0.998255,
+    "5": 0.002565,
+    "6": 0.996205,
+    "7": 0.005023,
+    "8": 0.993339,
+    "9": 0.008295,
+    "10": 0.989663,
+    "11": 0.012374,
+    "12": 0.985183
+   },
+   "price": {
+    "aSpokeM2PerM2": 1.4999999999999987e-05,
+    "cordAreaM2": 1.1822441473989098,
+    "billedSpokesT": 83.48535271272142,
+    "drawnCordT": 92.54396807645217,
+    "drawnFittedT": 120.30715849938782,
+    "crossingClipsT": 20.5637,
+    "clipsCount": 411274,
+    "massDeltaT": 57.3855057866664,
+    "massOfDrawnArticleT": 2068.8756462264537,
+    "note": "mass arithmetic only; NOT a feasible-bound mass: the mode-3 capacity verdict fails under the corrected engagement law"
+   },
+   "ledgerBefore": {
+    "totalT": 2011.5,
+    "marginSLT": 238.3,
+    "margin2500T": -254.1,
+    "provenance": "exact ledger reproduction"
+   }
+  },
+  "sf1.08": {
+   "net": {
+    "nLong": 155,
+    "step": 77,
+    "offsetDeg": 1.1613,
+    "subtendDeg": 178.8387,
+    "planes": 137,
+    "planesTotal": 145,
+    "cords": 10686,
+    "anchorEnds": 21372,
+    "doubledAnchors": 137,
+    "lengthM": 862351.6128,
+    "meanCordM": 80.6992,
+    "interiorCrossingsPerPlane": 3002,
+    "crossings": 411274,
+    "sharedEndpointPairsPerPlane": 1,
+    "missRadiusMaxM": 0.502,
+    "midpointSpacingMmBarrel": 20.3503,
+    "midpointSpacingMmSmallestPlane": 2.8966
+   },
+   "engageByMode": {
+    "2": 0.999743,
+    "3": 0.030396,
+    "4": 0.999127,
+    "5": 0.050647,
+    "6": 0.998101,
+    "7": 0.070876,
+    "8": 0.996664,
+    "9": 0.091076,
+    "10": 0.994818,
+    "11": 0.111239,
+    "12": 0.992564
+   },
+   "stiffnessFactorByMode": {
+    "2": 0.999487,
+    "3": 0.000924,
+    "4": 0.998255,
+    "5": 0.002565,
+    "6": 0.996205,
+    "7": 0.005023,
+    "8": 0.993339,
+    "9": 0.008295,
+    "10": 0.989663,
+    "11": 0.012374,
+    "12": 0.985183
+   },
+   "price": {
+    "aSpokeM2PerM2": 1.6599999999999997e-05,
+    "cordAreaM2": 1.3083501897881278,
+    "billedSpokesT": 92.39045700207843,
+    "drawnCordT": 102.41532467127381,
+    "drawnFittedT": 133.13992207265596,
+    "crossingClipsT": 20.5637,
+    "clipsCount": 411274,
+    "massDeltaT": 61.31316507057754,
+    "massOfDrawnArticleT": 2192.1732727685703,
+    "note": "mass arithmetic only; NOT a feasible-bound mass: the mode-3 capacity verdict fails under the corrected engagement law"
+   },
+   "ledgerBefore": {
+    "totalT": 2130.9,
+    "marginSLT": 119.0,
+    "margin2500T": -373.5,
+    "provenance": "recomputation at sf=1.08; frozen ledger mid-band row reads 2130.7/119.1/-373.3 t (finding 7)"
+   }
+  },
+  "sf1.2": {
+   "net": {
+    "nLong": 155,
+    "step": 77,
+    "offsetDeg": 1.1613,
+    "subtendDeg": 178.8387,
+    "planes": 137,
+    "planesTotal": 145,
+    "cords": 10686,
+    "anchorEnds": 21372,
+    "doubledAnchors": 137,
+    "lengthM": 862351.6128,
+    "meanCordM": 80.6992,
+    "interiorCrossingsPerPlane": 3002,
+    "crossings": 411274,
+    "sharedEndpointPairsPerPlane": 1,
+    "missRadiusMaxM": 0.502,
+    "midpointSpacingMmBarrel": 20.3503,
+    "midpointSpacingMmSmallestPlane": 2.8966
+   },
+   "engageByMode": {
+    "2": 0.999743,
+    "3": 0.030396,
+    "4": 0.999127,
+    "5": 0.050647,
+    "6": 0.998101,
+    "7": 0.070876,
+    "8": 0.996664,
+    "9": 0.091076,
+    "10": 0.994818,
+    "11": 0.111239,
+    "12": 0.992564
+   },
+   "stiffnessFactorByMode": {
+    "2": 0.999487,
+    "3": 0.000924,
+    "4": 0.998255,
+    "5": 0.002565,
+    "6": 0.996205,
+    "7": 0.005023,
+    "8": 0.993339,
+    "9": 0.008295,
+    "10": 0.989663,
+    "11": 0.012374,
+    "12": 0.985183
+   },
+   "price": {
+    "aSpokeM2PerM2": 1.9400000000000018e-05,
+    "cordAreaM2": 1.5290357639692593,
+    "billedSpokesT": 107.97438950845323,
+    "drawnCordT": 119.6901987122117,
+    "drawnFittedT": 155.5972583258752,
+    "crossingClipsT": 20.5637,
+    "clipsCount": 411274,
+    "massDeltaT": 68.18656881742199,
+    "massOfDrawnArticleT": 2398.9165694036637,
+    "note": "mass arithmetic only; NOT a feasible-bound mass: the mode-3 capacity verdict fails under the corrected engagement law"
+   },
+   "ledgerBefore": {
+    "totalT": 2330.7,
+    "marginSLT": -80.9,
+    "margin2500T": -573.4,
+    "provenance": "exact ledger reproduction"
+   }
+  }
+ },
+ "mode3Capacity": {
+  "modeN": 3,
+  "qRingCrimpPa": 70794.78320866745,
+  "qFoundFullPa": 131249.99999999988,
+  "stiffnessFactor": 0.0009239329417970741,
+  "qFoundCorrectedPa": 121.26619861086586,
+  "qMembranePa": 13164.498786363652,
+  "qTotalPa": 84080.54819364197,
+  "demandPa": 101325.0,
+  "demandWithKnockdownPa": 155884.61538461538,
+  "passes": false
+ },
+ "anchorSensitivity": {
+  "meanCordM": 80.6992,
+  "pct5": {
+   "perEndM": 2.1237,
+   "bothEndsM": 4.2473
+  },
+  "pct25": {
+   "perEndM": 13.4499,
+   "bothEndsM": 26.8997
+  },
+  "pct50": {
+   "perEndM": 40.3496,
+   "bothEndsM": 80.6992
+  },
+  "note": "an anchor+termination zone behaving as La of extra cord AT EACH end costs the named stiffness fraction; v1 mislabelled the per-end values as combined"
+ },
+ "variantTopology": {
+  "step": 76,
+  "doubledAnchors": [
+   76,
+   77
+  ],
+  "unusedAnchors": [
+   154
+  ],
+  "offsetDeg": 3.4838709677419355,
+  "note": "finding 5: v1 claimed the offset 'removes doubled-anchor bookkeeping' \u2014 false; and these are 112 m numbers, not the 52 m/72-anchor case (whose one-column offset is 5 deg)"
+ },
+ "reviewDisposition": [
+  {
+   "id": 1,
+   "severity": "HIGH",
+   "claim": "engagement law wrong at odd n; stiffness squared",
+   "reproduction": "exact law sin(phi/2)|cos(n phi/2)| gives n=3 0.030396 (v1: 0.999487); squared 0.000924",
+   "correction": "law replaced throughout; mode-3 capacity verdict FAIL recorded; bound withdrawn"
+  },
+  {
+   "id": 2,
+   "severity": "MEDIUM",
+   "claim": "anchor lengths are per end, labelled combined",
+   "reproduction": "per end 2.1237/13.4499/40.3496 m; combined 4.2473/26.8997/80.6992 m",
+   "correction": "both reported, labels fixed"
+  },
+  {
+   "id": 3,
+   "severity": "MEDIUM",
+   "claim": "midpoint spacing 20.349/2.896 mm, not 40 mm",
+   "reproduction": "20.35 mm barrel (r=49.54 m), 2.90 mm smallest kept plane (r=7.05 m) vs 11.869 mm cord",
+   "correction": "clearance claim withdrawn; routing hardware UNKNOWN, not zero"
+  },
+  {
+   "id": 4,
+   "severity": "MEDIUM",
+   "claim": "no retained incumbent; re-solve has no improvement guarantee",
+   "reproduction": "greedy starts at minimum members, zero spokes; R3-I005's own sf1.2 rerun landed 20.2 t worse",
+   "correction": "upper-bound/guaranteed-improvement language withdrawn everywhere"
+  },
+  {
+   "id": 5,
+   "severity": "LOW",
+   "claim": "offset variant doubles anchors 76/77, leaves 154 unused",
+   "reproduction": "enumerated: doubled [76, 77], unused [154]",
+   "correction": "variantTopology records the real endpoints; 52 m/72-anchor remark corrected"
+  },
+  {
+   "id": 6,
+   "severity": "LOW",
+   "claim": "3002 interior crossings + 1 shared pair, not 3003",
+   "reproduction": "per plane 3002 interior; 411,274 clips; v1 excess 137 clips = 6.85 kg",
+   "correction": "crossings and clip mass corrected"
+  },
+  {
+   "id": 7,
+   "severity": "LOW",
+   "claim": "sf1.08 row not an exact ledger reproduction",
+   "reproduction": "recomputed 2130.9/119.0/-373.5 vs frozen 2130.7/119.1/-373.3 t",
+   "correction": "provenance stated per row; sf1.0/1.2 exact"
+  }
+ ]
+}

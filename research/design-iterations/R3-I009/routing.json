@@ -1,0 +1,313 @@
+{
+ "arrangementB": {
+  "betweenFamilyConnectors": 0,
+  "betweenFamilyCrossings": 0,
+  "description": "families in DISJOINT bay planes: d60 at even indices (69 planes, both polar caps), d180/11 at odd indices (68 planes); cords terminate directly at the plane's ring anchor fittings, zero standoff, zero axial offset, zero between-family contact",
+  "families": {
+   "d180/11": {
+    "anchorMax": 147,
+    "anchorMin": 0,
+    "anchorsUsed": 148,
+    "bareT": 104.3247,
+    "clearanceAtSmallestKeptMm": 25.3474,
+    "clearanceMm": 36.0643,
+    "clipT": 10.0878,
+    "cords": 5304,
+    "cosHalf": 0.1514,
+    "crossings": 201756,
+    "crossingsPP": 2967,
+    "diaMm": 17.9344,
+    "doubledAnchorsPP": 8,
+    "ends": 10608,
+    "lugT": 3.7128,
+    "maxCordM": 97.9344,
+    "meanCordM": 80.2695,
+    "minCordM": 17.3913,
+    "missMaxM": 7.5013,
+    "missMinM": 1.3321,
+    "offsetDeg": 17.419,
+    "planeGapClearanceM": 1.837,
+    "planes": 68,
+    "pretensionKN": 35.3663,
+    "sagM": 0.0815,
+    "sectionM2": 0.0003,
+    "sinHalf": 0.9885,
+    "spacingAtBarrelMm": 304.0797,
+    "spacingAtSmallestKeptMm": 43.2818,
+    "spacingMaxMm": 304.0797,
+    "spacingMinMm": 53.9987,
+    "step": 70,
+    "subtendDeg": 162.5806,
+    "totalLenM": 425749.383,
+    "unusedAnchors": 7
+   },
+   "d60": {
+    "anchorMax": 129,
+    "anchorMin": 0,
+    "anchorsUsed": 130,
+    "bareT": 35.1853,
+    "clearanceAtSmallestKeptMm": 130.1466,
+    "clearanceMm": 130.1466,
+    "clipT": 9.1494,
+    "cords": 5382,
+    "cosHalf": 0.4941,
+    "crossings": 182988,
+    "crossingsPP": 2652,
+    "diaMm": 11.0934,
+    "doubledAnchorsPP": 26,
+    "ends": 10764,
+    "lugT": 3.7674,
+    "maxCordM": 86.1359,
+    "meanCordM": 69.7316,
+    "minCordM": 12.2603,
+    "missMaxM": 24.4789,
+    "missMinM": 3.4843,
+    "offsetDeg": 59.226,
+    "planeGapClearanceM": 1.8739,
+    "planes": 69,
+    "pretensionKN": 13.5314,
+    "sagM": 0.063,
+    "sectionM2": 0.0001,
+    "sinHalf": 0.8694,
+    "spacingAtBarrelMm": 992.293,
+    "spacingAtSmallestKeptMm": 141.24,
+    "spacingMaxMm": 992.293,
+    "spacingMinMm": 141.24,
+    "step": 52,
+    "subtendDeg": 120.7742,
+    "totalLenM": 375295.2243,
+    "unusedAnchors": 25
+   }
+  },
+  "withinFamilyCrossings": 384744
+ },
+ "bomB": {
+  "assemblyT": 8.31,
+  "basis": "explicit enumeration; replaces the model's x1.3 fitting allowance and the 137-plane clip line \u2014 no double count",
+  "clipsT": 19.24,
+  "cordT": 139.51,
+  "deltaT": -44.76,
+  "i005CordSmearT": 139.08,
+  "i005SpokesLineT": 219.3,
+  "terminationsT": 7.48,
+  "totalT": 174.54
+ },
+ "bounds": {
+  "axial": "foundation modulation period 2 bays = 4 m vs the model's axial mode length l_eff = 149 m (the gi membrane term's own scale); the axial AVERAGE the model licenses is preserved exactly by section conservation",
+  "bayLocal": "bay-local modes are outside the model's n=2..12 global family both before and after this unit \u2014 unchanged UNKNOWN, not a regression",
+  "circumferential": "n = 2..12 vs 155 anchors: >= 12 anchor stations per lobe at n=12; scalar factor licensed",
+  "sagVsGap": "worst cord sag at declared pretension 0.081 m against a 2 m plane gap; no intermediate guides required by clearance; cord dynamics UNKNOWN (no guide mass carried, threshold: guide needed if sway exceeds half the residual gap)"
+ },
+ "budgets": {
+  "sf10After": {
+   "assemblyT": 8.3,
+   "clipsT": 19.2,
+   "complianceBuybackT_anchor5pctScenario": 10.61,
+   "complianceBuybackT_lugOnly": 0.0,
+   "cordT": 139.5,
+   "deltaSpokesT": -44.8,
+   "margin2500T": -405.2,
+   "marginSLT": 87.3,
+   "marginSLT_anchor5pctScenario": 76.7,
+   "spokesLineT": 174.5,
+   "stackedWorstCaseT": 69.2,
+   "terminationsT": 7.5,
+   "totalT": 2162.6
+  },
+  "sf10Before": {
+   "margin2500T": -450.0,
+   "marginSLT": 42.5,
+   "spokesLineT": 219.3,
+   "totalT": 2207.3
+  },
+  "sf12": {
+   "afterMarginSLT": -242.4,
+   "afterT": 2492.3,
+   "beforeMarginSLT": -287.0,
+   "beforeT": 2536.9,
+   "point": "force:d60+d20",
+   "spokesLineT": 218.4,
+   "verdict": "STILL FAILS at sea level; retained honestly. The mechanism improves it by the same spoke-line delta but does not close it."
+  }
+ },
+ "compliance": {
+  "declared lug only": {
+   "buybackInnerRingsT": 0.0,
+   "foundationLossPct": 0.43,
+   "laPerEndM": 0.15,
+   "marginsAfter": {
+    "10": 1.0315,
+    "11": 1.1082,
+    "12": 1.0707,
+    "2": 2.7454,
+    "3": 1.0054,
+    "4": 1.0842,
+    "5": 1.0002,
+    "6": 1.043,
+    "7": 1.0771,
+    "8": 1.0083,
+    "9": 1.1253
+   },
+   "orientationState": {
+    "basis": "compliant as-declared state: eta = meanCordM/(meanCordM + 2*0.15) per family on a_d60/a_d180/11 (this unit's own compliance convention)",
+    "orientationRecoveryInnerRingsT": 0.45,
+    "postLugModeN": 5,
+    "postLugOrientationMargin": 0.9993454191773199,
+    "rigidBaselineMargin": 1.0000036585859502,
+    "rigidBaselineModeN": 5,
+    "scalarMinAfterLug": 1.0002,
+    "verdict": "FAIL vs 1.0 in the compliant as-declared state (the rigid baseline passes by 3.7 ppm); scalar phase-average margins stay >= 1.0 after the 0.00 t buyback \u2014 recorded, priced as a bounded recovery scenario, not fixed here"
+   }
+  },
+  "lug + anchor-zone 5% point": {
+   "buybackInnerRingsT": 10.61,
+   "foundationLossPct": 6.12,
+   "laPerEndM": 2.2737,
+   "marginsAfter": {
+    "10": 1.0367,
+    "11": 1.1094,
+    "12": 1.0736,
+    "2": 2.6368,
+    "3": 1.0,
+    "4": 1.0833,
+    "5": 1.006,
+    "6": 1.0472,
+    "7": 1.0802,
+    "8": 1.0148,
+    "9": 1.1257
+   }
+  }
+ },
+ "forces": {
+  "d180/11": {
+   "axialShare": 0.0,
+   "kNperW": 435.5134784557603,
+   "minCordM": 17.391258580983845,
+   "planePretensionRadialKN": 5453.517492855219,
+   "pretensionVsPressurePct": 7.65,
+   "radialShare": 0.9884683243281114,
+   "slackWorstModeN": 11,
+   "strainPerWMeanBasis": 0.02462874264117909,
+   "strainPerWShortestCord": 0.11309093110649346,
+   "tangentialShare": 0.1514277775045767
+  },
+  "d60": {
+   "axialShare": 0.0,
+   "kNperW": 168.704367259721,
+   "minCordM": 12.260316556916813,
+   "planePretensionRadialKN": 1835.1867635597184,
+   "pretensionVsPressurePct": 2.57,
+   "radialShare": 0.8693836698844711,
+   "slackWorstModeN": 3,
+   "strainPerWMeanBasis": 0.02493515829123655,
+   "strainPerWShortestCord": 0.1417916247308835,
+   "tangentialShare": 0.4941376675970057
+  }
+ },
+ "optionA": {
+  "arrangement": "both families in every kept plane, axial depths plane +/- 0.30 m held by a standoff post per anchor point per family",
+  "betweenFamilyConnectors": 0,
+  "betweenFamilyCrossings": 833508,
+  "bindingMode": 5,
+  "postBudgetNote": "post sized to HALF the I004 5%-point compliance (1.06 m/end) \u2014 the anchor zone would need the rest",
+  "postCount": 38086,
+  "postDiaMm": 66.1,
+  "postMassT": 307.4,
+  "postMassTat5pct": 120.8,
+  "postStiffnessNeededMNperM": 20.77,
+  "seriesLossBudgetPct": 0.468,
+  "verdict": "REJECTED \u2014 holding the no-buyback line at the binding mode n=5 requires a 21 MN/m post (66 mm solid steel, ~307 t); even spending the whole I004 5% compliance point on posts alone costs ~121 t against a +42.5 t allowance, and mode 5 then still needs ring buyback.",
+  "withinFamilyCrossings": 769803
+ },
+ "planes": {
+  "bayM": 2.0,
+  "kept": 137,
+  "maxR": 49.538,
+  "minR": 7.051,
+  "total": 145
+ },
+ "rev": "v2.1-first-review-corrections",
+ "slackThresholdsPctByW": {
+  "0.02": 0.284,
+  "0.05": 0.709,
+  "0.1": 1.418,
+  "basis": "shortest occupied-plane cord at its own worst mode (single-mode antinode bound); amplitudes above wSlackAtDeclaredPretensionM leave that cord slack \u2014 mixed-mode phase combinations and post-slack redistribution are outside this bound (carried to the coupled finite-endpoint unit)",
+  "wSlackAtDeclaredPretensionM": 0.014105
+ },
+ "unit": "R3-I009",
+ "unknowns": {
+  "anchorZoneCompliance": "per-end La UNKNOWN; the I004 5% point (2.1237 m/end) is priced as a scenario, not assumed",
+  "cordDynamics": "flutter/vibration of 70-80 m spans unmodelled; clearance threshold in bounds.sagVsGap",
+  "creep": "relieves pretension. The declared eps0 = 0.2% keeps the SHORTEST cord taut to a single-mode modal amplitude of 0.0141 m (worst mode n=3 at its smallest occupied plane \u2014 the family-mean figure 5.7x overstates the window); creep strain eps_c lowers that to (0.002 - eps_c)/0.141792 m and reverses the cord's sign beyond it. Single-mode antinode bound: mixed-mode phase combinations and post-slack redistribution are outside it (carried to the coupled finite-endpoint unit). UNKNOWN, threshold recorded",
+  "lugRating": "0.35 kg swaged lug assumed rated >= 2x working tension; sensitivity x2 mass = +7.5 t (inside the allowance)",
+  "membrane": "still excluded, unchanged from the R3-I005 record"
+ },
+ "verdict": {
+  "confidence": "LOW \u2014 conditional on an UNRESOLVED finite-phase question, on the corrected-but-superseding R3-I005 record, and on the declared lug/pretension assumptions",
+  "failModes": "finite-phase feasibility UNRESOLVED (this unit's binding caveat); SF1.2 does not close (retained); mode 5 fails without ring buyback once per-end La exceeds 0.163 m",
+  "hypothesis": "SF1.0 d60+d180/11 routed in alternating bay planes (option B): explicit enumerated BOM replaces the x1.3/137-plane allowances at -44.8 t, and the declared lug-only series compliance is bought back with 0.0 t of inner rings",
+  "margin": "SCALAR margins restored to >= 1.0 by the buyback (binding mode at the budget edge); the scalar pass does NOT establish feasibility: the RIGID weakest-orientation margin of the corrected winner is 1.000003659 (binding n=5), a pass by 3.7 ppm \u2014 and in the COMPLIANT as-declared state (declared lug eta per family) the binding orientation margin FAILS at 0.999345419 (n=5) vs 1.0, with a bounded ring-growth recovery of 0.45 t priced but not applied; the mixed-mode trial verdict under the review's convention is UNKNOWN on this point \u2014 overall status UNKNOWN with a demonstrated compliant-state orientation failure, closure not claimed",
+  "nextChange": "resolve the mixed-mode finite-phase verdict on the corrected winner (review convention or a demonstrated bound), then measure or bound the anchor-zone compliance per end (La) with a declared termination detail",
+  "v1ClaimWithdrawn": "v1 (commit 914bab52) claimed 'all 11 margins >= 1.0, SF1.0 SL +80.0 t' on the scalar pass of the then-current winner; the consolidated review disproved that pass and v2 re-prices on the corrected record \u2014 the closure claim is withdrawn, v1 preserved as history",
+  "weakestAssumption": "the finite-endpoint phase/coupling verdict (consolidated finding 1) \u2014 the engineering below prices a layout whose feasibility is NOT established; then anchor-zone series compliance (UNKNOWN; the 5% point costs 10.6 t of buyback)"
+ },
+ "winner": {
+  "alloc": {
+   "a_d180/11": 1.7e-05,
+   "a_d180/7": 0.0,
+   "a_d20": 0.0,
+   "a_d36": 0.0,
+   "a_d60": 6.599999999999995e-06,
+   "a_halfcol": 0.0,
+   "a_i": 0.0014534512719466778,
+   "a_oe": 0.0,
+   "a_th": 0.0006943030859409637
+  },
+  "finitePhase": {
+   "bindingModeFinite": 5,
+   "carriedFrom": "the R3-I005 record; for GLOBAL circumferential modes every occupied plane contributes identical anchor phase sums, so the arrangement's orientation matrix equals the winner's \u2014 the alternating-plane geometry does not change it",
+   "feasibleFinitePhase": true,
+   "marginWeakestOrientation": 1.000003659,
+   "note": "the scalar eleven-mode pass is a phase AVERAGE; margins within ppm of 1.0 are not established feasibility \u2014 the v2 closure remains withdrawn",
+   "postLug": {
+    "basis": "compliant as-declared state: eta = meanCordM/(meanCordM + 2*0.15) per family on a_d60/a_d180/11 (this unit's own compliance convention)",
+    "orientationRecoveryInnerRingsT": 0.45,
+    "postLugModeN": 5,
+    "postLugOrientationMargin": 0.9993454191773199,
+    "rigidBaselineMargin": 1.0000036585859502,
+    "rigidBaselineModeN": 5,
+    "scalarMinAfterLug": 1.0002,
+    "verdict": "FAIL vs 1.0 in the compliant as-declared state (the rigid baseline passes by 3.7 ppm); scalar phase-average margins stay >= 1.0 after the 0.00 t buyback \u2014 recorded, priced as a bounded recovery scenario, not fixed here"
+   },
+   "trial": {
+    "field": "cos(3t)/sqrt(8) - sin(4t)/sqrt(15)",
+    "marginReviewDemonstrated": 0.967922863,
+    "marginSeatConvention": 0.615415166,
+    "note": "review values are the demonstrated margins on the SUPERSEDED v2 winner (cited from the consolidated return); this seat reproduces that winner's orientation matrix, eigenvalue and both orientation margins to 1e-4; the review's exact mixed-field ring/foundation combination was not recovered from the published values (seat candidates land within 2-6% of the cited margins), and on the v2 winner every tested convention lands below 1.0; on THIS point the mixed-mode verdict under the review convention is UNKNOWN"
+   }
+  },
+  "marginSLT": 42.51679639676331,
+  "modeMargins": {
+   "10": 1.0315,
+   "11": 1.1085,
+   "12": 1.0708,
+   "2": 2.7546,
+   "3": 1.0072,
+   "4": 1.0856,
+   "5": 1.0008,
+   "6": 1.0435,
+   "7": 1.0776,
+   "8": 1.0084,
+   "9": 1.1258
+  },
+  "source": "../R3-I005/alloc.json bestFeasible (v3 after-consolidated-review record)",
+  "totalT": 2207.3204486331847
+ },
+ "world": {
+  "diaM": 112.0,
+  "giKnockdown": 0.65,
+  "membrane": false,
+  "sigma": "s1450",
+  "status": "internal conditional design hypothesis; scalar feasibility NOT established (see winner.finitePhase)"
+ }
+}
