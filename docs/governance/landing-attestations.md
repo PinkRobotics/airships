@@ -797,3 +797,17 @@
 | Order | sha256 `8a6c415d506c7022…` (informational) |
 | Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
 
+## Landing 57 — Record no-net capsule assessment and clarify I006 source reference
+
+| field | value |
+|---|---|
+| Landed | 2026-10-14 02:08:08 PDT by the lander using `ship/tools/land.py`, a pure **FAST-FORWARD**: main `486ec5165517101f3e743fbc35226077823142df` → `bf75d1a383dd3720d330df14f5303ee47b722a94`; pushed main-only, non-force, origin verified equal. The signed sha IS main; the landed tree equals the signed tree by identity. |
+| The object | SIGNED `bf75d1a383dd3720d330df14f5303ee47b722a94`, tree `c97070293ce6ecb494bec8cc191214b4647f7aed`, from branch `worker-r3-i008-landing56-1014`, parent `486ec5165517101f3e743fbc35226077823142df`, governance `gov-51844c8d4108` preserved. Unit `r3-i008`. |
+| Pre-checks under the lock | primary on main; HEAD == main == the named base; origin/main == the named base; merge-base(main, candidate) == main and candidate != main; tree == the named tree; Helm-Audit-ID on every commit in base..candidate; tracked tree clean; object imported exact from the source. |
+| Gate | `tools/land_gate.py bf75d1a38…` → rc=0, HONOURED-XO bf75d1a383dd3720d330df14f5303ee47b722a94 — the last record for this sha (store line 1965) is XO-SIGNED. (store `fo-verdicts.tsv`) |
+| Governance records | `bf75d1a38` ← `gov-51844c8d4108` (its trailer). Each record names the landed sha as the commit it governed. |
+| Evidence before landing | `PYTHONDONTWRITEBYTECODE=1 make readmecheck linkcheck buildercheck claimsrestore claimscheck` rc=0 (environment PATH set to host paths, not shown) (gate timeout 1200 s, named by the order) |
+| Tool | `ship/tools/land.py` sha256 `3f4d36dddae3efb1…` from helm (informational) |
+| Order | sha256 `3b0a2b25f91db8cb…` (informational) |
+| Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
+
