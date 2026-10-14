@@ -20,10 +20,16 @@ ballonets, pressure-control hardware and routing provisions are charged below.
 This is a separate sibling candidate from
 `afb2c2d1726b9d9a805f9781085c3dd6a52913e5`, in the existing worker clone.
 I002 at `2da1ca08e9013c4c65cd26984b2b66492da28c46` and its original evidence
-remain frozen while their one custody review runs. Its figures are an
-**unreviewed conditional control**, not an established or landed design.
+remain frozen. Parent notice `rpt-spock-astra-b-i002-landed52-1014` reports
+XO signature and landing 52 at 00:35 PDT, with attestation
+`985fe3cea7a5b7cf389ad23e6540f8d7e1c5032e`. It reports Captain verification
+of origin; this worker has not independently rechecked public main. The
+notice identifies no arithmetic correction. Public integration has advanced
+beyond I006's source base; `afb2c2d...` is not represented as current main.
+I002 remains a **conditional physical control** despite documentation custody
+acceptance; that acceptance does not qualify the aircraft or its material.
 No I002 file, shared claim location, primary checkout or other worker lane is
-changed. No scientific signature or landing is implied by this document.
+changed. No I006 scientific signature or landing is implied by this document.
 
 I002 D used a 70.574858 m nominal sphere, 81,060 Pa pure helium, and local-wall
 factor 0.20. Its reported loaded external volume is 181,394.539491 m³, after
@@ -372,8 +378,8 @@ result needs no favourable interpretation of those UNKNOWN additions.
 **Decision:** retain the near-ambient design as a more explicit conditional
 comparison; reject the current 70.575 m construction as a closed 100 t payload
 airship. Do not promote I002 or this candidate to established physical results.
-Carry any demonstrated I002 custody finding before reusing its figures as an
-accepted baseline.
+Carry any later demonstrated I002 finding before reusing its affected figures.
+Its reported documentation acceptance does not establish a physical baseline.
 
 **Next concrete design change:** price a 76 m nominal sphere with the same
 gas-inventory rule and equipment/payload split, and carry the full curtain,
