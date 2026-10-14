@@ -101,6 +101,13 @@ qualification+='Model feasibility does not establish structural float, transient
 qualification+=' '+COLD_READY_NOTE;
 qualification+=' '+PLANT_ENERGY_NOTE;
 text+=sentence('qualifications',qualification,['research/analysis/energy-requirements.json#rows[km=15].dragSensitivity[*].{verticalCd,feasible,worst.unheldT}','research/analysis/energy-rotor-range.json#assumption']);
+// The monitor's Energy details ends at the qualifications sentence: the diagnostic pointer
+// below is working-record bookkeeping (which captured missions the signed screen covers)
+// and the FIRST boundary pass missed this collapsed-details copy — innerText never sees
+// closed <details>, and the anchor tag splits the phrase for plain-text grep (review r1,
+// both lanes, 10-14). homeText freezes the shared accumulation WITHOUT the pointer; the
+// concept page keeps it, at its original position between qualifications and fire-boundary.
+const homeText=text;
 text+=sentence('diagnostic-pointer',pointerText,pointerKeys);
 text+=sentence('fire-boundary','Nothing here says any fire would have burned differently. The fires are records or labelled inventions; the fleet is simulated and never flew.',['docs/ENERGY-MODEL-2026-10.md']);
 const omissionText=MISSION_QUALIFIER+' The omissions analysis names vertical hull inertia and added mass (research/analysis/energy-served-inertia.json and .mjs, in the repository), unpriced beam-wind position holding, cable and storage mass, the bag pendulum and winch transients, day-average solar credited at every instant, and dry mass as a target rather than an assembled ledger.';
@@ -114,15 +121,16 @@ analysis+=sentence('analysis-approach','The study analyses an approach at airspe
 analysis+=sentence('analysis-volume','The study analyses variable displacement for a partial exchange; it asks sealed cells to change volume every cycle and requires reopening that design decision.',['research/analysis/payload-exchange.json#ranking[route=e]']);
 analysis+=sentence('analysis-cryo','The study finds that making the exchange ballast within the cycle exceeds the bus and dry-mass target on every class with a gap; cryogenic ballast is analysis of a different plant, not an accepted flight plan.',['research/analysis/payload-exchange.json#ranking[route=f]']);
 function region(name,body){return `<!-- served-energy:${name}:start -->\n${body}\n<!-- served-energy:${name}:end -->`;}
-const home=region('home','<details class="d"><summary>Energy · feasible simulated plans</summary><div class="dbody">\n'+text+analysis+'\n</div></details>');
+const home=region('home','<details class="d"><summary>Energy · feasible simulated plans</summary><div class="dbody">\n'+homeText+analysis+'\n</div></details>');
 const concept=region('concept','<details class="d"><summary>What the generated energy records say</summary><div class="dbody">\n'+text.replaceAll('href="concept/','href="')+analysis+'\n</div></details>');
 // The monitor page carries neither the worked-example paragraph nor the fleet diagnostic
 // pointer (operator, 10-14): both are working-record sentences about the energy study's
 // own bookkeeping, and they printed on every mode — record-only days included — as though
 // they were part of the day being shown. The worked example lives on the concept page
 // (#worked, rendered from the same accepted plans by app/worked.js); the diagnostic
-// pointer lives in the concept fleet region and the energy-analysis page it names. The
-// monitor's fleet panel keeps the fleetNote disclaimer and nothing else.
+// pointer lives in the concept page's energy details and fleet region and in the
+// energy-analysis page it names. The monitor's fleet panel keeps the fleetNote disclaimer
+// and nothing else — including inside its collapsed Energy details (homeText above).
 const homeWorked=region('worked','');
 const fleet=region('fleet',`<p class="small" id="fleetNote" style="margin-top:var(--s2);font-size:var(--t-12)">The fleet is simulated. The flight model assumes a hull that floats; <a href="float/">no drawn hull does</a>. ${MISSION_QUALIFIER}</p>`);
 const conceptFleet=region('fleet',sentence('fleet-qualifier',MISSION_QUALIFIER,[])+sentence('fleet-diagnostic-pointer',pointerText.replaceAll('href="concept/','href="'),pointerKeys));
