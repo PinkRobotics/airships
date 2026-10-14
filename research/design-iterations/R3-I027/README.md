@@ -34,7 +34,7 @@ searched and no plate thinned during the iteration.
 | run | outcome |
 |-----|---------|
 | 1 | exit 2 at the coded V2 D1-end assertion: my `baseline.json` carried the recorded air density 0.9572 (kg/m³) under a t/m³ key — a 1000× transcription error. Corrected in the input; re-run consumed attempt 2. |
-| 2 | exit 1 before any numerical section: JSON trailing comma introduced by my own correction edit. |
+| 2 | exit 1 before any numerical section: JSON trailing comma introduced by my own correction edit. Run 2's input was the intermediate (never-committed) baseline hash `44e740f2…`, bytes absent — see `sources.json`. |
 | 3 | exit 2 at the coded V1 n1 assertion (`tank.py` line 136), **after** the numerical sections 1–4 and the coded V1 n0 assertion had executed. The ledger, fit scan, V3, sensitivities, screens and the result writer were **never reached**. |
 
 What actually happened inside run 3, stated precisely: the coded V2 assertions
@@ -188,7 +188,10 @@ a consistent unit basis before any strength screen (W2).
 `P100 I027 attempted barrels 3/3 aborted, no tank.json; capacity/mass-delta/margins/trim/fit UNKNOWN; calc unit+band errata kept; econ FAIL 35.1x carried; float not shown`
 
 Reproduction (from this directory): `python3 tank.py` exits 2 at the archived
-V1 n1 assertion after sections 1–4. Frozen inputs: `baseline.json` (final,
-runs 2–3); provenance: `sources.json`; flawed original schematic:
+V1 n1 assertion after sections 1–4. Frozen inputs: `baseline.json` (final
+4,846 B / `5ac2d4fe…` — executed by **run 3 only**); run 2's input was the
+malformed never-committed intermediate `44e740f2…` (hash-only: a trailing
+comma my unit-fix edit introduced; bytes absent), and run 1's was the initial
+`a06b321a…`. Provenance: `sources.json`; flawed original schematic:
 `geometry.svg`. The calculator's known unit and load-path errors (W2, W3) are
 preserved deliberately — repairing them needs a new authorized execution.
