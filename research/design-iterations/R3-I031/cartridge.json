@@ -1,0 +1,404 @@
+{
+ "basis": "frozen data for the tapered-pot socket cartridge; ancestor blocks byte-copied as data from the accepted R3-I028 lineage at landing75 3e4ba19d705c992700caba9c03316ca2c4b7af4f (tree d5bed71921eb565274fd2ec9a102bb79d518c3e1); read as data, never imported, executed or regenerated; every I031 rule below was frozen BEFORE the first calculation",
+ "families": {
+  "d180/11": {
+   "compliance": {
+    "T0AtUnchangedExtensionN": 17312.139419369374,
+    "bodyDeltaAtT0M": 2.677217618208149e-05,
+    "bothEndTakeupToRestoreT0M": 0.0009724288944412896,
+    "deltaLserM": 0.24311027968661073,
+    "denominatorRatio": 1.0280069706513657,
+    "etaNew": 0.9943554202058317,
+    "etaOld": 1.000380871,
+    "everythingElseTermM": 0.02409559879002486,
+    "lCBodyM": 0.013386256366198519,
+    "lCPotWedgeM": 0.25156027586055796,
+    "lEffNewM": 17.846918559373222,
+    "lEffOldM": 17.360698,
+    "lSerNewM": 0.2763302796866107,
+    "lSerOldM": 0.03322,
+    "n5FirstSlackChordBasisMm": {
+     "+cos5": 25.668698,
+     "+sin5": 25.569819,
+     "-cos5": 25.537001,
+     "-sin5": 25.569819
+    },
+    "n5FirstSlackDeclaredModelNewMm": {
+     "+cos5": 26.341231189126567,
+     "+sin5": 26.239761761088424,
+     "-cos5": 26.206083224722917,
+     "-sin5": 26.239761761088424
+    },
+    "note": "chord-basis tables carried UNCHANGED as historical comparators; full n=2..12 class bounds, centroid/no-transfer sensitivity and global stability UNCOMPUTED/UNKNOWN; coupled eigen margin not recomputed (dependent UNKNOWN)",
+    "potDeltaAtT0M": 0.0005031142271231175,
+    "potWedgeKzNPerM": 35373676.673319116,
+    "studTermM": 0.011383747459854264,
+    "tiBodyTermM": 0.009124401209975137
+   },
+   "geometry": {
+    "body_total_len_mm": 302.67462189423077,
+    "bolt_circle_mm": 80.5,
+    "bore_mm": 14.6,
+    "cap_od_mm": 92.0,
+    "cap_thk_mm": 11.5,
+    "chamber_clear_dia_mm": 57.5,
+    "chamber_len_mm": 46.0,
+    "chamber_od_mm": 69.0,
+    "cone_lateral_area_mm2": 27873.1742583685,
+    "cone_length_mm": 245.1746218942308,
+    "cone_slant_mm": 246.11114911961837,
+    "d_mm": 23.0,
+    "flange_od_mm": 92.0,
+    "flange_thk_mm": 11.5,
+    "grip_od_mm": 38.0,
+    "min_wall_over_grip_mm": 11.7,
+    "old_body_len_mm": 113.0,
+    "wall_at_chamber_entrance_mm": 5.75,
+    "x_handover_mm": 45.6
+   },
+   "perEndBill": {
+    "ends": 21080,
+    "increment": 1.6494212505950383,
+    "incrementFamilyKg": 34769.79996254341,
+    "new": {
+     "cap": 0.1818656049111048,
+     "capBoltStack": 0.1041159026984883,
+     "conicalBody": 1.2933461716125714,
+     "interiorLoadNutAndWasher": 0.1377702697786568,
+     "machiningOnNewAl": 0.04425635329571028,
+     "newIsolationSeal": 0.035,
+     "newStudBlank": 0.10965354330708661,
+     "potResin": 0.28592175499142,
+     "total": 2.191929600595038
+    },
+    "removed": {
+     "alBodyI028": 0.295445,
+     "machiningOnOldBody": 0.00886335,
+     "oldResinPot": 0.0061,
+     "oldStudBlank": 0.2321,
+     "total": 0.54250835
+    },
+    "retained": {
+     "anchorBlocks": "retained once",
+     "attachmentBolts4550": "retained once",
+     "clips": "retained once",
+     "cord": "retained once",
+     "doublerPads": "retained once",
+     "exteriorJamNut": 0.0388,
+     "isolationProvision0025": 0.025
+    }
+   },
+   "pressures": {
+    "cone_normal_at_fit_N": 530888.7118771443,
+    "p_T0_Pa": 7325956.948440458,
+    "p_fit_Pa": 19046582.457961455
+   },
+   "screens": {
+    "bodyAxial": {
+     "demandPa": 40496850.82309399,
+     "limitPa": 150000000.0,
+     "utilisation": 0.26997900548729326,
+     "verdict": "PASS"
+    },
+    "boltBearingAl": {
+     "demandPa": 100586956.52173913,
+     "limitPa": 150000000.0,
+     "utilisation": 0.6705797101449275,
+     "verdict": "PASS"
+    },
+    "boltTension": {
+     "demandPa": 199439655.1724138,
+     "limitPa": 880000000.0,
+     "utilisation": 0.22663597178683387,
+     "verdict": "PASS"
+    },
+    "capBending": {
+     "demandAtT0Pa": 171340976.76863283,
+     "demandPa": 445465359.05403394,
+     "limitPa": 150000000.0,
+     "utilisation": 2.969769060360226,
+     "verdict": "FAIL"
+    },
+    "capBendingAtT0": {
+     "demandPa": 171340976.76863283,
+     "limitPa": 150000000.0,
+     "utilisation": 1.1422731784575522,
+     "verdict": "FAIL"
+    },
+    "coneBearingAl": {
+     "demandPa": 19046582.457961455,
+     "limitPa": 150000000.0,
+     "utilisation": 0.1269772163864097,
+     "verdict": "PASS"
+    },
+    "coneBearingResin": {
+     "demandPa": 19046582.457961455,
+     "limitPa": 80000000.0,
+     "utilisation": 0.23808228072451817,
+     "verdict": "PASS"
+    },
+    "cordEmbedShear": {
+     "demandPa": 4722663.489433961,
+     "limitPa": 12000000.0,
+     "utilisation": 0.3935552907861634,
+     "verdict": "PASS"
+    },
+    "headSeatBearing": {
+     "demandPa": 94049798.4273563,
+     "limitPa": 150000000.0,
+     "utilisation": 0.6269986561823754,
+     "verdict": "PASS"
+    },
+    "hoop": {
+     "atChamberEntrancePa": 95232912.28980727,
+     "atConeDiaMm": 57.5,
+     "demandPa": 95232912.28980727,
+     "limitPa": 150000000.0,
+     "utilisation": 0.6348860819320485,
+     "verdict": "PASS"
+    },
+    "loadNutStrip": {
+     "demandPa": 21836537.208531074,
+     "limitPa": 528000000.0,
+     "utilisation": 0.04135707804646037,
+     "verdict": "PASS"
+    },
+    "studTension": {
+     "demandPa": 138532934.13173655,
+     "limitPa": 880000000.0,
+     "utilisation": 0.15742378878606425,
+     "verdict": "PASS"
+    },
+    "washerBearingCap": {
+     "demandPa": 93026565.609588,
+     "limitPa": 150000000.0,
+     "utilisation": 0.62017710406392,
+     "verdict": "PASS"
+    }
+   },
+   "unknowns": {
+    "adjustmentTakeUp": "UNKNOWN - retained adjustment travel not established",
+    "contactSeating": "UNKNOWN - excluded from compliance",
+    "flangeRingBending": "bounded by the cap screen analogy; not separately solved",
+    "potCreepUnderConfinement": "UNKNOWN - no confined creep data",
+    "resinCrushBeyondAssumedLimit": "UNKNOWN beyond the ASSUMED 80 MPa record",
+    "stationPitchEnvelope": "UNKNOWN - no station spacing in the record; body grows from 113.0 to 302.7 mm"
+   }
+  },
+  "d60": {
+   "compliance": {
+    "T0AtUnchangedExtensionN": 6644.042800277339,
+    "bodyDeltaAtT0M": 1.6709630199822847e-05,
+    "bothEndTakeupToRestoreT0M": 0.0006078711706402159,
+    "deltaLserM": 0.1519761075988866,
+    "denominatorRatio": 1.0248278352023523,
+    "etaNew": 0.995914851815676,
+    "etaOld": 1.000257048,
+    "everythingElseTermM": 0.01490740059250772,
+    "lCBodyM": 0.008355272234777292,
+    "lCPotWedgeM": 0.15881109589109996,
+    "lEffNewM": 12.546349215197774,
+    "lEffOldM": 12.242397,
+    "lSerNewM": 0.1730161075988866,
+    "lSerOldM": 0.02104,
+    "n5FirstSlackChordBasisMm": {
+     "+cos5": 26.797732,
+     "+sin5": 26.694504,
+     "-cos5": 26.660242,
+     "-sin5": 26.694504
+    },
+    "n5FirstSlackDeclaredModelNewMm": {
+     "+cos5": 27.422922242071433,
+     "+sin5": 27.317285038474445,
+     "-cos5": 27.282223628576503,
+     "-sin5": 27.317285038474445
+    },
+    "note": "chord-basis tables carried UNCHANGED as historical comparators; full n=2..12 class bounds, centroid/no-transfer sensitivity and global stability UNCOMPUTED/UNKNOWN; coupled eigen margin not recomputed (dependent UNKNOWN)",
+    "potDeltaAtT0M": 0.00031760481399079385,
+    "potWedgeKzNPerM": 21438591.923223704,
+    "studTermM": 0.005849739473009358,
+    "tiBodyTermM": 0.00613259940749228
+   },
+   "geometry": {
+    "body_total_len_mm": 183.59067993589747,
+    "bolt_circle_mm": 49.0,
+    "bore_mm": 9.0,
+    "cap_od_mm": 56.0,
+    "cap_thk_mm": 7.0,
+    "chamber_clear_dia_mm": 35.0,
+    "chamber_len_mm": 28.0,
+    "chamber_od_mm": 42.0,
+    "cone_lateral_area_mm2": 10309.079707209801,
+    "cone_length_mm": 148.59067993589747,
+    "cone_slant_mm": 149.15827219370811,
+    "d_mm": 14.0,
+    "flange_od_mm": 56.0,
+    "flange_thk_mm": 7.0,
+    "grip_od_mm": 23.5,
+    "min_wall_over_grip_mm": 7.25,
+    "old_body_len_mm": 76.0,
+    "wall_at_chamber_entrance_mm": 3.5,
+    "x_handover_mm": 27.5
+   },
+   "perEndBill": {
+    "ends": 21390,
+    "increment": 0.3651202938046823,
+    "incrementFamilyKg": 7809.923084482154,
+    "new": {
+     "cap": 0.040800287907178885,
+     "capBoltStack": 0.022589239222152377,
+     "conicalBody": 0.2947301142090048,
+     "interiorLoadNutAndWasher": 0.031071062733018344,
+     "machiningOnNewAl": 0.01006591206348551,
+     "newIsolationSeal": 0.015,
+     "newStudBlank": 0.021543037974683543,
+     "potResin": 0.06420475969515878,
+     "total": 0.5000044138046823
+    },
+    "removed": {
+     "alBodyI028": 0.076004,
+     "machiningOnOldBody": 0.00228012,
+     "oldResinPot": 0.0017,
+     "oldStudBlank": 0.0549,
+     "total": 0.13488412
+    },
+    "retained": {
+     "anchorBlocks": "retained once",
+     "attachmentBolts4550": "retained once",
+     "clips": "retained once",
+     "cord": "retained once",
+     "doublerPads": "retained once",
+     "exteriorJamNut": 0.0092,
+     "isolationProvision0025": 0.025
+    }
+   },
+   "pressures": {
+    "cone_normal_at_fit_N": 203084.72444835646,
+    "p_T0_Pa": 7578223.82876025,
+    "p_fit_Pa": 19699597.851234607
+   },
+   "screens": {
+    "bodyAxial": {
+     "demandPa": 41811391.35772242,
+     "limitPa": 150000000.0,
+     "utilisation": 0.2787426090514828,
+     "verdict": "PASS"
+    },
+    "boltBearingAl": {
+     "demandPa": 105357142.85714285,
+     "limitPa": 150000000.0,
+     "utilisation": 0.7023809523809523,
+     "verdict": "PASS"
+    },
+    "boltTension": {
+     "demandPa": 220149253.73134327,
+     "limitPa": 880000000.0,
+     "utilisation": 0.25016960651289005,
+     "verdict": "PASS"
+    },
+    "capBending": {
+     "demandAtT0Pa": 176928327.757178,
+     "demandPa": 459925304.93494654,
+     "limitPa": 150000000.0,
+     "utilisation": 3.0661686995663104,
+     "verdict": "FAIL"
+    },
+    "capBendingAtT0": {
+     "demandPa": 176928327.757178,
+     "limitPa": 150000000.0,
+     "utilisation": 1.1795221850478534,
+     "verdict": "FAIL"
+    },
+    "coneBearingAl": {
+     "demandPa": 19699597.851234607,
+     "limitPa": 150000000.0,
+     "utilisation": 0.13133065234156405,
+     "verdict": "PASS"
+    },
+    "coneBearingResin": {
+     "demandPa": 19699597.851234607,
+     "limitPa": 80000000.0,
+     "utilisation": 0.2462449731404326,
+     "verdict": "PASS"
+    },
+    "cordEmbedShear": {
+     "demandPa": 4817892.342574198,
+     "limitPa": 12000000.0,
+     "utilisation": 0.4014910285478498,
+     "verdict": "PASS"
+    },
+    "headSeatBearing": {
+     "demandPa": 99824326.46089813,
+     "limitPa": 150000000.0,
+     "utilisation": 0.6654955097393209,
+     "verdict": "PASS"
+    },
+    "hoop": {
+     "atChamberEntrancePa": 98497989.25617303,
+     "atConeDiaMm": 35.0,
+     "demandPa": 98497989.25617303,
+     "limitPa": 150000000.0,
+     "utilisation": 0.6566532617078202,
+     "verdict": "PASS"
+    },
+    "loadNutStrip": {
+     "demandPa": 22545358.0850464,
+     "limitPa": 528000000.0,
+     "utilisation": 0.04269954182773939,
+     "verdict": "PASS"
+    },
+    "studTension": {
+     "demandPa": 153913043.47826087,
+     "limitPa": 880000000.0,
+     "utilisation": 0.174901185770751,
+     "verdict": "PASS"
+    },
+    "washerBearingCap": {
+     "demandPa": 98913008.8738254,
+     "limitPa": 150000000.0,
+     "utilisation": 0.6594200591588361,
+     "verdict": "PASS"
+    }
+   },
+   "unknowns": {
+    "adjustmentTakeUp": "UNKNOWN - retained adjustment travel not established",
+    "contactSeating": "UNKNOWN - excluded from compliance",
+    "flangeRingBending": "bounded by the cap screen analogy; not separately solved",
+    "potCreepUnderConfinement": "UNKNOWN - no confined creep data",
+    "resinCrushBeyondAssumedLimit": "UNKNOWN beyond the ASSUMED 80 MPa record",
+    "stationPitchEnvelope": "UNKNOWN - no station spacing in the record; body grows from 76.0 to 183.6 mm"
+   }
+  }
+ },
+ "unit": "R3-I031",
+ "vehicle": {
+  "assemblyShareT": 2.1289861523512785,
+  "before": {
+   "margin2500T": -472.2,
+   "marginSLT": 20.3,
+   "residualT": 0.05,
+   "socketsLineT": 16.41,
+   "spokesLineT": 241.51,
+   "stackedX15SLT": 6.2165,
+   "subtotalT": 2229.5,
+   "x15IncrementReconstructedT": 14.0975,
+   "x15IncrementT": 14.1
+  },
+  "incrementHardwareT": 42.57972304702557,
+  "incrementTotalT": 44.70870919937685,
+  "margin2500T": -516.9087091993769,
+  "marginSLT": -24.408709199376847,
+  "sf12": "historical FAIL preserved; substitution into the separately sized d60+d20 construction UNCOMPUTED/UNKNOWN",
+  "socketsLineT": 58.989723047025564,
+  "spokesLineT": 241.51,
+  "stackedX15SLT": -60.85931379906526,
+  "subtotalT": 2274.2087091993767,
+  "verdict2500": "FAIL",
+  "verdictSL": "FAIL",
+  "x15IncrementT": 36.45060459968842
+ },
+ "verdict": {
+  "note": "a heavier or inadequate construction is a valid same-day FAIL; the frozen construction is not enlarged after seeing this",
+  "overall": "FAIL"
+ }
+}

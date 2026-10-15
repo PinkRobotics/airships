@@ -1,0 +1,33 @@
+{
+ "unit": "R3-I031",
+ "purpose": "frozen saved inputs and construction read by cartridge.py (standard library only); ancestor records are pinned as data provenance and are NOT imported, executed or regenerated",
+ "calculator_reads": {
+  "baseline.json": {
+   "sha256": "26a174cc9c45cc72834415d30a2b48ec4627d5ac656d6163dc58b37a7e6b3438",
+   "role": "every inherited number (byte-copied R3-I028 lineage data at landing75), the accepted I028 before-state, and the FROZEN I031 cartridge geometry/hardware/load/compliance rules frozen before the first calculation"
+  }
+ },
+ "ancestor_provenance": {
+  "R3-I028/baseline.json": {
+   "sha256": "dce7fd4d3c8650e71788a7c3e55decb0f95e8899dd43b463b12f47697aa7034e",
+   "at": "landing75 3e4ba19d705c992700caba9c03316ca2c4b7af4f",
+   "role": "inherited materialLedger/constants/families/bill/slack/energy copied verbatim as data"
+  },
+  "R3-I028/socket_body.json": {
+   "sha256": "c20cec9156e27339c3da0469c15d9c16739add69a34d594f9c73613b6440db40",
+   "at": "landing75 3e4ba19d705c992700caba9c03316ca2c4b7af4f",
+   "role": "accepted I028 after-state (the BEFORE state of this unit) copied as data"
+  },
+  "R3-I019/termination.json": {
+   "sha256": "0fb204a2362f17f342b1582fb2e41981f7207402b509db81ba3bbf5c38a2cc6a",
+   "at": "landing72 e3a6f7b854ef0683fbcdacd6db330a7c3b94044b",
+   "rev": "v3.1"
+  },
+  "R3-I023/loadpath.json": {
+   "sha256": "5094e61bcf60f98ff7e89d7d3798f633528b67a02cc1552857c2158f29c99b63",
+   "at": "landing72 e3a6f7b854ef0683fbcdacd6db330a7c3b94044b",
+   "role": "pressure-path context only; its equilibrium closure is withdrawn and no I023 claim is recomputed here"
+  }
+ },
+ "run_boundary": "ONE process/thread, <=60 CPU s, <=120 wall s, <=1 GiB; at most THREE scientific payloads total for this unit; every payload that starts calculations counts; a physical FAIL is not a defect; no parameter tuning, solver, sweep, ancestor execution or confidence rerun; propagation is LIMITED to the frozen saved n=5 declared-model tables (exact changed-denominator ratio; chord-basis kept as unchanged historical comparator) - full n=2..12 class bounds, centroid/no-transfer sensitivity and global stability are UNCOMPUTED (dependent UNKNOWN); SF1.2 substitution UNCOMPUTED/UNKNOWN"
+}

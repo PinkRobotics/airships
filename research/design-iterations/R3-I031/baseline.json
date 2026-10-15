@@ -1,0 +1,126 @@
+{
+ "unit": "R3-I031",
+ "basis": "frozen data for the tapered-pot socket cartridge; ancestor blocks byte-copied as data from the accepted R3-I028 lineage at landing75 3e4ba19d705c992700caba9c03316ca2c4b7af4f (tree d5bed71921eb565274fd2ec9a102bb79d518c3e1); read as data, never imported, executed or regenerated; every I031 rule below was frozen BEFORE the first calculation",
+ "source_hashes": {
+  "R3-I028/baseline.json": "dce7fd4d3c8650e71788a7c3e55decb0f95e8899dd43b463b12f47697aa7034e",
+  "R3-I028/socket_body.json": "c20cec9156e27339c3da0469c15d9c16739add69a34d594f9c73613b6440db40",
+  "R3-I028/socket_body.py": "5c77825d8466d22d82bb6d507dae81c21005e168f4b65b3ce454f5e7b606d890",
+  "R3-I019/termination.json": "0fb204a2362f17f342b1582fb2e41981f7207402b509db81ba3bbf5c38a2cc6a",
+  "R3-I023/loadpath.json": "5094e61bcf60f98ff7e89d7d3798f633528b67a02cc1552857c2158f29c99b63"
+ },
+ "inherited": {
+  "materialLedger": {
+   "cord": {"EPa": 70000000000.0, "rhoKgM3": 970.0, "identity": "UHMWPE-class (Dyneema-type)", "strength": "UNKNOWN"},
+   "potResin": {"designShearPa": 12000000.0, "rhoKgM3": 1150.0, "provenance": "ASSUMED design value, unverified"},
+   "terminationMetal": {"EPa": 114000000000.0, "rhoKgM3": 4430.0, "sigmaYPa": 880000000.0, "identity": "Ti-6Al-4V (retained studs, nuts, anchor blocks, bolts)"},
+   "alBody": {"EPa": 69000000000.0, "rhoKgM3": 2700.0, "sigmaWPa": 150000000.0, "provenance": "ASSUMED 6061-T6-class modelling record carried from R3-I028; NOT sourced, certified or qualified"}
+  },
+  "constants": {"FITTING": 1.3, "NOSE_M": 0.008, "ASSEMBLY_SHARE": 0.05, "TAU_BOND_PA": 12000000.0},
+  "families": {
+   "d60": {
+    "diaMm": 7.87, "boreMm": 9.0, "bodyOdMm": 23.5, "bodyLenMm": 76.0, "gripLgMm": 60.0, "noseM": 0.008,
+    "ends": 21390, "stations": 10695, "sectionM2": 4.863837539556058e-05,
+    "T0kN": 6.809, "TfitkN": 17.7, "lSerM": 0.02104, "lAPerEndM": 0.05904,
+    "lEffM": 12.242397, "lEffMeanM": 69.713634, "lFreeM": 12.124317, "lFreeMeanM": 69.595554,
+    "meanCordM": 69.731554, "etaDrawnMeanCord": 1.000257048,
+    "perEndKg": {"bodyKg": 0.1247, "nutKg": 0.0092, "resinKg": 0.0017, "studKg": 0.0549, "totalKg": 0.1905},
+    "cordInterfaceShearV1MPa": 13.771544, "wallInterfaceShearMPa": 10.379,
+    "attachmentShankMm": 45.0, "attachmentUtilisation": 0.247,
+    "studSpec": "M14 x 79 mm overall",
+    "slackN5DeclaredMm": {"+cos5": 26.758565, "+sin5": 26.655487, "-cos5": 26.621275, "-sin5": 26.655487},
+    "slackN5ChordBasisMm": {"+cos5": 26.797732, "+sin5": 26.694504, "-cos5": 26.660242, "-sin5": 26.694504}
+   },
+   "d180/11": {
+    "diaMm": 12.72, "boreMm": 14.6, "bodyOdMm": 38.0, "bodyLenMm": 113.0, "gripLgMm": 97.0, "noseM": 0.008,
+    "ends": 21080, "stations": 10540, "sectionM2": 0.00012712302660203344,
+    "T0kN": 17.797, "TfitkN": 46.27, "lSerM": 0.03322, "lAPerEndM": 0.08972,
+    "lEffM": 17.360698, "lEffMeanM": 80.238931, "lFreeM": 17.181259, "lFreeMeanM": 80.059492,
+    "meanCordM": 80.269492, "etaDrawnMeanCord": 1.000380871,
+    "perEndKg": {"bodyKg": 0.4848, "nutKg": 0.0388, "resinKg": 0.0061, "studKg": 0.2321, "totalKg": 0.7619},
+    "cordInterfaceShearV1MPa": 13.782541, "wallInterfaceShearMPa": 10.379,
+    "attachmentShankMm": 50.0, "attachmentUtilisation": 0.735,
+    "studSpec": "M23 x 127 mm overall",
+    "slackN5DeclaredMm": {"+cos5": 25.623592, "+sin5": 25.524887, "-cos5": 25.492126, "-sin5": 25.524887},
+    "slackN5ChordBasisMm": {"+cos5": 25.668698, "+sin5": 25.569819, "-cos5": 25.537001, "-sin5": 25.569819}
+   }
+  },
+  "billTiEra": {
+   "socketsT": 20.14, "cordT": 139.51, "clipsT": 63.64, "anchorBlocksT": 6.17, "doublerPadsT": 2.86,
+   "attachmentBoltsT": 1.41, "assemblyT": 11.69, "totalT": 2233.4, "spokesLineNewT": 245.42,
+   "marginSLT": 16.4, "margin2500T": -476.1, "x15IncrementT": 16.05, "stackedStationHardwareX1_5_SLT": 0.3
+  },
+  "sf12": {
+   "afterT": 2562.4, "afterSpokesT": 243.98, "afterMarginSLT": -312.6, "baselineDeltaT": 9.25, "deltaVsCompletedT": 16.3,
+   "point": "force:d60+d20",
+   "verdict": "historical FAIL preserved; the I031 substitution into SF1.2 is UNCOMPUTED/UNKNOWN (separate d60+d20 construction, no resizing assigned)"
+  },
+  "energy": {"licensedQuotableMargin": 1.000811196, "note": "carried predecessor value; NOT recomputed under any changed spring - dependent claim"}
+ },
+ "i028Accepted": {
+  "basis": "accepted R3-I028 result at landing75 (socket_body.json c20cec91); this is the BEFORE state of R3-I031",
+  "perEnd": {
+   "d60": {"alBodyKg": 0.076004, "nutKg": 0.0092, "resinKg": 0.0017, "studKg": 0.0549},
+   "d180/11": {"alBodyKg": 0.295445, "nutKg": 0.0388, "resinKg": 0.0061, "studKg": 0.2321}
+  },
+  "alBodyDerivation": "i028 Al body per end = inherited Ti bodyKg x 2700/4430 (density substitution at unchanged dimensions)",
+  "isolationPerEndKg": 0.025,
+  "machiningFraction": 0.03,
+  "vehicle": {"socketsLineT": 16.41, "spokesLineT": 241.51, "subtotalT": 2229.5, "marginSLT": 20.3, "margin2500T": -472.2, "x15IncrementT": 14.10, "x15IncrementReconstructedT": 14.0975, "stackedX15SLT": 6.2165, "residualT": 0.05}
+ },
+ "i031Rules": {
+  "provenance": "ALL values below are FROZEN modelling choices made before the first calculation; none is sourced, certified or tuned; a physical FAIL of any screen is a result, not a defect",
+  "geometry": {
+   "coneHalfAngleDeg": 5.0,
+   "chamberClearLenRule": "2d", "chamberClearDiaRule": "2.5d", "chamberOdRule": "3d",
+   "flangeOdRule": "4d", "flangeThkRule": "0.5d", "capThkRule": "0.5d", "boltCircleRule": "3.5d",
+   "coneRule": "internal cone starts at the cord exit at the front bore radius and widens rearward at the half-angle until it daylights into the chamber clear diameter; cone length L = (1.25d - bore/2)/tan(5deg)",
+   "odRule": "body OD = retained grip OD over the grip length; rearward OD = min(max(gripOD, coneLocalDia + 2 x frontWall), 3d) where frontWall = (gripOD - bore)/2; chamber OD 3d; flange OD 4d",
+   "engagementRule": "interior load nut engagement 1.5d",
+   "clearanceRule": "bolt clearance hole = bolt nominal + 0.6 mm; stud clearance hole = d + 0.6 mm"
+  },
+  "hardware": {
+   "capBolt": {"d60": "M6 Ti", "d180/11": "M10 Ti", "countPerEnd": 4},
+   "headAfRule": "1.6 x nominal", "headHeightRule": "0.65 x nominal", "nutHeightRule": "0.8 x nominal (cap nuts) / 1.5d (interior load nut)", "washerRule": "OD 2x nominal, ID 1.1x nominal, t 0.2x nominal; two per cap bolt",
+   "capBoltLengthRule": "flangeThk + capThk + nutHeight + 0.4 x nominal (runout/chamfer)",
+   "interiorLoadNut": {"afRule": "1.6d", "heightRule": "1.5d", "minorDiaRule": "0.85d"},
+   "bearingWasher": {"odRule": "1.5d", "idRule": "1.1d", "thkRule": "0.1d", "material": "Ti"},
+   "studLengthRule": "new stud overall = 1.5d (interior engagement incl. tip) + 0.5d (cap) + exterior extent, where exterior extent = inherited stud overall - inherited body length (3 mm d60 / 14 mm d180-11); old stud length and adjustment travel do NOT survive by name",
+   "studMassRule": "prorate inherited studKg linearly by new/old overall length (same M14/M23 turned blank)",
+   "tensileAreasMm2": {"M6": 20.1, "M10": 58.0, "M14": 115.0, "M23": 334.0, "provenance": "ASSUMED nominal coarse-series table values"},
+   "newIsolationPerEndKg": {"d60": 0.015, "d180/11": 0.035, "provenance": "ASSUMED new isolation/seal stock for the added Ti/Al contacts (cap-bolt hole bushings, stud cap-hole seal, bearing-washer isolation) with installation stock; sufficiency UNKNOWN; the retained 0.025 kg/end provision continues unchanged for the retained interfaces"},
+   "machiningFraction": 0.03, "machiningBasis": "of the NEW Al metal (conical body + cap); includes the bolt-head seat relief machined inside the frozen 4d envelope",
+   "assemblyShareOnIncrement": 0.05
+  },
+  "loads": {
+   "coneTransfer": "frictionless cone bearing, ZERO adhesive-shear credit to aluminium; cord-to-resin embed shear retained as a screen with the inherited ASSUMED 12 MPa design shear",
+   "potWedgeModel": "cone normal N = T/sin(5deg); uniform normal pressure p = N/lateral frustum area; pot radial approach u = p x r_m/E_resin with r_m = (r0+rL)/2; axial wedge stiffness k_z = k_r tan^2(5deg), k_r = E_resin x A_lat x cos(5deg)/r_m; contact seating displacement UNKNOWN and excluded",
+   "E_resinPa": 3000000000.0, "resinDesignBearingPa": 80000000.0, "resinBearingProvenance": "ASSUMED potting-resin compression/bearing working value; confined crushing/creep behaviour UNKNOWN",
+   "screens": {
+    "coneBearing": "p vs resin 80 MPa and vs Al 150 MPa working normal-stress record",
+    "hoop": "local thin-wall sigma = p x r_i/t along the cone and at the chamber entrance (wall 0.25d, r 1.25d); thick-wall and end-effects ignored (declared)",
+    "bodyAxial": "wall axial stress from the accumulated cone axial component, closed-form integral with the carried load T(x) = T x (ID^2-bore^2)/(2.5d^2-bore^2)",
+    "capBending": "radial-strip model: line load T/(2 pi r_w) at the bearing-washer mean footprint r_w = 0.75d, cantilever span (1.75d - 0.75d) to the bolt circle, sigma = 6M/t^2, t = 0.5d; upper-bound-style declared frozen screen",
+    "boltTension": "T_fit/4 per bolt over the ASSUMED tensile area vs 880 MPa Ti",
+    "boltBearing": "T_fit/4 over nominal x flangeThk bearing area vs 150 MPa Al record; bolt shear none (axial load path)",
+    "headSeatBearing": "T_fit/4 over the counterbore-floor annulus (headAf+0.4 OD, clearance ID) vs 150 MPa",
+    "studTension": "T_fit over M14/M23 tensile area vs 880 MPa",
+    "loadNutStrip": "T_fit over pi x 0.85d x 1.5d thread-shear area vs 0.6 x 880 MPa (Ti-on-Ti, ASSUMED)",
+    "washerBearing": "T_fit over bearing-washer annulus (1.5d OD, d+0.6 ID) on cap inner face vs 150 MPa",
+    "cordEmbedShear": "T_fit over pi x cordDia x embedLength vs 12 MPa ASSUMED resin shear"
+   }
+  },
+  "compliance": {
+   "bodyAxialClosedForm": "delta = integral T(z)/(E_Al A_wall(z)) dz, exact antiderivatives by polynomial division; evaluated at T0 (linear elastic)",
+   "lSerRebuild": "new lSer = new body axial cord-equivalent + pot wedge cord-equivalent + everything-else term x (new stud length/old stud length), where everything-else = inherited lSer - Ti body term (Ti body term = bodyLen x (E_c/E_Ti) x A_cord/A_bodyTi, A_bodyTi = pi/4(gripOD^2-bore^2)); the everything-else split is an ASSUMED stud-dominated decomposition; cap/contact axial compliance declared second-order and excluded; no friction credit",
+   "propagation": "chain denominator and mean-cord denominator rebuilt by +2 x delta lSer per end; n=5 declared-model slack tables scale by the exact new/old denominator ratio; chord-basis tables stay UNCHANGED historical comparators; eta = meanCord/(lEffMean + 2 delta lSer)",
+   "tensionTakeup": "tension at unchanged imposed extension scales by old/new denominator; both-end take-up to restore T0 = T0 x 2 delta lSer/(E_c A_cord); adjustment travel availability UNKNOWN"
+  },
+  "bill": {
+   "removed": "I028 Al body (+ its 3% machining), old stud (replaced by the shorter new stud), old resin pot",
+   "retained": "cord, clips, anchor blocks, doubler pads, 45/50 mm attachment bolts + shanks, exterior jam nut, retained 0.025 kg/end isolation provision, potting concept (as the new pot), pressure structure, one free-cord/transfer datum",
+   "new": "conical body (shoulder/chamber/flange, minus 4 bolt holes), pot at the new frustum minus embedded cord, cap (minus 4 bolt holes and stud hole), 4 cap bolts, 4 cap nuts, 8 cap washers, interior load nut, bearing washer, new isolation/seal stock, 3% machining on new Al metal",
+   "unsized": "station-pitch envelope compatibility (UNKNOWN), adjustment take-up travel (UNKNOWN), pot moulding/insertion process stock (UNKNOWN), contact seating shims (UNKNOWN)",
+   "x15Rule": "0.5 x (sockets + blocks + doublers + attachment) x 1.05 recomputed once on the changed sockets line including isolation/machining once, its own 5% assembly share once"
+  }
+ }
+}
