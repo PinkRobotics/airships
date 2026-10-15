@@ -1,0 +1,236 @@
+{
+  "base": "8f4f53bb0c41a322c08988b5b0e0300d5a5090d9",
+  "base_tree": "b78bb3918ac2b487b5fb5a49a7b2b91c543c7943",
+  "inputs": [
+    {
+      "path": "baseline.json",
+      "bytes": 19917041,
+      "sha256": "e04fea70d1ef623020eb459e740ff88ad5ce0036e0cd7d0c552eb10602583780"
+    },
+    {
+      "path": "../R3-I034/crown.json",
+      "bytes": 18552418,
+      "sha256": "544490ef4aba1747963d0180d1ebe4e38843d4cf35c77c013696fd294eae230d"
+    },
+    {
+      "path": "../R3-I034/baseline.json",
+      "bytes": 771212,
+      "sha256": "bc49eb9c4cce28e0accd39d8daac95b1fbd1b4af09e2fa972cb444ec602dd656"
+    }
+  ],
+  "producer": {
+    "baseline": "Saved JSON assembly before invocation; all predecessor result fields copied unchanged.",
+    "saddle": "saddle.py --write"
+  },
+  "references": [
+    "../R3-I034/README.md",
+    "../R3-I034/crown.json",
+    "../R3-I034/baseline.json",
+    "../R3-I034/sources.json"
+  ],
+  "design": {
+    "steel_density_kg_m3": 7850.0,
+    "steel_E_pa": 200000000000.0,
+    "steel_poisson": 0.3,
+    "polymer_density_kg_m3": 1200.0,
+    "gravity_m_s2": 9.80665,
+    "material_basis": "Selected assumptions, not certificates. No strength, buckling, fatigue or connection PASS.",
+    "modules": [
+      [
+        2.4,
+        -29.0,
+        0,
+        1
+      ],
+      [
+        -2.4,
+        -29.0,
+        2,
+        3
+      ],
+      [
+        -2.4,
+        29.0,
+        4,
+        5
+      ],
+      [
+        2.4,
+        29.0,
+        6,
+        7
+      ]
+    ],
+    "rail_RHS_m": [
+      0.2,
+      0.2,
+      0.01
+    ],
+    "rail_z_m": [
+      -0.6,
+      23.6
+    ],
+    "rail_y_offsets_m": [
+      -0.9,
+      0.9
+    ],
+    "ladder_x_outboard_m": 0.9,
+    "crossbar_z_m": [
+      0.0,
+      11.5,
+      23.0
+    ],
+    "crossbar_RHS_m": [
+      0.2,
+      0.2,
+      0.01
+    ],
+    "diagonal_RHS_m": [
+      0.1,
+      0.1,
+      0.008
+    ],
+    "rail_gusset_m": [
+      0.3,
+      0.3,
+      0.012
+    ],
+    "gussets_per_junction": 2,
+    "fillet_leg_m": 0.01,
+    "endcap_thickness_m": 0.012,
+    "cage_plate_m": [
+      0.025,
+      1.0,
+      1.0
+    ],
+    "cage_plate_x_offsets_m": [
+      -0.4155,
+      0.4155
+    ],
+    "cage_opening_m": [
+      0.6,
+      0.6
+    ],
+    "isolation_face_m": [
+      0.003,
+      0.8,
+      0.8
+    ],
+    "bearing_bars_m": [
+      [
+        0.806,
+        0.025,
+        0.1
+      ],
+      [
+        0.806,
+        0.1,
+        0.025
+      ]
+    ],
+    "isolation_strips_m": [
+      0.8,
+      0.1,
+      0.003
+    ],
+    "bolts_per_receiver": 4,
+    "bolt_diameter_length_m": [
+      0.03,
+      1.05
+    ],
+    "bolt_hole_m": 0.032,
+    "bolt_yz_offsets_m": [
+      -0.45,
+      0.45
+    ],
+    "bolt_head_AF_height_m": [
+      0.046,
+      0.025
+    ],
+    "bolt_nut_AF_height_m": [
+      0.046,
+      0.048
+    ],
+    "bolt_washer_m": [
+      0.06,
+      0.032,
+      0.005
+    ],
+    "bolt_backer_m": [
+      0.1,
+      0.1,
+      0.012
+    ],
+    "thread_runout_m": 0.02,
+    "stubs_per_receiver": 2,
+    "stub_y_offsets_m": [
+      -0.4,
+      0.4
+    ],
+    "stub_x_body_offsets_m": [
+      0.448,
+      0.78
+    ],
+    "stub_RHS_m": [
+      0.1,
+      0.1,
+      0.008
+    ],
+    "stub_endplate_x_offsets_m": [
+      0.428,
+      0.8
+    ],
+    "stub_endplate_xyz_m": [
+      0.02,
+      0.16,
+      0.2
+    ],
+    "stub_gusset_m": [
+      0.2,
+      0.15,
+      0.01
+    ],
+    "gussets_per_stub_end": 4,
+    "handling_allowance_kg_per_module": 20.0,
+    "bonding_allowance_kg_per_module": 4.0,
+    "socket_envelope_diameter_length_m": [
+      0.12,
+      0.2
+    ],
+    "insertion_corridor_m": 1.2,
+    "states": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        10
+      ],
+      [
+        2500,
+        0
+      ],
+      [
+        2500,
+        10
+      ]
+    ],
+    "hosts": [
+      9,
+      10,
+      11,
+      12,
+      16,
+      21,
+      22,
+      23
+    ],
+    "removed_kg": 0.0,
+    "retirement_credit_kg": 0.0,
+    "old_route_rows": "All32 unchanged saved rows; no tension/sag recomputation.",
+    "load_sharing": "UNKNOWN; no equal split, rigid clamp, free fixity, torsional hinge or zero omitted couple.",
+    "weakest_assumption": "Unilateral cage contact and the two-level rack can transfer couples without dominant unsized completion.",
+    "next_hypothesis": "UNISSUED paid local box-wall/diaphragm reinforcement at the same eight R datums."
+  }
+}
