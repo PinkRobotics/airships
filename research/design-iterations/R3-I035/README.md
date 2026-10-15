@@ -1,7 +1,14 @@
 # R3-I035 — Segregated upper-tank exchange chambers (finite construction)
 
-Status: CONSTRUCTED AND CALCULATED, single guarded run, honest FAIL/UNKNOWN retained.
-Nothing here is evidence of physical adequacy, fit, or safety.
+Status: ARCHIVAL, CORRECTED AND UNREVIEWED. The saved source and output do not establish
+this frozen construction's usable capacity, complete hardware mass, mass distribution,
+moment/CG, or inherited authority boundaries; those quantities and every construction
+margin depending on them are UNKNOWN. Saved values are historical outputs; no numerical
+or physical repair occurred in this correction. The sole canonical review returned eleven
+MEDIUM findings (F1–F11), all still OPEN; this correction is the last text change and it
+ships UNREVIEWED under the Captain's cap (no targeted follow-up, no second review). One
+supported guarded payload is an execution fact, not an adequacy claim. Nothing here is
+evidence of physical adequacy, fit, or safety.
 
 ## Frozen design (unchanged during this unit)
 
@@ -35,16 +42,22 @@ concurrent D2 window with scoop receipt, D1 timing inherited.
    z=-21.100  bottom tangent                      z=-23.000  bottom tangent
 ```
 
-Paid hardware (full bill in [baseline.json](baseline.json), computed masses in
-[exchange.json](exchange.json)): divider plates/seating rings/T-stiffeners/welds, sump cups,
-DN300 service drains with twin isolation valves + blank + bleed, reserve draw nozzles with
-valves and check, separate fresh fill and scoop fill paths (never shared), two independent
-DN50 vents per upper (one per compartment, sealed sleeve through the service side, traps and
-drains), DN80 reset drains per compartment, per-compartment level/pressure instrumentation
-and interlocked controllers, fresh and scoop pump sets per pair, exact-node route pipe
-(S->P->V->F scoop; reserve->lower inlet fresh, paying beyond the 25 m allowance where the
-actual route is longer), P-frames, clamps/brackets at exact count, and all retained
-inherited charges (I017 lines, adapters, fitout allowances, cross-pump).
+Selected/intended hardware (listed in [baseline.json](baseline.json); the saved mass rows in
+[exchange.json](exchange.json) are defective historical pricing, not a complete paid bill):
+divider plates/seating rings/T-stiffeners, sump cups, DN300 service drains with twin
+isolation valves + blank + bleed, reserve draw nozzles with valves and check, separate
+fresh fill and scoop fill paths (never shared), two independent DN50 vents per upper (one
+per compartment, sealed sleeve through the service side, traps and drains), DN80 reset
+drains per compartment, per-compartment level/pressure instrumentation and interlocked
+controllers, fresh and scoop pump sets per pair, exact-node route pipe (S->P->V->F scoop;
+reserve->lower inlet fresh), P-frames, clamps/brackets, and the retained inherited charges
+(I017 lines, adapters, fitout allowances, cross-pump). Explicitly UNCHARGED as saved:
+retained bands, divider welds, central collars, reserve-vent sleeves and closure plates
+(F6). The separate 350 kg cross-pump row duplicates the duty already carried by the
+inherited 2.37 t group (F7); both raw rows are preserved unpriced. The saved route lengths
+omit the final ascent to the lower inlet and one pair's support count is priced once while
+routes are doubled, so the saved route/clamp accounting — including the "31 clamps" exact
+count — is withdrawn (F8).
 
 ## What was run
 
@@ -52,28 +65,46 @@ inherited charges (I017 lines, adapters, fitout allowances, cross-pump).
 (one-CPU cgroup quota, 1 GiB memory + address-space caps, swap off, 16-task cap,
 private IPC namespace, fixed single CPU, no threads, /dev/null stdin, bytecode off,
 input hashes re-verified by the guard before exec). Exit 0, all pre-execution controls
-observed PASS. Sources and bindings: [sources.json](sources.json).
+observed PASS. That is an execution fact only. Sources and bindings:
+[sources.json](sources.json).
 
-## Results (calculation, not qualification)
+## Saved results (withdrawn and retained)
 
-- **Geometric capacity vs frozen demands: ALL PASS.** Reserve 6.455 m³ usable vs 5 t
-  demand (+1.455); service 26.030 m³ vs 25.45 t (+0.580); lower 24.241 m³ vs 20 t
-  (+4.241). Margins are small where noted: the service chamber clears the scoop demand
-  by 0.58 m³ (2.2%) after paying every displaced volume.
-- **Nominal event programme completes** inside the 2700 s window: both pairs deliver
-  50 t fresh and receive 50.9 t scoop concurrently, 1:4 reserve:lower internal split.
-- **All eight fixed skew cases are TIMING FAILs at T, reported not repaired.** With a
-  leading pair at ±5% rate error (and the lagging pair opposite, +2 s start offset), the
-  rate-degraded side of each pair cannot finish inside the window: fresh shortfalls of
-  1250.0-1290.4 kg or scoop shortfalls of 1272.5-1290.4 kg remain at T=2700 s. The
-  design freeze fixes T; unfinished business at T is a FAIL, never a permitted extension.
-- **Complete paid hardware bill: 8.991 t dry total** (conditional: adapter attachment,
-  old-frame brackets and the S-to-scoop link remain unpriced C duties, so the complete
-  bill stays UNKNOWN). Part-level masses and CG z are itemised in [exchange.json](exchange.json).
-- Fluid state table (S0 -> D1 end -> D2 end) and the explicit 0.9 t relocation's CG shift
-  are computed; **trim/load-sharing adequacy remains UNKNOWN** (W/2 pickup convention is a
-  declared ideal, not a proved load path).
-- Inherited FAILs remain: economics 35.1x vs SEAT, fuel shortfalls 0.245/0.351 t.
+- **Usable-capacity PASS is WITHDRAWN (F1).** The saved 6.455/26.030/24.241 m³
+  comparisons and the 0.58 m³ / 2.2% service margins do not establish capacity: an
+  apex-based head volume is applied to tangent-based liquid heights, divider faces use
+  inconsistent offsets, and segregated interiors and submerged stock displacement are
+  absent (exchange.py:36–39, 71–116). No replacement integral, capacity or margin is
+  offered; usable capacity is UNKNOWN.
+- **Retained as command-law results only:** the fixed nominal command schedule and the
+  eight fixed skew cases, which remain TIMING FAILs at T=2700 s (fresh shortfalls
+  1250.0–1290.4 kg, scoop shortfalls 1272.5–1290.4 kg), reported not repaired. The sole
+  reviewer found no demonstrated defect in the command/clamping law; this is not
+  mission-execution or physical-capacity proof. The design freeze fixes T; D2 stays
+  2700 s; unfinished business at T is a FAIL, never a permitted extension.
+- **The "8.991 t dry total" complete-bill claim is WITHDRAWN (F2, F3, F4, F5, F7).**
+  The saved subtotal is defective: the `unit pipes/nozzles x2` row is −11.81 kg from
+  signed vent differences used as lengths; the listed 227.78 kg lower-baffle and
+  126.76 kg DN300 drain rows are missing from DRY; a full closed oblate-spheroid area
+  is charged twice for two half-heads; the steel sump is priced with aluminium density;
+  and the 350 kg cross-pump row duplicates inherited duty. Raw signed rows are preserved
+  unchanged in [exchange.json](exchange.json); the complete corrected dry bill, pickup
+  deadweight, whole-vehicle subtotal and all construction margins are UNKNOWN.
+- **Computed fluid states, liquid/relocation CG, nominal roll/pitch and the D1 boundary
+  moment are WITHDRAWN as construction results (F9, F10).** They are incomplete
+  fixed-point historical approximations: half/full service inventories share one fixed
+  centroid, hardware and pipe water are absent from the state gravity, no complete
+  aggregate wrench is formed, opposite-signed station arms were added same-sign, and the
+  D1 expression uses the opposite-side separation as an origin arm. UNKNOWN pickup
+  sharing does not qualify them.
+- **Inherited authority boundaries are mislabelled in public text (F11).** The 922.3 t·m
+  datum is the one-bay-empty **mid-D1** authority, not D2_end; the so-called
+  ceiling/floor caps are total/per-bag caps. baseline.json:151–152 and the saved output
+  remain unchanged historical mislabels; no replacement cap or inherited acceptance is
+  claimed.
+- Inherited FAILs remain: economics 35.1x vs SEAT, fuel shortfalls 0.245/0.351 t. The
+  moored reset/partial-energy scope is preserved; the withdrawn I032 hand numbers remain
+  withdrawn; no accepted tanks data is fabricated.
 
 ## Honesty ledger
 
@@ -81,20 +112,20 @@ Every unproved property stays UNKNOWN in [exchange.json](exchange.json): fit in 
 divider both-direction pressure/structural adequacy, vent P/V qualification, switch-event
 actuation/drainage/contamination/duration, valve capacity, transients/anti-slosh adequacy
 of the repartitioned baffles, occupancy/bag shape, one-empty minimum-air recovery, full
-energy closure. No favourable screen, capacity margin beyond the geometric check, or
-physical float is claimed. The withdrawn I032 hand numbers remain withdrawn; no accepted
-tanks data is fabricated.
+energy closure. No favourable screen or physical float is claimed; the geometric capacity
+check itself is withdrawn (F1), so no capacity margin of any size stands.
 
 ## Weakest assumption
 
-That a fixed divider plus fully independent plumbing still leaves enough usable capacity
-while carrying concurrent service pressure and full pickup loads — the 0.58 m³ service
-margin is the thinnest number in this unit.
+Whether the actual partitioned tanks and fully segregated plumbing leave usable capacity
+at all while transmitting concurrent liquid loads through a complete paid support system.
+The saved capacity margin is unestablished (F1); no thin-margin number from this unit is
+treated as real.
 
 ## Next unissued hypothesis
 
 A fully paid **external small reserve tank** replacing the 5 t internal freshwater reserve,
-returning the lost upper-barrel volume to scoop service. Not studied here; a separate frozen
-unit would be required.
+returning the lost upper-barrel volume to scoop service. Unissued, untested DESIGN
+hypothesis only; a separate frozen unit would be required.
 
 Ancestral context: [../R3-I032/README.md](../R3-I032/README.md), [../R3-I027/README.md](../R3-I027/README.md).

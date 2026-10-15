@@ -6,30 +6,30 @@
  "new_unit_sources": [
   {
    "path": "research/design-iterations/R3-I035/baseline.json",
-   "role": "saved-input assembly: frozen geometry, partition design, inventories, mission law, paid hardware list, acceptance demands; NOT a calculator output",
+   "role": "archived input assembly with known omissions and misattributions (missing steel sump specification, mislabelled authority caps at baseline.json:151-152): frozen geometry, partition design, inventories, mission law, selected/intended hardware list, acceptance demands; NOT a calculator output and NOT a validated complete paid bill",
    "producer": "assembled by this unit from the accepted R3-I032 record plus the frozen partition design; committed at this unit's governed tip and hash-bound in the private pre-run manifest before any invocation"
   },
   {
    "path": "research/design-iterations/R3-I035/exchange.py",
-   "role": "finite exchange calculator: capacities, complete paid mass bill, CG, nominal + eight fixed skew event cases, boundary states, honest FAIL/UNKNOWN verdicts",
+   "role": "finite exchange calculator whose saved capacity, mass-bill, CG and moment outputs are withdrawn defective historical quantities (eleven MEDIUM findings F1-F11, all OPEN); only its nominal command schedule and eight fixed skew timing cases survive as separately qualified command-law results; it is NOT a validator of usable capacity, complete hardware mass or CG",
    "producer": "this unit; stdlib-only (hashlib/json/math/sys/pathlib); writes exchange.json; bound in the private pre-run manifest before its single guarded invocation"
   },
   {
    "path": "research/design-iterations/R3-I035/exchange.json",
-   "role": "output of exchange.py; contents are calculation results with verdicts, never evidence of physical adequacy",
+   "role": "unchanged output of exchange.py: defective historical quantities (negative, omitted, duplicated and mis-materialled mass rows; withdrawn capacity, CG and moments) with separately qualified command-law results (nominal schedule and eight conditional timing FAILs); never evidence of physical adequacy or construction margins",
    "producer": "research/design-iterations/R3-I035/exchange.py (declared in .helm/derived-paths)"
   }
  ],
  "ancestor_sources_read_as_data_only": [
-  {"path": "research/design-iterations/R3-I032/README.md", "blob_at_base": "4ab3cff2cea8aa78fd2397bc010ebbf32cb4bd4c", "use": "accepted I032 record of geometry/status; read as text, no execution"},
+  {"path": "research/design-iterations/R3-I032/README.md", "blob_at_base": "4ab3cff2cea8aa78fd2397bc010ebbf32cb4bd4c", "use": "I032 record read as text, no execution; its withdrawn hand numbers stay withdrawn and nothing in it is re-accepted as capacity, mass or authority data"},
   {"path": "research/design-iterations/R3-I032/baseline.json", "blob_at_base": "3d5a4ec96745eb294899c7e5f3fe8a91302a85ca", "use": "saved inputs carried into the R3-I035 assembly (stock, positions, rates, inherited data); read as data, never imported by exchange.py"},
   {"path": "research/design-iterations/R3-I032/sources.json", "blob_at_base": "b089e2a82862b6fc42a7d24bca9a0246cebc3e14", "use": "provenance of the I032 inputs; read as data"},
-  {"path": "research/design-iterations/R3-I032/tanks.py", "blob_at_base": "ff8075a07e6226f0d4c040fe6476b0f6c68548a2", "use": "withdrawn I032 calculator; NOT executed, NOT imported; its withdrawn hand numbers are not reused; consulted only as text for the exact oblate-head surface-area formula reused in exchange.py"},
+  {"path": "research/design-iterations/R3-I032/tanks.py", "blob_at_base": "ff8075a07e6226f0d4c040fe6476b0f6c68548a2", "use": "withdrawn I032 calculator; NOT executed, NOT imported; its withdrawn hand numbers are not reused; consulted only as text, and no formula taken from it is validated or exact: the oblate-head surface-area form reused in exchange.py is itself defective there (full closed area charged twice for two half-heads, F4)"},
   {"path": "research/design-iterations/R3-I027/README.md", "blob_at_base": "450b0e7177d5601293916da6c5394f2c9464b5ab", "use": "ancestor record read as text"},
   {"path": "research/design-iterations/R3-I027/sources.json", "blob_at_base": "d61b599ac33478752f2493b004f07a535c8714d9", "use": "ancestor provenance read as data"},
   {"path": "research/design-iterations/R3-I003/README.md", "blob_at_base": "11db1f30487c21884576f543d6d93875c98e1d11", "use": "ancestor record read as text"}
  ],
  "no_drawing": "no drawing/render/preview source exists for this unit; none is claimed",
  "no_ancestor_execution": "no ancestor calculator is executed or imported by this unit; the two failed I032 starts and their guard STOP remain part of the record and are not retried here",
- "execution_record": "exchange.py is invoked at most under the private guarded launcher adaptation recorded in this unit's private evidence; every start (success, crash, or guard failure) is counted there"
+ "execution_record": "exchange.py has exactly one supported guarded payload start, recorded in this unit's private evidence; the separately reported failed authoring/compilation attempts never started it; every start (success, crash, or guard failure) is counted there"
 }
