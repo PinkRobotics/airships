@@ -104,8 +104,20 @@ def main():
     def boundary(ident,point,kind,owner,sourceids=None,**extra):
         boundaries.append(dict(id=ident,pointXRTm=point,kind=kind,receiver=owner,stockIDs=sourceids or [],forceXRTn=None,coupleAtBoundaryXRTnm=None,completeCapacity=None,**extra))
     def weld_line(name,length,c,receiver,line,supported):
-        ident=paid(name,rho*.5*D['weldLegM']**2*length,c,dict(legM=D['weldLegM'],lengthM=length),receiver,qualification='Geometric fillet stock paid once. Unsupported requested edge is paid uninstalled stock, not an actual weld/load path.')
+        leg=D['weldLegM'];mass_kg=rho*.5*D['weldLegM']**2*length;dimensions=dict(legM=leg,lengthM=length)
+        qualification='Geometric fillet stock paid once. Unsupported requested edge is paid uninstalled stock, not an actual weld/load path.'
+        if line['kind']=='circle':
+            # External equal-leg triangular section: its radial centroid is R+a/3.
+            # The root-circle centre remains an assumed gravity accounting point.
+            radius=line['radiusM'];centroid_radius=radius+leg/3
+            volume=.5*leg**2*2*math.pi*centroid_radius
+            mass_kg=rho*volume
+            dimensions.update(rootRadiusM=radius,crossSectionCentroidRadiusM=centroid_radius,volumeM3=volume,volumeMethod='(a*a/2)*2*pi*(R+a/3) for an external equal-leg circular fillet')
+            qualification='Full curved external fillet stock paid once. Gravity assigned to the root-circle centre as an accounting assumption; exact physical fillet centroid and installation are not established.'
+        ident=paid(name,mass_kg,c,dimensions,receiver,qualification=qualification)
         row=dict(id=ident,line=line,lengthM=length,legM=D['weldLegM'],centroidXRTm=c,receiver=receiver,actualMeetingSteel=supported,capacity=None)
+        if line['kind']=='circle':
+            row.update(centroidXRTm=None,bookkeepingCentreXRTm=c,centreQualification='Root-circle centre used for accounting gravity only; exact physical fillet centroid UNKNOWN.',volumeM3=volume,crossSectionCentroidRadiusM=centroid_radius)
         (welds if supported else unplaced_welds).append(row)
         boundary(ident+'-joint',c,'actual weld line' if supported else 'requested weld without finite fillet backing',receiver,[ident],activeLoadPath=supported)
         return ident
@@ -198,7 +210,10 @@ def main():
         x['massKg']=retained_byid[x['sourceStockID']]['massPerModuleKg']/8
         gravity.append(dict(x,item='retained M24 end1 backer',qualification='Same paid row; now explicit issued behind-bridge location.'))
     for x in stock:
-        gravity.append(dict(id=x['id'],item=x['item'],massKg=x['massPerModuleKg'],pointXRTm=x['centreXRTm'],qualification='Full paid component/blank stock assigned once at stated bookkeeping centre. Cut scrap, unsupported weld stock and detachable tooling placement are assumptions, not extra contact.'))
+        qualification='Full paid component/blank stock assigned once at stated bookkeeping centre. Cut scrap, unsupported weld stock and detachable tooling placement are assumptions, not extra contact.'
+        if isinstance(x['dimensions'],dict) and 'crossSectionCentroidRadiusM' in x['dimensions']:
+            qualification+=' Circular fillet gravity uses the root-circle centre as an assumed accounting point, not an exact physical fillet centroid.'
+        gravity.append(dict(id=x['id'],item=x['item'],massKg=x['massPerModuleKg'],pointXRTm=x['centreXRTm'],qualification=qualification))
     newmass['knownPlacedLocalStockKgPerModule']=sum(x['massKg'] for x in gravity)
     newmass['accountingOnlyDisplacedKgPerModule']=parked_t*1000/repeat
     newmass['selectedLocalChargedKgPerModule']=mass['selectedLocalStockKgPerModule']+(new_t-removed_t)*1000/repeat

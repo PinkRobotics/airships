@@ -1,6 +1,6 @@
 # R3-I037 — wider split steel saddle at the finite A/B cuffs
 
-**FAIL / UNKNOWN. Physical float is NOT SHOWN.** The fixed saddle adds 217.279447 t of paid stock and conditionally displaces 116.555358 t, increasing the known hull by **100.724090 t**. The calculation records 169 positive material witnesses and 32 requested weld edges without finite backing for the specified fillet. All 31 predecessor tubes, their 62 plate locations and their existing failures remain. Neither the wider plates nor the nominal bolt lengths establish a usable connection.
+**FAIL / UNKNOWN. Physical float is NOT SHOWN.** The fixed saddle adds 217.346722 t of paid stock and conditionally displaces 116.555358 t, increasing the known hull by **100.791365 t**. The calculation records 169 positive material witnesses and 32 requested weld edges without finite backing for the specified fillet. All 31 predecessor tubes, their 62 plate locations and their existing failures remain. Neither the wider plates nor the nominal bolt lengths establish a usable connection.
 
 The unit is one fixed load-introduction change at the actual saved A/B cuffs. It does not solve a new aircraft, pressure system, frame or mission. Qualified retirement is **zero**; additional U+C, mission hardware, equipment/payload, global loaded shape and complete all-up mass remain unknown. The fixed-volume structural-vacuum comparison is separate from the helium/internal-envelope branch.
 
@@ -58,6 +58,10 @@ For M24, the head lies[−0.314,−0.294], incoming washer[−0.294,−0.290], r
 
 Each spacer has two independently identified compression contacts. A sleeve does not provide tensile capacity. The two liner interfaces, split planes, bridge/web cuts, each tie, each M24 connection, each weld edge, incoming plate interfaces and cuff-to-ring cuts have separate records. A nominal interface does not determine contact pressure or sharing.
 
+For each of the **64 external circular spacer-end fillets per module**, root radius R=0.030 m and equal leg a=0.012 m give volume **V=(a²/2)·2π(R+a/3)**. The triangular section's radial centroid is R+a/3; using only the root circumference omits the positive πa³/3 term. Each corrected circle is charged 0.120742715411 kg, an increase of 0.014205025342 kg over the original circular-stock record. Across 74 modules this adds **0.067275000022 t** to all corresponding stock and hull bounds, with the saved gravity and known-subset wrench records regenerated. Root-circle lengths, geometry, counts, straight weld rows and the removal list are unchanged.
+
+For circular fillet gravity, the full corrected stock mass remains assigned to the **root-circle centre as an accounting assumption**. This point is not the exact physical fillet centroid: `geometry.actualWeldLines` marks `centroidXRTm` null and gives the separate `bookkeepingCentreXRTm`. The radial cross-section centroid used in the volume formula does not establish the full fillet's physical centre of mass or an installed assembly.
+
 All spacer end circles and web connecting-face edges are listed once with12 mm equal-leg fillet stock. The saved result has **96 actual meeting-steel line records** and **32 unsupported requested edges** per module. A web edge at an outer R boundary, or at a saddle T end, lacks receiving steel outside the edge for the specified fillet. Those requested weld lengths remain paid as uninstalled stock; they are not called actual perimeter welds or given strength. The96 meeting-steel lines still have UNKNOWN fabrication, distortion and combined weld-group capacity. Full fillet volumes and access sweeps are not a demonstrated interference-free assembly.
 
 ## Finite geometry result
@@ -93,15 +97,15 @@ Every new part, complete bolt component, washer, independent backer, spacer, lin
 | Ledger, all74 physical modules | Tonnes |
 |---|---:|
 | Predecessor conditional hull | 6478.234514991365 |
-| Added saddle stock | 217.279447391278 |
+| Added saddle stock | 217.346722391300 |
 | Conditional identified subtraction | 116.555357500243 |
-| Net hull increase | 100.724089891035 |
-| New conditional hull | 6578.958604882400 |
+| Net hull increase | 100.791364891057 |
+| New conditional hull | 6579.025879882422 |
 | Residual gas, once | 8.086383338156 |
-| New conditional known subtotal | 6587.044988220557 |
-| No new I037 retirement subtotal | 6703.600345720800 |
-| Carried I033 no-retirement subtotal plus new stock | 7130.917592167977 |
-| Fully unretired historical subtotal plus new stock | 7561.583690396456 |
+| New conditional known subtotal | 6587.112263220579 |
+| No new I037 retirement subtotal | 6703.667620720822 |
+| Carried I033 no-retirement subtotal plus new stock | 7130.984867167999 |
+| Fully unretired historical subtotal plus new stock | 7561.650965396479 |
 | Qualified retirement | 0 |
 
 The no-retirement bounds are **alternative accounting cases**, never additions to each other or to the selected subtotal. Where displaced stock is carried, its storage and gravity placement are UNKNOWN; these cases are not demonstrated assembled configurations. The original I033 fully unretired historical subtotal7344.304243005178 t remains in the saved predecessor record, distinct from the updated bound that adds this unit's new stock.
@@ -110,8 +114,8 @@ The volume remains668852.7245692962 m³. The fixed lift and resulting known marg
 
 | Altitude m | Fixed lift t | Conditional known margin t | No new I037 retirement margin t | Fully unretired historical margin t |
 |---|---:|---:|---:|---:|
-| 0 | 819.352791739 | -5767.692196482 | -5884.247553982 | -6742.230898658 |
-| 2500 | 640.002052834 | -5947.042935387 | -6063.598292887 | -6921.581637563 |
+| 0 | 819.352791739 | -5767.759471482 | -5884.314828982 | -6742.298173658 |
+| 2500 | 640.002052834 | -5947.110210387 | -6063.665567887 | -6921.648912563 |
 
 Every margin still requires subtraction of additional U+C and mission/equipment/payload obligations. Unknown additions are not zero. No displacement gain, qualified saving or physical float follows from this mass comparison.
 
@@ -121,15 +125,15 @@ Every margin still requires subtraction of additional U+C and mission/equipment/
 
 For each keyed state, known placed-stock gravity is summed once with the fixed external pressure/film source wrenches about O. Moment transport is **M_Q=M_P+(P−Q)×F**. Polar force/position reflection uses Q=diag(−1,1,1); axial moments use det(Q)Q=diag(1,−1,−1), followed by the actual sector rotation. Opposite-cap moment origins are reflected too.
 
-The known placed-stock subset is 16948.829942877 kg per module. Another 146.278676550 kg per module is charged with unknown placement. Their mass reconciliation residual is 2.0747847884194925e-12 kg. This is an accounting identity, not a structural equilibrium or capacity proof. Older hull/global gravity and the unplaced charged stock's wrench remain unknown. Consequently the complete external and complete receiver-pair wrench fields remain null, alongside a separately labelled **known-subset** required receiver-pair wrench.
+The known placed-stock subset is 16949.739064499 kg per module. Another 146.278676550 kg per module is charged with unknown placement. Their mass reconciliation residual is 2.0747847884194925e-12 kg. This is an accounting identity, not a structural equilibrium or capacity proof. Older hull/global gravity and the unplaced charged stock's wrench remain unknown. Consequently the complete external and complete receiver-pair wrench fields remain null, alongside a separately labelled **known-subset** required receiver-pair wrench.
 
 For saved state `f0-s00`, the known-subset external wrench is:
 
 ```text
-F_XRT = [-1646438.5575694966, -166211.2431593145, 0.0] N
-M_O_XRT = [51.17048206400253, 1.0244548320770264e-08, 7405704.303081428] N m
-required receiver-pair force = [1646438.5575694966, 166211.2431593145, -0.0] N
-required receiver-pair moment about O = [-51.17048206400253, -1.0244548320770264e-08, -7405704.303081428] N m
+F_XRT = [-1646438.5575694966, -166220.15859686807, 0.0] N
+M_O_XRT = [51.17048206400253, 1.0244548320770264e-08, 7405365.13968219] N m
+required receiver-pair force = [1646438.5575694966, 166220.15859686807, -0.0] N
+required receiver-pair moment about O = [-51.17048206400253, -1.0244548320770264e-08, -7405365.13968219] N m
 ```
 
 The opposite wrench acts on the supporting structure. Neither A nor B is assigned half. Each state's252 new boundary records contain their listed components' own-stock gravity wrench about the named point and explicit null complete force/couple fields. Reusing a component's self-weight at several diagnostic cuts does **not** add that mass repeatedly to the external load ledger. The common boundary geometry and31-member/62-foot/12-node unresolved demand templates are stored once and referenced by state. A boundary's own-weight wrench is not the solved force on that contact.
