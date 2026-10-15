@@ -1,0 +1,164 @@
+{
+ "unit": "R3-I035",
+ "kind": "saved-input assembly (accepted I032 geometry plus frozen partition design); not a calculator output",
+ "base": {
+  "commit": "54114a7744e6769e7732476057c181cab545061f",
+  "tree": "21cc18217b3adc4291b5f43af05795e3f74920b1",
+  "landing": "landing77, attested 2026-10-14T18:01:40-07:00",
+  "accepted_i032_postimages": "seven paths byte-identical to the accepted archive at the base"
+ },
+ "frame": {
+  "axes": "+z upward, vehicle frame of the saved I032 design",
+  "hull": "circular midbody R 27.5 m, floor -27.5 m (I017 record); containment fit remains UNKNOWN (withdrawn I032 witness not reused)",
+  "coordinates": "tank mid-height centres"
+ },
+ "tanks": {
+  "stock": {
+   "od_m": 3.05,
+   "wall_mm": 3.0,
+   "shell_density_kg_m3": 2660.0,
+   "class": "5083-class declared assumption",
+   "head_outer_depth_m": 0.30,
+   "head_model": "oblate (ellipsoidal) cap, same wall offset as shell (inner depth 0.297 m, inner equatorial radius = ID/2)"
+  },
+  "uppers": {
+   "straight_m": 4.2,
+   "centre_z_m": -19.0,
+   "tanks": [
+    {"id": "B1-FL", "x": -14.0, "y": 11.0, "z": -19.0, "pair_lower": "B2-FR"},
+    {"id": "B4-AR", "x": 14.0, "y": -11.0, "z": -19.0, "pair_lower": "B3-AL"}
+   ],
+   "divider": {
+    "midplane_z_m": -20.35,
+    "height_above_bottom_tangent_m": 0.75,
+    "plate": "6 mm circular 5083-class plate cut to actual inner barrel diameter",
+    "seating_ring": "100 mm wide x 6 mm circumferential",
+    "stiffeners": "8 equally spaced radial T on underside: 100 mm deep x 6 mm web, 60 x 6 mm flange, from paid 200 mm OD central sump collar to ring; actual net lengths/overlaps/voids charged",
+    "welds": "6 mm continuous fillet seams at divider/ring boundaries, stiffener webs, collar intersections; no ideal rigid-joint credit",
+    "compartments": "bottom fresh reserve + upper switchable service"
+   },
+   "sump": {
+    "per_upper": "350 mm OD x 6 mm wall cylindrical cup, 100 mm below divider, 6 mm floor, DN300 service-drain throat; displaces reserve capacity"
+   },
+   "baffles": "the two original flow-through baffles repartitioned into the SERVICE chamber at z=-19.350 and -18.350 m; 3 mm plate, 8 x 150 mm holes each; reserve has no separate full-width baffle; anti-slosh adequacy UNKNOWN"
+  },
+  "lowers": {
+   "straight_m": 3.0,
+   "centre_z_m": -21.5,
+   "tanks": [
+    {"id": "B2-FR", "x": -14.0, "y": -11.0, "z": -21.5, "pair_upper": "B1-FL"},
+    {"id": "B3-AL", "x": 14.0, "y": 11.0, "z": -21.5, "pair_upper": "B4-AR"}
+   ],
+   "compartments": "retained freshwater chamber, original two baffles/ports retained"
+  }
+ },
+ "freeboard_rules": {
+  "reserve": "60 mm vertical gas/freeboard clearance measured below the divider underside",
+  "service": "60 mm below the actual inner top boundary, further limited by vent/overflow level",
+  "lower": "60 mm below the actual inner top boundary, further limited by vent/overflow level",
+  "max_level": "most restrictive surface; one world-z datum for head/barrel/divider/port/liquid boundaries"
+ },
+ "water": {
+  "density_t_m3": 1.0,
+  "species": "delivered freshwater and retained scoop countermass carried as separate ledgers; never mixed in a chamber",
+  "scoop_density_note": "scoop water assumed 1.0 t/m3 lake water (declared assumption)"
+ },
+ "inventories_per_upper_tank_t": {
+  "S0_pre_D1": {"service_fresh": 25.0, "reserve_fresh": 5.0, "scoop": 0.0},
+  "D1_end_before_switch": {"service_fresh": 0.0, "reserve_fresh": 5.0, "scoop": 0.0},
+  "D2_fraction_s": {"service_fresh": 0.0, "reserve_fresh": "5(1-s)", "scoop": "25.45 s"},
+  "D2_end": {"service_fresh": 0.0, "reserve_fresh": 0.0, "scoop": 25.45}
+ },
+ "inventories_per_lower_tank_t": {
+  "S0_pre_D1": 20.0,
+  "D2_fraction_s": "20(1-s)",
+  "D2_end": 0.0
+ },
+ "relocation": {
+  "scoop_total_t": 50.9,
+  "per_upper_service_t": 25.45,
+  "relocated_from_lower_t": 0.45,
+  "explicit": "the 0.9 t formerly allocated 0.45 t per lower tank moves upstairs; not discarded, no unchanged-CG claim; lower tanks freshwater-only during D2"
+ },
+ "mission": {
+  "initial_fresh_t": 100.0,
+  "D1_delivery_t": 50.0,
+  "D2_delivery_t": 50.0,
+  "D2_window_s": 2700.0,
+  "concurrent": "scoop receipt and D2 delivery concurrent in the SAME 45-minute window, both pairs",
+  "D1_timing": "inherited I017/I032 timing and mismatch constraints; 25 t drained from each upper service chamber; no reserve transfer before/during D1",
+  "switch_event": "close both service delivery isolators, close positive blank, isolate/bleed interspace, confirm service drained, enable scoop fill; actuation/drainage/contamination/duration UNKNOWN unless bounded",
+  "no_relaxation": "no tank resizing, water/payload relaxation, nine-minute D2 substitution, sequential-pair shortcut or extra flight window"
+ },
+ "flow_rates_nominal_per_pair_kg_s": {
+  "upper_reserve_transfer": "5000/T (internal, never additional delivered mass)",
+  "lower_supply": "20000/T",
+  "external_delivery": "25000/T",
+  "scoop_receipt": "25450/T",
+  "internal_split": "reserve:lower = 1:4 relative to that pair's outgoing command"
+ },
+ "skew_cases": {
+  "checkpoints_s": [0.0, 675.0, 1350.0, 2025.0, 2700.0],
+  "cases": "exactly eight: leading pair A or B; eps = +0.05 or -0.05; delta = 0 or 2 s",
+  "law": "leading pair freshwater commands x (1+eps), scoop x (1-eps); lagging pair starts delta later with opposite rate errors; internal fresh transfer and lower draw retain the 1:4 split relative to that pair's outgoing command",
+  "clamp": "clamp inventory by the finite source/command target only, NEVER by capacity to hide overflow",
+  "breakpoints": "include start + T/(1+/-eps) symbolically when within 0..T, all nominal checkpoints and T",
+  "unfinished": "report unfinished delivery/receipt at T as a timing FAIL, not a permitted extension",
+  "boundary_cases": "D1 one-upper-service-empty/other-full; each switch-not-confirmed state; no perfect-simultaneity assumption",
+  "unknown": "extra transient/closed-loop recovery; no optimisation or continuous sweep"
+ },
+ "paid_hardware_per_upper_tank": {
+  "service_drain_DN300": {
+   "pipe": "324 mm OD / 312 mm ID steel, divider sump vertically through reserve to original lower-head apex region + 300 mm external stub",
+   "valves": "2 x DN300 isolation in series, 70 kg each declared complete-body with actuator, 400 mm face-to-face",
+   "blank": "10 kg removable positive blank between them",
+   "bleed": "5 kg interspace bleed valve to service reset drain",
+   "door_reuse": "old D1 door hardware only with exact retained mass/duty; valves do not certify inherited fast-drop timing"
+  },
+  "reserve_draw_nozzle": {"pipe": "114.3/108.3 mm, 300 mm stub, axis toward paired lower", "valves": "2 x DN100 15 kg + 1 x DN100 12 kg check, 200 mm face-to-face", "fit": "curved-head intersection and deadwater are new finite fit questions"},
+  "fresh_fill": {"nozzle": "DN100 with 15 kg valve into reserve", "separate": "service access must not use the scoop chamber"},
+  "scoop_fill": {"pipe": "114.3/108.3 mm at upper head apex, 300 mm external stub", "valves": "DN100 15 kg isolation + 12 kg check, 200 mm face-to-face", "downpipe": "500 mm internal + 300x300x6 mm splash plate", "no_claim": "no jet/vent capacity asserted"},
+  "vents": {"count": "2 independent DN50 per upper tank, one per compartment", "pipe": "60.3/54.3 mm steel", "reserve_riser": "passes through service compartment, fully sealed sleeve, 25 mm radial clearance, paid annular closure plates", "each": "12 kg P/V vent assembly + 5 kg liquid trap + 5 kg drain valve", "no_shared_path": "no shared vent path fresh/scoop", "unknown": "P/V ratings and atmospheric termination qualification"},
+  "reset_drains": {"service": "DN80 88.9/82.9 mm stub at sump + 15 kg valve", "reserve": "separate matching DN80 reset drain"},
+  "instrumentation": {"per_compartment": "2 x 3 kg level channels + 1 x 2 kg pressure channel", "controller": "1 x 10 kg interlocked valve controller per upper tank", "qualification": "paid assumed devices, not proven functional safety"}
+ },
+ "transfer_equipment_per_pair": {
+  "fresh_pump": {"assumed": "20 kg/s @ 0.20 MPa, 45 kg", "suction": "the isolated 5 t reserve, NOT the service sump", "retained": "both old 15 kg valves, 12 kg wiring", "pipe": "25 m 80/74 mm allowance superseded by the actual enumerated route below if longer; pay additional, never truncate"},
+  "scoop_pump_per_upper": {"assumed": "20 kg/s @ 0.20 MPa, 45 kg", "fittings": "2 x 15 kg isolators + 12 kg check + 10 kg strainer + 12 kg wiring/drive"},
+  "retained_cross_pump": "inherited 0.35 t cross-pump with unresolved duty; not auto-retired by the new pumps"
+ },
+ "route_nodes": {
+  "scoop": {"S": "(x,0,-26.5)", "P": "(x,0,-23.5)", "V": "(x,y_U,-23.5)", "F": "(x,y_U,-16.3)", "pipe": "DN100 S->P->V->F->service fill nozzle, axis-aligned except finite end connector", "elbows": "300 mm centreline radius at each 90 deg; no zero-length corner", "S_status": "proposed paid datum, NOT an existing port; S-to-existing-scoop connection is paid unresolved C if original endpoints are absent"},
+  "fresh": {"nodes": "reserve draw nozzle -> (x,y_U,-23.0) -> (x,y_L,-23.0) -> lower top inlet (outer-head apex + 300 mm stub)", "pipe": "80/74 mm, 200 mm centreline elbows"},
+  "vents": {"nodes": "compartment riser -> (x,y_U,-27.8), second vent offset +0.30 m in x", "status": "proposals beyond the declared -27.5 m hull floor, not known installed openings", "per_penetration": "5 kg weather hood + 15 kg flanged collar/cuff + 300x300x6 mm reinforcement blank EACH side", "unknown": "pressure-hull/load-path qualification"}
+ },
+ "supports": {
+  "pipe_stock_steel_kg_m3": 7850.0,
+  "clamps": "2 kg clamp + 1 kg support bracket per 2 m maximum straight spacing and at each elbow/valve/pump, exact count, never rounded down",
+  "bracket": "200x200x8 mm plate + 4 x M12x80 with full heads/nuts/washers",
+  "P_frame_per_pair": "at each P: 1000x800x10 mm aluminium plate (2700 kg/m3 declared), 2 x 1000 mm RHS100x100x6 rails, 2 x 800 mm crossrails, 4 x 300x250x10 gussets, 8 x M16x120 through-bolts with full washers/nuts/heads",
+  "attachment": "proposed brackets attach to named new tank bands/manifold supports; old-frame connection undrawn => explicit C duty; no free fixed support; existing pickup identities/spacing not supplied by the I032 baseline => finite attachment/capacity UNKNOWN"
+ },
+ "inherited_charges": {
+  "i017_retained_t": {"fitout_grating_piping_etc": 2.37, "empty_bay_structure": 0.71, "fasteners": 0.10, "pickup_fittings_unresolved": 0.10},
+  "adapters": "45 kg per tank declared allowance + unresolved attachment C",
+  "fitout": "95 kg per tank declared allowance (I017 datum)",
+  "bands": "original bands at +/-1.20 m retained; new band stock if required is paid and UNKNOWN"
+ },
+ "inherited_mission_data": {
+  "lift_law": "1.02404 t lift per 1000 m3 (I017 record)",
+  "volumes_m3": {"ceiling": 220000.0, "floor": 217547.0},
+  "bag_caps_m3": {"ceiling": 110000.0, "floor": 55000.0},
+  "authority_datums_t_m": {"D0": 244.7, "D1_end": 650.8, "D2_end": 922.3},
+  "air_density_t_m3": 0.0009572,
+  "min_clearance_m": 0.50,
+  "mixture": 0.164045,
+  "economics_FAIL": "35.1x vs SEAT (inherited, unchanged)",
+  "fuel_shortfalls_t": {"33min": 0.245112, "half_pump": 0.350732},
+  "reset": "moored, no earlier than inherited 6.5 h; 50.9 t scoop separately drained; service chambers cleaned/isolated; 100 t fresh reloaded; species-consistent gas/air reset; 18.9 MJ PARTIAL energy scope inherited; new pumping/venting/cleaning/control energy additional or UNKNOWN"
+ },
+ "i017_comparison_note": "accepted I017's attributed 6.0 t drawn set compares only under a reconciled common duty boundary; withdrawn I032 hand numbers (2.07/0.46/0.23 t, 66.41 t) are not reused",
+ "withdrawn_from_i032": "all I032 hand equations/mass/capacity claims remain withdrawn; no accepted tanks.json exists or is fabricated",
+ "acceptance_demands_t": {"reserve_fresh": 5.0, "service_D1_fresh": 25.0, "service_scoop": 25.45, "lower_fresh": 20.0},
+ "unknown_where_unproved": ["complete bill vs unpriced C duties", "fit in hull", "pressure/structural adequacy incl. divider both-direction loading", "capacity beyond the geometric check", "trim/load-sharing beyond the declared W/2 ideal convention", "occupancy/bag shape", "curtain/socket qualification", "one-empty minimum-air recovery", "valve capacity", "transients", "full energy closure"]
+}

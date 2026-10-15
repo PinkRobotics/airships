@@ -1,0 +1,1582 @@
+{
+ "unit": "R3-I035",
+ "kind": "finite exchange calculation output",
+ "baseline_sha256": "fd73827407aef546f8900fbf9dfcd49259f04e115dd01045978c086bc82e8ce2",
+ "geometry": {
+  "inner_radius_m": 1.522,
+  "inner_head_depth_m": 0.297,
+  "V_reserve_usable_m3": 6.455,
+  "V_service_usable_m3": 26.03,
+  "V_lower_usable_m3": 24.241,
+  "freeboard_applied": {
+   "reserve_below_divider_m": 0.06,
+   "service_below_inner_apex_m": 0.06,
+   "lower_below_inner_apex_m": 0.06
+  },
+  "displaced_charged": {
+   "reserve_m3": 0.0075,
+   "service_m3": 0.0439,
+   "lower_m3": 0.0428,
+   "divider_boundary_m3": 0.0594
+  }
+ },
+ "capacity": [
+  {
+   "compartment": "upper reserve fresh",
+   "usable_m3": 6.455,
+   "demand_m3": 5.0,
+   "margin_m3": 1.455,
+   "verdict": "PASS"
+  },
+  {
+   "compartment": "upper service (max of D1 fresh / scoop)",
+   "usable_m3": 26.03,
+   "demand_m3": 25.45,
+   "margin_m3": 0.58,
+   "verdict": "PASS"
+  },
+  {
+   "compartment": "lower fresh",
+   "usable_m3": 24.241,
+   "demand_m3": 20.0,
+   "margin_m3": 4.241,
+   "verdict": "PASS"
+  }
+ ],
+ "capacity_verdict": "ALL PASS (geometric fit of frozen inventories)",
+ "mass_bill_kg": [
+  {
+   "id": "upper shell x2",
+   "kg": 1150.6,
+   "z_cg_m": -19.0,
+   "note": "barrel+2 oblate heads, exact dome area"
+  },
+  {
+   "id": "lower shell x2",
+   "kg": 967.27,
+   "z_cg_m": -21.5,
+   "note": "same"
+  },
+  {
+   "id": "divider plates x2",
+   "kg": 232.3,
+   "z_cg_m": -20.35,
+   "note": "6 mm plate cut to inner diameter"
+  },
+  {
+   "id": "seating rings x2",
+   "kg": 29.52,
+   "z_cg_m": -20.35,
+   "note": "100x6 circumferential"
+  },
+  {
+   "id": "T stiffeners x16",
+   "kg": 54.01,
+   "z_cg_m": -20.4,
+   "note": "8 per divider, 100x6 web + 60x6 flange"
+  },
+  {
+   "id": "sump cups x2",
+   "kg": 6.31,
+   "z_cg_m": -20.4,
+   "note": "350 OD x 6 wall x 100 deep + floor"
+  },
+  {
+   "id": "service baffles x4",
+   "kg": 227.78,
+   "z_cg_m": -18.85,
+   "note": "repartitioned at -19.350/-18.350"
+  },
+  {
+   "id": "lower baffles x4",
+   "kg": 227.78,
+   "z_cg_m": -21.5,
+   "note": "retained"
+  },
+  {
+   "id": "DN300 service drains x2",
+   "kg": 126.76,
+   "z_cg_m": -21.5,
+   "note": "sump through reserve + stub"
+  },
+  {
+   "id": "fittings per upper x2",
+   "kg": 678.0,
+   "z_cg_m": -19.0,
+   "note": "declared complete-body masses from the frozen baseline"
+  },
+  {
+   "id": "unit pipes/nozzles x2",
+   "kg": -11.81,
+   "z_cg_m": -20.0,
+   "note": "stubs, downpipe, vents incl hoods/collars/blanks"
+  },
+  {
+   "id": "scoop route DN100 x2",
+   "kg": 385.13,
+   "z_cg_m": -22.0,
+   "note": "S->P->V->F exact nodes + 300 elbows"
+  },
+  {
+   "id": "fresh route 80/74 x2",
+   "kg": 285.32,
+   "z_cg_m": -22.7,
+   "note": "reserve->lower inlet exact nodes"
+  },
+  {
+   "id": "pumps/valves/wiring x2 pairs",
+   "kg": 392.0,
+   "z_cg_m": -23.5,
+   "note": "fresh 45 kg set + scoop 45 kg set"
+  },
+  {
+   "id": "P-frames x2",
+   "kg": 223.41,
+   "z_cg_m": -23.5,
+   "note": "plate+rails+gussets+bolts at P"
+  },
+  {
+   "id": "clamps/brackets",
+   "kg": 181.41,
+   "z_cg_m": -22.0,
+   "note": "31 clamps exact count"
+  },
+  {
+   "id": "retained I017 lines + adapters + fitout + cross-pump",
+   "kg": 4190.0,
+   "z_cg_m": -20.0,
+   "note": "declared allowances; adapters/attachment C unresolved"
+  },
+  {
+   "id": "DRY TOTAL",
+   "kg": 8991.26,
+   "z_cg_m": 0.0,
+   "note": "sum of rows above; complete bill conditional on unpriced C duties"
+  }
+ ],
+ "dry_total_t": 8.991,
+ "dry_verdict": "conditional: unpriced C duties (adapter attachment, old-frame brackets, S-to-scoop link) keep the complete bill UNKNOWN",
+ "fluid_states": [
+  {
+   "state": "S0/pre-D1",
+   "per_pair_service_t": 25.0,
+   "reserve_t": 5.0,
+   "lower_t": 20.0,
+   "scoop_t": 0.0,
+   "total_water_t": 100.0,
+   "fluid_cg_z_m": -19.88
+  },
+  {
+   "state": "D1 end",
+   "per_pair_service_t": 0.0,
+   "reserve_t": 5.0,
+   "lower_t": 20.0,
+   "scoop_t": 0.0,
+   "total_water_t": 50.0,
+   "fluid_cg_z_m": -21.36
+  },
+  {
+   "state": "D2 mid s=0.5",
+   "per_pair_service_t": 0.0,
+   "reserve_t": 2.5,
+   "lower_t": 10.0,
+   "scoop_t": 12.725,
+   "total_water_t": 50.45,
+   "fluid_cg_z_m": -19.867
+  },
+  {
+   "state": "D2 end",
+   "per_pair_service_t": 0.0,
+   "reserve_t": 0.0,
+   "lower_t": 0.0,
+   "scoop_t": 25.45,
+   "total_water_t": 50.9,
+   "fluid_cg_z_m": -18.4
+  }
+ ],
+ "events_nominal": {
+  "leader": "A",
+  "eps": 0.0,
+  "delta_s": 0.0,
+  "rates": {
+   "A": {
+    "start_delay_s": 0.0,
+    "fresh_mult": 1.0,
+    "scoop_mult": 1.0,
+    "r_res": 1.8518518518518519,
+    "r_low": 7.407407407407407,
+    "r_out": 9.25925925925926,
+    "r_scoop": 9.425925925925926
+   },
+   "B": {
+    "start_delay_s": 0.0,
+    "fresh_mult": 1.0,
+    "scoop_mult": 1.0,
+    "r_res": 1.8518518518518519,
+    "r_low": 7.407407407407407,
+    "r_out": 9.25925925925926,
+    "r_scoop": 9.425925925925926
+   }
+  },
+  "breakpoints": [
+   {
+    "t_s": 0.0,
+    "A": {
+     "out_t": 0.0,
+     "reserve_left_t": 5.0,
+     "lower_left_t": 20.0,
+     "scoop_t": 0.0
+    },
+    "B": {
+     "out_t": 0.0,
+     "reserve_left_t": 5.0,
+     "lower_left_t": 20.0,
+     "scoop_t": 0.0
+    }
+   },
+   {
+    "t_s": 675.0,
+    "A": {
+     "out_t": 6.25,
+     "reserve_left_t": 3.75,
+     "lower_left_t": 15.0,
+     "scoop_t": 6.3625
+    },
+    "B": {
+     "out_t": 6.25,
+     "reserve_left_t": 3.75,
+     "lower_left_t": 15.0,
+     "scoop_t": 6.3625
+    }
+   },
+   {
+    "t_s": 1350.0,
+    "A": {
+     "out_t": 12.5,
+     "reserve_left_t": 2.5,
+     "lower_left_t": 10.0,
+     "scoop_t": 12.725
+    },
+    "B": {
+     "out_t": 12.5,
+     "reserve_left_t": 2.5,
+     "lower_left_t": 10.0,
+     "scoop_t": 12.725
+    }
+   },
+   {
+    "t_s": 2025.0,
+    "A": {
+     "out_t": 18.75,
+     "reserve_left_t": 1.25,
+     "lower_left_t": 5.0,
+     "scoop_t": 19.0875
+    },
+    "B": {
+     "out_t": 18.75,
+     "reserve_left_t": 1.25,
+     "lower_left_t": 5.0,
+     "scoop_t": 19.0875
+    }
+   },
+   {
+    "t_s": 2700.0,
+    "A": {
+     "out_t": 25.0,
+     "reserve_left_t": 0.0,
+     "lower_left_t": 0.0,
+     "scoop_t": 25.45
+    },
+    "B": {
+     "out_t": 25.0,
+     "reserve_left_t": 0.0,
+     "lower_left_t": 0.0,
+     "scoop_t": 25.45
+    }
+   }
+  ],
+  "unfinished": []
+ },
+ "skew_cases": [
+  {
+   "leader": "A",
+   "eps": 0.05,
+   "delta_s": 0.0,
+   "rates": {
+    "A": {
+     "start_delay_s": 0.0,
+     "fresh_mult": 1.05,
+     "scoop_mult": 0.95,
+     "r_res": 1.9444444444444444,
+     "r_low": 7.777777777777778,
+     "r_out": 9.722222222222221,
+     "r_scoop": 8.954629629629629
+    },
+    "B": {
+     "start_delay_s": 0.0,
+     "fresh_mult": 0.95,
+     "scoop_mult": 1.05,
+     "r_res": 1.7592592592592593,
+     "r_low": 7.037037037037037,
+     "r_out": 8.796296296296296,
+     "r_scoop": 9.897222222222222
+    }
+   },
+   "breakpoints": [
+    {
+     "t_s": 0.0,
+     "A": {
+      "out_t": 0.0,
+      "reserve_left_t": 5.0,
+      "lower_left_t": 20.0,
+      "scoop_t": 0.0
+     },
+     "B": {
+      "out_t": 0.0,
+      "reserve_left_t": 5.0,
+      "lower_left_t": 20.0,
+      "scoop_t": 0.0
+     }
+    },
+    {
+     "t_s": 675.0,
+     "A": {
+      "out_t": 6.5625,
+      "reserve_left_t": 3.6875,
+      "lower_left_t": 14.75,
+      "scoop_t": 6.0444
+     },
+     "B": {
+      "out_t": 5.9375,
+      "reserve_left_t": 3.8125,
+      "lower_left_t": 15.25,
+      "scoop_t": 6.6806
+     }
+    },
+    {
+     "t_s": 1350.0,
+     "A": {
+      "out_t": 13.125,
+      "reserve_left_t": 2.375,
+      "lower_left_t": 9.5,
+      "scoop_t": 12.0887
+     },
+     "B": {
+      "out_t": 11.875,
+      "reserve_left_t": 2.625,
+      "lower_left_t": 10.5,
+      "scoop_t": 13.3613
+     }
+    },
+    {
+     "t_s": 2025.0,
+     "A": {
+      "out_t": 19.6875,
+      "reserve_left_t": 1.0625,
+      "lower_left_t": 4.25,
+      "scoop_t": 18.1331
+     },
+     "B": {
+      "out_t": 17.8125,
+      "reserve_left_t": 1.4375,
+      "lower_left_t": 5.75,
+      "scoop_t": 20.0419
+     }
+    },
+    {
+     "t_s": 2571.429,
+     "A": {
+      "out_t": 25.0,
+      "reserve_left_t": 0.0,
+      "lower_left_t": 0.0,
+      "scoop_t": 23.0262
+     },
+     "B": {
+      "out_t": 22.619,
+      "reserve_left_t": 0.4762,
+      "lower_left_t": 1.9048,
+      "scoop_t": 25.45
+     }
+    },
+    {
+     "t_s": 2700.0,
+     "A": {
+      "out_t": 25.0,
+      "reserve_left_t": 0.0,
+      "lower_left_t": 0.0,
+      "scoop_t": 24.1775
+     },
+     "B": {
+      "out_t": 23.75,
+      "reserve_left_t": 0.25,
+      "lower_left_t": 1.0,
+      "scoop_t": 25.45
+     }
+    }
+   ],
+   "unfinished": [
+    {
+     "pair": "A",
+     "kind": "scoop receipt",
+     "delivered_kg": 24177.5,
+     "target_kg": 25450.0,
+     "short_kg": 1272.5,
+     "symbolic_completion_s": "start+2842.11",
+     "verdict": "TIMING FAIL (unfinished at T; not a permitted extension)"
+    },
+    {
+     "pair": "B",
+     "kind": "fresh delivery",
+     "delivered_kg": 23750.0,
+     "target_kg": 25000.0,
+     "short_kg": 1250.0,
+     "symbolic_completion_s": "start+2842.11",
+     "verdict": "TIMING FAIL (unfinished at T; not a permitted extension)"
+    }
+   ]
+  },
+  {
+   "leader": "A",
+   "eps": 0.05,
+   "delta_s": 2.0,
+   "rates": {
+    "A": {
+     "start_delay_s": 0.0,
+     "fresh_mult": 1.05,
+     "scoop_mult": 0.95,
+     "r_res": 1.9444444444444444,
+     "r_low": 7.777777777777778,
+     "r_out": 9.722222222222221,
+     "r_scoop": 8.954629629629629
+    },
+    "B": {
+     "start_delay_s": 2.0,
+     "fresh_mult": 0.95,
+     "scoop_mult": 1.05,
+     "r_res": 1.7592592592592593,
+     "r_low": 7.037037037037037,
+     "r_out": 8.796296296296296,
+     "r_scoop": 9.897222222222222
+    }
+   },
+   "breakpoints": [
+    {
+     "t_s": 0.0,
+     "A": {
+      "out_t": 0.0,
+      "reserve_left_t": 5.0,
+      "lower_left_t": 20.0,
+      "scoop_t": 0.0
+     },
+     "B": {
+      "out_t": 0.0,
+      "reserve_left_t": 5.0,
+      "lower_left_t": 20.0,
+      "scoop_t": 0.0
+     }
+    },
+    {
+     "t_s": 2.0,
+     "A": {
+      "out_t": 0.0194,
+      "reserve_left_t": 4.9961,
+      "lower_left_t": 19.9844,
+      "scoop_t": 0.0179
+     },
+     "B": {
+      "out_t": 0.0,
+      "reserve_left_t": 5.0,
+      "lower_left_t": 20.0,
+      "scoop_t": 0.0
+     }
+    },
+    {
+     "t_s": 675.0,
+     "A": {
+      "out_t": 6.5625,
+      "reserve_left_t": 3.6875,
+      "lower_left_t": 14.75,
+      "scoop_t": 6.0444
+     },
+     "B": {
+      "out_t": 5.9199,
+      "reserve_left_t": 3.816,
+      "lower_left_t": 15.2641,
+      "scoop_t": 6.6608
+     }
+    },
+    {
+     "t_s": 1350.0,
+     "A": {
+      "out_t": 13.125,
+      "reserve_left_t": 2.375,
+      "lower_left_t": 9.5,
+      "scoop_t": 12.0887
+     },
+     "B": {
+      "out_t": 11.8574,
+      "reserve_left_t": 2.6285,
+      "lower_left_t": 10.5141,
+      "scoop_t": 13.3415
+     }
+    },
+    {
+     "t_s": 2025.0,
+     "A": {
+      "out_t": 19.6875,
+      "reserve_left_t": 1.0625,
+      "lower_left_t": 4.25,
+      "scoop_t": 18.1331
+     },
+     "B": {
+      "out_t": 17.7949,
+      "reserve_left_t": 1.441,
+      "lower_left_t": 5.7641,
+      "scoop_t": 20.0221
+     }
+    },
+    {
+     "t_s": 2571.429,
+     "A": {
+      "out_t": 25.0,
+      "reserve_left_t": 0.0,
+      "lower_left_t": 0.0,
+      "scoop_t": 23.0262
+     },
+     "B": {
+      "out_t": 22.6015,
+      "reserve_left_t": 0.4797,
+      "lower_left_t": 1.9188,
+      "scoop_t": 25.4302
+     }
+    },
+    {
+     "t_s": 2573.429,
+     "A": {
+      "out_t": 25.0,
+      "reserve_left_t": 0.0,
+      "lower_left_t": 0.0,
+      "scoop_t": 23.0441
+     },
+     "B": {
+      "out_t": 22.619,
+      "reserve_left_t": 0.4762,
+      "lower_left_t": 1.9048,
+      "scoop_t": 25.45
+     }
+    },
+    {
+     "t_s": 2700.0,
+     "A": {
+      "out_t": 25.0,
+      "reserve_left_t": 0.0,
+      "lower_left_t": 0.0,
+      "scoop_t": 24.1775
+     },
+     "B": {
+      "out_t": 23.7324,
+      "reserve_left_t": 0.2535,
+      "lower_left_t": 1.0141,
+      "scoop_t": 25.45
+     }
+    }
+   ],
+   "unfinished": [
+    {
+     "pair": "A",
+     "kind": "scoop receipt",
+     "delivered_kg": 24177.5,
+     "target_kg": 25450.0,
+     "short_kg": 1272.5,
+     "symbolic_completion_s": "start+2842.11",
+     "verdict": "TIMING FAIL (unfinished at T; not a permitted extension)"
+    },
+    {
+     "pair": "B",
+     "kind": "fresh delivery",
+     "delivered_kg": 23732.4,
+     "target_kg": 25000.0,
+     "short_kg": 1267.6,
+     "symbolic_completion_s": "start+2842.11",
+     "verdict": "TIMING FAIL (unfinished at T; not a permitted extension)"
+    }
+   ]
+  },
+  {
+   "leader": "A",
+   "eps": -0.05,
+   "delta_s": 0.0,
+   "rates": {
+    "A": {
+     "start_delay_s": 0.0,
+     "fresh_mult": 0.95,
+     "scoop_mult": 1.05,
+     "r_res": 1.7592592592592593,
+     "r_low": 7.037037037037037,
+     "r_out": 8.796296296296296,
+     "r_scoop": 9.897222222222222
+    },
+    "B": {
+     "start_delay_s": 0.0,
+     "fresh_mult": 1.05,
+     "scoop_mult": 0.95,
+     "r_res": 1.9444444444444444,
+     "r_low": 7.777777777777778,
+     "r_out": 9.722222222222221,
+     "r_scoop": 8.954629629629629
+    }
+   },
+   "breakpoints": [
+    {
+     "t_s": 0.0,
+     "A": {
+      "out_t": 0.0,
+      "reserve_left_t": 5.0,
+      "lower_left_t": 20.0,
+      "scoop_t": 0.0
+     },
+     "B": {
+      "out_t": 0.0,
+      "reserve_left_t": 5.0,
+      "lower_left_t": 20.0,
+      "scoop_t": 0.0
+     }
+    },
+    {
+     "t_s": 675.0,
+     "A": {
+      "out_t": 5.9375,
+      "reserve_left_t": 3.8125,
+      "lower_left_t": 15.25,
+      "scoop_t": 6.6806
+     },
+     "B": {
+      "out_t": 6.5625,
+      "reserve_left_t": 3.6875,
+      "lower_left_t": 14.75,
+      "scoop_t": 6.0444
+     }
+    },
+    {
+     "t_s": 1350.0,
+     "A": {
+      "out_t": 11.875,
+      "reserve_left_t": 2.625,
+      "lower_left_t": 10.5,
+      "scoop_t": 13.3613
+     },
+     "B": {
+      "out_t": 13.125,
+      "reserve_left_t": 2.375,
+      "lower_left_t": 9.5,
+      "scoop_t": 12.0887
+     }
+    },
+    {
+     "t_s": 2025.0,
+     "A": {
+      "out_t": 17.8125,
+      "reserve_left_t": 1.4375,
+      "lower_left_t": 5.75,
+      "scoop_t": 20.0419
+     },
+     "B": {
+      "out_t": 19.6875,
+      "reserve_left_t": 1.0625,
+      "lower_left_t": 4.25,
+      "scoop_t": 18.1331
+     }
+    },
+    {
+     "t_s": 2571.429,
+     "A": {
+      "out_t": 22.619,
+      "reserve_left_t": 0.4762,
+      "lower_left_t": 1.9048,
+      "scoop_t": 25.45
+     },
+     "B": {
+      "out_t": 25.0,
+      "reserve_left_t": 0.0,
+      "lower_left_t": 0.0,
+      "scoop_t": 23.0262
+     }
+    },
+    {
+     "t_s": 2700.0,
+     "A": {
+      "out_t": 23.75,
+      "reserve_left_t": 0.25,
+      "lower_left_t": 1.0,
+      "scoop_t": 25.45
+     },
+     "B": {
+      "out_t": 25.0,
+      "reserve_left_t": 0.0,
+      "lower_left_t": 0.0,
+      "scoop_t": 24.1775
+     }
+    }
+   ],
+   "unfinished": [
+    {
+     "pair": "A",
+     "kind": "fresh delivery",
+     "delivered_kg": 23750.0,
+     "target_kg": 25000.0,
+     "short_kg": 1250.0,
+     "symbolic_completion_s": "start+2842.11",
+     "verdict": "TIMING FAIL (unfinished at T; not a permitted extension)"
+    },
+    {
+     "pair": "B",
+     "kind": "scoop receipt",
+     "delivered_kg": 24177.5,
+     "target_kg": 25450.0,
+     "short_kg": 1272.5,
+     "symbolic_completion_s": "start+2842.11",
+     "verdict": "TIMING FAIL (unfinished at T; not a permitted extension)"
+    }
+   ]
+  },
+  {
+   "leader": "A",
+   "eps": -0.05,
+   "delta_s": 2.0,
+   "rates": {
+    "A": {
+     "start_delay_s": 0.0,
+     "fresh_mult": 0.95,
+     "scoop_mult": 1.05,
+     "r_res": 1.7592592592592593,
+     "r_low": 7.037037037037037,
+     "r_out": 8.796296296296296,
+     "r_scoop": 9.897222222222222
+    },
+    "B": {
+     "start_delay_s": 2.0,
+     "fresh_mult": 1.05,
+     "scoop_mult": 0.95,
+     "r_res": 1.9444444444444444,
+     "r_low": 7.777777777777778,
+     "r_out": 9.722222222222221,
+     "r_scoop": 8.954629629629629
+    }
+   },
+   "breakpoints": [
+    {
+     "t_s": 0.0,
+     "A": {
+      "out_t": 0.0,
+      "reserve_left_t": 5.0,
+      "lower_left_t": 20.0,
+      "scoop_t": 0.0
+     },
+     "B": {
+      "out_t": 0.0,
+      "reserve_left_t": 5.0,
+      "lower_left_t": 20.0,
+      "scoop_t": 0.0
+     }
+    },
+    {
+     "t_s": 2.0,
+     "A": {
+      "out_t": 0.0176,
+      "reserve_left_t": 4.9965,
+      "lower_left_t": 19.9859,
+      "scoop_t": 0.0198
+     },
+     "B": {
+      "out_t": 0.0,
+      "reserve_left_t": 5.0,
+      "lower_left_t": 20.0,
+      "scoop_t": 0.0
+     }
+    },
+    {
+     "t_s": 675.0,
+     "A": {
+      "out_t": 5.9375,
+      "reserve_left_t": 3.8125,
+      "lower_left_t": 15.25,
+      "scoop_t": 6.6806
+     },
+     "B": {
+      "out_t": 6.5431,
+      "reserve_left_t": 3.6914,
+      "lower_left_t": 14.7656,
+      "scoop_t": 6.0265
+     }
+    },
+    {
+     "t_s": 1350.0,
+     "A": {
+      "out_t": 11.875,
+      "reserve_left_t": 2.625,
+      "lower_left_t": 10.5,
+      "scoop_t": 13.3613
+     },
+     "B": {
+      "out_t": 13.1056,
+      "reserve_left_t": 2.3789,
+      "lower_left_t": 9.5156,
+      "scoop_t": 12.0708
+     }
+    },
+    {
+     "t_s": 2025.0,
+     "A": {
+      "out_t": 17.8125,
+      "reserve_left_t": 1.4375,
+      "lower_left_t": 5.75,
+      "scoop_t": 20.0419
+     },
+     "B": {
+      "out_t": 19.6681,
+      "reserve_left_t": 1.0664,
+      "lower_left_t": 4.2656,
+      "scoop_t": 18.1152
+     }
+    },
+    {
+     "t_s": 2571.429,
+     "A": {
+      "out_t": 22.619,
+      "reserve_left_t": 0.4762,
+      "lower_left_t": 1.9048,
+      "scoop_t": 25.45
+     },
+     "B": {
+      "out_t": 24.9806,
+      "reserve_left_t": 0.0039,
+      "lower_left_t": 0.0156,
+      "scoop_t": 23.0083
+     }
+    },
+    {
+     "t_s": 2573.429,
+     "A": {
+      "out_t": 22.6366,
+      "reserve_left_t": 0.4727,
+      "lower_left_t": 1.8907,
+      "scoop_t": 25.45
+     },
+     "B": {
+      "out_t": 25.0,
+      "reserve_left_t": 0.0,
+      "lower_left_t": 0.0,
+      "scoop_t": 23.0262
+     }
+    },
+    {
+     "t_s": 2700.0,
+     "A": {
+      "out_t": 23.75,
+      "reserve_left_t": 0.25,
+      "lower_left_t": 1.0,
+      "scoop_t": 25.45
+     },
+     "B": {
+      "out_t": 25.0,
+      "reserve_left_t": 0.0,
+      "lower_left_t": 0.0,
+      "scoop_t": 24.1596
+     }
+    }
+   ],
+   "unfinished": [
+    {
+     "pair": "A",
+     "kind": "fresh delivery",
+     "delivered_kg": 23750.0,
+     "target_kg": 25000.0,
+     "short_kg": 1250.0,
+     "symbolic_completion_s": "start+2842.11",
+     "verdict": "TIMING FAIL (unfinished at T; not a permitted extension)"
+    },
+    {
+     "pair": "B",
+     "kind": "scoop receipt",
+     "delivered_kg": 24159.6,
+     "target_kg": 25450.0,
+     "short_kg": 1290.4,
+     "symbolic_completion_s": "start+2842.11",
+     "verdict": "TIMING FAIL (unfinished at T; not a permitted extension)"
+    }
+   ]
+  },
+  {
+   "leader": "B",
+   "eps": 0.05,
+   "delta_s": 0.0,
+   "rates": {
+    "A": {
+     "start_delay_s": 0.0,
+     "fresh_mult": 0.95,
+     "scoop_mult": 1.05,
+     "r_res": 1.7592592592592593,
+     "r_low": 7.037037037037037,
+     "r_out": 8.796296296296296,
+     "r_scoop": 9.897222222222222
+    },
+    "B": {
+     "start_delay_s": 0.0,
+     "fresh_mult": 1.05,
+     "scoop_mult": 0.95,
+     "r_res": 1.9444444444444444,
+     "r_low": 7.777777777777778,
+     "r_out": 9.722222222222221,
+     "r_scoop": 8.954629629629629
+    }
+   },
+   "breakpoints": [
+    {
+     "t_s": 0.0,
+     "A": {
+      "out_t": 0.0,
+      "reserve_left_t": 5.0,
+      "lower_left_t": 20.0,
+      "scoop_t": 0.0
+     },
+     "B": {
+      "out_t": 0.0,
+      "reserve_left_t": 5.0,
+      "lower_left_t": 20.0,
+      "scoop_t": 0.0
+     }
+    },
+    {
+     "t_s": 675.0,
+     "A": {
+      "out_t": 5.9375,
+      "reserve_left_t": 3.8125,
+      "lower_left_t": 15.25,
+      "scoop_t": 6.6806
+     },
+     "B": {
+      "out_t": 6.5625,
+      "reserve_left_t": 3.6875,
+      "lower_left_t": 14.75,
+      "scoop_t": 6.0444
+     }
+    },
+    {
+     "t_s": 1350.0,
+     "A": {
+      "out_t": 11.875,
+      "reserve_left_t": 2.625,
+      "lower_left_t": 10.5,
+      "scoop_t": 13.3613
+     },
+     "B": {
+      "out_t": 13.125,
+      "reserve_left_t": 2.375,
+      "lower_left_t": 9.5,
+      "scoop_t": 12.0887
+     }
+    },
+    {
+     "t_s": 2025.0,
+     "A": {
+      "out_t": 17.8125,
+      "reserve_left_t": 1.4375,
+      "lower_left_t": 5.75,
+      "scoop_t": 20.0419
+     },
+     "B": {
+      "out_t": 19.6875,
+      "reserve_left_t": 1.0625,
+      "lower_left_t": 4.25,
+      "scoop_t": 18.1331
+     }
+    },
+    {
+     "t_s": 2571.429,
+     "A": {
+      "out_t": 22.619,
+      "reserve_left_t": 0.4762,
+      "lower_left_t": 1.9048,
+      "scoop_t": 25.45
+     },
+     "B": {
+      "out_t": 25.0,
+      "reserve_left_t": 0.0,
+      "lower_left_t": 0.0,
+      "scoop_t": 23.0262
+     }
+    },
+    {
+     "t_s": 2700.0,
+     "A": {
+      "out_t": 23.75,
+      "reserve_left_t": 0.25,
+      "lower_left_t": 1.0,
+      "scoop_t": 25.45
+     },
+     "B": {
+      "out_t": 25.0,
+      "reserve_left_t": 0.0,
+      "lower_left_t": 0.0,
+      "scoop_t": 24.1775
+     }
+    }
+   ],
+   "unfinished": [
+    {
+     "pair": "A",
+     "kind": "fresh delivery",
+     "delivered_kg": 23750.0,
+     "target_kg": 25000.0,
+     "short_kg": 1250.0,
+     "symbolic_completion_s": "start+2842.11",
+     "verdict": "TIMING FAIL (unfinished at T; not a permitted extension)"
+    },
+    {
+     "pair": "B",
+     "kind": "scoop receipt",
+     "delivered_kg": 24177.5,
+     "target_kg": 25450.0,
+     "short_kg": 1272.5,
+     "symbolic_completion_s": "start+2842.11",
+     "verdict": "TIMING FAIL (unfinished at T; not a permitted extension)"
+    }
+   ]
+  },
+  {
+   "leader": "B",
+   "eps": 0.05,
+   "delta_s": 2.0,
+   "rates": {
+    "A": {
+     "start_delay_s": 2.0,
+     "fresh_mult": 0.95,
+     "scoop_mult": 1.05,
+     "r_res": 1.7592592592592593,
+     "r_low": 7.037037037037037,
+     "r_out": 8.796296296296296,
+     "r_scoop": 9.897222222222222
+    },
+    "B": {
+     "start_delay_s": 0.0,
+     "fresh_mult": 1.05,
+     "scoop_mult": 0.95,
+     "r_res": 1.9444444444444444,
+     "r_low": 7.777777777777778,
+     "r_out": 9.722222222222221,
+     "r_scoop": 8.954629629629629
+    }
+   },
+   "breakpoints": [
+    {
+     "t_s": 0.0,
+     "A": {
+      "out_t": 0.0,
+      "reserve_left_t": 5.0,
+      "lower_left_t": 20.0,
+      "scoop_t": 0.0
+     },
+     "B": {
+      "out_t": 0.0,
+      "reserve_left_t": 5.0,
+      "lower_left_t": 20.0,
+      "scoop_t": 0.0
+     }
+    },
+    {
+     "t_s": 2.0,
+     "A": {
+      "out_t": 0.0,
+      "reserve_left_t": 5.0,
+      "lower_left_t": 20.0,
+      "scoop_t": 0.0
+     },
+     "B": {
+      "out_t": 0.0194,
+      "reserve_left_t": 4.9961,
+      "lower_left_t": 19.9844,
+      "scoop_t": 0.0179
+     }
+    },
+    {
+     "t_s": 675.0,
+     "A": {
+      "out_t": 5.9199,
+      "reserve_left_t": 3.816,
+      "lower_left_t": 15.2641,
+      "scoop_t": 6.6608
+     },
+     "B": {
+      "out_t": 6.5625,
+      "reserve_left_t": 3.6875,
+      "lower_left_t": 14.75,
+      "scoop_t": 6.0444
+     }
+    },
+    {
+     "t_s": 1350.0,
+     "A": {
+      "out_t": 11.8574,
+      "reserve_left_t": 2.6285,
+      "lower_left_t": 10.5141,
+      "scoop_t": 13.3415
+     },
+     "B": {
+      "out_t": 13.125,
+      "reserve_left_t": 2.375,
+      "lower_left_t": 9.5,
+      "scoop_t": 12.0887
+     }
+    },
+    {
+     "t_s": 2025.0,
+     "A": {
+      "out_t": 17.7949,
+      "reserve_left_t": 1.441,
+      "lower_left_t": 5.7641,
+      "scoop_t": 20.0221
+     },
+     "B": {
+      "out_t": 19.6875,
+      "reserve_left_t": 1.0625,
+      "lower_left_t": 4.25,
+      "scoop_t": 18.1331
+     }
+    },
+    {
+     "t_s": 2571.429,
+     "A": {
+      "out_t": 22.6015,
+      "reserve_left_t": 0.4797,
+      "lower_left_t": 1.9188,
+      "scoop_t": 25.4302
+     },
+     "B": {
+      "out_t": 25.0,
+      "reserve_left_t": 0.0,
+      "lower_left_t": 0.0,
+      "scoop_t": 23.0262
+     }
+    },
+    {
+     "t_s": 2573.429,
+     "A": {
+      "out_t": 22.619,
+      "reserve_left_t": 0.4762,
+      "lower_left_t": 1.9048,
+      "scoop_t": 25.45
+     },
+     "B": {
+      "out_t": 25.0,
+      "reserve_left_t": 0.0,
+      "lower_left_t": 0.0,
+      "scoop_t": 23.0441
+     }
+    },
+    {
+     "t_s": 2700.0,
+     "A": {
+      "out_t": 23.7324,
+      "reserve_left_t": 0.2535,
+      "lower_left_t": 1.0141,
+      "scoop_t": 25.45
+     },
+     "B": {
+      "out_t": 25.0,
+      "reserve_left_t": 0.0,
+      "lower_left_t": 0.0,
+      "scoop_t": 24.1775
+     }
+    }
+   ],
+   "unfinished": [
+    {
+     "pair": "A",
+     "kind": "fresh delivery",
+     "delivered_kg": 23732.4,
+     "target_kg": 25000.0,
+     "short_kg": 1267.6,
+     "symbolic_completion_s": "start+2842.11",
+     "verdict": "TIMING FAIL (unfinished at T; not a permitted extension)"
+    },
+    {
+     "pair": "B",
+     "kind": "scoop receipt",
+     "delivered_kg": 24177.5,
+     "target_kg": 25450.0,
+     "short_kg": 1272.5,
+     "symbolic_completion_s": "start+2842.11",
+     "verdict": "TIMING FAIL (unfinished at T; not a permitted extension)"
+    }
+   ]
+  },
+  {
+   "leader": "B",
+   "eps": -0.05,
+   "delta_s": 0.0,
+   "rates": {
+    "A": {
+     "start_delay_s": 0.0,
+     "fresh_mult": 1.05,
+     "scoop_mult": 0.95,
+     "r_res": 1.9444444444444444,
+     "r_low": 7.777777777777778,
+     "r_out": 9.722222222222221,
+     "r_scoop": 8.954629629629629
+    },
+    "B": {
+     "start_delay_s": 0.0,
+     "fresh_mult": 0.95,
+     "scoop_mult": 1.05,
+     "r_res": 1.7592592592592593,
+     "r_low": 7.037037037037037,
+     "r_out": 8.796296296296296,
+     "r_scoop": 9.897222222222222
+    }
+   },
+   "breakpoints": [
+    {
+     "t_s": 0.0,
+     "A": {
+      "out_t": 0.0,
+      "reserve_left_t": 5.0,
+      "lower_left_t": 20.0,
+      "scoop_t": 0.0
+     },
+     "B": {
+      "out_t": 0.0,
+      "reserve_left_t": 5.0,
+      "lower_left_t": 20.0,
+      "scoop_t": 0.0
+     }
+    },
+    {
+     "t_s": 675.0,
+     "A": {
+      "out_t": 6.5625,
+      "reserve_left_t": 3.6875,
+      "lower_left_t": 14.75,
+      "scoop_t": 6.0444
+     },
+     "B": {
+      "out_t": 5.9375,
+      "reserve_left_t": 3.8125,
+      "lower_left_t": 15.25,
+      "scoop_t": 6.6806
+     }
+    },
+    {
+     "t_s": 1350.0,
+     "A": {
+      "out_t": 13.125,
+      "reserve_left_t": 2.375,
+      "lower_left_t": 9.5,
+      "scoop_t": 12.0887
+     },
+     "B": {
+      "out_t": 11.875,
+      "reserve_left_t": 2.625,
+      "lower_left_t": 10.5,
+      "scoop_t": 13.3613
+     }
+    },
+    {
+     "t_s": 2025.0,
+     "A": {
+      "out_t": 19.6875,
+      "reserve_left_t": 1.0625,
+      "lower_left_t": 4.25,
+      "scoop_t": 18.1331
+     },
+     "B": {
+      "out_t": 17.8125,
+      "reserve_left_t": 1.4375,
+      "lower_left_t": 5.75,
+      "scoop_t": 20.0419
+     }
+    },
+    {
+     "t_s": 2571.429,
+     "A": {
+      "out_t": 25.0,
+      "reserve_left_t": 0.0,
+      "lower_left_t": 0.0,
+      "scoop_t": 23.0262
+     },
+     "B": {
+      "out_t": 22.619,
+      "reserve_left_t": 0.4762,
+      "lower_left_t": 1.9048,
+      "scoop_t": 25.45
+     }
+    },
+    {
+     "t_s": 2700.0,
+     "A": {
+      "out_t": 25.0,
+      "reserve_left_t": 0.0,
+      "lower_left_t": 0.0,
+      "scoop_t": 24.1775
+     },
+     "B": {
+      "out_t": 23.75,
+      "reserve_left_t": 0.25,
+      "lower_left_t": 1.0,
+      "scoop_t": 25.45
+     }
+    }
+   ],
+   "unfinished": [
+    {
+     "pair": "A",
+     "kind": "scoop receipt",
+     "delivered_kg": 24177.5,
+     "target_kg": 25450.0,
+     "short_kg": 1272.5,
+     "symbolic_completion_s": "start+2842.11",
+     "verdict": "TIMING FAIL (unfinished at T; not a permitted extension)"
+    },
+    {
+     "pair": "B",
+     "kind": "fresh delivery",
+     "delivered_kg": 23750.0,
+     "target_kg": 25000.0,
+     "short_kg": 1250.0,
+     "symbolic_completion_s": "start+2842.11",
+     "verdict": "TIMING FAIL (unfinished at T; not a permitted extension)"
+    }
+   ]
+  },
+  {
+   "leader": "B",
+   "eps": -0.05,
+   "delta_s": 2.0,
+   "rates": {
+    "A": {
+     "start_delay_s": 2.0,
+     "fresh_mult": 1.05,
+     "scoop_mult": 0.95,
+     "r_res": 1.9444444444444444,
+     "r_low": 7.777777777777778,
+     "r_out": 9.722222222222221,
+     "r_scoop": 8.954629629629629
+    },
+    "B": {
+     "start_delay_s": 0.0,
+     "fresh_mult": 0.95,
+     "scoop_mult": 1.05,
+     "r_res": 1.7592592592592593,
+     "r_low": 7.037037037037037,
+     "r_out": 8.796296296296296,
+     "r_scoop": 9.897222222222222
+    }
+   },
+   "breakpoints": [
+    {
+     "t_s": 0.0,
+     "A": {
+      "out_t": 0.0,
+      "reserve_left_t": 5.0,
+      "lower_left_t": 20.0,
+      "scoop_t": 0.0
+     },
+     "B": {
+      "out_t": 0.0,
+      "reserve_left_t": 5.0,
+      "lower_left_t": 20.0,
+      "scoop_t": 0.0
+     }
+    },
+    {
+     "t_s": 2.0,
+     "A": {
+      "out_t": 0.0,
+      "reserve_left_t": 5.0,
+      "lower_left_t": 20.0,
+      "scoop_t": 0.0
+     },
+     "B": {
+      "out_t": 0.0176,
+      "reserve_left_t": 4.9965,
+      "lower_left_t": 19.9859,
+      "scoop_t": 0.0198
+     }
+    },
+    {
+     "t_s": 675.0,
+     "A": {
+      "out_t": 6.5431,
+      "reserve_left_t": 3.6914,
+      "lower_left_t": 14.7656,
+      "scoop_t": 6.0265
+     },
+     "B": {
+      "out_t": 5.9375,
+      "reserve_left_t": 3.8125,
+      "lower_left_t": 15.25,
+      "scoop_t": 6.6806
+     }
+    },
+    {
+     "t_s": 1350.0,
+     "A": {
+      "out_t": 13.1056,
+      "reserve_left_t": 2.3789,
+      "lower_left_t": 9.5156,
+      "scoop_t": 12.0708
+     },
+     "B": {
+      "out_t": 11.875,
+      "reserve_left_t": 2.625,
+      "lower_left_t": 10.5,
+      "scoop_t": 13.3613
+     }
+    },
+    {
+     "t_s": 2025.0,
+     "A": {
+      "out_t": 19.6681,
+      "reserve_left_t": 1.0664,
+      "lower_left_t": 4.2656,
+      "scoop_t": 18.1152
+     },
+     "B": {
+      "out_t": 17.8125,
+      "reserve_left_t": 1.4375,
+      "lower_left_t": 5.75,
+      "scoop_t": 20.0419
+     }
+    },
+    {
+     "t_s": 2571.429,
+     "A": {
+      "out_t": 24.9806,
+      "reserve_left_t": 0.0039,
+      "lower_left_t": 0.0156,
+      "scoop_t": 23.0083
+     },
+     "B": {
+      "out_t": 22.619,
+      "reserve_left_t": 0.4762,
+      "lower_left_t": 1.9048,
+      "scoop_t": 25.45
+     }
+    },
+    {
+     "t_s": 2573.429,
+     "A": {
+      "out_t": 25.0,
+      "reserve_left_t": 0.0,
+      "lower_left_t": 0.0,
+      "scoop_t": 23.0262
+     },
+     "B": {
+      "out_t": 22.6366,
+      "reserve_left_t": 0.4727,
+      "lower_left_t": 1.8907,
+      "scoop_t": 25.45
+     }
+    },
+    {
+     "t_s": 2700.0,
+     "A": {
+      "out_t": 25.0,
+      "reserve_left_t": 0.0,
+      "lower_left_t": 0.0,
+      "scoop_t": 24.1596
+     },
+     "B": {
+      "out_t": 23.75,
+      "reserve_left_t": 0.25,
+      "lower_left_t": 1.0,
+      "scoop_t": 25.45
+     }
+    }
+   ],
+   "unfinished": [
+    {
+     "pair": "A",
+     "kind": "scoop receipt",
+     "delivered_kg": 24159.6,
+     "target_kg": 25450.0,
+     "short_kg": 1290.4,
+     "symbolic_completion_s": "start+2842.11",
+     "verdict": "TIMING FAIL (unfinished at T; not a permitted extension)"
+    },
+    {
+     "pair": "B",
+     "kind": "fresh delivery",
+     "delivered_kg": 23750.0,
+     "target_kg": 25000.0,
+     "short_kg": 1250.0,
+     "symbolic_completion_s": "start+2842.11",
+     "verdict": "TIMING FAIL (unfinished at T; not a permitted extension)"
+    }
+   ]
+  }
+ ],
+ "skew_summary": [
+  "leader=A eps=+0.05 delta=0.0s: A scoop receipt short 1272.5 kg; B fresh delivery short 1250.0 kg",
+  "leader=A eps=+0.05 delta=2.0s: A scoop receipt short 1272.5 kg; B fresh delivery short 1267.6 kg",
+  "leader=A eps=-0.05 delta=0.0s: A fresh delivery short 1250.0 kg; B scoop receipt short 1272.5 kg",
+  "leader=A eps=-0.05 delta=2.0s: A fresh delivery short 1250.0 kg; B scoop receipt short 1290.4 kg",
+  "leader=B eps=+0.05 delta=0.0s: A fresh delivery short 1250.0 kg; B scoop receipt short 1272.5 kg",
+  "leader=B eps=+0.05 delta=2.0s: A fresh delivery short 1267.6 kg; B scoop receipt short 1272.5 kg",
+  "leader=B eps=-0.05 delta=0.0s: A scoop receipt short 1272.5 kg; B fresh delivery short 1250.0 kg",
+  "leader=B eps=-0.05 delta=2.0s: A scoop receipt short 1290.4 kg; B fresh delivery short 1250.0 kg"
+ ],
+ "boundary_cases": [
+  {
+   "case": "D1 one upper service empty / other full",
+   "mass_delta_t": 25.0,
+   "moment_My_t_m_about_x0": 700.0,
+   "verdict": "asymmetric load recorded; support/trim adequacy UNKNOWN"
+  },
+  {
+   "case": "switch not confirmed (service retains residual fresh, scoop inhibited)",
+   "mass_delta_t": null,
+   "verdict": "residual/contamination/duration UNKNOWN; no silent extension"
+  }
+ ],
+ "trim": {
+  "fluid_Mx_t_m_S0": 660.0,
+  "fluid_Mx_t_m_D2_end": 559.9,
+  "fluid_My_t_m_S0": 840.0,
+  "fluid_My_t_m_D2_end": 712.6,
+  "changed_z_of_0.9t_scoop": "0.45 t per pair moves from lower z=-21.5 to service z~ -18.4 (+3.1 m each)",
+  "authority_datums_t_m": {
+   "D0": 244.7,
+   "D1_end": 650.8,
+   "D2_end": 922.3
+  },
+  "verdict": "fluid moment deltas computed; trim adequacy vs donor AND receiver-bounded authority UNKNOWN (pickup identities/stiffness not supplied by the I032 baseline; W/2 at pickups is a declared ideal convention only)"
+ },
+ "inherited_FAILs": {
+  "economics": "35.1x vs SEAT",
+  "fuel_shortfalls_t": [
+   0.245112,
+   0.350732
+  ]
+ },
+ "unknowns": [
+  "complete bill vs unpriced C duties",
+  "fit in hull",
+  "pressure/structural adequacy incl. divider both-direction loading",
+  "capacity beyond the geometric check",
+  "trim/load-sharing beyond the declared W/2 ideal convention",
+  "occupancy/bag shape",
+  "curtain/socket qualification",
+  "one-empty minimum-air recovery",
+  "valve capacity",
+  "transients",
+  "full energy closure",
+  "divider both-direction pressure difference / shell load transfer / local band reactions",
+  "vent P/V ratings and atmospheric termination",
+  "switch event actuation/drainage/contamination/duration",
+  "scoop route S-to-existing-scoop-equipment connection (paid unresolved C)",
+  "anti-slosh/transient adequacy of repartitioned baffles"
+ ],
+ "no_physical_float": "no favourable screen or physical float is claimed anywhere in this unit",
+ "weakest_assumption": "whether the fixed divider and independent plumbing leave enough usable capacity while carrying concurrent service pressure and full pickup loads",
+ "next_design_hypothesis_unissued": "one fully paid EXTERNAL small reserve tank replacing the 5 t internal freshwater reserve, returning the lost upper-barrel volume to scoop service; separate frozen unit required"
+}
