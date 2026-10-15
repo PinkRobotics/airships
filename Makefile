@@ -347,7 +347,7 @@ activitycheck:  ## The default view's busiest-day ranking must match a fresh mea
 # The views gate: what every view of the page owes the reader, proved on the page —
 # the honest-labels refusal over every string the page holds, the labels a view wears
 # before the map, the stand-down in words for a view that could not be read, the layout
-# holds at four widths, and the live-words rule for views that are not the live feed.
+# holds at four widths, and the live-words rule: no view of this page is a live feed.
 # Loads ten views and four layout widths headless
 # (chromium + websockets, same as the golden check).
 .PHONY: viewscheck

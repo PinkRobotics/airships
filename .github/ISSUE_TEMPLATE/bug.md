@@ -27,9 +27,9 @@ every visitor and the report cannot be replayed.
 **Does it still happen with `?data=snapshot`?**
 
 - [ ] Yes — then it is in our code, and this is enough to start on
-- [ ] No, only on live data — then it is a feed problem, or our handling of one; say roughly
-      when you saw it, because the wildfire feeds change every few minutes and we may need
-      to catch it in the same state
+- [ ] No, only on one day — then name the day (`?day=…`): every day is its own captured
+      record, replayed from that day's file, so the report lives or dies with the day it
+      was taken from
 
 ## Browser and platform
 

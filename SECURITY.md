@@ -14,24 +14,25 @@ remain are listed here so that a report has somewhere to aim.
 
 ## What is worth reporting
 
-**The data pipeline.** `pipeline/live.py` is the one piece that runs on a server rather than in a
-browser. It fetches the public wildfire feeds on a timer and writes `data/live/*.json`, which every
-visitor then reads. Anything that lets an attacker influence what that script writes, or that turns
-an upstream feed's content into code or markup on the page, matters. So do path handling,
-unvalidated upstream responses, and any way the mirror could be made to serve something other than
-mirrored data. `pipeline/water.py` and `pipeline/terrain.py` are run by hand and commit their output,
-so a problem there is a supply-chain problem in the committed data rather than a live one.
+**The capture pipeline.** `pipeline/live.py` is the one piece that was made to run on a server
+rather than in a browser: it fetched the public wildfire feeds on a timer and wrote
+`data/live/*.json`. It is retired — nothing runs it, the timers are disabled, and no visitor reads
+its output. It stays in the tree as the capture pipeline of record, because it is how the dated
+season days under `data/season/` were taken; anything that let an attacker influence what that
+script wrote into those day files, or that turns a feed's content into code or markup, was and
+remains in scope if it is ever run again. `pipeline/water.py` and `pipeline/terrain.py` are run by
+hand and commit their output, so a problem there is a supply-chain problem in the committed data.
 
-**The mirror and the feed chain.** The page tries two tiers in order: our mirror at `data/live/`,
-then the dated snapshot committed to the repository. No tier sends a browser to an agency's feed,
-and the served source names no other host: the map is the bundled hillshade, and fires,
-perimeters, satellite heat and wind all come through the mirror. `make firstparty` scans every
-served file for a loading URL on another host and records every request a browser makes on every
-served page. A way to make the page contact anything but this site, or to make an untrusted
-response drive rendering, is in scope. So is anything that would cause the mirror to hammer an
-emergency service's feed: it exists specifically so that traffic to this site does not multiply
-load on emergency infrastructure, and a defect that defeats that is a real defect even though it
-harms someone else's servers rather than ours.
+**The feed chain.** The page queries no feed at all: every view is a dated replay of files the
+repository itself serves, and the served source names no other host — the map is the bundled
+hillshade, and fires and perimeters come from the committed day records. `make firstparty` scans
+every served file for a loading URL on another host and records every request a browser makes on
+every served page; a tripwire fails the gate if any route so much as asks for `data/live/`. A way
+to make the page contact anything but this site, or to make an untrusted response drive rendering,
+is in scope. So is anything that reintroduces a fetch of an emergency service's feed: the feeds
+were taken off the page precisely so that traffic to this site could not multiply load on
+emergency infrastructure, and a defect that defeats that is a real defect even though it harms
+someone else's servers rather than ours.
 
 **Data that becomes markup.** Fire names, geographic descriptions and source names come from
 third-party feeds and are rendered into the page. They are escaped through `esc()` in `app/dom.js`.
@@ -44,9 +45,9 @@ workflows, and whatever runs the deploy. Tampering that would survive review, or
 be made to run attacker-controlled code, is in scope.
 
 **Anything that misrepresents the wildfire data.** This is not a conventional security issue, but it
-is the one we care most about. The fire data is real, live and about an emergency. A defect that
-makes the page display stale data as current, attribute the wrong status to a fire, or otherwise
-create a false impression of a real incident should be reported with the same urgency as a
+is the one we care most about. The fire data is a real captured record about emergencies. A defect
+that makes the page present a replay as if it were current, attribute the wrong status to a fire,
+or otherwise create a false impression of a real incident should be reported with the same urgency as a
 vulnerability, and will be treated that way.
 
 ## What is not a finding
