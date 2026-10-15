@@ -1,0 +1,320 @@
+{
+  "base": "99379c8b480a5ac1689177c455fd3f0b0bf89618",
+  "base_tree": "6424e901617975b2cbf7a7c77c8bc7a729ac63b4",
+  "inputs": [
+    {
+      "path": "baseline.json",
+      "bytes": 771212,
+      "sha256": "bc49eb9c4cce28e0accd39d8daac95b1fbd1b4af09e2fa972cb444ec602dd656"
+    }
+  ],
+  "predecessor": {
+    "readme": "../R3-I030/README.md",
+    "saved_output": "../R3-I030/hoop.json",
+    "saved_inputs": "../R3-I030/baseline.json"
+  },
+  "assembly": {
+    "producer": "saved-data input assembly",
+    "producer_sha256": "911eb25bdcdf1ecf432b7d7186147274cb12d0d6e9304bd7f0cbc45d79e52625",
+    "no_ancestor_execution_or_import": true
+  },
+  "design": {
+    "radius_m": 29.0,
+    "z_m": 18.0,
+    "hosts": [
+      9,
+      10,
+      11,
+      12,
+      16,
+      21,
+      22,
+      23
+    ],
+    "sector_rhs_m": [
+      0.5,
+      0.012
+    ],
+    "support_rhs_m": [
+      0.3,
+      0.01
+    ],
+    "arm_rhs_m": [
+      0.15,
+      0.006
+    ],
+    "sectors": 8,
+    "main_legs": 8,
+    "braces": 8,
+    "node_boxes": 16,
+    "guide_arms": 16,
+    "node_box_m": [
+      0.8,
+      0.8,
+      0.8
+    ],
+    "node_plate_m": [
+      0.8,
+      0.8,
+      0.02
+    ],
+    "box_outer_plates": 6,
+    "box_internal_diaphragms": 2,
+    "support_Q_offsets_m": [
+      [
+        0,
+        0,
+        -0.4
+      ],
+      [
+        0,
+        0,
+        0.4
+      ]
+    ],
+    "support_R_offsets_m": [
+      [
+        -0.4,
+        0,
+        0
+      ],
+      [
+        0.4,
+        0,
+        0
+      ]
+    ],
+    "support_endplate_m": [
+      0.4,
+      0.4,
+      0.025
+    ],
+    "support_backer_m": [
+      0.4,
+      0.4,
+      0.02
+    ],
+    "support_gusset_m": [
+      0.3,
+      0.25,
+      0.02
+    ],
+    "support_bolts_per_end": 8,
+    "support_bolt_xy_m": [
+      [
+        -0.14,
+        -0.14
+      ],
+      [
+        -0.14,
+        0.14
+      ],
+      [
+        0.14,
+        -0.14
+      ],
+      [
+        0.14,
+        0.14
+      ],
+      [
+        0,
+        -0.14
+      ],
+      [
+        0,
+        0.14
+      ],
+      [
+        -0.14,
+        0
+      ],
+      [
+        0.14,
+        0
+      ]
+    ],
+    "support_bolt_m": [
+      0.024,
+      0.18
+    ],
+    "support_hole_m": 0.026,
+    "M24_backer_m": [
+      0.08,
+      0.08,
+      0.012
+    ],
+    "M24_washer_m": [
+      0.048,
+      0.026,
+      0.004
+    ],
+    "M24_head_m": [
+      0.036,
+      0.02
+    ],
+    "M24_nut_m": [
+      0.036,
+      0.032
+    ],
+    "receiver_doubler_m": [
+      0.8,
+      0.6,
+      0.02
+    ],
+    "receiver_bolt_m": [
+      0.024,
+      0.5
+    ],
+    "receiver_bolt_yz_m": [
+      [
+        -0.2,
+        -0.15
+      ],
+      [
+        -0.2,
+        0.15
+      ],
+      [
+        0.2,
+        -0.15
+      ],
+      [
+        0.2,
+        0.15
+      ],
+      [
+        0,
+        -0.15
+      ],
+      [
+        0,
+        0.15
+      ],
+      [
+        -0.2,
+        0
+      ],
+      [
+        0.2,
+        0
+      ]
+    ],
+    "arm_endplate_m": [
+      0.3,
+      0.3,
+      0.02
+    ],
+    "arm_backer_m": [
+      0.3,
+      0.3,
+      0.012
+    ],
+    "arm_gusset_m": [
+      0.25,
+      0.2,
+      0.012
+    ],
+    "arm_bolt_m": [
+      0.02,
+      0.14
+    ],
+    "arm_hole_m": 0.024,
+    "arm_bolt_xy_m": [
+      [
+        -0.09,
+        -0.09
+      ],
+      [
+        -0.09,
+        0.09
+      ],
+      [
+        0.09,
+        -0.09
+      ],
+      [
+        0.09,
+        0.09
+      ]
+    ],
+    "M20_backer_m": [
+      0.06,
+      0.06,
+      0.01
+    ],
+    "M20_washer_m": [
+      0.04,
+      0.022,
+      0.003
+    ],
+    "M20_head_m": [
+      0.03,
+      0.016
+    ],
+    "M20_nut_m": [
+      0.03,
+      0.024
+    ],
+    "thread_runout_m": 0.02,
+    "fillet_leg_m": 0.012,
+    "guide_radius_m": 0.45,
+    "guard_radius_m": 0.6,
+    "axle_diameter_m": 0.06,
+    "bearing_span_m": 0.12,
+    "groove_width_m": 0.026,
+    "groove_root_radius_m": 0.01,
+    "guide_access_diameter_m": 0.6,
+    "guide_access_length_m": 0.8,
+    "rope_diameter_m": 0.018,
+    "rope_enclosure_radius_m": 0.035,
+    "rope_E_pa": 50000000000.0,
+    "rope_working_pa": 150000000.0,
+    "rope_density_kg_m3": 1440,
+    "coating_kg_m": 0.2,
+    "coating_density_kg_m3": 1000,
+    "tail_length_m": 1.0,
+    "free_stock_increment_m": 0.5,
+    "nominal_actuator_m": 1.0,
+    "command_m": [
+      0.8,
+      1.2
+    ],
+    "load_factor": 1.5,
+    "aluminium_density_kg_m3": 2700,
+    "steel_density_kg_m3": 7850,
+    "isolation_density_kg_m3": 1400,
+    "gravity_m_s2": 9.80665,
+    "sector_chords": 32,
+    "guide_arc_chords": 16,
+    "nominal_clearance_m": 0.25,
+    "small_slope_limit": 0.1,
+    "isolation_per_box_kg": 4.0,
+    "bond_per_R_box_kg": 1.0,
+    "assembly_per_sector_kg": 20.0,
+    "temporary_brace_per_receiver_kg": 10.0,
+    "splices": {
+      "covers": 4,
+      "cover_m": [
+        0.8,
+        0.35,
+        0.02
+      ],
+      "shanks": 16,
+      "shank_m": [
+        0.024,
+        0.56
+      ],
+      "head_nut_washer_allowance_each_kg": 0.5
+    },
+    "free_geometry_parameters_after_freeze": 0
+  },
+  "model_scope": {
+    "support_load_sharing": "UNKNOWN; no equal split or fixed receiving station is assumed.",
+    "sections_bolts_welds_prying_fatigue": "UNKNOWN; original stress and scalar-bolt proxies are not used.",
+    "unqualified_grip_material": "Per-bolt backers, washers, heads and nuts are charged as full steel blanks; tube/end/backer/gusset/node/saddle plates are aluminium. No hole credits.",
+    "bearing_model": "Conditional ideal symmetric two-bearing radial equilibrium; axial sharing/contact/fatigue UNKNOWN.",
+    "pressure_float": "Inherited pressure FAIL and physical float NOT SHOWN.",
+    "execution": "Standard library only; read saved JSON, never import an ancestor."
+  }
+}
