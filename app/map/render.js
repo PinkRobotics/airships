@@ -1,11 +1,10 @@
 /* Drawing the map: the layer order, and every layer.
  */
-import { CITIES, PHASE_TINT, bez, fmt, havKm, segAt, stateAt } from '../../sim/index.js?v=6f3787a9';
-import { $ } from '../dom.js?v=6f3787a9';
-import { TERRAIN, terrainImg, terrainReady } from '../map/basemap.js?v=6f3787a9';
-import { heatLayer, renderHeatLayer } from '../map/heat.js?v=6f3787a9';
-import { DPR, H, W, ctx, latOfY, px } from '../map/projection.js?v=6f3787a9';
-import { S } from '../store.js?v=6f3787a9';
+import { CITIES, PHASE_TINT, bez, fmt, havKm, segAt, stateAt } from '../../sim/index.js?v=7d7bed4f';
+import { $ } from '../dom.js?v=7d7bed4f';
+import { TERRAIN, terrainImg, terrainReady } from '../map/basemap.js?v=7d7bed4f';
+import { DPR, H, W, ctx, latOfY, px } from '../map/projection.js?v=7d7bed4f';
+import { S } from '../store.js?v=7d7bed4f';
 
 export const COL = {
   bg: "#08080a", land: "#101015", coast: "#61616f",
@@ -77,22 +76,6 @@ export function draw() {
       ctx.strokeText(c[2], q[0] + 5, q[1] + 3);
       ctx.fillStyle = "#dedbe2";
       ctx.fillText(c[2], q[0] + 5, q[1] + 3);
-    }
-  }
-
-  // Live hotspot heat (CWFIS, last 24 h): bounded-brightness glow under the vector layers.
-  if (S.layers.hot && S.heat.length) {
-    const hl = heatLayer, now = performance.now();
-    const drift = hl.view ? Math.abs(Math.log(k / hl.view.k)) +
-      Math.abs((hl.view.cx - S.view.cx) * k) / W + Math.abs((hl.view.cy - S.view.cy) * k) / H : 9;
-    if ((!hl.view || hl.n !== S.heat.length || drift > 0.1) && now - hl.last > 140) renderHeatLayer(k);
-    if (hl.view) {
-      const sc = k / hl.view.k;
-      const x0 = (hl.view.cx - S.view.cx) * k + W / 2 - hl.view.w / 2 * sc;
-      const y0 = (hl.view.cy - S.view.cy) * k + H / 2 - hl.view.h / 2 * sc;
-      ctx.globalAlpha = 0.6; ctx.globalCompositeOperation = "screen";
-      ctx.drawImage(hl.cv, x0, y0, hl.view.w * sc, hl.view.h * sc);
-      ctx.globalCompositeOperation = "source-over"; ctx.globalAlpha = 1;
     }
   }
 
@@ -180,7 +163,7 @@ export function draw() {
     ctx.beginPath(); ctx.arc(p[0], p[1], r, 0, 7); ctx.fill();
     ctx.strokeStyle = "#08080a"; ctx.lineWidth = 1.5; ctx.stroke();
     if (f.note && vis) {
-      ctx.strokeStyle = COL.newf; ctx.lineWidth = 1.4;   // live data never wears the fleet's pink
+      ctx.strokeStyle = COL.newf; ctx.lineWidth = 1.4;   // published data never wears the fleet's pink
       ctx.beginPath(); ctx.arc(p[0], p[1], r + 3.5, 0, 7); ctx.stroke();
     }
     // A fire with no ship assigned is selectable — the top-eight table lists fires that
@@ -200,37 +183,6 @@ export function draw() {
       ctx.strokeText(S.exercise ? f.name : f.id, p[0] + r + 4, p[1] + 3);
       ctx.fillStyle = "#dedbe2";
       ctx.fillText(S.exercise ? f.name : f.id, p[0] + r + 4, p[1] + 3);
-    }
-  }
-
-  // Wind: one live arrow per mission midpoint, pointing where the air is going.
-  if (S.layers.wind) {
-    for (const m of S.missions) {
-      if (m.idle || !m.wind || !fireVisible(m.fire)) continue;
-      const mp = px([(m.intake[0] + m.delivery[0]) / 2, (m.intake[1] + m.delivery[1]) / 2]);
-      if (mp[0] < -20 || mp[1] < -20 || mp[0] > W + 20 || mp[1] > H + 20) continue;
-      const selMe = S.sel && S.sel.m === m;
-      const toD = (m.wind.dir + 180) * Math.PI / 180;
-      const ux = Math.sin(toD), uy = -Math.cos(toD);
-      const ln = Math.min(30, 7 + m.wind.spd * 0.45) * (selMe ? 1.4 : 1);
-      ctx.strokeStyle = ctx.fillStyle = "#c9c3b6";
-      ctx.globalAlpha = selMe ? 0.95 : 0.45;
-      ctx.lineWidth = selMe ? 1.5 : 1;
-      ctx.beginPath();
-      ctx.moveTo(mp[0] - ux * ln / 2, mp[1] - uy * ln / 2);
-      ctx.lineTo(mp[0] + ux * ln / 2, mp[1] + uy * ln / 2);
-      ctx.stroke();
-      const tipX = mp[0] + ux * ln / 2, tipY = mp[1] + uy * ln / 2;
-      ctx.beginPath();
-      ctx.moveTo(tipX, tipY);
-      ctx.lineTo(tipX - ux * 5 - uy * 3, tipY - uy * 5 + ux * 3);
-      ctx.lineTo(tipX - ux * 5 + uy * 3, tipY - uy * 5 - ux * 3);
-      ctx.closePath(); ctx.fill();
-      if (selMe) {
-        ctx.font = "10px ui-monospace,monospace";
-        ctx.fillText(fmt(m.wind.spd) + " km/h", tipX + 6, tipY + 3);
-      }
-      ctx.globalAlpha = 1; ctx.lineWidth = 1;
     }
   }
 

@@ -132,9 +132,8 @@ the vehicle model can be reviewed at a reproducible URL:
 One fetch cycle, one frame, one selected ship:
 
 ```
-  BC Wildfire Service ──┐
-  CWFIS satellite heat ─┼─► app/net.js ──► data/live/ mirror ──► app/feeds.js
-  Open-Meteo 850 hPa ───┘                    (or direct, or data/snapshot.json)
+  data/season/days/<date>/{fires,perims}.json ──► app/feeds.js
+     (the published record this repository itself serves; no feed is queried)
                                                      │
                                           normalize(): fires with rings
                                                      │
@@ -274,8 +273,8 @@ name. Default and namespace imports (`import CFG from …`, `import * as sim fro
 just as read-only as named ones and are covered too; an aliased import `{ CSS as STYLES }`
 binds `STYLES` and not `CSS`, and only `STYLES` is flagged.
 
-**Rule 3 — live data must be passed, not defaulted away.** `planTargets(mission, heat)`
-takes the satellite hotspots as an argument so the model can run with no feed, and the
+**Rule 3 — measured data must be passed, not defaulted away.** `planTargets(mission, heat)`
+takes detections as an argument so the model can run with none, and the
 argument defaults to `[]` so that `sim/` stays runnable alone. That default is a trap for
 the application: all three call sites lost the argument during the extraction, no test
 noticed — the golden files are recorded in replay mode, where the sampled fleet carries no
@@ -316,9 +315,12 @@ a browser exists:
 
 - `?seed=N` → `app/main.js` calls `setSeed(N)`, pinning target order, drop-line jitter and
   phase offsets.
-- `?data=snapshot` → `app/feeds.js` reads `data/snapshot.json` and `data/snapshot-heat.json`
-  instead of the network, and declines to fake a wind. Replay mode is still air, and says
-  so.
+- `?data=snapshot` → `app/feeds.js` replays the busiest captured season day from
+  `data/season/days/` — the same files a dated view reads, chosen by the ranking in
+  `data/season/2026.activity.json` (`tools/gen_activity.py` measures it; the newest day
+  answers only if the ranking cannot be read, and the committed `data/snapshot.json` only
+  if the season index itself is down). Replay mode is still air, no satellite heat, and
+  says so.
 
 Together they fully determine a run. That buys a link that shows another person exactly
 what you were looking at, a page that works with no network, and tests that compare
@@ -348,9 +350,10 @@ arithmetic, which is precisely backwards for this project.
 ## Data and the pipeline
 
 `data/` holds generated artefacts, committed: `terrain-bc.jpg`, `water-bc.json` (lake and
-reservoir outlines from the BC Freshwater Atlas), `roads-bc.json`, `bc-outline.json`, and
-the dated `snapshot.json` / `snapshot-heat.json` that replay mode and the golden tests use.
-`data/live/` is the first-party mirror and is gitignored.
+reservoir outlines from the BC Freshwater Atlas), `roads-bc.json`, `bc-outline.json`, the
+dated season days under `data/season/` (with `2026.activity.json`, the busiest-day ranking
+behind the default view), and `data/snapshot.json`, the last-resort sample. `data/live/`
+is the server's own directory and is left alone.
 
 ### First-party boundary
 
@@ -376,14 +379,14 @@ the page's live note and the browser network panel provide that later view. The 
 measured at the time of the request and is not asserted by this repository.
 
 `pipeline/` holds the Python that produced them: `water.py`, `terrain.py`, `figures.py`, and
-`live.py`, which is the server-side job that refreshes `data/live/`. They are not run by the
-page; they are run by hand or on a timer, and their outputs are committed so that cloning
-the repository gives a working page.
+`live.py`, which is the capture pipeline of record — it is how the dated season days were
+taken, and `tests/season/check.py` still pins the day files' fields against it. Nothing runs
+it now: the 2026-10-14 ruling stopped the feed queries and the host timers are disabled. The
+outputs are committed so that cloning the repository gives a working page.
 
-Feeds are read in two tiers, in order: the first-party mirror and then the committed snapshot.
-The mirror exists so that traffic to this page does not become traffic to an emergency service.
-The page reports the age of the data it actually shows rather than treating a reload as a new
-source reading.
+No feed is read in any tier. Every view is a dated replay of the published record the
+repository itself serves, and the page reports the age of the data it actually shows — the
+day's own capture time — rather than treating a reload as a new source reading.
 
 ---
 

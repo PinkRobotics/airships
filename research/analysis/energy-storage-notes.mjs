@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import {profileKey} from './energy-printed-profiles.mjs';
-import {STORAGE_PROFILE_NOTE} from '../../sim/energy-label.js?v=6f3787a9';
+import {STORAGE_PROFILE_NOTE} from '../../sim/energy-label.js?v=7d7bed4f';
 const record=JSON.parse(fs.readFileSync('research/analysis/energy-necessary.json'));
 const results=new Map(record.routes.map(r=>[profileKey(r),r]));
 export function storageNote(input){

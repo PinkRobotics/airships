@@ -4,7 +4,6 @@ A virtual clock represents a slow hosted runner without slowing the fast gate.
 The expressions are extracted from the drivers, not reimplemented here.
 """
 import ast
-import asyncio
 import json
 from pathlib import Path
 import subprocess
@@ -20,34 +19,17 @@ def constant(path, name):
     return ast.literal_eval(node.value)
 
 
-def wind_expression(mode):
-    tree = ast.parse((ROOT / 'tests/firstparty/check.py').read_text())
-    function = next(n for n in tree.body if isinstance(n, ast.AsyncFunctionDef)
-                    and n.name == 'wait_wind')
-    namespace = {'json': json, 'WIND_STATE': constant('tests/firstparty/check.py', 'WIND_STATE')}
-    exec(compile(ast.Module(body=[function], type_ignores=[]), '<driver>', 'exec'), namespace)
-    class Capture:
-        async def evaluate(self, expression):
-            self.expression = expression
-            return {'ready': True, 'state': {}}
-    page = Capture()
-    asyncio.run(namespace['wait_wind'](page, mode))
-    return page.expression
-
-
 HARNESS = r"""
 const vm = require('node:vm'), assert = require('node:assert/strict');
 const {source, scenario, expected} = JSON.parse(require('node:fs').readFileSync(0,'utf8'));
 let now=0, ticks=0;
-const state={ready:false,recordOnly:false,missions:[],windOk:true,planning:{state:'pending'}};
+const state={ready:false,recordOnly:false,missions:[],planning:{state:'pending'}};
 const window={__ierr:[]};
-const note={hidden:true,click(){},textContent: scenario==='stale'?'Still air · wind mirror stale':
- scenario==='missing'?'Still air · HTTP 404':'850 hPa wind · site mirror · fetched under a minute ago'};
+const note={hidden:true,click(){},textContent:'still air'};
 function progress(){
  state.ready=now>=90000;
  state.planning.state=now>=120000?'settled':'pending';
- state.missions=[{planState:now>=120000?'ready':'pending',idle:now<120000,wind:scenario==='stale'||scenario==='missing'?null:{}}];
- state.windOk=!(scenario==='stale'||scenario==='missing');
+ state.missions=[{planState:now>=120000?'ready':'pending',idle:now<120000}];
  if(now>=70000&&scenario!=='absent')window.AIRSHIPS={app:state,sim:{}};
  if(scenario==='never')state.planning.state='pending';
  if(now>=420000&&scenario==='suite')window.__tests={pass:1,fail:0,suites:[]};
@@ -91,17 +73,6 @@ class ReadinessWaits(unittest.TestCase):
             input=json.dumps(dict(source=source, scenario=scenario, expected=expected)),
             text=True, capture_output=True, timeout=10)
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-
-    def test_fresh_wind_waits_for_all_plans_after_data_arrives(self):
-        self.run_expression(wind_expression('fresh'))
-
-    def test_stale_and_missing_wind_wait_for_still_air_replanning(self):
-        for mode in ('stale', 'missing'):
-            with self.subTest(mode=mode): self.run_expression(wind_expression(mode), mode)
-
-    def test_wind_never_settled_or_missing_handle_refuses(self):
-        for mode in ('never', 'absent'):
-            with self.subTest(mode=mode): self.run_expression(wind_expression('fresh'), mode, 'refuse')
 
     def test_firstparty_boot_waits_for_planning(self):
         self.run_expression(constant('tests/firstparty/check.py', 'BOOT'))

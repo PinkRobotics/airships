@@ -7,7 +7,7 @@
  * nothing.
  */
 import { describe, eq, it } from '../harness.js';
-import { fireNumber } from '../../sim/index.js?v=6f3787a9';
+import { fireNumber } from '../../sim/index.js?v=7d7bed4f';
 
 describe('records · fireNumber', () => {
   it('accepts the two published shapes, normalised', () => {

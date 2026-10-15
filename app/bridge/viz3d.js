@@ -1,14 +1,14 @@
-import { anchorGeometry } from '../../sim/index.js?v=6f3787a9';
+import { anchorGeometry } from '../../sim/index.js?v=7d7bed4f';
 
 /* The bridge to the 3D model: mounting it, feeding it state, and the synced camera.
  *
  * The 3D library knows nothing about this page. Everything page-specific — which view
  * suits which phase, how the camera follows a heading, how the model is framed — is here.
  */
-import { CFG, stateAt } from '../../sim/index.js?v=6f3787a9';
-import { cockpitShip } from '../cockpit/panels.js?v=6f3787a9';
-import { $ } from '../dom.js?v=6f3787a9';
-import { S } from '../store.js?v=6f3787a9';
+import { CFG, stateAt } from '../../sim/index.js?v=7d7bed4f';
+import { cockpitShip } from '../cockpit/panels.js?v=7d7bed4f';
+import { $ } from '../dom.js?v=7d7bed4f';
+import { S } from '../store.js?v=7d7bed4f';
 
 /* The parametric model from 3d/, mounted below the operation strip and driven by the SAME
    stateAt() that drives the map, the dials and the schematic. The library's own adapter
@@ -123,20 +123,11 @@ export function updateM3D(m, st) {
     m3dAnchorSpanM = 0;                 // the next ship frames its own drop, not this one's
   }
   m3d.sync(m, st);
-  // Feed the mission's live wind into the model frame (+x = nose), so the wind lines, the
-  // hose drift and the gust responses all answer the same air the plan flies in — plus the
-  // sim's play speed, so blades visibly keep up at 20x and 60x. Screen heading -> compass:
-  // screen +x is east, +y is south, so compass = 90° + heading.
+  // The model frame's environment is still air — no forecast is replayed on any view —
+  // with the sim's play speed, so blades visibly keep up at 20x and 60x.
   {
-    let wv = [0, 0, 0];
-    if (m.wind && m.wind.spd > 2) {
-      const mps = m.wind.spd / 3.6;
-      const shipCompass = (90 + (m.dispAng || 0) * 180 / Math.PI + 720) % 360;
-      const toward = (m.wind.dir + 180) % 360;
-      const rel = (toward - shipCompass) * Math.PI / 180;
-      wv = [Math.cos(rel) * mps, Math.sin(rel) * mps, 0];
-    }
-    const key = Math.round(wv[0]) + ":" + Math.round(wv[1]) + ":" + S.speed;
+    const wv = [0, 0, 0];
+    const key = S.speed;
     if (key !== m3dWindKey) {
       m3dWindKey = key;
       m3d.setProps({ env: { windMps: wv, timeScale: S.speed } });

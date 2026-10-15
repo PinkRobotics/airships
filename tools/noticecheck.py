@@ -25,7 +25,7 @@ FOLDERS = ("data", "media", "research/papers", "research/prior")
 # Exact paths, never a wildcard exemption for a new asset or a new README.
 FIRST_PARTY = {
     "data/README.md": "Generated index, checked against sidecars",
-    "data/live/README.md": "Project documentation of the unbundled server mirror",
+    "data/live/README.md": "Project documentation of the retired server mirror",
     "media/README.md": "Project render documentation",
     "media/ballast.jpg": "Project WebGL model render; media/README.md",
     "media/drop.jpg": "Project WebGL model render; media/README.md",
@@ -34,8 +34,7 @@ FIRST_PARTY = {
     "research/papers/README.md": "Project provenance schema and classification rule",
 }
 DECISIONS = {"redistributed", "link-only", "withheld", "to-confirm"}
-SERVICE_RECORD = "data/wind.prov.json"
-DISPLAY = ("snapshot", "snapshot-heat", "water-bc", "terrain-bc", "roads-bc", "bc-outline", "wind")
+DISPLAY = ("snapshot", "water-bc", "terrain-bc", "roads-bc", "bc-outline")
 CREDIT_START = "<!-- NOTICE-CREDIT START -->"
 CREDIT_END = "<!-- NOTICE-CREDIT END -->"
 REQUIRED = ("LICENSE", "NOTICE", "DATA-SOURCES.md", "notices.html")
@@ -56,8 +55,6 @@ def measure(path: Path, rel: str) -> dict:
     elif rel == "data/snapshot.json":
         data = json.loads(path.read_text())
         result.update(fires=len(data["fires"]["features"]), perimeters=len(data["perimeters"]["features"]))
-    elif rel == "data/snapshot-heat.json":
-        result["hotspots"] = len(json.loads(path.read_text())["features"])
     elif rel == "data/water-bc.json":
         rows = json.loads(path.read_text())["water"]
         result.update(lakes=sum(r[3] == 0 for r in rows), reservoirs=sum(r[3] == 1 for r in rows))
@@ -150,14 +147,9 @@ def records(root: Path) -> tuple[list[dict], list[str]]:
         item["path"] = (PurePosixPath(rel).parent / item["file"]).as_posix()
         path = root / item["path"]
         kind = item.get("kind", "file")
-        service = (rel == SERVICE_RECORD and kind == "service" and
-                   item["path"] == "data/live/wind.json" and item["decision"] == "link-only")
-        if kind != "file" and not service:
-            errors.append(f"{rel}: unsupported kind or service identity")
-        if service:
-            if item.get("sha256", "missing") is not None or path.exists():
-                errors.append(f"{rel}: service record must have null hash and no bundled file")
-        elif not isinstance(item.get("sha256"), str) or not re.fullmatch(r"[0-9a-f]{64}", item["sha256"]):
+        if kind != "file":
+            errors.append(f"{rel}: unsupported kind")
+        if not isinstance(item.get("sha256"), str) or not re.fullmatch(r"[0-9a-f]{64}", item["sha256"]):
             errors.append(f"{rel}: missing or invalid sha256")
         elif path.is_symlink() or any(p.is_symlink() for p in path.parents if p != root):
             errors.append(f"{rel}: symlink asset refused")
@@ -179,7 +171,7 @@ def records(root: Path) -> tuple[list[dict], list[str]]:
         found.append(item)
         if "outputs" in item:
             outputs = item["outputs"]
-            if not isinstance(outputs, list) or not outputs or service:
+            if not isinstance(outputs, list) or not outputs:
                 errors.append(f"{rel}: invalid outputs")
                 continue
             seen = set()

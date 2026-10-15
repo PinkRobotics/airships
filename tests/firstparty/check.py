@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
-"""Record CDP network events for every served HTML page in three mirror modes.
+"""Record CDP network events for every served HTML page, in both replay routes.
 
 External attempts fail the test and are intercepted BEFORE transmission. This is crucial:
 putting a removed agency fallback back must make a test red without loading that agency.
-The server supplies dated local captures with fresh fixture envelopes; no live feed runs.
+The page is a replay of the published record and queries no feed, so the mirror files are
+kept as a TRIPWIRE: the handler still answers data/live/{fires,perims}.json from the
+bundled snapshot, and any request for one fails the run — a reintroduced live read goes
+red even though it would "work".
 """
 import argparse
 import asyncio
@@ -21,18 +24,12 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 from static import ROOT, served_files
-sys.path.insert(0, str(ROOT))
-from pipeline.live import WIND_LATS, WIND_LONS, wind_grid
 sys.path.insert(0, str(ROOT / "tools"))
 from serve import serve_tree
 from devtools import page_target
 
 
 class Handler(http.server.SimpleHTTPRequestHandler):
-    mode = 'fixture'
-    wind_mode = 'fresh'
-    wind_delay = 0
-    wind_holds = []
     note_variant = None
 
     def __init__(self, *args, **kwargs):
@@ -65,25 +62,17 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             body = b'<img src="https://firstparty-test.invalid/probe.png">'
             self.send_response(200); self.send_header('Content-Type', 'text/html'); self.end_headers(); self.wfile.write(body); return
         if path.startswith('/data/live/'):
-            if self.mode == 'absent' or (path.endswith('/wind.json') and self.wind_mode == 'missing'):
-                self.send_error(404); return
-            now = datetime.now(timezone.utc).isoformat()
-            snap = json.loads((ROOT / 'data/snapshot.json').read_text())
-            if path.endswith('/fires.json'): data = snap['fires']
-            elif path.endswith('/perims.json'): data = snap['perimeters']
-            elif path.endswith('/heat.json'): data = json.loads((ROOT / 'data/snapshot-heat.json').read_text())
-            elif path.endswith('/wind.json'):
-                if self.wind_delay:
-                    started = time.monotonic()
-                    time.sleep(self.wind_delay)
-                    self.wind_holds.append(time.monotonic() - started)
-                fixture = json.loads((Path(__file__).parent / 'fixtures/wind-response.json').read_text())
-                data = wind_grid([fixture[i % 4] for i in range(25)])
-                data['forecastAt'] = now
-                if self.wind_mode == 'stale': now = '2000-01-01T00:00:00Z'
+            # Tripwire, not a service: these answers exist so that a reintroduced mirror
+            # read would load plausibly and be caught by the request-log assertion, not by
+            # a broken page. The committed tree holds no mirror files; data/live/README.md
+            # documents the retired mirror.
+            if path.endswith('/fires.json'):
+                data = json.loads((ROOT / 'data/snapshot.json').read_text())['fires']
+            elif path.endswith('/perims.json'):
+                data = json.loads((ROOT / 'data/snapshot.json').read_text())['perimeters']
             else:
                 self.send_error(404); return
-            body = json.dumps({'fetchedAt': now, 'data': data}).encode()
+            body = json.dumps({'fetchedAt': datetime.now(timezone.utc).isoformat(), 'data': data}).encode()
             self.send_response(200); self.send_header('Content-Type', 'application/json')
             self.send_header('Cache-Control', 'no-store'); self.end_headers(); self.wfile.write(body); return
         super().do_GET()
@@ -150,86 +139,11 @@ BOOT = """(async () => {
   const start = Date.now();
   while(Date.now()-start < 300000) {
     const s = window.AIRSHIPS?.app;
-    if(s?.ready && s.planning?.state === 'settled' && s.windOk !== null) return true;
+    if(s?.ready && s.planning?.state === 'settled') return true;
     await new Promise(r => setTimeout(r,100));
   }
   return false;
 })()"""
-
-
-WIND_STATE = """(() => {
-  const s = window.AIRSHIPS?.app;
-  if (!s) return {ready:false, planning:null, ok:null, winds:0, note:""};
-  return {ready:s.ready, planning:s.planning?.state, ok:s.windOk, winds:s.missions.filter(m=>!m.idle&&m.wind).length,
-          note:document.getElementById('windNote').textContent};
-})()"""
-
-
-async def wait_wind(page, mode):
-    condition = ("s.ok && s.note.startsWith('850 hPa wind · site mirror · fetched ')" if mode == 'fresh' else
-                 "!s.ok && s.winds === 0 && s.note.includes('Still air') && s.note.includes(" +
-                 json.dumps('wind mirror stale' if mode == 'stale' else 'HTTP 404') + ")")
-    condition = "s.ready && s.planning === 'settled' && (" + condition + ")"
-    result = await page.evaluate("""(async () => {
-      const until = performance.now() + 300000;
-      let s;
-      do {
-        s = """ + WIND_STATE + "; if (" + condition + """ ) return {ready:true, state:s};
-        await new Promise(r=>setTimeout(r,50));
-      } while (performance.now() < until);
-      return {ready:false, state:s};
-    })()""")
-    assert result['ready'], f'{mode}: wind state did not settle within 300 s: {result}'
-    return result['state']
-
-
-async def wind_cases(page):
-    # Stale and missing wind must erase previously applied wind.
-    for wind_mode in ('stale', 'fresh', 'missing'):
-        Handler.wind_mode = wind_mode
-        await page.evaluate("""(async () => {
-          const main = await import(document.querySelector('script[src*="app/main.js"]').src);
-          await main.refresh();
-        })()""")
-        state = await wait_wind(page, wind_mode)
-        assert state['ok'] == (wind_mode == 'fresh'), state
-        if wind_mode != 'fresh':
-            assert state['winds'] == 0 and 'Still air' in state['note'], state
-        print(f'wind {wind_mode}: {state}', flush=True)
-    Handler.wind_mode = 'fresh'
-    await page.evaluate("""(async () => {
-      const script = new URL(document.querySelector('script[src*="app/main.js"]').src);
-      const feeds = new URL('./feeds.js', script); feeds.search = script.search;
-      const {fetchWind} = await import(feeds.href); fetchWind();
-    })()""")
-    before = await wait_wind(page, 'fresh')
-    assert before['winds'] > 0, f'delay case needs previously applied wind: {before}'
-    Handler.wind_delay = 2
-    Handler.wind_holds.clear()
-    try:
-        # Capture the same task as the clear, and again while the server holds the reply.
-        # Retain the promise so even the RED case drains its request before cleanup.
-        held = await page.evaluate("""(async () => {
-          const script = new URL(document.querySelector('script[src*="app/main.js"]').src);
-      const feeds = new URL('./feeds.js', script); feeds.search = script.search;
-      const {fetchWind} = await import(feeds.href);
-          window.__heldWind = fetchWind();
-          const immediate = """ + WIND_STATE + """;
-          await new Promise(r=>setTimeout(r,250));
-          return {immediate, during:""" + WIND_STATE + """};
-        })()""")
-        print(f'wind held 2 s: {held}', flush=True)
-        for state in held.values():
-            assert state['ok'] is False and state['winds'] == 0, state
-            assert state['note'] == 'Still air · loading mirror', state
-            assert '850 hPa' not in state['note'] and 'fetched' not in state['note'], state
-        after = await wait_wind(page, 'fresh')
-        assert after['winds'] > 0, after
-        assert Handler.wind_holds and min(Handler.wind_holds) >= 2, Handler.wind_holds
-        print(f'wind after hold: {after}; fixture hold seconds: {Handler.wind_holds}', flush=True)
-    finally:
-        await page.evaluate("Promise.race([window.__heldWind, new Promise((_,reject)=>setTimeout(()=>reject(new Error('held wind did not finish within 300 s')),300000))])")
-        Handler.wind_delay = 0
 
 
 async def note_cases(page, origin, shot_dir):
@@ -277,7 +191,7 @@ async def note_cases(page, origin, shot_dir):
             (shot_dir / f'note-{state}-{width}.png').write_bytes(base64.b64decode(result['data']))
         await page.send('Emulation.clearDeviceMetricsOverride')
 
-    Handler.mode, Handler.wind_mode, Handler.note_variant = 'fixture', 'fresh', None
+    Handler.note_variant = None
     await page.navigate(f'http://{origin}/index.html?seed=7&data=snapshot')
     own = f"This page's own code talks only to {origin}."
     clean = await wait_note('shows no other host.')
@@ -349,7 +263,7 @@ async def note_cases(page, origin, shot_dir):
     assert not failures, '\n'.join(failures)
 
 
-async def session(ws_url, origin, records, evidence, note_evidence, note_only=False, wind_only=False):
+async def session(ws_url, origin, records, evidence, note_evidence, note_only=False):
     import websockets
     async with websockets.connect(ws_url, max_size=64_000_000) as ws:
         page = Page(ws, origin)
@@ -367,29 +281,19 @@ async def session(ws_url, origin, records, evidence, note_evidence, note_only=Fa
             if note_only:
                 await note_cases(page, origin, note_evidence)
                 return
-            if wind_only:
-                Handler.mode, Handler.wind_mode = 'fixture', 'fresh'
-                await page.navigate(f'http://{origin}/index.html?seed=7')
-                assert await page.evaluate(BOOT), 'fixture: monitor failed to boot'
-                await wait_wind(page, 'fresh')
-                await wind_cases(page)
-                return
             pages = [str(rel) for _, rel in served_files() if rel.suffix == '.html']
-            for mode in ('fixture', 'snapshot', 'absent'):
-                Handler.mode, Handler.wind_mode = mode, 'fresh'
+            for mode in ('default', 'snapshot'):
                 for path in pages:
                     query = '?seed=7' + ('&data=snapshot' if mode == 'snapshot' else '')
                     await page.navigate(f'http://{origin}/{path}{query}')
                     if path == 'index.html':
                         assert await page.evaluate(BOOT), f'{mode}: monitor failed to boot'
-                        # Poll for the expected wind state before exercising refresh.
-                        if mode == 'fixture': await wait_wind(page, 'fresh')
-                        state = await page.evaluate("({tier:AIRSHIPS.app.tier, wind:AIRSHIPS.app.windOk, still:document.getElementById('windNote').textContent})")
-                        expected = {'fixture': 'mirror', 'snapshot': 'replay', 'absent': 'snapshot'}[mode]
-                        assert state['tier'] == expected, state
-                        assert state['wind'] == (mode == 'fixture'), state
-                        if mode != 'fixture': assert 'Still air' in state['still'], state
-                        if mode == 'fixture': await wind_cases(page)
+                        # Every view is a replay now: the default route and ?data=snapshot are
+                        # the same tier, and the wind line is a still-air sentence, not a
+                        # fetch outcome.
+                        state = await page.evaluate("({tier:AIRSHIPS.app.tier, still:document.getElementById('windNote').textContent})")
+                        assert state['tier'] == 'replay', state
+                        assert 'Still air' in state['still'], state
                     # Trigger lazy images throughout the document, then settle imports/rendering.
                     await page.evaluate("""(async()=>{
                       for(let y=0;y<document.body.scrollHeight;y+=600) {
@@ -399,9 +303,13 @@ async def session(ws_url, origin, records, evidence, note_evidence, note_only=Fa
                     })()""")
                     errors = await page.evaluate('window.__firstpartyErrors')
                     bad = [r for r in page.requests if r['external']]
+                    # The no-live tripwire: nothing may ask the mirror for anything, on any
+                    # route, even though the handler would answer.
+                    live = [r for r in page.requests if '/data/live/' in r['url']]
                     records.append({'mode': mode, 'page': path, 'requests': list(page.requests), 'errors': errors})
-                    print(f'{mode:8} {path:26} {len(page.requests):3} requests; {len(bad)} external; {len(errors)} script errors', flush=True)
+                    print(f'{mode:8} {path:26} {len(page.requests):3} requests; {len(bad)} external; {len(live)} mirror; {len(errors)} script errors', flush=True)
                     assert not bad, bad
+                    assert not live, live
                     assert not errors, errors
                     if evidence and mode == 'snapshot' and path == 'index.html':
                         await page.evaluate("document.getElementById('introOv')?.click(); AIRSHIPS.app.follow=false; document.getElementById('btnFitFires').click()")
@@ -409,7 +317,7 @@ async def session(ws_url, origin, records, evidence, note_evidence, note_only=Fa
                         import base64
                         shot = await page.send('Page.captureScreenshot', {'format': 'png'})
                         evidence.with_suffix('.png').write_bytes(base64.b64decode(shot['data']))
-            print(f'first-party browser: {len(records)} page/mode visits; zero third-party requests')
+            print(f'first-party browser: {len(records)} page/mode visits; zero third-party requests, zero mirror reads')
             await note_cases(page, origin, note_evidence)
         finally:
             page.reader.cancel()
@@ -421,7 +329,6 @@ def main():
     parser.add_argument('--evidence', type=Path, help='write the recorded request log and monitor screenshot')
     parser.add_argument('--note-evidence', type=Path, help='write clean and injected note screenshots at 1440, 834 and 390 px')
     parser.add_argument('--note-only', action='store_true', help='run only the note cases')
-    parser.add_argument('--wind-only', action='store_true', help='run only wind refresh and delayed mirror cases')
     args = parser.parse_args()
     records = []
     try:
@@ -435,7 +342,7 @@ def main():
                       '--host-resolver-rules=MAP * ~NOTFOUND, EXCLUDE 127.0.0.1']
             with page_target(os.environ.get('CHROME', 'chromium'), flags,
                              Path(tmp) / 'profile') as (_proc, ws_url):
-                asyncio.run(session(ws_url, origin, records, args.evidence, args.note_evidence, args.note_only, args.wind_only))
+                asyncio.run(session(ws_url, origin, records, args.evidence, args.note_evidence, args.note_only))
     finally:
         if args.evidence: args.evidence.write_text(json.dumps(records, indent=2) + '\n')
 

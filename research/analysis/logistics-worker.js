@@ -1,5 +1,5 @@
 /* Bounded analysis worker: identical selector and exact inputs, local data only. */
-import {CLASSES} from '../../sim/index.js?v=6f3787a9';
+import {CLASSES} from '../../sim/index.js?v=7d7bed4f';
 import {acceptedLogistics} from './accepted-logistics.js';
 self.onmessage = ({data}) => {
   try {

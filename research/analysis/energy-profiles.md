@@ -227,10 +227,11 @@ Stipulated sensitivity inputs: CH-47D-derived tip speed 707 ft/s, solidity 0.084
 | P100 / 9.470 km / record / selected / exercise mission 13 | 5.114571 | 5.528200 | 0.413630 | 0.000000 | tests/energy/served-route-distances.json |
 | P100 / 5.201 km / record / selected / exercise mission 14 | 4.049022 | 4.221571 | 0.172548 | 0.000000 | tests/energy/served-route-distances.json |
 | P100 / 4.938 km / record / selected / exercise mission 15 | 3.987042 | 4.144669 | 0.157627 | 0.000000 | tests/energy/served-route-distances.json |
-| P100 / 6.873 km / record / selected / replay mission 0 | 4.435809 | 4.704142 | 0.268333 | 0.000000 | tests/energy/served-route-distances.json |
-| P100 / 14.715 km / record / selected / replay mission 1 | 6.261482 | 6.728932 | 0.467450 | 0.000000 | tests/energy/served-route-distances.json |
-| P100 / 19.388 km / record / selected / replay mission 2 | 7.800049 | 8.413110 | 0.613060 | 0.000000 | tests/energy/served-route-distances.json |
-| P100 / 22.611 km / record / selected / replay mission 3 | 8.672318 | 9.419041 | 0.746723 | 0.000000 | tests/energy/served-route-distances.json |
+| P100 / 6.462 km / record / selected / replay mission 0 | 4.341972 | 4.586635 | 0.244664 | 0.000000 | tests/energy/served-route-distances.json |
+| P100 / 6.873 km / record / selected / replay mission 1 | 4.435809 | 4.704142 | 0.268333 | 0.000000 | tests/energy/served-route-distances.json |
+| P100 / 14.715 km / record / selected / replay mission 2 | 6.261482 | 6.728932 | 0.467450 | 0.000000 | tests/energy/served-route-distances.json |
+| P100 / 19.388 km / record / selected / replay mission 3 | 7.800049 | 8.413110 | 0.613060 | 0.000000 | tests/energy/served-route-distances.json |
+| P100 / 22.611 km / record / selected / replay mission 4 | 8.672318 | 9.419041 | 0.746723 | 0.000000 | tests/energy/served-route-distances.json |
 | P100 / 4.710 km / record / selected / reference-class water median selection | 3.932932 | 4.077640 | 0.144708 | 0.000000 | water-availability.json#classes.P100.acceptedPlans.medianByFire.km; current accepted selector at the reference-class water median |
 | P1000 / 4.710 km / record / selected / reference-class water median selection | 15.397658 | 15.801782 | 0.404124 | 0.000000 | water-availability.json#classes.P100.acceptedPlans.medianByFire.km; current accepted selector at the reference-class water median |
 | P10000 / 4.710 km / record / selected / reference-class water median selection | 156.516489 | 176.418559 | 19.902069 | 0.000000 | water-availability.json#classes.P100.acceptedPlans.medianByFire.km; current accepted selector at the reference-class water median |

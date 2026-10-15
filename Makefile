@@ -90,8 +90,7 @@ firstparty-static:  ## Refuse external loading URLs in every served source file
 	$(PY) tests/firstparty/static.py
 	$(PY) -m unittest discover -s tests/firstparty -p 'test_*.py'
 
-firstparty: firstparty-static  ## Record browser requests on every served page in three mirror modes
-	node --test tests/firstparty/wind.test.mjs
+firstparty: firstparty-static  ## Record browser requests on every served page; zero mirror reads
 	CHROME=$(CHROME) $(PY) tests/firstparty/check.py
 
 noticecheck:  ## Publish to empty scratch and verify third-party records, notices and links
@@ -111,9 +110,9 @@ CI_OUTSIDE_CHECK := floatplantshard
 
 # A smaller gate set that omits the browser page suites and PDF build.
 # ledgercheck still drives a browser when regenerating the float ledger.
-quick: ciparity energycheck energydoccheck portcheck lint stampcheck seasoncheck capturecheck evaccheck labelledcheck claimscheck figcheck analysischeck ledgercheck censuscheck floatpagecheck floatverdictcheck skincheck nodescheck contractcheck assemblycheck test-node readmecheck noticecheck linkcheck mutationcheck buildercheck  ## Selected gates; no TeX (ledger regeneration still needs Chromium)
+quick: ciparity energycheck energydoccheck portcheck lint stampcheck seasoncheck activitycheck capturecheck evaccheck labelledcheck claimscheck figcheck analysischeck ledgercheck censuscheck floatpagecheck floatverdictcheck skincheck nodescheck contractcheck assemblycheck test-node readmecheck noticecheck linkcheck mutationcheck buildercheck  ## Selected gates; no TeX (ledger regeneration still needs Chromium)
 
-check: ciparity reposizecheck energycheck energydoccheck servedenergycheck portcheck lint stampcheck figfresh fallbackcheck seasoncheck capturecheck viewscheck exercisecheck evaccheck labelledcheck claimscheck figcheck analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest floatplantcheck floatpagecheck floatverdictcheck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden goldenui test test-node firstparty interaction readmecheck noticecheck linkcheck mutationcheck buildercheck  ## All local gates; floatplantcheck requires a full pass for changed claim-gate contents
+check: ciparity reposizecheck energycheck energydoccheck servedenergycheck portcheck lint stampcheck figfresh fallbackcheck seasoncheck activitycheck capturecheck viewscheck exercisecheck evaccheck labelledcheck claimscheck figcheck analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest floatplantcheck floatpagecheck floatverdictcheck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden goldenui test test-node firstparty interaction readmecheck noticecheck linkcheck mutationcheck buildercheck  ## All local gates; floatplantcheck requires a full pass for changed claim-gate contents
 
 mutationcheck:  ## Require every parity mutation to fail, then verify the restored files
 	node tests/parity/mutations.mjs
@@ -336,6 +335,14 @@ clean:  ## Delete generated output: rasterised figures and __pycache__
 .PHONY: seasoncheck
 seasoncheck:  ## The season files must match a regeneration and their pinned totals must hold
 	$(PY) tests/season/check.py
+
+# The busiest-day ranking behind the default view: every captured day is measured by the
+# page's own allocator (seed pinned, still air, no satellite heat) and the ranking must
+# regenerate byte for byte, so the day the example opens on is a recorded measurement,
+# not an opinion.
+.PHONY: activitycheck
+activitycheck:  ## The default view's busiest-day ranking must match a fresh measurement
+	$(PY) tools/gen_activity.py --check
 
 # The views gate: what every view of the page owes the reader, proved on the page —
 # the honest-labels refusal over every string the page holds, the labels a view wears

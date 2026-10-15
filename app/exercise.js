@@ -2,9 +2,9 @@
  * date, and its ground is checked here against the season record: the exercise claims its
  * fires stand far from every real wildfire of note, and the view itself re-derives that
  * claim from the record it ships with rather than trusting the generator's word. */
-import { havKm, setSeed } from '../sim/index.js?v=6f3787a9';
-import { fetchJSON } from './net.js?v=6f3787a9';
-import { S } from './store.js?v=6f3787a9';
+import { havKm, setSeed } from '../sim/index.js?v=7d7bed4f';
+import { fetchJSON } from './net.js?v=7d7bed4f';
+import { S } from './store.js?v=7d7bed4f';
 
 export const EXERCISE_MODE = 'Exercise: every fire on this map is invented. The terrain, the lakes and the distances are real.';
 export const EXERCISE_NOTE = 'No fire shown here happened. No aircraft flew. The exercise shows how the simulated fleet chooses under load. Its ground was chosen at least 150 km from every wildfire of note in the season record and from every fire in the season evacuation record.';

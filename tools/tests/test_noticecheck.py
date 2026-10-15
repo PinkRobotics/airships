@@ -206,19 +206,14 @@ class NoticeContracts(unittest.TestCase):
         sidecar.write_text(json.dumps(rec))
         self.assert_error('measurements differ from file')
 
-    def test_service_exception_is_narrow(self):
+    def test_no_service_exception_survives_the_retired_live_view(self):
+        # The wind service record was the one narrow exception; the live view it served
+        # is retired, and with it every kind but a hashed bundled file is refused.
         rec = dict(self.rec, file='live/wind.json', kind='service', decision='link-only', sha256=None)
         p = self.root / 'data/wind.prov.json'
         p.write_text(json.dumps(rec))
-        self.assertEqual(noticecheck.records(self.root)[1], [])
-        target = self.root / 'data/live/wind.json'
-        target.parent.mkdir()
-        target.write_text('{}')
-        self.assert_error('service record must have null hash and no bundled file')
-        target.unlink()
-        rec['file'] = 'anything.pdf'
-        p.write_text(json.dumps(rec))
-        self.assert_error('unsupported kind or service identity')
+        self.assert_error('unsupported kind')
+        p.unlink()
 
     def test_write_never_updates_index_or_repairs_a_bad_hash(self):
         index = (self.root / 'index.html').read_bytes()

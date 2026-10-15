@@ -1,40 +1,34 @@
 /* The data this page shows: which view it is, what it asks for, how it falls back, and how
- * the feeds become model input.
+ * the files become model input.
  *
- * DATED AND LIVE VIEWS have three routes:
+ * EVERY VIEW IS A REPLAY OF THE PUBLISHED RECORD. The page queries no wildfire feed, live
+ * or mirrored — the Admiral's ruling of 2026-10-14 stopped that, and this code now reads
+ * only files this site itself serves:
  *
- *   a dated day   ?day=YYYY-MM-DD — one of the status days in data/season/, loaded through
- *                 the same code path as live data. A day whose files answer their checks
- *                 is a fleet day; one that cannot be read honestly stands the fleet down
- *                 and says so in words.
- *   the sample    ?data=snapshot, and the live mirror's failure fallback: the latest day
- *                 in the repository, read from the same season day files — there is no
- *                 second copy of the data.
- *   live          this site's own mirror of the public feeds (pipeline/live.py), when it is
- *                 fresh.
+ *   a dated day   ?day=YYYY-MM-DD — one of the status days in data/season/. A day whose
+ *                 files answer their checks is a fleet day; one that cannot be read
+ *                 honestly stands the fleet down and says so in words.
+ *   the sample    ?data=snapshot, and the default view: the busiest captured day — most
+ *                 hulls working, ranked in data/season/2026.activity.json — read from
+ *                 the same season day files; there is no second copy of the data.
  *
- * The mirror exists so that traffic to this page does not become traffic to an emergency
- * service. The separate ?view=exercise route loads invented fires through normalize,
- * with no date, and checks its ground against the season record.
+ * The separate ?view=exercise route loads invented fires through normalize, with no date,
+ * and checks its ground against the season record.
  * Whichever tier answered is named on the page — the status line never implies
- * live data it does not have, and it names the day and the mode in words on every view.
+ * fresher data than it has, and it names the day and the mode in words on every view.
  */
-import { dropSeg, fireNumber, havKm, insideFire, planTargets } from '../sim/index.js?v=6f3787a9';
-import { EXERCISE_MODE, EXERCISE_NOTE, loadExercise } from './exercise.js?v=6f3787a9';
-import { renderFires, renderRoster } from './cockpit/tables.js?v=6f3787a9';
-import { renderDrawer } from './cockpit/panels.js?v=6f3787a9';
-import { vancouverClock, vancouverDate } from './dates.js?v=6f3787a9';
-import { replanAll } from './fleet.js?v=6f3787a9';
-import { renderStatus } from './main.js?v=6f3787a9';
-import { fetchJSON, mirrorJSON } from './net.js?v=6f3787a9';
-import { S } from './store.js?v=6f3787a9';
-import { windForMission, readWind, WIND_MAX_AGE_MS } from './wind.js?v=6f3787a9';
+import { fireNumber } from '../sim/index.js?v=7d7bed4f';
+import { EXERCISE_MODE, EXERCISE_NOTE, loadExercise } from './exercise.js?v=7d7bed4f';
+import { vancouverClock, vancouverDate } from './dates.js?v=7d7bed4f';
+import { fetchJSON } from './net.js?v=7d7bed4f';
+import { S } from './store.js?v=7d7bed4f';
 
 
 /* REPLAY MODE. `?data=snapshot` pins every external input to a dated copy bundled with the
- * repository — now the latest fleet day in data/season/, with its fires and perimeters and
+ * repository — the busiest captured fleet day in data/season/ (the ranking's defaultDay;
+ * the newest day when the ranking cannot be read), with its fires and perimeters and
  * nothing else: no wind (a forecast cannot be replayed honestly from a file, so replay mode
- * declines to pretend) and no satellite heat (a live layer, not part of a status day). With
+ * declines to pretend) and no satellite heat (not part of a status day). With
  * `?seed=` pinning the plan jitter, a run is fully determined.
  *
  * That buys three things: golden-output tests that compare numbers rather than screenshots,
@@ -100,44 +94,39 @@ export function normalize(firesGJ, perimsGJ) {
   return fires;
 }
 
-/* Which tier is on screen. loadLive sets it, and the status line in main.js says it out
+/* Which tier is on screen. loadView sets it, and the status line in main.js says it out
  * loud; nothing else may write it. It is not declared in store.js because this module is
  * the only thing that knows the answer.
  *
- *   "replay"    ?data=snapshot — the visitor asked for the bundled sample (a fleet day)
+ *   "replay"    the bundled sample — the busiest captured fleet day in the repository
  *   "day"       ?day=YYYY-MM-DD — a dated status day, a fleet day unless its files fail
- *   "mirror"    this site's server-side copy of the public feeds
- *   "snapshot"  the bundled sample; the mirror failed
  *   "none"      nothing answered and there is nothing to show
  *
- * A refresh that fails with a good picture already on screen changes none of this: the tier
- * and the fetch time stay as they were, because they describe the data the visitor is
- * looking at, and the growing age is what tells them the page has stopped updating.
- *
- * S.dataNote carries the reason in words — "mirror is 63 min old, past its 45 min gate",
- * "timed out after 15 s" — so a visitor who wonders why is not left guessing, and so the
- * two failures that look identical from outside (a feed that hangs and a feed that returns
- * nothing) read differently on the page. S.perimsOk says whether the outlines came with the
- * points, because a live tier can answer with one and not the other. */
+ * S.dataNote carries the reason in words — "no perimeters (…)", "timed out after 15 s" —
+ * so a visitor who wonders why is not left guessing, and so the failures that look
+ * identical from outside (a file that hangs and a file that returns nothing) read
+ * differently on the page. S.perimsOk says whether the outlines came with the points,
+ * because a day can carry one and not the other. */
 
 /* One short phrase for one failure, for the status line. */
 function why(e) {
   return (e && e.message) || "unknown error";
 }
 
-/* A feed that parses but carries no fires is a failure of the SOURCE, not of the transport,
- * and the next tier may well have the fires. BC has active fires every day of the season;
- * an empty collection in August is a broken publisher, not a quiet province. It is treated
- * as unusable rather than shown as "0 fires" — but only after every tier has been asked. */
+/* A file that parses but carries no fires is a failure of the SOURCE, not of the transport.
+ * BC has active fires every day of the season; an empty collection in August is a broken
+ * publisher, not a quiet province. It is treated as unusable rather than shown as
+ * "0 fires". */
 function usable(gj) {
   return !!(gj && Array.isArray(gj.features) && gj.features.length);
 }
 
 /* ---------- the season record ----------------------------------------------------------------- */
 
-/* The season index and the season record, read once per view. Everything else in this
- * module waits on them: the day control is built from the index, and the exercise view
- * holds its invented ground against the record's wildfires of note.
+/* The season index, the season record, and the busiest-day ranking, read once per view.
+ * Everything else in this module waits on them: the day control is built from the index,
+ * the default view opens on the ranking's day, and the exercise view holds its invented
+ * ground against the record's wildfires of note.
  *
  * A failure here is not a blank page: the words go into S.seasonNote and the view degrades
  * to whatever it can still load honestly. */
@@ -151,6 +140,11 @@ export function loadSeason() {
     catch (e) { fail.push("season index: " + why(e)); }
     try { seasonDoc = await fetchJSON("data/season/2026.json", 30000); }
     catch (e) { fail.push("season record: " + why(e)); }
+    /* The ranking is a preference, not a source: unreadable falls back to the newest day
+     * quietly — the view still works, it just opens quieter. */
+    let activity = null;
+    try { activity = await fetchJSON("data/season/2026.activity.json", 20000); }
+    catch (e) { activity = null; }
     S.seasonFires = seasonDoc && Array.isArray(seasonDoc.fires)
       ? seasonDoc.fires
         .filter(f => f && typeof f.fire === "string" && Number.isFinite(f.lon) && Number.isFinite(f.lat))
@@ -161,16 +155,27 @@ export function loadSeason() {
       ? daysIdx.days.filter(d => d && typeof d.date === "string" && d.fires && d.fires.file && d.perims && d.perims.file)
       : [];
     S.seasonNote = fail.length ? fail.join("; ") : null;
+    S.activity = activity && typeof activity.defaultDay === "string" ? activity : null;
   })();
   return seasonOnce;
 }
 
-/* The newest dated day in the repository. ?data=snapshot and the mirror's failure
- * fallback both resolve to this, so the bundled sample is always a day the repository
- * holds. Null when the index is down. */
+/* The newest dated day in the repository — the default view's fallback when the ranking
+ * could not be read. Null when the index is down. */
 export function latestDay() {
   const days = S.dayList.map(d => d.date).slice().sort();
   return days.length ? days[days.length - 1] : null;
+}
+
+/* The day the default view opens on: the busiest captured fleet day — the one with the
+ * most hulls left a feasible plan, measured by tools/gen_activity.py over each day's
+ * published record and held as data (2026.activity.json's defaultDay; ties went to the
+ * newest date when it was measured). A ranking that did not load, or names a day the
+ * index does not hold, falls back to the newest day: a quiet default beats none. */
+export function bestReplayDay() {
+  const ranked = S.activity && S.activity.defaultDay;
+  if (ranked && S.dayList.some(x => x.date === ranked)) return ranked;
+  return latestDay();
 }
 
 /* Set the view's mode once its date is known. Everything downstream — the fleet, the map,
@@ -234,11 +239,11 @@ async function loadDayView(d, tier, notes) {
   return normalize(fres.data, perims && perims.data);
 }
 
-/* The built-in sample: the latest day in the repository, whichever route asked for it
- * (?data=snapshot, or the live mirror failing). If no season day can be read — the index
- * is down — the committed snapshot is the last resort, dated by its own retrievedAt. */
+/* The built-in sample: the busiest captured day in the repository, whichever route asked
+ * for it (?data=snapshot, or a plain visit). If no season day can be read — the index is
+ * down — the committed snapshot is the last resort, dated by its own retrievedAt. */
 async function loadSample(tier, notes) {
-  const date = latestDay();
+  const date = bestReplayDay();
   if (date) {
     const d = S.dayList.find(x => x.date === date);
     S.daySource = "sample";
@@ -264,11 +269,11 @@ async function loadSample(tier, notes) {
   return [];
 }
 
-export async function loadLive() {
+export async function loadView() {
   await loadSeason();
   if (EXERCISE) return loadExercise(normalize);
 
-  /* A dated status day, through the same code path as live data. */
+  /* A dated status day, checked against the index before it is trusted. */
   if (DAY) {
     S.daySource = "day";
     if (!S.dayList.length) {
@@ -298,45 +303,9 @@ export async function loadLive() {
     }
   }
 
-  if (REPLAY) return await loadSample("replay", []);
-
-  // Live: our own mirror first. Every mirror failure is recorded before anything falls back.
-  const notes = [];
-  let got = null, perims = null;
-  try {
-    const fr = await mirrorJSON("fires", 45);
-    if (usable(fr.data)) {
-      got = fr;
-      try { perims = await mirrorJSON("perims", 90); }
-      catch (e) { notes.push("no perimeters (" + why(e) + ")"); }
-    } else notes.push("mirror carried no fires");
-  } catch (e) { notes.push("mirror: " + why(e)); }
-
-  if (got) {
-    S.usingFallback = false; S.tier = "mirror"; S.daySource = "live";
-    S.fetchedAt = new Date(Date.now() - got.age);
-    S.dataNote = notes.join("; ");
-    // "Perimeters arrived" has to mean outlines are on the map, not merely that the layer
-    // answered: an empty collection draws nothing and must not be described as perimeters.
-    S.perimsOk = usable(perims && perims.data);
-    S.unknownDay = null;
-    setView(null, null);
-    return normalize(got.data, perims && perims.data);
-  }
-
-  // A refresh that failed with a good live picture already on screen keeps that picture
-  // AND its provenance — it really did come from the mirror, at the time it says — and the
-  // age in the status line goes on growing, the honest signal that the page has stopped
-  // being able to update itself. Switching to the sample mid-view would be a mode change
-  // the visitor did not ask for.
-  if (S.daySource === "live" && S.fires.length) {
-    S.dataNote = notes.join("; ");
-    return S.fires;
-  }
-
-  // The mirror did not answer: the latest fleet day in the repository, dated on the page
-  // and never called live.
-  return await loadSample("snapshot", notes.concat(["mirror unavailable"]));
+  // The default view is the bundled sample: the busiest captured fleet day in the
+  // repository, dated on the page and replayed, never called live.
+  return await loadSample("replay", []);
 }
 
 export function needsShip(f) {
@@ -365,9 +334,8 @@ export function modeWords() {
   if (S.recordOnly)
     return date + ": the fires as British Columbia published them at " + time + ". " +
       "No fleet is simulated for this view: " + S.standDown + ".";
-  // "Live" only when the mirror answered; every dated view is a replay of its day.
-  const lead = S.daySource === "live" ? "Live " + date : "Replay of " + date;
-  return lead + ": the fires as British Columbia published them at " + time + ". The fleet is " +
+  // Every view this page can show is a replay of one day's published record.
+  return "Replay of " + date + ": the fires as British Columbia published them at " + time + ". The fleet is " +
     "simulated and never flew. Its drops are water released, not water arrived, and " +
     "nothing here says any fire would have burned differently.";
 }
@@ -388,20 +356,16 @@ export function nothingWhy() {
 
 /* What the view calls itself outside the map: the header strip, the tab title and the
  * description tags. Written here, from the same state as the chip and the mode sentence,
- * so that a replay never wears the live label, a view with no fleet never promises one and
- * an empty view never names a record. The static head in index.html names no one view: a
- * link preview and a reader without scripts get it on every address. */
+ * so that a view with no fleet never promises one and an empty view never names a record.
+ * The static head in index.html names no one view: a link preview and a reader without
+ * scripts gets it on every address. */
 /* The first-visit screen's phrases that name the view. It opens only where a fleet is
- * simulated, so there are three cases: the exercise, the live feed, a dated replay. */
+ * simulated, so there are two cases: the exercise, a dated replay. */
 export function introWords() {
   if (S.exercise)
     return { tap: "Invented fires · a simulated fleet", mapHead: "The map · exercise",
       mapBody: "Every fire is invented. Real terrain and lakes; a simulated fleet. Drag, zoom, select an exercise fire.",
       fires: "the invented exercise fires" };
-  if (S.daySource === "live")
-    return { tap: "Live BC fires · a simulated fleet drawn over them", mapHead: "The map · live",
-      mapBody: "Today's real BC fires and satellite heat. The moving ships are simulated. Drag, zoom, click anything for its record.",
-      fires: "the live fires" };
   return { tap: "BC fires of " + S.day + " · a simulated fleet drawn over them", mapHead: "The map · " + S.day,
     mapBody: "The real BC fires of " + S.day + ", as published. The moving ships are simulated. Drag, zoom, click anything for its record.",
     fires: "the fires of " + S.day };
@@ -422,19 +386,12 @@ export function viewLabels() {
     return { fires: what, fleet: "no fleet simulated", title: What + " · " + site,
       ogTitle: What + ". Nothing is shown.", description: mode, ogDescription: mode };
   }
-  const live = S.daySource === "live";
-  const fires = live ? "live BC fires" : "BC fires of " + S.day;
+  const fires = "BC fires of " + S.day;
   if (S.recordOnly)
     return { fires, fleet: "no fleet simulated",
-      title: (live ? "Live BC fires" : fires) + " · no fleet simulated · " + site,
-      ogTitle: (live ? "Live BC fires" : "The fires of " + S.day) + ", as published. No fleet is simulated.",
+      title: fires + " · no fleet simulated · " + site,
+      ogTitle: "The fires of " + S.day + ", as published. No fleet is simulated.",
       description: mode, ogDescription: mode };
-  if (live)
-    return { fires, fleet: "simulated fleet",
-      title: "Pink Robotics — autonomous fleet monitor: live BC fires, a simulated fleet, every number computed",
-      ogTitle: "Live fires. A simulated fleet. Arithmetic you can check.",
-      description: "Current BC wildfire data paired with a simulated fleet of sixteen vacuum airships shared across the largest out-of-control fires, with the physics, the energy budgets and the limits of the idea computed in the open. The fires are real; the fleet is simulated.",
-      ogDescription: "Current BC wildfires from public data; a simulated fleet of autonomous vacuum airships cycling water onto them. The monitor shows what the proposed machines are modelled to do and what each cycle would cost — not a promise that any fire goes out." };
   return { fires, fleet: "simulated fleet", title: fires + " · simulated fleet · " + site,
     ogTitle: "The fires of " + S.day + ". A simulated fleet. Arithmetic you can check.",
     description: mode, ogDescription: mode };
@@ -445,80 +402,4 @@ export function viewLabels() {
  * it was chosen on); every other view's mode sentence already says what is on screen. */
 export function sceneNoteWords() {
   return S.exercise && !S.recordOnly ? EXERCISE_NOTE : "";
-}
-
-export async function fetchWind() {
-  clearTimeout(fetchWind._expiry);
-  const act = S.missions.filter(m => m.water && m.cls);
-  // Clear the previous forecast even on a failed refresh: missing wind is labelled, and the plan uses still air.
-  for (const m of act) m.wind = null;
-  S.windOk = false; S.windAt = null;
-  // The wind mirror describes today's air. A dated day has no forecast to replay honestly
-  // and no fleet to carry one, so day and sample views fly in still air, labelled as such.
-  S.windNote = S.daySource === "live" ? (act.length ? "loading mirror" : "mirror unavailable")
-    : S.exercise ? "exercise; no forecast is invented"
-    : S.recordOnly ? "no fleet is simulated" : "a dated day replays no forecast";
-  renderStatus();
-  if (S.daySource !== "live" || !act.length) return;
-  try {
-    const grid = readWind(await fetchJSON("data/live/wind.json?ts=" +
-      Math.floor(Date.now() / 300000), 12000));
-    const winds = act.map(m => windForMission(grid, m));
-    act.forEach((m, i) => { m.wind = winds[i]; });
-    S.windOk = true; S.windAt = new Date(grid.fetchedAt); S.windNote = "";
-    fetchWind._expiry = setTimeout(fetchWind, Math.max(1, Math.min(
-      grid.fetchedAt + WIND_MAX_AGE_MS, grid.forecastAt + 2 * 3600000) - Date.now() + 1));
-  } catch (e) { S.windNote = why(e); }
-  // S.heat must be passed: planTargets scores candidate lines partly on how hot the
-  // satellite detections along them are, and it takes that data as an argument so the
-  // model can run with no feed. Omitting it silently reverts to geometry-only scoring.
-  for (const mm of S.missions) if (!mm.idle) planTargets(mm, S.heat);
-  replanAll(); renderStatus();
-}
-
-export async function fetchHeat() {
-  // The satellite detections the heat overlay draws are a live layer. A status day is the
-  // published record of one date and carries none, so day and sample views load no heat —
-  // and yesterday's detections must never guide missions on another day's fires anyway.
-  if (S.daySource !== "live") { S.heat = []; applyHeat(); return; }
-  try {
-    const hr = await mirrorJSON("heat", 90, 25000);
-    S.heat = (hr.data.features || []).map(f => ({ ll: f.geometry.coordinates, temp: f.properties.temp || 0 }));
-  } catch (e) { S.heat = []; }
-  applyHeat();
-}
-
-export function applyHeat() {
-  if (!S.heat || !S.heat.length) return;
-  for (const m of S.missions) {
-    if (m.idle) continue;
-    const f = m.fire;
-    const radKm = Math.sqrt(Math.max(f.sizeHa, 10) * 1e4 / Math.PI) / 1000 + 3;
-    const cand = [];
-    for (const h of S.heat) {
-      if (Math.abs(h.ll[1] - f.ll[1]) * 111 > radKm) continue;
-      if (havKm(h.ll, f.ll) > radKm) continue;
-      if (insideFire(f, h.ll) || havKm(h.ll, f.ll) < radKm * 0.6) cand.push(h);
-    }
-    if (!cand.length) continue;
-    cand.sort((a, b) => b.temp - a.temp);
-    const sepKm = Math.max(0.3, m.cls.dropKm * 0.45);
-    const picks = [];
-    for (const h of cand) {
-      if (picks.every(q => havKm(q, h.ll) > sepKm)) picks.push(h.ll.slice());
-      if (picks.length >= 8) break;
-    }
-    if (picks.length >= 1) {
-      m.targets = picks;
-      m.refusedTargets = []; // These are detection targets, with a different footprint rule.
-      m.segs = picks.map(t => dropSeg(m, t, true));
-      m.heat = true;
-      planTargets(m, S.heat);
-    }
-  }
-  if (S.sel?.m?.refused) S.sel = {type:"fire", f:S.sel.m.fire};
-  S.missions = S.missions.filter(m => !m.refused);
-  for (const f of S.fires) f.mission = S.missions.find(m => m.fire === f) || null;
-  S.uncovered = S.fires.filter(f => needsShip(f) && !f.mission).length;
-  renderRoster(); renderFires(); replanAll();
 }

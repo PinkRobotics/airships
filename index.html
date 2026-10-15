@@ -473,7 +473,7 @@ body.split-h #introOv .io-3d{left:52%;top:18%}
   font:500 var(--t-11)/1.5 var(--mono);color:#c9c3b6;background:rgba(8,8,10,.92);
   padding:4px 6px;border-radius:4px}
 #modeNote:empty{display:none}
-body.record-only .lg-ship,body.no-heat .lg-heat{display:none}
+body.record-only .lg-ship{display:none}
 .maplegend{position:absolute;left:var(--s3);bottom:var(--s3);font:var(--t-11)/1.7 var(--mono);
   color:var(--muted);background:rgba(10,10,12,.82);border:1px solid var(--line);
   border-radius:var(--r-sm);padding:7px 10px;pointer-events:none}
@@ -518,6 +518,19 @@ footer.noticefooter{position:absolute;right:var(--s3);bottom:2px;z-index:20;
    label read better as written) and a little narrower than a text button. */
 select.ctlbtn{text-transform:none;letter-spacing:.05em;padding:6px 10px;color:var(--muted)}
 select.ctlbtn:focus-visible{outline:2px solid var(--warm);outline-offset:-2px}
+/* The day row: every captured day of the season beside the exercise, each labelled with
+   what choosing it is — a replay of that day's published record, or the invented
+   exercise — as real links, so the row is a working control before scripts run and a
+   plain list of addresses after them. Chips, not buttons, because a day is a place to
+   go, not an action to take; the current view is marked, not pressed. The mode word
+   sits in the chip's quiet half so a scan down the row reads the season's shape. */
+.dayrow{display:flex;flex-wrap:wrap;gap:5px 6px;margin:0 0 var(--s3)}
+.dayrow a{display:inline-flex;align-items:baseline;gap:7px;text-decoration:none;
+  border:1px solid var(--line-strong);border-radius:999px;padding:6px 13px;
+  font:600 var(--t-11)/1 var(--mono);letter-spacing:.05em;color:var(--muted)}
+.dayrow a:hover{color:var(--text);border-color:var(--warm-dim)}
+.dayrow a:focus-visible{outline:2px solid var(--warm);outline-offset:-2px}
+.dayrow a[aria-current]{color:var(--warm);border-color:var(--warm);background:var(--warm-glow)}
 /* A record-only day has no fleet: the controls that exist to drive one leave with it, so
    nothing on the page offers a pause to a thing that is not running. The fleet note leaves
    too: "The fleet is simulated" under a roster that says no fleet is simulated. */
@@ -751,6 +764,14 @@ body.record-only #hudSim,body.record-only [data-dtab="3d"],body.record-only #fle
         <span id="fleetModeLabel" style="color:var(--warm)">simulated fleet</span> ·
         <span style="color:#d98b80">not for emergency use</span></span>
       <a href="concept/" style="margin-left:auto;color:var(--warm)"><span class="m-hide">How it works · </span>sources →</a></p>
+    <!-- The day row: every captured day of the 2026 season beside the exercise, in the
+         open beside the title — the peak August week first, then the days after it.
+         Real links (a view is its URL), so the row works for a reader without scripts
+         and a crawler as well as for the page; the default view opens on the busiest
+         captured day (data/season/2026.activity.json). populateDayRow() fills this once
+         the season index loads, marking the view on screen; the markup between the
+         FALLBACK markers is the no-script copy, written by tools/gen_fallback.py. -->
+    <nav class="dayrow" id="dayRow" aria-label="Which day to show"><!--FALLBACK-DAYROW--><a href="?day=2026-08-08">2026-08-08 · replay</a><a href="?day=2026-08-09">2026-08-09 · replay</a><a href="?day=2026-08-10">2026-08-10 · replay</a><a href="?day=2026-08-11">2026-08-11 · replay</a><a href="?day=2026-08-12">2026-08-12 · replay</a><a href="?day=2026-08-13">2026-08-13 · replay</a><a href="?day=2026-08-14">2026-08-14 · replay</a><a href="?day=2026-08-15">2026-08-15 · replay</a><a href="?day=2026-09-20">2026-09-20 · replay</a><a href="?day=2026-09-22">2026-09-22 · replay</a><a href="?day=2026-10-01">2026-10-01 · replay</a><a href="?view=exercise">Exercise: invented fires</a><!--/FALLBACK-DAYROW--></nav>
     <div class="monbody has-ship" id="cockpit">
       <div class="cp-leftcol">
       <div class="cpanel" id="cpFleet">
@@ -826,7 +847,6 @@ body.record-only #hudSim,body.record-only [data-dtab="3d"],body.record-only #fle
             <i style="background:#e3a94e"></i>being held<br>
             <i style="background:#46d06e"></i>under control<br>
             <i style="background:#7aa2c8"></i>water source<br>
-            <span class="lg-heat"><i style="background:#ff8c46"></i>satellite heat, 24 h<br></span>
             <span class="lg-ship"><i style="background:#ff4fa3"></i>simulated airship</span>
           </div>
 
@@ -836,7 +856,7 @@ body.record-only #hudSim,body.record-only [data-dtab="3d"],body.record-only #fle
         <details class="mapcredits">
           <summary>Map data credits</summary>
 <!-- NOTICE-CREDIT START -->
-<div class="mapcredit" aria-label="Map data credits">Contains information licensed under the Open Government Licence - British Columbia.<br>Contains information licensed under the Open Government Licence - Canada.<br>Canada terrain data contains information licensed under the Open Government Licence - Canada; United States 3DEP (formerly NED) and global GMTED2010 and SRTM terrain data courtesy of the U.S. Geological Survey; Global ETOPO1 terrain data U.S. National Oceanic and Atmospheric Administration.<br>Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com.<br>Weather data by Open-Meteo.com.<br><a href="notices.html">Data, licences and notices</a></div>
+<div class="mapcredit" aria-label="Map data credits">Contains information licensed under the Open Government Licence - British Columbia.<br>Canada terrain data contains information licensed under the Open Government Licence - Canada; United States 3DEP (formerly NED) and global GMTED2010 and SRTM terrain data courtesy of the U.S. Geological Survey; Global ETOPO1 terrain data U.S. National Oceanic and Atmospheric Administration.<br>Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com.<br><a href="notices.html">Data, licences and notices</a></div>
 <!-- NOTICE-CREDIT END -->
         </details>
         <div class="monctl" role="group" aria-label="Simulation controls">
@@ -851,14 +871,6 @@ body.record-only #hudSim,body.record-only [data-dtab="3d"],body.record-only #fle
           <button class="ctlbtn" id="btnFitFleet" type="button">Fit fleet</button>
           <button class="ctlbtn" id="btnFitFires" type="button">Fit fires</button>
           <button class="ctlbtn" id="btnSplit" type="button" title="Flip the map/model split between stacked and side-by-side">Split ⬒</button>
-          <!-- The day control: Today (live) and every dated status day in the repository,
-               each labelled record only or fleet simulated. A native select — keyboard
-               navigation and the option list are free that way, and choosing a day is
-               choosing a URL. Populated by populateDaySel() once the season index loads. -->
-          <select class="ctlbtn" id="daySel" aria-label="Which day to show">
-            <option value="">Today (live)</option>
-            <option value="exercise">Exercise: invented fires</option>
-          </select>
           <button class="ctlbtn" id="btnFS" type="button">Fullscreen</button>
         </div>
         <div id="layersPanel" style="display:none;border:1px solid var(--line);border-radius:var(--r-sm);padding:var(--s3) var(--s4);flex-wrap:wrap;gap:var(--s2) var(--s4);align-items:center;font:var(--t-12) var(--mono);color:var(--faint)">
@@ -868,8 +880,6 @@ body.record-only #hudSim,body.record-only [data-dtab="3d"],body.record-only #fle
             <button type="button" data-filter="ooc">Out of control</button>
           </span>
           <label class="tog"><input type="checkbox" id="tgTerrain" checked>terrain</label>
-          <label class="tog"><input type="checkbox" id="tgHot" checked>hotspots</label>
-          <label class="tog"><input type="checkbox" id="tgWind" checked>wind</label>
           <label class="tog"><input type="checkbox" id="tgPlaces" checked>places</label>
           <label class="tog"><input type="checkbox" id="tgPerims" checked>perimeters</label>
           <label class="tog"><input type="checkbox" id="tgWater" checked>water</label>
@@ -877,9 +887,9 @@ body.record-only #hudSim,body.record-only [data-dtab="3d"],body.record-only #fle
           <label class="tog"><input type="checkbox" id="tgLabels">labels</label>
           <p class="data-note" style="flex-basis:100%;margin:0;color:var(--muted)">
             <span id="firstPartyNote">This page's own code talks only to the site that served it.</span>
-            <span id="windNote">Still air · wind mirror not loaded.</span><br>
-            <span id="sceneNote"></span> <span id="heatNote"></span><br>
-            Weather data by Open-Meteo.com · CC BY 4.0. Terrain: Mapzen/AWS; vectors: Natural Earth.
+            <span id="windNote">Still air · no forecast is replayed.</span><br>
+            <span id="sceneNote"></span><br>
+            Terrain: Mapzen/AWS; vectors: Natural Earth.
             <a href="concept/#sources">Data sources and method</a>.
           </p>
         </div>
@@ -1001,8 +1011,8 @@ body.record-only #hudSim,body.record-only [data-dtab="3d"],body.record-only #fle
     <p id="liveNote" class="vh" role="status" aria-live="polite" aria-atomic="true"></p>
 
     <!-- THE STATIC FALLBACK. Everything between the FALLBACK markers is written by
-         tools/gen_fallback.py from the built-in sample (the latest fleet day in
-         data/season/, replayed at seed=7) and held fresh by `make fallbackcheck`, which
+         tools/gen_fallback.py from the invented exercise scene (?view=exercise,
+         replayed at seed=7) and held fresh by `make fallbackcheck`, which
          regenerates and diffs rather than comparing committed files. It is display:none
          for every scripted visitor — a <noscript> style reveals it — so the running
          monitor never knows it is here. Edit the generator, not this block. -->
@@ -1030,14 +1040,14 @@ body.record-only #hudSim,body.record-only [data-dtab="3d"],body.record-only #fle
   <h2>The monitor, standing still: an exercise</h2>
   <p>No fire shown here happened. No aircraft flew. The exercise shows how the simulated fleet chooses under load. Its ground was chosen at least 150 km from every wildfire of note in the season record and from every fire in the season evacuation record.</p>
   <p>This fixed exercise supplies the poster and the no-script reference scene. It is not a date or an agency record. Its 117 fires have invented positions, sizes and stages of control; 43 are out of control in the exercise. The terrain and lakes are bundled public data. The fires use aggregate distributions from the busiest captured season days, never individual incidents. The seed, fitted numbers and distance checks are in <a href="data/exercise/exercise.prov.json">the exercise provenance</a>.</p>
-  <p>Bone marks exercise fire data; pink marks the simulated fleet. With scripts on, live remains the default view and the day control offers “Exercise: invented fires”. If the live mirror fails, the page shows the newest fleet day as a replay; it does not switch to this exercise.</p>
+  <p>Bone marks exercise fire data; pink marks the simulated fleet. With scripts on, the default view is a replay of the busiest captured fleet day, and the day row offers “Exercise: invented fires” beside every dated day.</p>
   <p>The flight model assumes a hull that floats. Nothing floats today as drawn. The <a href="float/">float case</a> explains the unresolved structural requirements.</p>
   <h3>The exercise fires: all invented</h3>
   <p>The top-fires panel lists the largest invented out-of-control fires. 27 exercise fires qualify for a ship but receive none in this allocation.</p>
   <h3>The fleet: 16 simulated hulls</h3>
   <p>A fixed demonstration fleet is allocated among the largest out-of-control fires it may work. It has 10 P-100s at 100 t requested capacity and 110 m each, 5 P-1000s at 1,000 t requested capacity and 238 m, and one P-10000 at 10,000 t requested capacity and 512 m. In this exercise allocation all 16 hulls have feasible plans in the simulation. The full roster, hull by hull, is in the fleet panel above. Feasible means quasi-static force and bus closure at every checked instant. Battery hours are reported; they do not determine feasibility. These plans close only in the quasi-static force-and-bus model. Vertical dynamics, suspended-load control and sufficient stored energy for mission completion remain unestablished. Rotor energy and power figures are conditional on a constant hover merit times drive efficiency at every thrust and speed, with no separate blade profile power and no specified blade, rotor-speed or pitch policy. A separated model can move these figures in either direction.</p>
   <figure>
-    <img src="media/map-snapshot.jpg" width="924" height="307"
+    <img src="media/map-snapshot.jpg" width="924" height="390"
       alt="Exercise: invented fires on British Columbia terrain, drawn as status-coloured circles, water bodies, and the simulated airships as pink markers">
     <figcaption>Exercise: every fire in this still is invented. The terrain and lakes are real; the fleet is simulated. No satellite heat or invented wind is used. The label is part of the image.</figcaption>
   </figure>
@@ -1186,7 +1196,7 @@ body.record-only #hudSim,body.record-only [data-dtab="3d"],body.record-only #fle
 <!-- The whole application is app/main.js. This page is markup: everything it does,
      it does from there, and there is no build step between the two — the browser
      loads the same modules you read on GitHub. -->
-<script type="module" src="./app/main.js?v=6f3787a9"></script>
+<script type="module" src="./app/main.js?v=7d7bed4f"></script>
 <footer class="noticefooter"><a href="notices.html">Data, licences and notices</a></footer>
 </body>
 </html>

@@ -22,8 +22,7 @@ DECISIONS = (
     "redistributed: included under the recorded terms; link-only: the public repository retains "
     "the source and hash, not the file; withheld: excluded from redistribution; to-confirm: "
     "excluded until a person confirms the terms. Excluded records are an audit trail, not a "
-    "redistribution notice or a claim of permission. The wind record describes an unbundled "
-    "server service, not a repository file."
+    "redistribution notice or a claim of permission."
 )
 
 

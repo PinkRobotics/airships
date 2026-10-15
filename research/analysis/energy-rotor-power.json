@@ -1419,7 +1419,7 @@
     {
       "dataset": "accepted-served",
       "class": "P100",
-      "km": 6.872957528739268,
+      "km": 6.462011200336579,
       "basis": "record",
       "kind": "served",
       "mode": "rapid",
@@ -1436,6 +1436,43 @@
       },
       "capture": "replay",
       "mission": 0,
+      "provenance": "tests/energy/served-route-distances.json",
+      "baselineFeasible": true,
+      "originalTotalMWh": 4.341971766422044,
+      "originalRotorMWh": 3.6342306122092216,
+      "comparisonRotorMWh": 3.878894247561889,
+      "comparisonDemandMWh": 4.5866354017747115,
+      "overdrawMinutes": 0,
+      "peakOverdrawMW": 0,
+      "lowThrust": {
+        "phase": "SOURCE_APPROACH",
+        "progress": 0.64525,
+        "rotorT": 0,
+        "originalMW": 0,
+        "comparisonMW": 2.426573122020838,
+        "profileMW": 2.426573122020838
+      }
+    },
+    {
+      "dataset": "accepted-served",
+      "class": "P100",
+      "km": 6.872957528739268,
+      "basis": "record",
+      "kind": "served",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "verticalProfile": {
+          "climbRateMps": 2,
+          "letdownRateMps": 2,
+          "climbAirspeedMps": 5,
+          "letdownAirspeedMps": 5
+        },
+        "ballastT": 35
+      },
+      "capture": "replay",
+      "mission": 1,
       "provenance": "tests/energy/served-route-distances.json",
       "baselineFeasible": true,
       "originalTotalMWh": 4.435809253534642,
@@ -1466,7 +1503,7 @@
         "ballastT": 32.232
       },
       "capture": "replay",
-      "mission": 1,
+      "mission": 2,
       "provenance": "tests/energy/served-route-distances.json",
       "baselineFeasible": true,
       "originalTotalMWh": 6.261482490240132,
@@ -1497,7 +1534,7 @@
         "ballastT": 29.052
       },
       "capture": "replay",
-      "mission": 2,
+      "mission": 3,
       "provenance": "tests/energy/served-route-distances.json",
       "baselineFeasible": true,
       "originalTotalMWh": 7.80004914000335,
@@ -1528,7 +1565,7 @@
         "ballastT": 29.052
       },
       "capture": "replay",
-      "mission": 3,
+      "mission": 4,
       "provenance": "tests/energy/served-route-distances.json",
       "baselineFeasible": true,
       "originalTotalMWh": 8.672318193330671,

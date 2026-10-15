@@ -1,6 +1,6 @@
 /* Same selected controls and collecting area; remove only the solar bus input. */
 import fs from 'node:fs';
-import {CFG,CLASSES,MODES,planCycle,setConfig} from '../../sim/index.js?v=6f3787a9';
+import {CFG,CLASSES,MODES,planCycle,setConfig} from '../../sim/index.js?v=7d7bed4f';
 import {writeGenerated} from './energy-output.mjs';
 export function generateZeroSun(){
  const selected=JSON.parse(fs.readFileSync('research/analysis/energy-profiles.json')).rows;

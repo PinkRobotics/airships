@@ -103,8 +103,6 @@ change belongs in `golden/`, not here.
 - `sim-determinism` — what `?seed=` pins, and when it is read.
 - `sim-config` — `setConfig` / `resetConfig`, the only mutable state in the model.
 - `sim-geo` — distance, béziers, easing, and short-way heading interpolation.
-- `sim-heat` — that the satellite heat layer actually reaches the drop planner, rather than
-  being fetched and dropped.
 - `spec-parity` — every field `sim/config.js` and `3d/model/config.js` both claim to know,
   compared. Written after the two copies drifted and the drift was found by review.
 

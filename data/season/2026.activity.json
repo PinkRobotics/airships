@@ -1,0 +1,85 @@
+{
+ "what": "Working hulls per captured day, measured on the page's own allocation of that day's published record. The default view opens on the day with the most working hulls (app/feeds.js bestReplayDay; ties to the newest date).",
+ "tool": "tools/gen_activity.py",
+ "measure": "hulls with a feasible plan after the page's allocator replays the day (?day=DATE&seed=7, still air, no satellite heat)",
+ "defaultDay": "2026-08-15",
+ "days": [
+  {
+   "date": "2026-08-08",
+   "fires": 105,
+   "working": 16,
+   "standby": 0,
+   "uncovered": 29
+  },
+  {
+   "date": "2026-08-09",
+   "fires": 103,
+   "working": 16,
+   "standby": 0,
+   "uncovered": 26
+  },
+  {
+   "date": "2026-08-10",
+   "fires": 101,
+   "working": 16,
+   "standby": 0,
+   "uncovered": 26
+  },
+  {
+   "date": "2026-08-11",
+   "fires": 103,
+   "working": 16,
+   "standby": 0,
+   "uncovered": 26
+  },
+  {
+   "date": "2026-08-12",
+   "fires": 109,
+   "working": 16,
+   "standby": 0,
+   "uncovered": 30
+  },
+  {
+   "date": "2026-08-13",
+   "fires": 107,
+   "working": 16,
+   "standby": 0,
+   "uncovered": 24
+  },
+  {
+   "date": "2026-08-14",
+   "fires": 121,
+   "working": 16,
+   "standby": 0,
+   "uncovered": 30
+  },
+  {
+   "date": "2026-08-15",
+   "fires": 131,
+   "working": 16,
+   "standby": 0,
+   "uncovered": 30
+  },
+  {
+   "date": "2026-09-20",
+   "fires": 96,
+   "working": 2,
+   "standby": 14,
+   "uncovered": 0
+  },
+  {
+   "date": "2026-09-22",
+   "fires": 103,
+   "working": 5,
+   "standby": 11,
+   "uncovered": 0
+  },
+  {
+   "date": "2026-10-01",
+   "fires": 86,
+   "working": 1,
+   "standby": 15,
+   "uncovered": 0
+  }
+ ]
+}

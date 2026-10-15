@@ -1,7 +1,7 @@
 /* The reviewer numbers are oracle values, not current published requirements. */
 import assert from 'node:assert/strict';
 import {computeStorage,storageBalance} from '../../research/analysis/energy-storage.mjs';
-import {CLASSES,CFG,ledger,TERRAIN_MSL} from '../../sim/index.js?v=6f3787a9';
+import {CLASSES,CFG,ledger,TERRAIN_MSL} from '../../sim/index.js?v=7d7bed4f';
 const near=(a,b)=>assert.ok(Math.abs(a-b)<1e-6,`${a} != oracle ${b}`);
 const record=computeStorage();
 const oracle={P100:1.602812,P1000:0.574884,P10000:0.507716};

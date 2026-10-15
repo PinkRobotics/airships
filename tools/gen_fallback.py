@@ -5,8 +5,8 @@
     tools/gen_fallback.py --check    regenerate into scratch and diff; exit 1 on any drift
     tools/gen_fallback.py --poster   also re-capture media/map-snapshot.jpg from the page
 
-The static reference scene is the invented exercise (?view=exercise), not the newest
-captured day. Live and mirror-failure routing are independent of this generator. Every
+The static reference scene is the invented exercise (?view=exercise), not the busiest
+captured day the default view opens on. View routing is independent of this generator. Every
 number is read from the running page via tools/fallback_dump.js; --check repeats that
 read and compares the generated regions byte for byte. --poster captures the same
 exercise with a large label inside the captured map box, legible when reduced to 390 px.
@@ -18,6 +18,8 @@ marker idiom — see SCALE3/CUTAWAY there):
     FALLBACK-HUD      the #hudLive chip's pre-boot text (was "loading…")
     FALLBACK-ROSTER   the fleet roster table inside #roster (was empty)
     FALLBACK-FIRES    the top-fires table inside #firesTop (was empty)
+    FALLBACK-DAYROW   the #dayRow chip list, verbatim from the running page's own markup
+                      with the current-view marking stripped
     FALLBACK          the #fallback section: snapshot summary, posters, worked mission
 
 The poster (media/map-snapshot.jpg) is regenerable evidence, captured from the live map
@@ -198,7 +200,7 @@ def render(d: dict) -> dict[str, str]:
   <h2>The monitor, standing still: an exercise</h2>
   <p>{esc(scene)}</p>
   <p>This fixed exercise supplies the poster and the no-script reference scene. It is not a date or an agency record. Its {fmt(fires['active'])} fires have invented positions, sizes and stages of control; {fmt(fires['outOfControl'])} are out of control in the exercise. The terrain and lakes are bundled public data. The fires use aggregate distributions from the busiest captured season days, never individual incidents. The seed, fitted numbers and distance checks are in <a href="data/exercise/exercise.prov.json">the exercise provenance</a>.</p>
-  <p>Bone marks exercise fire data; pink marks the simulated fleet. With scripts on, live remains the default view and the day control offers “Exercise: invented fires”. If the live mirror fails, the page shows the newest fleet day as a replay; it does not switch to this exercise.</p>
+  <p>Bone marks exercise fire data; pink marks the simulated fleet. With scripts on, the default view is a replay of the busiest captured fleet day, and the day row offers “Exercise: invented fires” beside every dated day.</p>
   <p>The flight model assumes a hull that floats. {esc(float_verdict)} The <a href="float/">float case</a> explains the unresolved structural requirements.</p>
   <h3>The exercise fires: all invented</h3>
   <p>The top-fires panel lists the largest invented out-of-control fires. {fmt(d['uncovered'])} exercise fires qualify for a ship but receive none in this allocation.</p>
@@ -219,7 +221,12 @@ def render(d: dict) -> dict[str, str]:
 
     return {'FALLBACK-FLEET-HEADING': f'The fleet · <b>{fmt(sum(g["count"] for g in d["roster"]))} simulated hulls</b> · shared',
             'FALLBACK-HUD': hud, 'FALLBACK-ROSTER': roster,
-            'FALLBACK-FIRES': firestab, 'FALLBACK': main}
+            'FALLBACK-FIRES': firestab,
+            # The day row's no-script copy: the page's own chips with the current-view
+            # marking stripped — with scripts off no view was chosen, so no chip may
+            # claim to be the one on screen.
+            'FALLBACK-DAYROW': d['dayRow'].strip().replace(' aria-current="page"', ''),
+            'FALLBACK': main}
 
 
 # ---------- splicing ----------------------------------------------------------------------------

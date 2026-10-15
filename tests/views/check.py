@@ -4,8 +4,8 @@
 Born when the guard was removed (2026-10) and its gate retired with it: the coverage here
 is the page's own, not the guard's — the honest-labels refusal over every string the page
 holds, the labels a view wears before the map, the stand-down in words for a view that
-could not be read, the layout holds, and the live-words rule for views that are not the
-live feed.
+could not be read, the layout holds, and the live-words rule for every view (no view of
+this page is a live feed).
 
     tests/views/check.py            everything (this is what `make viewscheck` runs)
     tests/views/check.py <word>     only the tests whose name has the word
@@ -23,11 +23,12 @@ ROOT = HERE.parent.parent
 sys.path.insert(0, str(ROOT / "tests"))
 import page  # noqa: E402
 
-# The days this gate loads: one from the peak August week and the latest captured day,
-# which is also the sample route's day. Every captured day's fleet is ranked and held by
-# the activity gate (tests/activity); this gate holds what a view says, not how many fly.
+# The days this gate loads: one from the peak August week and the newest captured day.
+# The sample routes (?data=snapshot, and the no-parameter default) open on the busiest
+# captured day — the ranking's defaultDay — held as data and pinned by make activitycheck
+# (tools/gen_activity.py); this gate holds what a view says, not how many fly.
 DAYS = ["2026-08-08", "2026-10-01"]
-SAMPLE_DAY = "2026-10-01"                                          # the newest captured day
+SAMPLE_DAY = json.loads((ROOT / "data/season/2026.activity.json").read_text())["defaultDay"]
 UNKNOWN_DAYS = ["2026-07-01", "2026-08-27"]                         # no day file exists
 
 TIME = page.TIME
@@ -35,7 +36,7 @@ TIME = page.TIME
 
 def fleet_sentence(day):
     return re.compile(
-        rf"^(Replay|Live) of {re.escape(day)}: the fires as British Columbia published them "
+        rf"^Replay of {re.escape(day)}: the fires as British Columbia published them "
         rf"at {TIME}\. The fleet is simulated and never flew\. Its drops are water released, "
         r"not water arrived, and nothing here says any fire would have burned differently\.$")
 
@@ -178,19 +179,17 @@ def fleet_days_fly_and_say_so():
 
 
 @page_pass
-def the_sample_routes_land_on_the_newest_day():
-    """The mirror failing, or ?data=snapshot, is the newest captured day — and is called
-    a replay, never live."""
+def the_sample_routes_land_on_the_busiest_day():
+    """?data=snapshot — and the no-parameter default — is the busiest captured day (the
+    ranking's defaultDay), and is called a replay, never live."""
     v = VIEWS["sample"]
-    same(v["daySource"], "sample", "the mirror did not answer, so this is the sample")
-    same(v["day"], SAMPLE_DAY, "the newest day in the repository")
+    same(v["daySource"], "sample", "the sample route (?data=snapshot)")
+    same(v["day"], SAMPLE_DAY, "the busiest captured day in the repository")
     same(v["recordOnly"], False, "the sample is a fleet day")
-    assert v["dataNote"] and "mirror unavailable" in v["dataNote"], (
-        f"the sample's note should name the mirror: {v['dataNote']!r}")
     assert (v["panels"]["mode"] or "").startswith("Replay of "), (
         "the sample must never wear the live label")
     page.refuse_words("sample", v["visible"])
-    return f"mirror failure → {SAMPLE_DAY}, flown, called a replay"
+    return f"?data=snapshot → {SAMPLE_DAY}, flown, called a replay"
 
 
 @page_pass
@@ -234,16 +233,16 @@ HEAD_KEYS = ("title", "description", "ogTitle", "ogDescription")
 
 
 @page_pass
-def every_view_names_itself_in_its_title_tags_strip_and_day_control():
+def every_view_names_itself_in_its_title_tags_strip_and_day_row():
     """The labels a reader meets before the map: the tab title, the three description tags
-    (a link preview made with scripts on), the header strip and the day control. A dated
-    view names its day; a view with nothing on it names itself as empty; none of them is
-    live, so none may say live."""
+    (a link preview made with scripts on), the header strip and the day row's current
+    chip. A dated view names its day; a view with nothing on it names itself as empty and
+    marks no chip; none of them is live, so none may say live."""
     dated = [(d, d) for d in DAYS] + [("sample", SAMPLE_DAY)]
     empty = [(f"unknown-{d}", d) for d in UNKNOWN_DAYS]
     for name, day in dated + empty:
         v = VIEWS[name]; lab = v["labels"]
-        for k in HEAD_KEYS + ("fires", "fleet", "day", "map", "mapHelp"):
+        for k in HEAD_KEYS + ("fires", "fleet", "map", "mapHelp"):
             assert lab[k], f"{name}: the probe read nothing for {k}"
         for k in HEAD_KEYS + ("fires", "map"):
             m = page.LIVE_WORDS.search(lab[k])
@@ -266,7 +265,7 @@ def every_view_names_itself_in_its_title_tags_strip_and_day_control():
         same(lab["fires"], f"BC fires of {day}", f"{name}: the header strip's fires label")
         for k in ("title", "ogTitle", "map"):
             assert day in lab[k], f"{name}: {k} does not name its day: {lab[k]!r}"
-        same(lab["day"], day, f"{name}: the day control shows {lab['day']!r} while the view shows {day}")
+        same(lab["day"], f"{day} · replay", f"{name}: the day row shows {lab['day']!r} while the view shows {day}")
         # the first-visit screen opens only over a fleet, and each of its four phrases
         # that name the view names this day
         if not VIEWS[name]["recordOnly"]:
@@ -276,7 +275,7 @@ def every_view_names_itself_in_its_title_tags_strip_and_day_control():
         same(v["fires"], 0, f"{name}: fires on the map")
         same(lab["fires"], f"no dated copy of {day}", f"{name}: the header strip's fires label")
         assert lab["title"].startswith(f"No dated copy of {day}"), f"{name}: title {lab['title']!r}"
-        same(lab["day"], f"{day} · no dated copy", f"{name}: the day control")
+        same(lab["day"], None, f"{name}: the day row marks no chip for a day it holds no copy of")
         same(p["firesTop"], "", f"{name}: the fires table")
         # nothing was published for this view, so nothing on it may describe a record
         for where, text in (("map label", lab["map"]), ("map help", lab["mapHelp"]),
@@ -291,14 +290,15 @@ def every_view_names_itself_in_its_title_tags_strip_and_day_control():
 
 
 @page_pass
-def no_string_on_a_view_that_is_not_live_says_live():
-    """Every string the page holds, on every view that is not the live feed: none says
-    "live", "current" or "today" outside the named uses in tests/page.py."""
+def no_string_on_any_view_says_live():
+    """Every string the page holds, on every view: none says "live", "current" or "today"
+    outside the named uses in tests/page.py. There is no live feed to be; a view that
+    claims daySource "live" has reintroduced one."""
     names = DAYS + ["sample"] + [f"unknown-{d}" for d in UNKNOWN_DAYS] + ["exercise"]
     used, strings = set(), 0
     for name in names:
         v = VIEWS[name]
-        assert v["daySource"] != "live", f"{name}: the probe loaded the live feed"
+        assert v["daySource"] != "live", f"{name}: the probe loaded a live feed"
         assert len(v["visible"]) > 100, f"{name}: the probe read only {len(v['visible'])} strings"
         for s in v["visible"]:
             strings += 1
@@ -308,7 +308,7 @@ def no_string_on_a_view_that_is_not_live_says_live():
                     used.add(ok)
                     t = re.sub(re.escape(ok), "", t, flags=re.I)
             m = page.LIVE_WORDS.search(t)
-            assert not m, (f"{name}: says {m.group(0)!r} on a view that is not live: "
+            assert not m, (f"{name}: says {m.group(0)!r} on a page with no live view: "
                            f"…{t[max(0, m.start() - 70):m.end() + 50]}…")
     stale = [ok for ok in page.NOT_A_LIVE_CLAIM if ok not in used]
     assert not stale, f"named uses that no view shows any more (remove them): {stale}"
@@ -319,7 +319,7 @@ def no_string_on_a_view_that_is_not_live_says_live():
 # opens, the reason every panel must give).
 BROKEN = [
     ("nothing readable", "?seed=7",
-     ("data/live/", "data/season/2026.days.json", "data/snapshot.json"),
+     ("data/season/2026.days.json", "data/snapshot.json"),
      "No fire data", "nothing could be read"),
     ("the season index gone, a day asked", f"?day={DAYS[1]}&seed=7",
      ("data/season/2026.days.json",), "No fire data", "the season index did not load"),
@@ -348,7 +348,7 @@ def a_view_that_could_not_be_read_says_nothing_is_shown_and_why():
         assert lab["title"].startswith(title + " · "), f"{name}: the title is {lab['title']!r}"
         same(lab["fleet"], "no fleet simulated", f"{name}: the header strip's fleet label")
         same(lab["fleetNote"], False, f"{name}: the fleet note is laid out")
-        assert lab["day"].endswith(" · nothing shown"), f"{name}: the day control shows {lab['day']!r}"
+        same(lab["day"], None, f"{name}: the day row marks no chip over a view that could not be read")
         same(p["firesTop"], "", f"{name}: the fires table")
         says_why = [("mode sentence", p["mode"]), ("description tag", lab["description"]),
                     ("map label", lab["map"]), ("map help", lab["mapHelp"]), ("roster", p["roster"]),
@@ -356,7 +356,7 @@ def a_view_that_could_not_be_read_says_nothing_is_shown_and_why():
         for where, text in says_why:
             assert text and why in text, f"{name}: the {where} does not say why: {str(text)[:160]!r}"
         for where, text in says_why + [("chip", p["hud"]), ("title", lab["title"]),
-                                       ("og:title", lab["ogTitle"]), ("day control", lab["day"]),
+                                       ("og:title", lab["ogTitle"]),
                                        ("header strip", lab["fires"])]:
             for word in LEFTOVERS:
                 assert word not in text, f"{name}: the {where} still says {word!r}: {text[:160]!r}"

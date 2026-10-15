@@ -1894,6 +1894,127 @@
       "capture": "replay",
       "mission": 0,
       "class": "P100",
+      "km": 6.462011200336579,
+      "mode": "rapid",
+      "options": {
+        "speedMultiplier": 1.5,
+        "verticalProfile": {
+          "climbRateMps": 2,
+          "letdownRateMps": 2,
+          "climbAirspeedMps": 5,
+          "letdownAirspeedMps": 5
+        },
+        "ballastT": 35,
+        "basis": "record"
+      },
+      "pages": [
+        "index.html"
+      ],
+      "quasiStaticFeasible": true,
+      "forceVerdictNote": null,
+      "cycleMin": 24.516927917727976,
+      "suppliedMWh": 4.341971766422044,
+      "deliveredT": 65,
+      "retainedT": 35,
+      "operatingMargins": {
+        "bus power": {
+          "value": 21.899563431724076,
+          "capacity": 30.206581726243606,
+          "scale": 30.206581726243606,
+          "relativeMargin": 0.27500689650369664,
+          "phase": "RETURN_TRANSIT",
+          "progress": 0.842948699748476
+        },
+        "rotor thrust": {
+          "value": 101.11226090331733,
+          "capacity": 158.91787978416724,
+          "scale": 158.91787978416724,
+          "relativeMargin": 0.3637452183439525,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.4355403248705485
+        },
+        "downward authority": {
+          "value": 101.11226090331733,
+          "capacity": 158.91787978416724,
+          "scale": 158.91787978416724,
+          "relativeMargin": 0.3637452183439525,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.4355403248705485
+        },
+        "upward authority": {
+          "value": -82.72533921834085,
+          "capacity": 0,
+          "scale": 95.01113902591209,
+          "relativeMargin": 0.8706909533605257,
+          "phase": "WATER_RELEASE",
+          "progress": 0.883614810253376
+        }
+      },
+      "initialNitrogenT": 0.6339522679722553,
+      "accounting": {
+        "samplesPerPhase": 2000,
+        "nominalStorageMWh": 20,
+        "cumulativeDrawMWh": 4.257625983394783,
+        "maximumDrawMWh": 4.257625983394783,
+        "minimumDrawMWh": 0,
+        "emptyAtMin": null,
+        "shortageMWh": 0,
+        "phases": [
+          {
+            "phase": "SOURCE_APPROACH",
+            "startMin": 2.8199664825478976e-14,
+            "endMin": 1.7000000000000282,
+            "phaseDrawMWh": 0.2843289841340979,
+            "cumulativeDrawMWh": 0.2843289841340979,
+            "remainingNominalMWh": 19.7156710158659
+          },
+          {
+            "phase": "WATER_FILL",
+            "startMin": 1.7000000000000117,
+            "endMin": 3.8666666666666782,
+            "phaseDrawMWh": 0.30344215747032777,
+            "cumulativeDrawMWh": 0.5877711416044257,
+            "remainingNominalMWh": 19.412228858395576
+          },
+          {
+            "phase": "OUTBOUND_TRANSIT",
+            "startMin": 3.866666666666033,
+            "endMin": 12.968298236372807,
+            "phaseDrawMWh": 0.5745955517560496,
+            "cumulativeDrawMWh": 1.1623666933604753,
+            "remainingNominalMWh": 18.837633306639525
+          },
+          {
+            "phase": "WATER_RELEASE",
+            "startMin": 12.968298236373679,
+            "endMin": 15.134964903040345,
+            "phaseDrawMWh": 0.3099760802477143,
+            "cumulativeDrawMWh": 1.4723427736081895,
+            "remainingNominalMWh": 18.52765722639181
+          },
+          {
+            "phase": "BUOYANCY_ESCAPE",
+            "startMin": 15.134964903038242,
+            "endMin": 17.38496490303824,
+            "phaseDrawMWh": 0.6363390398859938,
+            "cumulativeDrawMWh": 2.1086818134941834,
+            "remainingNominalMWh": 17.891318186505817
+          },
+          {
+            "phase": "RETURN_TRANSIT",
+            "startMin": 17.384964903036362,
+            "endMin": 24.516927917724235,
+            "phaseDrawMWh": 2.1489441699006,
+            "cumulativeDrawMWh": 4.257625983394783,
+            "remainingNominalMWh": 15.742374016605217
+          }
+        ]
+      }
+    },
+    {
+      "capture": "replay",
+      "mission": 1,
+      "class": "P100",
       "km": 6.872957528739268,
       "mode": "rapid",
       "options": {
@@ -2013,7 +2134,7 @@
     },
     {
       "capture": "replay",
-      "mission": 1,
+      "mission": 2,
       "class": "P100",
       "km": 14.714511358632635,
       "mode": "balanced",
@@ -2128,7 +2249,7 @@
     },
     {
       "capture": "replay",
-      "mission": 2,
+      "mission": 3,
       "class": "P100",
       "km": 19.388470917637715,
       "mode": "balanced",
@@ -2243,7 +2364,7 @@
     },
     {
       "capture": "replay",
-      "mission": 3,
+      "mission": 4,
       "class": "P100",
       "km": 22.610554763687116,
       "mode": "balanced",
@@ -60860,6 +60981,254 @@
     },
     {
       "class": "P100",
+      "km": 6.462011200336579,
+      "basis": "record",
+      "mode": "balanced",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 0.75,
+        "ballastT": 29.052
+      },
+      "profile": "candidate 1",
+      "pages": [
+        "docs/ENERGY-CLOSURE-2026-10.md"
+      ],
+      "occurrences": [
+        {
+          "profileSet": "served-candidate force tables",
+          "location": "candidate 1",
+          "pages": [
+            "docs/ENERGY-CLOSURE-2026-10.md"
+          ]
+        }
+      ],
+      "quasiStaticFeasible": false,
+      "forceVerdictNote": null,
+      "cycleMin": 22.25062124689132,
+      "suppliedMWh": 4.269388678273303,
+      "deliveredT": 70.94800000000001,
+      "retainedT": 29.052,
+      "operatingMargins": {
+        "bus power": {
+          "value": 34.290787512008805,
+          "capacity": 30.206581726243606,
+          "scale": 30.206581726243606,
+          "relativeMargin": -0.13520913497527012,
+          "phase": "RETURN_TRANSIT",
+          "progress": 0.8053812834334795
+        },
+        "rotor thrust": {
+          "value": 115.1845685935765,
+          "capacity": 158.04927090069896,
+          "scale": 158.04927090069896,
+          "relativeMargin": 0.27121100947092625,
+          "phase": "RETURN_TRANSIT",
+          "progress": 0.8542296163152739
+        },
+        "downward authority": {
+          "value": 119.85700305663073,
+          "capacity": 157.3225955232571,
+          "scale": 157.3225955232571,
+          "relativeMargin": 0.2381450187877672,
+          "phase": "RETURN_TRANSIT",
+          "progress": 0.8111611898215112
+        },
+        "upward authority": {
+          "value": 3.575189168554626,
+          "capacity": 0,
+          "scale": 27.7832326193149,
+          "relativeMargin": -0.12868154032116316,
+          "phase": "OUTBOUND_TRANSIT",
+          "progress": 0.21481061128130308
+        }
+      },
+      "initialNitrogenT": 1.0511913644701478,
+      "accounting": {
+        "samplesPerPhase": 2000,
+        "nominalStorageMWh": 20,
+        "cumulativeDrawMWh": 4.192917965627284,
+        "maximumDrawMWh": 4.192917965627284,
+        "minimumDrawMWh": 0,
+        "emptyAtMin": null,
+        "shortageMWh": 0,
+        "phases": [
+          {
+            "phase": "SOURCE_APPROACH",
+            "startMin": -1.0946799022804043e-13,
+            "endMin": 1.9999999999998905,
+            "phaseDrawMWh": 0.4483075515429864,
+            "cumulativeDrawMWh": 0.4483075515429864,
+            "remainingNominalMWh": 19.551692448457015
+          },
+          {
+            "phase": "WATER_FILL",
+            "startMin": 2.000000000000013,
+            "endMin": 4.364933333333346,
+            "phaseDrawMWh": 0.32886222168951196,
+            "cumulativeDrawMWh": 0.7771697732324984,
+            "remainingNominalMWh": 19.222830226767503
+          },
+          {
+            "phase": "OUTBOUND_TRANSIT",
+            "startMin": 4.364933333333603,
+            "endMin": 11.122592104927412,
+            "phaseDrawMWh": 0.2974372576207117,
+            "cumulativeDrawMWh": 1.07460703085321,
+            "remainingNominalMWh": 18.92539296914679
+          },
+          {
+            "phase": "WATER_RELEASE",
+            "startMin": 11.12259210492873,
+            "endMin": 13.4929624752991,
+            "phaseDrawMWh": 0.3773421510296784,
+            "cumulativeDrawMWh": 1.4519491818828885,
+            "remainingNominalMWh": 18.54805081811711
+          },
+          {
+            "phase": "BUOYANCY_ESCAPE",
+            "startMin": 13.492962475297992,
+            "endMin": 15.492962475297992,
+            "phaseDrawMWh": 0.5836250143782007,
+            "cumulativeDrawMWh": 2.035574196261089,
+            "remainingNominalMWh": 17.964425803738912
+          },
+          {
+            "phase": "RETURN_TRANSIT",
+            "startMin": 15.492962475294965,
+            "endMin": 22.250621246888773,
+            "phaseDrawMWh": 2.157343769366195,
+            "cumulativeDrawMWh": 4.192917965627284,
+            "remainingNominalMWh": 15.807082034372716
+          }
+        ]
+      }
+    },
+    {
+      "class": "P100",
+      "km": 6.462011200336579,
+      "basis": "favourable",
+      "mode": "balanced",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 0.75,
+        "ballastT": 29.052
+      },
+      "profile": "candidate 1",
+      "pages": [
+        "docs/ENERGY-CLOSURE-2026-10.md"
+      ],
+      "occurrences": [
+        {
+          "profileSet": "served-candidate force tables",
+          "location": "candidate 1",
+          "pages": [
+            "docs/ENERGY-CLOSURE-2026-10.md"
+          ]
+        }
+      ],
+      "quasiStaticFeasible": false,
+      "forceVerdictNote": null,
+      "cycleMin": 22.25062124689132,
+      "suppliedMWh": 3.2958886628655546,
+      "deliveredT": 70.94800000000001,
+      "retainedT": 29.052,
+      "operatingMargins": {
+        "bus power": {
+          "value": 23.12946019728181,
+          "capacity": 31.058046731464426,
+          "scale": 31.058046731464426,
+          "relativeMargin": 0.2552828451426821,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6048782271149872
+        },
+        "rotor thrust": {
+          "value": 107.24535062524046,
+          "capacity": 158.91787978374396,
+          "scale": 158.91787978374396,
+          "relativeMargin": 0.3251523946129892,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6048782271149872
+        },
+        "downward authority": {
+          "value": 107.24535062524046,
+          "capacity": 158.91787978374396,
+          "scale": 158.91787978374396,
+          "relativeMargin": 0.3251523946129892,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6048782271149872
+        },
+        "upward authority": {
+          "value": 3.575189168554626,
+          "capacity": 0,
+          "scale": 27.7832326193149,
+          "relativeMargin": -0.12868154032116316,
+          "phase": "OUTBOUND_TRANSIT",
+          "progress": 0.21481061128130308
+        }
+      },
+      "initialNitrogenT": 1.0511913644701478,
+      "accounting": {
+        "samplesPerPhase": 2000,
+        "nominalStorageMWh": 20,
+        "cumulativeDrawMWh": 3.219357012624201,
+        "maximumDrawMWh": 3.219357012624201,
+        "minimumDrawMWh": 0,
+        "emptyAtMin": null,
+        "shortageMWh": 0,
+        "phases": [
+          {
+            "phase": "SOURCE_APPROACH",
+            "startMin": -1.0946799022804043e-13,
+            "endMin": 1.9999999999998905,
+            "phaseDrawMWh": 0.43980768098302997,
+            "cumulativeDrawMWh": 0.43980768098302997,
+            "remainingNominalMWh": 19.56019231901697
+          },
+          {
+            "phase": "WATER_FILL",
+            "startMin": 2.000000000000013,
+            "endMin": 4.364933333333346,
+            "phaseDrawMWh": 0.3288622216895121,
+            "cumulativeDrawMWh": 0.7686699026725421,
+            "remainingNominalMWh": 19.231330097327458
+          },
+          {
+            "phase": "OUTBOUND_TRANSIT",
+            "startMin": 4.364933333333603,
+            "endMin": 11.122592104927412,
+            "phaseDrawMWh": 0.18113122987524144,
+            "cumulativeDrawMWh": 0.9498011325477835,
+            "remainingNominalMWh": 19.050198867452217
+          },
+          {
+            "phase": "WATER_RELEASE",
+            "startMin": 11.12259210492873,
+            "endMin": 13.4929624752991,
+            "phaseDrawMWh": 0.2827203367738156,
+            "cumulativeDrawMWh": 1.2325214693215991,
+            "remainingNominalMWh": 18.7674785306784
+          },
+          {
+            "phase": "BUOYANCY_ESCAPE",
+            "startMin": 13.492962475297992,
+            "endMin": 15.492962475297992,
+            "phaseDrawMWh": 0.498944544756712,
+            "cumulativeDrawMWh": 1.7314660140783111,
+            "remainingNominalMWh": 18.26853398592169
+          },
+          {
+            "phase": "RETURN_TRANSIT",
+            "startMin": 15.492962475294965,
+            "endMin": 22.250621246888773,
+            "phaseDrawMWh": 1.4878909985458897,
+            "cumulativeDrawMWh": 3.219357012624201,
+            "remainingNominalMWh": 16.7806429873758
+          }
+        ]
+      }
+    },
+    {
+      "class": "P100",
       "km": 6.872957528739268,
       "basis": "record",
       "mode": "balanced",
@@ -65448,6 +65817,254 @@
     },
     {
       "class": "P100",
+      "km": 6.462011200336579,
+      "basis": "record",
+      "mode": "balanced",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 0.75,
+        "ballastT": 30
+      },
+      "profile": "candidate 2",
+      "pages": [
+        "docs/ENERGY-CLOSURE-2026-10.md"
+      ],
+      "occurrences": [
+        {
+          "profileSet": "served-candidate force tables",
+          "location": "candidate 2",
+          "pages": [
+            "docs/ENERGY-CLOSURE-2026-10.md"
+          ]
+        }
+      ],
+      "quasiStaticFeasible": false,
+      "forceVerdictNote": null,
+      "cycleMin": 22.219021246891323,
+      "suppliedMWh": 4.21746702567892,
+      "deliveredT": 70,
+      "retainedT": 30,
+      "operatingMargins": {
+        "bus power": {
+          "value": 33.96393995410655,
+          "capacity": 30.206581726243606,
+          "scale": 30.206581726243606,
+          "relativeMargin": -0.1243887263350469,
+          "phase": "RETURN_TRANSIT",
+          "progress": 0.8054033084506408
+        },
+        "rotor thrust": {
+          "value": 114.70263320198357,
+          "capacity": 158.0296826344036,
+          "scale": 158.0296826344036,
+          "relativeMargin": 0.2741703249044403,
+          "phase": "RETURN_TRANSIT",
+          "progress": 0.8528848679860564
+        },
+        "downward authority": {
+          "value": 118.90929047620449,
+          "capacity": 157.32297428412718,
+          "scale": 157.32297428412718,
+          "relativeMargin": 0.24417084651951163,
+          "phase": "RETURN_TRANSIT",
+          "progress": 0.8111819417451448
+        },
+        "upward authority": {
+          "value": 3.575189168554626,
+          "capacity": 0,
+          "scale": 27.7832326193149,
+          "relativeMargin": -0.12868154032116316,
+          "phase": "OUTBOUND_TRANSIT",
+          "progress": 0.21481061128130308
+        }
+      },
+      "initialNitrogenT": 1.0511913644701478,
+      "accounting": {
+        "samplesPerPhase": 2000,
+        "nominalStorageMWh": 20,
+        "cumulativeDrawMWh": 4.141030865911165,
+        "maximumDrawMWh": 4.141030865911165,
+        "minimumDrawMWh": 0,
+        "emptyAtMin": null,
+        "shortageMWh": 0,
+        "phases": [
+          {
+            "phase": "SOURCE_APPROACH",
+            "startMin": -1.0946799022804043e-13,
+            "endMin": 1.9999999999998905,
+            "phaseDrawMWh": 0.44161838922911684,
+            "cumulativeDrawMWh": 0.44161838922911684,
+            "remainingNominalMWh": 19.558381610770883
+          },
+          {
+            "phase": "WATER_FILL",
+            "startMin": 1.9999999999999507,
+            "endMin": 4.333333333333284,
+            "phaseDrawMWh": 0.32016336818733976,
+            "cumulativeDrawMWh": 0.7617817574164566,
+            "remainingNominalMWh": 19.238218242583542
+          },
+          {
+            "phase": "OUTBOUND_TRANSIT",
+            "startMin": 4.333333333333542,
+            "endMin": 11.09099210492735,
+            "phaseDrawMWh": 0.29743725762071194,
+            "cumulativeDrawMWh": 1.0592190150371685,
+            "remainingNominalMWh": 18.94078098496283
+          },
+          {
+            "phase": "WATER_RELEASE",
+            "startMin": 11.090992104928668,
+            "endMin": 13.461362475299039,
+            "phaseDrawMWh": 0.3727601482199576,
+            "cumulativeDrawMWh": 1.4319791632571262,
+            "remainingNominalMWh": 18.568020836742875
+          },
+          {
+            "phase": "BUOYANCY_ESCAPE",
+            "startMin": 13.46136247529793,
+            "endMin": 15.46136247529793,
+            "phaseDrawMWh": 0.5748677163047451,
+            "cumulativeDrawMWh": 2.0068468795618712,
+            "remainingNominalMWh": 17.99315312043813
+          },
+          {
+            "phase": "RETURN_TRANSIT",
+            "startMin": 15.461362475294917,
+            "endMin": 22.219021246888726,
+            "phaseDrawMWh": 2.1341839863492935,
+            "cumulativeDrawMWh": 4.141030865911165,
+            "remainingNominalMWh": 15.858969134088834
+          }
+        ]
+      }
+    },
+    {
+      "class": "P100",
+      "km": 6.462011200336579,
+      "basis": "favourable",
+      "mode": "balanced",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 0.75,
+        "ballastT": 30
+      },
+      "profile": "candidate 2",
+      "pages": [
+        "docs/ENERGY-CLOSURE-2026-10.md"
+      ],
+      "occurrences": [
+        {
+          "profileSet": "served-candidate force tables",
+          "location": "candidate 2",
+          "pages": [
+            "docs/ENERGY-CLOSURE-2026-10.md"
+          ]
+        }
+      ],
+      "quasiStaticFeasible": false,
+      "forceVerdictNote": null,
+      "cycleMin": 22.219021246891323,
+      "suppliedMWh": 3.251919694629683,
+      "deliveredT": 70,
+      "retainedT": 30,
+      "operatingMargins": {
+        "bus power": {
+          "value": 22.83527685425469,
+          "capacity": 31.058046731464426,
+          "scale": 31.058046731464426,
+          "relativeMargin": 0.2647548942245416,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6048782271149872
+        },
+        "rotor thrust": {
+          "value": 106.29735062524045,
+          "capacity": 158.91787978374396,
+          "scale": 158.91787978374396,
+          "relativeMargin": 0.33111773974149233,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6048782271149872
+        },
+        "downward authority": {
+          "value": 106.29735062524045,
+          "capacity": 158.91787978374396,
+          "scale": 158.91787978374396,
+          "relativeMargin": 0.33111773974149233,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6048782271149872
+        },
+        "upward authority": {
+          "value": 3.575189168554626,
+          "capacity": 0,
+          "scale": 27.7832326193149,
+          "relativeMargin": -0.12868154032116316,
+          "phase": "OUTBOUND_TRANSIT",
+          "progress": 0.21481061128130308
+        }
+      },
+      "initialNitrogenT": 1.0511913644701478,
+      "accounting": {
+        "samplesPerPhase": 2000,
+        "nominalStorageMWh": 20,
+        "cumulativeDrawMWh": 3.175497716532239,
+        "maximumDrawMWh": 3.175497716532239,
+        "minimumDrawMWh": 0,
+        "emptyAtMin": null,
+        "shortageMWh": 0,
+        "phases": [
+          {
+            "phase": "SOURCE_APPROACH",
+            "startMin": -1.0946799022804043e-13,
+            "endMin": 1.9999999999998905,
+            "phaseDrawMWh": 0.43316552686104887,
+            "cumulativeDrawMWh": 0.43316552686104887,
+            "remainingNominalMWh": 19.56683447313895
+          },
+          {
+            "phase": "WATER_FILL",
+            "startMin": 1.9999999999999507,
+            "endMin": 4.333333333333284,
+            "phaseDrawMWh": 0.32016336818733976,
+            "cumulativeDrawMWh": 0.7533288950483886,
+            "remainingNominalMWh": 19.246671104951613
+          },
+          {
+            "phase": "OUTBOUND_TRANSIT",
+            "startMin": 4.333333333333542,
+            "endMin": 11.09099210492735,
+            "phaseDrawMWh": 0.18113122987524144,
+            "cumulativeDrawMWh": 0.9344601249236301,
+            "remainingNominalMWh": 19.06553987507637
+          },
+          {
+            "phase": "WATER_RELEASE",
+            "startMin": 11.090992104928668,
+            "endMin": 13.461362475299039,
+            "phaseDrawMWh": 0.2789355771248948,
+            "cumulativeDrawMWh": 1.2133957020485249,
+            "remainingNominalMWh": 18.786604297951474
+          },
+          {
+            "phase": "BUOYANCY_ESCAPE",
+            "startMin": 13.46136247529793,
+            "endMin": 15.46136247529793,
+            "phaseDrawMWh": 0.49109024262540424,
+            "cumulativeDrawMWh": 1.704485944673929,
+            "remainingNominalMWh": 18.29551405532607
+          },
+          {
+            "phase": "RETURN_TRANSIT",
+            "startMin": 15.461362475294917,
+            "endMin": 22.219021246888726,
+            "phaseDrawMWh": 1.4710117718583098,
+            "cumulativeDrawMWh": 3.175497716532239,
+            "remainingNominalMWh": 16.824502283467762
+          }
+        ]
+      }
+    },
+    {
+      "class": "P100",
       "km": 6.872957528739268,
       "basis": "record",
       "mode": "balanced",
@@ -69906,6 +70523,254 @@
             "phaseDrawMWh": 0.6664827694390945,
             "cumulativeDrawMWh": 2.912478811700354,
             "remainingNominalMWh": 17.087521188299647
+          }
+        ]
+      }
+    },
+    {
+      "class": "P100",
+      "km": 6.462011200336579,
+      "basis": "record",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "ballastT": 10.696
+      },
+      "profile": "candidate 3",
+      "pages": [
+        "docs/ENERGY-CLOSURE-2026-10.md"
+      ],
+      "occurrences": [
+        {
+          "profileSet": "served-candidate force tables",
+          "location": "candidate 3",
+          "pages": [
+            "docs/ENERGY-CLOSURE-2026-10.md"
+          ]
+        }
+      ],
+      "quasiStaticFeasible": false,
+      "forceVerdictNote": null,
+      "cycleMin": 15.129825018777225,
+      "suppliedMWh": 3.684409240052201,
+      "deliveredT": 89.304,
+      "retainedT": 10.696,
+      "operatingMargins": {
+        "bus power": {
+          "value": 31.631111072012743,
+          "capacity": 30.206581726243606,
+          "scale": 30.206581726243606,
+          "relativeMargin": -0.047159568026576816,
+          "phase": "RETURN_TRANSIT",
+          "progress": 0.8004348617725004
+        },
+        "rotor thrust": {
+          "value": 131.52326807781446,
+          "capacity": 158.37755624446802,
+          "scale": 158.37755624446802,
+          "relativeMargin": 0.16955867234876315,
+          "phase": "RETURN_TRANSIT",
+          "progress": 0.8380363574012232
+        },
+        "downward authority": {
+          "value": 132.79582091516025,
+          "capacity": 158.1958286841621,
+          "scale": 158.1958286841621,
+          "relativeMargin": 0.1605605405671787,
+          "phase": "RETURN_TRANSIT",
+          "progress": 0.805219898889072
+        },
+        "upward authority": {
+          "value": -0.8607551731184486,
+          "capacity": 0,
+          "scale": 33.53861722404574,
+          "relativeMargin": 0.02566459932943581,
+          "phase": "OUTBOUND_TRANSIT",
+          "progress": 0.20698028665187074
+        }
+      },
+      "initialNitrogenT": 0.2611655563900989,
+      "accounting": {
+        "samplesPerPhase": 2000,
+        "nominalStorageMWh": 20,
+        "cumulativeDrawMWh": 3.6322946215845406,
+        "maximumDrawMWh": 3.6322946215845406,
+        "minimumDrawMWh": 0,
+        "emptyAtMin": null,
+        "shortageMWh": 0,
+        "phases": [
+          {
+            "phase": "SOURCE_APPROACH",
+            "startMin": 2.8199664825478976e-14,
+            "endMin": 1.7000000000000282,
+            "phaseDrawMWh": 0.5146282307101754,
+            "cumulativeDrawMWh": 0.5146282307101754,
+            "remainingNominalMWh": 19.485371769289824
+          },
+          {
+            "phase": "WATER_FILL",
+            "startMin": 1.700000000000121,
+            "endMin": 4.676800000000121,
+            "phaseDrawMWh": 0.5753453147853494,
+            "cumulativeDrawMWh": 1.0899735454955248,
+            "remainingNominalMWh": 18.910026454504475
+          },
+          {
+            "phase": "OUTBOUND_TRANSIT",
+            "startMin": 4.67680000000031,
+            "endMin": 7.6149125093889225,
+            "phaseDrawMWh": 0.339941146506449,
+            "cumulativeDrawMWh": 1.4299146920019739,
+            "remainingNominalMWh": 18.570085307998028
+          },
+          {
+            "phase": "WATER_RELEASE",
+            "startMin": 7.614912509388154,
+            "endMin": 10.591712509388154,
+            "phaseDrawMWh": 0.6210183998473557,
+            "cumulativeDrawMWh": 2.0509330918493296,
+            "remainingNominalMWh": 17.94906690815067
+          },
+          {
+            "phase": "BUOYANCY_ESCAPE",
+            "startMin": 10.591712509387978,
+            "endMin": 12.191712509387978,
+            "phaseDrawMWh": 0.5248951757224862,
+            "cumulativeDrawMWh": 2.575828267571816,
+            "remainingNominalMWh": 17.424171732428185
+          },
+          {
+            "phase": "RETURN_TRANSIT",
+            "startMin": 12.191712509386392,
+            "endMin": 15.129825018775003,
+            "phaseDrawMWh": 1.0564663540127248,
+            "cumulativeDrawMWh": 3.6322946215845406,
+            "remainingNominalMWh": 16.367705378415458
+          }
+        ]
+      }
+    },
+    {
+      "class": "P100",
+      "km": 6.462011200336579,
+      "basis": "favourable",
+      "mode": "rapid",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 1.5,
+        "ballastT": 10.696
+      },
+      "profile": "candidate 3",
+      "pages": [
+        "docs/ENERGY-CLOSURE-2026-10.md"
+      ],
+      "occurrences": [
+        {
+          "profileSet": "served-candidate force tables",
+          "location": "candidate 3",
+          "pages": [
+            "docs/ENERGY-CLOSURE-2026-10.md"
+          ]
+        }
+      ],
+      "quasiStaticFeasible": true,
+      "forceVerdictNote": null,
+      "cycleMin": 15.129825018777225,
+      "suppliedMWh": 3.0684865292280312,
+      "deliveredT": 89.304,
+      "retainedT": 10.696,
+      "operatingMargins": {
+        "bus power": {
+          "value": 29.86525144089631,
+          "capacity": 30.45545713880358,
+          "scale": 30.45545713880358,
+          "relativeMargin": 0.0193793084509405,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6048782271149872
+        },
+        "rotor thrust": {
+          "value": 126.83812080931163,
+          "capacity": 158.91787978374396,
+          "scale": 158.91787978374396,
+          "relativeMargin": 0.20186374886253566,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6048782271149872
+        },
+        "downward authority": {
+          "value": 126.83812080931163,
+          "capacity": 158.91787978374396,
+          "scale": 158.91787978374396,
+          "relativeMargin": 0.20186374886253566,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6048782271149872
+        },
+        "upward authority": {
+          "value": -0.8607551731184486,
+          "capacity": 0,
+          "scale": 33.53861722404574,
+          "relativeMargin": 0.02566459932943581,
+          "phase": "OUTBOUND_TRANSIT",
+          "progress": 0.20698028665187074
+        }
+      },
+      "initialNitrogenT": 0.2611655563900989,
+      "accounting": {
+        "samplesPerPhase": 2000,
+        "nominalStorageMWh": 20,
+        "cumulativeDrawMWh": 3.0164039027895044,
+        "maximumDrawMWh": 3.0164039027895044,
+        "minimumDrawMWh": 0,
+        "emptyAtMin": null,
+        "shortageMWh": 0,
+        "phases": [
+          {
+            "phase": "SOURCE_APPROACH",
+            "startMin": 2.8199664825478976e-14,
+            "endMin": 1.7000000000000282,
+            "phaseDrawMWh": 0.48511469440451604,
+            "cumulativeDrawMWh": 0.48511469440451604,
+            "remainingNominalMWh": 19.514885305595485
+          },
+          {
+            "phase": "WATER_FILL",
+            "startMin": 1.700000000000121,
+            "endMin": 4.676800000000121,
+            "phaseDrawMWh": 0.5753453147853514,
+            "cumulativeDrawMWh": 1.0604600091898675,
+            "remainingNominalMWh": 18.939539990810133
+          },
+          {
+            "phase": "OUTBOUND_TRANSIT",
+            "startMin": 4.67680000000031,
+            "endMin": 7.6149125093889225,
+            "phaseDrawMWh": 0.30252443699127274,
+            "cumulativeDrawMWh": 1.3629844461811402,
+            "remainingNominalMWh": 18.63701555381886
+          },
+          {
+            "phase": "WATER_RELEASE",
+            "startMin": 7.614912509388154,
+            "endMin": 10.591712509388154,
+            "phaseDrawMWh": 0.5053816447655834,
+            "cumulativeDrawMWh": 1.8683660909467237,
+            "remainingNominalMWh": 18.131633909053278
+          },
+          {
+            "phase": "BUOYANCY_ESCAPE",
+            "startMin": 10.591712509387978,
+            "endMin": 12.191712509387978,
+            "phaseDrawMWh": 0.40850591368196176,
+            "cumulativeDrawMWh": 2.2768720046286854,
+            "remainingNominalMWh": 17.723127995371314
+          },
+          {
+            "phase": "RETURN_TRANSIT",
+            "startMin": 12.191712509386392,
+            "endMin": 15.129825018775003,
+            "phaseDrawMWh": 0.739531898160819,
+            "cumulativeDrawMWh": 3.0164039027895044,
+            "remainingNominalMWh": 16.983596097210494
           }
         ]
       }
@@ -74500,6 +75365,254 @@
     },
     {
       "class": "P100",
+      "km": 6.462011200336579,
+      "basis": "record",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.25,
+        "ballastT": 9.07
+      },
+      "profile": "candidate 4",
+      "pages": [
+        "docs/ENERGY-CLOSURE-2026-10.md"
+      ],
+      "occurrences": [
+        {
+          "profileSet": "served-candidate force tables",
+          "location": "candidate 4",
+          "pages": [
+            "docs/ENERGY-CLOSURE-2026-10.md"
+          ]
+        }
+      ],
+      "quasiStaticFeasible": false,
+      "forceVerdictNote": null,
+      "cycleMin": 16.41347002253267,
+      "suppliedMWh": 3.8492694662300546,
+      "deliveredT": 90.93,
+      "retainedT": 9.07,
+      "operatingMargins": {
+        "bus power": {
+          "value": 32.66353880211291,
+          "capacity": 30.206581726243606,
+          "scale": 30.206581726243606,
+          "relativeMargin": -0.08133846782586095,
+          "phase": "RETURN_TRANSIT",
+          "progress": 0.8010009843016059
+        },
+        "rotor thrust": {
+          "value": 134.10347590409,
+          "capacity": 158.34213031069052,
+          "scale": 158.34213031069052,
+          "relativeMargin": 0.15307773338050154,
+          "phase": "RETURN_TRANSIT",
+          "progress": 0.8460320549080165
+        },
+        "downward authority": {
+          "value": 136.43868426377006,
+          "capacity": 158.04968186114448,
+          "scale": 158.04968186114448,
+          "relativeMargin": 0.13673547040962028,
+          "phase": "RETURN_TRANSIT",
+          "progress": 0.8058781206801885
+        },
+        "upward authority": {
+          "value": -0.1908721284417112,
+          "capacity": 0,
+          "scale": 32.711798023311275,
+          "relativeMargin": 0.0058349629178344395,
+          "phase": "OUTBOUND_TRANSIT",
+          "progress": 0.20800985213459533
+        }
+      },
+      "initialNitrogenT": 0.3133986676681188,
+      "accounting": {
+        "samplesPerPhase": 2000,
+        "nominalStorageMWh": 20,
+        "cumulativeDrawMWh": 3.7927484423524027,
+        "maximumDrawMWh": 3.7927484423524027,
+        "minimumDrawMWh": 0,
+        "emptyAtMin": null,
+        "shortageMWh": 0,
+        "phases": [
+          {
+            "phase": "SOURCE_APPROACH",
+            "startMin": 2.8199664825478976e-14,
+            "endMin": 1.7000000000000282,
+            "phaseDrawMWh": 0.5282349601548412,
+            "cumulativeDrawMWh": 0.5282349601548412,
+            "remainingNominalMWh": 19.47176503984516
+          },
+          {
+            "phase": "WATER_FILL",
+            "startMin": 1.7000000000000335,
+            "endMin": 4.731000000000034,
+            "phaseDrawMWh": 0.5915998613894174,
+            "cumulativeDrawMWh": 1.1198348215442586,
+            "remainingNominalMWh": 18.88016517845574
+          },
+          {
+            "phase": "OUTBOUND_TRANSIT",
+            "startMin": 4.73099999999955,
+            "endMin": 8.256735011265885,
+            "phaseDrawMWh": 0.28223362736600754,
+            "cumulativeDrawMWh": 1.4020684489102662,
+            "remainingNominalMWh": 18.597931551089733
+          },
+          {
+            "phase": "WATER_RELEASE",
+            "startMin": 8.25673501126589,
+            "endMin": 11.287735011265891,
+            "phaseDrawMWh": 0.6456586361732644,
+            "cumulativeDrawMWh": 2.0477270850835305,
+            "remainingNominalMWh": 17.95227291491647
+          },
+          {
+            "phase": "BUOYANCY_ESCAPE",
+            "startMin": 11.287735011265715,
+            "endMin": 12.887735011265715,
+            "phaseDrawMWh": 0.5565808751497374,
+            "cumulativeDrawMWh": 2.604307960233268,
+            "remainingNominalMWh": 17.395692039766733
+          },
+          {
+            "phase": "RETURN_TRANSIT",
+            "startMin": 12.887735011265232,
+            "endMin": 16.413470022531566,
+            "phaseDrawMWh": 1.1884404821191348,
+            "cumulativeDrawMWh": 3.7927484423524027,
+            "remainingNominalMWh": 16.2072515576476
+          }
+        ]
+      }
+    },
+    {
+      "class": "P100",
+      "km": 6.462011200336579,
+      "basis": "favourable",
+      "mode": "rapid",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 1.25,
+        "ballastT": 9.07
+      },
+      "profile": "candidate 4",
+      "pages": [
+        "docs/ENERGY-CLOSURE-2026-10.md"
+      ],
+      "occurrences": [
+        {
+          "profileSet": "served-candidate force tables",
+          "location": "candidate 4",
+          "pages": [
+            "docs/ENERGY-CLOSURE-2026-10.md"
+          ]
+        }
+      ],
+      "quasiStaticFeasible": true,
+      "forceVerdictNote": null,
+      "cycleMin": 16.41347002253267,
+      "suppliedMWh": 3.139460041794558,
+      "deliveredT": 90.93,
+      "retainedT": 9.07,
+      "operatingMargins": {
+        "bus power": {
+          "value": 30.404609876926152,
+          "capacity": 30.505232221315577,
+          "scale": 30.505232221315577,
+          "relativeMargin": 0.0032985274020997275,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6048782271149872
+        },
+        "rotor thrust": {
+          "value": 128.4213660995576,
+          "capacity": 158.91787978374396,
+          "scale": 158.91787978374396,
+          "relativeMargin": 0.19190108580410295,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6048782271149872
+        },
+        "downward authority": {
+          "value": 128.4213660995576,
+          "capacity": 158.91787978374396,
+          "scale": 158.91787978374396,
+          "relativeMargin": 0.19190108580410295,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6048782271149872
+        },
+        "upward authority": {
+          "value": -0.1908721284417112,
+          "capacity": 0,
+          "scale": 32.711798023311275,
+          "relativeMargin": 0.0058349629178344395,
+          "phase": "OUTBOUND_TRANSIT",
+          "progress": 0.20800985213459533
+        }
+      },
+      "initialNitrogenT": 0.3133986676681188,
+      "accounting": {
+        "samplesPerPhase": 2000,
+        "nominalStorageMWh": 20,
+        "cumulativeDrawMWh": 3.0830136803553922,
+        "maximumDrawMWh": 3.0830136803553922,
+        "minimumDrawMWh": 0,
+        "emptyAtMin": null,
+        "shortageMWh": 0,
+        "phases": [
+          {
+            "phase": "SOURCE_APPROACH",
+            "startMin": 2.8199664825478976e-14,
+            "endMin": 1.7000000000000282,
+            "phaseDrawMWh": 0.5044871011447843,
+            "cumulativeDrawMWh": 0.5044871011447843,
+            "remainingNominalMWh": 19.495512898855214
+          },
+          {
+            "phase": "WATER_FILL",
+            "startMin": 1.7000000000000335,
+            "endMin": 4.731000000000034,
+            "phaseDrawMWh": 0.5915998613894168,
+            "cumulativeDrawMWh": 1.0960869625342011,
+            "remainingNominalMWh": 18.9039130374658
+          },
+          {
+            "phase": "OUTBOUND_TRANSIT",
+            "startMin": 4.73099999999955,
+            "endMin": 8.256735011265885,
+            "phaseDrawMWh": 0.23105554429030883,
+            "cumulativeDrawMWh": 1.32714250682451,
+            "remainingNominalMWh": 18.67285749317549
+          },
+          {
+            "phase": "WATER_RELEASE",
+            "startMin": 8.25673501126589,
+            "endMin": 11.287735011265891,
+            "phaseDrawMWh": 0.5289388830389867,
+            "cumulativeDrawMWh": 1.8560813898634967,
+            "remainingNominalMWh": 18.143918610136502
+          },
+          {
+            "phase": "BUOYANCY_ESCAPE",
+            "startMin": 11.287735011265715,
+            "endMin": 12.887735011265715,
+            "phaseDrawMWh": 0.4401677153223744,
+            "cumulativeDrawMWh": 2.296249105185871,
+            "remainingNominalMWh": 17.703750894814128
+          },
+          {
+            "phase": "RETURN_TRANSIT",
+            "startMin": 12.887735011265232,
+            "endMin": 16.413470022531566,
+            "phaseDrawMWh": 0.7867645751695211,
+            "cumulativeDrawMWh": 3.0830136803553922,
+            "remainingNominalMWh": 16.916986319644607
+          }
+        ]
+      }
+    },
+    {
+      "class": "P100",
       "km": 6.872957528739268,
       "basis": "record",
       "mode": "rapid",
@@ -78882,6 +79995,266 @@
             "phaseDrawMWh": 1.8435126464114155,
             "cumulativeDrawMWh": 3.7074967932633753,
             "remainingNominalMWh": 16.292503206736626
+          }
+        ]
+      }
+    },
+    {
+      "class": "P100",
+      "km": 6.462011200336579,
+      "basis": "record",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "verticalProfile": {
+          "climbRateMps": 2,
+          "letdownRateMps": 2,
+          "climbAirspeedMps": 5,
+          "letdownAirspeedMps": 5
+        },
+        "ballastT": 35
+      },
+      "profile": "candidate 5",
+      "pages": [
+        "docs/ENERGY-CLOSURE-2026-10.md"
+      ],
+      "occurrences": [
+        {
+          "profileSet": "served-candidate force tables",
+          "location": "candidate 5",
+          "pages": [
+            "docs/ENERGY-CLOSURE-2026-10.md"
+          ]
+        }
+      ],
+      "quasiStaticFeasible": true,
+      "forceVerdictNote": null,
+      "cycleMin": 24.516927917727976,
+      "suppliedMWh": 4.341971766422044,
+      "deliveredT": 65,
+      "retainedT": 35,
+      "operatingMargins": {
+        "bus power": {
+          "value": 21.899563431724076,
+          "capacity": 30.206581726243606,
+          "scale": 30.206581726243606,
+          "relativeMargin": 0.27500689650369664,
+          "phase": "RETURN_TRANSIT",
+          "progress": 0.842948699748476
+        },
+        "rotor thrust": {
+          "value": 101.11226090331733,
+          "capacity": 158.91787978416724,
+          "scale": 158.91787978416724,
+          "relativeMargin": 0.3637452183439525,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.4355403248705485
+        },
+        "downward authority": {
+          "value": 101.11226090331733,
+          "capacity": 158.91787978416724,
+          "scale": 158.91787978416724,
+          "relativeMargin": 0.3637452183439525,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.4355403248705485
+        },
+        "upward authority": {
+          "value": -82.72533921834085,
+          "capacity": 0,
+          "scale": 95.01113902591209,
+          "relativeMargin": 0.8706909533605257,
+          "phase": "WATER_RELEASE",
+          "progress": 0.883614810253376
+        }
+      },
+      "initialNitrogenT": 0.6339522679722553,
+      "accounting": {
+        "samplesPerPhase": 2000,
+        "nominalStorageMWh": 20,
+        "cumulativeDrawMWh": 4.257625983394783,
+        "maximumDrawMWh": 4.257625983394783,
+        "minimumDrawMWh": 0,
+        "emptyAtMin": null,
+        "shortageMWh": 0,
+        "phases": [
+          {
+            "phase": "SOURCE_APPROACH",
+            "startMin": 2.8199664825478976e-14,
+            "endMin": 1.7000000000000282,
+            "phaseDrawMWh": 0.2843289841340979,
+            "cumulativeDrawMWh": 0.2843289841340979,
+            "remainingNominalMWh": 19.7156710158659
+          },
+          {
+            "phase": "WATER_FILL",
+            "startMin": 1.7000000000000117,
+            "endMin": 3.8666666666666782,
+            "phaseDrawMWh": 0.30344215747032777,
+            "cumulativeDrawMWh": 0.5877711416044257,
+            "remainingNominalMWh": 19.412228858395576
+          },
+          {
+            "phase": "OUTBOUND_TRANSIT",
+            "startMin": 3.866666666666033,
+            "endMin": 12.968298236372807,
+            "phaseDrawMWh": 0.5745955517560496,
+            "cumulativeDrawMWh": 1.1623666933604753,
+            "remainingNominalMWh": 18.837633306639525
+          },
+          {
+            "phase": "WATER_RELEASE",
+            "startMin": 12.968298236373679,
+            "endMin": 15.134964903040345,
+            "phaseDrawMWh": 0.3099760802477143,
+            "cumulativeDrawMWh": 1.4723427736081895,
+            "remainingNominalMWh": 18.52765722639181
+          },
+          {
+            "phase": "BUOYANCY_ESCAPE",
+            "startMin": 15.134964903038242,
+            "endMin": 17.38496490303824,
+            "phaseDrawMWh": 0.6363390398859938,
+            "cumulativeDrawMWh": 2.1086818134941834,
+            "remainingNominalMWh": 17.891318186505817
+          },
+          {
+            "phase": "RETURN_TRANSIT",
+            "startMin": 17.384964903036362,
+            "endMin": 24.516927917724235,
+            "phaseDrawMWh": 2.1489441699006,
+            "cumulativeDrawMWh": 4.257625983394783,
+            "remainingNominalMWh": 15.742374016605217
+          }
+        ]
+      }
+    },
+    {
+      "class": "P100",
+      "km": 6.462011200336579,
+      "basis": "favourable",
+      "mode": "rapid",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 1.5,
+        "verticalProfile": {
+          "climbRateMps": 2,
+          "letdownRateMps": 2,
+          "climbAirspeedMps": 5,
+          "letdownAirspeedMps": 5
+        },
+        "ballastT": 35
+      },
+      "profile": "candidate 5",
+      "pages": [
+        "docs/ENERGY-CLOSURE-2026-10.md"
+      ],
+      "occurrences": [
+        {
+          "profileSet": "served-candidate force tables",
+          "location": "candidate 5",
+          "pages": [
+            "docs/ENERGY-CLOSURE-2026-10.md"
+          ]
+        }
+      ],
+      "quasiStaticFeasible": true,
+      "forceVerdictNote": null,
+      "cycleMin": 24.516927917727976,
+      "suppliedMWh": 3.9242565678528343,
+      "deliveredT": 65,
+      "retainedT": 35,
+      "operatingMargins": {
+        "bus power": {
+          "value": 21.41500047704686,
+          "capacity": 30.206581726243606,
+          "scale": 30.206581726243606,
+          "relativeMargin": 0.29104853137217385,
+          "phase": "RETURN_TRANSIT",
+          "progress": 0.9578487952808448
+        },
+        "rotor thrust": {
+          "value": 101.11226090331733,
+          "capacity": 158.91787978416724,
+          "scale": 158.91787978416724,
+          "relativeMargin": 0.3637452183439525,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.4355403248705485
+        },
+        "downward authority": {
+          "value": 101.11226090331733,
+          "capacity": 158.91787978416724,
+          "scale": 158.91787978416724,
+          "relativeMargin": 0.3637452183439525,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.4355403248705485
+        },
+        "upward authority": {
+          "value": -82.72533921834085,
+          "capacity": 0,
+          "scale": 95.01113902591209,
+          "relativeMargin": 0.8706909533605257,
+          "phase": "WATER_RELEASE",
+          "progress": 0.883614810253376
+        }
+      },
+      "initialNitrogenT": 0.6339522679722553,
+      "accounting": {
+        "samplesPerPhase": 2000,
+        "nominalStorageMWh": 20,
+        "cumulativeDrawMWh": 3.8398901233825966,
+        "maximumDrawMWh": 3.8398901233825966,
+        "minimumDrawMWh": 0,
+        "emptyAtMin": null,
+        "shortageMWh": 0,
+        "phases": [
+          {
+            "phase": "SOURCE_APPROACH",
+            "startMin": 2.8199664825478976e-14,
+            "endMin": 1.7000000000000282,
+            "phaseDrawMWh": 0.2843289841340979,
+            "cumulativeDrawMWh": 0.2843289841340979,
+            "remainingNominalMWh": 19.7156710158659
+          },
+          {
+            "phase": "WATER_FILL",
+            "startMin": 1.7000000000000117,
+            "endMin": 3.8666666666666782,
+            "phaseDrawMWh": 0.30344215747032777,
+            "cumulativeDrawMWh": 0.5877711416044257,
+            "remainingNominalMWh": 19.412228858395576
+          },
+          {
+            "phase": "OUTBOUND_TRANSIT",
+            "startMin": 3.866666666666033,
+            "endMin": 12.968298236372807,
+            "phaseDrawMWh": 0.5047404260624074,
+            "cumulativeDrawMWh": 1.092511567666833,
+            "remainingNominalMWh": 18.907488432333167
+          },
+          {
+            "phase": "WATER_RELEASE",
+            "startMin": 12.968298236373679,
+            "endMin": 15.134964903040345,
+            "phaseDrawMWh": 0.22537757498856914,
+            "cumulativeDrawMWh": 1.3178891426554022,
+            "remainingNominalMWh": 18.682110857344597
+          },
+          {
+            "phase": "BUOYANCY_ESCAPE",
+            "startMin": 15.134964903038242,
+            "endMin": 17.38496490303824,
+            "phaseDrawMWh": 0.6023289879121867,
+            "cumulativeDrawMWh": 1.920218130567589,
+            "remainingNominalMWh": 18.07978186943241
+          },
+          {
+            "phase": "RETURN_TRANSIT",
+            "startMin": 17.384964903036362,
+            "endMin": 24.516927917724235,
+            "phaseDrawMWh": 1.9196719928150077,
+            "cumulativeDrawMWh": 3.8398901233825966,
+            "remainingNominalMWh": 16.160109876617405
           }
         ]
       }
@@ -83768,6 +85141,254 @@
     },
     {
       "class": "P100",
+      "km": 6.462011200336579,
+      "basis": "record",
+      "mode": "balanced",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 0.75,
+        "ballastT": 32.232
+      },
+      "profile": "candidate 6",
+      "pages": [
+        "docs/ENERGY-CLOSURE-2026-10.md"
+      ],
+      "occurrences": [
+        {
+          "profileSet": "served-candidate force tables",
+          "location": "candidate 6",
+          "pages": [
+            "docs/ENERGY-CLOSURE-2026-10.md"
+          ]
+        }
+      ],
+      "quasiStaticFeasible": false,
+      "forceVerdictNote": null,
+      "cycleMin": 22.14462124689132,
+      "suppliedMWh": 4.096156051010732,
+      "deliveredT": 67.768,
+      "retainedT": 32.232,
+      "operatingMargins": {
+        "bus power": {
+          "value": 33.19933619520677,
+          "capacity": 30.206581726243606,
+          "scale": 30.206581726243606,
+          "relativeMargin": -0.09907623762549224,
+          "phase": "RETURN_TRANSIT",
+          "progress": 0.8054556916465272
+        },
+        "rotor thrust": {
+          "value": 113.56549330533701,
+          "capacity": 157.9791552687433,
+          "scale": 157.9791552687433,
+          "relativeMargin": 0.28113621628026064,
+          "phase": "RETURN_TRANSIT",
+          "progress": 0.8495346280706564
+        },
+        "downward authority": {
+          "value": 116.67795850238369,
+          "capacity": 157.3238664900813,
+          "scale": 157.3238664900813,
+          "relativeMargin": 0.25835818108538655,
+          "phase": "RETURN_TRANSIT",
+          "progress": 0.8112308276460488
+        },
+        "upward authority": {
+          "value": 3.575189168554626,
+          "capacity": 0,
+          "scale": 27.7832326193149,
+          "relativeMargin": -0.12868154032116316,
+          "phase": "OUTBOUND_TRANSIT",
+          "progress": 0.21481061128130308
+        }
+      },
+      "initialNitrogenT": 1.0511913644701478,
+      "accounting": {
+        "samplesPerPhase": 2000,
+        "nominalStorageMWh": 20,
+        "cumulativeDrawMWh": 4.0199040041045,
+        "maximumDrawMWh": 4.0199040041045,
+        "minimumDrawMWh": 0,
+        "emptyAtMin": null,
+        "shortageMWh": 0,
+        "phases": [
+          {
+            "phase": "SOURCE_APPROACH",
+            "startMin": -1.0946799022804043e-13,
+            "endMin": 1.9999999999998905,
+            "phaseDrawMWh": 0.42602365405508386,
+            "cumulativeDrawMWh": 0.42602365405508386,
+            "remainingNominalMWh": 19.573976345944917
+          },
+          {
+            "phase": "WATER_FILL",
+            "startMin": 2.000000000000158,
+            "endMin": 4.258933333333491,
+            "phaseDrawMWh": 0.30014947432094014,
+            "cumulativeDrawMWh": 0.726173128376024,
+            "remainingNominalMWh": 19.273826871623974
+          },
+          {
+            "phase": "OUTBOUND_TRANSIT",
+            "startMin": 4.258933333333749,
+            "endMin": 11.016592104927557,
+            "phaseDrawMWh": 0.29743725762071294,
+            "cumulativeDrawMWh": 1.023610385996737,
+            "remainingNominalMWh": 18.976389614003264
+          },
+          {
+            "phase": "WATER_RELEASE",
+            "startMin": 11.016592104928876,
+            "endMin": 13.386962475299246,
+            "phaseDrawMWh": 0.3620571694329311,
+            "cumulativeDrawMWh": 1.385667555429668,
+            "remainingNominalMWh": 18.614332444570334
+          },
+          {
+            "phase": "BUOYANCY_ESCAPE",
+            "startMin": 13.386962475298137,
+            "endMin": 15.386962475298137,
+            "phaseDrawMWh": 0.5544291209314289,
+            "cumulativeDrawMWh": 1.940096676361097,
+            "remainingNominalMWh": 18.059903323638903
+          },
+          {
+            "phase": "RETURN_TRANSIT",
+            "startMin": 15.386962475295165,
+            "endMin": 22.144621246888974,
+            "phaseDrawMWh": 2.0798073277434033,
+            "cumulativeDrawMWh": 4.0199040041045,
+            "remainingNominalMWh": 15.9800959958955
+          }
+        ]
+      }
+    },
+    {
+      "class": "P100",
+      "km": 6.462011200336579,
+      "basis": "favourable",
+      "mode": "balanced",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 0.75,
+        "ballastT": 32.232
+      },
+      "profile": "candidate 6",
+      "pages": [
+        "docs/ENERGY-CLOSURE-2026-10.md"
+      ],
+      "occurrences": [
+        {
+          "profileSet": "served-candidate force tables",
+          "location": "candidate 6",
+          "pages": [
+            "docs/ENERGY-CLOSURE-2026-10.md"
+          ]
+        }
+      ],
+      "quasiStaticFeasible": false,
+      "forceVerdictNote": null,
+      "cycleMin": 22.14462124689132,
+      "suppliedMWh": 3.149840383302175,
+      "deliveredT": 67.768,
+      "retainedT": 32.232,
+      "operatingMargins": {
+        "bus power": {
+          "value": 22.14754393323656,
+          "capacity": 31.058046731464426,
+          "scale": 31.058046731464426,
+          "relativeMargin": 0.28689836406230834,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6048782271149872
+        },
+        "rotor thrust": {
+          "value": 104.06535062524046,
+          "capacity": 158.91787978374396,
+          "scale": 158.91787978374396,
+          "relativeMargin": 0.3451627295377149,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6048782271149872
+        },
+        "downward authority": {
+          "value": 104.06535062524046,
+          "capacity": 158.91787978374396,
+          "scale": 158.91787978374396,
+          "relativeMargin": 0.3451627295377149,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6048782271149872
+        },
+        "upward authority": {
+          "value": 3.575189168554626,
+          "capacity": 0,
+          "scale": 27.7832326193149,
+          "relativeMargin": -0.12868154032116316,
+          "phase": "OUTBOUND_TRANSIT",
+          "progress": 0.21481061128130308
+        }
+      },
+      "initialNitrogenT": 1.0511913644701478,
+      "accounting": {
+        "samplesPerPhase": 2000,
+        "nominalStorageMWh": 20,
+        "cumulativeDrawMWh": 3.0736800912203655,
+        "maximumDrawMWh": 3.0736800912203655,
+        "minimumDrawMWh": 0,
+        "emptyAtMin": null,
+        "shortageMWh": 0,
+        "phases": [
+          {
+            "phase": "SOURCE_APPROACH",
+            "startMin": -1.0946799022804043e-13,
+            "endMin": 1.9999999999998905,
+            "phaseDrawMWh": 0.41768237844931627,
+            "cumulativeDrawMWh": 0.41768237844931627,
+            "remainingNominalMWh": 19.582317621550683
+          },
+          {
+            "phase": "WATER_FILL",
+            "startMin": 2.000000000000158,
+            "endMin": 4.258933333333491,
+            "phaseDrawMWh": 0.30014947432094025,
+            "cumulativeDrawMWh": 0.7178318527702565,
+            "remainingNominalMWh": 19.282168147229743
+          },
+          {
+            "phase": "OUTBOUND_TRANSIT",
+            "startMin": 4.258933333333749,
+            "endMin": 11.016592104927557,
+            "phaseDrawMWh": 0.18113122987524144,
+            "cumulativeDrawMWh": 0.898963082645498,
+            "remainingNominalMWh": 19.101036917354502
+          },
+          {
+            "phase": "WATER_RELEASE",
+            "startMin": 11.016592104928876,
+            "endMin": 13.386962475299246,
+            "phaseDrawMWh": 0.27011290245652075,
+            "cumulativeDrawMWh": 1.1690759851020187,
+            "remainingNominalMWh": 18.83092401489798
+          },
+          {
+            "phase": "BUOYANCY_ESCAPE",
+            "startMin": 13.386962475298137,
+            "endMin": 15.386962475298137,
+            "phaseDrawMWh": 0.47278512838386844,
+            "cumulativeDrawMWh": 1.6418611134858871,
+            "remainingNominalMWh": 18.358138886514112
+          },
+          {
+            "phase": "RETURN_TRANSIT",
+            "startMin": 15.386962475295165,
+            "endMin": 22.144621246888974,
+            "phaseDrawMWh": 1.4318189777344783,
+            "cumulativeDrawMWh": 3.0736800912203655,
+            "remainingNominalMWh": 16.926319908779636
+          }
+        ]
+      }
+    },
+    {
+      "class": "P100",
       "km": 6.872957528739268,
       "basis": "record",
       "mode": "balanced",
@@ -88356,6 +89977,254 @@
     },
     {
       "class": "P100",
+      "km": 6.462011200336579,
+      "basis": "record",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.5,
+        "ballastT": 12.412
+      },
+      "profile": "candidate 7",
+      "pages": [
+        "docs/ENERGY-CLOSURE-2026-10.md"
+      ],
+      "occurrences": [
+        {
+          "profileSet": "served-candidate force tables",
+          "location": "candidate 7",
+          "pages": [
+            "docs/ENERGY-CLOSURE-2026-10.md"
+          ]
+        }
+      ],
+      "quasiStaticFeasible": false,
+      "forceVerdictNote": null,
+      "cycleMin": 15.015425018777226,
+      "suppliedMWh": 3.6001456373833145,
+      "deliveredT": 87.588,
+      "retainedT": 12.412,
+      "operatingMargins": {
+        "bus power": {
+          "value": 31.221274312171417,
+          "capacity": 30.206581726243606,
+          "scale": 30.206581726243606,
+          "relativeMargin": -0.033591771327314474,
+          "phase": "RETURN_TRANSIT",
+          "progress": 0.8004561001558874
+        },
+        "rotor thrust": {
+          "value": 130.22480198005783,
+          "capacity": 158.34712876784644,
+          "scale": 158.34712876784644,
+          "relativeMargin": 0.17759922144858653,
+          "phase": "RETURN_TRANSIT",
+          "progress": 0.8322653650335173
+        },
+        "downward authority": {
+          "value": 131.07992838936346,
+          "capacity": 158.19595754786215,
+          "scale": 158.19595754786215,
+          "relativeMargin": 0.17140785124230967,
+          "phase": "RETURN_TRANSIT",
+          "progress": 0.8052422934635655
+        },
+        "upward authority": {
+          "value": -0.8607551731184486,
+          "capacity": 0,
+          "scale": 33.53861722404574,
+          "relativeMargin": 0.02566459932943581,
+          "phase": "OUTBOUND_TRANSIT",
+          "progress": 0.20698028665187074
+        }
+      },
+      "initialNitrogenT": 0.2611655563900989,
+      "accounting": {
+        "samplesPerPhase": 2000,
+        "nominalStorageMWh": 20,
+        "cumulativeDrawMWh": 3.548459578147778,
+        "maximumDrawMWh": 3.548459578147778,
+        "minimumDrawMWh": 0,
+        "emptyAtMin": null,
+        "shortageMWh": 0,
+        "phases": [
+          {
+            "phase": "SOURCE_APPROACH",
+            "startMin": 2.8199664825478976e-14,
+            "endMin": 1.7000000000000282,
+            "phaseDrawMWh": 0.5027889938736343,
+            "cumulativeDrawMWh": 0.5027889938736343,
+            "remainingNominalMWh": 19.497211006126367
+          },
+          {
+            "phase": "WATER_FILL",
+            "startMin": 1.7000000000002267,
+            "endMin": 4.619600000000227,
+            "phaseDrawMWh": 0.5549618479244425,
+            "cumulativeDrawMWh": 1.0577508417980768,
+            "remainingNominalMWh": 18.942249158201925
+          },
+          {
+            "phase": "OUTBOUND_TRANSIT",
+            "startMin": 4.619600000000416,
+            "endMin": 7.557712509389028,
+            "phaseDrawMWh": 0.3399411465064488,
+            "cumulativeDrawMWh": 1.3976919883045256,
+            "remainingNominalMWh": 18.602308011695474
+          },
+          {
+            "phase": "WATER_RELEASE",
+            "startMin": 7.557712509387765,
+            "endMin": 10.477312509387765,
+            "phaseDrawMWh": 0.5955419613882491,
+            "cumulativeDrawMWh": 1.9932339496927747,
+            "remainingNominalMWh": 18.006766050307224
+          },
+          {
+            "phase": "BUOYANCY_ESCAPE",
+            "startMin": 10.47731250938759,
+            "endMin": 12.077312509387589,
+            "phaseDrawMWh": 0.5126726306811529,
+            "cumulativeDrawMWh": 2.5059065803739276,
+            "remainingNominalMWh": 17.494093419626072
+          },
+          {
+            "phase": "RETURN_TRANSIT",
+            "startMin": 12.077312509386001,
+            "endMin": 15.015425018774614,
+            "phaseDrawMWh": 1.0425529977738504,
+            "cumulativeDrawMWh": 3.548459578147778,
+            "remainingNominalMWh": 16.451540421852222
+          }
+        ]
+      }
+    },
+    {
+      "class": "P100",
+      "km": 6.462011200336579,
+      "basis": "favourable",
+      "mode": "rapid",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 1.5,
+        "ballastT": 12.412
+      },
+      "profile": "candidate 7",
+      "pages": [
+        "docs/ENERGY-CLOSURE-2026-10.md"
+      ],
+      "occurrences": [
+        {
+          "profileSet": "served-candidate force tables",
+          "location": "candidate 7",
+          "pages": [
+            "docs/ENERGY-CLOSURE-2026-10.md"
+          ]
+        }
+      ],
+      "quasiStaticFeasible": true,
+      "forceVerdictNote": null,
+      "cycleMin": 15.015425018777226,
+      "suppliedMWh": 2.994266861693437,
+      "deliveredT": 87.588,
+      "retainedT": 12.412,
+      "operatingMargins": {
+        "bus power": {
+          "value": 29.28423966012842,
+          "capacity": 30.45545713880358,
+          "scale": 30.45545713880358,
+          "relativeMargin": 0.03845673612243703,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6048782271149872
+        },
+        "rotor thrust": {
+          "value": 125.12212080931162,
+          "capacity": 158.91787978374396,
+          "scale": 158.91787978374396,
+          "relativeMargin": 0.21266177865210464,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6048782271149872
+        },
+        "downward authority": {
+          "value": 125.12212080931162,
+          "capacity": 158.91787978374396,
+          "scale": 158.91787978374396,
+          "relativeMargin": 0.21266177865210464,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6048782271149872
+        },
+        "upward authority": {
+          "value": -0.8607551731184486,
+          "capacity": 0,
+          "scale": 33.53861722404574,
+          "relativeMargin": 0.02566459932943581,
+          "phase": "OUTBOUND_TRANSIT",
+          "progress": 0.20698028665187074
+        }
+      },
+      "initialNitrogenT": 0.2611655563900989,
+      "accounting": {
+        "samplesPerPhase": 2000,
+        "nominalStorageMWh": 20,
+        "cumulativeDrawMWh": 2.942578402591498,
+        "maximumDrawMWh": 2.942578402591498,
+        "minimumDrawMWh": 0,
+        "emptyAtMin": null,
+        "shortageMWh": 0,
+        "phases": [
+          {
+            "phase": "SOURCE_APPROACH",
+            "startMin": 2.8199664825478976e-14,
+            "endMin": 1.7000000000000282,
+            "phaseDrawMWh": 0.4736759386252553,
+            "cumulativeDrawMWh": 0.4736759386252553,
+            "remainingNominalMWh": 19.526324061374744
+          },
+          {
+            "phase": "WATER_FILL",
+            "startMin": 1.7000000000002267,
+            "endMin": 4.619600000000227,
+            "phaseDrawMWh": 0.5549618479244425,
+            "cumulativeDrawMWh": 1.0286377865496978,
+            "remainingNominalMWh": 18.971362213450302
+          },
+          {
+            "phase": "OUTBOUND_TRANSIT",
+            "startMin": 4.619600000000416,
+            "endMin": 7.557712509389028,
+            "phaseDrawMWh": 0.30252443699127274,
+            "cumulativeDrawMWh": 1.3311622235409706,
+            "remainingNominalMWh": 18.66883777645903
+          },
+          {
+            "phase": "WATER_RELEASE",
+            "startMin": 7.557712509387765,
+            "endMin": 10.477312509387765,
+            "phaseDrawMWh": 0.48121443063535874,
+            "cumulativeDrawMWh": 1.8123766541763293,
+            "remainingNominalMWh": 18.18762334582367
+          },
+          {
+            "phase": "BUOYANCY_ESCAPE",
+            "startMin": 10.47731250938759,
+            "endMin": 12.077312509387589,
+            "phaseDrawMWh": 0.39882669463493925,
+            "cumulativeDrawMWh": 2.2112033488112686,
+            "remainingNominalMWh": 17.788796651188733
+          },
+          {
+            "phase": "RETURN_TRANSIT",
+            "startMin": 12.077312509386001,
+            "endMin": 15.015425018774614,
+            "phaseDrawMWh": 0.7313750537802295,
+            "cumulativeDrawMWh": 2.942578402591498,
+            "remainingNominalMWh": 17.057421597408503
+          }
+        ]
+      }
+    },
+    {
+      "class": "P100",
       "km": 6.872957528739268,
       "basis": "record",
       "mode": "rapid",
@@ -92938,6 +94807,254 @@
             "phaseDrawMWh": 0.6968290514702247,
             "cumulativeDrawMWh": 2.889669264393925,
             "remainingNominalMWh": 17.110330735606077
+          }
+        ]
+      }
+    },
+    {
+      "class": "P100",
+      "km": 6.462011200336579,
+      "basis": "record",
+      "mode": "rapid",
+      "options": {
+        "basis": "record",
+        "speedMultiplier": 1.25,
+        "ballastT": 11.122
+      },
+      "profile": "candidate 8",
+      "pages": [
+        "docs/ENERGY-CLOSURE-2026-10.md"
+      ],
+      "occurrences": [
+        {
+          "profileSet": "served-candidate force tables",
+          "location": "candidate 8",
+          "pages": [
+            "docs/ENERGY-CLOSURE-2026-10.md"
+          ]
+        }
+      ],
+      "quasiStaticFeasible": false,
+      "forceVerdictNote": null,
+      "cycleMin": 16.27667002253267,
+      "suppliedMWh": 3.7412031871622218,
+      "deliveredT": 88.878,
+      "retainedT": 11.122,
+      "operatingMargins": {
+        "bus power": {
+          "value": 32.09615244185111,
+          "capacity": 30.206581726243606,
+          "scale": 30.206581726243606,
+          "relativeMargin": -0.06255493364765063,
+          "phase": "RETURN_TRANSIT",
+          "progress": 0.8010276806936273
+        },
+        "rotor thrust": {
+          "value": 132.64068648894704,
+          "capacity": 158.30549305997934,
+          "scale": 158.30549305997934,
+          "relativeMargin": 0.1621220216364086,
+          "phase": "RETURN_TRANSIT",
+          "progress": 0.8405917401212822
+        },
+        "downward authority": {
+          "value": 134.38687473995,
+          "capacity": 158.04990417860444,
+          "scale": 158.04990417860444,
+          "relativeMargin": 0.14971872056255098,
+          "phase": "RETURN_TRANSIT",
+          "progress": 0.8059070057669662
+        },
+        "upward authority": {
+          "value": -0.1908721284417112,
+          "capacity": 0,
+          "scale": 32.711798023311275,
+          "relativeMargin": 0.0058349629178344395,
+          "phase": "OUTBOUND_TRANSIT",
+          "progress": 0.20800985213459533
+        }
+      },
+      "initialNitrogenT": 0.3133986676681188,
+      "accounting": {
+        "samplesPerPhase": 2000,
+        "nominalStorageMWh": 20,
+        "cumulativeDrawMWh": 3.685206479475131,
+        "maximumDrawMWh": 3.685206479475131,
+        "minimumDrawMWh": 0,
+        "emptyAtMin": null,
+        "shortageMWh": 0,
+        "phases": [
+          {
+            "phase": "SOURCE_APPROACH",
+            "startMin": 2.8199664825478976e-14,
+            "endMin": 1.7000000000000282,
+            "phaseDrawMWh": 0.5137407446410245,
+            "cumulativeDrawMWh": 0.5137407446410245,
+            "remainingNominalMWh": 19.486259255358977
+          },
+          {
+            "phase": "WATER_FILL",
+            "startMin": 1.700000000000065,
+            "endMin": 4.662600000000065,
+            "phaseDrawMWh": 0.5667550240120605,
+            "cumulativeDrawMWh": 1.080495768653085,
+            "remainingNominalMWh": 18.919504231346917
+          },
+          {
+            "phase": "OUTBOUND_TRANSIT",
+            "startMin": 4.662599999999581,
+            "endMin": 8.188335011265917,
+            "phaseDrawMWh": 0.28223362736600754,
+            "cumulativeDrawMWh": 1.3627293960190925,
+            "remainingNominalMWh": 18.63727060398091
+          },
+          {
+            "phase": "WATER_RELEASE",
+            "startMin": 8.188335011265954,
+            "endMin": 11.150935011265954,
+            "phaseDrawMWh": 0.6146433616031335,
+            "cumulativeDrawMWh": 1.977372757622226,
+            "remainingNominalMWh": 18.022627242377773
+          },
+          {
+            "phase": "BUOYANCY_ESCAPE",
+            "startMin": 11.150935011265778,
+            "endMin": 12.750935011265778,
+            "phaseDrawMWh": 0.5412094390723052,
+            "cumulativeDrawMWh": 2.518582196694531,
+            "remainingNominalMWh": 17.48141780330547
+          },
+          {
+            "phase": "RETURN_TRANSIT",
+            "startMin": 12.750935011265295,
+            "endMin": 16.27667002253163,
+            "phaseDrawMWh": 1.1666242827806,
+            "cumulativeDrawMWh": 3.685206479475131,
+            "remainingNominalMWh": 16.31479352052487
+          }
+        ]
+      }
+    },
+    {
+      "class": "P100",
+      "km": 6.462011200336579,
+      "basis": "favourable",
+      "mode": "rapid",
+      "options": {
+        "basis": "favourable",
+        "speedMultiplier": 1.25,
+        "ballastT": 11.122
+      },
+      "profile": "candidate 8",
+      "pages": [
+        "docs/ENERGY-CLOSURE-2026-10.md"
+      ],
+      "occurrences": [
+        {
+          "profileSet": "served-candidate force tables",
+          "location": "candidate 8",
+          "pages": [
+            "docs/ENERGY-CLOSURE-2026-10.md"
+          ]
+        }
+      ],
+      "quasiStaticFeasible": true,
+      "forceVerdictNote": null,
+      "cycleMin": 16.27667002253267,
+      "suppliedMWh": 3.044390695232693,
+      "deliveredT": 88.878,
+      "retainedT": 11.122,
+      "operatingMargins": {
+        "bus power": {
+          "value": 29.70616831119639,
+          "capacity": 30.505232221315577,
+          "scale": 30.505232221315577,
+          "relativeMargin": 0.026194323135191225,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6048782271149872
+        },
+        "rotor thrust": {
+          "value": 126.36936609955758,
+          "capacity": 158.91787978374396,
+          "scale": 158.91787978374396,
+          "relativeMargin": 0.20481341513288823,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6048782271149872
+        },
+        "downward authority": {
+          "value": 126.36936609955758,
+          "capacity": 158.91787978374396,
+          "scale": 158.91787978374396,
+          "relativeMargin": 0.20481341513288823,
+          "phase": "SOURCE_APPROACH",
+          "progress": 0.6048782271149872
+        },
+        "upward authority": {
+          "value": -0.1908721284417112,
+          "capacity": 0,
+          "scale": 32.711798023311275,
+          "relativeMargin": 0.0058349629178344395,
+          "phase": "OUTBOUND_TRANSIT",
+          "progress": 0.20800985213459533
+        }
+      },
+      "initialNitrogenT": 0.3133986676681188,
+      "accounting": {
+        "samplesPerPhase": 2000,
+        "nominalStorageMWh": 20,
+        "cumulativeDrawMWh": 2.988416729558318,
+        "maximumDrawMWh": 2.988416729558318,
+        "minimumDrawMWh": 0,
+        "emptyAtMin": null,
+        "shortageMWh": 0,
+        "phases": [
+          {
+            "phase": "SOURCE_APPROACH",
+            "startMin": 2.8199664825478976e-14,
+            "endMin": 1.7000000000000282,
+            "phaseDrawMWh": 0.49030462856264595,
+            "cumulativeDrawMWh": 0.49030462856264595,
+            "remainingNominalMWh": 19.509695371437353
+          },
+          {
+            "phase": "WATER_FILL",
+            "startMin": 1.700000000000065,
+            "endMin": 4.662600000000065,
+            "phaseDrawMWh": 0.5667550240120596,
+            "cumulativeDrawMWh": 1.0570596525747056,
+            "remainingNominalMWh": 18.942940347425296
+          },
+          {
+            "phase": "OUTBOUND_TRANSIT",
+            "startMin": 4.662599999999581,
+            "endMin": 8.188335011265917,
+            "phaseDrawMWh": 0.23105554429030883,
+            "cumulativeDrawMWh": 1.2881151968650144,
+            "remainingNominalMWh": 18.711884803134986
+          },
+          {
+            "phase": "WATER_RELEASE",
+            "startMin": 8.188335011265954,
+            "endMin": 11.150935011265954,
+            "phaseDrawMWh": 0.4993168180845564,
+            "cumulativeDrawMWh": 1.7874320149495708,
+            "remainingNominalMWh": 18.21256798505043
+          },
+          {
+            "phase": "BUOYANCY_ESCAPE",
+            "startMin": 11.150935011265778,
+            "endMin": 12.750935011265778,
+            "phaseDrawMWh": 0.427654981757577,
+            "cumulativeDrawMWh": 2.215086996707148,
+            "remainingNominalMWh": 17.784913003292854
+          },
+          {
+            "phase": "RETURN_TRANSIT",
+            "startMin": 12.750935011265295,
+            "endMin": 16.27667002253163,
+            "phaseDrawMWh": 0.7733297328511703,
+            "cumulativeDrawMWh": 2.988416729558318,
+            "remainingNominalMWh": 17.011583270441683
           }
         ]
       }
@@ -119119,8 +121236,8 @@
       "printedOccurrences": 2
     },
     "served-candidate force tables": {
-      "uniqueProfiles": 476,
-      "printedOccurrences": 476
+      "uniqueProfiles": 492,
+      "printedOccurrences": 492
     },
     "zero-sunlight sensitivity": {
       "uniqueProfiles": 24,
@@ -121162,9 +123279,9 @@
     ]
   },
   "summary": {
-    "capturedMissions": 20,
+    "capturedMissions": 21,
     "capturedShortages": 0,
-    "printedProfiles": 926,
+    "printedProfiles": 942,
     "printedProfileShortages": 16
   }
 }

@@ -1,20 +1,19 @@
 /* The focused ship: forces, instruments, the power ledger and the mission trace.
  */
-import { CFG, MODEL_STATUS, FEASIBILITY_SCOPE, diagnosticNotes, PHASES, PHASE_TINT, fmt, fmtHa, fmtMin, fmtT, narrate, srcName, stateAt, drawAt, energyComparison, cycleEnergyText, feasibilityText, missionReady } from '../../sim/index.js?v=6f3787a9';
-import { ensureM3D, m3dAz, m3dDead, sizeAvatar, updateM3D, setCamera } from '../bridge/viz3d.js?v=6f3787a9';
-import { makeDualGauge, makeGauge, makePhaseDial } from '../cockpit/gauges.js?v=6f3787a9';
-import { shipViz } from '../cockpit/shipviz.js?v=6f3787a9';
-import { updateRoster } from '../cockpit/tables.js?v=6f3787a9';
-import { $, cycleBar, esc, kvRows } from '../dom.js?v=6f3787a9';
-import { modeWords, needsShip, nothingShown } from '../feeds.js?v=6f3787a9';
-import {figure,inactiveText} from "../served-ui.js?v=6f3787a9";
-import { S } from '../store.js?v=6f3787a9';
+import { CFG, MODEL_STATUS, FEASIBILITY_SCOPE, diagnosticNotes, PHASES, PHASE_TINT, fmt, fmtHa, fmtMin, fmtT, narrate, srcName, stateAt, drawAt, energyComparison, cycleEnergyText, feasibilityText, missionReady } from '../../sim/index.js?v=7d7bed4f';
+import { ensureM3D, m3dAz, m3dDead, sizeAvatar, updateM3D, setCamera } from '../bridge/viz3d.js?v=7d7bed4f';
+import { makeDualGauge, makeGauge, makePhaseDial } from '../cockpit/gauges.js?v=7d7bed4f';
+import { shipViz } from '../cockpit/shipviz.js?v=7d7bed4f';
+import { updateRoster } from '../cockpit/tables.js?v=7d7bed4f';
+import { $, cycleBar, esc, kvRows } from '../dom.js?v=7d7bed4f';
+import { modeWords, needsShip, nothingShown } from '../feeds.js?v=7d7bed4f';
+import {figure,inactiveText} from "../served-ui.js?v=7d7bed4f";
+import { S } from '../store.js?v=7d7bed4f';
 
-/* A fire's outline is "current" only on the live feed; on a dated view it is the one in
- * that day's record. */
-import {windBasis} from '../../sim/wind.js?v=6f3787a9';
+/* A fire's outline on any view is the one in that day's published record. */
+import {windBasis} from '../../sim/wind.js?v=7d7bed4f';
 
-const polygonWords = () => S.daySource === "live" ? "current polygon" : "published polygon";
+const polygonWords = () => "published polygon";
 
 export let phaseDialObj = null, gWater = null, gLN2 = null, gAlt = null;
 
@@ -174,14 +173,14 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
       ? '<button class="close" style="float:none;border:1px solid var(--line-strong);border-radius:999px;padding:5px 10px;background:none;color:var(--faint);cursor:pointer;font:600 var(--t-11) var(--mono)" onclick="APP.step(-1)">← phase</button> <button class="close" style="float:none;border:1px solid var(--line-strong);border-radius:999px;padding:5px 10px;background:none;color:var(--faint);cursor:pointer;font:600 var(--t-11) var(--mono)" onclick="APP.step(1)">phase →</button>'
       : "";
     requestAnimationFrame(sizeAvatar);
-    O.innerHTML = `<p class="cycnote" data-plan-wind>Routes: ${m.plan.windUsed ? "wind-informed legs via the wind triangle; timing informs the vertical profile." : "wind not measured; still-air plan."}</p><div class="ops3">
-      <div><h4>Operation · ${S.exercise ? "exercise · invented fire" : S.daySource === "live" ? "live incident" : "the record of " + esc(S.day)}</h4>` + kvRows([
+    O.innerHTML = `<p class="cycnote" data-plan-wind>Routes: wind not measured; still-air plan.</p><div class="ops3">
+      <div><h4>Operation · ${S.exercise ? "exercise · invented fire" : "the record of " + esc(S.day)}</h4>` + kvRows([
         ["fire", esc(f.name || f.geo || f.id) + " <small>" + esc(f.id) + "</small>", "live"],
         ...(!S.exercise && f.geo ? [["record description", esc(f.geo), "live"]] : []),
         ["status", esc(f.status) + (f.note ? " · NOTE" : ""), "live"],
         ["reported size", fmtHa(f.sizeHa), "live"],
         ["perimeter", S.exercise ? (f.ring ? "generated exercise outline" : "invented point") : f.ring ? polygonWords() : "point only", "live"],
-      ]) + (f.url ? `<p style="margin-top:var(--s2);font-size:var(--t-12)"><a href="${esc(f.url)}">Official incident page ↗</a> <span style="color:var(--faint)">· ${S.daySource === "live" ? "live data" : "the record as published"}; all else simulated</span></p>` : "") + `</div>
+      ]) + (f.url ? `<p style="margin-top:var(--s2);font-size:var(--t-12)"><a href="${esc(f.url)}">Official incident page ↗</a> <span style="color:var(--faint)">· the record as published; all else simulated</span></p>` : "") + `</div>
       <div><h4>Attack route · simulated</h4>` + kvRows([
         ["water source", esc(srcName(m)) + " <small>" + fmt(m.water[2]) + " ha</small>", "sim"],
         ["planned leg", m.legKm.toFixed(1) + " km · " + (m.stations ? m.stations.length : 1) +
@@ -207,13 +206,13 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
       // reader can see the net change as it fills.
       ["descent anchor", "fvK", "sim"],
       ["net", "fvN", "sim"], ["altitude", "fvA", ""],
-      ["wind @ 850 hPa", "fvWd", m.wind ? "live" : ""], ["ground speed", "fvG", "sim"],
+      ["wind", "fvWd", ""], ["ground speed", "fvG", "sim"],
       ["heading work", "fvH", ""],
     ].map(([lab, id, cl]) => `<dt>${lab}</dt><dd class="${cl}" id="${id}">–</dd>`).join("") + "</dl>";
   } else if (S.sel.type === "fire") {
     const f = S.sel.f || (S.sel.m && S.sel.m.fire), mm = S.sel.m;
     O.innerHTML = `<div class="ops3">
-      <div><h4>${S.exercise ? "Exercise · invented fire" : (S.daySource === "live" ? "Live incident" : "Published record · " + esc(S.day)) + " · BC Wildfire Service"}</h4>` + kvRows([
+      <div><h4>${S.exercise ? "Exercise · invented fire" : "Published record · " + esc(S.day) + " · BC Wildfire Service"}</h4>` + kvRows([
         ["fire", esc(f.name || f.geo || f.id), "live"],
         ["number", esc(f.id), "live"],
         ...(!S.exercise && f.geo ? [["record description", esc(f.geo), "live"]] : []),
@@ -357,8 +356,11 @@ export function updateCockpit() {
       nEl.className = "sim";
     }
     put("fvA", fmt(st.alt) + " m <small>nominal</small>");
-    put("fvWd", m.wind ? fmt(m.wind.spd) + " km/h from " + fmt(m.wind.dir) + "°" : "unavailable");
-    put("fvG", m.plan.windUsed ? "out " + fmt(m.plan.gsOut) + " · back " + fmt(m.plan.gsRet) + " km/h · wind triangle" : fmt(m.plan.gsOut) + " km/h still air");
+    // No forecast is replayed on any view (a file cannot honestly stand in for one), so
+    // the wind reading is the page's own still-air statement, and ground speed equals
+    // airspeed on both legs of every route.
+    put("fvWd", "still air <small>no forecast is replayed</small>");
+    put("fvG", fmt(m.plan.gsOut) + " km/h still air");
     put("fvH", st.phase === "WATER_FILL" ? "station-keeping — holds position exactly" : "en route");
   }
 }
@@ -397,16 +399,15 @@ function noteChanges() {
       announce(`${m.name || m.cls.name}: ${PHASES[st.idx][1]}.`);
     }
   }
-  // Which feed the fires came from. This flips at most once per fifteen-minute refetch, and
-  // usually never — but it changes what the whole page means, so it is worth saying. A
-  // dated view is never announced as a snapshot that "could not be reached": the visitor
-  // asked for that day, or the day was named in the link they followed.
-  const srcKey = S.fetchedAt ? S.daySource + ":" + (S.day || "") + ":" + S.fires.length : "";
+  // Which record the fires came from. This changes at most once per view choice, and it
+  // changes what the whole page means, so it is worth saying once. A dated view is never
+  // announced as a snapshot that "could not be reached": the visitor asked for that day,
+  // or the day was named in the link they followed.
+  const srcKey = S.ready ? (S.exercise ? "exercise" : S.daySource + ":" + (S.day || "") + ":" + S.fires.length) : "";
   if (srcKey && srcKey !== lastSrcKey) {
-    const first = lastSrcKey === "";
     lastSrcKey = srcKey;
-    announce(S.daySource === "live"
-      ? `Fire data: live BC Wildfire Service feed, ${S.fires.length} fires${first ? "" : " — refreshed"}.`
+    announce(S.exercise
+      ? (S.fires.length ? `Exercise: ${S.fires.length} invented fires.` : `Exercise: nothing is shown.`)
       : S.fires.length
       ? `Fire data: the record of ${S.day || (S.snapshotDate || "").slice(0, 10)}, ${S.fires.length} fires as published.`
       : `Fire data: nothing is shown for ${S.unknownDay || S.day || "this view"}.`);

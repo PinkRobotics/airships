@@ -419,10 +419,10 @@ Dated measurement at landing 16, 2026-10-05: absolute inertial force minus the a
 
 | Population | Cases | Quasi-static feasible | Signed gaps C=0.70 / C=1.00 / either | Withdrawn absolute gaps C=0.70 / C=1.00 / either | Signed only / absolute only |
 |---|---|---|---|---|---|
-| candidates | 476 | 303 | 303 / 303 / 303 | 205 / 205 / 205 | 98 / 0 |
-| capturedMissions | 20 | 20 | 20 / 20 / 20 | 6 / 6 / 6 | 14 / 0 |
+| candidates | 492 | 309 | 309 / 309 / 309 | 209 / 209 / 209 | 100 / 0 |
+| capturedMissions | 21 | 21 | 21 / 21 / 21 | 6 / 6 / 6 | 15 / 0 |
 
-The 20 captures select the same ready controls. The signed screen flags 20; the other 0 are not validated by a hull-only sampled screen either. No quasi-static verdict changes.
+The 21 captures select the same ready controls. The signed screen flags 21; the other 0 are not validated by a hull-only sampled screen either. No quasi-static verdict changes.
 
 | Case | Class / km / basis | C | Phase / progress | Acceleration m/s² | Signed demand tf | Required rotor tf | Thrust to shed tf | Additional downward reserve tf | Signed gap tf / direction | Withdrawn absolute gap tf | Storage note |
 |---|---|---|---|---|---|---|---|---|---|---|---|
@@ -458,14 +458,16 @@ The 20 captures select the same ready controls. The signed screen flags 20; the 
 | exercise / 14 (zero-based) | P100 / 5.200784 / record | 1.00 | SOURCE_APPROACH / 1.000000 | 0.074956 | 2.849 | -2.849 | 0.000 | 137.505 | 2.849 / upward authority short | 0.000 |  |
 | exercise / 15 (zero-based) | P100 / 4.938018 / record | 0.70 | SOURCE_APPROACH / 1.000000 | 0.074956 | 2.304 | -2.304 | 0.000 | 137.466 | 2.304 / upward authority short | 0.000 |  |
 | exercise / 15 (zero-based) | P100 / 4.938018 / record | 1.00 | SOURCE_APPROACH / 1.000000 | 0.074956 | 2.849 | -2.849 | 0.000 | 137.466 | 2.849 / upward authority short | 0.000 |  |
-| replay / 0 (zero-based) | P100 / 6.872958 / record | 0.70 | SOURCE_APPROACH / 1.000000 | 0.074956 | 2.305 | -2.305 | 0.000 | 137.752 | 2.305 / upward authority short | 0.000 |  |
-| replay / 0 (zero-based) | P100 / 6.872958 / record | 1.00 | SOURCE_APPROACH / 1.000000 | 0.074956 | 2.849 | -2.849 | 0.000 | 137.752 | 2.849 / upward authority short | 0.000 |  |
-| replay / 1 (zero-based) | P100 / 14.714511 / record | 0.70 | SOURCE_APPROACH / 1.000000 | 0.110513 | 3.381 | -3.381 | 0.000 | 141.667 | 3.381 / upward authority short | 0.000 |  |
-| replay / 1 (zero-based) | P100 / 14.714511 / record | 1.00 | SOURCE_APPROACH / 1.000000 | 0.110513 | 4.183 | -4.183 | 0.000 | 141.667 | 4.183 / upward authority short | 0.000 |  |
-| replay / 2 (zero-based) | P100 / 19.388471 / record | 0.70 | SOURCE_APPROACH / 1.000000 | 0.110513 | 3.351 | -3.351 | 0.000 | 143.486 | 3.351 / upward authority short | 0.000 |  |
-| replay / 2 (zero-based) | P100 / 19.388471 / record | 1.00 | SOURCE_APPROACH / 1.000000 | 0.110513 | 4.153 | -4.153 | 0.000 | 143.486 | 4.153 / upward authority short | 0.000 |  |
-| replay / 3 (zero-based) | P100 / 22.610555 / record | 0.70 | SOURCE_APPROACH / 1.000000 | 0.110513 | 3.355 | -3.355 | 0.000 | 144.734 | 3.355 / upward authority short | 0.000 |  |
-| replay / 3 (zero-based) | P100 / 22.610555 / record | 1.00 | SOURCE_APPROACH / 1.000000 | 0.110513 | 4.158 | -4.158 | 0.000 | 144.734 | 4.158 / upward authority short | 0.000 |  |
+| replay / 0 (zero-based) | P100 / 6.462011 / record | 0.70 | SOURCE_APPROACH / 1.000000 | 0.074956 | 2.305 | -2.305 | 0.000 | 137.691 | 2.305 / upward authority short | 0.000 |  |
+| replay / 0 (zero-based) | P100 / 6.462011 / record | 1.00 | SOURCE_APPROACH / 1.000000 | 0.074956 | 2.849 | -2.849 | 0.000 | 137.691 | 2.849 / upward authority short | 0.000 |  |
+| replay / 1 (zero-based) | P100 / 6.872958 / record | 0.70 | SOURCE_APPROACH / 1.000000 | 0.074956 | 2.305 | -2.305 | 0.000 | 137.752 | 2.305 / upward authority short | 0.000 |  |
+| replay / 1 (zero-based) | P100 / 6.872958 / record | 1.00 | SOURCE_APPROACH / 1.000000 | 0.074956 | 2.849 | -2.849 | 0.000 | 137.752 | 2.849 / upward authority short | 0.000 |  |
+| replay / 2 (zero-based) | P100 / 14.714511 / record | 0.70 | SOURCE_APPROACH / 1.000000 | 0.110513 | 3.381 | -3.381 | 0.000 | 141.667 | 3.381 / upward authority short | 0.000 |  |
+| replay / 2 (zero-based) | P100 / 14.714511 / record | 1.00 | SOURCE_APPROACH / 1.000000 | 0.110513 | 4.183 | -4.183 | 0.000 | 141.667 | 4.183 / upward authority short | 0.000 |  |
+| replay / 3 (zero-based) | P100 / 19.388471 / record | 0.70 | SOURCE_APPROACH / 1.000000 | 0.110513 | 3.351 | -3.351 | 0.000 | 143.486 | 3.351 / upward authority short | 0.000 |  |
+| replay / 3 (zero-based) | P100 / 19.388471 / record | 1.00 | SOURCE_APPROACH / 1.000000 | 0.110513 | 4.153 | -4.153 | 0.000 | 143.486 | 4.153 / upward authority short | 0.000 |  |
+| replay / 4 (zero-based) | P100 / 22.610555 / record | 0.70 | SOURCE_APPROACH / 1.000000 | 0.110513 | 3.355 | -3.355 | 0.000 | 144.734 | 3.355 / upward authority short | 0.000 |  |
+| replay / 4 (zero-based) | P100 / 22.610555 / record | 1.00 | SOURCE_APPROACH / 1.000000 | 0.110513 | 4.158 | -4.158 | 0.000 | 144.734 | 4.158 / upward authority short | 0.000 |  |
 
 Every candidate is replayed in still air at every printed or captured distance for its class, on both bases. Infeasible cases remain diagnostics. The JSON also records each phase and both simultaneous authorities at its largest signed gap.
 
@@ -491,6 +493,10 @@ Every candidate is replayed in still air at every printed or captured distance f
 | candidate 1 | P100 / 5.730096 / record | 1.00 | RETURN_TRANSIT / 0.793000 | -0.013029 | -0.475 | 119.201 | 108.394 | 0.000 | 10.807 / downward authority short | 10.408 |  |
 | candidate 1 | P100 / 5.730096 / favourable | 0.70 | OUTBOUND_TRANSIT / 0.149500 | 0.353156 | 13.105 | -6.951 | 6.153 | 152.471 | 6.951 / upward authority short | 0.000 |  |
 | candidate 1 | P100 / 5.730096 / favourable | 1.00 | OUTBOUND_TRANSIT / 0.149500 | 0.353156 | 15.635 | -9.482 | 6.153 | 152.471 | 9.482 / upward authority short | 0.000 |  |
+| candidate 1 | P100 / 6.462011 / record | 0.70 | RETURN_TRANSIT / 0.797500 | 0.000000 | 0.000 | 119.169 | 107.360 | 0.000 | 11.809 / downward authority short | 7.661 |  |
+| candidate 1 | P100 / 6.462011 / record | 1.00 | RETURN_TRANSIT / 0.795500 | -0.005281 | -0.192 | 119.177 | 107.348 | 0.000 | 11.829 / downward authority short | 9.484 |  |
+| candidate 1 | P100 / 6.462011 / favourable | 0.70 | OUTBOUND_TRANSIT / 0.149500 | 0.313156 | 11.612 | -5.642 | 5.969 | 152.566 | 5.642 / upward authority short | 0.000 |  |
+| candidate 1 | P100 / 6.462011 / favourable | 1.00 | OUTBOUND_TRANSIT / 0.149500 | 0.313156 | 13.852 | -7.882 | 5.969 | 152.566 | 7.882 / upward authority short | 0.000 |  |
 | candidate 1 | P100 / 6.872958 / record | 0.70 | RETURN_TRANSIT / 0.798500 | 0.002515 | 0.074 | 119.116 | 106.883 | 0.000 | 12.233 / downward authority short | 7.294 |  |
 | candidate 1 | P100 / 6.872958 / record | 1.00 | RETURN_TRANSIT / 0.796500 | -0.002515 | -0.091 | 119.095 | 106.861 | 0.000 | 12.234 / downward authority short | 9.028 |  |
 | candidate 1 | P100 / 6.872958 / favourable | 0.70 | OUTBOUND_TRANSIT / 0.149500 | 0.294432 | 10.913 | -5.046 | 5.866 | 152.619 | 5.046 / upward authority short | 0.000 |  |
@@ -567,6 +573,10 @@ Every candidate is replayed in still air at every printed or captured distance f
 | candidate 2 | P100 / 5.730096 / record | 1.00 | RETURN_TRANSIT / 0.793000 | -0.013029 | -0.477 | 118.254 | 108.394 | 0.000 | 9.861 / downward authority short | 10.435 |  |
 | candidate 2 | P100 / 5.730096 / favourable | 0.70 | OUTBOUND_TRANSIT / 0.149500 | 0.353156 | 13.105 | -6.951 | 6.153 | 152.471 | 6.951 / upward authority short | 0.000 |  |
 | candidate 2 | P100 / 5.730096 / favourable | 1.00 | OUTBOUND_TRANSIT / 0.149500 | 0.353156 | 15.635 | -9.482 | 6.153 | 152.471 | 9.482 / upward authority short | 0.000 |  |
+| candidate 2 | P100 / 6.462011 / record | 0.70 | RETURN_TRANSIT / 0.797500 | 0.000000 | 0.000 | 118.221 | 107.360 | 0.000 | 10.861 / downward authority short | 7.686 |  |
+| candidate 2 | P100 / 6.462011 / record | 1.00 | RETURN_TRANSIT / 0.795500 | -0.005281 | -0.193 | 118.230 | 107.348 | 0.000 | 10.882 / downward authority short | 9.509 |  |
+| candidate 2 | P100 / 6.462011 / favourable | 0.70 | OUTBOUND_TRANSIT / 0.149500 | 0.313156 | 11.612 | -5.642 | 5.969 | 152.566 | 5.642 / upward authority short | 0.000 |  |
+| candidate 2 | P100 / 6.462011 / favourable | 1.00 | OUTBOUND_TRANSIT / 0.149500 | 0.313156 | 13.852 | -7.882 | 5.969 | 152.566 | 7.882 / upward authority short | 0.000 |  |
 | candidate 2 | P100 / 6.872958 / record | 0.70 | RETURN_TRANSIT / 0.798500 | 0.002515 | 0.074 | 118.168 | 106.883 | 0.000 | 11.285 / downward authority short | 7.318 |  |
 | candidate 2 | P100 / 6.872958 / record | 1.00 | RETURN_TRANSIT / 0.796500 | -0.002515 | -0.092 | 118.147 | 106.861 | 0.000 | 11.286 / downward authority short | 9.052 |  |
 | candidate 2 | P100 / 6.872958 / favourable | 0.70 | OUTBOUND_TRANSIT / 0.149500 | 0.294432 | 10.913 | -5.046 | 5.866 | 152.619 | 5.046 / upward authority short | 0.000 |  |
@@ -643,6 +653,10 @@ Every candidate is replayed in still air at every printed or captured distance f
 | candidate 3 | P100 / 5.730096 / record | 1.00 | OUTBOUND_TRANSIT / 0.149500 | 0.812258 | 36.107 | -22.521 | 13.586 | 145.434 | 22.521 / upward authority short | 15.398 |  |
 | candidate 3 | P100 / 5.730096 / favourable | 0.70 | OUTBOUND_TRANSIT / 0.149500 | 0.812258 | 30.243 | -23.277 | 6.966 | 152.054 | 23.277 / upward authority short | 9.284 |  |
 | candidate 3 | P100 / 5.730096 / favourable | 1.00 | OUTBOUND_TRANSIT / 0.149500 | 0.812258 | 36.107 | -29.141 | 6.966 | 152.054 | 29.141 / upward authority short | 15.398 |  |
+| candidate 3 | P100 / 6.462011 / record | 0.70 | OUTBOUND_TRANSIT / 0.149500 | 0.720258 | 26.808 | -13.379 | 13.429 | 145.552 | 13.379 / upward authority short | 9.284 |  |
+| candidate 3 | P100 / 6.462011 / record | 1.00 | OUTBOUND_TRANSIT / 0.149500 | 0.720258 | 32.004 | -18.575 | 13.429 | 145.552 | 18.575 / upward authority short | 15.398 |  |
+| candidate 3 | P100 / 6.462011 / favourable | 0.70 | OUTBOUND_TRANSIT / 0.149500 | 0.720258 | 26.808 | -19.923 | 6.886 | 152.096 | 19.923 / upward authority short | 9.284 |  |
+| candidate 3 | P100 / 6.462011 / favourable | 1.00 | OUTBOUND_TRANSIT / 0.149500 | 0.720258 | 32.004 | -25.119 | 6.886 | 152.096 | 25.119 / upward authority short | 15.398 |  |
 | candidate 3 | P100 / 6.872958 / record | 0.70 | OUTBOUND_TRANSIT / 0.149500 | 0.677193 | 25.201 | -11.860 | 13.341 | 145.618 | 11.860 / upward authority short | 9.284 |  |
 | candidate 3 | P100 / 6.872958 / record | 1.00 | OUTBOUND_TRANSIT / 0.149500 | 0.677193 | 30.084 | -16.743 | 13.341 | 145.618 | 16.743 / upward authority short | 15.398 |  |
 | candidate 3 | P100 / 6.872958 / favourable | 0.70 | OUTBOUND_TRANSIT / 0.149500 | 0.677193 | 25.201 | -18.360 | 6.841 | 152.119 | 18.360 / upward authority short | 9.284 |  |
@@ -719,6 +733,10 @@ Every candidate is replayed in still air at every printed or captured distance f
 | candidate 4 | P100 / 5.730096 / record | 1.00 | WATER_RELEASE / 1.000000 | -0.865616 | -30.001 | 151.859 | 121.858 | 13.122 | 16.879 / downward authority short | 16.879 |  |
 | candidate 4 | P100 / 5.730096 / favourable | 0.70 | OUTBOUND_TRANSIT / 0.149500 | 0.676882 | 25.189 | -18.349 | 6.840 | 152.119 | 18.349 / upward authority short | 10.766 |  |
 | candidate 4 | P100 / 5.730096 / favourable | 1.00 | OUTBOUND_TRANSIT / 0.149500 | 0.676882 | 30.070 | -23.230 | 6.840 | 152.119 | 23.230 / upward authority short | 16.879 |  |
+| candidate 4 | P100 / 6.462011 / record | 0.70 | WATER_RELEASE / 1.000000 | -0.865616 | -23.888 | 145.746 | 121.858 | 13.122 | 10.766 / downward authority short | 10.766 |  |
+| candidate 4 | P100 / 6.462011 / record | 1.00 | WATER_RELEASE / 1.000000 | -0.865616 | -30.001 | 151.859 | 121.858 | 13.122 | 16.879 / downward authority short | 16.879 |  |
+| candidate 4 | P100 / 6.462011 / favourable | 0.70 | OUTBOUND_TRANSIT / 0.149500 | 0.600215 | 22.327 | -15.583 | 6.744 | 152.169 | 15.583 / upward authority short | 10.766 |  |
+| candidate 4 | P100 / 6.462011 / favourable | 1.00 | OUTBOUND_TRANSIT / 0.149500 | 0.600215 | 26.652 | -19.908 | 6.744 | 152.169 | 19.908 / upward authority short | 16.879 |  |
 | candidate 4 | P100 / 6.872958 / record | 0.70 | RETURN_TRANSIT / 0.789500 | -0.031450 | -0.869 | 137.273 | 126.058 | 0.000 | 11.215 / downward authority short | 10.766 |  |
 | candidate 4 | P100 / 6.872958 / record | 1.00 | WATER_RELEASE / 1.000000 | -0.865616 | -30.001 | 151.859 | 121.858 | 13.122 | 16.879 / downward authority short | 16.879 |  |
 | candidate 4 | P100 / 6.872958 / favourable | 0.70 | OUTBOUND_TRANSIT / 0.149500 | 0.564327 | 20.988 | -14.298 | 6.690 | 152.196 | 14.298 / upward authority short | 10.766 |  |
@@ -795,6 +813,10 @@ Every candidate is replayed in still air at every printed or captured distance f
 | candidate 5 | P100 / 5.730096 / record | 1.00 | SOURCE_APPROACH / 1.000000 | 0.074956 | 2.849 | -2.849 | 0.000 | 137.583 | 2.849 / upward authority short | 0.000 |  |
 | candidate 5 | P100 / 5.730096 / favourable | 0.70 | SOURCE_APPROACH / 1.000000 | 0.074956 | 2.305 | -2.305 | 0.000 | 137.583 | 2.305 / upward authority short | 0.000 |  |
 | candidate 5 | P100 / 5.730096 / favourable | 1.00 | SOURCE_APPROACH / 1.000000 | 0.074956 | 2.849 | -2.849 | 0.000 | 137.583 | 2.849 / upward authority short | 0.000 |  |
+| candidate 5 | P100 / 6.462011 / record | 0.70 | SOURCE_APPROACH / 1.000000 | 0.074956 | 2.305 | -2.305 | 0.000 | 137.691 | 2.305 / upward authority short | 0.000 |  |
+| candidate 5 | P100 / 6.462011 / record | 1.00 | SOURCE_APPROACH / 1.000000 | 0.074956 | 2.849 | -2.849 | 0.000 | 137.691 | 2.849 / upward authority short | 0.000 |  |
+| candidate 5 | P100 / 6.462011 / favourable | 0.70 | SOURCE_APPROACH / 1.000000 | 0.074956 | 2.305 | -2.305 | 0.000 | 137.691 | 2.305 / upward authority short | 0.000 |  |
+| candidate 5 | P100 / 6.462011 / favourable | 1.00 | SOURCE_APPROACH / 1.000000 | 0.074956 | 2.849 | -2.849 | 0.000 | 137.691 | 2.849 / upward authority short | 0.000 |  |
 | candidate 5 | P100 / 6.872958 / record | 0.70 | SOURCE_APPROACH / 1.000000 | 0.074956 | 2.305 | -2.305 | 0.000 | 137.752 | 2.305 / upward authority short | 0.000 |  |
 | candidate 5 | P100 / 6.872958 / record | 1.00 | SOURCE_APPROACH / 1.000000 | 0.074956 | 2.849 | -2.849 | 0.000 | 137.752 | 2.849 / upward authority short | 0.000 |  |
 | candidate 5 | P100 / 6.872958 / favourable | 0.70 | SOURCE_APPROACH / 1.000000 | 0.074956 | 2.305 | -2.305 | 0.000 | 137.752 | 2.305 / upward authority short | 0.000 |  |
@@ -871,6 +893,10 @@ Every candidate is replayed in still air at every printed or captured distance f
 | candidate 6 | P100 / 5.730096 / record | 1.00 | RETURN_TRANSIT / 0.793000 | -0.013029 | -0.480 | 116.025 | 108.394 | 0.000 | 7.631 / downward authority short | 8.794 |  |
 | candidate 6 | P100 / 5.730096 / favourable | 0.70 | OUTBOUND_TRANSIT / 0.149500 | 0.353156 | 13.105 | -6.951 | 6.153 | 152.471 | 6.951 / upward authority short | 0.000 |  |
 | candidate 6 | P100 / 5.730096 / favourable | 1.00 | OUTBOUND_TRANSIT / 0.149500 | 0.353156 | 15.635 | -9.482 | 6.153 | 152.471 | 9.482 / upward authority short | 0.000 |  |
+| candidate 6 | P100 / 6.462011 / record | 0.70 | RETURN_TRANSIT / 0.797500 | 0.000000 | 0.000 | 115.989 | 107.360 | 0.000 | 8.629 / downward authority short | 7.200 |  |
+| candidate 6 | P100 / 6.462011 / record | 1.00 | RETURN_TRANSIT / 0.795500 | -0.005281 | -0.194 | 115.999 | 107.348 | 0.000 | 8.651 / downward authority short | 9.023 |  |
+| candidate 6 | P100 / 6.462011 / favourable | 0.70 | OUTBOUND_TRANSIT / 0.149500 | 0.313156 | 11.612 | -5.642 | 5.969 | 152.566 | 5.642 / upward authority short | 0.000 |  |
+| candidate 6 | P100 / 6.462011 / favourable | 1.00 | OUTBOUND_TRANSIT / 0.149500 | 0.313156 | 13.852 | -7.882 | 5.969 | 152.566 | 7.882 / upward authority short | 0.000 |  |
 | candidate 6 | P100 / 6.872958 / record | 0.70 | RETURN_TRANSIT / 0.798500 | 0.002515 | 0.075 | 115.936 | 106.883 | 0.000 | 9.053 / downward authority short | 7.333 |  |
 | candidate 6 | P100 / 6.872958 / record | 1.00 | RETURN_TRANSIT / 0.796500 | -0.002515 | -0.092 | 115.916 | 106.861 | 0.000 | 9.054 / downward authority short | 9.067 |  |
 | candidate 6 | P100 / 6.872958 / favourable | 0.70 | OUTBOUND_TRANSIT / 0.149500 | 0.294432 | 10.913 | -5.046 | 5.866 | 152.619 | 5.046 / upward authority short | 0.000 |  |
@@ -947,6 +973,10 @@ Every candidate is replayed in still air at every printed or captured distance f
 | candidate 7 | P100 / 5.730096 / record | 1.00 | OUTBOUND_TRANSIT / 0.149500 | 0.812258 | 36.107 | -22.521 | 13.586 | 145.434 | 22.521 / upward authority short | 13.834 |  |
 | candidate 7 | P100 / 5.730096 / favourable | 0.70 | OUTBOUND_TRANSIT / 0.149500 | 0.812258 | 30.243 | -23.277 | 6.966 | 152.054 | 23.277 / upward authority short | 7.720 |  |
 | candidate 7 | P100 / 5.730096 / favourable | 1.00 | OUTBOUND_TRANSIT / 0.149500 | 0.812258 | 36.107 | -29.141 | 6.966 | 152.054 | 29.141 / upward authority short | 13.834 |  |
+| candidate 7 | P100 / 6.462011 / record | 0.70 | OUTBOUND_TRANSIT / 0.149500 | 0.720258 | 26.808 | -13.379 | 13.429 | 145.552 | 13.379 / upward authority short | 7.720 |  |
+| candidate 7 | P100 / 6.462011 / record | 1.00 | OUTBOUND_TRANSIT / 0.149500 | 0.720258 | 32.004 | -18.575 | 13.429 | 145.552 | 18.575 / upward authority short | 13.834 |  |
+| candidate 7 | P100 / 6.462011 / favourable | 0.70 | OUTBOUND_TRANSIT / 0.149500 | 0.720258 | 26.808 | -19.923 | 6.886 | 152.096 | 19.923 / upward authority short | 7.720 |  |
+| candidate 7 | P100 / 6.462011 / favourable | 1.00 | OUTBOUND_TRANSIT / 0.149500 | 0.720258 | 32.004 | -25.119 | 6.886 | 152.096 | 25.119 / upward authority short | 13.834 |  |
 | candidate 7 | P100 / 6.872958 / record | 0.70 | OUTBOUND_TRANSIT / 0.149500 | 0.677193 | 25.201 | -11.860 | 13.341 | 145.618 | 11.860 / upward authority short | 7.720 |  |
 | candidate 7 | P100 / 6.872958 / record | 1.00 | OUTBOUND_TRANSIT / 0.149500 | 0.677193 | 30.084 | -16.743 | 13.341 | 145.618 | 16.743 / upward authority short | 13.834 |  |
 | candidate 7 | P100 / 6.872958 / favourable | 0.70 | OUTBOUND_TRANSIT / 0.149500 | 0.677193 | 25.201 | -18.360 | 6.841 | 152.119 | 18.360 / upward authority short | 7.720 |  |
@@ -1023,6 +1053,10 @@ Every candidate is replayed in still air at every printed or captured distance f
 | candidate 8 | P100 / 5.730096 / record | 1.00 | OUTBOUND_TRANSIT / 0.149500 | 0.676882 | 30.070 | -16.730 | 13.340 | 145.619 | 16.730 / upward authority short | 15.009 |  |
 | candidate 8 | P100 / 5.730096 / favourable | 0.70 | OUTBOUND_TRANSIT / 0.149500 | 0.676882 | 25.189 | -18.349 | 6.840 | 152.119 | 18.349 / upward authority short | 8.896 |  |
 | candidate 8 | P100 / 5.730096 / favourable | 1.00 | OUTBOUND_TRANSIT / 0.149500 | 0.676882 | 30.070 | -23.230 | 6.840 | 152.119 | 23.230 / upward authority short | 15.009 |  |
+| candidate 8 | P100 / 6.462011 / record | 0.70 | OUTBOUND_TRANSIT / 0.149500 | 0.600215 | 22.327 | -9.175 | 13.152 | 145.760 | 9.175 / upward authority short | 8.896 |  |
+| candidate 8 | P100 / 6.462011 / record | 1.00 | WATER_RELEASE / 1.000000 | -0.865640 | -30.183 | 149.989 | 119.806 | 15.174 | 15.009 / downward authority short | 15.009 |  |
+| candidate 8 | P100 / 6.462011 / favourable | 0.70 | OUTBOUND_TRANSIT / 0.149500 | 0.600215 | 22.327 | -15.583 | 6.744 | 152.169 | 15.583 / upward authority short | 8.896 |  |
+| candidate 8 | P100 / 6.462011 / favourable | 1.00 | OUTBOUND_TRANSIT / 0.149500 | 0.600215 | 26.652 | -19.908 | 6.744 | 152.169 | 19.908 / upward authority short | 15.009 |  |
 | candidate 8 | P100 / 6.872958 / record | 0.70 | RETURN_TRANSIT / 0.789500 | -0.031450 | -0.875 | 135.227 | 126.058 | 0.000 | 9.169 / downward authority short | 8.896 |  |
 | candidate 8 | P100 / 6.872958 / record | 1.00 | WATER_RELEASE / 1.000000 | -0.865640 | -30.183 | 149.989 | 119.806 | 15.174 | 15.009 / downward authority short | 15.009 |  |
 | candidate 8 | P100 / 6.872958 / favourable | 0.70 | OUTBOUND_TRANSIT / 0.149500 | 0.564327 | 20.988 | -14.298 | 6.690 | 152.196 | 14.298 / upward authority short | 8.896 |  |
@@ -1452,7 +1486,7 @@ Integrate the existing drawAt electrical.batteryPowerMW at 2000 midpoint samples
 | prescribed rotor-efficiency sweep | P1000 / 60.000000 / favourable | 140.1 MWh | 120 MWh | 85.1 min | 20.1 MWh | research/analysis/energy-requirements.md |
 | ready selector | P1000 / 400.000000 / record | 322.3 MWh | 120 MWh | 233.6 min | 202.3 MWh | concept/energy-analysis.html |
 
-Of 20 captured cycles, 0 exceed nominal storage; every other captured cycle stays inside it for one ideal cycle. The full JSON records cumulative draw in phase order for 926 deduplicated current profiles, including unsupported paths as diagnostics and every shortage found. Earlier historical cells, the payload-exchange study and static component-only scans are outside this planCycle storage diagnostic. Current prescribed, selected, full-delivery, coefficient, single-input, requirement, descent and served-candidate profile tables are covered, including unsupported paths as supplied-effort diagnostics. Initial nitrogen is charged storage, not free energy. The 400 km P1000 ready-selector result is printed on concept/energy-analysis.html; it is outside the worked-example slider range.
+Of 21 captured cycles, 0 exceed nominal storage; every other captured cycle stays inside it for one ideal cycle. The full JSON records cumulative draw in phase order for 942 deduplicated current profiles, including unsupported paths as diagnostics and every shortage found. Earlier historical cells, the payload-exchange study and static component-only scans are outside this planCycle storage diagnostic. Current prescribed, selected, full-delivery, coefficient, single-input, requirement, descent and served-candidate profile tables are covered, including unsupported paths as supplied-effort diagnostics. Initial nitrogen is charged storage, not free energy. The 400 km P1000 ready-selector result is printed on concept/energy-analysis.html; it is outside the worked-example slider range.
 
 Records: `research/analysis/energy-necessary.json`; generator: `research/analysis/energy-necessary.mjs`. No operational horizon or completion gate is added.
 

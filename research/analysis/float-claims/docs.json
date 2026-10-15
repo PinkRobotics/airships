@@ -12,7 +12,7 @@
     {
       "file": "docs/DECISIONS.md",
       "key": "a8b714951b4051ea",
-      "line": 233,
+      "line": 236,
       "class": "history",
       "reason": "Heading of the dated altitude-aware buoyancy decision; it records the original simulation change, not current structural validation.",
       "text": "## 2026-08-09 — Buoyancy is evaluated where the ship is, and the hulls are sized for the worst of it",
@@ -21,7 +21,7 @@
     {
       "file": "docs/DECISIONS.md",
       "key": "5190d342336e9700",
-      "line": 246,
+      "line": 249,
       "class": "history",
       "reason": "The dated decision preserves the fleet resize and recovery-tank assumptions, including payload-equals-dry-mass; it is not a current drawn-hull claim.",
       "text": "The hulls were then resized to a requirement rather than to the defect: FAIL-SAFE FLOAT-UP, positively buoyant at the working altitude while fully loaded with water it cannot drop, with a stated 5% margin. Nitrogen is excluded from that mass because it vents in seconds; water is the load a ship can be stuck with. Displacement is 2,200 m³ per tonne of payload, +22.2%, and the margin comes out at +5.25% identically on all three classes because dry mass is set equal to payload on all three. The `ln2CapT` tanks were resized on the same principle — enough nitrogen to LAND an empty hull with no rotor authority, checked at the ground where the air is densest rather than at the ceiling where the descent starts.",

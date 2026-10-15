@@ -1,13 +1,13 @@
 /* The fleet roster and the top-fires list.
  */
-import { CLASSES, PHASE_TINT, fmt, fmtMin, srcName, stateAt, missionReady, diagnosticNotes, FEASIBILITY_SCOPE } from '../../sim/index.js?v=6f3787a9';
-import { timeSinceDrop } from '../cockpit/panels.js?v=6f3787a9';
-import { $, SHORT, esc } from '../dom.js?v=6f3787a9';
-import { needsShip, nothingShown, nothingWhy } from '../feeds.js?v=6f3787a9';
-import {figure,inactiveText} from "../served-ui.js?v=6f3787a9";
-import { FLEET } from '../fleet.js?v=6f3787a9';
-import { select } from '../map/interact.js?v=6f3787a9';
-import { S } from '../store.js?v=6f3787a9';
+import { CLASSES, PHASE_TINT, fmt, fmtMin, srcName, stateAt, missionReady, diagnosticNotes, FEASIBILITY_SCOPE } from '../../sim/index.js?v=7d7bed4f';
+import { timeSinceDrop } from '../cockpit/panels.js?v=7d7bed4f';
+import { $, SHORT, esc } from '../dom.js?v=7d7bed4f';
+import { needsShip, nothingShown, nothingWhy } from '../feeds.js?v=7d7bed4f';
+import {figure,inactiveText} from "../served-ui.js?v=7d7bed4f";
+import { FLEET } from '../fleet.js?v=7d7bed4f';
+import { select } from '../map/interact.js?v=7d7bed4f';
+import { S } from '../store.js?v=7d7bed4f';
 
 /* ---------- the two lists are grids, and here is why ---------------------------------------- *
  *
@@ -82,7 +82,7 @@ function wireGrid(el, activate) {
   roveToSelection(el);
 }
 
-import {windBasis} from '../../sim/wind.js?v=6f3787a9';
+import {windBasis} from '../../sim/wind.js?v=7d7bed4f';
 
 export function renderFires() {
   const el = $("firesTop");
@@ -98,7 +98,7 @@ export function renderFires() {
     ? `Largest exercise fires · <b>invented sizes</b> · assigned or waiting (rates simulated)`
     : S.recordOnly
     ? `Largest fires · <b>${esc(S.day)}</b> · as published`
-    : `Largest fires · <b>${S.daySource === "live" ? "live sizes" : esc(S.day)}</b> · assigned or waiting (rates simulated)`;
+    : `Largest fires · <b>${esc(S.day)}</b> · assigned or waiting (rates simulated)`;
   const fn = $("firesNote");
   if (fn) fn.textContent = none
     ? `No fire is listed, because ${nothingWhy()}.`
@@ -106,8 +106,6 @@ export function renderFires() {
     ? `Exercise: sizes and stages of control are invented. Queued fires have no ship; the sixteen simulated hulls are shared by the allocator.`
     : S.recordOnly
     ? `Sizes and statuses are the record as British Columbia published it that day. No fleet is simulated for this day, so nothing here is simulation.`
-    : S.daySource === "live"
-    ? `Last drop and kL/hour are simulation; sizes are live. A fire marked queued has no ship: the allocator counts every fire the sixteen hulls leave without one. A fire marked not flown had its water line or drop line cross a keep-out distance, so it is left alone.`
     : `Last drop and kL/hour are simulation; sizes are the record as published that day. A fire marked queued has no ship: the allocator counts every fire the sixteen hulls leave without one. A fire marked not flown had its water line or drop line cross a keep-out distance, so it is left alone.`;
   if(fn&&!none&&!S.recordOnly)fn.textContent+=" "+FEASIBILITY_SCOPE;
   if (none) { el.innerHTML = ""; return; }   // no table with no rows under a label that names a record

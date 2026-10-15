@@ -1,11 +1,11 @@
 /* Allocating sixteen hulls to the fires that most need them.
  */
-import { CLASSES, HULL_NAMES, MODES, PHASES, buildMission, findSource, fmtHa, legKmFor, bindServedMission } from '../sim/index.js?v=6f3787a9';
-import { renderDrawer } from './cockpit/panels.js?v=6f3787a9';
-import { renderFires, renderRoster, renderStats, renderTable } from './cockpit/tables.js?v=6f3787a9';
-import { needsShip } from './feeds.js?v=6f3787a9';
-import { S } from './store.js?v=6f3787a9';
-import { renderWorked } from './worked.js?v=6f3787a9';
+import { CLASSES, HULL_NAMES, MODES, PHASES, buildMission, findSource, fmtHa, legKmFor, bindServedMission } from '../sim/index.js?v=7d7bed4f';
+import { renderDrawer } from './cockpit/panels.js?v=7d7bed4f';
+import { renderFires, renderRoster, renderStats, renderTable } from './cockpit/tables.js?v=7d7bed4f';
+import { needsShip } from './feeds.js?v=7d7bed4f';
+import { S } from './store.js?v=7d7bed4f';
+import { renderWorked } from './worked.js?v=7d7bed4f';
 
 /* The fleet is FIXED: ten P-100s, five P-1000s, one P-10000 — sixteen hulls for the whole
    province, allocated largest-first within the existing size bands (priority and water
@@ -63,7 +63,7 @@ export async function rebuildMissions() {
     // (operator, 10-14). Each names what the day actually holds — how many fires the
     // fleet may work — so "standing by" reads as the day's arithmetic, which is what
     // it is. One hull per fire is the rule that leaves hulls idle on a quiet day.
-    const when = S.exercise ? 'this exercise' : S.daySource === 'live' ? "today's feed" : 'this day';
+    const when = S.exercise ? 'this exercise' : 'this day';
     const firesWord = n => n + ' fire' + (n === 1 ? '' : 's');
     const reason = !fitting.length
       ? `${when} holds ${firesWord(cand.length)} the fleet may work (out of control); none is in this class’s size band`
@@ -88,12 +88,11 @@ export async function rebuildMissions() {
       if (bi < 0 || bs === -Infinity) { standBy(clsId, k); continue; }
       const f = open.splice(bi, 1)[0];
       const so = srcFor(f, clsId);
-      // Passing S.heat here is currently INERT, and deliberately kept: buildMission does
-      // not set m.heat, and planTargets only scores hotspots for a mission whose targets
-      // came from detections. Live hotspot aiming happens in applyHeat(), which runs right
-      // after every rebuild. The argument stays because the signature is honest and because
-      // rule 3 in the boundary linter requires it — a call that passes live data is the
-      // shape we want, even where the data does not yet change the answer.
+      // Passing S.heat here is INERT and kept: the heat layer is gone with the live reads,
+      // S.heat is always [], and buildMission does not set m.heat. The argument stays
+      // because the signature is honest and because rule 3 in the boundary linter requires
+      // it — a call that passes measured data is the shape we want, even where the data
+      // does not change the answer.
       const m = buildMission(f, S.water, S.modeId, clsId, so, S.heat);
       if (m.targetRefusal) {
         // No usable geometric target: leave the hull free and show the fire's refusal.
@@ -115,7 +114,7 @@ export async function rebuildMissions() {
     }
   }
   S.uncovered = cand.filter(f => !f.mission).length;
-  // The live-feed rebuild makes fresh mission objects; the hulls' energy ledgers carry over.
+  // A rebuild makes fresh mission objects; the hulls' energy ledgers carry over.
   for (const m of S.missions) {
     const b = m.shipId && S.battByHull[m.shipId];
     if (b) { m.battE = b.e; m.dead = b.dead; m.deadAt = b.deadAt; }

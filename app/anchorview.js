@@ -6,7 +6,7 @@
  * Anchor parity checks that fallback independently and compares real plan states.
  */
 
-import { anchorHang } from '../sim/index.js?v=6f3787a9';
+import { anchorHang } from '../sim/index.js?v=7d7bed4f';
 
 /**
  * @param {object} cls   the monitor's class record (CLASSES[id])

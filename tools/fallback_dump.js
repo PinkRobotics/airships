@@ -85,6 +85,9 @@
     // static block and the running page can never disagree about what day this is.
     mode: (document.getElementById('modeNote') || {}).textContent || '',
     scene: (document.getElementById('sceneNote') || {}).textContent || '',
+    // The day row as the running page holds it: the no-script copy is this markup with
+    // the current-view marking stripped, so the two can never disagree about the menu.
+    dayRow: (document.getElementById('dayRow') || {}).innerHTML || '',
     fires: {
       active: S.fires.length,
       outOfControl: S.fires.filter(f => f.status === "Out of Control").length,

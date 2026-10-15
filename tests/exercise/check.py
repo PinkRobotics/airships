@@ -38,8 +38,8 @@ def doc():
 
 
 def sample_day():
-    """The newest captured day — the sample route's day, read from the season index."""
-    return max(d['date'] for d in gen.read('data/season/2026.days.json')['days'])
+    """The busiest captured day — the sample route's day, read from the ranking."""
+    return gen.read('data/season/2026.activity.json')['defaultDay']
 
 
 @test
@@ -98,8 +98,8 @@ EXTRA = r"""
   out.title = document.title;
   out.meta = ['meta[name="description"]','meta[property="og:title"]','meta[property="og:description"]'].map(s=>document.querySelector(s).content);
   out.heading = txt('firesH');
-  out.choice = document.getElementById('daySel').value;
-  out.exerciseOption = [...document.getElementById('daySel').options].find(o => o.value==='exercise')?.textContent;
+  out.choice = document.querySelector('#dayRow a[aria-current]')?.getAttribute('href') || null;
+  out.exerciseChip = document.querySelector('#dayRow a[href="?view=exercise"]')?.textContent || null;
   out.wind = S.missions.filter(m=>m.wind).length;
   out.heat = S.heat.length;
   out.sourceIndices = S.missions.filter(m=>!m.idle).map(m=>m.waterIdx);
@@ -107,7 +107,7 @@ EXTRA = r"""
   // The page itself holds the clearance it was built to: the nearest excluded fire behind
   // the exercise ground, and the limit, as the running page measured them.
   out.clearance = S.exerciseClearance ? {minKm: S.exerciseClearance.minKm, limitKm: S.exerciseClearance.limitKm} : null;
-  const {select} = await import('/app/map/interact.js?v=6f3787a9');
+  const {select} = await import('/app/map/interact.js?v=7d7bed4f');
   out.drawerFailures=[];
   for (const f of S.fires) {
     select({type:'fire',f,m:null});
@@ -126,13 +126,13 @@ EXTRA = r"""
   out.overflow=document.documentElement.scrollWidth-innerWidth;
   out.visibleDates=[];
   for (const e of document.body.querySelectorAll('*')) {
-    if (e.closest('select,script,style,noscript') || !e.getClientRects().length) continue;
+    if (e.closest('select,script,style,noscript,#dayRow') || !e.getClientRects().length) continue;
     for (const n of e.childNodes) if(n.nodeType===3 && /\d{4}-\d{2}-\d{2}/.test(n.textContent)) out.visibleDates.push(n.textContent);
   }
   // The canvas is its own channel: capture the text actually painted, including its
   // exercise watermark and labelled fire markers (there is no separate hover tooltip).
   document.getElementById('btnFitFires').click(); S.layers.labels=true;
-  const {draw}=await import('/app/map/render.js?v=6f3787a9');
+  const {draw}=await import('/app/map/render.js?v=7d7bed4f');
   const ctx=document.getElementById('map').getContext('2d'), original=ctx.fillText;
   const painted=[]; ctx.fillText=function(s,...args){painted.push(s);return original.call(this,s,...args);};
   try {draw();} finally {ctx.fillText=original;}
@@ -147,7 +147,7 @@ def pages(routes=False):
     if all(k in VIEWS for k in keys): return VIEWS
     with page.serve() as base:
         if routes:
-            # X7: explicit exercise wins over an old day query; default still tries live.
+            # X7: explicit exercise wins over an old day query; the plain address is a replay.
             for name,query in [('precedence','?view=exercise&day=2026-08-08'),('default',''),('sample','?data=snapshot')]:
                 VIEWS[name]=page.probe_once(base,query,page.PROBE,5)
         else:
@@ -167,7 +167,7 @@ def page_labels_and_clearance_at_three_widths():
         assert 'exercise' in v['title'].lower() and all('exercise' in s.lower() for s in v['meta'])
         page.refuse_words(f'exercise metadata {w}',v['meta'])
         assert p['mode']==gen.MODE and p['sceneNote']==gen.NOTE, f'{w}: ruled sentences moved'
-        assert v['choice']=='exercise' and v['exerciseOption']=='Exercise: invented fires'
+        assert v['choice']=='?view=exercise' and v['exerciseChip']=='Exercise: invented fires'
         assert not v['drawerFailures'] and all(re.fullmatch(r'Exercise \d{3}',n) for n in v['tableNames']+v['rosterNames'])
         assert 'EXERCISE · INVENTED FIRES' in v['mapLabels'] and len(v['mapLabels'])>1
         assert not any(re.fullmatch(r'EX\d{3}',s) for s in v['mapLabels']), 'unlabelled map marker'
@@ -184,13 +184,13 @@ def page_labels_and_clearance_at_three_widths():
 
 
 @test
-def exercise_is_explicit_and_never_the_failure_fallback():
+def the_exercise_is_explicit_and_the_plain_address_is_a_replay():
     vs=pages(routes=True); v=vs['precedence']
     assert v['daySource']=='exercise' and v['day'] is None
     day=sample_day()
     for k in ['default','sample']:
         v=vs[k]; assert v['daySource']=='sample' and v['day']==day and v['panels']['mode'].startswith('Replay of ')
-    return f'default mirror failure and explicit snapshot remain replay of {day}'
+    return f'the plain address and ?data=snapshot are both replays of {day}; the exercise only by choice'
 
 
 @test
@@ -199,14 +199,33 @@ def static_reference_is_labelled():
     assert re.search(r'<section[^>]*>\s*<p[^>]*>'+re.escape(gen.MODE)+r'</p>',html)
     assert gen.NOTE in html and '<b>EXERCISE</b>' in regs['FALLBACK-HUD']
     assert 'real fires' not in html and 'The fires are real' not in html
-    assert not re.search(r'\d{4}-\d{2}-\d{2}', ''.join(regs.values()))
+    # The day row is the season's menu, not a claim about this view: its chips carry the
+    # dates a visitor may choose, so that one region is exempt from the no-dates rule.
+    assert not re.search(r'\d{4}-\d{2}-\d{2}', ''.join(v for k, v in regs.items() if k != 'FALLBACK-DAYROW'))
     page.refuse_words('static exercise',list(regs.values()))
     # Pin the visually audited poster, including the label legible at 390 px.
     # A deliberate recapture requires another visual audit and this pin to move.
-    assert hashlib.sha256((ROOT/'media/map-snapshot.jpg').read_bytes()).hexdigest() == 'c4e076ce60d800debca48be85416faf9a7e82b1bcd7f64ddef922296495f7463', 'poster differs from the labelled, visually audited image'
+    assert hashlib.sha256((ROOT/'media/map-snapshot.jpg').read_bytes()).hexdigest() == '70237fa8890c6f086b360c4bb9de94357d744ffae4b31d0afc3d6e64ca92ba5e', 'poster differs from the labelled, visually audited image'
     assert '?view=exercise' in (ROOT/'tests/golden/check.py').read_text()
     assert '?view=exercise' in (ROOT/'tools/gen_fallback.py').read_text()
     return 'fallback opens with exact exercise sentence; poster exists; both reference generators use exercise'
+
+
+@test
+def the_static_day_row_is_the_same_honest_menu():
+    """index.html's own copy of the day row, read by the no-script visitor and regenerated
+    by the fallback gate: one chip per captured day in index order, each a real link
+    labelled for what choosing it is, the exercise last, one text node each, and no
+    aria-current — with scripts off no view was chosen, so no chip may claim to be the
+    one on screen."""
+    region = dict(page.fallback_regions())['FALLBACK-DAYROW']
+    chips = re.findall(r'<a href="([^"]*)"[^>]*>([^<]*)</a>', region)
+    days = [d['date'] for d in gen.read('data/season/2026.days.json')['days']]
+    expected = [(f'?day={d}', f'{d} · replay') for d in days] + [('?view=exercise', 'Exercise: invented fires')]
+    assert chips == expected, f'the static day row: {chips!r}'
+    assert '<i>' not in region, 'a chip split its label across nodes'
+    assert 'aria-current' not in region, 'the static copy marks a chip current'
+    return f'{len(expected)} chips, none marked current, the exercise last'
 
 
 def main():

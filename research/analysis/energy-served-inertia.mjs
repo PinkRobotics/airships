@@ -1,8 +1,8 @@
 /* Diagnostic only: omitted vertical inertia at every published/captured route.
  * It does not add a force owner or change a selector verdict. */
 import fs from 'node:fs';
-import {CLASSES,MODES,PHASES,planCycle,drawAt,cycleGeometry,selectServedPlan} from '../../sim/index.js?v=6f3787a9';
-import {SERVED_CANDIDATES} from '../../sim/served-candidates.js?v=6f3787a9';
+import {CLASSES,MODES,PHASES,planCycle,drawAt,cycleGeometry,selectServedPlan} from '../../sim/index.js?v=7d7bed4f';
+import {SERVED_CANDIDATES} from '../../sim/served-candidates.js?v=7d7bed4f';
 import {omittedInertia,ADDED_MASS_VALUES,GAP_CUTOFF_T,AUTHORITY_METHOD,WITHDRAWN_METHOD} from './energy-motion.mjs';
 import {writeGenerated,jsonRows} from './energy-output.mjs';
 import {validateFleetDistanceRecord} from './fleet-distance-set.mjs';

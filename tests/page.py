@@ -100,8 +100,8 @@ PROBE = r"""
       ogTitle: meta('meta[property="og:title"]'),
       ogDescription: meta('meta[property="og:description"]'),
       fires: txt('fireModeLabel'), fleet: txt('fleetModeLabel'),
-      day: (() => { const s = document.getElementById('daySel'), o = s && s.selectedOptions[0];
-                    return o ? o.textContent.replace(/\s+/g, ' ').trim() : null; })(),
+      day: (() => { const a = document.querySelector('#dayRow a[aria-current]');
+                    return a ? a.textContent.replace(/\s+/g, ' ').trim() : null; })(),
       map: document.getElementById('map').getAttribute('aria-label'),
       mapHelp: txt('mapHelp'),
       // The first-visit screen's four phrases that name the view, and whether the fleet
@@ -229,10 +229,6 @@ def refuse_words(name, strings):
 # read it and ruled on it.
 LIVE_WORDS = re.compile(r"\b(live|current|currently|today|today's)\b", re.I)
 NOT_A_LIVE_CLAIM = (
-    "Today (live)",                                     # the day control's entry for the live view
-    "With scripts on, live remains the default view",   # the no-script note, about that control
-    "If the live mirror fails",                         # the same note, about the fallback
-    "hotspots are a live layer and are not part of a status day",   # why a dated view has none
     "with live force vectors",                          # the schematic follows the simulation
     "Nothing floats today as drawn",                    # the float ledger's verdict
     "Currently in frame:",                              # what the map frame holds
@@ -242,10 +238,11 @@ NOT_A_LIVE_CLAIM = (
 
 
 def fallback_regions():
-    """The four regions tools/gen_fallback.py writes, as (name, text)."""
+    """The regions tools/gen_fallback.py writes, as (name, text)."""
     html = (ROOT / "index.html").read_text()
     out = []
-    for name in ("FALLBACK-HUD", "FALLBACK-ROSTER", "FALLBACK-FIRES", "FALLBACK"):
+    for name in ("FALLBACK-FLEET-HEADING", "FALLBACK-HUD", "FALLBACK-ROSTER",
+                 "FALLBACK-FIRES", "FALLBACK-DAYROW", "FALLBACK"):
         m = re.search(r"<!--" + name + r"-->(.*?)<!--/" + name + r"-->", html, re.S)
         assert m, f"index.html has no {name} region"
         out.append((name, m.group(1)))

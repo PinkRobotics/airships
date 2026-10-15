@@ -190,12 +190,21 @@ def word(n):
 # ============================================================================================
 # 1. THE COMMITTED FILES
 # ============================================================================================
+# Season data the season rebuild does not produce: the busiest-day ranking is written by
+# its own generator (tools/gen_activity.py) and pinned byte for byte by its own gate
+# (make activitycheck), the way the evacuation pair is pinned by tests/evac/check.py.
+# drift names both its files as strays; they are excused here and only here — any other
+# stray is still a failure.
+ACTIVITY_PAIR = {f"{YEAR}.activity.json", f"{YEAR}.activity.prov.json"}
+ACTIVITY_STRAY = {f"{name}: not produced by the generator" for name in ACTIVITY_PAIR}
+
+
 @test
 def committed_files_match_a_regeneration():
     """The freshness gate. No raw inputs: rebuild from what is committed, compare bytes."""
     same(season.committed_years(SEASON), [YEAR], "seasons under data/season/")
     files = season.build(season.read_committed(YEAR, SEASON))
-    problems = season.drift(files, YEAR, SEASON)
+    problems = [p for p in season.drift(files, YEAR, SEASON) if p not in ACTIVITY_STRAY]
     assert not problems, "; ".join(problems)
     return f"{len(files)} files rebuilt from committed files, byte for byte"
 
@@ -597,8 +606,11 @@ def provenance_names_every_file_and_every_raw_input():
     out = {o["file"]: o for o in prov["outputs"]}
     # The derived evacuation record is season output, but it carries its own sidecar —
     # {YEAR}.evac.prov.json covers {YEAR}.evac.json — so this one covers the fire files
-    # only; that pair is pinned by its own gate, tests/evac/check.py.
-    held_out = {f"{YEAR}.evac.json", f"{YEAR}.evac.prov.json"}
+    # only; that pair is pinned by its own gate, tests/evac/check.py. The busiest-day
+    # ranking and its sidecar are the same shape: pinned by make activitycheck
+    # (tools/gen_activity.py), covered by their own record.
+    held_out = {f"{YEAR}.evac.json", f"{YEAR}.evac.prov.json",
+                f"{YEAR}.activity.json", f"{YEAR}.activity.prov.json"}
     on_disk = sorted(p.relative_to(SEASON).as_posix() for p in SEASON.rglob("*")
                      if p.is_file() and p.name != f"{YEAR}.prov.json"
                      and p.name not in held_out)
@@ -1671,7 +1683,7 @@ def raw_regeneration_is_byte_for_byte():
     same(state["capture"]["manifest"]["sha256"], PINS["captureManifestSha256"],
          "SEASON_CAPTURE is not the pinned capture")
     files = season.build(state)
-    problems = season.drift(files, YEAR, SEASON)
+    problems = [p for p in season.drift(files, YEAR, SEASON) if p not in ACTIVITY_STRAY]
     evac_pair = {f"{YEAR}.evac.json", f"{YEAR}.evac.prov.json"}
     if evac_at is None:
         left = sorted(p.split(":", 1)[0] for p in problems
@@ -1716,6 +1728,7 @@ def raw_capture_record_ignores_new_and_refuses_missing_or_changed():
             problems = [p for p in problems if p not in (
                 f"{YEAR}.evac.json: not produced by the generator",
                 f"{YEAR}.evac.prov.json: not produced by the generator")]
+        problems = [p for p in problems if p not in ACTIVITY_STRAY]
         same(problems, [], "new capture is information")
         victim = root / folders[-1]["folder"]
         manifest = victim / "MANIFEST.json"

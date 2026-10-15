@@ -1,4 +1,4 @@
-import { MODES, planCycle, drawAt, HOIST_M, WINCH_MPS } from '../../sim/index.js?v=6f3787a9';
+import { MODES, planCycle, drawAt, HOIST_M, WINCH_MPS } from '../../sim/index.js?v=7d7bed4f';
 import { buildLayout } from '../../3d/model/layout.js?v=256dbfca';
 
 /* Production drawings consume the model's actual held-water inventory and
@@ -8,8 +8,8 @@ import { buildLayout } from '../../3d/model/layout.js?v=256dbfca';
  * final winch attachment are checked against independent class geometry here.
  */
 import { close, describe, eq, it, ok } from '../harness.js';
-import { CLASSES, CLASS_ORDER } from '../../sim/index.js?v=6f3787a9';
-import { anchorView } from '../../app/anchorview.js?v=6f3787a9';
+import { CLASSES, CLASS_ORDER } from '../../sim/index.js?v=7d7bed4f';
+import { anchorView } from '../../app/anchorview.js?v=7d7bed4f';
 import { fromMonitorState } from '../../3d/adapter/fable.js?v=256dbfca';
 import { resolveClass } from '../../3d/model/config.js?v=256dbfca';
 

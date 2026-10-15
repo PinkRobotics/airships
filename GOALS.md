@@ -92,13 +92,14 @@ Where a rule does not hold yet, it says so.
   fire's status and size as known then. It never sees a fire's final size, and it never reads
   outlines drawn after the fact. The replay shows real fires and a simulated fleet that never flew,
   and it must not say or imply that any fire would have burned differently. This binds the replay
-  being built. It is not a rule against
-  satellite data: the live monitor uses the last day's satellite hotspots to help choose where
-  along a fire's edge to drop (`sim/targets.js`), and a test holds it to that.
+  being built. Since the live mirror was retired (2026-10-14) it binds every view: no view reads
+  satellite detections or any other after-the-fact aid, and drop targets are geometric
+  (`sim/targets.js`), which a test holds.
 - **A visitor's browser talks only to this site.** True in this repository since 2026-10-01. The
-  map is drawn from bundled terrain; fires, satellite heat and wind come through the site's own
-  server-side mirror; no tier sends a browser to an agency's feed. `make firstparty` checks the
-  served repository pages. The live site is checked separately after each deploy with
+  map is drawn from bundled terrain; every fire record is a dated file this repository itself
+  serves, and no view queries any agency's feed — the live mirror was retired on 2026-10-14.
+  `make firstparty` checks the served repository pages. The live site is checked separately after
+  each deploy with
   `python3 tools/check_first_party.py <address>`; network-added loads can change without a commit.
 - **No quiet fixes.** A number that moves is published old and new, with the reason. This is the
   practice from 2026-10-01; earlier history was not held to it.
