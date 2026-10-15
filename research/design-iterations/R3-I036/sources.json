@@ -10,13 +10,13 @@
   {
    "path": "research/design-iterations/R3-I028/socket_body.json",
    "sha256": "c20cec9156e27339c3da0469c15d9c16739add69a34d594f9c73613b6440db40",
-   "usedFor": "exact accepted aluminium body masses, accepted machining row, accepted l-ser/l-A/l-eff-mean values, accepted sockets-line and margin rollup, n=5 compliance comparator packets"
+   "usedFor": "exact accepted aluminium body masses, accepted machining row, accepted l-ser/l-A/l-eff-mean values, accepted sockets-line and margin rollup, n=5 compliance comparator packets, saved bore values 26.36863962311088/41.692800724029254 mm against which the stud bearing washers are an interference FAIL as drawn"
   }
  ],
  "nonSources": [
   {
    "path": "research/design-iterations/R3-I031/",
-   "status": "UNREVIEWED archive, all nine findings open; its bill, removals, rollup and compliance outputs are historical defective outputs and enter no balance here; preserved unchanged"
+   "status": "UNREVIEWED archive, nine findings open (3 high, 4 medium, 2 low; final text unreviewed); its bill, removals, rollup and compliance outputs are historical defective outputs and enter no balance here; preserved unchanged"
   }
  ],
  "designAuthority": "geometry, stacks, cord identity, ledger, screens and unknown boundaries as adopted with the unit issue; the calculator implements that construction once, with no alternate validation invocation",
@@ -24,9 +24,30 @@
   "baseline": "research/design-iterations/R3-I036/baseline.json",
   "calculator": "research/design-iterations/R3-I036/grip.py",
   "output": "research/design-iterations/R3-I036/grip.json",
-  "contract": "python3 -I -B research/design-iterations/R3-I036/grip.py --write",
+  "contract": "ISSUED as python3 -I -B research/design-iterations/R3-I036/grip.py --write; EXECUTED at all three starts as python3 -B WITHOUT -I, so the isolated-interpreter part of the contract was NOT met (historical fact; no later execution can repair it)",
   "stdlibOnly": true,
   "ancestorImports": false
  },
- "boundaries": "frozen inputs; exact solid geometry and closed-form integrals only; no solver, search, optimisation, render, preview or ancestor execution; qualified retirement zero; receiver transfer UNSIZED/UNKNOWN; failure is an acceptable honest result"
+ "archivalCorrection": {
+  "status": "post-review consolidated correction carried in README.md and this file; all five findings remain OPEN and the corrected text is unreviewed pending a separately authorized targeted disposition",
+  "dispositions": [
+   "interior stud bearing washers interfere with retained body material in both families (OD 28|46 mm vs saved bore 26.36863962311088|41.692800724029254 mm at z 120..122|192..195 inside flange 110..122|177..195): definite interference FAIL as drawn; not relabelled unknown; no recess re-cut; construction frozen",
+   "saved flange/cap isolation-layer compression values (3.12|3.38 MPa) withdrawn as a justified demand: cord tension separates body and cap and T/face-area needs a preload/contact model; loaded bearing-annulus pressure is a separate boundary; values withdrawn, not replaced",
+   "rowwise before/new assembly reconciliation withdrawn: both new-assembly rows omit the accepted adjustment -0.18638002291002698 t already inside the pre-existing 11.69 t row's starting total; headline total deltas neither confirmed nor disproved; no new numbers",
+   "complete isolation-occupancy/stack-verification claims withdrawn: no sleeve geometry supplied; both declared stud-isolation annuli absent from generated stacks and identity checks; a paid lump does not establish occupied geometry",
+   "private candidate-return transcription of bills.zeroQualifiedRetirement.totalTNew corrected to the saved value 2372.94709449924 t in the corrected private report; no recalculation"
+  ],
+  "provenanceLimits": [
+   "python3 -B without issued -I at all three starts; isolated-interpreter contract not met",
+   "defect-record embedded times conflict with pre-run manifest claims; exact historical defect-byte presence unproved",
+   "timely mid-run checkpoint delivery unproved; a running-at-checkpoint reading contradicts saved completion times",
+   "no worker evidence-root manifest or artifact array was supplied",
+   "base fetch receipt timestamps contain a literal %f artifact; no pre-fetch proof",
+   "no separate terminal-empty science/check receipts",
+   "start, filing and ingestion clocks are separately attributed and not merged"
+  ],
+  "frozenScientificBytes": "baseline.json, grip.py and grip.json are byte-frozen at the governed tip; no fourth scientific start was made or is permitted",
+  "historicalHashes": "the frozen output grip.json records this file's execution-time sha256 821f71e2a7b5b55050953b5bea760b8c5eeab7086da47fed7ecf01b603523c10; this corrected revision's hash necessarily differs; the recorded value is historical and preserved as such, not forged to the corrected document"
+ },
+ "boundaries": "frozen inputs; exact solid geometry and closed-form integrals only; no solver, search, optimisation, render, preview or ancestor execution; qualified retirement zero; receiver transfer UNSIZED/UNKNOWN; the stud-washer interference FAIL, the withdrawn isolation demand, the withdrawn rowwise reconciliation and the withdrawn complete stack-verification claims are carried as directed; failure is an acceptable honest result"
 }

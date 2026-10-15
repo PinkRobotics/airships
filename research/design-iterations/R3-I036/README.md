@@ -1,10 +1,15 @@
 # R3-I036 — six-segment titanium wedge cord grip (result: CONDITIONAL FAIL on mass)
 
-Status: **computed result, one frozen construction, no qualification.** Six paid titanium
-wedge segments grip the cord in a matching aluminium cone, replacing the resin pot. The
-honest outcome is a large mass increase and a failed conditional cap screen; the grip
-itself stays unproven (contact UNKNOWN). Nothing here demonstrates physical float, and
-every prior engineering failure/unknown remains.
+Status: **computed result, one frozen construction, no qualification — corrected archive.**
+Six paid titanium wedge segments grip the cord in a matching aluminium cone, replacing
+the resin pot. The honest outcome is a large mass increase and a failed conditional cap
+screen; the grip itself stays unproven (contact UNKNOWN). Nothing here demonstrates
+physical float, and every prior engineering failure/unknown remains. A post-review
+archival correction withdraws specific unjustified claims and names provenance limits
+(Archival correction, below); all five review findings stay OPEN and this corrected text
+is unreviewed pending a separately authorized targeted disposition. This document is the
+archival output of an infeasible/incomplete construction: conditional accounting is
+distinguished from physical qualification throughout.
 
 Construction: local frame per end, z=0 at the free-cord exit, +z into the fitting.
 
@@ -25,11 +30,17 @@ M14|M23 with 14.6|23.6 cap bore; interior nut height N 21|34.5; stud bearing was
 28/14.6/2|46/23.6/3; isolation 0.5 everywhere; receiver plate 56/12|92/18 at central
 clearance 14.6|23.6, front at actual cap rear +60|100; stud tip projection 3|5.
 
-Complete axial stacks are declared in `baseline.json` and verified by the calculator at
-run time (every interval, both families). Derived key positions: d60 stud spans
-[96.0, 232.5] (blank 136.5), cap bolt 35.9 under head; d180/11 stud spans [152.5, 374.0]
-(blank 221.5), cap bolt 54.5 under head. The cap-bolt head-side washer annulus
-[29,41]|[45,65] lies inside actual flange material [13.2,45]|[20.8,70] in both families.
+Axial stacks are declared in `baseline.json` and the calculator checked every generated
+interval against the declaration in both families — except the two declared
+stud-isolation annuli, which are absent from the generated stacks and the identity
+checks. Complete isolation-occupancy and stack verification is therefore WITHDRAWN: no
+sleeve geometry is supplied, and the paid interface lump does not establish occupied
+geometry. Derived key positions: d60 stud spans [96.0, 232.5] (blank 136.5), cap bolt
+35.9 under head; d180/11 stud spans [152.5, 374.0] (blank 221.5), cap bolt 54.5 under
+head. The cap-bolt head-side washer annulus [29,41]|[45,65] lies inside actual flange
+material [13.2,45]|[20.8,70] in both families. The interior stud bearing washers, by
+contrast, positively intersect retained body material in both families — an
+interference FAIL as drawn, not an unknown (Conditional screens).
 
 ## Cord identity
 
@@ -97,7 +108,12 @@ structure.
 
 Rollup convention is the accepted one, rowwise: the sockets line moves by the hardware
 delta, the assembly line absorbs the share once, the whole-spokes line moves with the
-total, margins move oppositely. x1.5 station-hardware scenario: candidate increment
+total, margins move oppositely. The rowwise before/new reconciliation is WITHDRAWN:
+both new-assembly rows omit the accepted assembly adjustment −0.18638002291002698 t
+that the pre-existing 11.69 t assembly row already carries inside its starting total,
+so the rowwise before/new comparison is not a valid reconciliation. This withdrawal
+neither confirms nor disproves the headline total deltas, and no new numbers were
+generated. x1.5 station-hardware scenario: candidate increment
 78.32|85.83 t against the new sea-level margin −108.12|−123.15 t (stored inherited
 increment 16.05 t disclosed; blocks/doublers/attachment at stored two-decimal
 precision). SF1.2 is a separate construction and stays substitution-UNKNOWN; the
@@ -116,13 +132,26 @@ nominal mass delta is not its result.
 | cap bending, upper-bound strip (MPa vs 150) | 176.1 (1.17) | 189.7 (1.26) | **CONDITIONAL FAIL** |
 | stud tension (MPa vs 880) | 115.0 (0.13) | 111.4 (0.13) | thread root UNKNOWN |
 | plate bearing (MPa vs 880) | 39.5 (0.04) | 37.8 (0.04) | transfer UNSIZED/UNKNOWN |
-| isolation layer compression (MPa) | 3.12 | 3.38 | occupancy only |
+| interior stud washer vs saved bore (mm) | 28 vs 26.3686 | 46 vs 41.6928 | **interference FAIL as drawn** |
+| isolation layer compression (MPa) | 3.12 | 3.38 | withdrawn as a demand |
 
 The cap screen is the known-conservative radial-strip shape, not a plate solution; its
 exceedance is an upper-bound result, not a proven physical failure — but within this
 construction the cap as drawn does not clear the assumed working limit. Cord contact
 (crushing, fibre damage, friction, slip, seating, creep, retention under unload) is
 UNKNOWN; segment load equality is a symmetry assumption, not demonstrated sharing.
+
+The interior stud bearing washers interfere with retained body material in both
+families: their OD 28|46 mm exceeds the saved bore 26.36863962311088|41.692800724029254
+mm, and they sit at z 120..122|192..195 inside the flange span 110..122|177..195. The
+assembly as drawn is a definite interference FAIL. It is not relabelled as an unknown,
+and no recess is re-cut; the construction is frozen.
+
+The saved isolation-layer compression values (3.12|3.38 MPa) are withdrawn as a
+justified demand: cord tension separates body and cap, and tension over face area does
+not follow without a preload/contact model. Loaded bearing-annulus pressure is a
+separate boundary. The values are withdrawn, not replaced with a new result — no new
+calculation was made.
 
 ## Compliance boundary
 
@@ -141,19 +170,73 @@ reinforcement (a named positive unknown, not zero); thread, fatigue, wet/creep a
 galvanic sufficiency beyond the declared provisions; installation and global
 equilibrium (predecessor closure stays withdrawn).
 
+## Archival correction (post-review; all findings remain open)
+
+A single consolidated review of this archive returned five findings — one high, three
+medium, one low — all OPEN. None closes by this disclosure, and this corrected text is
+itself unreviewed pending a separately authorized targeted disposition. The directed
+dispositions, carried plainly:
+
+1. The interior stud bearing washers interfere with retained body material in both
+   families (OD 28|46 mm vs saved bore 26.36863962311088|41.692800724029254 mm at
+   z 120..122|192..195, inside the flange span 110..122|177..195). The assembly as
+   drawn is a definite interference FAIL — not relabelled as an unknown, and no recess
+   is re-cut; the construction is frozen.
+2. The saved flange/cap isolation-layer compression values (3.12|3.38 MPa) are
+   withdrawn as a justified demand: cord tension separates body and cap, and tension
+   over face area does not follow without a preload/contact model. Loaded
+   bearing-annulus pressure is a separate boundary. The values are withdrawn, not
+   replaced with a new result.
+3. The rowwise before/new assembly reconciliation is withdrawn: both new-assembly rows
+   omit the accepted assembly adjustment −0.18638002291002698 t already inside the
+   pre-existing 11.69 t row's starting total. This does not prove the headline total
+   deltas wrong, and no new numbers were generated.
+4. Complete isolation-occupancy/stack-verification claims are withdrawn: no sleeve
+   geometry is supplied, and both declared stud-isolation annuli are absent from the
+   generated stacks and identity checks. A paid lump does not establish occupied
+   geometry.
+5. The private candidate-return transcription of the zero-qualified-retirement total
+   is corrected in the corrected private report to the saved value 2372.94709449924 t
+   (the public table's rounded display already matches it); no recalculation.
+
+Conditional accounting is distinguished from physical qualification throughout; the
+scientific bytes (baseline, calculator, output) are frozen unchanged at the governed
+tip and no fourth scientific start was made.
+
 ## Inherited status
 
-R3-I031 remains an unreviewed archive with all nine findings open; its outputs enter no
+R3-I031 remains an unreviewed archive with all nine findings open (3 high, 4 medium,
+2 low; final text unreviewed); its outputs enter no
 balance here (the before-state is reconstructed solely from the accepted R3-I028 saved
 records). One later unissued direction, conditional on this result, is a paid wider
 receiver saddle with a frozen anchor attachment; it is not part of this unit and cannot
 rescue its result.
 
-## Reproduction
+## Reproduction and provenance
 
-Single guarded execution: `python3 -I -B research/design-iterations/R3-I036/grip.py
---write` reads `baseline.json` and writes `grip.json` (stdlib only; frozen inputs; no
-ancestor import). Three starts were consumed: the initial start and two demonstrated
-implementation-defect repairs of the same frozen construction (a washer interval and a
-key path, both caught before any physics output); the third start completed. Inputs and
-outputs are hash-bound in `grip.json` and `sources.json`.
+The archived calculator is `research/design-iterations/R3-I036/grip.py` with
+`baseline.json` inputs and `grip.json` output, stdlib only, frozen byte-for-byte at the
+governed tip; the archival correction changes only this README and `sources.json`. No
+new scientific start is permitted or was made.
+
+Provenance, named truthfully: the issued contract says `python3 -I -B … --write`, but
+the archived runs at all three starts actually invoked `python3 -B` without `-I` — the
+isolated-interpreter part of the contract was NOT met, and no later execution can
+repair that history. Three starts were consumed: the initial start and two
+defect-repair relaunches of the same frozen construction (a cap-bolt head-side washer
+interval and an input key path; on the affected runs the calculator's own identity
+checks caught the defect). The defect records' embedded times conflict with the pre-run
+manifest claims, and the exact historical presence of those defect bytes is unproved.
+A timely mid-run checkpoint delivery is unproved, and a still-running-at-checkpoint
+reading contradicts the saved completion times. No worker evidence-root manifest or
+artifact array accompanied the original return. The base fetch receipts' timestamps
+contain a literal `%f` format artifact, and no pre-fetch proof exists. No separate
+terminal-empty science or check receipts exist. Start, filing and ingestion clocks are
+separately attributed facts and are not merged.
+
+This unit is the archival output of an infeasible/incomplete construction: the claims
+withdrawn above are withdrawn, all FAIL/UNKNOWN results and the I028/I031 inherited
+carries stand unchanged, and conditional accounting is not physical qualification.
+Inputs and outputs are hash-bound in `grip.json` and `sources.json`; the frozen output
+records the pre-correction `sources.json` hash, which is preserved there as a
+historical value and not forged to this corrected document.
