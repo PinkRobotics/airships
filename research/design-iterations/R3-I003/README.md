@@ -1,6 +1,6 @@
 # R3-I003 — an independent challenge to the vacuum-only architecture
 
-Status: design iteration, 2026-10-13, **corrected 2026-10-14** per `ord-spock-glm-a-i003-corrections-1014`
+Status: design iteration, 2026-10-13, **corrected 2026-10-14** per the recorded correction disposition
 (lead intake found the 100 t mission payload printed but absent from every vehicle case, and a hybrid model
 that removed only the helium constituent of the 97/3 mixture; both are fixed here and the failure history is
 carried in the unit evidence file). Under the float redirect (ord-boyce-co-robotics-float-confidently-1013

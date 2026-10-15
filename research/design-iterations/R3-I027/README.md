@@ -1,6 +1,6 @@
 # R3-I027 — four upright curved tanks (barrels) at the inherited P-100 stations
 
-Order `ord-spock-glm-a-i027-restart-1014` (unit r3-i027). Base: frozen landing72
+Unit r3-i027. Base: frozen landing72
 `e3a6f7b854ef0683fbcdacd6db330a7c3b94044b` (tree `91c7eadb15f641e918fd94faf87c70599a418363`),
 branch `i027`. Owner: worker-pinkrobotics-6212eb3a406be37a. Started 2026-10-14T15:16:07-07:00.
 

@@ -1,0 +1,103 @@
+{
+ "unit": "R3-I032",
+ "convention": "frozen data copied from recorded sources plus this unit's issued design freeze; read as data only; no ancestor calculator is imported, executed or regenerated; all densities SI-consistent with water 1000 kg/m3 unless a line names its unit",
+ "frozen_candidate": {
+  "layout": "four upright circular barrels at the inherited I017 stations; upper D1 pair taller, lower D2 pair shortened; transfer hardware paid per same-frame pair",
+  "stations_m": {"B1-FL_upper": [-14, 11, -19.0], "B4-AR_upper": [14, -11, -19.0], "B2-FR_lower": [-14, -11, -21.5], "B3-AL_lower": [14, 11, -21.5]},
+  "upper_barrel_straight_m": 4.2,
+  "lower_barrel_straight_m": 3.0,
+  "outside_diameter_m": 3.05,
+  "head_depth_outer_m_each": 0.3,
+  "heads_per_tank": 2,
+  "plate_thickness_m": 0.003,
+  "plate_material": "5083-class selected stock (min-gauge + corrosion + handling, declared)",
+  "alloy_density_kg_per_m3": 2660.0,
+  "freeboard_m": 0.06,
+  "baffles_per_tank": 2,
+  "baffle_thickness_m": 0.003,
+  "baffle_ports": "8 holes x 150 mm diameter per baffle plate (flow-through; open area computed in-unit); baffle liquid dead volume = displaced plate volume only, port shadow declared negligible at these diameters",
+  "drain": "bottom head apex drain on every tank; bottom head fully drainable by construction (declared, not tested)"
+ },
+ "frozen_inventory_schedule": {
+  "initial_water_t": {"upper_each": 30.0, "lower_each": 20.0, "total": 100.0},
+  "D1": "remove 25 t from each upper, no intertank transfer before or during D1; after D1 each upper 5 t, each lower 20 t",
+  "D2_per_pair": "for cumulative per-pair D2 delivery x in [0,25] t: upper inventory 5-0.2x, lower 20-0.8x (transfer 20% of outgoing discharge continuously from upper to lower); at completion both empty",
+  "return_pickup": "50 t at D1 (25 t per upper) + 0.9 t at D2 (0.45 t per lower), unchanged accepted routing",
+  "reset": "6.5 h moored reset earliest; partial 18.9 MJ historical energy accounting carried; new transfer/reset duty additional"
+ },
+ "frozen_transfer_hardware_per_pair": {
+  "pump": {"rating_kg_per_s": 20.0, "differential_head_MPa": 0.2, "mass_kg_each": 45.0, "count_per_pair": 1, "note": "frozen unqualified design assumption (issued)"},
+  "pipe": {"od_m": 0.08, "id_m": 0.074, "steel_density_kg_per_m3": 7850.0, "length_m_incl_fittings": 25.0, "route": "upper tank bottom manifold to lower tank top inlet, same frame (approx 22.1 m run + risers/bends)"},
+  "valves": {"count_per_pair": 2, "mass_kg_each": 15.0},
+  "wiring_per_pair_kg": 12.0,
+  "vent_drain_fittings_kg_per_tank": 8.0,
+  "pairs": 2
+ },
+ "frozen_support": {
+  "bands": "two circumferential bands per tank at +/-1.20 m from tank mid-height, 100 mm wide x 6 mm strip, 5083-class; each band delivers its share to the tank adapter; statics: each of the two pickup datums takes W/2 per tank (NO additional halving)",
+  "adapter_assembly_kg_per_tank": 45.0,
+  "adapter_note": "allowance-priced into the inherited pickup datums; finite construction still UNKNOWN (bonded-socket retained/replaced split remains unresolved; the 0.10 t I017 pickup-fittings line stays PENDING, neither retired nor charged)"
+ },
+ "fitout_allowance_kg_per_tank": 95.0,
+ "fitout_note": "I017 declared +/-50% fitout datum carried unchanged",
+ "mission_timing_recorded": {
+  "source": "I017 landed record read as data",
+  "drain_window_min_approx_per_pair": 9.0,
+  "drain_model": "declared linear",
+  "D2_exchange_window_S4_to_S5_h": 0.75,
+  "rate_mismatch_fraction": 0.05,
+  "pair_start_skew_s": 2.0,
+  "note": "duration basis for the transfer-rate check; no pump retuning or window extension is authorized"
+ },
+ "frozen_mission_inherited": {
+  "payload_t": 100.0,
+  "delivery_D1_t": 50.0,
+  "fuel_t": 4.9,
+  "burn_to_D1_t": 2.16,
+  "g_m_per_s2": 9.81,
+  "water_density_kg_per_m3": 1000.0,
+  "anchor_volume_m3": 220000,
+  "drawn_volume_m3": 217547,
+  "installed_bag_cap_m3_total": 110000,
+  "per_bag_cap_m3": 55000,
+  "mixture_fraction": 0.164045,
+  "lift_t_per_1000m3": 1.02404,
+  "air_density_t_per_m3_at_2500": 0.0009572,
+  "vent_identity_m3": 50940,
+  "reset_clock_h_earliest": 6.5,
+  "min_skin_clearance_m_declared": 0.5
+ },
+ "i017_comparison_recorded": {
+  "source_readme_sha256": "3f69a96d81307ad79d3816051f515c5021b048c44d31deb3c26f8f45304ba304",
+  "usable_volume_m3_flat_tank": 25.74,
+  "drawn_set_total_t": 6.0,
+  "dry_vehicle_t": 66.18,
+  "loaded_t": 166.18,
+  "margin_at_max_inventory_t": 9.8,
+  "ceiling_max_lift_anchor_t": 175.98,
+  "ceiling_max_lift_drawn_t": 174.02,
+  "floor_line_m3_total_bag_cap": 110000,
+  "floor_clearance_m3": 1338,
+  "n0_m3": 162278,
+  "n1_D1_end_m3": 111338,
+  "retired_lines_t": {"bay_shells_4x": 3.0, "cradle_saddles_4x": 0.38, "pickup_fittings_8x": 0.1, "bay_tie_rods": 0.05},
+  "reused_lines_t": {"isolation_valves_DN300_4x": 0.14, "D1_bottom_door_sets_2x": 0.16, "orifice_plates_4x": 0.06, "internal_piping_30m": 0.41, "water_cross_pump": 0.35, "ballonet_ducts_fans": 0.75, "trim_controls_wiring": 0.3, "keel_grating_handrails": 0.2},
+  "interface_fasteners_t": 0.1,
+  "empty_bay_structure_t": 0.71,
+  "mismatch_bound_t": 1.34,
+  "authority_net_t_m": {"min_air": 244.7, "D1_end_mismatch": 650.8, "one_bay_empty_mid_D1": 922.3},
+  "authority_datums": [
+   {"name": "min_air", "air_t": 11.7},
+   {"name": "D1_end_mismatch", "air_t": 74.1},
+   {"name": "one_bay_empty_mid_D1", "air_t": 44.1}
+  ],
+  "recorded_fail": {"economics_multiple_vs_SEAT": 35.1, "economics_usd_per_t": 5929, "fuel_short_33min_t": 0.245112, "fuel_short_halfpump_t": 0.350732},
+  "recorded_unknown": ["occupancy (envelope withdrawn)", "curtain attachment qualification", "valve spec", "one-empty recovery at min-air", "transient control", "transition-energy closure"]
+ },
+ "i012_basis_recorded": {
+  "source_readme_sha256": "84736fd5a942847b4c4dc6bec01497ca687c1e442beb3e1c2066b59718993e69",
+  "equipment_ex_hull_i007_t": 38.77,
+  "gas_hull_t": 23.75,
+  "equipment_correction_t": -2.34
+ }
+}
