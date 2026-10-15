@@ -1,0 +1,32 @@
+{
+ "unit": "R3-I036",
+ "role": "six-segment titanium wedge cord grip in a matching aluminium cone, replacing the resin pot; frozen input identity and source pins",
+ "savedDataSources": [
+  {
+   "path": "research/design-iterations/R3-I028/baseline.json",
+   "sha256": "dce7fd4d3c8650e71788a7c3e55decb0f95e8899dd43b463b12f47697aa7034e",
+   "usedFor": "materials record, family counts, cord section/loads, recorded free/mean cord lengths, retained per-end resin and stud masses, accepted vehicle lines, slack/energy history"
+  },
+  {
+   "path": "research/design-iterations/R3-I028/socket_body.json",
+   "sha256": "c20cec9156e27339c3da0469c15d9c16739add69a34d594f9c73613b6440db40",
+   "usedFor": "exact accepted aluminium body masses, accepted machining row, accepted l-ser/l-A/l-eff-mean values, accepted sockets-line and margin rollup, n=5 compliance comparator packets"
+  }
+ ],
+ "nonSources": [
+  {
+   "path": "research/design-iterations/R3-I031/",
+   "status": "UNREVIEWED archive, all nine findings open; its bill, removals, rollup and compliance outputs are historical defective outputs and enter no balance here; preserved unchanged"
+  }
+ ],
+ "designAuthority": "geometry, stacks, cord identity, ledger, screens and unknown boundaries as adopted with the unit issue; the calculator implements that construction once, with no alternate validation invocation",
+ "inputIdentity": {
+  "baseline": "research/design-iterations/R3-I036/baseline.json",
+  "calculator": "research/design-iterations/R3-I036/grip.py",
+  "output": "research/design-iterations/R3-I036/grip.json",
+  "contract": "python3 -I -B research/design-iterations/R3-I036/grip.py --write",
+  "stdlibOnly": true,
+  "ancestorImports": false
+ },
+ "boundaries": "frozen inputs; exact solid geometry and closed-form integrals only; no solver, search, optimisation, render, preview or ancestor execution; qualified retirement zero; receiver transfer UNSIZED/UNKNOWN; failure is an acceptable honest result"
+}

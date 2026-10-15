@@ -1,0 +1,334 @@
+{
+ "unit": "R3-I036",
+ "basis": "frozen input assembly for the six-segment titanium wedge cord grip; saved before-state data copied from the accepted R3-I028 records (read as data, never imported or executed); new inputs are the adopted design freeze. All rules below are fixed before any calculation.",
+ "sourcePins": {
+  "R3-I028/baseline.json": "dce7fd4d3c8650e71788a7c3e55decb0f95e8899dd43b463b12f47697aa7034e",
+  "R3-I028/socket_body.json": "c20cec9156e27339c3da0469c15d9c16739add69a34d594f9c73613b6440db40",
+  "note": "R3-I031 archive is an UNREVIEWED archive with all nine findings open; it is not a before-state and none of its outputs enter this baseline"
+ },
+ "materials": {
+  "cord": {
+   "EPa": 70000000000.0,
+   "rhoKgM3": 970.0,
+   "strength": "UNKNOWN",
+   "identity": "UHMWPE-class (Dyneema-type) assumption carried unchanged from the accepted record"
+  },
+  "aluminium": {
+   "EPa": 69000000000.0,
+   "rhoKgM3": 2700.0,
+   "sigmaWPa": 150000000.0,
+   "identity": "machined 6061-T6-class ASSUMED record carried unchanged; 150 MPa is the chosen working normal-stress limit with no hidden second factor"
+  },
+  "titanium": {
+   "EPa": 114000000000.0,
+   "rhoKgM3": 4430.0,
+   "sigmaYPa": 880000000.0,
+   "identity": "Ti-6Al-4V ASSUMED record carried unchanged; used for wedges, cap bolts/nuts/washers, stud, stud nuts, stud bearing washers and receiver plate"
+  },
+  "resinPotRemoved": {
+   "designShearPa": 12000000.0,
+   "rhoKgM3": 1150.0,
+   "identity": "historical resin pot record retained only to price its removal; no bond credit is taken in the new construction"
+  }
+ },
+ "i028Saved": {
+  "families": {
+   "d60": {
+    "diaMm": 7.87,
+    "ends": 21390,
+    "stations": 10695,
+    "sectionM2": 4.863837539556058e-05,
+    "T0kN": 6.809,
+    "TfitkN": 17.7,
+    "lFreeMeanM": 69.595554,
+    "meanCordM": 69.731554,
+    "acceptedBodyKgPerEndAl": 0.07594839509961494,
+    "acceptedResinKgPerEnd": 0.0017,
+    "acceptedStudKgPerEnd": 0.0549,
+    "acceptedLserNewM": 0.025039521352712354,
+    "acceptedLaperEndNewM": 0.06303952135271235,
+    "acceptedLeffMeanNewM": 69.72163304270542
+   },
+   "d180/11": {
+    "diaMm": 12.72,
+    "ends": 21080,
+    "stations": 10540,
+    "sectionM2": 0.00012712302660203344,
+    "T0kN": 17.797,
+    "TfitkN": 46.27,
+    "lFreeMeanM": 80.059492,
+    "meanCordM": 80.269492,
+    "acceptedBodyKgPerEndAl": 0.29494000995555875,
+    "acceptedResinKgPerEnd": 0.0061,
+    "acceptedStudKgPerEnd": 0.2321,
+    "acceptedLserNewM": 0.039170696441288136,
+    "acceptedLaperEndNewM": 0.09567069644128814,
+    "acceptedLeffMeanNewM": 80.25083239288257
+   }
+  },
+  "acceptedVehicleT": {
+   "socketsT": 16.41239954179946,
+   "cordT": 139.51,
+   "clipsT": 63.64,
+   "anchorBlocksT": 6.17,
+   "doublerPadsT": 2.86,
+   "attachmentBoltsT": 1.41,
+   "assemblyT": 11.69,
+   "totalT": 2229.4860195188894,
+   "spokesLineT": 241.50601951888942,
+   "marginSLT": 20.313980481110566,
+   "margin2500T": -472.18601951888945,
+   "machiningStockT": 0.23525614743131826,
+   "protectionProvisionT": 1.06175,
+   "inheritedX15IncrementT_stored": 16.05
+  },
+  "sf12Historical": {
+   "afterT": 2562.4,
+   "afterSpokesT": 243.98,
+   "afterMarginSLT": -312.6,
+   "verdict": "historical FAIL (separate d60+d20 construction); substitution into it is UNCOMPUTED/UNKNOWN"
+  },
+  "complianceComparators": {
+   "status": "I028 n=5 declared-model packets carried unchanged as labelled historical comparators; NOT rescaled through the new construction; chord-basis historical; full n=2..12 class bounds, global stability and centroid sensitivity UNKNOWN",
+   "extraStudTakeupToHoldT0mm": {
+    "d60": 0.015997210121280997,
+    "d180/11": 0.02380248654650467
+   },
+   "firstSlackMinDeclaredNewMm": {
+    "d60": 26.638669,
+    "d180/11": 25.509602
+   }
+  }
+ },
+ "i036GeometryMm": {
+  "frame": "local right-handed per end: z along cord centreline, z=0 free-cord exit plane, +z into the fitting towards the receiver; mirrored ends carry their own frame directed away from the free span; x on the first cap-bolt axis",
+  "common": {
+   "coneHalfAngleDeg": 5.0,
+   "wedgeSegments": 6,
+   "segmentAzimuthHalfSpanDeg": 29.0,
+   "segmentAzimuthGapDeg": 2.0,
+   "tailMm": 8.0,
+   "isolationMm": 0.5
+  },
+  "d60": {
+   "cordDiaMm": 7.87,
+   "gripLenMm": 60.0,
+   "wedgeRadialThicknessAtExitMm": 4.0,
+   "bodyOdMm": 50.0,
+   "chamberLenMm": 50.0,
+   "flangeOdMm": 90.0,
+   "flangeThkMm": 12.0,
+   "capOdMm": 90.0,
+   "capThkMm": 12.0,
+   "capBoltCircleDiaMm": 70.0,
+   "capBoltNominalMm": 6.0,
+   "capBoltClearanceDiaMm": 6.6,
+   "capBoltWasher": {
+    "odMm": 12.0,
+    "idMm": 6.6,
+    "thkMm": 1.2
+   },
+   "capBoltIsoWasherThkMm": 0.5,
+   "capBoltNutHexAfMm": 10.0,
+   "capBoltNutHexHMm": 6.0,
+   "capBoltHeadHexAfMm": 10.0,
+   "capBoltHeadHexHMm": 4.0,
+   "capBoltTipMm": 2.0,
+   "studNominalMm": 14.0,
+   "studBoreDiaMm": 14.6,
+   "interiorNutHeightMm": 21.0,
+   "studWasher": {
+    "odMm": 28.0,
+    "idMm": 14.6,
+    "thkMm": 2.0
+   },
+   "receiverPlateOdMm": 56.0,
+   "receiverPlateThkMm": 12.0,
+   "receiverPlateClearanceDiaMm": 14.6,
+   "receiverFrontBeyondCapRearMm": 60.0,
+   "studTipProjectionMm": 3.0
+  },
+  "d180/11": {
+   "cordDiaMm": 12.72,
+   "gripLenMm": 97.0,
+   "wedgeRadialThicknessAtExitMm": 6.0,
+   "bodyOdMm": 80.0,
+   "chamberLenMm": 80.0,
+   "flangeOdMm": 140.0,
+   "flangeThkMm": 18.0,
+   "capOdMm": 140.0,
+   "capThkMm": 18.0,
+   "capBoltCircleDiaMm": 110.0,
+   "capBoltNominalMm": 10.0,
+   "capBoltClearanceDiaMm": 10.6,
+   "capBoltWasher": {
+    "odMm": 20.0,
+    "idMm": 10.6,
+    "thkMm": 2.0
+   },
+   "capBoltNutHexAfMm": 17.0,
+   "capBoltNutHexHMm": 10.0,
+   "capBoltHeadHexAfMm": 17.0,
+   "capBoltHeadHexHMm": 6.5,
+   "capBoltTipMm": 3.0,
+   "studNominalMm": 23.0,
+   "studBoreDiaMm": 23.6,
+   "interiorNutHeightMm": 34.5,
+   "studWasher": {
+    "odMm": 46.0,
+    "idMm": 23.6,
+    "thkMm": 3.0
+   },
+   "receiverPlateOdMm": 92.0,
+   "receiverPlateThkMm": 18.0,
+   "receiverPlateClearanceDiaMm": 23.6,
+   "receiverFrontBeyondCapRearMm": 100.0,
+   "studTipProjectionMm": 5.0
+  }
+ },
+ "pricedStockAssumptions": {
+  "studNutHexAfRule": "ASSUMED priced stock: stud-nut hex across flats = 1.6 x stud nominal (22.4 mm d60, 36.8 mm d180/11); heights are the frozen N; threaded bore priced at stud nominal; the freeze fixes heights only, so the across-flats rule is a declared assumption, not a qualified fact",
+  "hexPrismAreaRule": "regular hexagon area = (sqrt(3)/2) x across-flats squared, used for all hex heads and nuts",
+  "blankRule": "every threaded blank (cap bolts, stud) is priced as a full cylinder at its nominal diameter over its paid length; thread debit is zero and thread capacity is UNKNOWN",
+  "nutBoreRule": "cap-bolt nut and stud-nut bores are priced at the mating nominal diameter",
+  "machiningFractionOnNewAl": 0.03,
+  "assemblyShareOnIncrement": 0.05,
+  "retainedProtectionKgPerEnd": 0.025,
+  "newLumpKgPerEnd": {
+   "d60": 0.025,
+   "d180/11": 0.05
+  },
+  "lumpIdentity": "interface/seal/handling stock assigned as a separately identified lump at the fitting assembly centre; covers the explicit insulating sleeves/annuli/washers and handling stock; sufficiency UNKNOWN; geometric occupancy of isolation parts is listed separately at zero separate mass"
+ },
+ "axialStackDeclaration": {
+  "rule": "cap actual front = z_c + 0.5 (isolated assembly); all downstream positions use actual values; intervals below are the determinate consequences of the frozen datums, identical to those the calculator derives",
+  "d60": {
+   "wedges": [0.0, 60.0],
+   "bodyConstantOd": [0.0, 110.0],
+   "bodyFlange": [110.0, 122.0],
+   "flangeCapIsoLayer": [122.0, 122.5],
+   "capActual": [122.5, 134.5],
+   "studIsoAnnulus": [122.0, 122.5],
+   "studWasherInterior": [120.0, 122.0],
+   "interiorNut": [99.0, 120.0],
+   "studTip": [96.0, 99.0],
+   "studFront": 96.0,
+   "capRearActual": 134.5,
+   "receiverPlate": [194.5, 206.5],
+   "frontPlateWasher": [192.5, 194.5],
+   "frontPlateNut": [171.5, 192.5],
+   "rearPlateWasher": [206.5, 208.5],
+   "rearPlateNut": [208.5, 229.5],
+   "studRear": 232.5,
+   "studBlankLengthMm": 136.5,
+   "capBoltHead": [104.3, 108.3],
+   "capBoltHeadSideTiWasher": [108.3, 109.5],
+   "capBoltHeadSideIsoWasher": [109.5, 110.0],
+   "capBoltNutSideIsoWasher": [134.5, 135.0],
+   "capBoltNutSideTiWasher": [135.0, 136.2],
+   "capBoltNut": [136.2, 142.2],
+   "capBoltTip": [142.2, 144.2],
+   "capBoltLengthUnderHeadMm": 35.9
+  },
+  "d180/11": {
+   "wedges": [0.0, 97.0],
+   "bodyConstantOd": [0.0, 177.0],
+   "bodyFlange": [177.0, 195.0],
+   "flangeCapIsoLayer": [195.0, 195.5],
+   "capActual": [195.5, 213.5],
+   "studIsoAnnulus": [195.0, 195.5],
+   "studWasherInterior": [192.0, 195.0],
+   "interiorNut": [157.5, 192.0],
+   "studTip": [152.5, 157.5],
+   "studFront": 152.5,
+   "capRearActual": 213.5,
+   "receiverPlate": [313.5, 331.5],
+   "frontPlateWasher": [310.5, 313.5],
+   "frontPlateNut": [276.0, 310.5],
+   "rearPlateWasher": [331.5, 334.5],
+   "rearPlateNut": [334.5, 369.0],
+   "studRear": 374.0,
+   "studBlankLengthMm": 221.5,
+   "capBoltHead": [168.0, 174.5],
+   "capBoltHeadSideTiWasher": [174.5, 176.5],
+   "capBoltHeadSideIsoWasher": [176.5, 177.0],
+   "capBoltNutSideIsoWasher": [213.5, 214.0],
+   "capBoltNutSideTiWasher": [214.0, 216.0],
+   "capBoltNut": [216.0, 226.0],
+   "capBoltTip": [226.0, 229.0],
+   "capBoltLengthUnderHeadMm": 54.5
+  },
+  "capBoltSeatCheck": "the cap-bolt head-side Ti washer annulus must lie within actual flange material (inside flange OD, outside the chamber bore); the calculator verifies and reports it"
+ },
+ "cordIdentity": {
+  "rule": "L_total = L_free + (L+8mm) end A + (L+8mm) end B; the tail is paid cord, not an extra spring; the identity is reconciled against the recorded mean/free cord lengths before any total is reported",
+  "embeddedPerEndM": {
+   "d60": 0.068,
+   "d180/11": 0.105
+  },
+  "recordedImpliedEmbeddedPerEndM": {
+   "d60": 0.068,
+   "d180/11": 0.105,
+   "derivation": "meanCordM - lFreeMeanM divided by two equals 0.136000 m / 0.210000 m per family, i.e. exactly 2x(L+8mm); the recorded datum already carries the drawn embedded runs, so no extra run and no unrecorded length increase arise"
+  },
+  "toleranceM": 1e-09
+ },
+ "screens": {
+  "status": "dimensional elastic metal screens, CONDITIONAL model outputs only; none is a proof; the entire cord/grip/receiver compliance and take-up stay UNKNOWN",
+  "declaredModels": {
+   "coneNormalForce": "frictionless cone equilibrium: total cone normal N = T/sin(5 deg) reacted by six segments; the cord must supply the axial balance through contact friction, so the required cord-face friction coefficient is reported as tan(5 deg); available friction is UNKNOWN",
+   "segmentContactPressures": "mean pressures over each segment's real contact areas: inner cylindrical face (58/360 x pi x D x L) and outer conical face (58/360 x pi x mean cone diameter x slant length L/cos(5 deg)); cord crushing/fibre damage UNKNOWN",
+   "bodyHoop": "nominal thin-wall screen at the chamber-entrance plane: mean cone-face radial pressure applied at the cone big-end radius against the local wall (body OD/2 minus cone big-end radius); labelled nominal, not a contact solution",
+   "capBending": "radial-strip upper-bound screen in the declared heritage shape: sigma = 6T(a - r_w)/(2 pi r_w t^2) with a = bolt-circle radius, r_w = stud bearing washer outer radius, t = cap thickness; known-conservative, not a plate solution",
+   "studTension": "nominal blank-section tension T/(pi d^2/4) at the fitting demand; thread-root capacity UNKNOWN",
+   "plateBearing": "mean bearing under one stud bearing-washer annulus at the fitting demand; plate/anchor transfer UNSIZED/UNKNOWN",
+   "isoLayerCompression": "mean compression over the flange/cap isolation layer actual material overlap minus bolt holes; covered by the lump, occupancy only"
+  },
+  "loads": "fitting demand T = TfitkN and set-point T0 = T0kN carried independently from the accepted saved values; no second fitting factor is applied"
+ },
+ "ledgerRules": {
+  "newRowsPerEnd": [
+   "six Ti wedge segments (exact conical-shell sector solids, 58 deg azimuth each)",
+   "one Al body with integral flange (constant-OD cylinder + conical bore + chamber bore + flange annulus, minus four bolt holes through the flange)",
+   "one Al cap (cylinder minus four bolt holes and central stud bore)",
+   "four Ti cap bolts (blank under-head length + separate hex head stock)",
+   "four Ti cap nuts (hex minus bore)",
+   "eight Ti cap washers (two per bolt)",
+   "one Ti stud blank (front/rear endpoints as declared)",
+   "three Ti stud nuts (interior + two receiver nuts, hex minus bore at the assumed across-flats)",
+   "three Ti stud bearing washers",
+   "one Ti receiver plate (annulus at central clearance)"
+  ],
+  "removalCandidatesConditionalOnly": {
+   "d60": {
+    "acceptedBodyKgPerEndAl": 0.07594839509961494,
+    "machiningRowKgPerEnd": 0.0022784518529884482,
+    "resinPotKgPerEnd": 0.0017,
+    "replacedStudKgPerEnd": 0.0549
+   },
+   "d180/11": {
+    "acceptedBodyKgPerEndAl": 0.29494000995555875,
+    "machiningRowKgPerEnd": 0.0088482002986667625,
+    "resinPotKgPerEnd": 0.0061,
+    "replacedStudKgPerEnd": 0.2321
+   },
+   "reconciliation": "machining rows are 3% of the accepted Al body masses; their family sum must equal the accepted machining stock 0.23525614743131826 t to within 1e-09 t",
+   "zeroQualifiedRetirement": "the second bill credits no removal at all; qualified retirement is zero by issue"
+  },
+  "retained": "cord at recorded identity, clips, anchor blocks, doubler pads, attachment bolts, old exterior jam nut, retained anchors/receiver interface and pressure structure, retained protection provision, assembly line",
+  "vehicleConvention": "accepted accounting carried exactly: deltaHardwareT = new hardware + new provisions (machining, new lump) minus removals (conditional bill only); assemblyShareOnIncrementT = 0.05 x deltaHardwareT added to the assembly line once; sockets line moves by deltaHardwareT; total moves by deltaHardwareT + assemblyShare; spokes line moves with the total; margins move oppositely; lift and gas counted once, unchanged",
+  "x15Scenario": "0.5 x (new sockets line + anchor blocks 6.17 + doubler pads 2.86 + attachment bolts 1.41, the latter three at stored two-decimal precision) x 1.05, reported against the new sea-level margin with the stored inherited increment disclosed",
+  "centreRule": "every new component's centre is the mass centroid of its own priced solid in the local frame (x=y=0 by symmetry except cap-bolt hardware at its four bolt-circle azimuths 0/90/180/270 and wedge segments at their azimuth midplanes); the isolation/handling lump sits at the fitting assembly centre (mass-weighted centroid of the per-end new hardware)"
+ },
+ "unknowns": [
+  "cord contact: crushing, fibre damage, grip friction/slip, seating, creep, retention under unload, service preload",
+  "metal friction on the cone and its scatter; segment load-sharing equality is a symmetry assumption, not demonstrated",
+  "receiver-plate transfer into the unchanged anchor/block/frame: UNSIZED/UNKNOWN; extra adapter or reinforcement is a named positive unknown provision, not zero",
+  "compliance and take-up of the whole cord/grip/receiver chain: UNKNOWN; I028 n=5 packets are unchanged labelled comparators only",
+  "rear insertion, nut access, wrench clearance, station-pitch fit, added envelope/access: explicit checks absent, UNKNOWN",
+  "thread capacity, fatigue, wet/creep service, galvanic sufficiency beyond the declared provisions: UNKNOWN",
+  "SF1.2 substitution into the separate d60+d20 construction: UNKNOWN; the nominal mass delta is not its result",
+  "machining/assembly provisions and the lump are declared allowances, not measured stock; sufficiency UNKNOWN"
+ ],
+ "boundary": "one pure-Python process, stdlib only; frozen inputs; exact solid geometry and closed-form integrals; no ancestor import or execution; no solver, search, optimisation, render or alternate construction; failure is an acceptable honest result"
+}

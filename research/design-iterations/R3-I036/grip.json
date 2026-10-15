@@ -1,0 +1,637 @@
+{
+ "unit": "R3-I036",
+ "contract": "python3 -I -B research/design-iterations/R3-I036/grip.py --write",
+ "inputs": {
+  "baseline.json": "6db7a4910427ac3972e13f2ce17fe55568a7b7fd2859c86b860834ac075f2217",
+  "sources.json": "821f71e2a7b5b55050953b5bea760b8c5eeab7086da47fed7ecf01b603523c10"
+ },
+ "families": {
+  "d60": {
+   "geometry": {
+    "coneRadialK": 0.08748866352592401,
+    "rcMm": 3.935,
+    "rOut0Mm": 7.9350000000000005,
+    "rOutLMm": 13.18431981155544,
+    "chamberBoreDiaMm": 26.36863962311088,
+    "zFlangeFrontMm": 110.0,
+    "zFlangeRearMm": 122.0,
+    "capActualFrontMm": 122.5,
+    "capActualRearMm": 134.5,
+    "zReceiverFrontMm": 194.5,
+    "studSpanMm": [
+     96.0,
+     232.5
+    ]
+   },
+   "stacks": {
+    "wedges": [
+     0.0,
+     60.0
+    ],
+    "bodyConstantOd": [
+     0.0,
+     110.0
+    ],
+    "bodyFlange": [
+     110.0,
+     122.0
+    ],
+    "flangeCapIsoLayer": [
+     122.0,
+     122.5
+    ],
+    "capActual": [
+     122.5,
+     134.5
+    ],
+    "studWasherInterior": [
+     120.0,
+     122.0
+    ],
+    "interiorNut": [
+     99.0,
+     120.0
+    ],
+    "studTip": [
+     96.0,
+     99.0
+    ],
+    "studFront": 96.0,
+    "capRearActual": 134.5,
+    "receiverPlate": [
+     194.5,
+     206.5
+    ],
+    "frontPlateWasher": [
+     192.5,
+     194.5
+    ],
+    "frontPlateNut": [
+     171.5,
+     192.5
+    ],
+    "rearPlateWasher": [
+     206.5,
+     208.5
+    ],
+    "rearPlateNut": [
+     208.5,
+     229.5
+    ],
+    "studRear": 232.5,
+    "studBlankLengthMm": 136.5,
+    "capBoltHead": [
+     104.3,
+     108.3
+    ],
+    "capBoltHeadSideTiWasher": [
+     108.3,
+     109.5
+    ],
+    "capBoltHeadSideIsoWasher": [
+     109.5,
+     110.0
+    ],
+    "capBoltNutSideIsoWasher": [
+     134.5,
+     135.0
+    ],
+    "capBoltNutSideTiWasher": [
+     135.0,
+     136.2
+    ],
+    "capBoltNut": [
+     136.2,
+     142.2
+    ],
+    "capBoltTip": [
+     142.2,
+     144.2
+    ],
+    "capBoltLengthUnderHeadMm": 35.9,
+    "capBoltSeatCheck": {
+     "headWasherAnnulusMm": [
+      29.0,
+      41.0
+     ],
+     "flangeMaterialSpanMm": [
+      13.18431981155544,
+      45.0
+     ],
+     "within": true
+    }
+   },
+   "masses": {
+    "wedgeSet6": {
+     "kgPerEnd": 0.07936275102783392,
+     "volumeMm3": 17914.842218472666,
+     "material": "Ti",
+     "role": "six Ti conical-shell sectors, azimuth 58 deg each, z in [0,L]"
+    },
+    "bodyAl": {
+     "kgPerEnd": 0.6355099450984472,
+     "volumeMm3": 235374.0537401656,
+     "material": "Al",
+     "role": "Al constant-OD cylinder + conical bore + chamber bore + integral flange, minus four bolt holes"
+    },
+    "capAl": {
+     "kgPerEnd": 0.19626176475062077,
+     "volumeMm3": 72689.54250022992,
+     "material": "Al",
+     "role": "Al cap cylinder minus four bolt holes and central stud bore"
+    },
+    "capBolts4": {
+     "kgPerEnd": 0.024125049012586657,
+     "volumeMm3": 5445.83499155455,
+     "material": "Ti",
+     "role": "four Ti blanks at under-head length plus separate hex head stock"
+    },
+    "capNuts4": {
+     "kgPerEnd": 0.006201454914669149,
+     "volumeMm3": 1399.876955907257,
+     "material": "Ti",
+     "role": "four Ti hex nuts minus bore"
+    },
+    "capWashers8": {
+     "kgPerEnd": 0.0033548379310575733,
+     "volumeMm3": 757.2997587037411,
+     "material": "Ti",
+     "role": "eight Ti washers, two per bolt"
+    },
+    "studBlank": {
+     "kgPerEnd": 0.09308556311346151,
+     "volumeMm3": 21012.54246353533,
+     "material": "Ti",
+     "role": "one Ti fully threaded blank spanning declared front/rear endpoints"
+    },
+    "studNuts3": {
+     "kgPerEnd": 0.07831233767296938,
+     "volumeMm3": 17677.728594349748,
+     "material": "Ti",
+     "role": "interior + two receiver Ti hex nuts at assumed across-flats 1.6x nominal"
+    },
+    "studWashers3": {
+     "kgPerEnd": 0.011916789156243187,
+     "volumeMm3": 2690.0201255627962,
+     "material": "Ti",
+     "role": "three Ti bearing washers (interior + both plate faces)"
+    },
+    "receiverPlate": {
+     "kgPerEnd": 0.12203373280580844,
+     "volumeMm3": 27547.118014855176,
+     "material": "Ti",
+     "role": "one Ti receiver plate annulus at central clearance"
+    }
+   },
+   "centres": {
+    "wedgeSet6": {
+     "zMm": 35.63790615402283,
+     "definition": "mass centroid of its own priced solid"
+    },
+    "bodyAl": {
+     "zMm": 71.0150692640147,
+     "definition": "mass centroid of its own priced solid"
+    },
+    "capAl": {
+     "zMm": 128.49999999999997,
+     "definition": "mass centroid of its own priced solid"
+    },
+    "capBolts4": {
+     "zMm": 121.17391324164815,
+     "definition": "mass centroid of its own priced solid"
+    },
+    "capNuts4": {
+     "zMm": 139.2,
+     "definition": "mass centroid of its own priced solid"
+    },
+    "capWashers8": {
+     "zMm": 122.25,
+     "definition": "mass centroid of its own priced solid"
+    },
+    "studBlank": {
+     "zMm": 164.25,
+     "definition": "mass centroid of its own priced solid"
+    },
+    "studNuts3": {
+     "zMm": 170.16666666666666,
+     "definition": "mass centroid of its own priced solid"
+    },
+    "studWashers3": {
+     "zMm": 174.00000000000003,
+     "definition": "mass centroid of its own priced solid"
+    },
+    "receiverPlate": {
+     "zMm": 200.5,
+     "definition": "mass centroid of its own priced solid"
+    }
+   },
+   "newHardwareKgPerEnd": 1.250164225483698,
+   "machiningKgPerEnd": 0.024953151295472036,
+   "lumpKgPerEnd": 0.025,
+   "assemblyCentreZMm": 106.01181437709472,
+   "cordIdentity": {
+    "embeddedPerEndM": 0.068,
+    "recordedImpliedPerEndM": 0.06799999999999784,
+    "consistent": true,
+    "statement": "recorded datum already carries 2x(L+8mm) embedded cord per cord; no extra run, no unrecorded length increase"
+   },
+   "screens": {
+    "loadN": {
+     "fittingDemandN": 17700.0,
+     "setPointT0N": 6809.0,
+     "basis": "carried independently from accepted saved values"
+    },
+    "coneNormalTotalN": 203084.72444835646,
+    "perSegmentN": 33847.454074726076,
+    "requiredCordFaceFrictionCoefficient": 0.08748866352592401,
+    "contactPressuresMPa": {
+     "cordFaceMean": 141.08111567701718,
+     "coneFaceMean": 52.57311268948253,
+     "verdict": "cord crushing/fibre damage UNKNOWN; available friction UNKNOWN"
+    },
+    "bodyHoopMPa": {
+     "value": 58.66278708736172,
+     "utilisationVs150": 0.3910852472490781,
+     "model": "nominal thin-wall screen at the chamber-entrance plane, mean cone-face pressure at the cone big-end radius"
+    },
+    "capBendingMPa": {
+     "value": 176.06515579540923,
+     "utilisationVs150": 1.1737677053027282,
+     "model": "radial-strip upper-bound screen, known-conservative, not a plate solution"
+    },
+    "studTensionMPa": {
+     "value": 114.98132623373664,
+     "utilisationVs880": 0.13066059799288254,
+     "threadRootUNKNOWN": true
+    },
+    "plateBearingMPa": {
+     "value": 39.47925853446216,
+     "utilisationVs880": 0.04486279378916155,
+     "transfer": "plate/anchor transfer UNSIZED/UNKNOWN"
+    },
+    "isoLayerCompressionMPa": {
+     "value": 3.1168633822786678,
+     "occupancyVolumeMm3": 2839.3929776703803,
+     "mass": "covered by the lump"
+    },
+    "status": "CONDITIONAL dimensional elastic metal screens only; no proof; compliance and take-up UNKNOWN"
+   },
+   "ledger": {
+    "ends": 21390,
+    "newHardwareKgPerEnd": 1.250164225483698,
+    "machiningKgPerEnd": 0.024953151295472036,
+    "lumpKgPerEnd": 0.025,
+    "removedConditionalKgPerEnd": 0.13482684695260339,
+    "removedRows": {
+     "acceptedBodyKgPerEndAl": 0.07594839509961494,
+     "machiningRowKgPerEnd": 0.002278451852988448,
+     "resinPotKgPerEnd": 0.0017,
+     "replacedStudKgPerEnd": 0.0549
+    },
+    "newHardwareT": 26.7410127830963,
+    "machiningT": 0.5337479062101469,
+    "lumpT": 0.53475,
+    "removedConditionalT": 2.8839462563161864
+   }
+  },
+  "d180/11": {
+   "geometry": {
+    "coneRadialK": 0.08748866352592401,
+    "rcMm": 6.36,
+    "rOut0Mm": 12.36,
+    "rOutLMm": 20.846400362014627,
+    "chamberBoreDiaMm": 41.692800724029254,
+    "zFlangeFrontMm": 177.0,
+    "zFlangeRearMm": 195.0,
+    "capActualFrontMm": 195.5,
+    "capActualRearMm": 213.5,
+    "zReceiverFrontMm": 313.5,
+    "studSpanMm": [
+     152.5,
+     374.0
+    ]
+   },
+   "stacks": {
+    "wedges": [
+     0.0,
+     97.0
+    ],
+    "bodyConstantOd": [
+     0.0,
+     177.0
+    ],
+    "bodyFlange": [
+     177.0,
+     195.0
+    ],
+    "flangeCapIsoLayer": [
+     195.0,
+     195.5
+    ],
+    "capActual": [
+     195.5,
+     213.5
+    ],
+    "studWasherInterior": [
+     192.0,
+     195.0
+    ],
+    "interiorNut": [
+     157.5,
+     192.0
+    ],
+    "studTip": [
+     152.5,
+     157.5
+    ],
+    "studFront": 152.5,
+    "capRearActual": 213.5,
+    "receiverPlate": [
+     313.5,
+     331.5
+    ],
+    "frontPlateWasher": [
+     310.5,
+     313.5
+    ],
+    "frontPlateNut": [
+     276.0,
+     310.5
+    ],
+    "rearPlateWasher": [
+     331.5,
+     334.5
+    ],
+    "rearPlateNut": [
+     334.5,
+     369.0
+    ],
+    "studRear": 374.0,
+    "studBlankLengthMm": 221.5,
+    "capBoltHead": [
+     168.0,
+     174.5
+    ],
+    "capBoltHeadSideTiWasher": [
+     174.5,
+     176.5
+    ],
+    "capBoltHeadSideIsoWasher": [
+     176.5,
+     177.0
+    ],
+    "capBoltNutSideIsoWasher": [
+     213.5,
+     214.0
+    ],
+    "capBoltNutSideTiWasher": [
+     214.0,
+     216.0
+    ],
+    "capBoltNut": [
+     216.0,
+     226.0
+    ],
+    "capBoltTip": [
+     226.0,
+     229.0
+    ],
+    "capBoltLengthUnderHeadMm": 54.5,
+    "capBoltSeatCheck": {
+     "headWasherAnnulusMm": [
+      45.0,
+      65.0
+     ],
+     "flangeMaterialSpanMm": [
+      20.846400362014627,
+      70.0
+     ],
+     "within": true
+    }
+   },
+   "masses": {
+    "wedgeSet6": {
+     "kgPerEnd": 0.31478368757956837,
+     "volumeMm3": 71057.26581931565,
+     "material": "Ti",
+     "role": "six Ti conical-shell sectors, azimuth 58 deg each, z in [0,L]"
+    },
+    "bodyAl": {
+     "kgPerEnd": 2.5401744429933384,
+     "volumeMm3": 940805.349256792,
+     "material": "Al",
+     "role": "Al constant-OD cylinder + conical bore + chamber bore + integral flange, minus four bolt holes"
+    },
+    "capAl": {
+     "kgPerEnd": 0.7097242335400143,
+     "volumeMm3": 262860.8272370423,
+     "material": "Al",
+     "role": "Al cap cylinder minus four bolt holes and central stud bore"
+    },
+    "capBolts4": {
+     "kgPerEnd": 0.10467644716822584,
+     "volumeMm3": 23628.994846100642,
+     "material": "Ti",
+     "role": "four Ti blanks at under-head length plus separate hex head stock"
+    },
+    "capNuts4": {
+     "kgPerEnd": 0.030432598292721345,
+     "volumeMm3": 6869.661014158317,
+     "material": "Ti",
+     "role": "four Ti hex nuts minus bore"
+    },
+    "capWashers8": {
+     "kgPerEnd": 0.01601263743676823,
+     "volumeMm3": 3614.5908435142724,
+     "material": "Ti",
+     "role": "eight Ti washers, two per bolt"
+    },
+    "studBlank": {
+     "kgPerEnd": 0.4076833830259095,
+     "volumeMm3": 92027.8516988509,
+     "material": "Ti",
+     "role": "one Ti fully threaded blank spanning declared front/rear endpoints"
+    },
+    "studNuts3": {
+     "kgPerEnd": 0.3472398733480388,
+     "volumeMm3": 78383.71858872207,
+     "material": "Ti",
+     "role": "interior + two receiver Ti hex nuts at assumed across-flats 1.6x nominal"
+    },
+    "studWashers3": {
+     "kgPerEnd": 0.0488195053766801,
+     "volumeMm3": 11020.20437396842,
+     "material": "Ti",
+     "role": "three Ti bearing washers (interior + both plate faces)"
+    },
+    "receiverPlate": {
+     "kgPerEnd": 0.49519933009239614,
+     "volumeMm3": 111783.14449038287,
+     "material": "Ti",
+     "role": "one Ti receiver plate annulus at central clearance"
+    }
+   },
+   "centres": {
+    "wedgeSet6": {
+     "zMm": 57.94334078009361,
+     "definition": "mass centroid of its own priced solid"
+    },
+    "bodyAl": {
+     "zMm": 111.29180123507183,
+     "definition": "mass centroid of its own priced solid"
+    },
+    "capAl": {
+     "zMm": 204.5,
+     "definition": "mass centroid of its own priced solid"
+    },
+    "capBolts4": {
+     "zMm": 193.35044236939436,
+     "definition": "mass centroid of its own priced solid"
+    },
+    "capNuts4": {
+     "zMm": 221.0,
+     "definition": "mass centroid of its own priced solid"
+    },
+    "capWashers8": {
+     "zMm": 195.25,
+     "definition": "mass centroid of its own priced solid"
+    },
+    "studBlank": {
+     "zMm": 263.25,
+     "definition": "mass centroid of its own priced solid"
+    },
+    "studNuts3": {
+     "zMm": 273.24999999999994,
+     "definition": "mass centroid of its own priced solid"
+    },
+    "studWashers3": {
+     "zMm": 279.5,
+     "definition": "mass centroid of its own priced solid"
+    },
+    "receiverPlate": {
+     "zMm": 322.5,
+     "definition": "mass centroid of its own priced solid"
+    }
+   },
+   "newHardwareKgPerEnd": 5.014746138853661,
+   "machiningKgPerEnd": 0.09749696029600058,
+   "lumpKgPerEnd": 0.05,
+   "assemblyCentreZMm": 169.8436731587869,
+   "cordIdentity": {
+    "embeddedPerEndM": 0.105,
+    "recordedImpliedPerEndM": 0.10499999999999687,
+    "consistent": true,
+    "statement": "recorded datum already carries 2x(L+8mm) embedded cord per cord; no extra run, no unrecorded length increase"
+   },
+   "screens": {
+    "loadN": {
+     "fittingDemandN": 46270.0,
+     "setPointT0N": 17797.0,
+     "basis": "carried independently from accepted saved values"
+    },
+    "coneNormalTotalN": 530888.7118771443,
+    "perSegmentN": 88481.45197952405,
+    "requiredCordFaceFrictionCoefficient": 0.08748866352592401,
+    "contactPressuresMPa": {
+     "cordFaceMean": 141.14394625266868,
+     "coneFaceMean": 54.06641420813797,
+     "verdict": "cord crushing/fibre damage UNKNOWN; available friction UNKNOWN"
+    },
+    "bodyHoopMPa": {
+     "value": 58.84481966962063,
+     "utilisationVs150": 0.39229879779747084,
+     "model": "nominal thin-wall screen at the chamber-entrance plane, mean cone-face pressure at the cone big-end radius"
+    },
+    "capBendingMPa": {
+     "value": 189.73524552301444,
+     "utilisationVs150": 1.2649016368200963,
+     "model": "radial-strip upper-bound screen, known-conservative, not a plate solution"
+    },
+    "studTensionMPa": {
+     "value": 111.36633976350848,
+     "utilisationVs880": 0.12655265882216873,
+     "threadRootUNKNOWN": true
+    },
+    "plateBearingMPa": {
+     "value": 37.78786543956279,
+     "utilisationVs880": 0.04294075618132136,
+     "transfer": "plate/anchor transfer UNSIZED/UNKNOWN"
+    },
+    "isoLayerCompressionMPa": {
+     "value": 3.383406786738606,
+     "occupancyVolumeMm3": 6837.782583719619,
+     "mass": "covered by the lump"
+    },
+    "status": "CONDITIONAL dimensional elastic metal screens only; no proof; compliance and take-up UNKNOWN"
+   },
+   "ledger": {
+    "ends": 21080,
+    "newHardwareKgPerEnd": 5.014746138853661,
+    "machiningKgPerEnd": 0.09749696029600058,
+    "lumpKgPerEnd": 0.05,
+    "removedConditionalKgPerEnd": 0.5419882102542255,
+    "removedRows": {
+     "acceptedBodyKgPerEndAl": 0.29494000995555875,
+     "machiningRowKgPerEnd": 0.008848200298666762,
+     "resinPotKgPerEnd": 0.0061,
+     "replacedStudKgPerEnd": 0.2321
+    },
+    "newHardwareT": 105.71084860703516,
+    "machiningT": 2.0552359230396924,
+    "lumpT": 1.054,
+    "removedConditionalT": 11.425111472159072
+   }
+  },
+  "ledgerTotals": {
+   "newStockT": 136.6295952193813,
+   "removedConditionalT": 14.309057728475258,
+   "machiningRowReconciliation": {
+    "computedT": 0.23525614743131826,
+    "acceptedT": 0.23525614743131826,
+    "equal": true
+   }
+  }
+ },
+ "bills": {
+  "conditionalSubstitution": {
+   "deltaHardwareT": 122.32053749090603,
+   "assemblyShareOnIncrementT": 6.116026874545302,
+   "totalDeltaT": 128.43656436545135,
+   "socketsTNew": 138.73293703270548,
+   "assemblyTNew": 17.806026874545303,
+   "totalTNew": 2357.922583884341,
+   "spokesLineTNew": 369.94258388434076,
+   "marginSLTNew": -108.12258388434078,
+   "margin2500TNew": -600.6225838843408,
+   "x15Scenario": {
+    "candidateX15IncrementT": 78.31579194217038,
+    "candidateX15SLMarginT": -186.43837582651116,
+    "inheritedX15IncrementT_stored": 16.05
+   }
+  },
+  "zeroQualifiedRetirement": {
+   "deltaHardwareT": 136.6295952193813,
+   "assemblyShareOnIncrementT": 6.8314797609690645,
+   "totalDeltaT": 143.46107498035036,
+   "socketsTNew": 153.04199476118075,
+   "assemblyTNew": 18.521479760969065,
+   "totalTNew": 2372.94709449924,
+   "spokesLineTNew": 384.9670944992398,
+   "marginSLTNew": -123.1470944992398,
+   "margin2500TNew": -615.6470944992398,
+   "x15Scenario": {
+    "candidateX15IncrementT": 85.8280472496199,
+    "candidateX15SLMarginT": -208.9751417488597,
+    "inheritedX15IncrementT_stored": 16.05
+   }
+  }
+ },
+ "verdicts": {
+  "conditionalSubstitution": "sea-level margin moves -128.44 t to -108.12 t (CONDITIONAL FAIL); altitude 2500 m margin -600.62 t (FAIL)",
+  "zeroQualifiedRetirement": "sea-level margin -123.15 t; altitude -615.65 t",
+  "sf12": "substitution into the separate construction UNKNOWN; the nominal mass delta is not its result",
+  "compliance": "chain compliance/take-up UNKNOWN; I028 n=5 packets carried unchanged as labelled comparators",
+  "weakestAssumptions": "direct cord contact/slip/creep and transfer into the retained receiver",
+  "physicalFloat": "none demonstrated; all prior engineering failures/unknowns remain"
+ }
+}
