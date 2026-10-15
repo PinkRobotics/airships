@@ -1164,3 +1164,23 @@
 | Order | sha256 `9054c62680fa7884…` (informational) |
 | Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
 
+## Landing 78 — Record R3-I030: a circumferential transfer hoop that fails its screens, with unsupported strength claims withdrawn
+
+| field | value |
+|---|---|
+| Landed | 2026-10-14 18:38:53 PDT by the lander using `ship/tools/land.py`, a pure **FAST-FORWARD**: main `54114a7744e6769e7732476057c181cab545061f` → `7251787ed9aeac91ba8291627a69034e24552643`; pushed main-only, non-force, origin verified equal. The signed sha IS main; the landed tree equals the signed tree by identity. |
+| The object | SIGNED `7251787ed9aeac91ba8291627a69034e24552643`, tree `e85eefe39e660226f22d8e4804d920c36c540211`, from branch `lead-i030-on-land76-1014`, parent `2ac2f156475629357963f89ee2b065bfc8cd56ef`, governance `gov-9aadcff57a2c` preserved. Unit `float-programme-r3`. |
+| Rebase | law I.3c.5, mechanised: the signed object `f622e641c8697b6e1f116d7ac34990425b87e764` was rebased off `bef6780cc2a7e6a245cc975a4139d14edf283712` onto the moved main `54114a7744e6769e7732476057c181cab545061f`, landing as `7251787ed9aeac91ba8291627a69034e24552643`. `git range-diff` showed every pair `=`; each new commit was re-governed mechanically with that pair as its reason. The gate below honours the OLD sha's EXISTING record — no fresh signature was asked or given. Range-diff:
+
+```
+1:  6a48239d = 1:  2ac2f156 research: measure circumferential transfer hoop
+2:  f622e641 = 2:  7251787e research: withdraw unsupported local strength claims
+``` |
+| Pre-checks under the lock | primary on main; HEAD == main == the named base; origin/main == the named base; merge-base(main, candidate) == main and candidate != main; tree == the named tree; Helm-Audit-ID on every commit in base..candidate; tracked tree clean; object imported exact from the source. |
+| Gate | `tools/land_gate.py f622e641c…` → rc=0, HONOURED-XO f622e641c8697b6e1f116d7ac34990425b87e764 — the last record for this sha (store line 2004) is XO-SIGNED. (store `fo-verdicts.tsv`) |
+| Governance records | `2ac2f1564` ← `gov-ack-2ac2f1564756` (reconcile record; trailer `gov-579fb0cf1e3e` is bound to another sha); `7251787ed` ← `gov-ack-7251787ed9ae` (reconcile record; trailer `gov-9aadcff57a2c` is bound to another sha). Each record names the landed sha as the commit it governed. |
+| Evidence before landing | `PYTHONDONTWRITEBYTECODE=1 make readmecheck linkcheck buildercheck claimsrestore claimscheck` rc=0 (environment PATH set to host paths, not shown) (gate timeout 1200 s, named by the order) |
+| Tool | `ship/tools/land.py` sha256 `3f4d36dddae3efb1…` from helm (informational) |
+| Order | sha256 `e798076ac43dc971…` (informational) |
+| Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
+
