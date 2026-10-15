@@ -1144,3 +1144,23 @@
 | Order | sha256 `3fa61c6f8ca21180…` (informational) |
 | Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
 
+## Landing 77 — Record R3-I032: a four-tank continuous-transfer design stopped before calculation, with hand estimates withdrawn
+
+| field | value |
+|---|---|
+| Landed | 2026-10-14 18:01:40 PDT by the lander using `ship/tools/land.py`, a pure **FAST-FORWARD**: main `bef6780cc2a7e6a245cc975a4139d14edf283712` → `e11d78872107b5a5e277e79e50a3b63d0d2cab4f`; pushed main-only, non-force, origin verified equal. The signed sha IS main; the landed tree equals the signed tree by identity. |
+| The object | SIGNED `e11d78872107b5a5e277e79e50a3b63d0d2cab4f`, tree `8906dc3eca7af6eb187cc881c798d7516239a9b8`, from branch `i032-successor-1014`, parent `45a425e390de1b847e56bc850fac63ee1654d4e4`, governance `gov-df234bce49f0` preserved. Unit `float-programme-r3`. |
+| Rebase | law I.3c.5, mechanised: the signed object `725790d9031ffee2fc3abfc758b5486994051a0b` was rebased off `3e4ba19d705c992700caba9c03316ca2c4b7af4f` onto the moved main `bef6780cc2a7e6a245cc975a4139d14edf283712`, landing as `e11d78872107b5a5e277e79e50a3b63d0d2cab4f`. `git range-diff` showed every pair `=`; each new commit was re-governed mechanically with that pair as its reason. The gate below honours the OLD sha's EXISTING record — no fresh signature was asked or given. Range-diff:
+
+```
+1:  a1a60eed = 1:  45a425e3 R3-I032 control stop: frozen successor design, guard-stopped before calculation
+2:  725790d9 = 2:  e11d7887 I032 consolidated archival correction: withdraw hand-estimate claims and qualify attribution
+``` |
+| Pre-checks under the lock | primary on main; HEAD == main == the named base; origin/main == the named base; merge-base(main, candidate) == main and candidate != main; tree == the named tree; Helm-Audit-ID on every commit in base..candidate; tracked tree clean; object imported exact from the source. |
+| Gate | `tools/land_gate.py 725790d90…` → rc=0, HONOURED-XO 725790d9031ffee2fc3abfc758b5486994051a0b — the last record for this sha (store line 2002) is XO-SIGNED. (store `fo-verdicts.tsv`) |
+| Governance records | `45a425e39` ← `gov-ack-45a425e390de` (reconcile record; trailer `gov-424e913409f4` is bound to another sha); `e11d78872` ← `gov-ack-e11d78872107` (reconcile record; trailer `gov-df234bce49f0` is bound to another sha). Each record names the landed sha as the commit it governed. |
+| Evidence before landing | `PYTHONDONTWRITEBYTECODE=1 make readmecheck linkcheck buildercheck claimsrestore claimscheck` rc=0 (environment PATH set to host paths, not shown) (gate timeout 1200 s, named by the order) |
+| Tool | `ship/tools/land.py` sha256 `3f4d36dddae3efb1…` from helm (informational) |
+| Order | sha256 `9054c62680fa7884…` (informational) |
+| Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
+
