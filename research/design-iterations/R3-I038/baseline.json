@@ -1,0 +1,112 @@
+{
+ "unit": "R3-I038",
+ "base_commit": "dc31909d854a7f5264e43b0fd31a4a8654646aed",
+ "base_tree": "1e2837ba94d7213c01eb672252dc867708d1a897",
+ "binding_rule": "every source is bound by git blob OID at the named base commit (or by this unit's frozen pre-run hash manifest for new files); nothing is bound by title or memory",
+ "convention": "saved-input assembly: three categories kept distinct - (1) accepted I017 saved conditional mission/stock records with all their limitations, (2) I032 frozen geometric/material inputs that are declared assumptions, not successful calculations, (3) the new fixed external-reserve construction from the issued I038 design freeze. No I035 output is adopted as capacity, mass, CG, authority or margin data; no formula is copied from exchange.py.",
+ "category_1_i017_conditional_records": {
+  "read_at": "research/design-iterations/R3-I032/baseline.json:i017_comparison_recorded (blob 3d5a4ec96745eb294899c7e5f3fe8a91302a85ca at base; readme sha256 3f69a96d81307ad79d3816051f515c5021b048c44d31deb3c26f8f45304ba304)",
+  "limits": "conditional under that record's own duty boundary and ideal unobstructed-volume/attachment limitations; NOT a ready subtraction from this six-tank construction",
+  "duty_rows_t": {
+   "retired_lines": {"bay_shells_4x": 3.0, "cradle_saddles_4x": 0.38, "pickup_fittings_8x": 0.1, "bay_tie_rods": 0.05},
+   "reused_lines": {"isolation_valves_DN300_4x": 0.14, "D1_bottom_door_sets_2x": 0.16, "orifice_plates_4x": 0.06, "internal_piping_30m": 0.41, "water_cross_pump": 0.35, "ballonet_ducts_fans": 0.75, "trim_controls_wiring": 0.3, "keel_grating_handrails": 0.2},
+   "interface_fasteners": 0.1,
+   "empty_bay_structure": 0.71,
+   "mismatch_bound": 1.34,
+   "cross_pump_rule": "the 0.35 t water cross-pump occurs ONCE inside its named retained group; never again as a new 350 kg row",
+   "pickup_vs_fasteners": "pickup fittings 0.10 t and interface fasteners 0.10 t stay distinct lines"
+  },
+  "authority_datum_t_m": {"min_air": 244.7, "D1_end_mismatch": 650.8, "one_bay_empty_mid_D1": 922.3},
+  "caps_record": {"ceiling_max_lift_anchor_t": 175.98, "ceiling_max_lift_drawn_t": 174.02, "floor_line_m3_total_bag_cap": 110000.0, "floor_clearance_m3": 1338.0},
+  "recorded_fail": {"economics_multiple_vs_SEAT": 35.1, "economics_usd_per_t": 5929, "fuel_short_33min_t": 0.245112, "fuel_short_halfpump_t": 0.350732},
+  "recorded_unknown": ["occupancy (envelope withdrawn)", "curtain attachment qualification", "valve spec", "one-empty recovery at min-air", "transient control", "transition-energy closure"],
+  "conditional_comparison_figure": {"drawn_set_total_t": 6.0, "dry_vehicle_t": 66.18, "loaded_t": 166.18, "margin_at_max_inventory_t": 9.8, "usable_volume_m3_flat_tank": 25.74}
+ },
+ "category_2_i032_declared_geometry": {
+  "read_at": "research/design-iterations/R3-I032/baseline.json (blob 3d5a4ec96745eb294899c7e5f3fe8a91302a85ca at base); declared frozen inputs, no tanks.json exists, no accepted calculation",
+  "stations_m": {"U1_upper": [-14, 11, -19.0], "U4_upper": [14, -11, -19.0], "L2_lower": [-14, -11, -21.5], "L3_lower": [14, 11, -21.5]},
+  "barrels": "four UPRIGHT circular barrels; upper pair 4.20 m straight, lower pair 3.00 m straight; OD 3.05 m; two oblate heads per tank, 0.30 m outer depth each",
+  "shell": {"plate_thickness_m": 0.003, "material": "5083-class selected stock (declared)", "density_kg_per_m3": 2660.0, "freeboard_m": 0.06},
+  "baffles": {"per_tank": 2, "thickness_m": 0.003, "ports": "8 holes x 150 mm diameter per baffle", "upper_planes_m": [-19.350, -18.350], "lower_planes": "UNKNOWN - exact lower-tank planes not specified in the read I032 baseline; placement preserved UNKNOWN, not invented"},
+  "head_volumes": "UNKNOWN - oblate-head inner surface/wall offset/exact displaced volume not established; no apex/tangent shortcut and no reused defective surface-area expression",
+  "drain": "bottom head apex drain on every tank (declared construction, not tested)",
+  "transfer_hardware_per_pair_i032": {"pump_kg_45_rating_20kgs_0.2MPa": 1, "pipe_80_74mm_allowance_m": 25.0, "valves_15kg": 2, "wiring_kg": 12.0, "vent_drain_fittings_kg_per_tank": 8.0},
+  "support_declared": {"bands_per_tank": 2, "band_stock": "100 mm x 6 mm at +/-1.20 m from tank mid-height", "adapter_kg_per_tank": 45.0, "pickup_convention": "W/2 per pickup datum per tank - declared ideal, NOT a proved load path", "fitout_allowance_kg_per_tank": 95.0},
+  "mission_timing_recorded": {"drain_window_min_per_pair": 9.0, "drain_model": "declared linear", "D2_window_h": 0.75, "rate_mismatch_fraction": 0.05, "pair_start_skew_s": 2.0},
+  "mission_law": {"payload_t": 100.0, "delivery_D1_t_per_pair": 25.0, "scoop_total_t": 50.9, "scoop_per_upper_t": 25.45, "D2_window_s": 2700.0, "fuel_t": 4.9, "burn_to_D1_t": 2.16, "g_m_per_s2": 9.81, "water_density_kg_per_m3": 1000.0, "anchor_volume_m3": 220000.0, "drawn_volume_m3": 217547.0, "installed_bag_cap_m3_total": 110000.0, "per_bag_cap_m3": 55000.0, "mixture_fraction": 0.164045, "lift_t_per_1000m3": 1.02404, "air_density_t_per_m3_at_2500": 0.0009572, "vent_identity_m3": 50940.0, "reset_clock_h_earliest": 6.5, "min_skin_clearance_m_declared": 0.5},
+  "i012_basis": {"equipment_ex_hull_i007_t": 38.77, "gas_hull_t": 23.75, "equipment_correction_t": -2.34}
+ },
+ "category_3_frozen_reserve_construction": {
+  "design_source": "issued I038 DESIGN-FREEZE (835bbc21b1ed66b095085c73a7c408e19a896a6b0c4266df7bd3ea0f7cfdd0b9); fixed selected stock; no dimension here is a qualification",
+  "upper_service_change": "divider system absent; one unpartitioned service interior per upper barrel; 25 t D1 fresh then 25.45 t scoop; no reserve chamber below the upper baffles",
+  "reserve_tanks": {
+   "count": 2,
+   "centres_m": {"R1": [-14, 7.6, -19.0], "R4": [14, -7.6, -19.0]},
+   "shell": {"od_m": 1.8, "straight_m": 2.4, "wall_m": 0.004, "z_planes_straight": [-20.200, -17.800], "material": "5083-class", "density_kg_per_m3": 2660.0},
+   "flat_heads": {"thickness_m": 0.012, "od_m": 1.8, "inner_faces_at": [-20.200, -17.800], "thickness_extends_outward": true, "structural_adequacy": "UNKNOWN - paid stock choice, no pressure-thickness claim"},
+   "seating_rings_per_head": 1, "ring_stock": {"width_radial_m": 0.100, "thickness_m": 0.008, "outer_radius_m": 0.896, "inner_radius_m": 0.796},
+   "t_stiffeners": {"per_head": 6, "web_m": [0.100, 0.008], "flange_m": [0.060, 0.008], "radial_run_m": [0.100, 0.796], "central_collar_od_m": 0.200, "end_at": "head seating-ring radius", "interfaces": "both ends charged, no scrap credit"},
+   "drain_collar": {"od_m": 0.200, "id_m": 0.120, "thickness_m": 0.020, "material": "steel 7850", "insulating_annulus_m": 0.002, "insulator_density_assumed": 1200.0},
+   "internal_baffle": {"at_z": "z_R", "thickness_m": 0.003, "holes": "8 x 150 mm", "retained_as_displaced_stock": true},
+   "fillets_shell_head_ring_stiffener_baffle": {"leg_m": 0.006, "rule": "continuous along each actual seam once; attachment strength and corrosion isolation UNKNOWN"},
+   "freeboard_m": 0.06, "datum_note": "single world-z liquid datum; freeboard 60 mm below flat upper inner face, further limited by the actual vent/overflow inlet (unestablished)",
+   "usable_capacity_status": "UNKNOWN - enclosed geometry computed for stock payment only; no usable-volume or margin claim; a flat bottom does not establish zero deadwater"
+  },
+  "frame_per_reserve": {
+   "material": {"steel_density_kg_per_m3": 7850.0, "nominal_yield_MPa_declared": 355.0, "E_GPa_declared": 200.0, "use": "listed as declared comparisons only; NOT certified welded-joint capacities"},
+   "origin": "x/y at reserve centre; new supported-load requirement, not an existing receiver",
+   "platform": {"rails": {"section": "RHS150x150x8", "length_m": 2.400, "count": 2, "along": "x", "at_y_offsets_m": [-1.125, 1.125], "centre_z": -20.300}, "crossrails": {"section": "RHS150x150x8", "length_m": 2.100, "count": 2, "along": "y", "at_x_offsets_m": [-1.125, 1.125], "centre_z": -20.300}, "join_rule": "closed tube faces and actual end joins modelled; no double-paid intersection stock silently removed"},
+   "cradle_beams": {"section": "RHS150x150x8", "length_m": 2.100, "count": 2, "along": "y", "at_x_offsets_m": [-0.600, 0.600], "centre_z": -20.300, "pads": {"count_per_beam": 1, "size_m": [2.100, 0.150, 0.013], "density_assumed_kg_per_m3": 1200.0, "capacity": "UNKNOWN"}, "top_stack_meets": "reserve flat lower outer face", "contact_note": "finite circular-head contact, beam deflection and unequal support sharing UNKNOWN until represented"},
+   "legs": {"section": "RHS100x100x6", "count": 4, "at": "x,y offsets +/-1.125 m", "from_z": -22.250, "to_z": -20.375},
+   "braces": {"section": "RHS75x75x6", "count": 4, "pattern": "lower first corner to upper next corner, cyclic (-,-),(+,-),(+,+),(-,+)", "endpoints": "foot-top corner (offset +/-1.125,+/-1.125, z=-22.250) to next-cycle platform corner (z=-20.375)", "note": "real axes/end cuts paid at full selected length; collision, compression/buckling and connection moments UNKNOWN - no axial-only adequacy claim"},
+   "feet": {"foot_plate_m": [0.350, 0.350, 0.025], "receiver_plate_m": [0.350, 0.350, 0.025], "per_leg": 1, "plates_top_face_z": -22.250, "bolts_per_foot": 8, "bolt_pattern_mm": "(+/-120,+/-120),(+/-120,0),(0,+/-120)", "holes_mm": 22},
+   "bolt_sets_M20x140": {"per_set": {"shank": "M20x140", "head": "30 mm AF x 13 mm", "nut": "30 mm AF x 20 mm", "washers": "2x OD40/ID22/3 mm", "backer": "60x60x12 mm"}, "rule": "enumerate actual stack, full nut engagement, projection and access; NO bolt area pooling across feet"},
+   "gussets": {"blanks_per_frame": 8, "size_m": [0.250, 0.250, 0.012], "at": "four leg/platform joints, two per leg", "fillet_m": 0.008, "rule": "where trimming/continuity not established pay full blanks and report UNKNOWN"},
+   "hold_down_bands": {"per_reserve": 2, "at_z": ["z_R-0.900", "z_R+0.900"], "band_stock_m": [0.100, 0.006], "material": "5083-class", "liner_m": 0.002, "liner_density_assumed": 1200.0, "lugs_per_band": 2, "lug_m": [0.200, 0.150, 0.012], "M16x120_sets_per_band": 4, "strap_blanks_per_band": 2, "strap_m": [0.040, 0.006], "strap_attach": "x-x_R=+/-1.125 at side midpoint y=y_R; installed length/bending/clearance/load transfer explicit, never a free tie"}
+  },
+  "circuits_per_reserve": {
+   "draw": {"stub_dn100": {"od_m": 0.1143, "id_m": 0.1083, "length_m": 0.300, "material": "steel"}, "valves_dn100_15kg": 2, "check_valve_12kg": 1, "face_to_face_m": 0.200},
+   "fill": {"stub_dn100_same_stock": 0.300, "valve_15kg": 1},
+   "reset_drain": {"stub_dn80": {"od_m": 0.0889, "id_m": 0.0829, "length_m": 0.300}, "valve_15kg": 1},
+   "vent": {"pipe_dn50": {"od_m": 0.0603, "id_m": 0.0543}, "pv_assembly_12kg": 1, "trap_5kg": 1, "drain_5kg": 1, "exterior_hood_5kg": 1, "flanged_cuff_15kg": 1, "reinforcement_blanks": {"count": 2, "size_m": [0.300, 0.300, 0.006]}},
+   "flanges_dn100": {"annulus_m": [0.220, 0.116, 0.020], "bolts_per_flange": 8, "bolt": "M16x80 with 24AF head10/nut16, 2x OD32/ID18/3 washers", "per_connection": "TWO mating flanges + ONE 3 mm annular seal, density 1200 assumed", "connections_enumerated": ["draw stub - valve1", "valve1 - valve2", "valve2 - check", "fill stub - fill valve"]},
+   "collars_flanges_seals_penetrations": "paid individually in the bill; unpriced fittings remain C"
+  },
+  "fresh_transfer_per_pair": {
+   "pump": {"mass_kg": 45.0, "rating_kg_per_s": 20.0, "head_MPa": 0.2, "status": "unqualified device assumption, not a hydraulic PASS", "valves_15kg": 2, "wiring_drive_kg": 12.0},
+   "pump_interface": {"P_F_m": "[x_R, y_R, -21.500]", "plate_m": [0.600, 0.500, 0.010], "M16x120_sets": 4},
+   "pipe": {"od_m": 0.080, "id_m": 0.074, "material": "steel"},
+   "route": "actual reserve draw/valve outlet -> P_F=(x_R,y_R,-21.500) -> (x_R,y_R,-23.000) -> (x_L,y_L,-23.000) -> lower-tank TOP inlet at outer apex + 0.300 m DN100 stub",
+   "reducers": {"each": "0.200 m long, 3 mm wall concentric steel frustum from adjoining OD to OD80", "count_per_route": 2, "at": "reserve outlet (114.3->80) and lower-inlet (80->114.3)"},
+   "elbows": "0.200 m centreline radius, frozen, for fresh routes",
+   "final_ascent": "included; lower straight-top z=-20.000, outer apex z=-19.700 (0.30 m head depth), stub to z=-19.400"
+  },
+  "service_hardware_retained": {
+   "rule": "declared hardware inputs; retained old duty charges where no exact rowwise replacement; the old divider sump/through-reserve drain are ABSENT - no numeric old-bill saving claimed (their complete old mass was never established)",
+   "per_upper_service": ["scoop pump set 45 kg + 2x15 kg isolation + 12 kg check + 10 kg strainer + 12 kg drive/wiring", "service DN300 double isolation/positive blank/bleed duty", "scoop-fill check/downpipe/splash plate", "service reset drain relocated to actual lower-head apex with 0.300 m external DN300 stub (324/312 mm steel); original D1 door duty retained unless reconciled", "service vent", "instruments: 2x3 kg level + 1x2 kg pressure channels per tank, one 10 kg interlocked controller per same-frame pair"],
+   "scoop_route": "S=(x_U,0,-26.500) -> P=(x_U,0,-23.500) -> V=(x_U,y_U,-23.500) -> F=(x_U,y_U,-16.300) -> actual upper fill stub; 114.3/108.3 steel; 0.300 m radius elbows; S is a proposed paid interface, external connection UNKNOWN",
+   "p_equipment_frames": "separately paid per original finite proposal; retained",
+   "vents_all": "own path from actual top vent stub: offset x +0.300, then y +1.800 (service) or +1.100 (reserve), then down to z=-27.800; every bend and signed endpoint included; lower tank vent/reset duties charged independently; no vent assumed to open into the helium compartment"
+  },
+  "clamps_rule": {"per_straight_run": "one 2 kg clamp + 1 kg bracket at spacing <= 2 m and at every elbow/valve/pump", "bracket_price": "each bracket 200x200x8 mm plate + four M12x80 sets (18AF head 8/nut 12 assumed, washers OD28/ID14/3 assumed)", "attach": "each route to named paid new stock or the frame interface stays C", "no_reuse": "no inherited exact-31-clamp result reused"},
+  "instruments_rule": "2x3 kg level + 1x2 kg pressure per service/reserve/lower tank; one 10 kg interlocked controller per same-frame pair; explicit assumed device masses, not proven safety",
+  "pipe_water_rule": "water inventory in all filled pipes/pumps/valves counted into state mass and pressure reactions"
+ },
+ "events_command_law": {
+  "per_pair_commanded_tonnes": {"before_D1": [25, 5, 20, 0], "D1_complete": [0, 5, 20, 0], "D2_fraction_s": [0, "5(1-s)", "20(1-s)", "25.45 s"], "D2_complete": [0, 0, 0, 25.45], "order": "(service fresh, external reserve fresh, lower fresh, service scoop)"},
+  "d1_rule": "no reserve transfer during D1; both service chambers empty and delivery isolators/positive blank closed and verified before scoop admission; no service liquid delivered as freshwater after the switch; drain residual/switch duration/contamination UNKNOWN unless bounded; no instantaneous unpriced transition",
+  "d2_nominal_checkpoints_s": [0, 675, 1350, 2025, 2700],
+  "eight_cases": "leading pair A/B; rate error +/-0.05; lag 0/2 s; opposite fresh/scoop errors; internal 1:4 reserve:lower split frozen; clamp by source/command target, not tank capacity; unfinished at T is FAIL, never extension",
+  "i035_timing_evidence": "the eight I035 saved timing FAILs are historical conditional command-law evidence only, not fresh proof for this construction",
+  "wrench_rule": "liquid at actual fill-dependent centroid; every dry part and pipe inventory included; complete signed forces and moments to common origin and each actual support boundary; opposite x/y stations keep signs; separation is not an origin arm; no fixed liquid centroid for half/full; if frame/receiver stiffness missing retain aggregate six-component wrenches with unresolved individual reactions",
+  "reset": "moored, earliest inherited 6.5 h; scoop drains separately; service cleaning/verification additional duty; 100 t fresh reloaded; species-consistent helium/air reset; 18.9 MJ PARTIAL listed-subset energy carry; new pumping/cleaning/vent/control energy and timing additional or UNKNOWN",
+  "ledger_rule": "new quantity ledger from fixed construction and accepted saved inputs; no subtraction from I035 8.991 t; show original conditional I017 duty rows, retained/replaced/removed/new and unresolved C separately; explicit list of absent divider/rings/stiffeners/sump/internal reserve vent/sleeve with NO numeric old saving; qualified retirement ZERO; conditional common-duty comparison only where rowwise established plus a no-retirement bound retaining all previously charged duties; no fully qualified total/margin while required hardware or receiver stock is unpriced; gas/ballonet occupation UNKNOWN; no free lift from vented hardware"
+ },
+ "assumptions_declared": [
+  "polymer density 1200 kg/m3 wherever assumed (pads, seals, liners, insulating annulus)",
+  "M12 bolt hardware dimensions derived by pattern (18AF head 8 mm, nut 12 mm, washer OD28/ID14/3) - frozen assumption",
+  "steel density 7850 kg/m3 for all new frame/fastener/pipe stock; 5083-class 2660 kg/m3 for tank stock",
+  "all new-reserve/new-frame coordinates are proposed tank/frame datums, not established structural receivers",
+  "flat lower-tank head drainable-by-construction declaration inherited as declaration only"
+ ]
+}
