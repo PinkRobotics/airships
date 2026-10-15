@@ -17,12 +17,12 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 SEED = 7
 REGION = {"name": "Northern interior of British Columbia", "bbox": [-125.5, 57.0, -121.5, 59.8]}
-LIMITS = {"guardKm": 150, "seasonNoteKm": 150, "communityKm": 25}
+LIMITS = {"evacKm": 150, "seasonNoteKm": 150, "communityKm": 25}
 MODE = "Exercise: every fire on this map is invented. The terrain, the lakes and the distances are real."
-assert LIMITS["guardKm"] == LIMITS["seasonNoteKm"], "the note states one distance for both limits"
+assert LIMITS["evacKm"] == LIMITS["seasonNoteKm"], "the note states one distance for both limits"
 NOTE = ("No fire shown here happened. No aircraft flew. The exercise shows how the simulated fleet chooses "
-        f"under load. Its ground was chosen at least {LIMITS['guardKm']} km from every 2026 fire on the guard "
-        "list and from every wildfire of note in the season record.")
+        f"under load. Its ground was chosen at least {LIMITS['seasonNoteKm']} km from every wildfire of note "
+        "in the season record and from every fire in the season evacuation record.")
 
 
 def read(path):
@@ -68,12 +68,12 @@ def quantile(vals, p):
 def context():
     idx = read('data/season/2026.days.json')
     season = read('data/season/2026.json')['fires']
-    guard = read('data/season/2026.guard.json')
-    guarded = {f['fire'] for f in guard['fires']}
+    evac = read('data/season/2026.evac.json')['fires']
+    evacuated = {f['fire'] for f in evac}
     noted = {f['fire'] for f in season if f['fireOfNote'] or f['wasFireOfNote']}
     # Centres and enclosing discs for EVERY captured outline, not just the latest view.
     # The conservative bound keeps the entire invented footprint 150 km away.
-    discs = {n: [] for n in guarded | noted}
+    discs = {n: [] for n in evacuated | noted}
     # Outlines of fires on NEITHER list. They reject nothing; they are kept so the record can
     # say how near the nearest one comes (nearest_other), instead of leaving it unsaid.
     others = []
@@ -81,7 +81,7 @@ def context():
         if f['fire'] in discs:
             discs[f['fire']].append(([f['lon'], f['lat']], math.sqrt(max(f['hindsightSizeHa'] or 0, 10)/math.pi)/10))
     days = []
-    paths = ['data/season/2026.days.json','data/season/2026.json','data/season/2026.guard.json',
+    paths = ['data/season/2026.days.json','data/season/2026.json','data/season/2026.evac.json',
              'data/bc-outline.json','data/water-bc.json','sim/communities.js','data/terrain-bc.jpg']
     for d in idx['days']:
         fp = 'data/season/' + d['fires']['file']; pp = 'data/season/' + d['perims']['file']
@@ -100,18 +100,18 @@ def context():
                 ring = poly[0]; ll = ring[0]; reach = max(hav(ll,p) for p in ring)
                 if n in discs: discs[n].append((ll, reach))
                 else: others.append((n, d['date'], ring, reach))
-    assert all(discs[n] for n in guarded | noted), 'unresolved exclusion entry'
+    assert all(discs[n] for n in evacuated | noted), 'unresolved exclusion entry'
     communities = json.loads(re.sub(r',\s*]', ']', re.search(r'export const CITIES = (\[.*?\]);', (ROOT/'sim/communities.js').read_text(), re.S)[1]))
     water = read('data/water-bc.json')['water']
-    return dict(days=days, guard=[d for n in sorted(guarded) for d in discs[n]] + [(p['ll'],0) for p in guard['places']],
+    return dict(days=days, evac=[d for n in sorted(evacuated) for d in discs[n]],
                 note=[d for n in sorted(noted) for d in discs[n]], communities=[c[:2] for c in communities],
-                excluded=sorted(guarded | noted), others=others,
+                excluded=sorted(evacuated | noted), others=others,
                 outline=read('data/bc-outline.json'), water=water,
                 sources={p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)})
 
 
 def distances(c, ll, radius=0):
-    return {"guardKm": min(hav(ll,p)-r-radius for p,r in c['guard']),
+    return {"evacKm": min(hav(ll,p)-r-radius for p,r in c['evac']),
             "seasonNoteKm": min(hav(ll,p)-r-radius for p,r in c['note']),
             "communityKm": min(hav(ll,p)-radius for p in c['communities'])}
 
@@ -219,7 +219,7 @@ def generate():
           'label':MODE,'note':NOTE,'fit':fitted,'minimumDistancesKm':{k:round(v,3) for k,v in minima.items()},
           'limitsKm':LIMITS,'placementCommunityClearanceKm':45,'attempts':attempts,'sourcesSha256':c['sources'],
           'geometry':'32-vertex radial polygons at >=80 ha, a seeded sinusoidal perturbation scaled to the drawn area in a local kilometre plane; otherwise the model uses its area-equivalent circle. Rounded to six decimal degrees. All footprints are inside the bundled BC outline and outside bundled water (unoutlined lakes conservatively use area-equivalent discs). Terrain is the bundled hillshade, not a measured height field.',
-          'distanceBasis':'Conservative minimum clearances from the whole exercise footprint to discs enclosing every observation and every captured outline of the fires on the guard list and of the season\'s wildfires of note, on every captured date; guard places on all dates. Fires on neither list reject nothing: the nearest captured outline of one is '+format(near['km'],'.1f')+' km from an exercise footprint (nearestOtherFire). Communities are exactly sim/communities.js, not a complete settlement inventory.',
+          'distanceBasis':'Conservative minimum clearances from the whole exercise footprint to discs enclosing every observation and every captured outline of the season\'s wildfires of note and of every fire in the season evacuation record, on every captured date. Fires on neither list reject nothing: the nearest captured outline of one is '+format(near['km'],'.1f')+' km from an exercise footprint (nearestOtherFire). Communities are exactly sim/communities.js, not a complete settlement inventory.',
           'nearestOtherFire':near,
           'wind':'Still air; no invented forecast.','authorship':'Project-generated synthetic data; source licences remain in data/README.md and DATA-SOURCES.md.'}
     prov.update(source=list(c['sources']), publisher='Pink Robotics',

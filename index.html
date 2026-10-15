@@ -468,7 +468,7 @@ body.split-h #introOv .io-3d{left:52%;top:18%}
 .hud .chip b{color:var(--bone);font-weight:600}
 .hud .chip .sim{color:var(--warm)}
 .hud .chip.warn{color:var(--red);border-color:var(--red)}
-/* The guarded mode sentence wraps in its own row, at every map width. */
+/* The mode sentence wraps in its own row, at every map width. */
 #modeNote{margin:0;width:fit-content;flex:none;max-width:min(72ch,100%);box-sizing:border-box;
   font:500 var(--t-11)/1.5 var(--mono);color:#c9c3b6;background:rgba(8,8,10,.92);
   padding:4px 6px;border-radius:4px}
@@ -878,7 +878,7 @@ body.record-only #hudSim,body.record-only [data-dtab="3d"],body.record-only #fle
           <p class="data-note" style="flex-basis:100%;margin:0;color:var(--muted)">
             <span id="firstPartyNote">This page's own code talks only to the site that served it.</span>
             <span id="windNote">Still air · wind mirror not loaded.</span><br>
-            <span id="guardNote"></span> <span id="heatNote"></span><br>
+            <span id="sceneNote"></span> <span id="heatNote"></span><br>
             Weather data by Open-Meteo.com · CC BY 4.0. Terrain: Mapzen/AWS; vectors: Natural Earth.
             <a href="concept/#sources">Data sources and method</a>.
           </p>
@@ -1028,7 +1028,7 @@ body.record-only #hudSim,body.record-only [data-dtab="3d"],body.record-only #fle
   <p style="color:var(--text)">Exercise: every fire on this map is invented. The terrain, the lakes and the distances are real.</p>
   <p class="kicker">EXERCISE · INVENTED FIRES</p>
   <h2>The monitor, standing still: an exercise</h2>
-  <p>No fire shown here happened. No aircraft flew. The exercise shows how the simulated fleet chooses under load. Its ground was chosen at least 150 km from every 2026 fire on the guard list and from every wildfire of note in the season record.</p>
+  <p>No fire shown here happened. No aircraft flew. The exercise shows how the simulated fleet chooses under load. Its ground was chosen at least 150 km from every wildfire of note in the season record and from every fire in the season evacuation record.</p>
   <p>This fixed exercise supplies the poster and the no-script reference scene. It is not a date or an agency record. Its 117 fires have invented positions, sizes and stages of control; 43 are out of control in the exercise. The terrain and lakes are bundled public data. The fires use aggregate distributions from the busiest captured season days, never individual incidents. The seed, fitted numbers and distance checks are in <a href="data/exercise/exercise.prov.json">the exercise provenance</a>.</p>
   <p>Bone marks exercise fire data; pink marks the simulated fleet. With scripts on, live remains the default view and the day control offers “Exercise: invented fires”. If the live mirror fails, the page shows the newest fleet day as a replay; it does not switch to this exercise.</p>
   <p>The flight model assumes a hull that floats. Nothing floats today as drawn. The <a href="float/">float case</a> explains the unresolved structural requirements.</p>
@@ -1186,7 +1186,7 @@ body.record-only #hudSim,body.record-only [data-dtab="3d"],body.record-only #fle
 <!-- The whole application is app/main.js. This page is markup: everything it does,
      it does from there, and there is no build step between the two — the browser
      loads the same modules you read on GitHub. -->
-<script type="module" src="./app/main.js?v=3c39c29e"></script>
+<script type="module" src="./app/main.js?v=6f3787a9"></script>
 <footer class="noticefooter"><a href="notices.html">Data, licences and notices</a></footer>
 </body>
 </html>

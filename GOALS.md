@@ -88,12 +88,11 @@ here. No outside objection has been through it yet.
 
 Where a rule does not hold yet, it says so.
 
-- **Never replay a tragedy with a better ending.** The season replay being built shows real fires
-  and a simulated fleet that never flew. It must not say or imply that any fire would have burned
-  differently. No replay is published yet.
 - **No hindsight in the replay.** The replayed fleet may see only what was on record that day: each
   fire's status and size as known then. It never sees a fire's final size, and it never reads
-  outlines drawn after the fact. This binds the replay being built. It is not a rule against
+  outlines drawn after the fact. The replay shows real fires and a simulated fleet that never flew,
+  and it must not say or imply that any fire would have burned differently. This binds the replay
+  being built. It is not a rule against
   satellite data: the live monitor uses the last day's satellite hotspots to help choose where
   along a fire's edge to drop (`sim/targets.js`), and a test holds it to that.
 - **A visitor's browser talks only to this site.** True in this repository since 2026-10-01. The

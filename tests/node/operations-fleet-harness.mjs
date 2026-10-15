@@ -6,8 +6,8 @@ const root = path.resolve(import.meta.dirname, '../..');
 const read = file => fs.readFileSync(path.join(root,file),'utf8');
 const simURL = pathToFileURL(path.join(root,'sim/index.js')).href;
 export const SIM = await import(simURL);
-export const S = {fires:[],water:[],missions:[],regions:[],recordOnly:false,exercise:true,
-  exerciseRegions:[],guard:null,seasonOfNote:new Set(),day:null,modeId:'balanced',
+export const S = {fires:[],water:[],missions:[],recordOnly:false,exercise:true,
+  day:null,daySource:'exercise',modeId:'balanced',
   heat:[],battByHull:{},sel:null};
 globalThis.__operationsState = S;
 const source = read('app/feeds.js');

@@ -20,11 +20,14 @@ def change_json(fn):
     return change
 
 
-def move_near_guard(doc):
-    g=json.loads((ROOT/'data/season/2026.guard.json').read_text())
+def move_near_excluded(doc):
     s=json.loads((ROOT/'data/season/2026.json').read_text())
-    f=next(f for f in s['fires'] if f['fire']==g['fires'][0]['fire'])
-    # ~89 km north of a guard entry, below the mandatory 150 km clearance.
+    e=json.loads((ROOT/'data/season/2026.evac.json').read_text())
+    evacuated={f['fire'] for f in e}
+    # The exclusion basis: every season fire of note plus every fire in the evacuation record.
+    basis=[f for f in s['fires'] if f['fireOfNote'] or f['wasFireOfNote'] or f['fire'] in evacuated]
+    f=sorted(basis,key=lambda f:f['fire'])[0]
+    # ~89 km north of an excluded fire, below the mandatory 150 km clearance.
     doc['fires']['features'][0]['geometry']['coordinates']=[f['lon'],f['lat']+.8]
 
 
@@ -37,7 +40,7 @@ def replace(old,new):
 
 CASES=[
     ('real-looking number','data/exercise/exercise.json','invented_identity',change_json(lambda d:d['fires']['features'][0]['properties'].update(FIRE_NUMBER='K51234'))),
-    ('within 100 km of guard','data/exercise/exercise.json','geography',change_json(move_near_guard)),
+    ('within 100 km of an excluded fire','data/exercise/exercise.json','geography',change_json(move_near_excluded)),
     ('remove EXERCISE chip','app/main.js','page_labels',replace(b'<b>EXERCISE</b>',b'<b></b>')),
     ('remove exercise from fires heading','app/cockpit/tables.js','page_labels',replace(b'Exercise fires',b'Fires')),
     ('change seed without regeneration','data/exercise/exercise.json','regenerated_bytes',change_json(lambda d:d.update(seed=d['seed']+1))),

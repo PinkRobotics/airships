@@ -1,9 +1,9 @@
-/* America/Vancouver dates, the one clock-adjacent thing the guard needs.
+/* America/Vancouver dates, the one clock-adjacent thing the views need.
  *
- * The no-fleet window and every status day are Vancouver calendar dates, and the browser
- * may be anywhere, so "what day is this view" is never the visitor's local date. The
- * conversion itself is environment work (Intl with a named zone), which is why it lives in
- * app/ and not in sim/guard.js: the model takes dates as strings and stays clock-free.
+ * Every status day is a Vancouver calendar date, and the browser may be anywhere, so
+ * "what day is this view" is never the visitor's local date. The conversion itself is
+ * environment work (Intl with a named zone), which is why it lives in app/ and not in
+ * sim/: the model takes dates as strings and stays clock-free.
  */
 
 /** An instant's calendar date in America/Vancouver, as YYYY-MM-DD. */

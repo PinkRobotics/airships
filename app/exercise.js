@@ -1,19 +1,27 @@
-/* The invented view is separate from the dated-day and mirror fallback routes.
- * Every historical keep-out is retained, regardless of its date. */
-import { havKm, keepOutsFor, loadGuard, setSeed } from '../sim/index.js?v=3c39c29e';
-import { fetchJSON } from './net.js?v=3c39c29e';
-import { S } from './store.js?v=3c39c29e';
+/* The invented view is separate from the dated-day and mirror fallback routes. It has no
+ * date, and its ground is checked here against the season record: the exercise claims its
+ * fires stand far from every real wildfire of note, and the view itself re-derives that
+ * claim from the record it ships with rather than trusting the generator's word. */
+import { havKm, setSeed } from '../sim/index.js?v=6f3787a9';
+import { fetchJSON } from './net.js?v=6f3787a9';
+import { S } from './store.js?v=6f3787a9';
 
 export const EXERCISE_MODE = 'Exercise: every fire on this map is invented. The terrain, the lakes and the distances are real.';
-export const EXERCISE_NOTE = 'No fire shown here happened. No aircraft flew. The exercise shows how the simulated fleet chooses under load. Its ground was chosen at least 150 km from every 2026 fire on the guard list and from every wildfire of note in the season record.';
+export const EXERCISE_NOTE = 'No fire shown here happened. No aircraft flew. The exercise shows how the simulated fleet chooses under load. Its ground was chosen at least 150 km from every wildfire of note in the season record and from every fire in the season evacuation record.';
+export const EXERCISE_CLEARANCE_KM = 150;
 
-export async function loadExercise(normalize, fetchDayFile) {
+/* The radius (km) of an area-equivalent disc around a footprint, the conservative bound
+ * the generator's own record uses for fires without a drawn outline. */
+function radiusKm(sizeHa) {
+  return Math.sqrt(Math.max(sizeHa || 0, 10) / Math.PI) / 10;
+}
+
+export async function loadExercise(normalize) {
   S.exercise = true; S.day = null; S.daySource = 'exercise'; S.tier = 'exercise';
   S.fetchedAt = null; S.snapshotDate = null; S.usingFallback = false;
-  S.recordWindow = false; S.unknownDay = null;
+  S.unknownDay = null;
   try {
-    if (!S.guard?.ok) throw new Error('the guard could not be read: ' + (S.guard?.reason || 'missing guard'));
-    if (S.seasonNote) throw new Error('the complete season context did not load');
+    if (S.seasonNote) throw new Error('the season record did not load');
     const doc = await fetchJSON('data/exercise/exercise.json', 20000);
     if (doc.kind !== 'exercise' || !Number.isInteger(doc.seed) || doc.label !== EXERCISE_MODE || doc.note !== EXERCISE_NOTE)
       throw new Error('the exercise identity or labels are invalid');
@@ -24,47 +32,36 @@ export async function loadExercise(normalize, fetchDayFile) {
       if (!p.EXERCISE || !/^EX\d{3}$/.test(p.FIRE_NUMBER) || p.INCIDENT_NAME !== 'Exercise ' + p.FIRE_NUMBER.slice(2))
         throw new Error('an exercise fire is not labelled as invented');
     }
-    const season = await fetchJSON('data/season/2026.json', 30000);
-    if (!Array.isArray(season.fires) || !season.fires.length) throw new Error('the season geography is missing');
-    const history = season.fires.map(f => ({id:f.fire, name:f.name,
-      ll:[f.lon,f.lat], sizeHa:f.hindsightSizeHa, note:!!(f.fireOfNote || f.wasFireOfNote)}));
-    const regions = keepOutsFor(S.guard, history, {seasonOfNote:S.seasonOfNote});
-    for (const d of S.dayList) {
-      const [fires, perims] = await Promise.all([fetchDayFile(d.fires.file, d.fires), fetchDayFile(d.perims.file, d.perims)]);
-      regions.push(...keepOutsFor(S.guard, normalize(fires.data, perims.data), {seasonOfNote:S.seasonOfNote}, d.date));
+    // The note says the ground was chosen far from every wildfire of note in the season
+    // record. Hold that here, from the record itself: centre-to-centre distance minus the
+    // discs both sides claim. A scene that no longer clears the sentence it ships with is
+    // refused, not shown anyway; the generator's own gate holds the full basis (every
+    // captured outline, and the evacuation record) against the committed files.
+    const rings = new Map();
+    for (const f of doc.perimeters.features) rings.set(f.properties.FIRE_NUMBER, f.geometry?.coordinates?.[0] || null);
+    let minKm = Infinity;
+    for (const f of doc.fires.features) {
+      const ll = f.geometry.coordinates, size = f.properties.CURRENT_SIZE || 0;
+      const ring = rings.get(f.properties.FIRE_NUMBER);
+      const reach = ring ? Math.max(...ring.map(p => havKm(ll, p))) : radiusKm(size);
+      for (const s of S.seasonFires) {
+        if (!s.note) continue;
+        const km = havKm(ll, s.ll) - reach - radiusKm(s.sizeHa);
+        if (km < minKm) minKm = km;
+      }
     }
-    for (const p of S.guard.places) regions.push(...keepOutsFor(S.guard, [], {}, p.date));
-    const refused = regions.find(r => r.refusal);
-    if (refused) throw new Error(refused.refusal);
-    // Each enclosing disc contains every historical polygon plus its keep-out band.
-    // Keeping one disc per entry is conservative and makes per-frame checks inexpensive.
-    const groups = new Map();
-    for (const r of regions) {
-      const key = r.kind + ':' + r.who;
-      if (!groups.has(key)) groups.set(key, []);
-      groups.get(key).push(r);
-    }
-    S.exerciseRegions = [...groups.values()].map(rs => {
-      // Order areas have an outline, with no centre in the evacuation record.
-      const ll = (rs[0].ll || rs[0].edge[0]).slice();
-      const rKm = Math.max(...rs.flatMap(r => (r.edge || [r.ll]).map(p => havKm(ll,p) + r.rKm))) + .01;
-      return {...rs[0], ll, rKm, ring:null, edge:null};
-    });
-    // Store the raw union as evidence for the exercise gate; the allocator uses its
-    // conservative envelope, so it cannot ignore a keep-out from another date.
-    S.exerciseHistoricalRegions = regions;
+    S.exerciseClearance = { minKm: Math.round(minKm * 10) / 10, limitKm: EXERCISE_CLEARANCE_KM };
+    if (minKm < EXERCISE_CLEARANCE_KM - 1e-6)
+      throw new Error('an exercise footprint is within ' + EXERCISE_CLEARANCE_KM + ' km of a wildfire of note in the season record');
     setSeed(doc.seed);
     S.recordOnly = false; S.standDown = null; S.perimsOk = true;
     S.dataNote = EXERCISE_NOTE;
-    const fires = normalize(doc.fires, doc.perimeters);
-    const checked = loadGuard(S.guard.doc, { viewFires: fires });
-    if (!checked.ok) { S.guard = checked; throw new Error(checked.reason); }
-    return fires;
+    return normalize(doc.fires, doc.perimeters);
   } catch (e) {
     // A clause that ends "..., because": the page's sentences for an empty view are built on it.
     S.recordOnly = true; S.standDown = 'the exercise could not be read (' + e.message + ')';
     S.dataNote = S.standDown; S.perimsOk = false;
-    S.exerciseRegions = []; S.exerciseHistoricalRegions = [];
+    S.exerciseClearance = null;
     return [];
   }
 }

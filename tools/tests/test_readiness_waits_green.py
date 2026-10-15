@@ -115,13 +115,11 @@ class ReadinessWaits(unittest.TestCase):
         self.run_expression(source)
         self.run_expression(source,'never','refuse')
 
-    def test_guard_probe_and_heat_require_ready_planning(self):
-        for name in ('PROBE','HEAT_AND_NULL'):
-            source=constant('tests/guard/check.py',name)
-            source=source[:source.index('  S.paused') if name=='PROBE' else source.index("  document.getElementById")]+"return {ready:true};})()"
-            with self.subTest(probe=name):
-                self.run_expression(source)
-                self.run_expression(source,'never','refuse')
+    def test_views_probe_requires_ready_planning(self):
+        source=constant('tests/page.py','PROBE')
+        source=source[:source.index('  S.paused')]+"return {ready:true};})()"
+        self.run_expression(source)
+        self.run_expression(source,'never','refuse')
 
     def test_fleet_envelope_waits_for_settled_planning(self):
         source=constant('tests/energy/fleet-envelope.py','PROBE')
@@ -147,12 +145,6 @@ class ReadinessWaits(unittest.TestCase):
         source=source[:source.index('  const original=')]+"return {ready:true};}})()"
         self.run_expression(source)
         self.run_expression(source,'absent','refuse')
-
-    def test_guard_assurance_refuses_ready_but_pending_planning(self):
-        source=(ROOT/'tests/guard/assurance.js').read_text()
-        source='(async()=>{'+source[source.index("  for (let i=") if "  for (let i=" in source else source.index('  // The page'):source.index('  S.paused')]+"return {ready:true};})()"
-        self.run_expression(source)
-        self.run_expression(source,'never','refuse')
 
     def test_browser_suite_can_finish_after_four_minutes(self):
         self.run_expression(constant('tests/browser/run.py','GRAB'),'suite')

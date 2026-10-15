@@ -1,7 +1,7 @@
 /* Slow profile generator, deliberately outside make check. Four worker threads at most. */
 import fs from 'node:fs';
 import {Worker,isMainThread,parentPort,workerData} from 'node:worker_threads';
-import {CLASSES,MODES,cheapestFeasible,closureRequirements,PROFILE_SEARCH,planCycle} from '../../sim/index.js?v=3c39c29e';
+import {CLASSES,MODES,cheapestFeasible,closureRequirements,PROFILE_SEARCH,planCycle} from '../../sim/index.js?v=6f3787a9';
 import {profileDetails} from './energy-profile-details.mjs';
 import {validateFleetDistanceRecord} from './fleet-distance-set.mjs';
 import {writeGenerated} from './energy-output.mjs';

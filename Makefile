@@ -113,7 +113,7 @@ CI_OUTSIDE_CHECK := floatplantshard
 # ledgercheck still drives a browser when regenerating the float ledger.
 quick: ciparity energycheck energydoccheck portcheck lint stampcheck seasoncheck capturecheck evaccheck labelledcheck claimscheck figcheck analysischeck ledgercheck censuscheck floatpagecheck floatverdictcheck skincheck nodescheck contractcheck assemblycheck test-node readmecheck noticecheck linkcheck mutationcheck buildercheck  ## Selected gates; no TeX (ledger regeneration still needs Chromium)
 
-check: ciparity reposizecheck energycheck energydoccheck servedenergycheck portcheck lint stampcheck figfresh fallbackcheck seasoncheck capturecheck guardcheck exercisecheck evaccheck labelledcheck claimscheck figcheck analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest floatplantcheck floatpagecheck floatverdictcheck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden goldenui test test-node firstparty interaction readmecheck noticecheck linkcheck mutationcheck buildercheck  ## All local gates; floatplantcheck requires a full pass for changed claim-gate contents
+check: ciparity reposizecheck energycheck energydoccheck servedenergycheck portcheck lint stampcheck figfresh fallbackcheck seasoncheck capturecheck viewscheck exercisecheck evaccheck labelledcheck claimscheck figcheck analysischeck analysisfresh ledgercheck censuscheck ledgercheck-selftest floatplantcheck floatpagecheck floatverdictcheck cellparity skincheck explorercheck levelscheck shipcheck bandcheck nodescheck contractcheck assemblycheck pdfcheck golden goldenui test test-node firstparty interaction readmecheck noticecheck linkcheck mutationcheck buildercheck  ## All local gates; floatplantcheck requires a full pass for changed claim-gate contents
 
 mutationcheck:  ## Require every parity mutation to fail, then verify the restored files
 	node tests/parity/mutations.mjs
@@ -337,18 +337,18 @@ clean:  ## Delete generated output: rasterised figures and __pycache__
 seasoncheck:  ## The season files must match a regeneration and their pinned totals must hold
 	$(PY) tests/season/check.py
 
-# The guard gate: the no-fleet window and the guarded fires are data, pinned
-# by digest, and the page holds the ruling on every kind of day — record-only days carry no
-# fleet figure anywhere in their text, fleet days fly only unguarded fires and every
-# simulated position stays outside every keep-out, a date with no day file stands down in
-# words, and the ruled sentences appear exactly as ruled. Loads ten views and four layout widths headless
+# The views gate: what every view of the page owes the reader, proved on the page —
+# the honest-labels refusal over every string the page holds, the labels a view wears
+# before the map, the stand-down in words for a view that could not be read, the layout
+# holds at four widths, and the live-words rule for views that are not the live feed.
+# Loads ten views and four layout widths headless
 # (chromium + websockets, same as the golden check).
-.PHONY: guardcheck
-guardcheck:  ## The no-fleet window and the guarded fires must hold, on file and on the page
-	$(PY) tests/guard/check.py
+.PHONY: viewscheck
+viewscheck:  ## Every view refuses effect claims, names itself, and holds its layout
+	$(PY) tests/views/check.py
 
 .PHONY: exercisecheck
-exercisecheck:  ## Invented exercise: deterministic geography, labels and all-date guard
+exercisecheck:  ## Invented exercise: deterministic geography, labels and clearance
 	$(PY) tests/exercise/check.py
 
 # The evacuation gate: the ever-under-order-or-alert record is generated data,

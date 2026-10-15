@@ -67,6 +67,10 @@
     },
     {
       "className": "P100",
+      "km": 6.462011200336579
+    },
+    {
+      "className": "P100",
       "km": 6.872957528739268
     },
     {
@@ -93,7 +97,7 @@
     },
     {
       "capture": "replay.json",
-      "missions": 4
+      "missions": 5
     }
   ],
   "method": "Unique class and exact one-way distance pairs after all captured missions have accepted plans, with jitter pinned to seed 7; supplemented in the gate by every printed search distance and fleet-distance row.",
@@ -326,7 +330,7 @@
       "capture": "replay",
       "mission": 0,
       "class": "P100",
-      "km": 6.872957528739268,
+      "km": 6.462011200336579,
       "mode": "rapid",
       "options": {
         "speedMultiplier": 1.5,
@@ -343,6 +347,23 @@
       "capture": "replay",
       "mission": 1,
       "class": "P100",
+      "km": 6.872957528739268,
+      "mode": "rapid",
+      "options": {
+        "speedMultiplier": 1.5,
+        "verticalProfile": {
+          "climbRateMps": 2,
+          "letdownRateMps": 2,
+          "climbAirspeedMps": 5,
+          "letdownAirspeedMps": 5
+        },
+        "ballastT": 35
+      }
+    },
+    {
+      "capture": "replay",
+      "mission": 2,
+      "class": "P100",
       "km": 14.714511358632635,
       "mode": "balanced",
       "options": {
@@ -352,7 +373,7 @@
     },
     {
       "capture": "replay",
-      "mission": 2,
+      "mission": 3,
       "class": "P100",
       "km": 19.388470917637715,
       "mode": "balanced",
@@ -363,7 +384,7 @@
     },
     {
       "capture": "replay",
-      "mission": 3,
+      "mission": 4,
       "class": "P100",
       "km": 22.610554763687116,
       "mode": "balanced",

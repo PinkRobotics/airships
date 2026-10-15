@@ -595,14 +595,10 @@ def provenance_names_every_file_and_every_raw_input():
                    "must never be an input to the dispatch model"):
         same(prov["notes"].count(phrase), 1, f"the notes say {phrase!r}")
     out = {o["file"]: o for o in prov["outputs"]}
-    # The guard file and its sidecar are a ruling about the season, not season output:
-    # they are pinned by their own digest test (tests/guard/check.py), so the provenance
-    # must not claim to cover them and must not flag them as missing from its outputs.
     # The derived evacuation record is season output, but it carries its own sidecar —
     # {YEAR}.evac.prov.json covers {YEAR}.evac.json — so this one covers the fire files
     # only; that pair is pinned by its own gate, tests/evac/check.py.
-    held_out = {f"{YEAR}.guard.json", f"{YEAR}.guard.prov.json",
-                f"{YEAR}.evac.json", f"{YEAR}.evac.prov.json"}
+    held_out = {f"{YEAR}.evac.json", f"{YEAR}.evac.prov.json"}
     on_disk = sorted(p.relative_to(SEASON).as_posix() for p in SEASON.rglob("*")
                      if p.is_file() and p.name != f"{YEAR}.prov.json"
                      and p.name not in held_out)

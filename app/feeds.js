@@ -1,37 +1,34 @@
 /* The data this page shows: which view it is, what it asks for, how it falls back, and how
  * the feeds become model input.
  *
- * DATED AND LIVE VIEWS have three routes, and the guard decides their mode (data/season/2026.guard.json,
- * read through sim/guard.js — the ruling is data, not code):
+ * DATED AND LIVE VIEWS have three routes:
  *
  *   a dated day   ?day=YYYY-MM-DD — one of the status days in data/season/, loaded through
- *                 the same code path as live data. A day inside a no-fleet window is shown
- *                 as the record alone: the fires and their outlines as published, nothing
- *                 of the fleet. Any other dated day is a fleet day.
- *   the sample    ?data=snapshot, and the live mirror's failure fallback: the latest fleet
- *                 day in the repository, read from the same season day files — there is no
- *                 second copy of the data, and 8 August 2026 is not reachable with a fleet
- *                 by any route.
+ *                 the same code path as live data. A day whose files answer their checks
+ *                 is a fleet day; one that cannot be read honestly stands the fleet down
+ *                 and says so in words.
+ *   the sample    ?data=snapshot, and the live mirror's failure fallback: the latest day
+ *                 in the repository, read from the same season day files — there is no
+ *                 second copy of the data.
  *   live          this site's own mirror of the public feeds (pipeline/live.py), when it is
- *                 fresh. Live is a fleet view unless today, in Vancouver, is inside a
- *                 no-fleet window.
+ *                 fresh.
  *
  * The mirror exists so that traffic to this page does not become traffic to an emergency
  * service. The separate ?view=exercise route loads invented fires through normalize,
- * with no date, and keeps every historical guard region.
+ * with no date, and checks its ground against the season record.
  * Whichever tier answered is named on the page — the status line never implies
  * live data it does not have, and it names the day and the mode in words on every view.
  */
-import { dropSeg, dayKind, fireNumber, guardedFire, havKm, insideFire, loadEvac, loadGuard, liveEvac, missionBlocked, noteKm, planTargets } from '../sim/index.js?v=3c39c29e';
-import { EXERCISE_MODE, EXERCISE_NOTE, loadExercise } from './exercise.js?v=3c39c29e';
-import { renderFires, renderRoster } from './cockpit/tables.js?v=3c39c29e';
-import { renderDrawer } from './cockpit/panels.js?v=3c39c29e';
-import { vancouverClock, vancouverDate } from './dates.js?v=3c39c29e';
-import { replanAll } from './fleet.js?v=3c39c29e';
-import { renderStatus } from './main.js?v=3c39c29e';
-import { fetchJSON, mirrorJSON } from './net.js?v=3c39c29e';
-import { S } from './store.js?v=3c39c29e';
-import { windForMission, readWind, WIND_MAX_AGE_MS } from './wind.js?v=3c39c29e';
+import { dropSeg, fireNumber, havKm, insideFire, planTargets } from '../sim/index.js?v=6f3787a9';
+import { EXERCISE_MODE, EXERCISE_NOTE, loadExercise } from './exercise.js?v=6f3787a9';
+import { renderFires, renderRoster } from './cockpit/tables.js?v=6f3787a9';
+import { renderDrawer } from './cockpit/panels.js?v=6f3787a9';
+import { vancouverClock, vancouverDate } from './dates.js?v=6f3787a9';
+import { replanAll } from './fleet.js?v=6f3787a9';
+import { renderStatus } from './main.js?v=6f3787a9';
+import { fetchJSON, mirrorJSON } from './net.js?v=6f3787a9';
+import { S } from './store.js?v=6f3787a9';
+import { windForMission, readWind, WIND_MAX_AGE_MS } from './wind.js?v=6f3787a9';
 
 
 /* REPLAY MODE. `?data=snapshot` pins every external input to a dated copy bundled with the
@@ -108,7 +105,7 @@ export function normalize(firesGJ, perimsGJ) {
  * the only thing that knows the answer.
  *
  *   "replay"    ?data=snapshot — the visitor asked for the bundled sample (a fleet day)
- *   "day"       ?day=YYYY-MM-DD — a dated status day, record-only or fleet as the guard says
+ *   "day"       ?day=YYYY-MM-DD — a dated status day, a fleet day unless its files fail
  *   "mirror"    this site's server-side copy of the public feeds
  *   "snapshot"  the bundled sample; the mirror failed
  *   "none"      nothing answered and there is nothing to show
@@ -136,121 +133,54 @@ function usable(gj) {
   return !!(gj && Array.isArray(gj.features) && gj.features.length);
 }
 
-/* ---------- the season record and the guard -------------------------------------------------- */
+/* ---------- the season record ----------------------------------------------------------------- */
 
-/* The season index, the season record and the guard file, read once per view. Everything
- * else in this module waits on them: which fires the fleet may work, and whether it flies
- * at all, are the guard's call — and a guard that cannot be read stands the fleet down
- * (R6) rather than being skipped.
+/* The season index and the season record, read once per view. Everything else in this
+ * module waits on them: the day control is built from the index, and the exercise view
+ * holds its invented ground against the record's wildfires of note.
  *
  * A failure here is not a blank page: the words go into S.seasonNote and the view degrades
- * to whatever it can still load honestly. The season record's numbers are handed to
- * loadGuard only when the record actually loaded, so a missing season file degrades the
- * hindsight checks without taking the guard itself down. */
+ * to whatever it can still load honestly. */
 let seasonOnce = null;
 export function loadSeason() {
   if (seasonOnce) return seasonOnce;
   seasonOnce = (async () => {
     const fail = [];
-    let daysIdx = null, guardDoc = null, seasonDoc = null, evacDoc = null;
+    let daysIdx = null, seasonDoc = null;
     try { daysIdx = await fetchJSON("data/season/2026.days.json", 20000); }
     catch (e) { fail.push("season index: " + why(e)); }
-    try { guardDoc = await fetchJSON("data/season/2026.guard.json", 20000); }
-    catch (e) { fail.push("guard file: " + why(e)); }
     try { seasonDoc = await fetchJSON("data/season/2026.json", 30000); }
     catch (e) { fail.push("season record: " + why(e)); }
-    // The derived evacuation record is guard data like the guard file itself: read by
-    // loadEvac, which fails closed in words. A fetch that failed hands loadEvac a null doc,
-    // which refuses — a missing record is not "no fires under order".
-    try { evacDoc = await fetchJSON("data/season/2026.evac.json", 20000); }
-    catch (e) { fail.push("evacuation record: " + why(e)); }
-    const seasonNumbers = new Set(), seasonOfNote = new Set();
-    if (seasonDoc && Array.isArray(seasonDoc.fires))
-      for (const f of seasonDoc.fires) {
-        if (typeof f.fire !== "string") continue;
-        seasonNumbers.add(f.fire);
-        if (f.fireOfNote || f.wasFireOfNote) seasonOfNote.add(f.fire);
-      }
-    S.seasonNumbers = seasonNumbers;
-    S.seasonOfNote = seasonOfNote;
+    S.seasonFires = seasonDoc && Array.isArray(seasonDoc.fires)
+      ? seasonDoc.fires
+        .filter(f => f && typeof f.fire === "string" && Number.isFinite(f.lon) && Number.isFinite(f.lat))
+        .map(f => ({ id: f.fire, ll: [f.lon, f.lat], sizeHa: f.hindsightSizeHa || 0,
+          note: !!(f.fireOfNote || f.wasFireOfNote) }))
+      : [];
     S.dayList = daysIdx && Array.isArray(daysIdx.days)
       ? daysIdx.days.filter(d => d && typeof d.date === "string" && d.fires && d.fires.file && d.perims && d.perims.file)
       : [];
-    S.evacSeason = loadEvac(evacDoc);
-    S.evacFrom = "season";
-    S.guardDoc = guardDoc;
-    S.guardCtx = seasonDoc ? { seasonNumbers, seasonOfNote } : {};
-    // loadGuard never throws: a malformed or missing file becomes {ok:false, reason} in
-    // words, and every caller below reads that as "the fleet stands down".
-    S.guard = loadGuard(guardDoc, { ...S.guardCtx, evac: S.evacSeason });
     S.seasonNote = fail.length ? fail.join("; ") : null;
   })();
   return seasonOnce;
 }
 
-/* The live evacuation mirror. pipeline/live.py writes it in the mirror's wrapping but
- * reduced — {fetchedAt, source, data: {fires: [...]}} — so it is read here with the same
- * staleness gate as the other mirrors (net.mirrorJSON guards a feature collection; this
- * copy is not one). Any failure of the ENVELOPE — not answering, stale, not a mirror
- * document — is the fall-back case: the season's captured record keeps governing and the
- * guard note says which copy was read. A copy that parses but cannot be READ (loadEvac's
- * own checks) is a refusal, not a fall-back. */
-async function mirrorEvac(maxAgeMin) {
-  const j = await fetchJSON("data/live/evac.json?ts=" + Math.floor(Date.now() / 300000), 12000);
-  if (!j || typeof j !== "object" || Array.isArray(j) || !j.data || typeof j.data !== "object")
-    throw new Error("the evacuation mirror is not a mirror document");
-  const at = Date.parse(j.fetchedAt);
-  const age = Date.now() - at;
-  if (!Number.isFinite(at) || age < -600000)
-    throw new Error("the evacuation mirror has no usable fetchedAt");
-  if (age >= maxAgeMin * 60000)
-    throw new Error("the evacuation mirror is " + Math.round(age / 60000) + " min old, past its " + maxAgeMin + " min gate");
-  return j.data;
-}
-
-/* R3 on one line: mark every guarded fire in view. f.guarded is the reason object exactly
- * when the fleet may never work that fire; needsShip, the map, the tables and the cockpit
- * all read it, so the reason shown is the reason enforced. */
-export function applyGuard(fires) {
-  if (S.guard && S.guard.ok) {
-    const checked = loadGuard(S.guard.doc, { viewFires: fires });
-    if (!checked.ok) { S.guard = checked; setView(S.day, checked.reason); }
-  }
-  for (const f of fires) {
-    const g = guardedFire(S.guard, f, { seasonOfNote: S.seasonOfNote });
-    if (g && (g.why === "invalid-fire" || g.why === "invalid-geometry")) setView(S.day, g.reason);
-    if (f) f.guarded = g;
-  }
-  return fires.filter(Boolean);
-}
-
-/* Is this date inside a no-fleet window? (dayKind answers the same question with the
- * reason attached; this is the boolean for choosing which sentence the page says.) */
-function inWindow(G, date) {
-  return !!(G && G.ok && (G.noFleet || []).some(w => date >= w.from && date <= w.to));
-}
-
-/* The newest dated day the guard allows a fleet on. ?data=snapshot and the mirror's
- * failure fallback both resolve to this, so the bundled sample is always a fleet day and
- * the old 8 August snapshot is never shown with a fleet. Null when no day qualifies — a
- * guard that failed to load says no to every date. */
-export function latestFleetDay() {
+/* The newest dated day in the repository. ?data=snapshot and the mirror's failure
+ * fallback both resolve to this, so the bundled sample is always a day the repository
+ * holds. Null when the index is down. */
+export function latestDay() {
   const days = S.dayList.map(d => d.date).slice().sort();
-  for (let i = days.length - 1; i >= 0; i--)
-    if (dayKind(S.guard, days[i]).fleet) return days[i];
-  return null;
+  return days.length ? days[days.length - 1] : null;
 }
 
 /* Set the view's mode once its date is known. Everything downstream — the fleet, the map,
- * the panels — reads S.recordOnly. A forcedWhy (R6: the guard file unreadable, the day's
- * own files failed, nothing could be read) stands the fleet down whatever the calendar
- * says, and the reason in words is owed to the visitor. */
+ * the panels — reads S.recordOnly. A forcedWhy (the day's own files failed, an unknown
+ * date, nothing could be read) stands the fleet down, and the reason in words is owed to
+ * the visitor. */
 function setView(date, forcedWhy) {
   S.day = typeof date === "string" ? date : vancouverDate(Date.now());
-  const k = dayKind(S.guard, S.day);
-  S.recordOnly = !k.fleet || !!forcedWhy;
-  S.recordWindow = !forcedWhy && inWindow(S.guard, S.day);
-  S.standDown = S.recordOnly ? (forcedWhy || k.reason) : null;
+  S.recordOnly = !!forcedWhy;
+  S.standDown = forcedWhy || null;
 }
 
 /* One day's files, checked against the season index before they are trusted (R6: a day
@@ -286,8 +216,8 @@ async function fetchDayFile(rel, pin) {
   return doc;
 }
 
-/* Load one dated day (fires + perimeters) and set the view to it. Returns the normalized,
- * guard-marked fires. Throws only in ways the caller has decided how to say. */
+/* Load one dated day (fires + perimeters) and set the view to it. Returns the normalized
+ * fires. Throws only in ways the caller has decided how to say. */
 async function loadDayView(d, tier, notes) {
   const fres = await fetchDayFile(d.fires.file, d.fires);
   if (!usable(fres.data)) throw new Error(d.fires.file + " carries no fires");
@@ -301,16 +231,14 @@ async function loadDayView(d, tier, notes) {
   S.perimsOk = !!(perims && usable(perims.data));
   S.unknownDay = null;
   setView(d.date, null);
-  return applyGuard(normalize(fres.data, perims && perims.data));
+  return normalize(fres.data, perims && perims.data);
 }
 
-/* The built-in sample: the latest fleet day in the repository, whichever route asked for
- * it (?data=snapshot, or the live mirror failing). If no season day can be read — the
- * index or the guard is down — the committed snapshot is the last resort, dated by its own
- * retrievedAt and shown as the guard rules its day: its day is 8 August 2026, inside the
- * window, so the fleet stays down by the guard's own rule and not by accident. */
+/* The built-in sample: the latest day in the repository, whichever route asked for it
+ * (?data=snapshot, or the live mirror failing). If no season day can be read — the index
+ * is down — the committed snapshot is the last resort, dated by its own retrievedAt. */
 async function loadSample(tier, notes) {
-  const date = latestFleetDay();
+  const date = latestDay();
   if (date) {
     const d = S.dayList.find(x => x.date === date);
     S.daySource = "sample";
@@ -326,7 +254,7 @@ async function loadSample(tier, notes) {
     notes.push("shown from the committed snapshot; the season days could not be read");
     S.dataNote = notes.join("; ");
     setView(vancouverDate(S.fetchedAt.getTime()), null);
-    return applyGuard(normalize(snap.fires, snap.perimeters));
+    return normalize(snap.fires, snap.perimeters);
   } catch (e) {
     notes.push("snapshot: " + why(e));
   }
@@ -338,7 +266,7 @@ async function loadSample(tier, notes) {
 
 export async function loadLive() {
   await loadSeason();
-  if (EXERCISE) return loadExercise(normalize, fetchDayFile);
+  if (EXERCISE) return loadExercise(normalize);
 
   /* A dated status day, through the same code path as live data. */
   if (DAY) {
@@ -361,8 +289,8 @@ export async function loadLive() {
     try {
       return await loadDayView(d, "day", []);
     } catch (e) {
-      // R6: a day file that fails its own checks is not flown around, and the visitor is
-      // told which check failed rather than being handed a silent blank map.
+      // A day file that fails its own checks is not flown around, and the visitor is told
+      // which check failed rather than being handed a silent blank map.
       S.tier = "none"; S.usingFallback = true; S.fetchedAt = null; S.perimsOk = false;
       S.dataNote = why(e); S.fires = [];
       setView(d.date, "the day's own files failed their checks (" + why(e) + ")");
@@ -392,18 +320,8 @@ export async function loadLive() {
     // answered: an empty collection draws nothing and must not be described as perimeters.
     S.perimsOk = usable(perims && perims.data);
     S.unknownDay = null;
-    // The evacuation record a live view is guarded by: the season's ever-record, widened by
-    // the mirror's copy when it answered (V4). A mirror copy that is missing or stale keeps
-    // the season's record and the note says so; a copy that answered but cannot be read
-    // stands the whole guard down, by loadEvac's own words.
-    let evacDoc = null;
-    try { evacDoc = await mirrorEvac(90); } catch (e) { /* the season's copy answers */ }
-    const joined = liveEvac(S.evacSeason, evacDoc);
-    S.evacFrom = joined.from;
-    S.guard = loadGuard(S.guardDoc, { ...S.guardCtx, evac: joined.state });
-    // R2: live is a fleet view unless today, in Vancouver, is inside a no-fleet window.
     setView(null, null);
-    return applyGuard(normalize(got.data, perims && perims.data));
+    return normalize(got.data, perims && perims.data);
   }
 
   // A refresh that failed with a good live picture already on screen keeps that picture
@@ -422,18 +340,15 @@ export async function loadLive() {
 }
 
 export function needsShip(f) {
-  // The guard decides first (R3): a fire that was a wildfire of note, or that led to
-  // evacuation orders or alerts, is never a candidate whatever its status — those fires are
-  // about people, and the page does not replay them with a fleet in the picture. Beyond
-  // that, the demonstration responds only to fires actually out of control; held and
+  // The demonstration responds only to fires actually out of control; held and
   // under-control fires stay on the map with no simulated allocation.
-  if (!f || f.guarded) return false;
+  if (!f) return false;
   return f.status === "Out of Control";
 }
 
-/* The mode sentence, in the words the ruling fixed (R7: only the braces are filled). One
+/* The mode sentence, in the words the ruling fixed (only the braces are filled). One
  * place writes it so the status line, the tests and the fallback generator all quote the
- * same source. The record-day sentence names the window in the guard file's own dates. */
+ * same source. */
 export function modeWords() {
   // An exercise that did not load shows nothing, and says so instead of describing a map.
   if (S.exercise)
@@ -447,13 +362,9 @@ export function modeWords() {
     return "No fire data is shown, because " + nothingWhy() + ". No fleet is simulated.";
   const date = S.day || vancouverDate(Date.now());
   const time = S.fetchedAt ? vancouverClock(S.fetchedAt.getTime()) : "an unstated time";
-  if (S.recordOnly) {
-    const open = date + ": the fires as British Columbia published them at " + time + ". ";
-    if (S.recordWindow)
-      return open + "No fleet is simulated for 8 to 27 August 2026. The province was under a " +
-        "state of emergency, and this page does not replay those days with a different ending.";
-    return open + "No fleet is simulated for this view: " + S.standDown + ".";
-  }
+  if (S.recordOnly)
+    return date + ": the fires as British Columbia published them at " + time + ". " +
+      "No fleet is simulated for this view: " + S.standDown + ".";
   // "Live" only when the mirror answered; every dated view is a replay of its day.
   const lead = S.daySource === "live" ? "Live " + date : "Replay of " + date;
   return lead + ": the fires as British Columbia published them at " + time + ". The fleet is " +
@@ -529,22 +440,11 @@ export function viewLabels() {
     description: mode, ogDescription: mode };
 }
 
-/* The guard note (R7), in the words the ruling fixed: the layers panel carries it beside
- * the data note, and the cockpit gives a guarded fire this same reason — never "queued",
- * never "the allocator gave this fire no ship", because neither is true. The evacuation
- * sentence names the province's own public record as the reason those fires are held out
- * (V5: one sentence, plain words, no community named); on a live view reading the season's
- * captured copy because the mirror's is missing or stale, the sentence says that too. */
-export function guardNoteWords() {
-  if (S.exercise) return EXERCISE_NOTE;
-  const clause = S.daySource === "live" && S.evacFrom !== "live"
-    ? ", read here from the season's captured copy because the live copy is missing or stale"
-    : "";
-  return "The simulated fleet never works a fire that was a wildfire of note or led to an " +
-    "evacuation order or alert, and it keeps " + noteKm(S.guard) + " km from those that " +
-    "forced people out. Fires under an evacuation order or alert on any captured day are " +
-    "held out by the province's own public record of orders and alerts" + clause +
-    ". The list and its sources are in data/season/2026.guard.json.";
+/* The scene note: what this view's own data is, where a view has something to say beyond
+ * its mode sentence. The exercise carries its note here (what is invented, and the ground
+ * it was chosen on); every other view's mode sentence already says what is on screen. */
+export function sceneNoteWords() {
+  return S.exercise && !S.recordOnly ? EXERCISE_NOTE : "";
 }
 
 export async function fetchWind() {
@@ -614,11 +514,6 @@ export function applyHeat() {
       m.segs = picks.map(t => dropSeg(m, t, true));
       m.heat = true;
       planTargets(m, S.heat);
-      const hit = missionBlocked(S.regions, m);
-      if (hit) {
-        m.refused = true;
-        f.heldOut = "not flown: the heat-refined release line or track enters the keep-out around " + hit.who;
-      }
     }
   }
   if (S.sel?.m?.refused) S.sel = {type:"fire", f:S.sel.m.fire};

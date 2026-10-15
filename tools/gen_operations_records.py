@@ -13,12 +13,11 @@ import sys
 import tempfile
 from serve import serve_tree
 ROOT=Path(__file__).resolve().parents[1]
-# The exercise retains all-date guard context. An added capture must not silently
-# alter the sampled scene; a deliberate repin and regeneration are required.
+# The exercise's sampled scene feeds every captured distance. An added capture must not
+# silently alter it; a deliberate repin and regeneration are required.
 FLEET_INPUT_PINS={
- 'data/exercise/exercise.json':'46a4ea516c46a083b3f38cff269da5157dd0737691b4a623cc37303e66b7db83',
+ 'data/exercise/exercise.json':'ddee971e5deceededf40913c8ad949c43e0a792bcc7e9d013493c7d67ddab337',
  'data/season/2026.days.json':'62b43bdf43484c29e36fe9957a2005f4d20cf8273c86febfdf9f10498d80497e',
- 'data/season/2026.guard.json':'803f6879c4aaad24865623a762250a39420da424811d41905a44d4b72f948626',
  'data/season/2026.json':'c71df207bbcec687a6c63e41a964a4ba941f450843540dfea2abb21b81771108',
  'data/season/2026.evac.json':'8c8318d86a467581d26f2ba5d9550e874f0bb9cc8efa4fc4be53e0118b4cecc3',
  'data/water-bc.json':'015fd2c383ef5d8a4ca409b209a76e6c6b5d78db847aa4ce0604542499775e05',

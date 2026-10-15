@@ -1,6 +1,6 @@
 /* Hull-only sampled signed authority screen; no force owner or verdict is changed. */
 import fs from 'node:fs';
-import {CLASSES,MODES,PHASES,planCycle,drawAt,cycleGeometry,altAt,inducedMW} from '../../sim/index.js?v=3c39c29e';
+import {CLASSES,MODES,PHASES,planCycle,drawAt,cycleGeometry,altAt,inducedMW} from '../../sim/index.js?v=6f3787a9';
 import {writeGenerated} from './energy-output.mjs';
 import {storageNote} from './energy-storage-notes.mjs';
 import {prescribed} from './energy-printed-profiles.mjs';

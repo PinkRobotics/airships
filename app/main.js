@@ -1,19 +1,19 @@
 /* Wiring the controls, reporting status, and starting the application.
  */
-import * as SIM from '../sim/index.js?v=3c39c29e';
-import { CFG, DEFAULTS, PHASES, REFERENCE_CLASS, dayKind, selftest, stateAt, resetConfig, setSeed } from '../sim/index.js?v=3c39c29e';
-import { M3D_SYS, M3D_SYS_CAM, m3d, m3dAz, m3dBreakSync, m3dCamMode, m3dFadeTo, m3dMode, m3dPhase, m3dVm, updSyncUI, setCamera, cameraMode, panelMode } from './bridge/viz3d.js?v=3c39c29e';
-import { renderDrawer } from './cockpit/panels.js?v=3c39c29e';
-import { renderStats, renderTable } from './cockpit/tables.js?v=3c39c29e';
-import { $, esc } from './dom.js?v=3c39c29e';
-import { fetchHeat, fetchWind, guardNoteWords, introWords, loadLive, modeWords, nothingShown, nothingWhy, viewLabels } from './feeds.js?v=3c39c29e';
-import { rebuildMissions, replanAll } from './fleet.js?v=3c39c29e';
-import { frame } from './loop.js?v=3c39c29e';
-import { fitFires, fitFleet, focusMission, select } from './map/interact.js?v=3c39c29e';
-import { resize } from './map/projection.js?v=3c39c29e';
-import { fetchJSON, storeGet, storeSet } from './net.js?v=3c39c29e';
-import { S } from './store.js?v=3c39c29e';
-import { DIALS, renderWorked } from './worked.js?v=3c39c29e';
+import * as SIM from '../sim/index.js?v=6f3787a9';
+import { CFG, DEFAULTS, PHASES, REFERENCE_CLASS, selftest, stateAt, resetConfig, setSeed } from '../sim/index.js?v=6f3787a9';
+import { M3D_SYS, M3D_SYS_CAM, m3d, m3dAz, m3dBreakSync, m3dCamMode, m3dFadeTo, m3dMode, m3dPhase, m3dVm, updSyncUI, setCamera, cameraMode, panelMode } from './bridge/viz3d.js?v=6f3787a9';
+import { renderDrawer } from './cockpit/panels.js?v=6f3787a9';
+import { renderStats, renderTable } from './cockpit/tables.js?v=6f3787a9';
+import { $, esc } from './dom.js?v=6f3787a9';
+import { fetchHeat, fetchWind, introWords, loadLive, modeWords, nothingShown, nothingWhy, sceneNoteWords, viewLabels } from './feeds.js?v=6f3787a9';
+import { rebuildMissions, replanAll } from './fleet.js?v=6f3787a9';
+import { frame } from './loop.js?v=6f3787a9';
+import { fitFires, fitFleet, focusMission, select } from './map/interact.js?v=6f3787a9';
+import { resize } from './map/projection.js?v=6f3787a9';
+import { fetchJSON, storeGet, storeSet } from './net.js?v=6f3787a9';
+import { S } from './store.js?v=6f3787a9';
+import { DIALS, renderWorked } from './worked.js?v=6f3787a9';
 
 export function wire() {
   $("btnPause").addEventListener("click", () => {
@@ -270,9 +270,8 @@ export function renderStatus() {
     document.body.classList.toggle("record-only", S.recordOnly);
     // A status day carries no satellite-heat layer, so the legend does not offer one.
     document.body.classList.toggle("no-heat", S.daySource !== "live");
-    const gn = $("guardNote");
-    if (gn) gn.textContent = S.guard && S.guard.ok ? guardNoteWords()
-      : "The guard file did not load, so no fleet is simulated anywhere on this page.";
+    const sn = $("sceneNote");
+    if (sn) sn.textContent = sceneNoteWords();
     const heat = $("heatNote");
     if (heat) heat.textContent = S.exercise ? "No satellite hotspots are used in the exercise." : S.daySource === "live" ? "" :
       "Satellite hotspots are a live layer and are not part of a status day.";
@@ -305,7 +304,7 @@ export function renderStatus() {
     const boundary = $("firstPartyNote");
     if (boundary && !renderStatus._firstPartyNote) {
       renderStatus._firstPartyNote = true;
-      import("./first-party-note.js?v=3c39c29e").then(({ auditFirstPartyNote }) => auditFirstPartyNote(boundary))
+      import("./first-party-note.js?v=6f3787a9").then(({ auditFirstPartyNote }) => auditFirstPartyNote(boundary))
         .catch(() => { boundary.textContent = "This page's own code talks only to the site that served it. Resource check unavailable."; });
     }
 
@@ -366,16 +365,15 @@ export async function refresh() {
   } finally { refreshing = false; }
 }
 
-/* Fill the day control once the season index is in. Each option carries the mode in its
- * label, so the choice is informed before it is made: a record-only day is a different
- * thing to ask for than a fleet day, and the label is where the visitor reads that. */
+/* Fill the day control once the season index is in. Every dated day in the repository is
+ * offered beside the live view and the exercise; a day's own mode sentence says what it
+ * is once it is on screen. */
 function populateDaySel() {
   const sel = $("daySel");
   if (!sel || !S.dayList) return;
   const opts = [`<option value="">Today (live)</option>`, `<option value="exercise">Exercise: invented fires</option>`];
   for (const d of S.dayList) {
-    const fleet = dayKind(S.guard, d.date).fleet;
-    opts.push(`<option value="${d.date}">${d.date} · ${fleet ? "fleet simulated" : "record only"}</option>`);
+    opts.push(`<option value="${d.date}">${d.date}</option>`);
   }
   // The control shows the view that is on screen, not the one that was asked for: a replay
   // standing in for a mirror that did not answer selects its own day, and a day this

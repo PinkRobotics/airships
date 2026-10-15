@@ -26,10 +26,9 @@ page deadline: a synchronous model calculation can hold the browser event loop.
 | `firstparty/check.py` note | 10 to 300 s; expected resource-observer text |
 | `firstparty/check.py` transport/load | response 100 to 360 s; load event 90 to 300 s; allows the page deadline to report its own failure |
 | `interaction/check.py` | 90 to 300 s; ready, nonempty exercise fleet and settled planning; reject incomplete fleet; load event 60 to 300 s and bounded 360 s responses |
-| `guard/check.py` probe and heat | replace 40/30 s loops with one 300 s wait; ready and settled, or a legitimate record-only view |
-| `guard/check.py` outer probe | 300 to 420 s; preserve room outside the 300 s page deadline for navigation and observations |
-| `guard/check.py` layout | 20 to 300 s; actual visible first-visit overlay; begin evaluation at navigation instead of after nine seconds, before its twelve-second dismissal |
-| `guard/assurance.js` | 180 to 300 s budget, use wall clock and reject pending planning even when page readiness is already true |
+| `views/check.py` probe (via `tests/page.py`) | replace 40/30 s loops with one 300 s wait; ready and settled, or a legitimate record-only view |
+| `views/check.py` outer probe | 300 to 420 s; preserve room outside the 300 s page deadline for navigation and observations |
+| `views/check.py` layout | 20 to 300 s; actual visible first-visit overlay; begin evaluation at navigation instead of after nine seconds, before its twelve-second dismissal |
 | `energy/fleet-envelope.py` | 50 to 300 s; ready and settled planning |
 | `served-energy/page.js` | replace 30/50 s loops with a shared 300 s budget for the handle and accepted app/concept planning |
 | `golden/dump.js` | replace three-second sample with 300 s readiness; current app ready and settled, or allocated classic-script plans |
@@ -48,7 +47,7 @@ Retained waits and reasons:
   delayed/absent/invalid-plan regressions remain in the fast gate.
 - `interaction/check.py`: the heartbeat observation interval and 400 ms after
   overlay dismissal measure animation/rendering; they do not claim boot ready.
-- `guard/check.py`: 1200 ms samples rendered text after readiness. Overlay auto
+- `views/check.py`: 1200 ms samples rendered text after readiness. Overlay auto
   dismissal remains application behavior, observed before it can dismiss.
 - `golden/ui-dump.js`: two animation frames and 1600 ms sample the pinned clock's
   rendered panels; the explicit narration checks still reject incorrect text.

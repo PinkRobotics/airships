@@ -1,5 +1,5 @@
 /* Page binders use the same plans and records as the simulation. */
-import {planCycle} from './plan.js?v=3c39c29e';
+import {planCycle} from './plan.js?v=6f3787a9';
 const comparisons=new WeakMap();
 export const feasibilityText=p=>p.feasible?'closes in the quasi-static model':'does not close on the drawn hardware';
 export function energyComparison(cls,mode,km,wind,record){

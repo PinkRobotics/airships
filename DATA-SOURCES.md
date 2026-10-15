@@ -6,7 +6,7 @@ The fleet is simulated and never flew. The fire data is real, except the exercis
 
 redistributed: included under the recorded terms; link-only: the public repository retains the source and hash, not the file; withheld: excluded from redistribution; to-confirm: excluded until a person confirms the terms. Excluded records are an audit trail, not a redistribution notice or a claim of permission. The wind record describes an unbundled server service, not a repository file.
 
-78 file records: 64 redistributed, 13 link-only, 0 withheld, 1 to-confirm. 1 service record(s). Counts describe decisions, not files present in a release.
+77 file records: 63 redistributed, 13 link-only, 0 withheld, 1 to-confirm. 1 service record(s). Counts describe decisions, not files present in a release.
 
 ## Per-file decisions
 
@@ -20,7 +20,6 @@ redistributed: included under the recorded terms; link-only: the public reposito
 | data/roads-bc.json | Natural Earth | public domain | redistributed | https://www.naturalearthdata.com/about/terms-of-use/; publisher Terms of Use, read 2026-10-02. |
 | data/season/2026.days.json | Province of British Columbia, BC Wildfire Service (Ministry of Forests) | Open Government Licence - British Columbia, version 2.0 | redistributed | data/snapshot.prov.json; recorded publisher reference https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc. One request on 2026-10-02 failed (502); prior wording retained, not freshly verified. Raw capture inputs are named below by digest. |
 | data/season/2026.evac.json | GeoBC Branch | Open Government Licence - British Columbia | redistributed | The supplied provincial catalogue record, title &quot;Evacuation Orders and Alerts&quot;, organisation &quot;GeoBC Branch&quot;, licence &quot;Open Government Licence - British Columbia&quot;, licence URL https://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61, record modified 2026-10-01 (metadata modified 2026-10-02T00:00:39.401558); SHA-256 06ab9bf2904251cd9eaff9f5f76d28bb2f9672d68e93b2a9177d0ff977ed0759. The project read this record on 2 October 2026 with one request. The supplied filename records no retrieval time. |
-| data/season/2026.guard.json | Pink Robotics | Apache-2.0, the code licence (see LICENSE): this is the project&#x27;s own editorial file, not agency data | redistributed | LICENSE; project-authored list compiled by hand, not agency data. |
 | data/season/2026.json | Province of British Columbia, BC Wildfire Service (Ministry of Forests) | Open Government Licence - British Columbia, version 2.0 | redistributed | data/snapshot.prov.json; recorded publisher reference https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc. One request on 2026-10-02 failed (502); prior wording retained, not freshly verified. Raw capture inputs are named below by digest. |
 | data/season/2026.summary.json | Province of British Columbia, BC Wildfire Service (Ministry of Forests) | Open Government Licence - British Columbia, version 2.0 | redistributed | data/snapshot.prov.json; recorded publisher reference https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc. One request on 2026-10-02 failed (502); prior wording retained, not freshly verified. Raw capture inputs are named below by digest. |
 | data/season/days/2026-08-08/fires.json | Province of British Columbia, BC Wildfire Service (Ministry of Forests) | Open Government Licence - British Columbia, version 2.0 | redistributed | data/snapshot.prov.json; recorded publisher reference https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc. One request on 2026-10-02 failed (502); prior wording retained, not freshly verified. Raw capture inputs are named below by digest. |
@@ -166,15 +165,15 @@ redistributed: included under the recorded terms; link-only: the public reposito
 
 **Attribution:** Pink Robotics. Licensed under Apache-2.0.
 
-**Source:** data/bc-outline.json<br>data/season/2026.days.json<br>data/season/2026.guard.json<br>data/season/2026.json<br>data/season/days/2026-08-08/fires.json<br>data/season/days/2026-08-08/perims.json<br>data/season/days/2026-08-09/fires.json<br>data/season/days/2026-08-09/perims.json<br>data/season/days/2026-08-10/fires.json<br>data/season/days/2026-08-10/perims.json<br>data/season/days/2026-08-11/fires.json<br>data/season/days/2026-08-11/perims.json<br>data/season/days/2026-08-12/fires.json<br>data/season/days/2026-08-12/perims.json<br>data/season/days/2026-08-13/fires.json<br>data/season/days/2026-08-13/perims.json<br>data/season/days/2026-08-14/fires.json<br>data/season/days/2026-08-14/perims.json<br>data/season/days/2026-08-15/fires.json<br>data/season/days/2026-08-15/perims.json<br>data/season/days/2026-09-20/fires.json<br>data/season/days/2026-09-20/perims.json<br>data/season/days/2026-09-22/fires.json<br>data/season/days/2026-09-22/perims.json<br>data/season/days/2026-10-01/fires.json<br>data/season/days/2026-10-01/perims.json<br>data/terrain-bc.jpg<br>data/water-bc.json<br>sim/communities.js
+**Source:** data/bc-outline.json<br>data/season/2026.days.json<br>data/season/2026.evac.json<br>data/season/2026.json<br>data/season/days/2026-08-08/fires.json<br>data/season/days/2026-08-08/perims.json<br>data/season/days/2026-08-09/fires.json<br>data/season/days/2026-08-09/perims.json<br>data/season/days/2026-08-10/fires.json<br>data/season/days/2026-08-10/perims.json<br>data/season/days/2026-08-11/fires.json<br>data/season/days/2026-08-11/perims.json<br>data/season/days/2026-08-12/fires.json<br>data/season/days/2026-08-12/perims.json<br>data/season/days/2026-08-13/fires.json<br>data/season/days/2026-08-13/perims.json<br>data/season/days/2026-08-14/fires.json<br>data/season/days/2026-08-14/perims.json<br>data/season/days/2026-08-15/fires.json<br>data/season/days/2026-08-15/perims.json<br>data/season/days/2026-09-20/fires.json<br>data/season/days/2026-09-20/perims.json<br>data/season/days/2026-09-22/fires.json<br>data/season/days/2026-09-22/perims.json<br>data/season/days/2026-10-01/fires.json<br>data/season/days/2026-10-01/perims.json<br>data/terrain-bc.jpg<br>data/water-bc.json<br>sim/communities.js
 
-**SHA-256:** 46a4ea516c46a083b3f38cff269da5157dd0737691b4a623cc37303e66b7db83
+**SHA-256:** ddee971e5deceededf40913c8ad949c43e0a792bcc7e9d013493c7d67ddab337
 
 **Decision reason:** Project-authored synthetic data, describing no real fire.
 
-**Processing and caveats:** This invented scene describes no real fire. 32-vertex radial polygons at &gt;=80 ha, a seeded sinusoidal perturbation scaled to the drawn area in a local kilometre plane; otherwise the model uses its area-equivalent circle. Rounded to six decimal degrees. All footprints are inside the bundled BC outline and outside bundled water (unoutlined lakes conservatively use area-equivalent discs). Terrain is the bundled hillshade, not a measured height field. Conservative minimum clearances from the whole exercise footprint to discs enclosing every observation and every captured outline of the fires on the guard list and of the season&#x27;s wildfires of note, on every captured date; guard places on all dates. Fires on neither list reject nothing: the nearest captured outline of one is 3.1 km from an exercise footprint (nearestOtherFire). Communities are exactly sim/communities.js, not a complete settlement inventory. Still air; no invented forecast.
+**Processing and caveats:** This invented scene describes no real fire. 32-vertex radial polygons at &gt;=80 ha, a seeded sinusoidal perturbation scaled to the drawn area in a local kilometre plane; otherwise the model uses its area-equivalent circle. Rounded to six decimal degrees. All footprints are inside the bundled BC outline and outside bundled water (unoutlined lakes conservatively use area-equivalent discs). Terrain is the bundled hillshade, not a measured height field. Conservative minimum clearances from the whole exercise footprint to discs enclosing every observation and every captured outline of the season&#x27;s wildfires of note and of every fire in the season evacuation record, on every captured date. Fires on neither list reject nothing: the nearest captured outline of one is 3.1 km from an exercise footprint (nearestOtherFire). Communities are exactly sim/communities.js, not a complete settlement inventory. Still air; no invented forecast.
 
-**Measured contents:** 174,557 bytes
+**Measured contents:** 174,566 bytes
 
 **Record:** data/exercise/exercise.prov.json
 
@@ -317,34 +316,6 @@ redistributed: included under the recorded terms; link-only: the public reposito
 **Measured contents:** 10,641 bytes
 
 **Record:** data/season/2026.evac.prov.json
-
-### data/season/2026.guard.json
-
-**Decision:** redistributed
-
-**Publisher:** Pink Robotics
-
-**Licence:** Apache-2.0, the code licence (see LICENSE): this is the project&#x27;s own editorial file, not agency data
-
-**Licence statement:** Apache License, Version 2.0
-
-**Statement evidence:** LICENSE; project-authored list compiled by hand, not agency data.
-
-**Terms address:** LICENSE
-
-**Attribution:** Pink Robotics. Licensed under Apache-2.0.
-
-**Source:** the public reporting and official releases cited entry by entry in the file itself
-
-**SHA-256:** 803f6879c4aaad24865623a762250a39420da424811d41905a44d4b72f948626
-
-**Decision reason:** The project owns this editorial list.
-
-**Processing and caveats:** generator is null because no script produces this file: it was written by hand from research reading, and every entry carries exactly one source link to the reporting it rests on. It quotes nothing and names nobody. The fire numbers and names were resolved against season/2026.json; the two entries the season record has no incident name for carry the geographic description the day files use. Nothing here has official status and no provider endorses it. The file&#x27;s canonical digest (json.dumps of the parsed file, sort_keys, compact separators) is pinned in tests/guard/check.py, so changing a window, an entry or a distance is a deliberate two-place edit.
-
-**Measured contents:** 6,382 bytes
-
-**Record:** data/season/2026.guard.prov.json
 
 ### data/season/2026.json
 
@@ -2321,8 +2292,8 @@ size but are excluded from the stage fit. Draws interpolate quantiles, never sam
 incident. Larger outlines are area-scaled, sinusoidally perturbed 32-vertex polygons.
 
 The generator rejects footprints outside the bundled provincial outline, over bundled
-water, within 150 km of any guard entry or season fire of note, or within 25 km of a
-listed community. It applies a further 45 km community clearance for placement so the
+water, within 150 km of any fire in the season evacuation record or any season fire of
+note, or within 25 km of a listed community. It applies a further 45 km community clearance for placement so the
 model's 40 km community-naming logic cannot name a real community in the exercise.
 Historical outlines of those fires are enclosed conservatively for these distance checks.
 Fires on neither list reject nothing: the sidecar records how near the nearest captured
@@ -2414,26 +2385,6 @@ status day at all. And the record itself is imperfect: ten fires carry dates tha
 be true, the publisher revises ignition dates after the fact, and at least one fire was
 renumbered between a status day and the complete copy.
 
-## 10. The monitor's no-fleet guard — `data/season/2026.guard.json`
-
-The last file in `data/season/` is not agency data at all. `2026.guard.json` is this
-project's own editorial ruling, written by hand: the days no fleet is simulated for
-(8 to 27 August 2026, the provincial state of emergency), the 22 fires the simulated fleet
-never works — each with its tier and its basis: a loss, an evacuation order, an alert, or
-first discovery near people — two places kept clear on their own dates, and the default
-keep-out distance. Every entry carries exactly one source link to the public reporting it
-rests on. The file quotes nothing and names nobody, and `2026.guard.prov.json` records
-that it was written by hand rather than generated.
-
-**Licence.** Apache-2.0, the project's own code licence: this is an editorial file by this
-project, not a copy of anyone's data. The linked sources remain their publishers' own.
-
-**Why it is a data file.** The rule it encodes — never replay a tragedy with a better
-ending — is enforced in code (`sim/guard.js`) but carried as data, so that widening a
-window or softening a distance is an edit anyone can see. `tests/guard/` pins the file's
-canonical digest, which makes that edit a deliberate two-place change, and the monitor
-stands its fleet down rather than flying when the file cannot be read.
-
 ## 11. GeoBC Branch — public evacuation orders and alerts, the derived ever-record
 
 **What it is.** `data/season/2026.evac.json`: which fires of the 2026 season were ever
@@ -2441,8 +2392,10 @@ under an evacuation order or an evacuation alert, by fire number, with each orde
 a simplified outline. It is generated by `pipeline/season.py --evac` from captured days of
 the province's public evacuation orders and alerts layer — the same ArcGIS host as the
 fire layers recorded under `data/snapshot.json` in Source records and credits —
-and `make evaccheck` regenerates it byte for byte. The monitor's
-guard reads it beside the hand list of section 10, and the stricter of the two always wins.
+and `make evaccheck` regenerates it byte for byte. The exercise
+generator reads it as half of its exclusion basis: every fire in this record is held at
+least 150 km from every invented exercise footprint, beside every wildfire of note in the
+season record.
 
 **Publisher.** GeoBC Branch, Province of British Columbia.
 

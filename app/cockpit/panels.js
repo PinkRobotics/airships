@@ -1,18 +1,18 @@
 /* The focused ship: forces, instruments, the power ledger and the mission trace.
  */
-import { CFG, MODEL_STATUS, FEASIBILITY_SCOPE, diagnosticNotes, PHASES, PHASE_TINT, fmt, fmtHa, fmtMin, fmtT, narrate, srcName, stateAt, drawAt, energyComparison, cycleEnergyText, feasibilityText, missionReady } from '../../sim/index.js?v=3c39c29e';
-import { ensureM3D, m3dAz, m3dDead, sizeAvatar, updateM3D, setCamera } from '../bridge/viz3d.js?v=3c39c29e';
-import { makeDualGauge, makeGauge, makePhaseDial } from '../cockpit/gauges.js?v=3c39c29e';
-import { shipViz } from '../cockpit/shipviz.js?v=3c39c29e';
-import { updateRoster } from '../cockpit/tables.js?v=3c39c29e';
-import { $, cycleBar, esc, kvRows } from '../dom.js?v=3c39c29e';
-import { guardNoteWords, modeWords, needsShip, nothingShown } from '../feeds.js?v=3c39c29e';
-import {figure,inactiveText} from "../served-ui.js?v=3c39c29e";
-import { S } from '../store.js?v=3c39c29e';
+import { CFG, MODEL_STATUS, FEASIBILITY_SCOPE, diagnosticNotes, PHASES, PHASE_TINT, fmt, fmtHa, fmtMin, fmtT, narrate, srcName, stateAt, drawAt, energyComparison, cycleEnergyText, feasibilityText, missionReady } from '../../sim/index.js?v=6f3787a9';
+import { ensureM3D, m3dAz, m3dDead, sizeAvatar, updateM3D, setCamera } from '../bridge/viz3d.js?v=6f3787a9';
+import { makeDualGauge, makeGauge, makePhaseDial } from '../cockpit/gauges.js?v=6f3787a9';
+import { shipViz } from '../cockpit/shipviz.js?v=6f3787a9';
+import { updateRoster } from '../cockpit/tables.js?v=6f3787a9';
+import { $, cycleBar, esc, kvRows } from '../dom.js?v=6f3787a9';
+import { modeWords, needsShip, nothingShown } from '../feeds.js?v=6f3787a9';
+import {figure,inactiveText} from "../served-ui.js?v=6f3787a9";
+import { S } from '../store.js?v=6f3787a9';
 
 /* A fire's outline is "current" only on the live feed; on a dated view it is the one in
  * that day's record. */
-import {windBasis} from '../../sim/wind.js?v=3c39c29e';
+import {windBasis} from '../../sim/wind.js?v=6f3787a9';
 
 const polygonWords = () => S.daySource === "live" ? "current polygon" : "published polygon";
 
@@ -226,11 +226,7 @@ export function renderDrawer() {   // builds the cockpit skeleton for the curren
       <div><h4 style="color:var(--warm)">Simulated response</h4>` +
       (S.recordOnly
         ? `<p style="font-size:var(--t-13);color:var(--muted)">None. No fleet is simulated for this day, so there is no simulated response to describe.</p>`
-        : !mm ? (f.guarded
-          // The guard's own reason, never an allocator's: on these fires the fleet was never
-          // a candidate, and "queued" or "no ship" would say the opposite.
-          ? `<p style="font-size:var(--t-13);color:var(--muted)">None. ${esc(guardNoteWords())}</p>`
-          : f.heldOut
+        : !mm ? (f.heldOut
           ? `<p style="font-size:var(--t-13);color:var(--muted)">${esc(f.heldOut)}.</p>`
           : needsShip(f)
           ? `<p style="font-size:var(--t-13);color:var(--muted)">None: the allocator gave this fire no ship. The demonstration fleet is sixteen hulls (ten P-100, five P-1000, one P-10000), each sent to the fire it fits best, and the allocator counts every fire left without one. Any finite fleet faces the same arithmetic.</p>`

@@ -16,9 +16,8 @@
   for(const m of S.missions) if(missionReady(m)) auditServedPlan(m.cls,m.legKm,m.wind,m.selection,m.mode.id);
   const r = (x, n) => (Number.isFinite(x) ? Number(x.toFixed(n)) : null);
   const fname = f => f.name || f.geo || f.id;
-  // The page's own rule (app/feeds.js), guard first: a fire the guard holds is never a
-  // candidate for the fleet, so it never reaches the top-fires table this dump feeds.
-  const needsShip = f => !f.guarded && f.status === "Out of Control";
+  // The page's own rule (app/feeds.js): a candidate for the fleet is a fire out of control.
+  const needsShip = f => f.status === "Out of Control";
 
   // The fixed demonstration fleet, from the model's own constants.
   const fleet = CLASS_ORDER.map(id => ({
@@ -85,13 +84,12 @@
     // The page's own sentences, in the ruling's fixed words (R7), read from the DOM so the
     // static block and the running page can never disagree about what day this is.
     mode: (document.getElementById('modeNote') || {}).textContent || '',
-    guard: (document.getElementById('guardNote') || {}).textContent || '',
+    scene: (document.getElementById('sceneNote') || {}).textContent || '',
     fires: {
       active: S.fires.length,
       outOfControl: S.fires.filter(f => f.status === "Out of Control").length,
       ofNote: S.fires.filter(f => f.note).length,
       needingShip: S.fires.filter(needsShip).length,
-      guarded: S.fires.filter(f => f.guarded).length,
     },
     uncovered: S.uncovered,
     flying: S.missions.filter(m => !m.idle).length,

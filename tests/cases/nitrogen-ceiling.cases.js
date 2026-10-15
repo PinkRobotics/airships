@@ -1,5 +1,5 @@
 import {describe,it,ok,close,eq} from '../harness.js';
-import * as S from '../../sim/index.js?v=3c39c29e';
+import * as S from '../../sim/index.js?v=6f3787a9';
 
 describe('declared nitrogen recovery ceiling',()=>{
   it('holds recovered work across all nitrogen-control pairs, including both extremes',()=>{

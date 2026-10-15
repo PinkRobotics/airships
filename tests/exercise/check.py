@@ -2,7 +2,8 @@
 """Exercise gate: regenerate, read the actual file, then drive three browser viewports.
 
 No remote data is fetched. Optional test-name substrings select a mutation probe.
-The guard's refused-words function is reused verbatim on this fourth kind of view.
+The shared page machinery (tests/page.py) supplies the server, the probe and the
+honesty scan this gate runs on the exercise view — the fourth kind of view.
 """
 import importlib.util
 import hashlib
@@ -14,6 +15,8 @@ import re
 import sys
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "tests"))
+import page  # noqa: E402
 
 
 def module(name, path):
@@ -23,7 +26,6 @@ def module(name, path):
 
 
 gen = module('exercise_generator', 'tools/gen_exercise.py')
-guard = module('guard_gate', 'tests/guard/check.py')
 TESTS = []
 
 
@@ -33,6 +35,11 @@ def test(fn):
 
 def doc():
     return gen.read('data/exercise/exercise.json')
+
+
+def sample_day():
+    """The newest captured day — the sample route's day, read from the season index."""
+    return max(d['date'] for d in gen.read('data/season/2026.days.json')['days'])
 
 
 @test
@@ -97,15 +104,10 @@ EXTRA = r"""
   out.heat = S.heat.length;
   out.sourceIndices = S.missions.filter(m=>!m.idle).map(m=>m.waterIdx);
   out.namedCommunities = S.missions.filter(m=>m.protect).length;
-  // Check the allocator's envelope against the original union, on ALL dates, including
-  // places whose date has no captured fire file. S.regions cannot be quietly emptied.
-  out.missingGuardEntries = S.guard.fires.filter(f=>f.keepOutKm>0 && !S.regions.some(r=>r.who===f.fire)).length;
-  out.historicalCount = S.exerciseHistoricalRegions.length;
-  out.envelopeFailures = S.exerciseHistoricalRegions.filter(r => {
-    const envelope = S.regions.find(e=>e.who===r.who && e.kind===r.kind);
-    return !envelope || (r.edge || [r.ll]).some(p=>sim.havKm(p,envelope.ll)+r.rKm>envelope.rKm+1e-8);
-  }).length;
-  const {select} = await import('/app/map/interact.js?v=eae942b2');
+  // The page itself holds the clearance it was built to: the nearest excluded fire behind
+  // the exercise ground, and the limit, as the running page measured them.
+  out.clearance = S.exerciseClearance ? {minKm: S.exerciseClearance.minKm, limitKm: S.exerciseClearance.limitKm} : null;
+  const {select} = await import('/app/map/interact.js?v=6f3787a9');
   out.drawerFailures=[];
   for (const f of S.fires) {
     select({type:'fire',f,m:null});
@@ -130,32 +132,32 @@ EXTRA = r"""
   // The canvas is its own channel: capture the text actually painted, including its
   // exercise watermark and labelled fire markers (there is no separate hover tooltip).
   document.getElementById('btnFitFires').click(); S.layers.labels=true;
-  const {draw}=await import('/app/map/render.js?v=eae942b2');
+  const {draw}=await import('/app/map/render.js?v=6f3787a9');
   const ctx=document.getElementById('map').getContext('2d'), original=ctx.fillText;
   const painted=[]; ctx.fillText=function(s,...args){painted.push(s);return original.call(this,s,...args);};
   try {draw();} finally {ctx.fillText=original;}
   out.mapLabels=painted.filter(s=>/EX\d{3}|Exercise \d{3}|EXERCISE/.test(s));
 """
-PROBE=guard.PROBE.replace('  return JSON.stringify(out);',EXTRA+'\n  return JSON.stringify(out);')
+PROBE=page.PROBE.replace('  return JSON.stringify(out);',EXTRA+'\n  return JSON.stringify(out);')
 VIEWS={}
 
 
 def pages(routes=False):
     keys=['precedence','default','sample'] if routes else [1440,834,390]
     if all(k in VIEWS for k in keys): return VIEWS
-    with guard.serve() as base:
+    with page.serve() as base:
         if routes:
             # X7: explicit exercise wins over an old day query; default still tries live.
             for name,query in [('precedence','?view=exercise&day=2026-08-08'),('default',''),('sample','?data=snapshot')]:
-                VIEWS[name]=guard.probe_once(base,query,guard.PROBE,5)
+                VIEWS[name]=page.probe_once(base,query,page.PROBE,5)
         else:
             for w,h in [(1440,900),(834,1112),(390,844)]:
-                VIEWS[w]=guard.probe_once(base,'?view=exercise',PROBE,5,f'{w}x{h}')
+                VIEWS[w]=page.probe_once(base,'?view=exercise',PROBE,5,f'{w}x{h}')
     return VIEWS
 
 
 @test
-def page_labels_and_guard_at_three_widths():
+def page_labels_and_clearance_at_three_widths():
     water=gen.read('data/water-bc.json')['water']
     for w in (1440,834,390):
         v=pages()[w]; p=v['panels']
@@ -163,8 +165,8 @@ def page_labels_and_guard_at_three_widths():
         assert 'EXERCISE' in p['hud'], f'{w}: missing EXERCISE status chip'
         assert 'exercise' in v['heading'].lower(), f'{w}: fires heading lost exercise'
         assert 'exercise' in v['title'].lower() and all('exercise' in s.lower() for s in v['meta'])
-        guard.refuse_words(f'exercise metadata {w}',v['meta'])
-        assert p['mode']==gen.MODE and p['guardNote']==gen.NOTE, f'{w}: ruled sentences moved'
+        page.refuse_words(f'exercise metadata {w}',v['meta'])
+        assert p['mode']==gen.MODE and p['sceneNote']==gen.NOTE, f'{w}: ruled sentences moved'
         assert v['choice']=='exercise' and v['exerciseOption']=='Exercise: invented fires'
         assert not v['drawerFailures'] and all(re.fullmatch(r'Exercise \d{3}',n) for n in v['tableNames']+v['rosterNames'])
         assert 'EXERCISE · INVENTED FIRES' in v['mapLabels'] and len(v['mapLabels'])>1
@@ -173,30 +175,32 @@ def page_labels_and_guard_at_three_widths():
         assert v['flying']==16 and v['uncovered']>0, 'exercise must commit all ships and leave a queue'
         assert v['wind']==v['heat']==v['namedCommunities']==0
         assert all(0<=i<len(water) and water[i][3]==0 for i in v['sourceIndices']), 'exercise uses only bundled lakes'
-        assert v['historicalCount']>0 and v['envelopeFailures']==0 and v['missingGuardEntries']==0
-        assert v['sweep']['samples']>100 and not v['sweep']['violations'], 'all-date guard sweep failed'
-        guard.refuse_words(f'exercise {w}',v['visible'])
+        # The page measured its own ground: every excluded fire at least limitKm away.
+        assert v['clearance'] and v['clearance']['limitKm']==gen.LIMITS['seasonNoteKm'] and v['clearance']['minKm']>=gen.LIMITS['seasonNoteKm']-1e-6, f'{w}: the page did not hold its clearance: {v["clearance"]}'
+        page.refuse_words(f'exercise {w}',v['visible'])
     v=VIEWS[1440]
-    return f"1440/834/390: labels, all fire drawers and map labels; {v['flying']} ships, {v['uncovered']} queued; {v['sweep']['samples']} positions per view across three cycles, no violations"
+    return (f"1440/834/390: labels, all fire drawers and map labels; {v['flying']} ships, {v['uncovered']} queued; "
+            f"the page itself measured every excluded fire {v['clearance']['minKm']:.1f} km or more away (limit {v['clearance']['limitKm']} km)")
 
 
 @test
 def exercise_is_explicit_and_never_the_failure_fallback():
     vs=pages(routes=True); v=vs['precedence']
     assert v['daySource']=='exercise' and v['day'] is None
+    day=sample_day()
     for k in ['default','sample']:
-        v=vs[k]; assert v['daySource']=='sample' and v['day']==guard.SAMPLE_DAY and v['panels']['mode'].startswith('Replay of ')
-    return f'default mirror failure and explicit snapshot remain replay of {guard.SAMPLE_DAY}'
+        v=vs[k]; assert v['daySource']=='sample' and v['day']==day and v['panels']['mode'].startswith('Replay of ')
+    return f'default mirror failure and explicit snapshot remain replay of {day}'
 
 
 @test
 def static_reference_is_labelled():
-    regs=dict(guard.fallback_regions()); html=regs['FALLBACK']
+    regs=dict(page.fallback_regions()); html=regs['FALLBACK']
     assert re.search(r'<section[^>]*>\s*<p[^>]*>'+re.escape(gen.MODE)+r'</p>',html)
     assert gen.NOTE in html and '<b>EXERCISE</b>' in regs['FALLBACK-HUD']
     assert 'real fires' not in html and 'The fires are real' not in html
     assert not re.search(r'\d{4}-\d{2}-\d{2}', ''.join(regs.values()))
-    guard.refuse_words('static exercise',list(regs.values()))
+    page.refuse_words('static exercise',list(regs.values()))
     # Pin the visually audited poster, including the label legible at 390 px.
     # A deliberate recapture requires another visual audit and this pin to move.
     assert hashlib.sha256((ROOT/'media/map-snapshot.jpg').read_bytes()).hexdigest() == 'c4e076ce60d800debca48be85416faf9a7e82b1bcd7f64ddef922296495f7463', 'poster differs from the labelled, visually audited image'

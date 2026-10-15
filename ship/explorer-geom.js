@@ -12,11 +12,11 @@
 
 import {
   solid, lines, mergeSolids, cylGeom, sphereGeom, latheGeom, transformGeom, boxGeom,
-} from '../3d/model/geom.js?v=ceaf69ab';
+} from '../3d/model/geom.js?v=256dbfca';
 export { boxGeom };
 import {
   m4compose, m4mul, m4aimX, m4translate, m4identity, norm, sub, len,
-} from '../3d/core/math.js?v=ceaf69ab';
+} from '../3d/core/math.js?v=256dbfca';
 
 /* ---------- the octet unit cell ----------------------------------------------------------------
  *

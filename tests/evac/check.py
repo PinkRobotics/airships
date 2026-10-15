@@ -20,10 +20,10 @@
    JSON. The banned names are built from pieces here, so this file does not carry them
    either.
 
-3. THE GUARD'S JOIN. Every fire number in the derived record must resolve in the season
-   record, and the cross-check table — hand tier, data tier, applied tier, per fire — is
-   computed here a second way and must show the applied keep-out never looser than either
-   the hand entry or the data.
+3. THE SEASON JOIN. Every fire number in the derived record must resolve in the season
+   record, and the exercise generator's exclusion basis — the evacuation record union the
+   season record's fires of note — must be wired to both records it claims to read, with
+   the page re-deriving its own half of that basis at runtime.
 
 Exit status is non-zero on any failure. A skip is not a failure and is never silent.
 Python 3 and its standard library; no browser, no node, no network.
@@ -226,7 +226,7 @@ def no_homes_population_or_agency_field_anywhere_in_the_tracked_tree():
 
 
 # ============================================================================================
-# 3. THE GUARD'S JOIN
+# 3. THE SEASON JOIN
 # ============================================================================================
 @test
 def every_fire_number_resolves_in_the_season_record():
@@ -238,44 +238,20 @@ def every_fire_number_resolves_in_the_season_record():
 
 
 @test
-def the_cross_check_hand_tier_data_tier_applied_tier():
-    """The precedence, computed here a second way: the applied keep-out is the stricter of
-    the hand entry and the data (an order carries the file default, an alert alone zero),
-    and a tie keeps the hand entry's own tier. Prints the source comparison table."""
-    guard, evac = load(SEASON / f"{YEAR}.guard.json"), load(SEASON / f"{YEAR}.evac.json")
-    hand = {f["fire"]: f for f in guard["fires"] if f.get("fire")}
-    default = guard["defaultKeepOutKm"]
-    rows, held_data_only = [], []
-    for f in evac["fires"]:
-        h = hand.get(f["fire"])
-        d_km = default if f["everOrder"] else 0
-        # the rule, recomputed: the stricter distance wins, and a tie keeps the hand entry
-        if h is None:
-            want_tier, want_km = (2 if f["everOrder"] else 3), d_km
-            applied = f"tier {'2' if f['everOrder'] else '3'} at {d_km} km, held by data alone"
-            held_data_only.append(f["fire"])
-        elif h["keepOutKm"] >= d_km:
-            want_tier, want_km = h["tier"], h["keepOutKm"]
-            applied = f"tier {h['tier']} at {h['keepOutKm']} km, hand entry stands"
-        else:
-            want_tier, want_km = (2 if f["everOrder"] else 3), d_km
-            applied = f"tier {'2' if f['everOrder'] else '3'} at {d_km} km, data tightened it"
-        rows.append((f["fire"], h, f, d_km, applied, want_tier, want_km))
-        # the recomputation must itself be the rule: stricter distance wins, tie keeps hand
-        h_km = h["keepOutKm"] if h else None
-        same(want_km, max(h_km, d_km) if h is not None else d_km,
-             f"{f['fire']}: the applied keep-out is not the stricter of the two records")
-        if h is not None and h_km >= d_km:
-            same(want_tier, h["tier"], f"{f['fire']}: a tie or a looser record must keep the hand tier")
-        elif h is not None:
-            same(want_tier, 2 if f["everOrder"] else 3, f"{f['fire']}: a tightened entry takes the data tier")
-    for n, h, f, d_km, applied, want_tier, want_km in rows:
-        who = (f"hand tier {h['tier']} ({h['basis']}, {h['keepOutKm']} km)" if h else "not on the hand list")
-        kind = ("order" if f["everOrder"] else "") + ("+alert" if f["everAlert"] else "")
-        print(f"        {n}: {who} | data: {kind} -> {d_km} km | applied: {applied}")
-    note = (f"; held by data alone: {', '.join(held_data_only)}" if held_data_only
-            else "; every fire in the data is on the hand list")
-    return f"{len(rows)} fires cross-checked, applied never looser than either record{note}"
+def the_generator_reads_the_record_and_the_page_rechecks_its_own_half():
+    """A static check of the wiring the deeper gates exercise: the exercise generator's
+    exclusion basis is the evacuation record joined to the season record's fires of note,
+    and the page re-derives the of-note half of that basis at runtime instead of trusting
+    the generator's word. The geographic hold is tests/exercise/check.py's."""
+    gen = (ROOT / "tools" / "gen_exercise.py").read_text()
+    for needle, what in ((f"data/season/{YEAR}.evac.json", "the generator's exclusion basis includes the derived record"),
+                         ("fireOfNote", "and the season record's fires of note")):
+        assert needle in gen, f"tools/gen_exercise.py: {what} — {needle!r} is gone"
+    ex = (ROOT / "app" / "exercise.js").read_text()
+    for needle, what in (("EXERCISE_CLEARANCE_KM = 150", "the page re-checks the clearance at runtime"),
+                         ("seasonFires", "against the season record it loaded")):
+        assert needle in ex, f"app/exercise.js: {what} — {needle!r} is gone"
+    return "the wiring is in place; exercisecheck holds what it does on the page"
 
 
 @test
@@ -327,24 +303,6 @@ def the_live_mirror_serves_the_same_minimal_record():
             assert words in str(e), f"refused, but for something else: {e}"
     return ("hourly, minimal outFields; the captured day reduced live equals the derived "
             "record's rows; three broken layers refused")
-
-
-@test
-def the_page_reads_the_record_and_the_guard_reads_it_from_the_page():
-    """A static check of the wiring the deeper gates exercise: the page loads the derived
-    record into the guard, and live falls back to the season's copy rather than deciding
-    'no orders'. The fleet-day sweep over the order areas is tests/guard/check.py's."""
-    feeds = (ROOT / "app" / "feeds.js").read_text()
-    for needle, what in ((f"data/season/{YEAR}.evac.json", "the page fetches the derived record"),
-                         ("loadEvac(", "validates it with the guard's own reader"),
-                         ("liveEvac(", "unions the live copy with the season's"),
-                         ("mirrorEvac(90)", "the live copy has an age gate"),
-                         ("joined.from", "the page records which copy it read")):
-        assert needle in feeds, f"app/feeds.js: {what} — {needle!r} is gone"
-    exports = (ROOT / "sim" / "index.js").read_text()
-    for name in ("loadEvac", "mergeEvac", "liveEvac"):
-        assert name in exports, f"sim/index.js no longer exports {name}"
-    return "the wiring is in place; guardcheck holds what it does on the page"
 
 
 def main():

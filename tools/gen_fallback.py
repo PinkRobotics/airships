@@ -117,7 +117,7 @@ def render(d: dict) -> dict[str, str]:
     # The fleet diagnostic pointer is deliberately absent from the no-script block: it is
     # a working-record sentence of the energy study, not part of the exercise scene, and a
     # scripts-off visitor is still a public visitor (operator, 10-14).
-    guard = d['guard']          # the page's own guard note, likewise
+    scene = d['scene']          # the page's own exercise note, likewise
 
     hud = (f'<b>EXERCISE</b> · {fmt(fires["active"])} invented fires · simulated fleet')
 
@@ -147,8 +147,7 @@ def render(d: dict) -> dict[str, str]:
         hull = esc(f['hull']) if f['hull'] else '—'
         # "queued", with no reason attached: the allocator leaves a fire without a hull when
         # the sixteen hulls are spent on higher-priority fires (app/fleet.js), and it has no
-        # notion of a hull's range, so the cell does not name one. A fire the guard holds is
-        # never in this table at all — it was never a candidate.
+        # notion of a hull's range, so the cell does not name one.
         rate = f'{fmt(f["tph"])} kL/h <small>sim</small>' if f['tph'] else 'queued'
         note = f'<small style="display:block">{esc(f["note"])}</small>' if f['note'] else ''
         frows.append(f'<tr class="r-ship"><td>{esc(f["name"])}{note}</td>'
@@ -197,7 +196,7 @@ def render(d: dict) -> dict[str, str]:
   <p style="color:var(--text)">{esc(mode)}</p>
   <p class="kicker">EXERCISE · INVENTED FIRES</p>
   <h2>The monitor, standing still: an exercise</h2>
-  <p>{esc(guard)}</p>
+  <p>{esc(scene)}</p>
   <p>This fixed exercise supplies the poster and the no-script reference scene. It is not a date or an agency record. Its {fmt(fires['active'])} fires have invented positions, sizes and stages of control; {fmt(fires['outOfControl'])} are out of control in the exercise. The terrain and lakes are bundled public data. The fires use aggregate distributions from the busiest captured season days, never individual incidents. The seed, fitted numbers and distance checks are in <a href="data/exercise/exercise.prov.json">the exercise provenance</a>.</p>
   <p>Bone marks exercise fire data; pink marks the simulated fleet. With scripts on, live remains the default view and the day control offers “Exercise: invented fires”. If the live mirror fails, the page shows the newest fleet day as a replay; it does not switch to this exercise.</p>
   <p>The flight model assumes a hull that floats. {esc(float_verdict)} The <a href="float/">float case</a> explains the unresolved structural requirements.</p>

@@ -4,15 +4,15 @@
  * duration of each phase of a delivery cycle, the energy that cycle costs, how much
  * water arrives, and which constraint is binding. Pure: same inputs, same outputs.
  */
-import {instantOperatingMargins} from './operating-margin.js?v=3c39c29e';
-import { ALT, CFG, TERRAIN_MSL, WORK_ALT_MSL, sourceAltM } from './config.js?v=3c39c29e';
-import { dragMW, ledger, pumpMW } from './physics.js?v=3c39c29e';
-import { searchedProfile, prescribedReturnJoins } from './profile.js?v=3c39c29e';
-import { WINCH_MPS, descentBusMW, integrateCycle, rotorMaxTonnes, cycleGeometry, drawAt } from './power.js?v=3c39c29e';
+import {instantOperatingMargins} from './operating-margin.js?v=6f3787a9';
+import { ALT, CFG, TERRAIN_MSL, WORK_ALT_MSL, sourceAltM } from './config.js?v=6f3787a9';
+import { dragMW, ledger, pumpMW } from './physics.js?v=6f3787a9';
+import { searchedProfile, prescribedReturnJoins } from './profile.js?v=6f3787a9';
+import { WINCH_MPS, descentBusMW, integrateCycle, rotorMaxTonnes, cycleGeometry, drawAt } from './power.js?v=6f3787a9';
 
-import {trackWind} from './wind.js?v=3c39c29e';
+import {trackWind} from './wind.js?v=6f3787a9';
 
-import {windBasis} from './wind.js?v=3c39c29e';
+import {windBasis} from './wind.js?v=6f3787a9';
 
 export function planCycle(cls, mode, oneWayKm, wind, options = {}, rejectEarly = false) {
   if(options.verticalRateMultiplier!==undefined)throw new RangeError('Use movingPhaseRateMultiplier for whole-phase dilation, or verticalProfile for independent controls');

@@ -1,12 +1,11 @@
-/* Allocating sixteen hulls to the fires that most need them — and keeping them off the
- * fires and places the guard holds (sim/guard.js, data/season/2026.guard.json).
+/* Allocating sixteen hulls to the fires that most need them.
  */
-import { CLASSES, HULL_NAMES, MODES, PHASES, buildMission, findSource, fmtHa, keepOutsFor, legKmFor, missionBlocked, bindServedMission } from '../sim/index.js?v=3c39c29e';
-import { renderDrawer } from './cockpit/panels.js?v=3c39c29e';
-import { renderFires, renderRoster, renderStats, renderTable } from './cockpit/tables.js?v=3c39c29e';
-import { needsShip } from './feeds.js?v=3c39c29e';
-import { S } from './store.js?v=3c39c29e';
-import { renderWorked } from './worked.js?v=3c39c29e';
+import { CLASSES, HULL_NAMES, MODES, PHASES, buildMission, findSource, fmtHa, legKmFor, bindServedMission } from '../sim/index.js?v=6f3787a9';
+import { renderDrawer } from './cockpit/panels.js?v=6f3787a9';
+import { renderFires, renderRoster, renderStats, renderTable } from './cockpit/tables.js?v=6f3787a9';
+import { needsShip } from './feeds.js?v=6f3787a9';
+import { S } from './store.js?v=6f3787a9';
+import { renderWorked } from './worked.js?v=6f3787a9';
 
 /* The fleet is FIXED: ten P-100s, five P-1000s, one P-10000 — sixteen hulls for the whole
    province, allocated largest-first within the existing size bands (priority and water
@@ -17,19 +16,14 @@ export const FLEET = [["P10000", 1], ["P1000", 5], ["P100", 10]];
 export async function rebuildMissions() {
   S.standby = [];
   for (const f of S.fires) { f.mission = null; f.heldOut = null; }
-  // A record-only day builds no mission objects at all (R1): nothing of the fleet exists
-  // on those views — no ships, no tracks, no figures — and deciding that here, before any
-  // mission could exist, is what keeps it true everywhere downstream.
+  // A record-only view builds no mission objects at all: nothing of the fleet exists on a
+  // view that could not be read honestly — no ships, no tracks, no figures — and deciding
+  // that here, before any mission could exist, is what keeps it true everywhere downstream.
   if (S.recordOnly) {
-    S.missions = []; S.uncovered = 0; S.regions = [];
+    S.missions = []; S.uncovered = 0;
     renderRoster(); renderFires();
     return;
   }
-  // The day's keep-out regions (R4): a band around every guarded fire that carries a
-  // distance, and around any place entry dated this day. Computed once per rebuild;
-  // dispatch checks every mission against them, and the page-level gate in tests/guard/
-  // samples the ships' own positions against the same regions every frame.
-  S.regions = S.exercise ? S.exerciseRegions : keepOutsFor(S.guard, S.fires, { seasonOfNote: S.seasonOfNote }, S.day);
   const cand = S.fires.filter(needsShip);
   const pri = f => (f.note ? 2 : 0) + Math.log10(Math.max(10, f.sizeHa));
   const srcMemo = {};
@@ -59,8 +53,6 @@ export async function rebuildMissions() {
     let v = pri(f) - so.rankKm / 40;
     return v;
   };
-  // Refuse the whole route, including release ends, all cycle jitter and the actual bows.
-  const forbiddenBy = m => missionBlocked(S.regions, m);
   let open = cand.slice();
   const heldOut = new Set();
   S.missions = [];
@@ -74,11 +66,11 @@ export async function rebuildMissions() {
     const when = S.exercise ? 'this exercise' : S.daySource === 'live' ? "today's feed" : 'this day';
     const firesWord = n => n + ' fire' + (n === 1 ? '' : 's');
     const reason = !fitting.length
-      ? `${when} holds ${firesWord(cand.length)} the fleet may work (out of control and not held out); none is in this class’s size band`
+      ? `${when} holds ${firesWord(cand.length)} the fleet may work (out of control); none is in this class’s size band`
       : fitting.every(f => f.mission)
       ? `the fleet flies one hull per fire; the ${firesWord(fitting.length)} in this class’s band on ${when} already ${fitting.length === 1 ? 'has' : 'have'} one`
       : fitting.every(f => f.mission || heldOut.has(f.id))
-      ? `every fire left in this class’s band on ${when} had its route refused: its water or drop line would cross a kept-clear distance, or no tested line fits inside the modelled fire`
+      ? `every fire left in this class’s band on ${when} had its route refused: no tested line fits inside the modelled fire`
       : `the fire left in this class’s band on ${when} has no qualifying mapped water source within range`;
     const name = (HULL_NAMES[clsId] || [])[hullNo - 1] || CLASSES[clsId].name + ' #' + hullNo;
     S.standby.push({name,shipId:name,class:clsId,hullNo,location:'base',reason});
@@ -107,18 +99,6 @@ export async function rebuildMissions() {
         // No usable geometric target: leave the hull free and show the fire's refusal.
         heldOut.add(f.id); f.heldOut = m.targetRefusal;
         k--; // This geometric refusal did not use the hull; try the next candidate.
-        continue;
-      }
-      const noFly = forbiddenBy(m);
-      if (noFly) {
-        // A fire whose water line or drop line cannot avoid a keep-out distance is not
-        // flown, and no hull retries it this rebuild: the map keeps the fire, the panel
-        // keeps the reason, and this hull stays free for the next candidate.
-        heldOut.add(f.id);
-        f.heldOut = "not flown: its water line or drop line would enter the " +
-          noFly.rKm.toFixed(0) + " km kept clear around " + noFly.who +
-          " (a fire the guard holds)";
-        k--;
         continue;
       }
       m.hullNo = k;

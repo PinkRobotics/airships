@@ -40,9 +40,9 @@ or stale, and says which tier answered. Heat snapshots accompany snapshot fires;
 heat mirror beside live fires means no heat overlay. Wind uses a fixed 5×5 grid, with one
 server request an hour (failed attempts included). The public evacuation orders and alerts
 layer is one request an hour too — fire events only, reduced to the derived record's own
-minimal fields before it is written, because orders change by the day, not the minute. A
-missing or stale evacuation copy leaves the page guarded by the season's captured record,
-and the page says so. Missing or stale wind means labelled
+minimal fields before it is written, because orders change by the day, not the minute. The page itself never reads the live evacuation copy: the layer feeds the
+season's derived evacuation record, which the exercise generator uses as its exclusion
+basis. Missing or stale wind means labelled
 still air. Run a single mirror timer; the script locks concurrent invocations.
 
 Run it from a timer every ten minutes. The freshness rules are inside the script, not in the

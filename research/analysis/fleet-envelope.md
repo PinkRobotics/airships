@@ -19,7 +19,7 @@ The printed distance set is the pinned invented exercise, with 16 accepted hull 
 
 One hull is assigned per eligible fire. Unused hulls stand by at an unspecified base with their reason.
 
-The diagnostic route capture contains 20 accepted controls. Changing allocation changes this sample; it does not change nominal storage.
+The diagnostic route capture contains 21 accepted controls. Changing allocation changes this sample; it does not change nominal storage.
 
 Source: `research/analysis/energy-fleet-distances.json`, `tests/energy/served-route-distances.json` and `app/fleet.js`. Generated and checked by `tools/gen_operations_records.py`.
 <!-- fleet-envelope:summary:end -->
