@@ -1,12 +1,24 @@
 # R3-I029 — receiver-integrated split cassette
 
-**FAIL. This frozen replacement increases the known hull mass by 144.131190 t and makes both fixed-volume reference margins worse by the same amount.** The long cheeks and receiver connections fail nominal strength comparisons; selected fasteners cannot span their actual stacks; the unchanged AD-A pin still conflicts with BD carbon. Ring contact and rotation, complete assembly, loaded shape, global pressure resistance, all-up equipment/payload and physical float remain **UNKNOWN**.
+**FAIL. This frozen replacement increases the known hull mass by 144.131190 t and makes both fixed-volume reference margins worse by the same amount.** The AD-D second-foot attachment fails because two loaded bolts miss the declared cheek material; selected fasteners cannot span their actual stacks; the unchanged AD-A pin still conflicts with BD carbon. Historical nominal section and bolt comparisons are preserved with the withdrawals below. Corrected source-foot tension/contact demands, true biaxial square-box corner stress and associated capacity conclusions remain **UNKNOWN**. Ring contact and rotation, complete assembly, loaded shape, global pressure resistance, all-up equipment/payload and physical float remain **UNKNOWN**.
 
 The candidate replaces the stacked collector and receiver yokes with two removable long cheeks, direct split receiver clamps, paid connecting stock and a continuous AD plate. It is a recorded failing alternative, not qualified installed hardware. It changes neither the pressure-surface displacement nor the inherited film duties. A separate no-retirement bound retains every replaced item; it is not added to the selected-alternative bill.
 
-[Saved geometry](geometry.svg) · [calculator](cassette.py) · [complete result](cassette.json) · [frozen input](baseline.json) · [source pins and inherited proxies](sources.json) · [saved-result drawing code](draw.py).
+**Known defects in the preserved mechanical outputs**
+
+**F1: AD-D second-foot attachment FAIL in both saved pressure assignments.** Loaded 24 mm bolts 0 and 2 have centres T = −0.629083704593578 m, outside the cheek material interval T = −0.60…+0.60 m; their shanks miss the cheek. The declared four-bolt mating-plate/cheek/backer transfer is not physically established. No alternative edge-clamping path is defined.
+
+**F2: The source-foot tension/contact classification and all bolt-demand, utilisation or adequacy conclusions dependent on it are withdrawn.** Corrected values are **UNKNOWN** pending a defined connection body, face normal and corresponding reaction sign. In the saved root AD-A witness, axial tension 41646.383574240725 N accompanies reported first-foot tension 0.0 Pa. That zero is not proof of contact or absence of tensile demand. Small wrench residuals are bookkeeping consistency, not validation of that classification or physical support.
+
+**F3: `normalEnvelopePa` is a historical nonbounding vector-magnitude comparison, not a square-box biaxial corner-stress envelope.** True corner stress and capacity conclusions based on that field remain **UNKNOWN**. Its misleading raw name and associated source comments do not override this qualification.
+
+The calculator, generated JSON, saved geometry and drawing source remain the original historical outputs with these known mechanics defects. This README correction does not repair or rerun them. Existing overall **FAIL**, the conditional negative mass/margin results and full physical-float **UNKNOWN** remain unchanged.
+
+[Saved geometry](geometry.svg) · [calculator](cassette.py) · [historical saved result; known mechanics defects](cassette.json) · [frozen input](baseline.json) · [source pins and inherited proxies](sources.json) · [saved-result drawing code](draw.py).
 
 ![Finite cassette projections and negative full-mass result](geometry.svg)
+
+The figure is the unchanged historical projection, not corrected attachment or strength evidence.
 
 ## Full mass and reference margin
 
@@ -50,6 +62,8 @@ Each A/B clamp consists of two open 220 × 500 × 360 mm half blanks approaching
 
 Eight 200 × 200 × 20 mm root boxes run from the retained fork bases to their actual inner-cheek projections. Each gets two 400 × 300 × 30 mm mating plates, eight 80 × 80 × 12 mm backers and four new M24 × 120 sets on its second end. The first-end M24 sets already belong to the retained fork kit and are counted once. Plate angle/miter fit, root-end transfer and welded assembly qualification remain UNKNOWN even where a simple bolt-length allowance is positive.
 
+AD-D second-foot bolts 0 and 2 miss the cheek material in both pressure assignments. The nominal mating-plate + cheek + backer stack therefore fails for these loaded bolts, irrespective of the positive bolt-length allowance. The modeled four-bolt transfer is withdrawn as a physical attachment claim; no replacement support is assumed.
+
 D/C boundary remainders enter explicit clamps on the existing ring walls. D uses two 600 × 600 × 20 mm contact plates; C uses two 400 × 600 × 20 mm plates. Both have 3 mm liners, four M30 × 600 ties and eight 80 × 80 × 12 mm backers. Their short 200 × 200 × 20 mm bridges, 300 × 300 × 20 mm feet and M24 sets are paid. These are contact duties with unqualified curved fit and rotational capacity, not free fixed points or holes through an undisclosed wall.
 
 The AD replacement is a **continuous 1003.759681 × 280 × 80 mm rectangular plate blank**, retaining the old pin centres and 102 mm bores. Its minimum net width is 178 mm and end ligament is 89 mm; it has positive material around both bores without the old tangent, zero-area shoulder. All blank material is paid. This local containment fact does not remove the unchanged AD-A pin/BD-carbon obstruction.
@@ -60,7 +74,7 @@ Four 300 × 200 × 12 mm removable access covers, sixteen M12 sets, 2 mm gaskets
 
 ### Assembly and clearance
 
-The declared sequence is unload/support the old interface, offer the A/B open half clamps along ±X, offer the two cheeks along their opposite normals, connect the spacers and D/C wall clamps, attach the retained forks and offer the AD plate, insert the pins along their finite sweeps, connect the full-length button box and torque exposed fasteners before access closure. Independent unloading/support capacity is UNKNOWN. The sequence **fails at retained AD-A pin access**.
+The declared sequence is unload/support the old interface, offer the A/B open half clamps along ±X, offer the two cheeks along their opposite normals, connect the spacers and D/C wall clamps, attach the retained forks and offer the AD plate, insert the pins along their finite sweeps, connect the full-length button box and torque exposed fasteners before access closure. Independent unloading/support capacity is UNKNOWN. The sequence **fails at retained AD-A pin access**. The AD-D second-foot through-cheek attachment also **FAILS**.
 
 | Check | Saved result | Scope |
 |---|---|---|
@@ -68,6 +82,7 @@ The declared sequence is unload/support the old interface, offer the A/B open ha
 | C wall to both long cheeks | 260.326 mm minimum normal clearance | Whole cheek T interval ±0.60 m against the curved C wall only |
 | AD body continuity and blank containment | Positive 178 mm net width; 89 mm end ligament | The continuous new plate only |
 | Retained AD-A pin / BD carbon | FAIL | Preserved finite obstruction from the unchanged I024 bodies |
+| AD-D second-foot bolts 0 and 2 / cheek | FAIL | Loaded 24 mm shanks miss the declared cheek in both pressure assignments; four-bolt through-cheek transfer not established |
 | Other seven pin/tool paths | UNKNOWN | Finite cylinder/sweep declared, full material clearance not proved |
 | Adjacent C sectors | UNKNOWN | 1.20 m cheek T bounds overlap the 0.508836 m chord pitch; overlapping bounds alone do not prove material collision |
 | Ring/clamp, bolts, root miter, tool and loaded-shape clearance | UNKNOWN / selected tie FAIL | A separated cheek wall does not qualify the rest of the assembly |
@@ -80,7 +95,7 @@ The pressure basis stays 121,590 Pa, two caps, 37 sectors per cap, 18 film bays 
 
 Only the two saved radial assignments `f = 0` and `f = 1` are evaluated, with one frozen design. Pin-root source wrenches go through the corresponding finite arms. At D/C, the old aggregate ring wrench minus the already carried main-root wrench is an explicit boundary remainder, so it is neither omitted nor duplicated. C/D, button and A-root duties go through the inner cheek to A; B-root duties use the B route. There is no assumed half share between A/B or between cheeks.
 
-Every transfer from point P to Q uses `M_Q = M_P + (P − Q) × F`, with moments also tracked about O. Applied section force/couple and internal section force/couple have opposite signs. The 37 sector orientations use `g_local = (0, −g cos θ, +g sin θ)` at g = 9.80665 m/s². Each new and kept local stock row has an explicit mass, centre and receiver assignment; their full 10,766.006892 kg per module is included. Outer-cheek weight reaches the inner cheek through the selected D-side spacer with its entire lever-arm couple. Each box additionally has its own first/last-end gravity screen and independent foot demands; receiver loads already include its own weight and do not receive that weight twice.
+Every transfer from point P to Q uses `M_Q = M_P + (P − Q) × F`, with moments also tracked about O. Applied section force/couple and internal section force/couple have opposite signs. The 37 sector orientations use `g_local = (0, −g cos θ, +g sin θ)` at g = 9.80665 m/s². Each new and kept local stock row has an explicit mass, centre and receiver assignment; their full 10,766.006892 kg per module is included. Outer-cheek weight reaches the inner cheek through the selected D-side spacer with its entire lever-arm couple. Each box additionally retains its historical first/last-end gravity screen and independent-foot records. The affected source-foot tension/contact classification and resulting bolt demands/utilisations are withdrawn pending corrected face and reaction definitions; receiver loads already include the box's own weight and do not receive that weight twice.
 
 The opposite cap uses the same 37 local records under X reflection: force and position transform as vectors, while couple transforms as `(Mx, Mr, Mt) → (Mx, −Mr, −Mt)`, followed by sector rotation. There are 74 saved orientation/assignment records (2 assignments × 37 orientations); the left-cap mapping is explicit, not another pressure load. This symmetry bookkeeping is not an installed two-cap equilibrium or stiffness proof. Earlier hull/global gravity allocation remains UNKNOWN, while all its mass stays charged.
 
@@ -89,23 +104,23 @@ The opposite cap uses the same 37 local records under X reflection: force and po
 | f=0 | (-1646438.557569, 0.000000, 0.000000) | (0.000000, 0.000000, 13720343.196465) | 0.000e+00 | 2.792e-08 | 173.033467 |
 | f=1 | (-1646438.557569, -357320.807075, 0.000000) | (0.000000, 0.000000, -21788.731405) | 2.910e-10 | 6.085e-08 | 145.525360 |
 
-The maximum complete receiver-transfer residual is 4.445e−10 N in force and 6.857e−8 Nm in moment. These are consistency residuals inside this calculation. They are not independent controls, uncertainty bounds or evidence that a real receiving ring can supply the opposite wrench.
+The maximum complete receiver-transfer residual is 4.445e−10 N in force and 6.857e−8 Nm in moment. These are consistency residuals inside this calculation. They are not independent controls, uncertainty bounds or evidence that a real receiving ring can supply the opposite wrench. These residuals do not validate the source-foot tension/contact sign or the bolt-demand/utilisation conclusions derived from it.
 
 ### Conditional section and connection screens
 
-Gross box-section stress uses full force and transverse couple, and a closed-wall torsion estimate. Plate bending deliberately uses the weaker gross section modulus for the entire transverse moment envelope; cutout, open-section torsion, local buckling and weld interaction are unqualified. Euler comparisons use the inherited 200 GPa proxy and stated length; supports, effective length, imperfections and global buckling have not been established. Bolt-group demand is an explicitly bilateral elastic distribution of all force and couple components; negative axial values require actual contact. Friction, preload, prying, combined capacity and a certified fastener allowable are UNKNOWN.
+The saved square-box `normalEnvelopePa` uses transverse-moment vector magnitude divided by one face modulus. It is a nonbounding scalar comparison, not the true biaxial corner-stress envelope. True square-box corner stress and any capacity/adequacy conclusion based on that field are **UNKNOWN**. The separate torsion estimate and other unresolved modes remain historical conditional comparisons. Plate bending deliberately uses the weaker gross section modulus for the entire transverse moment envelope; cutout, open-section torsion, local buckling and weld interaction are unqualified. Euler comparisons use the inherited 200 GPa proxy and stated length; supports, effective length, imperfections and global buckling have not been established. The saved bolt-group values come from an applied-wrench elastic distribution with a demonstrated source-foot sign/classification defect. A positive/negative axial projection is not accepted as tension/contact until the connection body, face normal and opposing reaction are defined consistently. The affected tension/contact labels and derived bolt demands/utilisations are withdrawn; corrected values remain **UNKNOWN**. Friction, preload, prying, combined capacity and certified fastener allowables also remain UNKNOWN.
 
 | Saved demand or fit | Result | Qualification |
 |---|---:|---|
-| Maximum conditional gross section normal envelope | 49,423.841619 MPa | FAIL against inherited 355 MPa nominal proxy |
-| Maximum receiver root-tie tensile demand | 11,262.330805 MPa | FAIL nominal comparison; not certified fastener capacity |
-| Maximum receiver root-tie shear demand | 6,971.349745 MPa | FAIL nominal comparison |
+| Historical maximum `normalEnvelopePa` scalar comparison | 49,423.841619 MPa | Nonbounding vector-magnitude comparison; true biaxial square-box corner stress/capacity UNKNOWN; overall candidate FAIL retained |
+| Historical receiver root-tie tensile comparison | 11,262.330805 MPa | Saved nominal comparison with historical FAIL; not a corrected source-foot demand envelope or certified connection capacity |
+| Historical receiver root-tie shear comparison | 6,971.349745 MPa | Saved nominal comparison with historical FAIL; not a corrected source-foot demand envelope or certified connection capacity |
 | AD net axial stress f=0 / f=1 | 173.033467 / 145.525360 MPa | Nominal local comparison only; access still FAIL |
 | A/B root tie length | 520 mm selected / 550 mm needed | FAIL |
 | Receiver-bridge clamp-side through grip | At least 260 mm, with 120 mm M24 selected | FAIL even before required nut/washer/thread projection |
 | Receiver complete ring/clamp capacity | UNKNOWN | The whole vector couple, ring rotation and contact remain unresolved |
 
-Connection stacks are distinct: spacer 36 mm; root first/second 72/62 mm; receiver bridge cheek/clamp side 40/260 mm; D/C bridge 40 mm; button 80 mm. A projected force/contact-area ratio does not resist the retained couple. For example, the saved root AD-A second-foot tensile demand at f=0 is 15,446.273903 MPa, so the receiver-tie summary is not an envelope of every bolt in the assembly. Full root and foot records remain in the result.
+Connection stacks are distinct: spacer 36 mm; root first/second 72/62 mm; receiver bridge cheek/clamp side 40/260 mm; D/C bridge 40 mm; button 80 mm. A projected force/contact-area ratio does not resist the retained couple. The saved root AD-A second-foot value 15,446.273903 MPa is retained only as a historical model output. It is not a corrected foot-demand envelope or capacity result. All foot-demand/utilisation conclusions dependent on the withdrawn source-foot tension/contact classification remain **UNKNOWN**; the unchanged raw records do not establish physical attachment or contact.
 
 ## Paid stock and explicit retirement map
 
@@ -328,9 +343,9 @@ Inherited FAIL/UNKNOWN findings remain: film 68.639 MPa versus a 50 MPa proxy; f
 
 | Unresolved matter | Required confirmation | Present status |
 |---|---|---|
-| Complete receiver force and couple into finite ring wall | Curved contact, preload, slip, rotation/compliance and local/global ring transfer | UNKNOWN; chosen bolts and gross demands FAIL |
-| Long-cheek route | Gross and net section, weak-axis bending, open-section torsion, cutouts, plate buckling, welds and supports | Nominal FAIL; no installed stiffness or global stability proof |
-| Positive material and assembly | Root/plate miter fits, finite cuffs and pads, each pin/tool sweep, adjacent modules and tolerances | AD body containment local PASS; unchanged AD-A obstruction and selected fastener lengths FAIL; remainder UNKNOWN |
+| Complete receiver force and couple into finite ring wall | Curved contact, preload, slip, rotation/compliance and local/global ring transfer | UNKNOWN; selected lengths FAIL; affected source-foot demand/utilisation withdrawn |
+| Long-cheek route | Gross and net section, weak-axis bending, open-section torsion, cutouts, plate buckling, welds and supports | Historical nominal FAIL; true biaxial square-box corner stress/capacity UNKNOWN; no installed stiffness or global stability proof |
+| Positive material and assembly | Root/plate miter fits, finite cuffs and pads, each pin/tool sweep, adjacent modules and tolerances | AD body containment local PASS; AD-D second-foot attachment FAIL; unchanged AD-A obstruction and selected fastener lengths FAIL; remainder UNKNOWN |
 | Materials and manufacturing | Actual steel/bolt/weld specifications, laminates, adhesives, liner/film creep, fatigue and process | UNKNOWN; inherited proxies only |
 | Gravity and all-up mass | Measured centres/routes, full-hull gravity and erection support, equipment/payload/mission U+C | Local paid-stock calculation only; remaining duties UNKNOWN |
 | Pressure and displacement | Complete loaded shape, both caps/barrel/frame coupling, global buckling and pressure boundary | UNKNOWN; no new displacement credit or physical float assertion |
