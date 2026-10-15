@@ -1217,3 +1217,17 @@
 | Order | sha256 `8f5d3871007dd85f…` (informational) |
 | Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
 
+## Landing 81 — Record R3-I035: segregated upper-tank exchange chambers, with capacity, mass and moment claims withdrawn
+
+| field | value |
+|---|---|
+| Landed | 2026-10-14 19:32:41 PDT by the lander using `ship/tools/land.py`, a pure **FAST-FORWARD**: main `0dd250ba6fc43bb69745287d9e82de207c7fc1e2` → `2694cba1a8887d0548c9e6aa816d271590b34276`; pushed main-only, non-force, origin verified equal. The signed sha IS main; the landed tree equals the signed tree by identity. |
+| The object | SIGNED `2694cba1a8887d0548c9e6aa816d271590b34276`, tree `472860948c8cd7596cf67ac4faf54d74000c3a3e`, from branch `lead-i035-on-land80-1014`, parent `229935f7c9b2132b52efb31d0beb098eefe173d3`, governance `gov-5f5db3987f04` preserved. Unit `float-programme-r3`. |
+| Pre-checks under the lock | primary on main; HEAD == main == the named base; origin/main == the named base; merge-base(main, candidate) == main and candidate != main; tree == the named tree; Helm-Audit-ID on every commit in base..candidate; tracked tree clean; object imported exact from the source. |
+| Gate | `tools/land_gate.py 2694cba1a…` → rc=0, HONOURED-XO 2694cba1a8887d0548c9e6aa816d271590b34276 — the last record for this sha (store line 2009) is XO-SIGNED. (store `fo-verdicts.tsv`) |
+| Governance records | `229935f7c` ← `gov-ack-229935f7c9b2` (reconcile record; trailer `gov-dd2455ebdaac` is bound to another sha); `2694cba1a` ← `gov-ack-2694cba1a888` (reconcile record; trailer `gov-5f5db3987f04` is bound to another sha). Each record names the landed sha as the commit it governed. |
+| Evidence before landing | `PYTHONDONTWRITEBYTECODE=1 make readmecheck linkcheck buildercheck claimsrestore claimscheck` rc=0 (environment PATH set to host paths, not shown) (gate timeout 1200 s, named by the order) |
+| Tool | `ship/tools/land.py` sha256 `3f4d36dddae3efb1…` from helm (informational) |
+| Order | sha256 `e630928e91ba5912…` (informational) |
+| Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
+
