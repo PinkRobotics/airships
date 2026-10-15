@@ -316,5 +316,12 @@
     "bearing_model": "Conditional ideal symmetric two-bearing radial equilibrium; axial sharing/contact/fatigue UNKNOWN.",
     "pressure_float": "Inherited pressure FAIL and physical float NOT SHOWN.",
     "execution": "Standard library only; read saved JSON, never import an ancestor."
+  },
+  "directed_correction": {
+    "parent_candidate": "9c4a811333b74b8480ddb46ec3b9e52ec58acbae",
+    "finding": "I034 F1: receiver-name prefixes omitted retained-path CG gravity from all32 receiver/state records.",
+    "change": "Explicit receiver-to-root-strut/plate-pin/curtain IDs, including positive rack+1 identities and roots0 through3; saved masses/CG gravity enter member/local/boundary records.",
+    "unchanged": "Frozen construction, coordinates, paid inventory, baseline, declaration and mission; compatible receiver/pad/curtain reactions UNKNOWN.",
+    "status": "Implementation correction; targeted follow-up disposition pending. I030 two MEDIUM OPEN and final correction UNREVIEWED remain."
   }
 }

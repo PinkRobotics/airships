@@ -599,15 +599,44 @@ def load_case(c, index, mass):
                              Q_end_force_n=None,Q_end_couple_nm=None,R_end_force_n=None,R_end_couple_nm=None,
                              requirement='End forces sum to opposite paid gravity; end couples plus lever arm complete the moment balance. Node forces and elastic sharing UNKNOWN.',
                              capacity='UNKNOWN'))
+    # Receiver labels and paid part IDs are different namespaces (notably
+    # rack1 versus rack+1). Map each saved receiver explicitly; do not infer
+    # membership from a prefix or add these already-paid parts to c.parts.
+    retained_receiver_parts={
+        'rack-1-root0': ('rack-1-root-strut0','rack-1-plate-pin0','rack-1-curtain0'),
+        'rack-1-root1': ('rack-1-root-strut1','rack-1-plate-pin1','rack-1-curtain1'),
+        'rack-1-root2': ('rack-1-root-strut2','rack-1-plate-pin2','rack-1-curtain2'),
+        'rack-1-root3': ('rack-1-root-strut3','rack-1-plate-pin3','rack-1-curtain3'),
+        'rack1-root0': ('rack+1-root-strut0','rack+1-plate-pin0','rack+1-curtain0'),
+        'rack1-root1': ('rack+1-root-strut1','rack+1-plate-pin1','rack+1-curtain1'),
+        'rack1-root2': ('rack+1-root-strut2','rack+1-plate-pin2','rack+1-curtain2'),
+        'rack1-root3': ('rack+1-root-strut3','rack+1-plate-pin3','rack+1-curtain3'),
+    }
+    paid_by_id={p['id']:p for p in c.parts}
     receivers=[]
     for j,saved_r in enumerate(B['saved_receivers']):
-        local=[p for p in c.parts if p.get('boundary')==f'R{j}' or p['id'].startswith(saved_r['existing_receiver_name'])]
+        retained=[paid_by_id[pid] for pid in retained_receiver_parts[saved_r['existing_receiver_name']]]
+        receiver_stock=[p for p in c.parts if p.get('boundary')==f'R{j}']
+        local=receiver_stock+retained
+        local_gravity=wrench(c.R[j],parts=local)
+        retained_members=[]
+        for part in retained:
+            dead=wrench(c.R[j],parts=[part])
+            retained_members.append(dict(id=part['id'],mass_kg=part['mass_kg'],cg_m=part['cg'],
+                                         gravity_wrench_about_receiver=dead,
+                                         required_external_wrench_sum=negative_wrench(dead),
+                                         reactions='UNKNOWN: sum all forces and couples on this retained part about R to the exported requirement; this does not assign its gravity wholly to R or solve attachment sharing.'))
         receivers.append(dict(id=saved_r['existing_receiver_name'],R_m=c.R[j],pad_m=saved_r['retained_pad_xyz_m'],
                               curtain_end_m=saved_r['retained_curtain_end_xyz_m'],
-                              local_known_gravity_wrench=wrench(c.R[j],parts=local),
+                              local_known_gravity_wrench=local_gravity,
+                              retained_path_part_ids=[p['id'] for p in retained],
+                              receiver_stock_part_ids=[p['id'] for p in receiver_stock],
+                              retained_members=retained_members,
+                              required_external_wrench_sum=negative_wrench(local_gravity),
                               retained_part_ids=[p['id'] for p in local],incoming_supports=[f'main{j}',f'brace{(j-1)%8}'],
                               force_n=None,couple_nm=None,pad_force_n=None,pad_couple_nm=None,curtain_demand_n=None,
-                              full_boundary='UNKNOWN: both support end wrenches, upper-guide/rack frame loads and retained root/pad/curtain load sharing must reach this receiver. No free fixity, equal split, or zero-couple pin.',
+                              full_boundary='UNKNOWN: both support end wrenches, upper-guide/rack frame loads and external receiver/pad/curtain reactions, transported about R, must sum to required_external_wrench_sum. Known gravity includes the retained root-strut, plate-pin and curtain CGs plus receiver stock; their internal exchanges cancel only for the whole local assembly. No free fixity, equal split, or zero-couple pin.',
+                              inventory_scope='Existing paid parts referenced only; no addition to the global inventory or second gravity charge in total_nominal_boundary_wrench.',
                               receiver_wall_grip_and_strengthening='UNKNOWN U+C'))
     nodes=[]
     for j in range(8):

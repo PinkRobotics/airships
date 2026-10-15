@@ -12,6 +12,12 @@ and the old scalar bolt proxy omits the bending-group distribution needed for a
 conservative bolt bound. Neither is used as a new capacity result here. All new
 section, bolt, weld, prying, fatigue and complete receiver capacities are UNKNOWN.
 
+**I034 F1 correction implemented; targeted follow-up disposition pending.** The
+initial MEDIUM finding remains OPEN until that disposition. It identified the
+receiver-name prefix lookup omitting retained-path CG gravity from local records,
+while the global paid inventory already included that stock. The explicit ID
+mapping below repairs those records without a design or inventory change.
+
 ## Sources and fixed construction
 
 The exact starting object is `99379c8b480a5ac1689177c455fd3f0b0bf89618`, tree
@@ -22,8 +28,10 @@ The exact starting object is `99379c8b480a5ac1689177c455fd3f0b0bf89618`, tree
 fields; [sources](sources.json) freezes every selected dimension and assumption.
 [crown.py](crown.py) imports only the standard library and reads those two JSON
 files. It never executes or imports an ancestor. [crown.json](crown.json) is the
-complete saved stdout from the one new calculation, including every part, stock
-CG, interface, seam, geometry witness and all 32 route/state rows.
+complete saved stdout from the one directed correction calculation, including
+every part, stock CG, interface, seam, geometry witness and all 32 route/state
+rows. The correction parent is `9c4a811333b74b8480ddb46ec3b9e52ec58acbae`;
+its original calculation and evidence remain a separate historical record.
 
 The vehicle frame and handedness are unchanged: metres, +z up, clockwise from
 +x viewed from +z. The crown radius is exactly 29 m and height exactly +18 m.
@@ -316,6 +324,33 @@ and unresolved upper-guide/rack sharing. `upper_guide_rack_wrenches` retains tha
 separate load input. No equal two-leg split, fixed receiver, free hinge couple or
 inherited local stiffness is asserted.
 
+The corrected receiver lookup uses these explicit saved identities. The three
+suffixes in each row select the root strut, plate-pin assembly and curtain:
+
+| Saved receiver | Paid retained part IDs |
+| --- | --- |
+| `rack-1-root0` | `rack-1-root-strut0`, `rack-1-plate-pin0`, `rack-1-curtain0` |
+| `rack-1-root1` | `rack-1-root-strut1`, `rack-1-plate-pin1`, `rack-1-curtain1` |
+| `rack-1-root2` | `rack-1-root-strut2`, `rack-1-plate-pin2`, `rack-1-curtain2` |
+| `rack-1-root3` | `rack-1-root-strut3`, `rack-1-plate-pin3`, `rack-1-curtain3` |
+| `rack1-root0` | `rack+1-root-strut0`, `rack+1-plate-pin0`, `rack+1-curtain0` |
+| `rack1-root1` | `rack+1-root-strut1`, `rack+1-plate-pin1`, `rack+1-curtain1` |
+| `rack1-root2` | `rack+1-root-strut2`, `rack+1-plate-pin2`, `rack+1-curtain2` |
+| `rack1-root3` | `rack+1-root-strut3`, `rack+1-plate-pin3`, `rack+1-curtain3` |
+
+All 32 receiver/state records now reference those existing paid parts through
+`retained_path_part_ids`. Each `retained_members` record carries its saved mass
+and CG, gravity wrench about R, and opposite required sum of external wrenches.
+`local_known_gravity_wrench` includes both those three parts and the paid receiver
+stock. Its `required_external_wrench_sum` requires **all** external forces and
+couples on that assembly, transported about R, to balance the known gravity.
+It does not assign all retained weight to R, determine a pad/curtain reaction,
+solve internal sharing, or add that gravity a second time to the global total.
+Receiver, pad and curtain reactions remain null/UNKNOWN. Baseline, declaration,
+geometry, paid inventory, global gravity/first moments and mission ledgers are
+unchanged. The original lookup failure and original result are retained in the
+parent candidate; this text does not relabel that earlier calculation as corrected.
+
 The total force/moment identity sums the ideal rope interface tractions to zero
 and adds each enumerated paid part's gravity once. This verifies that nominal
 internal action/reaction bookkeeping is closed. It does not solve compatible
@@ -356,8 +391,11 @@ saddle connecting each crown support into both existing same-rack upper and
 lower receiver levels, with its full additional stock and compatible load
 sharing. It was not built or run here.
 
-One new calculator invocation produced this saved result. No geometry tuning,
-ancestor execution, separate scientific validator, drawing or preview was used.
+One initial calculator invocation produced the parent result. Exactly one
+additional directed correction invocation produced this saved result (two total);
+its execution began from the parent candidate with the new source/input hashes.
+No geometry tuning, ancestor execution, separate scientific validator, compile
+or bytecompile preflight, drawing or preview was used for this correction.
 The source and input hashes in `crown.json` identify that calculation; they do not
 claim it executed at a later governed commit. No signature or landing is inferred
 from the calculation or this document.
