@@ -4,7 +4,7 @@
  "calculator_reads": {
   "baseline.json": {
    "sha256": "26a174cc9c45cc72834415d30a2b48ec4627d5ac656d6163dc58b37a7e6b3438",
-   "role": "every inherited number (byte-copied R3-I028 lineage data at landing75), the accepted I028 before-state, and the FROZEN I031 cartridge geometry/hardware/load/compliance rules frozen before the first calculation"
+   "role": "every inherited number (byte-copied R3-I028 lineage data at landing75), the accepted I028 before-state, and the FROZEN I031 cartridge geometry/hardware/load/compliance rules frozen before the first calculation ; ARCHIVAL CORRECTION: the geometry rules describe the implemented body (outer OD flares immediately from the cord exit), not the drawn constant-grip cartridge, and the before-state per-end aluminium masses are unreconciled against the accepted I028 record"
   }
  },
  "ancestor_provenance": {
@@ -16,7 +16,7 @@
   "R3-I028/socket_body.json": {
    "sha256": "c20cec9156e27339c3da0469c15d9c16739add69a34d594f9c73613b6440db40",
    "at": "landing75 3e4ba19d705c992700caba9c03316ca2c4b7af4f",
-   "role": "accepted I028 after-state (the BEFORE state of this unit) copied as data"
+   "role": "accepted I028 after-state copied as data; the frozen before-state masses used by the calculator are NOT exactly these values (unreconciled history)"
   },
   "R3-I019/termination.json": {
    "sha256": "0fb204a2362f17f342b1582fb2e41981f7207402b509db81ba3bbf5c38a2cc6a",
@@ -29,5 +29,6 @@
    "role": "pressure-path context only; its equilibrium closure is withdrawn and no I023 claim is recomputed here"
   }
  },
- "run_boundary": "ONE process/thread, <=60 CPU s, <=120 wall s, <=1 GiB; at most THREE scientific payloads total for this unit; every payload that starts calculations counts; a physical FAIL is not a defect; no parameter tuning, solver, sweep, ancestor execution or confidence rerun; propagation is LIMITED to the frozen saved n=5 declared-model tables (exact changed-denominator ratio; chord-basis kept as unchanged historical comparator) - full n=2..12 class bounds, centroid/no-transfer sensitivity and global stability are UNCOMPUTED (dependent UNKNOWN); SF1.2 substitution UNCOMPUTED/UNKNOWN"
+ "run_boundary": "ONE process/thread, <=60 CPU s, <=120 wall s, <=1 GiB; at most THREE scientific payloads total for this unit; every payload that starts calculations counts; a physical FAIL is not a defect; no parameter tuning, solver, sweep, ancestor execution or confidence rerun; propagation is LIMITED to the frozen saved n=5 declared-model tables (exact changed-denominator ratio; chord-basis kept as unchanged historical comparator) - full n=2..12 class bounds, centroid/no-transfer sensitivity and global stability are UNCOMPUTED (dependent UNKNOWN); SF1.2 substitution UNCOMPUTED/UNKNOWN",
+ "archival_correction": "One consolidated archival correction: the frozen code/results do not consistently represent the drawn cartridge; construction mass/margins/fit/bearing/compliance claims are withdrawn throughout README.md and here. Attributed: body geometry (implemented immediate flare vs drawn constant grip over 60/97 mm; body mass, min wall, wall/hoop/axial capacity and body compliance withdrawn as results for the drawn construction); fastener-stack fit (0.1d bearing-washer thickness and bolt head-height/recess omissions; complete new-hardware bill UNKNOWN); three bearing interpretations (screens.boltBearingAl, screens.headSeatBearing, screens.washerBearingCap withdrawn, replacement capacities UNKNOWN); cord-length accounting (total cord = free + both embedded runs unreconciled; denominator/eta/n=5 propagation/take-up withdrawn); predecessor compliance (before-state 0.02104/0.03322 m is the pre-I028 titanium intermediate, not accepted I028 0.025039521352712354/0.039170696441288136 m); removed-aluminium reconciliation (0.076004/0.295445 vs accepted 0.07594839509961494/0.29494000995555875 kg/end, machining basis inherited); whole-vehicle rollup (vehicle.spokesLineT unchanged 241.51 t before/after; reconciled bill and complete construction margin withdrawn); cap-screen inference scope (declared upper-bound screen FAIL retained incl. T0 values; no physical-failure proof). cartridge.py, cartridge.json and baseline.json unchanged. No finding is closed. Generated-path declaration recorded in .helm/derived-paths."
 }
