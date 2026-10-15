@@ -1,0 +1,29 @@
+{
+  "unit": "R3-I037",
+  "inputFiles": {
+    "research/design-iterations/R3-I033/README.md": "5c7f3da4d194124ba3ca2b998c8fa7a84c0596ab1a41f2e00a035f044935bcfd",
+    "research/design-iterations/R3-I033/baseline.json": "690a595c3f5c02618f1677cc6ed81593c3c16e449acc8f0df5260ca16b89887a",
+    "research/design-iterations/R3-I033/sources.json": "338dca4f32ce08ad570634fc666f45c58f4a8687ae6d3460e424777901f5b4f7",
+    "research/design-iterations/R3-I033/triangulation.py": "71d3180ca9c467be513dca9067a87c527dcb95a7a3388786d96f364df1b8c624",
+    "research/design-iterations/R3-I033/triangulation.json": "2e564ca885c8a3dbec98c2c91be553f295c10551e68eaadb1e6cd7af564be295"
+  },
+  "baselineSha256": "7ac3ff1df041637d43e483d67ff85c08b62c1319142863841411eb943bb17338",
+  "sourceBaseCommit": "0dd250ba6fc43bb69745287d9e82de207c7fc1e2",
+  "sourceBaseTree": "deb2d29a8e8475db7c443de922a4ae03b157a7d7",
+  "inputMethod": "Copies of saved I033 JSON only. No predecessor calculator imported or executed. Current mass from triangulation.json.mass; older baseline.massBasis used only for its identified stock rows.",
+  "assumptions": [
+    "New fixed blank/hole/bolt/spacer/web dimensions and polymer density are design assumptions.",
+    "Steel7850kg/m3,E200GPa,nominal355MPa are comparisons, not qualified assembly allowables.",
+    "Full paid blanks and full hex head/nut stock: no drilling/machining scrap credit.",
+    "Known placed-stock demand assigns full paid blank mass to its declared bookkeeping centre; trimmed material does not acquire structural contact.",
+    "New bolt under-head datum follows the frozen head/washer/plate sequence. Exact thread-root area and preload are unknown."
+  ],
+  "unknown": [
+    "Liner modulus/compression/friction/preload/adhesive transfer",
+    "Bolt grade, thread-root strength, thread engagement and wrench access",
+    "Weld quality/combined groups, plate bending/prying, cuff ovalisation, ring attachment stiffness/capacity",
+    "Individual A/B reactions, full31-tube/frame equilibrium and all global stability",
+    "Displaced charged stock storage/gravity placement, mission/U+C/all-up mass, physical float"
+  ],
+  "qualification": "All inherited FAIL/UNKNOWN and zero qualified retirement carry. This is one finite stock/contact-demand construction; no certification or scientific acceptance."
+}
