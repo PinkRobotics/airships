@@ -303,21 +303,45 @@ def aabb(o):
 
 def geometry(stock, baseline):
     geo=baseline['inherited_geometry'];old=baseline['predecessor']['objects']+baseline['fixed_objects']
-    rows=[];hull=[]
+    rows=[];hull=[];body_bounds=[]
     for o in stock.objects:
+        radius=o['radius_m']
+        oblique=o['role']=='RHS' and '-diagonal' in o['id']
+        if oblique:
+            # A capsule is convex. Containing every finite outer vertex therefore
+            # contains their convex hull and the hollow RHS body inside it.
+            # Oblique cuts extend longitudinally beyond the clipped axis ends;
+            # the section circumradius alone is insufficient at those ends.
+            distances=[closest(v,o['a'],o['b'])[0] for v in o['vertices']]
+            radius=math.nextafter(max([radius]+distances)+1e-12,math.inf)
+            body_bounds.append(dict(object=o['id'],axis_endpoints_m=[o['a'],o['b']],
+                original_section_radius_m=o['radius_m'],enclosing_radius_m=radius,
+                outer_vertex_distances_to_axis_segment_m=distances,
+                all_outer_vertices_enclosed=all(d<=radius for d in distances),
+                rounding_padding_m=1e-12,
+                method='Convex capsule containing every exported finite outer vertex; padding plus nextafter rounds the radius outward. Body geometry is unchanged.'))
         for k,c in enumerate(geo['bag_centres']):
-            distance,p=closest(c,o['a'],o['b']);gap=distance-geo['bag_radius_m']-o['radius_m']
+            distance,p=closest(c,o['a'],o['b']);gap=distance-geo['bag_radius_m']-radius
             rows.append(dict(object=o['id'],bag=k,enclosure_gap_m=gap,
                 axis_gap_m=distance-geo['bag_radius_m'],axis_witness_m=p,
                 axis_inside=distance<geo['bag_radius_m'],
                 solid_intrusion_proved=False,
                 meaning='Conservative overlap is not a solid collision proof; RHS axes are hollow and plate openings remain voids.'))
+            if oblique:
+                vertex=min(o['vertices'],key=lambda v:norm(sub(v,c)))
+                rows[-1].update(body_enclosing_radius_m=radius,
+                    minimum_exported_outer_vertex_gap_m=norm(sub(vertex,c))-geo['bag_radius_m'],
+                    outer_vertex_witness_m=vertex,
+                    witness_scope='Axis and finite outer-vertex witnesses are separate from the conservative body enclosure; no occupied-solid collision classification is inferred.')
         verts=o.get('vertices') or [o['a'],o['b']]
-        hull.append(dict(object=o['id'],conservative_inside_gap_m=geo['radius_m']-max(norm(o[k]) for k in ('a','b'))-o['radius_m'],
+        hull.append(dict(object=o['id'],conservative_inside_gap_m=geo['radius_m']-max(norm(o[k]) for k in ('a','b'))-radius,
                          vertex_max_radius_m=max(norm(v) for v in verts),
                          represented_vertex_outside=any(norm(v)>geo['radius_m'] for v in verts)))
+        if oblique:hull[-1]['body_enclosing_radius_m']=radius
     newboxes=[aabb(o) for o in stock.objects];oldboxes=[aabb(o) for o in old]
-    minima={};counts=dict(new_old=0,new_new=0,old_old=0,overlap_enclosures=0);witnesses=[]
+    minima={o['id']:dict(new_old=None,new_new=dict(minimum=None,overlap_enclosure_count=0,
+             comparison_count=0,comparison_scope='Every other new object, including earlier indices.')) for o in stock.objects}
+    counts=dict(new_old=0,new_new=0,old_old=0,overlap_enclosures=0);witnesses=[]
     def scan(i,ob,bounds,kind):
         a=newboxes[i];o=stock.objects[i];best=None;negative=0
         for j,b in enumerate(bounds):
@@ -329,14 +353,26 @@ def geometry(stock, baseline):
             if best is None or gap<best['signed_gap_m']:
                 best=dict(first=o['id'],second=ob[j]['id'],signed_gap_m=gap,
                           enclosure_bounds_m=[a,b],meaning='AABB enclosure separation; no mating exclusions.')
+            if kind=='new_new':
+                # Visit the unordered pair once globally, but give both
+                # endpoints the full comparison, with witness orientation local
+                # to the endpoint whose minimum is being reported.
+                for first,second,first_box,second_box in ((o,ob[j],a,b),(ob[j],o,b,a)):
+                    summary=minima[first['id']]['new_new'];summary['comparison_count']+=1
+                    if summary['minimum'] is None or gap<summary['minimum']['signed_gap_m']:
+                        summary['minimum']=dict(first=first['id'],second=second['id'],signed_gap_m=gap,
+                            enclosure_bounds_m=[first_box,second_box],meaning='AABB enclosure separation; no mating exclusions.')
+                    if gap<0:summary['overlap_enclosure_count']+=1
             if gap<0:
                 negative+=1;counts['overlap_enclosures']+=1
                 if len(witnesses)<2048:witnesses.append(dict(first=o['id'],second=ob[j]['id'],signed_gap_m=gap,kind=kind))
-        return dict(minimum=best,overlap_enclosure_count=negative)
+        return dict(minimum=best,overlap_enclosure_count=negative,comparison_count=len(ob))
     for i,o in enumerate(stock.objects):
-        minima[o['id']]=dict(new_old=scan(i,old,oldboxes,'new_old'),
-                             new_new=scan(i,stock.objects[i+1:],newboxes[i+1:],'new_new'))
+        minima[o['id']]['new_old']=scan(i,old,oldboxes,'new_old')
+        scan(i,stock.objects[i+1:],newboxes[i+1:],'new_new')
     return dict(method='Complete new/old and triangular new/new AABB enclosure screen, no old/old rerun; all new objects against saved full bags and spherical hull.',
+                oblique_body_bounds=body_bounds,
+                per_object_scope='Both endpoints updated for every unique new/new pair; global counts and witness sequence count each pair once.',
                 counts=counts,per_object_pair_minima=minima,first_overlap_witnesses=witnesses,
                 overlap_witness_limit=2048,all_overlap_count_preserved=True,
                 bag_rows=rows,hull_rows=hull,access_objects=[o for o in stock.objects if o['role']=='access'],

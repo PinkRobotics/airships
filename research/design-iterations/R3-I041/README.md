@@ -146,10 +146,25 @@ Pair screening uses conservative axis-aligned enclosures. The maximum signed
 coordinate separation is positive only for separated enclosures; negative
 values mean enclosure overlap and are not solid penetration proofs. Per-object
 minima, total pair/overlap counts and a bounded first-witness list are retained.
+Each unordered new/new pair is visited once globally and updates the minima
+and overlap counts of both endpoints. Every object's summary therefore includes
+all 2403 other new objects, including earlier indices; its witness is oriented
+with that object first. The global counts and the first 2048 witnesses are not
+doubled by this per-object accounting.
 No blanket mating exclusion hides intersections. Named intended contacts and
 their unknowns remain in the interface table. Bag-axis witnesses are labelled
 separately; hollow RHS axes and plate openings do not become occupied solids.
-Nominal hull or enclosure clearance does not establish loaded clearance.
+For each of the eight oblique diagonal bodies, the bag/hull reporting capsule
+uses a radius at least as large as every exported outer vertex's distance to
+the finite axis segment. A 1e-12 m outward pad and the next larger floating-point
+value cover rounding. Since a capsule is convex, enclosure of all these outer
+vertices encloses their convex hull and the represented hollow body within it.
+The cut vertices and all constructed geometry stay unchanged; the former
+section-only capsule did not enclose the oblique end extensions. The output
+records the enclosing radii and vertex distances, separate bag axis and outer
+vertex witnesses, and separate hull vertex results. An enclosing overlap is
+not an occupied-solid collision proof. Nominal hull or enclosure clearance does
+not establish loaded clearance.
 
 All inherited qualifications remain: 15 rope-rating failures, 7 actuator-rating
 failures and 22 stroke failures across the 32 saved rows; pressure FAIL;
