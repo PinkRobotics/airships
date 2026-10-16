@@ -1315,3 +1315,17 @@
 | Order | sha256 `1198f046a8f25be5…` (informational) |
 | Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
 
+## Landing 88 — CI float claims: reviewed dispositions recorded, unbound results deferred
+
+| field | value |
+|---|---|
+| Landed | 2026-10-15 20:27:25 PDT by the lander using `ship/tools/land.py`, a pure **FAST-FORWARD**: main `717416e4f0c3856c39eae99c144c1f188a6b150f` → `48a6d42a5e418146a7cd7b1c2e5eec5ab1efead1`; pushed main-only, non-force, origin verified equal. The signed sha IS main; the landed tree equals the signed tree by identity. |
+| The object | SIGNED `48a6d42a5e418146a7cd7b1c2e5eec5ab1efead1`, tree `792b2c318b9289b22005a6c2544ca5fa08200962`, from branch `ci-48a6d42a`, parent `045ede6319445e7606097610eb3574c3aba2b510`, governance `gov-c63ac113ebb4` preserved. Unit `ci-float-claims-1015`. |
+| Pre-checks under the lock | primary on main; HEAD == main == the named base; origin/main == the named base; merge-base(main, candidate) == main and candidate != main; tree == the named tree; Helm-Audit-ID on every commit in base..candidate; tracked tree clean; object imported exact from the source. |
+| Gate | `tools/land_gate.py 48a6d42a5…` → rc=0, HONOURED-XO 48a6d42a5e418146a7cd7b1c2e5eec5ab1efead1 — the last record for this sha (store line 2046) is XO-SIGNED. (store `fo-verdicts.tsv`) |
+| Governance records | `045ede631` ← `gov-5d7a1c05588c` (its trailer); `48a6d42a5` ← `gov-c63ac113ebb4` (its trailer). Each record names the landed sha as the commit it governed. |
+| Evidence before landing | `PYTHONDONTWRITEBYTECODE=1 make readmecheck linkcheck buildercheck claimsrestore claimscheck ledgercheck portcheck` rc=0 (environment PATH set to host paths, not shown) (gate timeout 1200 s, named by the order) |
+| Tool | `ship/tools/land.py` sha256 `3f4d36dddae3efb1…` from helm (informational) |
+| Order | sha256 `a5f6e5c0587d7c23…` (informational) |
+| Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
+
