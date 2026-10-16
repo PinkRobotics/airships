@@ -398,6 +398,7 @@ ledgercheck-selftest:  ## Exercise float-record rules and mutation refusals on f
 	$(PY) -m unittest discover -v -s tools/tests -p 'test_float_motion.py'
 	$(PY) -m unittest discover -v -s tools/tests -p 'test_float_claims.py'
 	$(PY) -m unittest discover -v -s tools/tests -p 'test_float_runner.py'
+	$(PY) -m unittest discover -v -s tools/tests -p 'test_attestation_shape.py'
 	FLOAT_PLANT_CASES= FLOAT_PLANT_MODE=fast $(PY) -m unittest discover -v -s tools/tests -p 'test_float_hardening.py'
 
 floatplants:  ## Full plants: run before a change to gate tools, record schema or plants goes to review

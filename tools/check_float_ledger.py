@@ -18,8 +18,12 @@ The vocabulary is supplemented by subject/relation/air-or-lift structures. Unkno
 blocks fail until reviewed; finite lexical rules still cannot prove arbitrary language.
 Dated working/audit documents inventory every block and freeze dispositions by hash.
 Only exact figure-free `## Landing N — <title>` headings in the landing file are historical
-by shape; other content there needs the usual disposition. New hits do
-not pass by matching an unrelated number. A prose block can bind explicitly with:
+by shape. The sibling rule, in that file only: a `| field | value |` table directly under
+such a heading, whose field column is exactly a row sequence the lander writes, is history
+by shape. Rebase, Governance records and Foreign route are optional, and only in the
+lander's positions. Any other table there, or any extra or renamed row, needs the usual
+disposition. New hits do not pass by matching an unrelated number. A prose block can bind
+explicitly with:
   <!-- float-ledger: CASE_ID ; field=at.seaLevel.liftToMass ; value=0.558 -->
 The stated value must occur in the visible text, match that exact field at its printed
 precision, and have an altitude in the sentence/table/block, plus factors or a ledger
@@ -278,6 +282,72 @@ def catalog_values():
     except (OSError,subprocess.TimeoutExpired,json.JSONDecodeError):return None
 
 
+# Row order from the lander's public attestation entry. The three optional rows appear
+# only where that writer inserts them; a renamed or extra row is not this set.
+_LANDER_ROWS=(
+    ('Landed', False),
+    ('The object', False),
+    ('Rebase', True),
+    ('Pre-checks under the lock', False),
+    ('Gate', False),
+    ('Governance records', True),
+    ('Evidence before landing', False),
+    ('Tool', False),
+    ('Order', False),
+    ('Foreign route', True),
+)
+
+
+def lander_field_column(raw):
+    """Ordered field names of a `| field | value |` table, or None."""
+    lines=[ln.strip() for ln in raw.strip().splitlines()]
+    if len(lines)<3 or lines[0]!='| field | value |' or lines[1]!='|---|---|':
+        return None
+    fields=[]
+    for ln in lines[2:]:
+        match=re.fullmatch(r'\| ([^|]*?) \| (.*) \|', ln)
+        if not match:
+            return None
+        fields.append(match.group(1))
+    return tuple(fields)
+
+
+def exact_lander_row_set(fields):
+    """True when `fields` is exactly one sequence the lander can emit."""
+    index=0
+    for name, optional in _LANDER_ROWS:
+        if index<len(fields) and fields[index]==name:
+            index+=1
+        elif not optional:
+            return False
+    return index==len(fields)
+
+
+def figure_free_landing_heading(line):
+    match=re.fullmatch(r'## Landing [0-9]+ — ([^\n]+)', line.strip())
+    return bool(match and not NUM.search(match.group(1)))
+
+
+def directly_under_figure_free_heading(file_text, table_line):
+    lines=file_text.splitlines()
+    if table_line<1 or table_line>len(lines):
+        return False
+    index=table_line-2
+    while index>=0 and lines[index].strip()=='':
+        index-=1
+    return index>=0 and figure_free_landing_heading(lines[index])
+
+
+def attestation_table_by_shape(path, line, raw, file_text):
+    """History by shape for the lander's own table, and for nothing else."""
+    if path!='docs/governance/landing-attestations.md':
+        return False
+    fields=lander_field_column(raw)
+    if fields is None or not exact_lander_row_set(fields):
+        return False
+    return directly_under_figure_free_heading(file_text, line)
+
+
 def inspect_block(path,line,text,raw,rows,ledger,cat):
     kind=interpretation(text)
     hit=dict(file=path,line=line,figure=NUM.findall(re.sub(r'\[data-[^]]+\]','',text)),sentence=text,raw=raw,meaning=kind,
@@ -297,11 +367,19 @@ def inspect_block(path,line,text,raw,rows,ledger,cat):
         else:rendered='unresolved'
         hit['dynamicFigures'].append(dict(route=route,value=value,display=rendered,
             basis='default page context; not an accepted ledger binding'))
-    # Only the lander's exact, figure-free heading is historical by shape.
+    # The lander's exact, figure-free heading is historical by shape. The sibling rule
+    # allows only the field/value table directly under that heading when its field column
+    # is exactly a sequence the lander writes. Every other table still needs a disposition.
     heading=re.fullmatch(r'## Landing [0-9]+ — ([^\n]+)',raw.strip())
     if path=='docs/governance/landing-attestations.md' and heading and not NUM.search(heading[1]):
         hit.update(status='ALLOW',disposition='history',reason='Exact figure-free landing heading; history by shape.')
         return hit
+    if path=='docs/governance/landing-attestations.md' and raw.lstrip().startswith('|'):
+        page=(ROOT/path).read_text(encoding='utf-8')
+        if attestation_table_by_shape(path,line,raw,page):
+            hit.update(status='ALLOW',disposition='history',
+                       reason='Exact lander field/value table directly under a figure-free landing heading; history by shape.')
+            return hit
     bindings=list(BIND.finditer(raw));live=re.findall(r'data-(?:n|cat)="([^"]+)"',raw)
     bound=[]
     if bindings:

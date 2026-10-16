@@ -37,6 +37,25 @@ def specs():
     # The exact landing heading is the positive control for the narrow history shape.
     cases['M5-landing-heading'] = dict(append=('docs/governance/landing-attestations.md',
         '\n## Landing 999 — The float gate hardening\n'), green=True)
+    # The sibling rule: an exact lander table passes with no hand record. A renamed
+    # row, an extra row, or the same table outside the attestation file does not.
+    shape_fields = ('Landed', 'The object', 'Pre-checks under the lock', 'Gate',
+                    'Governance records', 'Evidence before landing', 'Tool', 'Order',
+                    'Foreign route')
+    def shape_table(fields):
+        rows = ['| field | value |', '|---|---|']
+        for name in fields:
+            rows.append(f'| {name} | Unit `ci-float-claims-1015` keeps this float marker. |')
+        return '\n'.join(rows)
+    exact_table = shape_table(shape_fields)
+    cases['M5-landing-table-exact'] = dict(append=('docs/governance/landing-attestations.md',
+        '\n## Landing 997 — Shape rule exact table\n\n' + exact_table + '\n'), green=True)
+    renamed = ('Arrived',) + shape_fields[1:]
+    cases['M5-landing-table-renamed'] = dict(append=('docs/governance/landing-attestations.md',
+        '\n## Landing 996 — Shape rule renamed row\n\n' + shape_table(renamed) + '\n'))
+    cases['M5-landing-table-extra'] = dict(append=('docs/governance/landing-attestations.md',
+        '\n## Landing 995 — Shape rule extra row\n\n' + shape_table(shape_fields + ('Note',)) + '\n'))
+    cases['M5-landing-table-elsewhere'] = dict(append=('docs/FLOAT.md', '\n' + exact_table + '\n'))
     # Each A5 sentence must fail independently; an aggregate red hides missing sentences.
     phrasings = ['The 52 m hull floats.', 'The 52 m hull is neutrally buoyant at sea level.',
         'The 52 m hull is lighter than the air it displaces.',
