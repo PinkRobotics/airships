@@ -44,14 +44,9 @@
       "file": "research/design-iterations/R3-I001/README.md",
       "key": "151e554cd6e1e03a",
       "line": 6,
-      "class": "method",
-      "reason": "Closed fixed-budget hypothesis on the frozen model. The figures are represented hull mass and mass-equivalent lift. No aircraft is qualified.",
-      "context": [
-        "2330.730",
-        "2249.837",
-        "1757.363",
-        "2500"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: the frozen hull is 2330.730 t against mass-equivalent lift 2249.837 t and 1757.363 t. No generated field binds it. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I001/README.md",
@@ -95,21 +90,17 @@
       "file": "research/design-iterations/R3-I001/README.md",
       "key": "0acc11c4517e8b2a",
       "line": 100,
-      "class": "method",
-      "reason": "Upper bound on margins if omitted additions are nonnegative. An unknown correction remains, and no numeric all-up result is claimed.",
-      "context": [
-        "0",
-        "-80.893",
-        "-573.367",
-        "2500"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: if omitted additions are nonnegative, SF1.2 margins are at most -80.893 t and -573.367 t. No generated field binds them. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I001/README.md",
       "key": "921e8cc0cd4694cb",
       "line": 114,
-      "class": "other-quantity",
-      "reason": "Model lift arithmetic from ISA density and the frozen volume, including the film-scallop debit. Not a measured vacuum volume and no vehicle verdict."
+      "class": "deferred",
+      "reason": "Unbound lift result: model lift is 2249.837 t at sea level and 1757.363 t at 2500 m. That is a float result, not a non-float quantity. Deferred, not approved.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I001/README.md",
@@ -136,20 +127,9 @@
       "file": "research/design-iterations/R3-I001/README.md",
       "key": "210ec0fd05db713d",
       "line": 175,
-      "class": "method",
-      "reason": "Selects the next diameter hypothesis from the ledger rounded allowances. Not a new calculation of that candidate and not evidence of a floating vehicle.",
-      "context": [
-        "80",
-        "51.9",
-        "42.0",
-        "96",
-        "46.9",
-        "68",
-        "-80.9",
-        "112",
-        "-127.5",
-        "2500"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: the sampled sizes give their largest sea-level hull allowance, 51.9 t at 80 m. No generated field binds that ranking. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I001/README.md",
@@ -232,17 +212,9 @@
       "file": "research/design-iterations/R3-I002/README.md",
       "key": "e75a5b58ad1c782c",
       "line": 181,
-      "class": "method",
-      "reason": "Frozen-model comparison that rejects the pressure-relief hypothesis. The figures are paper margins, not a qualified vehicle.",
-      "context": [
-        "0.30",
-        "1.007",
-        "0.99",
-        "0.80",
-        "10.224",
-        "0.20",
-        "0.65"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: sphere B changes the frozen baseline by 1.007 t and then loses 10.224 t. No generated field binds the comparison. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I002/README.md",
@@ -281,14 +253,9 @@
       "file": "research/design-iterations/R3-I002/README.md",
       "key": "f80779cc9a2e25fd",
       "line": 228,
-      "class": "method",
-      "reason": "Gas-substitution comparison for branch D. The surplus depends on retaining helium, and a runaway full-vacuum event is not sized as normal load.",
-      "context": [
-        "-74.192",
-        "153.203",
-        "51.6",
-        "79.011"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: the air-filled control is -74.192 t and the gas-substitution change is +153.203 t. No generated field binds them. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I002/README.md",
@@ -378,8 +345,9 @@
       "file": "research/design-iterations/R3-I003/README.md",
       "key": "dc8bea4f1e766a9d",
       "line": 24,
-      "class": "other-quantity",
-      "reason": "Recorded P-100 class and vacuum-shell figures copied from named sources. They are the comparison baseline, not a new gas-hull result."
+      "class": "deferred",
+      "reason": "The block mixes copied P-100 baseline figures with lift of 210.5 t and a 0.851 lift/mass result that sinks. Lift results are not a non-float quantity. Deferred, not approved.",
+      "owner": "mixed-block"
     },
     {
       "file": "research/design-iterations/R3-I003/README.md",
@@ -421,40 +389,17 @@
       "file": "research/design-iterations/R3-I003/README.md",
       "key": "e51dc5433e4a4e39",
       "line": 106,
-      "class": "method",
-      "reason": "Paper margins for a payload-free row and three mission equipment classes. The mission rows include the 100 t payload.",
-      "context": [
-        "2500",
-        "30.2",
-        "145.7",
-        "195.0",
-        "127.2",
-        "100.0",
-        "-51.3",
-        "-1.96",
-        "317.0",
-        "-241.0",
-        "-191.7",
-        "811.2",
-        "-735.3",
-        "-686.0"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: payload-free margin +145.7 t and the mission equipment-class margins. No generated field binds the table. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I003/README.md",
       "key": "a0bfefa28b24919a",
       "line": 113,
-      "class": "method",
-      "reason": "The mission does not close at any recorded equipment class once the 100 t payload is included. The payload-free row is not a mission success.",
-      "context": [
-        "100",
-        "51.27",
-        "2500",
-        "1.96",
-        "9.68",
-        "98.0",
-        "48.7"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: with 100 t payload the mission misses by 51.27 t and does not close. No generated field binds that miss. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I003/README.md",
@@ -507,28 +452,9 @@
       "file": "research/design-iterations/R3-I003/README.md",
       "key": "2a9023a103cbe42d",
       "line": 164,
-      "class": "method",
-      "reason": "One-change paper sensitivities of the mission margin. None of the listed changes is a qualified aircraft.",
-      "context": [
-        "97",
-        "95",
-        "-3.63",
-        "-54.89",
-        "0.45",
-        "0.65",
-        "-3.80",
-        "-55.07",
-        "0",
-        "500",
-        "-0.22",
-        "-51.48",
-        "-189.70",
-        "-240.97",
-        "14.01",
-        "-37.26",
-        "49.31",
-        "-1.96"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: one-change sensitivities of the mission margin, including the resulting tonne column. No generated field binds them. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I003/README.md",
@@ -541,18 +467,9 @@
       "file": "research/design-iterations/R3-I003/README.md",
       "key": "75ec6aa46c9a0bd0",
       "line": 186,
-      "class": "method",
-      "reason": "The hull question is separated from the mission. Gas support replaces the heavy shell, and with the payload the mission still misses at every recorded equipment class.",
-      "context": [
-        "112.6",
-        "320.8",
-        "21.9",
-        "27.6",
-        "16.40",
-        "2.53",
-        "100",
-        "51.3"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: gas support replaces the shell at a stated lift concession, and the mission still misses with payload. No generated field binds it. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I003/README.md",
@@ -565,15 +482,9 @@
       "file": "research/design-iterations/R3-I003/README.md",
       "key": "ca351790378694ac",
       "line": 205,
-      "class": "method",
-      "reason": "Scoreboard line for the paper gas hull. It states no mission float with the payload aboard, and names equipment class and gas schedule as decisive.",
-      "context": [
-        "100",
-        "-2",
-        "-51",
-        "2500",
-        "146"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: the paper summary states floor-kit and payload-free margins, including -51 t at 2500 m. No generated field binds them. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I003/README.md",
@@ -676,19 +587,9 @@
       "file": "research/design-iterations/R3-I005/README.md",
       "key": "8f0b535cc546fbcb",
       "line": 118,
-      "class": "method",
-      "reason": "The v2 scalar pass is superseded by the demonstrated finite-phase failure. The squared law, parity asserts, and the binding-mode check remain.",
-      "context": [
-        "9761",
-        "46.9",
-        "1.0",
-        "2203.0",
-        "1",
-        "9",
-        "0.0",
-        "156276.3",
-        "155944.5"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: superseded v2 closure cites +46.9 t at sea level on the scalar pass. No generated field binds that figure. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I005/README.md",
@@ -828,18 +729,9 @@
       "file": "research/design-iterations/R3-I007/README.md",
       "key": "98dc6d5aae16391b",
       "line": 18,
-      "class": "method",
-      "reason": "The prior gas hull misses the payload mission at every recorded equipment class. This unit asks whether re-priced public equipment can balance the cycle without false ballast.",
-      "context": [
-        "127.25",
-        "100",
-        "-51.27",
-        "2500",
-        "20",
-        "30",
-        "-59",
-        "-109"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: the floor kit at dry 127.25 t misses the 100 t-payload mission. No generated field binds that miss. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I007/README.md",
@@ -884,57 +776,17 @@
       "file": "research/design-iterations/R3-I007/README.md",
       "key": "83676216db649744",
       "line": 64,
-      "class": "method",
-      "reason": "Departure sizing and the public sources for the engine, the fuel estimate, the helium price and the water-delivery comparator. No quote was solicited.",
-      "context": [
-        "158703",
-        "162.52",
-        "100",
-        "7.6",
-        "2500",
-        "27.9",
-        "171851",
-        "175.98",
-        "13.46",
-        "0.817",
-        "67",
-        "06",
-        "2022",
-        "02",
-        "18",
-        "895",
-        "5",
-        "234.5",
-        "0.332",
-        "0.546",
-        "2026",
-        "12",
-        "2025",
-        "14",
-        "2024",
-        "28",
-        "92",
-        "0.64",
-        "169"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: net lift 162.52 t is stated as balanced at departure sizing. No generated field binds that lift. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I007/README.md",
       "key": "4930ec14a8c8cc25",
       "line": 78,
-      "class": "method",
-      "reason": "Departure identity from budget.py. The loaded ship is not neutral through the outing, and the earlier neutral-throughout-the-climb claim is withdrawn.",
-      "context": [
-        "2500",
-        "210.5",
-        "31.9",
-        "16.1",
-        "162.5",
-        "269.5",
-        "75.1",
-        "0.41",
-        "2.04"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: the departure identity states net 162.5 t and lightness of 0.41 t and 2.04 t. No generated field binds them. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I007/README.md",
@@ -947,54 +799,9 @@
       "file": "research/design-iterations/R3-I007/README.md",
       "key": "a84025d1500e54a6",
       "line": 118,
-      "class": "method",
-      "reason": "State ledger of the corrected outing. Residual is lift minus weight, and the fuel column is consumable fuel only.",
-      "context": [
-        "0.00",
-        "4.90",
-        "100",
-        "0.0",
-        "158703",
-        "27.9",
-        "162.5",
-        "0.50",
-        "4.49",
-        "7.6",
-        "162.1",
-        "0.41",
-        "2.50",
-        "2.86",
-        "160.5",
-        "2.04",
-        "1",
-        "2.65",
-        "2.74",
-        "50",
-        "110000",
-        "36.0",
-        "112.6",
-        "110.4",
-        "2.29",
-        "3.00",
-        "2.45",
-        "110.1",
-        "2.58",
-        "3.38",
-        "2.14",
-        "25",
-        "26.6",
-        "111.4",
-        "1.29",
-        "3.75",
-        "1.84",
-        "0",
-        "53.2",
-        "5.75",
-        "0.20",
-        "50.0",
-        "111.0",
-        "1.63"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: the outing table states lift, weight and residual tonnes, including +2.04 t. No generated field binds them. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I007/README.md",
@@ -1014,16 +821,9 @@
       "file": "research/design-iterations/R3-I007/README.md",
       "key": "1ea7e4d47c717307",
       "line": 187,
-      "class": "method",
-      "reason": "The selected equipment set balances the earlier shortfall at the stated inventory margin. The recorded hover-thrust concept is not carried.",
-      "context": [
-        "227.25",
-        "2500",
-        "51.27",
-        "162.52",
-        "13.46",
-        "30"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: the selected set is stated to close with +13.46 t of inventory margin. No generated field binds that closure. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I007/README.md",
@@ -1050,14 +850,9 @@
       "file": "research/design-iterations/R3-I007/README.md",
       "key": "0c74b9425a9b38b8",
       "line": 236,
-      "class": "method",
-      "reason": "Scoreboard line for the paper gas kit: the mass balance, the one-vent outing, and an economics failure against the public comparator.",
-      "context": [
-        "100",
-        "162.5",
-        "176.0",
-        "33.5"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: the paper kit is stated to close at 162.5 t against 176.0 t of lift. No generated field binds that closure. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I008/README.md",
@@ -1259,8 +1054,9 @@
       "file": "research/design-iterations/R3-I010/README.md",
       "key": "ddc208082cb83aef",
       "line": 37,
-      "class": "other-quantity",
-      "reason": "Gross displaced air and connected-air volumes for the 76 m endpoints. Outside equipment takes no displacement credit in this table."
+      "class": "deferred",
+      "reason": "Unbound lift result: gross displaced air is 277.495142 t at sea level and 216.753347 t at 2500 m. Not a non-float quantity. Deferred, not approved.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I010/README.md",
@@ -1329,24 +1125,17 @@
       "file": "research/design-iterations/R3-I010/README.md",
       "key": "4c521d1dc50b4176",
       "line": 157,
-      "class": "method",
-      "reason": "Recalculated diameter comparison at 2,500 m. The payload case still fails buoyant lift.",
-      "context": [
-        "2500",
-        "27.836",
-        "5.972"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: the larger construction is stated to improve margin by 27.836 t. No generated field binds that delta. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I010/README.md",
       "key": "a40b9ae980688a52",
       "line": 178,
-      "class": "method",
-      "reason": "Sea-level matched mass leaves a downward-thrust requirement, and the conditional powered balance is not evidence of buoyant float.",
-      "context": [
-        "277.448550",
-        "873.745"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: sea-level onboard mass is 277.448550 t and altitude is called neutral in this model. No generated field binds that state. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I010/README.md",
@@ -1474,20 +1263,9 @@
       "file": "research/design-iterations/R3-I012/README.md",
       "key": "6dd83ff51d245381",
       "line": 116,
-      "class": "method",
-      "reason": "Margin at maximum inventory against the massless ideal. Departure volume is sized so lift matches the loaded mass. Model arithmetic, not a qualified vehicle.",
-      "context": [
-        "175.98",
-        "6.60",
-        "2.34",
-        "13.46",
-        "6.86",
-        "165403",
-        "169.38",
-        "3.7",
-        "2500",
-        "24.8"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: margin at max inventory is stated as +6.60 t, with a +13.46 t ideal bound. No generated field binds them. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I012/README.md",
@@ -1500,56 +1278,9 @@
       "file": "research/design-iterations/R3-I012/README.md",
       "key": "e376ef93613faf90",
       "line": 174,
-      "class": "method",
-      "reason": "State ledger of lift against weight through the outing. The residual column is that difference. Model arithmetic, not a qualified vehicle.",
-      "context": [
-        "0.00",
-        "4.90",
-        "100",
-        "0.0",
-        "66.9",
-        "165403",
-        "24.8",
-        "169.4",
-        "0.50",
-        "4.49",
-        "7.9",
-        "3.7",
-        "169.0",
-        "0.41",
-        "2.50",
-        "2.86",
-        "167.3",
-        "2.04",
-        "50",
-        "2.65",
-        "2.74",
-        "70.3",
-        "114463",
-        "33.4",
-        "117.2",
-        "3.00",
-        "2.45",
-        "116.9",
-        "0.29",
-        "3.38",
-        "2.14",
-        "25",
-        "25.4",
-        "117.1",
-        "0.14",
-        "3.75",
-        "1.84",
-        "0",
-        "50.9",
-        "5.75",
-        "0.20",
-        "129.3",
-        "48.0",
-        "115.6",
-        "1.63",
-        "6.50"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: the outing table states lift, weight and residual tonnes through reset. No generated field binds them. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I012/README.md",
@@ -1568,16 +1299,9 @@
       "file": "research/design-iterations/R3-I012/README.md",
       "key": "fd38d1685fa40274",
       "line": 193,
-      "class": "method",
-      "reason": "Residuals stay light-side and inside the stated thrust band. Nominal moments are zero because pair centroids lie on the centreline.",
-      "context": [
-        "2.04",
-        "2.6",
-        "10",
-        "15",
-        "3",
-        "50"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: light-side residuals are stated up to +2.04 t against thrust authority. No generated field binds that screen. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I012/README.md",
@@ -1614,53 +1338,17 @@
       "file": "research/design-iterations/R3-I012/README.md",
       "key": "ba953efc372877df",
       "line": 294,
-      "class": "method",
-      "reason": "Helium purchase for one neutral vent per hundred tonnes. Dry mass cancels from that vent. Hardware cost shows up as margin, not as extra helium.",
-      "context": [
-        "8.36",
-        "49411",
-        "100",
-        "494",
-        "50940",
-        "1529",
-        "0.36",
-        "8.00",
-        "2.3",
-        "6.86",
-        "13.46",
-        "6.60"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: the vent identity states 8.36 t of helium per 100 t delivered. No generated field binds that figure. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I012/README.md",
       "key": "ddd5082b9970bea4",
       "line": 316,
-      "class": "method",
-      "reason": "One-line sensitivities of the closure. A sundries increase breaks it, and the hardware set reverses sign above its stated mass.",
-      "context": [
-        "50",
-        "-4.60",
-        "2.00",
-        "-3.80",
-        "2.80",
-        "-9.82",
-        "-3.22",
-        "3",
-        "9",
-        "-6.00",
-        "0.60",
-        "6",
-        "12",
-        "-4.90",
-        "1.70",
-        "20",
-        "-0.98",
-        "5.62",
-        "-6.60",
-        "0.00",
-        "15.8",
-        "72"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: the sensitivity table states margin moves, including the sundries case that breaks closure. No generated field binds them. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I012/README.md",
@@ -1764,26 +1452,9 @@
       "file": "research/design-iterations/R3-I013/README.md",
       "key": "fe13783b76f87b6b",
       "line": 173,
-      "class": "method",
-      "reason": "Altitude cases of displaced air against mass before ballast. The margin column is that difference. Model arithmetic, not a qualified vehicle.",
-      "context": [
-        "0",
-        "66.854565",
-        "17.000",
-        "3.000",
-        "194.596732",
-        "277.495142",
-        "82.898409",
-        "2500",
-        "133.901530",
-        "216.753347",
-        "82.851817",
-        "100.000",
-        "291.596732",
-        "-14.101591",
-        "230.901530",
-        "-14.148183"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: altitude cases state raw margins, including +82.898409 t and -14.148183 t. No generated field binds the table. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I013/README.md",
@@ -1811,16 +1482,9 @@
       "file": "research/design-iterations/R3-I014/README.md",
       "key": "a1287d907b34c341",
       "line": 3,
-      "class": "method",
-      "reason": "Corrected hull mass and the margins at both altitudes. The pin, end plate and clamp screens fail. Model arithmetic, not a qualified vehicle.",
-      "context": [
-        "2369.756",
-        "2377.844",
-        "-1558.372",
-        "-1737.749",
-        "2500",
-        "6"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: hull-plus-gas margins are stated, including -1558.372 t at sea level. No generated field binds them. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I014/README.md",
@@ -1885,36 +1549,17 @@
       "file": "research/design-iterations/R3-I015/README.md",
       "key": "86e1eba8f4d9189e",
       "line": 143,
-      "class": "method",
-      "reason": "Budget totals and altitude margins before and after the arrangement change. Model arithmetic, not a qualified vehicle.",
-      "context": [
-        "2500",
-        "2207.3",
-        "42.5",
-        "-450.0",
-        "2162.6",
-        "87.3",
-        "-405.2",
-        "2216.9",
-        "32.9",
-        "-459.6",
-        "2",
-        "17.3"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: the budget table states sea-level and 2500 m margins before and after arrangement B. No generated field binds them. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I015/README.md",
       "key": "0bb65d7098ddee4d",
       "line": 150,
-      "class": "method",
-      "reason": "The adverse case restores coupled margins and keeps the inherited mass failure. Model arithmetic, not a qualified vehicle.",
-      "context": [
-        "0.7692",
-        "1.0045",
-        "2536.9",
-        "2546.1",
-        "-296.3"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: the adverse case states a retained sea-level margin of -296.3 t. No generated field binds that failure. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I015/README.md",
@@ -2047,119 +1692,33 @@
       "file": "research/design-iterations/R3-I017/README.md",
       "key": "59938b952242bbea",
       "line": 129,
-      "class": "method",
-      "reason": "Margin at maximum inventory against the prior allowance and the massless ideal. Model arithmetic, not a qualified vehicle.",
-      "context": [
-        "9.80",
-        "6.60",
-        "13.46",
-        "3.20",
-        "48",
-        "1.60"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: margin at max inventory is stated as +9.80 t against the earlier bounds. No generated field binds it. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I017/README.md",
       "key": "b78b940429500956",
       "line": 139,
-      "class": "method",
-      "reason": "State ledger of lift against weight through the outing. The residual column is that difference. Model arithmetic, not a qualified vehicle.",
-      "context": [
-        "0.00",
-        "4.90",
-        "100",
-        "70.7",
-        "162278",
-        "26.2",
-        "166.2",
-        "0.50",
-        "4.49",
-        "11.7",
-        "5.6",
-        "165.8",
-        "0.41",
-        "2.50",
-        "2.86",
-        "164.1",
-        "2.04",
-        "50",
-        "2.65",
-        "2.74",
-        "74.1",
-        "111338",
-        "35.2",
-        "114.0",
-        "3.00",
-        "2.45",
-        "113.7",
-        "0.29",
-        "3.38",
-        "2.14",
-        "25",
-        "113.9",
-        "0.14",
-        "3.75",
-        "1.84",
-        "0",
-        "5.75",
-        "0.20",
-        "133.1",
-        "49.4",
-        "112.4",
-        "1.63",
-        "6.50"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: the outing table states lift, weight and residual tonnes, including +2.04 t. No generated field binds them. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I017/README.md",
       "key": "400a0ae01d484329",
       "line": 151,
-      "class": "method",
-      "reason": "The reset inventory is computed from the arrival mixture plus the named operations. The clock sits outside the flight envelope.",
-      "context": [
-        "49411",
-        "1529",
-        "45",
-        "4.70",
-        "100",
-        "162278",
-        "97",
-        "3",
-        "6.50",
-        "6.00",
-        "2.04"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: the reset inventory and 4.70 t refuel are a computed end state. No generated field binds that state. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I017/README.md",
       "key": "667e9f8f783480da",
       "line": 159,
-      "class": "method",
-      "reason": "One neutral vent, with dry mass cancelling from its size. The lighter set moves floor clearance and cap margin. Model arithmetic, not a qualified vehicle.",
-      "context": [
-        "50940",
-        "8.36",
-        "50",
-        "1.02405",
-        "50.9",
-        "49411",
-        "1529",
-        "18.9",
-        "162278",
-        "111338",
-        "1338",
-        "4463",
-        "64.81",
-        "4.63",
-        "6.00",
-        "1.4",
-        "49.4",
-        "99",
-        "110000",
-        "0.6",
-        "2.0",
-        "3.20"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: the neutral vent is stated as 8.36 t of helium. No generated field binds that identity. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I017/README.md",
@@ -2214,34 +1773,9 @@
       "file": "research/design-iterations/R3-I017/README.md",
       "key": "d71ab06404b39f96",
       "line": 247,
-      "class": "method",
-      "reason": "One-line sensitivities of the margin. A sundries increase breaks it. Occupancy is not a mass line.",
-      "context": [
-        "50",
-        "-0.34",
-        "9.46",
-        "10",
-        "-1.68",
-        "8.13",
-        "3.5",
-        "10.5",
-        "2",
-        "-2.33",
-        "7.47",
-        "3",
-        "5",
-        "-1.15",
-        "8.65",
-        "-9.82",
-        "-0.02",
-        "6",
-        "12",
-        "-4.90",
-        "4.90",
-        "217547",
-        "-1.96",
-        "7.84"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: the sensitivity table states each line's margin in tonnes. No generated field binds those margins. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I017/README.md",
@@ -2376,34 +1910,17 @@
       "file": "research/design-iterations/R3-I019/README.md",
       "key": "06f0e6086bb8b74b",
       "line": 293,
-      "class": "method",
-      "reason": "Adverse-case spokes and total mass against the inherited baseline. The sea-level margin still fails. Model arithmetic, not a qualified vehicle.",
-      "context": [
-        "2536.9",
-        "2546.1",
-        "9.2",
-        "227.66",
-        "243.98",
-        "16.3",
-        "2562.4",
-        "-312.6"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: the adverse completion states total mass and the sea-level margin, including -312.6 t. No generated field binds them. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I020/README.md",
       "key": "ce4efa6e91999caf",
       "line": 5,
-      "class": "method",
-      "reason": "Added stock and the margins at both altitudes. Residual gas is counted once. This is a failed stock budget, not a qualified vehicle.",
-      "context": [
-        "552.332455",
-        "5313.920567",
-        "8.086383",
-        "5322.006950",
-        "2500",
-        "-4502.654159",
-        "-4682.004898"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: sea-level and 2500 m margins are stated as -4502.654159 t and -4682.004898 t. No generated field binds them. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I020/README.md",
@@ -2430,12 +1947,9 @@
       "file": "research/design-iterations/R3-I020/README.md",
       "key": "336ac2be57e10b22",
       "line": 322,
-      "class": "method",
-      "reason": "The inherited allowance was already negative, and the volume proxy adds no displacement credit. No retirement is used to improve the margin.",
-      "context": [
-        "-743.598705",
-        "668852.724569"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: the inherited allowance is stated as -743.598705 t before the added stock. No generated field binds it. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I020/README.md",
@@ -2588,16 +2102,9 @@
       "file": "research/design-iterations/R3-I024/README.md",
       "key": "1788f9522a69c95b",
       "line": 340,
-      "class": "method",
-      "reason": "Hull identity adds the new stock and counts gas once. Displacement is unchanged. The budget fails, and unknown duties are not given zero mass.",
-      "context": [
-        "5313.920567045",
-        "0",
-        "652.553319758",
-        "5966.473886802",
-        "5974.560270141",
-        "668852.724569296"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: the hull identity states the summed hull mass and says the margins fail the reference-lift budget. No generated field binds it. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I024/README.md",
@@ -2618,12 +2125,9 @@
       "file": "research/design-iterations/R3-I024/README.md",
       "key": "384eead76f0cbf09",
       "line": 386,
-      "class": "method",
-      "reason": "The correction is the difference from the old addition. Stock totals and nominal screens do not qualify fabrication or a vehicle.",
-      "context": [
-        "7.862694189",
-        "644.690625568"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: the corrected stock total is stated as 7.862694189 t against the old 644.690625568 t addition. No generated field binds it. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I024/README.md",
@@ -2659,12 +2163,9 @@
       "file": "research/design-iterations/R3-I026/README.md",
       "key": "ea994c1e2ea4a775",
       "line": 5,
-      "class": "method",
-      "reason": "Known construction sits above the paired guide-rack bill. Cold deficits are stated before the unpriced terms, and no clearance credit is taken.",
-      "context": [
-        "90.910391",
-        "38.292409"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: known construction is stated as 90.910391 t plus unpriced terms in the margin tables. No generated field binds it. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I026/README.md",
@@ -2703,37 +2204,9 @@
       "file": "research/design-iterations/R3-I026/README.md",
       "key": "179fb69308a3b2e5",
       "line": 172,
-      "class": "method",
-      "reason": "Altitude cases of raw margin before and after fixed water. Unpriced terms subtract further. Model arithmetic, not a qualified vehicle.",
-      "context": [
-        "0",
-        "221.162",
-        "626.888",
-        "58.648452",
-        "-38.351548",
-        "-16.021021",
-        "71.922931",
-        "10",
-        "204.910",
-        "580.948",
-        "65.910559",
-        "-31.089441",
-        "-8.758913",
-        "64.660824",
-        "2500",
-        "76.204",
-        "217.126",
-        "58.707591",
-        "-38.292409",
-        "-15.961881",
-        "11.121998",
-        "57.844",
-        "165.227",
-        "66.426491",
-        "-30.573509",
-        "-8.242982",
-        "3.403098"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: the altitude table states raw margins before and after fixed water. No generated field binds them. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I026/README.md",
@@ -2890,11 +2363,9 @@
       "file": "research/design-iterations/R3-I029/README.md",
       "key": "a6a68569bc7864d3",
       "line": 3,
-      "class": "method",
-      "reason": "The replacement adds hull mass and worsens both fixed-volume margins by that amount. Attachment and fastener screens fail, and vehicle qualification stays unknown.",
-      "context": [
-        "144.131190"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: the replacement adds 144.131190 t and worsens both fixed-volume margins by that amount. No generated field binds it. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I029/README.md",
@@ -2976,26 +2447,17 @@
       "file": "research/design-iterations/R3-I030/README.md",
       "key": "950613d7c2911284",
       "line": 3,
-      "class": "method",
-      "reason": "The hoop clears the bag envelopes, but receivers and ropes still intersect. Every strength and stroke screen fails, and vehicle qualification stays unknown.",
-      "context": [
-        "32",
-        "109.538038",
-        "18.627648"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: known construction is stated as 109.538038 t plus unpriced terms, up 18.627648 t. No generated field binds it. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I030/README.md",
       "key": "08f6f2ed0122b009",
       "line": 5,
-      "class": "method",
-      "reason": "Cold margins with and without the fixed water are ledger comparisons. They are not a gas-volume certificate, and the failed routes stay.",
-      "context": [
-        "-56.979196",
-        "-56.920056",
-        "-34.648668",
-        "-34.589529"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: cold P100 and M20 margins are stated in tonnes before unpriced terms. No generated field binds them. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I030/README.md",
@@ -3077,13 +2539,9 @@
       "file": "research/design-iterations/R3-I031/README.md",
       "key": "7896577754cbcefd",
       "line": 267,
-      "class": "method",
-      "reason": "The saved model is heavier and the sea-level margin line changes sign. That is a failed screen, not a physical proof, and construction mass stays unknown.",
-      "context": [
-        "44.7",
-        "20.3",
-        "-24.4"
-      ]
+      "class": "deferred",
+      "reason": "Unbound result: the saved model is heavier by 44.7 t and the sea-level margin moves from +20.3 t to -24.4 t. No generated field binds it. Deferred, not a qualified vehicle.",
+      "owner": "hand-arithmetic"
     },
     {
       "file": "research/design-iterations/R3-I032/README.md",
