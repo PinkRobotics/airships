@@ -1,0 +1,133 @@
+{
+  "schema": "float-claims/1",
+  "files": [
+    "research/validation/vacuum-float/u1/akhmeteli-gavrilin/README.md"
+  ],
+  "entries": [
+    {
+      "file": "research/validation/vacuum-float/u1/akhmeteli-gavrilin/README.md",
+      "key": "a99760c5a4620586",
+      "line": 3,
+      "class": "method",
+      "reason": "Source/version and comparator definitions: 1903.05171 is the arXiv identifier, 2021/2019 are dates, and 9/5 identify the equation/figure. One benchmark; no nonlinear-collapse or float result.",
+      "context": [
+        "1903.05171",
+        "2021",
+        "2019",
+        "9",
+        "5"
+      ]
+    },
+    {
+      "file": "research/validation/vacuum-float/u1/akhmeteli-gavrilin/README.md",
+      "key": "812ccd6766ff2c44",
+      "line": 7,
+      "class": "bound",
+      "reason": "Frozen inputs bind to case.json; computed q binds to analytic.json. Context 10 is the mantissa in printed 10⁻⁵; the three independent Poisson ratios bind by equality, with reciprocal compliance preserved.",
+      "bindings": [
+        {
+          "source": "research/validation/vacuum-float/u1/akhmeteli-gavrilin/case.json",
+          "pointer": "/reference_pressure_pa",
+          "shown": "101",
+          "scale": 0.001
+        },
+        {
+          "source": "research/validation/vacuum-float/u1/akhmeteli-gavrilin/case.json",
+          "pointer": "/air_density_kg_per_m3",
+          "shown": "1.29"
+        },
+        {
+          "source": "research/validation/vacuum-float/u1/akhmeteli-gavrilin/case.json",
+          "pointer": "/core_thickness_over_radius",
+          "shown": "0.00353"
+        },
+        {
+          "source": "research/validation/vacuum-float/u1/akhmeteli-gavrilin/case.json",
+          "pointer": "/face_thickness_over_radius",
+          "shown": "0.0000423"
+        },
+        {
+          "source": "research/validation/vacuum-float/u1/akhmeteli-gavrilin/analytic.json",
+          "pointer": "/q_implied_by_printed_fig5_ratios",
+          "shown": "0.0976744"
+        },
+        {
+          "source": "research/validation/vacuum-float/u1/akhmeteli-gavrilin/case.json",
+          "pointer": "/face_young_pa",
+          "shown": "460",
+          "scale": 1e-09
+        },
+        {
+          "source": "research/validation/vacuum-float/u1/akhmeteli-gavrilin/case.json",
+          "pointer": "/face_poisson",
+          "shown": "0.17"
+        },
+        {
+          "source": "research/validation/vacuum-float/u1/akhmeteli-gavrilin/case.json",
+          "pointer": "/core_engineering_constants/E1_pa",
+          "shown": "670",
+          "scale": 1e-06
+        },
+        {
+          "source": "research/validation/vacuum-float/u1/akhmeteli-gavrilin/case.json",
+          "pointer": "/core_engineering_constants/G12_pa",
+          "shown": "140",
+          "scale": 1e-06
+        },
+        {
+          "source": "research/validation/vacuum-float/u1/akhmeteli-gavrilin/case.json",
+          "pointer": "/core_engineering_constants/G13_pa",
+          "shown": "140",
+          "scale": 1e-06
+        },
+        {
+          "source": "research/validation/vacuum-float/u1/akhmeteli-gavrilin/case.json",
+          "pointer": "/core_engineering_constants/E2_pa",
+          "shown": "67"
+        },
+        {
+          "source": "research/validation/vacuum-float/u1/akhmeteli-gavrilin/case.json",
+          "pointer": "/core_engineering_constants/E3_pa",
+          "shown": "67"
+        },
+        {
+          "source": "research/validation/vacuum-float/u1/akhmeteli-gavrilin/case.json",
+          "pointer": "/core_engineering_constants/G23_pa",
+          "shown": "14"
+        },
+        {
+          "source": "research/validation/vacuum-float/u1/akhmeteli-gavrilin/case.json",
+          "pointer": "/core_engineering_constants/nu12",
+          "equals": 1e-05
+        },
+        {
+          "source": "research/validation/vacuum-float/u1/akhmeteli-gavrilin/case.json",
+          "pointer": "/core_engineering_constants/nu13",
+          "equals": 1e-05
+        },
+        {
+          "source": "research/validation/vacuum-float/u1/akhmeteli-gavrilin/case.json",
+          "pointer": "/core_engineering_constants/nu23",
+          "equals": 1e-05
+        }
+      ],
+      "context": [
+        "10"
+      ]
+    },
+    {
+      "file": "research/validation/vacuum-float/u1/akhmeteli-gavrilin/README.md",
+      "key": "108a62a44c3c8010",
+      "line": 13,
+      "class": "method",
+      "reason": "Historical resource ceilings (40 GiB, 7200 s) and replay instructions (mesh indices 0/1/2, one thread); no new response or design result. Original FAIL and then-pending dispositions are retained.",
+      "context": [
+        "40",
+        "7200",
+        "0",
+        "1",
+        "2"
+      ]
+    }
+  ]
+}
