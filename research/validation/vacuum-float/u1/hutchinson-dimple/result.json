@@ -1,0 +1,380 @@
+{
+  "benchmark": "hutchinson-dimple",
+  "attempt_id": "hutchinson-frozen-1017",
+  "builder_result": "PASS",
+  "verification": "PENDING_UNA",
+  "landed": false,
+  "points_awarded": 0,
+  "recorded": "2026-10-17T16:35:39.548458+00:00",
+  "authority": "ord-sciences-g1-fourth-hutchinson-frozen-implement-run-1017",
+  "source_freeze_commit": "27c420b0656afa5ec2cf83a07482ed4b92b86726",
+  "source_freeze_tree": "1c1a6436a2c07db37427d39f2fd1e26ec6a2a1c5",
+  "source_freeze_governance": "gov-8f4334427938",
+  "case": {
+    "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/work/hutchinson-1017/research/validation/vacuum-float/u1/hutchinson-dimple/case.json",
+    "sha256": "7cb94fc2614a45d864a533e525fda7b567eb820293ba03f0377b94df92c4b252",
+    "bytes": 8699
+  },
+  "protocol": {
+    "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/work/hutchinson-1017/research/validation/vacuum-float/u1/hutchinson-dimple/protocol.json",
+    "sha256": "86b6abca429983c9e907b0bf99cc8923361c5e08cc316d4e59a1f3ce6548590c",
+    "bytes": 38741
+  },
+  "postprocessor": {
+    "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/checks/vacuum-u1/record_hutchinson_frozen_1017.py",
+    "sha256": "d04e5ca3d0dad4810f7325839dcbe0e8046735bca2129cce6d1b0a0f5e000864",
+    "bytes": 12395
+  },
+  "response_jobs": 1,
+  "retries": 0,
+  "series": [
+    {
+      "status": "CERTIFIED_NUMERICAL_PEAK",
+      "peak": 0.24122769344680495,
+      "q": 1.4726384548736435,
+      "bracket": [
+        1.4721359549995794,
+        1.4729490168751578
+      ],
+      "bracket_pressures": [
+        0.2412276881556174,
+        0.24122769344680495,
+        0.24122769340203457
+      ],
+      "bracket_slopes": [
+        1.7133780430767144e-05,
+        3.930091996498188e-06,
+        -4.2171244589083635e-06
+      ],
+      "peaks": [
+        0.24122067349443602,
+        0.24122608784851643,
+        0.24122752416844262,
+        0.24122752416844262,
+        0.24122764281694475,
+        0.24122764281694475,
+        0.24122769340203457,
+        0.24122769340203457,
+        0.24122769340203457,
+        0.24122769340203457,
+        0.24122769344680495
+      ],
+      "attempts": 44,
+      "refinements": 11,
+      "descending": [
+        {
+          "q": 1.5,
+          "pressure": 0.241218321817163,
+          "slope": -0.0006765478942320083
+        },
+        {
+          "q": 1.55,
+          "pressure": 0.24115698679192707,
+          "slope": -0.0017402735852107508
+        },
+        {
+          "q": 1.6,
+          "pressure": 0.24104766775201325,
+          "slope": -0.00260144287690311
+        }
+      ],
+      "intervals": 64,
+      "nodes": 65,
+      "unknowns": 127,
+      "trace_seconds": 2.676677,
+      "newton_evaluations": 119,
+      "trial_evaluations": 75,
+      "maximum_newton_iteration": 3,
+      "minimum_rcond1": 2.9498753700014314e-08,
+      "maximum_accepted_residual": 2.117582466603331e-13,
+      "maximum_accepted_update": 7.782406071498365e-10,
+      "maximum_linear_residual": 1.1983827499253516e-18,
+      "minimum_neighbor_cosine": 0.9996861932019926,
+      "final_peak_relative_span": 1.8559387277033877e-10,
+      "trial_reasons": {
+        "accepted": 75
+      }
+    },
+    {
+      "status": "CERTIFIED_NUMERICAL_PEAK",
+      "peak": 0.2412263676463191,
+      "q": 1.4726384548736435,
+      "bracket": [
+        1.4721359549995794,
+        1.4729490168751578
+      ],
+      "bracket_pressures": [
+        0.24122636271356415,
+        0.2412263676463191,
+        0.24122636737999725
+      ],
+      "bracket_slopes": [
+        1.6420182962100516e-05,
+        3.216824569462778e-06,
+        -4.930187890757458e-06
+      ],
+      "peaks": [
+        0.2412193640111899,
+        0.24122476981504792,
+        0.2412261956944343,
+        0.2412261956944343,
+        0.24122631831434133,
+        0.24122631831434133,
+        0.24122636737999725,
+        0.24122636737999725,
+        0.24122636737999725,
+        0.24122636737999725,
+        0.2412263676463191
+      ],
+      "attempts": 44,
+      "refinements": 11,
+      "descending": [
+        {
+          "q": 1.5,
+          "pressure": 0.24121697674357956,
+          "slope": -0.0006772435094438635
+        },
+        {
+          "q": 1.55,
+          "pressure": 0.2411556077097543,
+          "slope": -0.001740938703153675
+        },
+        {
+          "q": 1.6,
+          "pressure": 0.24104625612611913,
+          "slope": -0.002602079925935175
+        }
+      ],
+      "intervals": 128,
+      "nodes": 129,
+      "unknowns": 255,
+      "trace_seconds": 3.361713,
+      "newton_evaluations": 119,
+      "trial_evaluations": 75,
+      "maximum_newton_iteration": 3,
+      "minimum_rcond1": 7.191860013064744e-09,
+      "maximum_accepted_residual": 1.140714379017563e-13,
+      "maximum_accepted_update": 7.771122770430668e-10,
+      "maximum_linear_residual": 6.641326369220859e-19,
+      "minimum_neighbor_cosine": 0.9996869578591837,
+      "final_peak_relative_span": 1.10403292997303e-09,
+      "trial_reasons": {
+        "accepted": 75
+      }
+    },
+    {
+      "status": "CERTIFIED_NUMERICAL_PEAK",
+      "peak": 0.2412263518526899,
+      "q": 1.4726384548736435,
+      "bracket": [
+        1.4721359549995794,
+        1.4729490168751578
+      ],
+      "bracket_pressures": [
+        0.24122634692401426,
+        0.2412263518526899,
+        0.24122635158397618
+      ],
+      "bracket_slopes": [
+        1.6412184522370597e-05,
+        3.2088303702560533e-06,
+        -4.938179482054669e-06
+      ],
+      "peaks": [
+        0.24121934840067924,
+        0.24122475410852093,
+        0.24122617987075334,
+        0.24122617987075334,
+        0.24122630253522911,
+        0.24122630253522911,
+        0.24122635158397618,
+        0.24122635158397618,
+        0.24122635158397618,
+        0.24122635158397618,
+        0.2412263518526899
+      ],
+      "attempts": 44,
+      "refinements": 11,
+      "descending": [
+        {
+          "q": 1.5,
+          "pressure": 0.24121696073434032,
+          "slope": -0.0006772512840277063
+        },
+        {
+          "q": 1.55,
+          "pressure": 0.24115559132148565,
+          "slope": -0.0017409460958876788
+        },
+        {
+          "q": 1.6,
+          "pressure": 0.24104623937715897,
+          "slope": -0.002602086963089966
+        }
+      ],
+      "intervals": 256,
+      "nodes": 257,
+      "unknowns": 511,
+      "trace_seconds": 10.585048,
+      "newton_evaluations": 119,
+      "trial_evaluations": 75,
+      "maximum_newton_iteration": 3,
+      "minimum_rcond1": 1.7953217937156058e-09,
+      "maximum_accepted_residual": 7.22148035814385e-14,
+      "maximum_accepted_update": 7.825852160437583e-10,
+      "maximum_linear_residual": 1.1199867922794194e-18,
+      "minimum_neighbor_cosine": 0.9996873418382372,
+      "final_peak_relative_span": 1.1139484383848134e-09,
+      "trial_reasons": {
+        "accepted": 75
+      }
+    }
+  ],
+  "adjacent_relative_changes": [
+    5.496084440423216e-06,
+    6.54722383715703e-08
+  ],
+  "nominal_relative_error": 0.035094592589240414,
+  "graph_endpoint_relative_errors": [
+    0.023375093713806076,
+    0.04653615868502018
+  ],
+  "graph_comparator": 0.25,
+  "graph_interval": [
+    0.247,
+    0.253
+  ],
+  "mesh_change_limit": 0.01,
+  "source_error_limit": 0.05,
+  "mesh_converged": true,
+  "fine_nominal_and_both_endpoint_comparison_pass": true,
+  "execution": {
+    "wall_seconds": 17.400298634078354,
+    "total_limit_seconds": 7200,
+    "resource": {
+      "cpu.stat": "usage_usec 12564597\nuser_usec 10502262\nsystem_usec 2062335\nnice_usec 0\ncore_sched.force_idle_usec 0\nnr_periods 173\nnr_throttled 0\nthrottled_usec 0\nnr_bursts 0\nburst_usec 0",
+      "memory.peak": "664768512",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+      "memory.swap.current": "0",
+      "pids.current": "2"
+    },
+    "controls": {
+      "at": "2026-10-17T16:31:33.277299+00:00",
+      "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/vacuum-u1-hutchinson-response-1017.scope",
+      "cgroup_path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/vacuum-u1-hutchinson-response-1017.scope",
+      "ancestors": [
+        {
+          "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/vacuum-u1-hutchinson-response-1017.scope",
+          "cpu.max": "100000 100000",
+          "memory.max": "8589934592",
+          "memory.swap.max": "0"
+        },
+        {
+          "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice",
+          "cpu.max": "max 100000",
+          "memory.max": "max",
+          "memory.swap.max": "max"
+        },
+        {
+          "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service",
+          "cpu.max": "max 100000",
+          "memory.max": "max",
+          "memory.swap.max": "max"
+        },
+        {
+          "path": "/sys/fs/cgroup/user.slice/user-1000.slice",
+          "cpu.max": "max 100000",
+          "memory.max": "max",
+          "memory.swap.max": "max"
+        },
+        {
+          "path": "/sys/fs/cgroup/user.slice",
+          "cpu.max": "max 100000",
+          "memory.max": "max",
+          "memory.swap.max": "max"
+        }
+      ],
+      "affinity": [
+        0
+      ],
+      "runtime_max": "1h 59min 47s",
+      "runtime_seconds": 7187.0,
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "BLIS_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "GOTO_NUM_THREADS": "1",
+        "OMP_THREAD_LIMIT": "1"
+      },
+      "paths": {
+        "TMPDIR": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/hutchinson-frozen-response-1017/tmp",
+        "TMP": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/hutchinson-frozen-response-1017/tmp",
+        "TEMP": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/hutchinson-frozen-response-1017/tmp",
+        "XDG_CACHE_HOME": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/hutchinson-frozen-response-1017/cache"
+      },
+      "process_threads": 1,
+      "command_line": "[b'/usr/bin/python3', b'/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/work/hutchinson-1017/tools/vacuum_u1_hutchinson_job.py', b'inside', b'/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/hutchinson-frozen-response-1017/config.json', b'--deadline', b'1877405.894512251']"
+    },
+    "process_observation": "One process thread measured at pre-solve and both loaded BLAS providers report1. Full PID/time-series sampling was not retained; scope is inactive and its cgroup absent after normal exit."
+  },
+  "nonresponse_pre_solve_seconds": 594.2307938351296,
+  "source_qualifications": [
+    "Use explicitly corrected isotropic D=Et^3/[12(1-nu^2)]; the source prints a different denominator.",
+    "Original-area radial dead pressure is the accepted interpretation. Figure7 does not explicitly label its pressure convention; no exact live/dead equivalence claim.",
+    "The comparator is a graph reading with a conservative interval, not a tabulated datum.",
+    "Axisymmetric static primary-branch peak only; no all-mode stability, hull feasibility, universal determinism or validated CalculiX claim.",
+    "The frozen protocol/provenance contain historical pre-run proposal labels. The execution order authorizes this fixed run; those original bytes remain unchanged."
+  ],
+  "historical_failures": "Compatibility DSO measurement failure and missing Builder attribution failures are preserved in the prerequisite history; both resolved before response without changing the frozen method.",
+  "result_scope": "Builder result pending Una verification and CO landing/credit. Existing benchmark blockers, earlier failures and U1/U2/U4 holds remain separate.",
+  "evidence": {
+    "pre_solve_manifest": {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/hutchinson-frozen-response-1017/pre-solve-manifest.json",
+      "sha256": "dde11ddb44be69cb43933192640870ee57e965ddf9cd386524e138b9a5425cdf",
+      "bytes": 37193
+    },
+    "pre_solve_filing": {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/hutchinson-frozen-response-1017/pre-solve-filed.json",
+      "sha256": "710fb95e572f971cfc57fd51032c78be1c7c6c096009a8326c0b5e4ecd538833",
+      "bytes": 537
+    },
+    "outcome": {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/hutchinson-frozen-response-1017/outcome.json",
+      "sha256": "a6f99b511bc53e702cec5e227cd5e9b1637de3b020b53eba21db0bea7c3443a0",
+      "bytes": 5114
+    },
+    "cleanup": {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/hutchinson-frozen-response-1017/exit-cleanup.json",
+      "sha256": "4de76a9f68426dc0268678e0ee49eb24efceb6082c1bc3d3af250c8580046a10",
+      "bytes": 346
+    },
+    "events": {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/hutchinson-frozen-response-1017/events.jsonl",
+      "sha256": "f109669312d82f3abdb214f53cab142a84b1f65ec4b0dd9c26e90f7d4e57ad36",
+      "bytes": 1064452
+    },
+    "raw_index": {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/hutchinson-frozen-response-1017/raw-index.json",
+      "sha256": "755db0f5ad3e4bde1da93b2d65bdd63215032787fa3596f653bcfb747e266b39",
+      "bytes": 603629
+    },
+    "prerequisites": {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/hutchinson-frozen-response-1017/prerequisites.json",
+      "sha256": "8482cd89659461568dbced15855c43d0a1e224e53c48f705af088d4903c2ef0f",
+      "bytes": 40592
+    },
+    "config": {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/hutchinson-frozen-response-1017/config.json",
+      "sha256": "38c2b36ba5805785d1dcd8caff57fd1756f20ea7a3b207c51de15e0f6856ef70",
+      "bytes": 27098
+    },
+    "postflight": {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/hutchinson-frozen-response-1017/postflight.json",
+      "sha256": "ff739061b0f37925bc356f4f45719ba84774169dfc97e773781752df9fecc6f4",
+      "bytes": 11030
+    }
+  }
+}
