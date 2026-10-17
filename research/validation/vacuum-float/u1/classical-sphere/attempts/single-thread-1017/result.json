@@ -1,0 +1,552 @@
+{
+  "benchmark": "classical-sphere",
+  "attempt_id": "classical-sphere-single-thread-1017",
+  "builder_result": "PASS",
+  "verification": "PENDING_UNA",
+  "landed": false,
+  "points_awarded": 0,
+  "recorded": "2026-10-17T10:35:51.505434+00:00",
+  "source_freeze_commit": "a7bb73b4a554382e0394b85ed4a20c7d4ad1c32d",
+  "source_freeze_tree": "740223f09d4e0b2d35157f36cceda8faa8e1e9e3",
+  "source_freeze_governance": "gov-4af2154e32a9",
+  "postprocessor": {
+    "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/checks/vacuum-u1/record_sphere_single_thread_1017.py",
+    "sha256": "d7ec84846f7c1cb8116ade53a60e4c15f2c61ad7d0686f8f11bd728c92a068e6",
+    "bytes": 9694
+  },
+  "case": {
+    "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/work/sphere-single-thread-1017/research/validation/vacuum-float/u1/classical-sphere/attempts/single-thread-1017/case.json",
+    "sha256": "14d878014493c15b5ba16bd3903e35063ffef68f9df819af68208de945ecbf77",
+    "bytes": 4189
+  },
+  "parent_case_sha256": "20adfecfdf2cdadc914c277a01108fd107a0d9d45c58886951ca2261b038540e",
+  "runner_sha256": "238eae7cece2a0a2e92d9fa9188a5e26db5fcfd1e1b931fe1165de6259497273",
+  "preparer": {
+    "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/work/sphere-single-thread-1017/research/validation/vacuum-float/u1/classical-sphere/attempts/single-thread-1017/prepare_decks.py",
+    "sha256": "6424e6a6111fa92d9c1bc91a2f2f284a63c1f0daa263d3ce392d42d99ac194f7",
+    "bytes": 3228
+  },
+  "n24_original_deck_match_before_any_solve": true,
+  "solver_invocations": 3,
+  "retries": 0,
+  "published_comparator_pa": 25419556.372089703,
+  "source_error_limit": 0.05,
+  "successive_mesh_change_limit": 0.01,
+  "mesh_converged": true,
+  "fine_comparison_pass": true,
+  "series": [
+    {
+      "divisions": 16,
+      "nodes": 4610,
+      "elements": 1536,
+      "equations": [
+        "32262"
+      ],
+      "factors": [
+        25786.41,
+        25808.19,
+        25888.07,
+        25950.67,
+        26057.78,
+        26234.43,
+        26361.68,
+        26549.54
+      ],
+      "selection": "lowest positive factor among all eight returned modes",
+      "selected_factor": 25786.41,
+      "pressure_pa": 25786410.0,
+      "relative_error": 0.014431944544598632,
+      "relative_change_from_previous": null,
+      "factor_cluster_span_relative_to_minimum": 0.02959427078061665,
+      "wall_seconds": 7.857037268811837,
+      "cpu_seconds": 7.305673,
+      "average_cpu_cores": 0.9298254227454853,
+      "peak_rss_kib": 276476,
+      "max_observed_threads": 3,
+      "run": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n16",
+      "deck_sha256": "70eb1f5739d960e074b01c4888be13b732817dd34cffdae24ec7cb2ef5afe5bc",
+      "solver_environment": {
+        "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n16/solver-environment.json",
+        "sha256": "f6c358c5fa95998c6cc45c75457698a29a3ff736b739d380f64eb4419717e2ca",
+        "bytes": 392
+      }
+    },
+    {
+      "divisions": 24,
+      "nodes": 10370,
+      "elements": 3456,
+      "equations": [
+        "72582"
+      ],
+      "factors": [
+        25683.61,
+        25716.27,
+        25758.12,
+        25812.25,
+        25922.56,
+        25970.56,
+        26217.07,
+        26351.1
+      ],
+      "selection": "lowest positive factor among all eight returned modes",
+      "selected_factor": 25683.61,
+      "pressure_pa": 25683610.0,
+      "relative_error": 0.010387814171305694,
+      "relative_change_from_previous": 0.004002552600666339,
+      "factor_cluster_span_relative_to_minimum": 0.02598894781535765,
+      "wall_seconds": 16.690238608047366,
+      "cpu_seconds": 15.840587000000001,
+      "average_cpu_cores": 0.949092902264579,
+      "peak_rss_kib": 606932,
+      "max_observed_threads": 3,
+      "run": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n24",
+      "deck_sha256": "a6bf6b34e07d7decb07897fa878dd92377a2410882a2d1412ef1ee85de6a338f",
+      "solver_environment": {
+        "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n24/solver-environment.json",
+        "sha256": "1d06726b2ed51b772c3d736f3d5bb7caef5a8e9ce009b818483328de73785fd7",
+        "bytes": 392
+      }
+    },
+    {
+      "divisions": 36,
+      "nodes": 23330,
+      "elements": 7776,
+      "equations": [
+        "163302"
+      ],
+      "factors": [
+        25652.92,
+        25681.55,
+        25700.64,
+        25771.85,
+        25879.64,
+        25891.41,
+        26208.81,
+        26257.45
+      ],
+      "selection": "lowest positive factor among all eight returned modes",
+      "selected_factor": 25652.92,
+      "pressure_pa": 25652920.0,
+      "relative_error": 0.009180476027761333,
+      "relative_change_from_previous": 0.0011963550348264448,
+      "factor_cluster_span_relative_to_minimum": 0.023565738325305754,
+      "wall_seconds": 51.00378256617114,
+      "cpu_seconds": 48.841617,
+      "average_cpu_cores": 0.9576077408892959,
+      "peak_rss_kib": 1416280,
+      "max_observed_threads": 3,
+      "run": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n36",
+      "deck_sha256": "3fe0e2587f6b1fa05b9f7de1c6a2f48744086f26061fce7f0b08c45637ca6eb2",
+      "solver_environment": {
+        "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n36/solver-environment.json",
+        "sha256": "a7a81c09bcdd3f786c6e8c9822772ae6865df6f1d0e74fae8b528281366d7e69",
+        "bytes": 392
+      }
+    }
+  ],
+  "mode_check": "All eight positive factors and each cluster span are retained at every mesh. The minimum is used without favorable-mode substitution. Eigenvalue values alone do not identify corresponding mode shapes across a near-degenerate cluster.",
+  "middle_mesh_existing_replays": [
+    {
+      "original_threads_requested": 1,
+      "original_record": {
+        "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/threading-n24-t1/run.json",
+        "sha256": "7cf36ca39a7b76273f9c10024323459cc4a65007b18336f4df5d31bdabb1c7b7",
+        "bytes": 2939
+      },
+      "all_eight_printed_factors_equal": true,
+      "limitation": "Equality at retained solver output precision in these finite runs; not a universal determinism claim."
+    },
+    {
+      "original_threads_requested": 2,
+      "original_record": {
+        "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/threading-n24-t2/run.json",
+        "sha256": "efc3f1a67a6b583dd9626abc2eb9c5dfcf248ebd10908c10c3f571dffe60b966",
+        "bytes": 2949
+      },
+      "all_eight_printed_factors_equal": true,
+      "limitation": "Equality at retained solver output precision in these finite runs; not a universal determinism claim."
+    }
+  ],
+  "thread_controls": {
+    "OMP_NUM_THREADS": "1",
+    "CCX_NPROC_STIFFNESS": "1",
+    "CCX_NPROC_EQUATION_SOLVER": "1",
+    "CCX_NPROC_RESULTS": "1",
+    "NUMBER_OF_CPUS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+  },
+  "solver": {
+    "path": "/usr/bin/ccx",
+    "sha256": "564ed098356c46f68120e2d6cc2a97c686b4d16ec31f3ef55b3182749ec60c3d"
+  },
+  "execution": {
+    "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/execution.json",
+    "sha256": "fcdc84c1b03718f346149727c430473f8c1cbc30eb3c03ccd121d7a3fe9ade85",
+    "bytes": 5767
+  },
+  "preparation": {
+    "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/preparation.json",
+    "sha256": "d1c3baa1cef1dcb44ceb6d58e6db2c39b2970cfc0caa8cf47846f5055e553e6a",
+    "bytes": 4828
+  },
+  "raw_artifacts": [
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/decks/n16/job.inp",
+      "sha256": "70eb1f5739d960e074b01c4888be13b732817dd34cffdae24ec7cb2ef5afe5bc",
+      "bytes": 1264670
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/decks/n16/mesh-definition.json",
+      "sha256": "118d53f3226bb3d9ec25f96793c6d67475e01617cc71a4d2b117b0cd110cc049",
+      "bytes": 476
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/decks/n16/mesh.msh",
+      "sha256": "7db3deadf6a39f6297c9036562eda2fa898329d43ad7bf34e5f998f75513722a",
+      "bytes": 364862
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/decks/n24/job.inp",
+      "sha256": "a6bf6b34e07d7decb07897fa878dd92377a2410882a2d1412ef1ee85de6a338f",
+      "bytes": 2864652
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/decks/n24/mesh-definition.json",
+      "sha256": "ff927b37b02572994e2422c3a0dd8b400daab101c6dbac2e7b97681d6882964d",
+      "bytes": 477
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/decks/n24/mesh.msh",
+      "sha256": "66bf8319b4c31849a7f84c2d1072602d7490da0261fc4d19c7ac163a59dd5ecd",
+      "bytes": 821282
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/decks/n36/job.inp",
+      "sha256": "3fe0e2587f6b1fa05b9f7de1c6a2f48744086f26061fce7f0b08c45637ca6eb2",
+      "bytes": 6542398
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/decks/n36/mesh-definition.json",
+      "sha256": "778f91cc3d6c63934b99b4adbd1dc3f6c0af62cf835bf8d088dab0c1d7faa22c",
+      "bytes": 484
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/decks/n36/mesh.msh",
+      "sha256": "125aad9f51aab5144da35ae7ebd0e5f989d4fdbfa6d6507f3e80c7ea0244684b",
+      "bytes": 1891839
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/execution.json",
+      "sha256": "fcdc84c1b03718f346149727c430473f8c1cbc30eb3c03ccd121d7a3fe9ade85",
+      "bytes": 5767
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/frozen/case.json",
+      "sha256": "14d878014493c15b5ba16bd3903e35063ffef68f9df819af68208de945ecbf77",
+      "bytes": 4189
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/frozen/prepare_decks.py",
+      "sha256": "6424e6a6111fa92d9c1bc91a2f2f284a63c1f0daa263d3ce392d42d99ac194f7",
+      "bytes": 3228
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/frozen/vacuum_u1_benchmarks.py",
+      "sha256": "238eae7cece2a0a2e92d9fa9188a5e26db5fcfd1e1b931fe1165de6259497273",
+      "bytes": 14247
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n16/case.json",
+      "sha256": "14d878014493c15b5ba16bd3903e35063ffef68f9df819af68208de945ecbf77",
+      "bytes": 4189
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n16/job.12d",
+      "sha256": "6bcdf58cbddfd74419b35aab83dc9568eef39f07e6806937c26fa1f5732fab9d",
+      "bytes": 655872
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n16/job.cvg",
+      "sha256": "65086dedb4572132b815ace04b294909c7f6f337111f9704fc310b02320f67f7",
+      "bytes": 274
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n16/job.dat",
+      "sha256": "4b3958e2340c730ac31a15d272d12a9d3c2a3e96e7e4e775e68b58823cca0e60",
+      "bytes": 333
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n16/job.frd",
+      "sha256": "2d5b4133fad19c98909410a2f04c03e15d8c838d0c58f7a22b1efb4e664cb674",
+      "bytes": 2482407
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n16/job.inp",
+      "sha256": "70eb1f5739d960e074b01c4888be13b732817dd34cffdae24ec7cb2ef5afe5bc",
+      "bytes": 1264670
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n16/job.sta",
+      "sha256": "20946efba93047e4092386fb9fedd29e43961806698459a19066356660f2e1a9",
+      "bytes": 98
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n16/launch.json",
+      "sha256": "b14deb55e566a979c9f06624a6a199a427161042339fb2ff9b83db6987fee87a",
+      "bytes": 1036
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n16/mesh-definition.json",
+      "sha256": "118d53f3226bb3d9ec25f96793c6d67475e01617cc71a4d2b117b0cd110cc049",
+      "bytes": 476
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n16/run.json",
+      "sha256": "cdbabb63d40afb06dde115bb3be8ce4c8db0c285b4be792e8b9494b80a513944",
+      "bytes": 2937
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n16/scope.stderr",
+      "sha256": "e4481f2a01edd37bb852ef07a4ff66269f4b68bda698937aaf5b6f02b683906b",
+      "bytes": 99
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n16/scope.stdout",
+      "sha256": "27a6326ed266e10b652d40a12969f1ba51fde3428fb6793c6efad6a5191d983c",
+      "bytes": 2343
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n16/solver-environment.json",
+      "sha256": "f6c358c5fa95998c6cc45c75457698a29a3ff736b739d380f64eb4419717e2ca",
+      "bytes": 392
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n16/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n16/solver.stdout",
+      "sha256": "bff9ffdc77e9d3f17ef0dd323a2367e7222c547dd5d9dfaf318af328a575d1cb",
+      "bytes": 2944
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n16/spooles.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n16-launch.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n16-launch.stdout",
+      "sha256": "d335fcf62bd58a5b5634e646bcd290efd60a60d0448fc7acc0eba64be34ae557",
+      "bytes": 3848
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n24/case.json",
+      "sha256": "14d878014493c15b5ba16bd3903e35063ffef68f9df819af68208de945ecbf77",
+      "bytes": 4189
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n24/job.12d",
+      "sha256": "9bfae7e938be1835ecb7ee2aaef61d81ba86f5b611b23a599f4c24238f121558",
+      "bytes": 1475712
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n24/job.cvg",
+      "sha256": "65086dedb4572132b815ace04b294909c7f6f337111f9704fc310b02320f67f7",
+      "bytes": 274
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n24/job.dat",
+      "sha256": "91cd78688a55159c6bf899f93ee4c2505cefc210b8edf0bcdab65f201e16a85b",
+      "bytes": 333
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n24/job.frd",
+      "sha256": "51325111e25191c284a22c9c9b86eaa36c3a422d952b73dffcbc6b5b8c7dd3a6",
+      "bytes": 5579367
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n24/job.inp",
+      "sha256": "a6bf6b34e07d7decb07897fa878dd92377a2410882a2d1412ef1ee85de6a338f",
+      "bytes": 2864652
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n24/job.sta",
+      "sha256": "20946efba93047e4092386fb9fedd29e43961806698459a19066356660f2e1a9",
+      "bytes": 98
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n24/launch.json",
+      "sha256": "42864ddc579f86bf17461c5aea11d214219a45c285fabd8f7e3a5e973926a8ac",
+      "bytes": 1036
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n24/mesh-definition.json",
+      "sha256": "ff927b37b02572994e2422c3a0dd8b400daab101c6dbac2e7b97681d6882964d",
+      "bytes": 477
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n24/run.json",
+      "sha256": "064293191898a2570ddfdeb1a388b5e73a8bc4ee4f62dcd626c10fd66c75f73a",
+      "bytes": 2947
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n24/scope.stderr",
+      "sha256": "6d234cdf65b0aa7c545ffb51f8e45acb9b4b5f1768df2c4e510afda571705219",
+      "bytes": 99
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n24/scope.stdout",
+      "sha256": "4f29d9ef2c767d01bca137cfe9ad6eb267958835208ac325c006acd094853d20",
+      "bytes": 2353
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n24/solver-environment.json",
+      "sha256": "1d06726b2ed51b772c3d736f3d5bb7caef5a8e9ce009b818483328de73785fd7",
+      "bytes": 392
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n24/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n24/solver.stdout",
+      "sha256": "c7315bb29b0617c85cd02b914418fdce37b5ea2cdc56eee3c1be575494e26318",
+      "bytes": 2945
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n24/spooles.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n24-launch.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n24-launch.stdout",
+      "sha256": "d85221754ac9787c668fcc212451370cc3c460d5be79bce1bbad892cdf23fd60",
+      "bytes": 3858
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n36/case.json",
+      "sha256": "14d878014493c15b5ba16bd3903e35063ffef68f9df819af68208de945ecbf77",
+      "bytes": 4189
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n36/job.12d",
+      "sha256": "2cb596beabe4a02229c31cf1f83dd43e4496561f8c3e1a0db786ff137349479a",
+      "bytes": 3320352
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n36/job.cvg",
+      "sha256": "65086dedb4572132b815ace04b294909c7f6f337111f9704fc310b02320f67f7",
+      "bytes": 274
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n36/job.dat",
+      "sha256": "0b9a2a79269f693abdd55b695d5794674051d91ee63d312d0c2efaadd181beef",
+      "bytes": 333
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n36/job.frd",
+      "sha256": "e5750a50e9523bf5d05a39f806d63309b657d8b717e1dcb06896742e34c50cf1",
+      "bytes": 12547527
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n36/job.inp",
+      "sha256": "3fe0e2587f6b1fa05b9f7de1c6a2f48744086f26061fce7f0b08c45637ca6eb2",
+      "bytes": 6542398
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n36/job.sta",
+      "sha256": "20946efba93047e4092386fb9fedd29e43961806698459a19066356660f2e1a9",
+      "bytes": 98
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n36/launch.json",
+      "sha256": "766deae2d3bde5b083b99a3f7caf9c7ff899b1a2ae56e4d9f78d8115ecdc8923",
+      "bytes": 1036
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n36/mesh-definition.json",
+      "sha256": "778f91cc3d6c63934b99b4adbd1dc3f6c0af62cf835bf8d088dab0c1d7faa22c",
+      "bytes": 484
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n36/run.json",
+      "sha256": "3af9013f653f73f1fe901d507a1c7b34388760a262483288154e1c3aa8e86f73",
+      "bytes": 2949
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n36/scope.stderr",
+      "sha256": "17a66acb4070d4427da0db477db26582a2e7d497d1891676c9c73a9bd3d9eed6",
+      "bytes": 99
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n36/scope.stdout",
+      "sha256": "008edfc4aaf508d9795b5783e4c053d9edf8a8459c25a370254d092002043271",
+      "bytes": 2355
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n36/solver-environment.json",
+      "sha256": "a7a81c09bcdd3f786c6e8c9822772ae6865df6f1d0e74fae8b528281366d7e69",
+      "bytes": 392
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n36/solver.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n36/solver.stdout",
+      "sha256": "7355e86e09969a4107c130b841a96a67b0412cdedbbfdf730eb16af16fee2343",
+      "bytes": 2946
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n36/spooles.out",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n36-launch.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/n36-launch.stdout",
+      "sha256": "29d7be37979dfcceea879cc1a4e0e14497692357d7d62850283524b54a33d24d",
+      "bytes": 3860
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/preparation-launch.json",
+      "sha256": "14b974f4a44377f7a26d683d00ad7186a3b2cb1e1782f8ff73c3147341c87f98",
+      "bytes": 1043
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/preparation.json",
+      "sha256": "d1c3baa1cef1dcb44ceb6d58e6db2c39b2970cfc0caa8cf47846f5055e553e6a",
+      "bytes": 4828
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/preparation.stderr",
+      "sha256": "cab6a8749e179a7b37dc6d4b3630c9aaba9be4a4e56ba980e712583ef501c05f",
+      "bytes": 116
+    },
+    {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/sphere-single-thread-1017/preparation.stdout",
+      "sha256": "2365015199b2fef3e596c92236bb68d40731a2f57353f425bfbab1d7850dc48b",
+      "bytes": 9399
+    }
+  ],
+  "scope": "A distinct attempt of the existing ideal sphere benchmark; no second award. Original eight-thread FAIL, all old runs and fixed-deck thread comparisons remain immutable. This finite record does not prove universal single-thread determinism or physical hull feasibility.",
+  "acceptance": "Both original adjacent-mesh changes must be at most1%, and the finest minimum must be within5% of the original ideal comparator. No mesh, support, material, loading, mode-selection or threshold change."
+}
