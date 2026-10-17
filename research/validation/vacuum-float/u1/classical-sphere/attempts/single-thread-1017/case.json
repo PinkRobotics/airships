@@ -1,0 +1,62 @@
+{
+  "benchmark": "classical-sphere",
+  "source": {
+    "title": "Nonlinear buckling behavior of a complete spherical shell under uniform external pressure and homogenous natural curvature",
+    "authors": "Douglas P. Holmes, Jeong-Ho Lee, Harold S. Park, Matteo Pezzulla",
+    "year": 2020,
+    "doi": "10.1103/PhysRevE.102.023003",
+    "url": "https://people.bu.edu/parkhs/Papers/holmesPRE2020.pdf",
+    "pdf_sha256": "b6bf3f0d5d90b93f0d6686937392f35ff2302dda6126a7eea1851da864954300",
+    "locator": "Eq. (1), p. 023003-3; zero-curvature limit Eq. (86), p. 023003-12"
+  },
+  "quantity": "Ideal elastic bifurcation pressure of a perfect complete spherical shell; no collapse or knockdown validation",
+  "comparator_expression": "2*E*(h/R)^2/sqrt(3*(1-nu^2))",
+  "radius_m": 1.0,
+  "thickness_m": 0.01,
+  "young_pa": 210000000000.0,
+  "poisson": 0.3,
+  "input_basis": "Explicit numerical instantiation of the published general equation. These dimensional parameters are builder-selected, not a reported physical specimen. Source assumptions: perfect complete homogeneous isotropic elastic sphere, uniform pressure, zero natural-curvature stimulus.",
+  "material": "Linear isotropic elasticity only; no strength/yield inputs or density required for this eigenproblem",
+  "reference_pressure_pa": 1000.0,
+  "loading": "Uniform inward pressure on the closed shell; outward normals and negative CalculiX shell P (manual section 6.2.14). No prior static preload; the BUCKLE step internally computes reference stress.",
+  "boundary_conditions": "Only six tangential displacement constraints to remove rigid motions: ux=uy=0 at both z poles, uy=uz=0 at x=R. These leave uniform radial contraction free and fix a rigid-motion gauge; no symmetry reduction.",
+  "imperfection": "None: ideal eigenvalue comparator; no nonlinear collapse claim",
+  "element": "CalculiX S8R expanded quadratic reduced-integration shell; exact radial normals at every element node; Gmsh six conforming spherical quadrilateral patches",
+  "mesh_divisions": [
+    16,
+    24,
+    36
+  ],
+  "eigenvalues_requested": 8,
+  "eigenvalue_relative_tolerance": 1e-06,
+  "lanczos_vectors": 64,
+  "solver": "SPOOLES, CPU only",
+  "mesh_convergence_rule": "At least three frozen meshes. Both successive relative changes abs(p_new-p_old)/abs(p_new) <= 0.01; inspect all eight eigenvalues for clusters/mode switching. No fortunate-mesh selection. Otherwise no PASS.",
+  "comparison": "abs(p_fine-published)/abs(published) <= 0.05 AND the declared convergence rule; report the whole sequence",
+  "scope": "Numerical reproduction of the source's classical ideal equation, not a vacuum-hull feasibility result",
+  "published_comparator_pa": 25419556.372089703,
+  "frozen_before_first_solve_utc": "2026-10-17T09:37:15.952389+00:00",
+  "attempt_id": "classical-sphere-single-thread-1017",
+  "parent_case_sha256": "20adfecfdf2cdadc914c277a01108fd107a0d9d45c58886951ca2261b038540e",
+  "parent_case_frozen_before_first_solve_utc": "2026-10-17T07:31:26.345021+00:00",
+  "parent_record_commit": "592611e789cbe96c6c43c0cbb78e9ebf0ff66467",
+  "original_runner_sha256": "238eae7cece2a0a2e92d9fa9188a5e26db5fcfd1e1b931fe1165de6259497273",
+  "required_n24_deck_sha256": "a6bf6b34e07d7decb07897fa878dd92377a2410882a2d1412ef1ee85de6a338f",
+  "numerical_settings": {
+    "thread_controls": {
+      "OMP_NUM_THREADS": "1",
+      "CCX_NPROC_STIFFNESS": "1",
+      "CCX_NPROC_EQUATION_SOLVER": "1",
+      "CCX_NPROC_RESULTS": "1",
+      "NUMBER_OF_CPUS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1"
+    },
+    "OMP_DYNAMIC": "FALSE",
+    "CUDA_VISIBLE_DEVICES": "",
+    "solver_invocations_per_mesh": 1,
+    "maximum_solver_invocations": 3,
+    "retry_policy": "No retries, tuning, mesh changes, extra threading sweep or mode substitution; stop on a required model change."
+  },
+  "execution_protocol": "Regenerate all three physical decks using the original pinned sphere_deck function inside the bounded scope. Check n24 against the original deck hash before any solve. Then pass each regenerated frozen deck to the unchanged original runner --deck branch, once per mesh with --threads 1. Keep all original records immutable."
+}
