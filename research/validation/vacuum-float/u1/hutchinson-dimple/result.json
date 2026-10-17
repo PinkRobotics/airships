@@ -376,5 +376,61 @@
       "sha256": "ff739061b0f37925bc356f4f45719ba84774169dfc97e773781752df9fecc6f4",
       "bytes": 11030
     }
+  },
+  "procedural_delivery_qualification": {
+    "status": "INVALID_PRE_SOLVE_QUEUE_SUBMISSION; LATE_CORRECTION_ONLY",
+    "qualification": "The executed launcher omitted links/links_none. Its local atomic write preceded response_start but the queue refused the submission after execution. The later repair cannot establish valid timely pre-solve delivery or that all execution prerequisites were met.",
+    "review_status": "Sciences accepts custody and independent Una scientific/POINTS-v0 review only. Builder PASS is unverified; no automatic eligibility, award or numerical FAIL/UNRESOLVED follows from the administrative defect alone.",
+    "original_result_commit": "73be64a7e611e87f320400f281dd32a1367285a2",
+    "original_pre_solve_report": {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/hutchinson-frozen-response-1017/pre-solve-outbox-original-refused.json",
+      "sha256": "daf3397eec12d0020954d5f32be9340ae766ce725cf9a9b3a02e3406af6bf0bc",
+      "bytes": 1885
+    },
+    "original_pre_solve_manifest": {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/hutchinson-frozen-response-1017/pre-solve-manifest.json",
+      "sha256": "dde11ddb44be69cb43933192640870ee57e965ddf9cd386524e138b9a5425cdf",
+      "bytes": 37193
+    },
+    "original_local_filing_receipt": {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/hutchinson-frozen-response-1017/pre-solve-filed.json",
+      "sha256": "710fb95e572f971cfc57fd51032c78be1c7c6c096009a8326c0b5e4ecd538833",
+      "bytes": 537
+    },
+    "queue_refusal": {
+      "path": "/home/tyler/data/helm/ship/queue/submissions/ntc-ingest-refused-rpt-1228-u1-fourth-hutchinson-pre-solve-1017-54f3d38f-20261017T093238.json",
+      "sha256": "00b91b7ad83c17ceb567c7978ceab2b4763389bddc34340d856972862fd86572",
+      "bytes": 2638
+    },
+    "defect_record": {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/hutchinson-frozen-response-1017/pre-solve-delivery-defect.json",
+      "sha256": "277521498112e53e1162efd6894b039a17cb69c820fce7c73d77622232f8ba3f",
+      "bytes": 3067
+    },
+    "late_correction_record": {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/hutchinson-frozen-response-1017/pre-solve-delivery-correction.json",
+      "sha256": "e3f70186028f67970274806dd6567056874b2c4edd10f8976f0781f9f09e72c1",
+      "bytes": 1219
+    },
+    "late_correction_outbox": {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/outbox/rpt-1228-u1-fourth-hutchinson-pre-solve-1017.json",
+      "sha256": "9cd2d1c46195aac399dfec996afb0fe25e1d4bccccce1291d68c8691b4c67a2f",
+      "bytes": 4279
+    },
+    "head_disposition": {
+      "path": "/home/tyler/data/helm/ship-workspaces/sciences-p-10151529/.ship/notes/vacuum-float-1016/HUTCHINSON-PRESOLVE-DELIVERY-DEFECT-DISPOSITION-1017.json",
+      "sha256": "22ec6431249d8a18c6a8140bfe765667af2c798adb71f88be748fab776ae368d",
+      "bytes": 11697
+    },
+    "chronology_UTC": {
+      "local_filing": "2026-10-17T16:31:33.400952+00:00",
+      "response_start": "2026-10-17T16:31:33.406613+00:00",
+      "response_cleanup": "2026-10-17T16:31:50.114508+00:00",
+      "queue_refusal": "2026-10-17T16:32:38+00:00",
+      "correction_authored": "2026-10-17T16:43:20.998784+00:00",
+      "correction_admitted": "2026-10-17T16:44:23+00:00"
+    },
+    "historical_receipt_mapping": "The unchanged local filing receipt retains the original outbox path/hash. Resolve that old hash to original_pre_solve_report above; the live corrected outbox contains different later bytes.",
+    "forward_correction": "The landing candidate adds links_none=True and a pure envelope-construction regression in a separate governed correction. That launcher is not the code that produced this result; source_freeze_commit/tree/governance above retain the actual original execution. No response rerun or raw receipt rewrite."
   }
 }

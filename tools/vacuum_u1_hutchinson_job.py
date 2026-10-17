@@ -205,7 +205,7 @@ def inside(config_path, config, deadline):
     artifact = dict(path=str(root/"pre-solve-manifest.json"), sha256=runtime.digest(root/"pre-solve-manifest.json"))
     report = dict(id=REPORT, kind="report", **{"from": SEAT}, to="sciences-p-10151529",
                   cc=["xo-r-10111326", "co-r-10111331"], unit="vacuum-float-u1-1017", re=ORDER,
-                  authority=[dict(id=ORDER)], asks="none",
+                  authority=[dict(id=ORDER)], asks="none", links_none=True,
                   next=SEAT+": execute the already-authorized sole bounded sequential response and return exact evidence",
                   standing="Frozen protocol unchanged; corrected cylinder handoff filed and gate scope inactive; no U1 closure, U2/U4 release, self-verification or award.",
                   artifacts=[artifact], at=utc(),

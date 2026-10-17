@@ -4,6 +4,8 @@ No test solves the shell equilibrium or uses the source-pressure comparator.
 Physical energy derivatives are checked at fixed synthetic non-equilibrium states.
 """
 
+import ast
+import json
 from pathlib import Path
 import sys
 import unittest
@@ -340,6 +342,43 @@ class ControllerChecks(unittest.TestCase):
 
 class LaunchGuardChecks(unittest.TestCase):
     """Pure clock/scope fixtures; no response launcher or physical solve runs."""
+
+    def test_pre_solve_report_declares_no_relations_without_launch_or_filing(self):
+        # Evaluate only the actual report constructor with inert fixture values.
+        # Never call inside/launch or execute surrounding writes and continuation.
+        module = ast.parse(Path(job.__file__).read_text())
+        inside = next(node for node in module.body
+                      if isinstance(node, ast.FunctionDef) and node.name == 'inside')
+        assignments = [node for node in inside.body if isinstance(node, ast.Assign)
+                       and any(isinstance(target, ast.Name) and target.id == 'report'
+                               for target in node.targets)]
+        self.assertEqual(len(assignments), 1)
+        expression = assignments[0].value
+        for node in ast.walk(expression):
+            if isinstance(node, ast.Call):
+                self.assertIsInstance(node.func, ast.Name)
+                self.assertIn(node.func.id, ('dict', 'utc'))
+            self.assertNotIsInstance(node, (ast.Attribute, ast.Lambda, ast.NamedExpr,
+                                           ast.ListComp, ast.SetComp, ast.DictComp,
+                                           ast.GeneratorExp))
+        fixture = {'__builtins__': {}, 'dict': dict,
+                   'utc': lambda: '2026-10-17T00:00:00+00:00',
+                   'REPORT': job.REPORT, 'ORDER': job.ORDER, 'SEAT': job.SEAT,
+                   'artifact': {'path': '/home/fixture/pre-solve-manifest.json',
+                                'sha256': '0' * 64}}
+        report = eval(compile(ast.Expression(expression), job.__file__, 'eval'), fixture)
+        report = json.loads(json.dumps(report, allow_nan=False))
+        # Queue envelopes require a relation declaration; this report changes none.
+        self.assertEqual(set(report) & {'links', 'links_none'}, {'links_none'})
+        self.assertIs(report['links_none'], True)
+        self.assertEqual(report['kind'], 'report')
+        self.assertEqual(report['asks'], 'none')
+        self.assertEqual(report['from'], job.SEAT)
+        self.assertEqual(report['authority'], [{'id': job.ORDER}])
+        self.assertEqual(report['artifacts'], [fixture['artifact']])
+        self.assertTrue(report['next'].startswith(job.SEAT + ': '))
+        self.assertNotIn('\n', report['next'])
+        self.assertTrue(report['standing'])
 
     def test_setup_and_shutdown_share_the_single_total_deadline(self):
         window = job.launch_window(100.0, 137.25)
