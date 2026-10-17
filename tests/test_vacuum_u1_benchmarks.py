@@ -40,6 +40,14 @@ class BenchmarkContracts(unittest.TestCase):
         self.assertEqual(min(factors), 14.69241)
         self.assertEqual(factors[-1], 25947.42)
 
+    def test_cylinder_formula_has_line_load_units_and_classical_limit(self):
+        line_load = u1.cylinder_line_load(210e9, .3, .01, 1, 2, 5, 9)
+        self.assertAlmostEqual(line_load, 12_709_787.803709362, places=6)
+        # Uniform scale doubles line load but leaves stress unchanged.
+        self.assertAlmostEqual(u1.cylinder_line_load(210e9, .3, .02, 2, 4, 5, 9),
+                               2*line_load)
+        self.assertLess(abs(line_load/12_709_778.186044851 - 1), 1e-6)
+
     def test_missing_eigenvalue_section_is_not_a_result(self):
         self.assertEqual(u1.parse_factors("Job finished\n 1 123.000E+02\n"), [])
         self.assertEqual(u1.parse_factors("*ERROR reading *NODE"), [])

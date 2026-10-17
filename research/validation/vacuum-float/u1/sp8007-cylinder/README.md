@@ -1,0 +1,11 @@
+# SP-8007 ideal axial cylinder — PASS pending Una verification
+
+This independently frozen benchmark instantiates [NASA/SP-8007-2020/REV 2](https://ntrs.nasa.gov/citations/20205011530), section 4.1, pp.22–23, equations 1–5, with theoretical γ = 1. Equation 7 supplies the continuous asymptote. The report is dated 2020; the PDF filename's `1-2023` suffix does not create a second 2023 experiment. Dimensions E = 210 GPa, ν = 0.3, r = 1 m, L = 2 m, t = 0.01 m are explicitly builder-selected formula inputs, not a published specimen.
+
+The integer half-wave search m = 1…100, n = 0…100 gives Nx = 12709787.803709 N/m at m = 5, n = 9. Its proximity to the closed-form continuous lower bound is recorded in `case.json`. The comparison uses axial line load, not pressure or total force. Both rim translations transverse to the cylinder axis are fixed; bottom axial translation is fixed; rotations remain free. The upper rim receives consistent quadratic nodal forces summing to −2πr × 1000 N/m. S8R shell normals are explicitly radial.
+
+The frozen 64×24, 96×36 and 144×54 meshes yield 12497780.00, 12433990.00, 12424140.00 N/m. Both successive relative changes (0.5130%, 0.0793%) meet the predeclared 1% rule. Finest relative error is 2.2475%, within 5%. All eight eigenvalues are retained in `result.json`; the lowest determines each result. This supports only this ideal elastic equation comparison. It provides no nonlinear collapse or float evidence.
+
+One thread was selected before any cylinder solve, following the separately committed sphere fixed-deck thread-disagreement evidence. Every run used a named measured systemd scope capped at eight CPUs, 40 GiB, no swap and 7200 s; all inputs, temporary files and raw outputs reside under `/home`. No control stops or retries occurred. Each run contains an immutable runner snapshot. Deck, mesh and native-output hashes, resource measurements and paths are in `result.json`; `convergence.csv` is the compact view.
+
+Replay from this commit: `python3 tools/vacuum_u1_benchmarks.py solve --case research/validation/vacuum-float/u1/sp8007-cylinder/case.json --run-dir /home/USER/new-cylinder-run --mesh-index 0 --threads 1`; use new run directories for indices 1 and 2. Requires the recorded CalculiX 2.21 and Gmsh Python 4.14.0.dev1 stack and user systemd. No primary landing or score is claimed.

@@ -1,0 +1,52 @@
+{
+  "benchmark": "sp8007-cylinder",
+  "source": {
+    "title": "Buckling of Thin-Walled Circular Cylinders",
+    "author": "Mark W. Hilburger",
+    "year": 2020,
+    "report": "NASA/SP-8007-2020/REV 2",
+    "locator": "Section 4.1, pp.22\u201323, equations 1\u20135 and 7; gamma=1 theoretical interpretation explicitly stated below eq.8",
+    "url": "https://ntrs.nasa.gov/citations/20205011530",
+    "pdf_url": "https://ntrs.nasa.gov/api/citations/20205011530/downloads/20205011530%20Rev%202FINALa%201-2023.pdf",
+    "pdf_sha256": "299dfb8807862f174768356353f39c6bf6993596cb6f5933dd4fd23181e8837b"
+  },
+  "quantity": "Minimum ideal elastic axial line load Nx for a simply supported unstiffened isotropic circular cylinder; gamma=1. No empirical design-factor or experimental-collapse comparison.",
+  "radius_m": 1.0,
+  "length_m": 2.0,
+  "thickness_m": 0.01,
+  "young_pa": 210000000000.0,
+  "poisson": 0.3,
+  "gamma": 1,
+  "input_basis": "Builder-selected dimensional instantiation of the source equations; no published test specimen claimed.",
+  "comparator_expression": "min over integer m>=1,n>=0: [m^2*(1+beta^2)^2 + 12*Z^2/(pi^4*m^2*(1+beta^2)^2)]*pi^2*D/L^2; beta=n*L/(m*pi*r), Z=L^2*sqrt(1-nu^2)/(r*t), D=E*t^3/[12*(1-nu^2)]",
+  "published_comparator_line_load_n_per_m": 12709787.803709362,
+  "comparator_minimizer": {
+    "m": 5,
+    "n": 9
+  },
+  "continuous_asymptotic_line_load_n_per_m": 12709778.186044851,
+  "reference_line_load_n_per_m": 1000.0,
+  "load": "Uniform axial compressive edge traction on upper rim; lower axial displacement fixed. No pressure or prestress.",
+  "boundary_conditions": "Simply supported edges: radial displacement zero at both rims, circumferential displacement zero at rims, free shell rotations; bottom axial displacement zero, top axial edge load uniform. Lateral edge displacement restrains Poisson expansion only at the ends, as explicitly modelled.",
+  "imperfection": "None for ideal eigenvalue comparison",
+  "element": "Gmsh transfinite full cylinder, CalculiX S8R shells, exact radial normals",
+  "mesh_divisions_circumference": [
+    64,
+    96,
+    144
+  ],
+  "mesh_divisions_axial": [
+    24,
+    36,
+    54
+  ],
+  "eigenvalues_requested": 8,
+  "eigenvalue_relative_tolerance": 1e-06,
+  "mesh_convergence_rule": "Three frozen meshes; both adjacent abs(N_new-N_old)/abs(N_new)<=0.01. Inspect all modes; do not discard lower modes.",
+  "comparison": "abs(N_fine-published)/abs(published)<=0.05 plus mesh convergence",
+  "frozen_before_first_solve_utc": "2026-10-17T07:44:27.839664+00:00",
+  "threads": 1,
+  "thread_choice_basis": "Fixed-deck sphere experiment, committed at 592611e789cbe96c6c43c0cbb78e9ebf0ff66467, found 1/2-thread agreement and 4/8-thread disagreement; choose one thread before this independent case first solve.",
+  "load_discretization": "Exact circular rim arc length per element, consistent quadratic edge weights (1/6,2/3,1/6) applied in global -z; enforce total force=-2*pi*r*Nref.",
+  "comparator_search": "m=1..100,n=0..100; minimum no lower than the exact continuous asymptote and within 0.000076% of it"
+}

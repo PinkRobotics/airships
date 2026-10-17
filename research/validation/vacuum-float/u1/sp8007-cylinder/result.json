@@ -1,0 +1,353 @@
+{
+  "benchmark": "sp8007-cylinder",
+  "status": "PASS",
+  "verification": "PENDING_UNA",
+  "landed": false,
+  "points": null,
+  "quantity": "ideal elastic axial line load N/m, gamma=1",
+  "comparator_line_load_n_per_m": 12709787.803709362,
+  "source_case_sha256": "c182a2a163cbdfd460a3f266509c4f6ee30951213d8ee8b4dc66786bb3412119",
+  "finest_line_load_n_per_m": 12424140.0,
+  "finest_relative_error": 0.02247463200180222,
+  "adjacent_mesh_relative_changes": [
+    0.005130292046237772,
+    0.0007928114139087293
+  ],
+  "mesh_converged": true,
+  "thresholds": {
+    "relative_error": 0.05,
+    "each_adjacent_mesh_change": 0.01
+  },
+  "runs": [
+    {
+      "started": "2026-10-17T07:44:28.209842+00:00",
+      "envelope": {
+        "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/vacuum-u1-e7a133c9db487c43.scope",
+        "limits": [
+          {
+            "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/vacuum-u1-e7a133c9db487c43.scope",
+            "cpu.max": "800000 100000",
+            "memory.max": "42949672960"
+          },
+          {
+            "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice",
+            "cpu.max": "max 100000",
+            "memory.max": "max"
+          },
+          {
+            "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service",
+            "cpu.max": "max 100000",
+            "memory.max": "max"
+          },
+          {
+            "path": "/sys/fs/cgroup/user.slice/user-1000.slice",
+            "cpu.max": "max 100000",
+            "memory.max": "max"
+          },
+          {
+            "path": "/sys/fs/cgroup/user.slice",
+            "cpu.max": "max 100000",
+            "memory.max": "max"
+          }
+        ],
+        "swap_max": "0",
+        "runtime_max": "2h",
+        "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/vacuum-u1-e7a133c9db487c43.scope"
+      },
+      "threads_requested": 1,
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "CCX_NPROC_STIFFNESS": "1",
+        "CCX_NPROC_EQUATION_SOLVER": "1",
+        "CCX_NPROC_RESULTS": "1",
+        "NUMBER_OF_CPUS": "1"
+      },
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "case_sha256": "c182a2a163cbdfd460a3f266509c4f6ee30951213d8ee8b4dc66786bb3412119",
+      "runner_sha256": "35ba3f5e811a6bb88f08108dacb24b7467cfc1c2c8a34107b13663c4785a5ba4",
+      "solver": "/usr/bin/ccx",
+      "solver_sha256": "564ed098356c46f68120e2d6cc2a97c686b4d16ec31f3ef55b3182749ec60c3d",
+      "mesh": {
+        "nodes": 4736,
+        "elements": 1536,
+        "element": "S8R",
+        "nominal_shell_dofs": 28416,
+        "loaded_edges": 64,
+        "net_axial_load_n": -6283.185307179585,
+        "bottom_nodes": 128,
+        "top_nodes": 128,
+        "mesh_sha256": "03fbcf15429f953791929a90d1780b6f884d6936cd4ccaf943cde3f1e7fb40b2",
+        "deck_sha256": "cf2aa1f4b2a73602cd52d38da64e7f3e42fb60910dee4d0fbd42c2e4d0c2439a"
+      },
+      "solver_pid": 2005543,
+      "ended": "2026-10-17T07:44:34.998866+00:00",
+      "exit_code": 0,
+      "wall_seconds": 6.412013260181993,
+      "cpu_seconds": 6.234169,
+      "peak_rss_kib": 229612,
+      "max_observed_threads": 3,
+      "average_cpu_cores": 0.972263897006204,
+      "factors": [
+        12497.78,
+        12528.89,
+        12569.93,
+        12606.49,
+        12650.14,
+        12704.68,
+        12791.05,
+        12888.38
+      ],
+      "eigenproblem_completed": true,
+      "status": "COMPLETED",
+      "cgroup_memory_peak_bytes": 268906496,
+      "memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "equations": [
+        "32256"
+      ],
+      "line_load_n_per_m": 12497780.0,
+      "raw_directory": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/cylinder-64x24",
+      "artifact_sha256": {
+        "case.json": "c182a2a163cbdfd460a3f266509c4f6ee30951213d8ee8b4dc66786bb3412119",
+        "runner.py": "35ba3f5e811a6bb88f08108dacb24b7467cfc1c2c8a34107b13663c4785a5ba4",
+        "job.inp": "cf2aa1f4b2a73602cd52d38da64e7f3e42fb60910dee4d0fbd42c2e4d0c2439a",
+        "mesh.msh": "03fbcf15429f953791929a90d1780b6f884d6936cd4ccaf943cde3f1e7fb40b2",
+        "job.dat": "a1f8639ba8b97477cbd29cf97a8253b7f337d34d0d1d3d5bc555e8f5b81db050",
+        "job.frd": "0cd18336392665c50b3b8a35479a7630eea6fe554ceb8be00911867aed071eea",
+        "run.json": "39ffe7ef095dc7a3cc9564409094938eeb39204c3a74bbd15dc05af3f997d913",
+        "launch.json": "b358b4800a7ef36fd1b3a0baba9d43eb5e66aae9d0326ebf0c9f2e4de5036a5a",
+        "solver.stdout": "8891f1669eb7dea8b18d21b9ca3805ee16db3f6c78c021668716f85452d7b2f7",
+        "solver.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "started": "2026-10-17T07:44:55.731453+00:00",
+      "envelope": {
+        "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/vacuum-u1-d1a8f6586364a39e.scope",
+        "limits": [
+          {
+            "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/vacuum-u1-d1a8f6586364a39e.scope",
+            "cpu.max": "800000 100000",
+            "memory.max": "42949672960"
+          },
+          {
+            "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice",
+            "cpu.max": "max 100000",
+            "memory.max": "max"
+          },
+          {
+            "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service",
+            "cpu.max": "max 100000",
+            "memory.max": "max"
+          },
+          {
+            "path": "/sys/fs/cgroup/user.slice/user-1000.slice",
+            "cpu.max": "max 100000",
+            "memory.max": "max"
+          },
+          {
+            "path": "/sys/fs/cgroup/user.slice",
+            "cpu.max": "max 100000",
+            "memory.max": "max"
+          }
+        ],
+        "swap_max": "0",
+        "runtime_max": "2h",
+        "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/vacuum-u1-d1a8f6586364a39e.scope"
+      },
+      "threads_requested": 1,
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "CCX_NPROC_STIFFNESS": "1",
+        "CCX_NPROC_EQUATION_SOLVER": "1",
+        "CCX_NPROC_RESULTS": "1",
+        "NUMBER_OF_CPUS": "1"
+      },
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "case_sha256": "c182a2a163cbdfd460a3f266509c4f6ee30951213d8ee8b4dc66786bb3412119",
+      "runner_sha256": "35ba3f5e811a6bb88f08108dacb24b7467cfc1c2c8a34107b13663c4785a5ba4",
+      "solver": "/usr/bin/ccx",
+      "solver_sha256": "564ed098356c46f68120e2d6cc2a97c686b4d16ec31f3ef55b3182749ec60c3d",
+      "mesh": {
+        "nodes": 10560,
+        "elements": 3456,
+        "element": "S8R",
+        "nominal_shell_dofs": 63360,
+        "loaded_edges": 96,
+        "net_axial_load_n": -6283.185307179587,
+        "bottom_nodes": 192,
+        "top_nodes": 192,
+        "mesh_sha256": "6f8836816ee92c80f8de6e12ffd34967848ef595ae90d86d6111987113b54edf",
+        "deck_sha256": "5737317e9d19fcd31e4190cb0977afa3c806d9aadef2947f2fb1594916294221"
+      },
+      "solver_pid": 2012866,
+      "ended": "2026-10-17T07:45:09.999725+00:00",
+      "exit_code": 0,
+      "wall_seconds": 13.817392874043435,
+      "cpu_seconds": 13.584747,
+      "peak_rss_kib": 531812,
+      "max_observed_threads": 3,
+      "average_cpu_cores": 0.9831628241185448,
+      "factors": [
+        12433.99,
+        12476.13,
+        12500.6,
+        12552.16,
+        12588.41,
+        12660.58,
+        12724.72,
+        12806.58
+      ],
+      "eigenproblem_completed": true,
+      "status": "COMPLETED",
+      "cgroup_memory_peak_bytes": 582987776,
+      "memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "equations": [
+        "72576"
+      ],
+      "line_load_n_per_m": 12433990.0,
+      "raw_directory": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/cylinder-96x36",
+      "artifact_sha256": {
+        "case.json": "c182a2a163cbdfd460a3f266509c4f6ee30951213d8ee8b4dc66786bb3412119",
+        "runner.py": "35ba3f5e811a6bb88f08108dacb24b7467cfc1c2c8a34107b13663c4785a5ba4",
+        "job.inp": "5737317e9d19fcd31e4190cb0977afa3c806d9aadef2947f2fb1594916294221",
+        "mesh.msh": "6f8836816ee92c80f8de6e12ffd34967848ef595ae90d86d6111987113b54edf",
+        "job.dat": "059d11d104053d1fa5157682131914083f36e2a51564db273e250f58abdfb7f0",
+        "job.frd": "6339c1b9e3a52f43d37ac9a9aba9e47c4b4801b42b860830336040c5b9dbd362",
+        "run.json": "d50a4727a6b4c982c0834fda82703da2a0a69056595d7066e3e83efa64788c4a",
+        "launch.json": "fc8601ec8bb3c139073624d34efa0ae0f74f103b5e9f68f1edb34af04af6b230",
+        "solver.stdout": "2f17077166f0214d08a9d71c9f6d0dd9c7dbeaf9f4973f8633ad969d116a0670",
+        "solver.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "started": "2026-10-17T07:46:17.143104+00:00",
+      "envelope": {
+        "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/vacuum-u1-ccc5bd9b93418f0a.scope",
+        "limits": [
+          {
+            "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/vacuum-u1-ccc5bd9b93418f0a.scope",
+            "cpu.max": "800000 100000",
+            "memory.max": "42949672960"
+          },
+          {
+            "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice",
+            "cpu.max": "max 100000",
+            "memory.max": "max"
+          },
+          {
+            "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service",
+            "cpu.max": "max 100000",
+            "memory.max": "max"
+          },
+          {
+            "path": "/sys/fs/cgroup/user.slice/user-1000.slice",
+            "cpu.max": "max 100000",
+            "memory.max": "max"
+          },
+          {
+            "path": "/sys/fs/cgroup/user.slice",
+            "cpu.max": "max 100000",
+            "memory.max": "max"
+          }
+        ],
+        "swap_max": "0",
+        "runtime_max": "2h",
+        "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/vacuum-u1-ccc5bd9b93418f0a.scope"
+      },
+      "threads_requested": 1,
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "CCX_NPROC_STIFFNESS": "1",
+        "CCX_NPROC_EQUATION_SOLVER": "1",
+        "CCX_NPROC_RESULTS": "1",
+        "NUMBER_OF_CPUS": "1"
+      },
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "case_sha256": "c182a2a163cbdfd460a3f266509c4f6ee30951213d8ee8b4dc66786bb3412119",
+      "runner_sha256": "35ba3f5e811a6bb88f08108dacb24b7467cfc1c2c8a34107b13663c4785a5ba4",
+      "solver": "/usr/bin/ccx",
+      "solver_sha256": "564ed098356c46f68120e2d6cc2a97c686b4d16ec31f3ef55b3182749ec60c3d",
+      "mesh": {
+        "nodes": 23616,
+        "elements": 7776,
+        "element": "S8R",
+        "nominal_shell_dofs": 141696,
+        "loaded_edges": 144,
+        "net_axial_load_n": -6283.185307179586,
+        "bottom_nodes": 288,
+        "top_nodes": 288,
+        "mesh_sha256": "44659ffedf3810ffbf4bbc4d748775a7835db633951ea908cf8c519d03766a30",
+        "deck_sha256": "2488b1b8b8c68dffa532a10269af1aa115eac288e408daa1c4519003c6ee04d3"
+      },
+      "solver_pid": 2034290,
+      "ended": "2026-10-17T07:47:18.809832+00:00",
+      "exit_code": 0,
+      "wall_seconds": 60.694828553823754,
+      "cpu_seconds": 60.339817000000004,
+      "peak_rss_kib": 1248128,
+      "max_observed_threads": 3,
+      "average_cpu_cores": 0.9941508764044217,
+      "factors": [
+        12424.14,
+        12465.33,
+        12476.57,
+        12492.74,
+        12523.17,
+        12546.3,
+        12560.23,
+        12590.81
+      ],
+      "eigenproblem_completed": true,
+      "status": "COMPLETED",
+      "cgroup_memory_peak_bytes": 1335607296,
+      "memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "equations": [
+        "163296"
+      ],
+      "line_load_n_per_m": 12424140.0,
+      "raw_directory": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/cylinder-144x54",
+      "artifact_sha256": {
+        "case.json": "c182a2a163cbdfd460a3f266509c4f6ee30951213d8ee8b4dc66786bb3412119",
+        "runner.py": "35ba3f5e811a6bb88f08108dacb24b7467cfc1c2c8a34107b13663c4785a5ba4",
+        "job.inp": "2488b1b8b8c68dffa532a10269af1aa115eac288e408daa1c4519003c6ee04d3",
+        "mesh.msh": "44659ffedf3810ffbf4bbc4d748775a7835db633951ea908cf8c519d03766a30",
+        "job.dat": "82e9b2e040206a0db299180547a4ea576f1e350232e59cb2ee5b657cf4eeb4a8",
+        "job.frd": "275ed8e26aeb9e18227a5b9eaa3f0dc7dbaee7795c7520c584f416a687cd540f",
+        "run.json": "e6ed9d972ce40aaaadaf57291fa8fdf06efbe27aad89e0eebc89638c31c1eb1d",
+        "launch.json": "f22f8571fe733e8695f71c27419a570be78e1c2cde2ea63519dcee015d20e473",
+        "solver.stdout": "eea03a18fdeb5f644e8a5638bbb8d893930d14cf49f1c82fb43f6920c1808088",
+        "solver.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "interpretation": "Validates only the frozen ideal cylinder equation instantiation. No empirical knockdown, nonlinear imperfect-shell collapse or float claim. Source and numerical boundary conditions are explicit. Lowest of all eight positive extracted eigenvalues used; no mode discarded.",
+  "counterexample_or_limit": "About 2% residual source comparison error remains; no tuning or parameter fitting. Single-thread selection was frozen before this case, motivated by the separately preserved sphere thread-consistency failure.",
+  "next": "Una independent verification; CO individual landing. No self-award."
+}

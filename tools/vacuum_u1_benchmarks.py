@@ -74,6 +74,109 @@ def sphere_pressure(young, poisson, thickness, radius):
     return 2 * young * (thickness / radius)**2 / math.sqrt(3 * (1 - poisson**2))
 
 
+def cylinder_line_load(young, poisson, thickness, radius, length, m, n):
+    """SP-8007 Rev 2 equations 1--5, theoretical gamma=1, in N/m."""
+    rigidity = young * thickness**3 / (12 * (1 - poisson**2))
+    curvature = length**2 * math.sqrt(1 - poisson**2) / (radius * thickness)
+    beta = n * length / (m * math.pi * radius)
+    shape = m**2 * (1 + beta**2)**2
+    return (shape + 12 * curvature**2 / (math.pi**4 * shape)) * math.pi**2 * rigidity / length**2
+
+
+def cylinder_deck(case, mesh_index):
+    """Four shared cylindrical patches and consistent quadratic edge loads."""
+    import gmsh
+    import numpy as np
+
+    radius, length = case["radius_m"], case["length_m"]
+    circum = case["mesh_divisions_circumference"][mesh_index]
+    axial = case["mesh_divisions_axial"][mesh_index]
+    if circum % 4:
+        raise ValueError("Circumferential division count must be divisible by four")
+    gmsh.initialize([], readConfigFiles=False)
+    try:
+        gmsh.option.setNumber("General.NumThreads", 1)
+        gmsh.option.setNumber("Mesh.MaxNumThreads2D", 1)
+        gmsh.option.setNumber("Mesh.SecondOrderIncomplete", 1)
+        gmsh.model.add("cylinder")
+        geo = gmsh.model.geo
+        rings, arcs = [], []
+        for z in (0, length):
+            centre = geo.addPoint(0, 0, z)
+            points = [geo.addPoint(radius*math.cos(i*math.pi/2),
+                                  radius*math.sin(i*math.pi/2), z) for i in range(4)]
+            rings.append(points)
+            arcs.append([geo.addCircleArc(points[i], centre, points[(i+1)%4])
+                         for i in range(4)])
+        vertical = [geo.addLine(rings[0][i], rings[1][i]) for i in range(4)]
+        surfaces = [geo.addSurfaceFilling([geo.addCurveLoop(
+            [arcs[0][i], vertical[(i+1)%4], -arcs[1][i], -vertical[i]])])
+                    for i in range(4)]
+        geo.synchronize()
+        for edge in arcs[0] + arcs[1]:
+            gmsh.model.mesh.setTransfiniteCurve(edge, circum//4 + 1)
+        for edge in vertical:
+            gmsh.model.mesh.setTransfiniteCurve(edge, axial + 1)
+        for surface in surfaces:
+            gmsh.model.mesh.setTransfiniteSurface(surface)
+            gmsh.model.mesh.setRecombine(2, surface)
+        gmsh.model.mesh.generate(2)
+        gmsh.model.mesh.setOrder(2)
+        gmsh.write("mesh.msh")
+        tags, coordinates, _ = gmsh.model.mesh.getNodes()
+        positions = dict(zip(map(int, tags), coordinates.reshape(-1, 3)))
+        types, element_tags, connectivity = gmsh.model.mesh.getElements(2)
+        if list(types) != [16]:
+            raise RuntimeError(f"Expected eight-node quads; got {types}")
+        elements = dict(zip(map(int, element_tags[0]), connectivity[0].reshape(-1, 8)))
+        nodes = {n: positions[n] for n in sorted({int(n) for row in elements.values() for n in row})}
+        for point in nodes.values():
+            if abs(np.linalg.norm(point[:2]) - radius) > radius*1e-8:
+                raise RuntimeError("Mesh node lies off the frozen cylindrical surface")
+        for tag, row in elements.items():
+            p = [nodes[int(n)] for n in row[:3]]
+            if np.dot(np.cross(p[1]-p[0], p[2]-p[0]), [p[0][0], p[0][1], 0]) < 0:
+                elements[tag] = row[[0,3,2,1,7,6,5,4]]
+        bottom = [n for n, p in nodes.items() if abs(p[2]) < length*1e-9]
+        top = [n for n, p in nodes.items() if abs(p[2]-length) < length*1e-9]
+        loads = {}
+        loaded_edges = 0
+        edge_force = -case["reference_line_load_n_per_m"] * 2*math.pi*radius/circum
+        top_set = set(top)
+        for row in elements.values():
+            for a, b, mid in ((0,1,4),(1,2,5),(2,3,6),(3,0,7)):
+                if int(row[a]) in top_set and int(row[b]) in top_set:
+                    loaded_edges += 1
+                    for index, weight in ((a,1/6),(b,1/6),(mid,2/3)):
+                        node = int(row[index])
+                        loads[node] = loads.get(node, 0) + weight*edge_force
+        expected = -2*math.pi*radius*case["reference_line_load_n_per_m"]
+        if loaded_edges != circum or not math.isclose(sum(loads.values()), expected, rel_tol=1e-12):
+            raise RuntimeError("Consistent axial rim load failed its force balance")
+        lines = ["*HEADING", "U1 SP8007 gamma=1 cylinder, SI", "*NODE"]
+        lines += [f"{tag}, " + ", ".join(f"{v:.12e}" for v in xyz) for tag, xyz in nodes.items()]
+        lines += ["*ELEMENT, TYPE=S8R, ELSET=SHELL"]
+        lines += [f"{tag}, " + ", ".join(map(str, row)) for tag, row in elements.items()]
+        lines += ["*MATERIAL, NAME=ELASTIC", "*ELASTIC", f"{case['young_pa']}, {case['poisson']}",
+                  "*SHELL SECTION, ELSET=SHELL, MATERIAL=ELASTIC", str(case["thickness_m"]), "*NORMAL"]
+        for tag, row in elements.items():
+            for node in row:
+                x, y, _ = nodes[int(node)]
+                lines.append(f"{tag}, {node}, {x/radius:.12e}, {y/radius:.12e}, 0.")
+        lines += ["*BOUNDARY"] + [f"{node}, 1, 2" for node in bottom + top]
+        lines += [f"{node}, 3, 3" for node in bottom]
+        lines += ["*STEP", "*BUCKLE, SOLVER=SPOOLES", "8, 0.000001, 64, 1000", "*CLOAD"]
+        lines += [f"{node}, 3, {force:.12e}" for node, force in sorted(loads.items())]
+        lines += ["*NODE FILE, OUTPUT=2D", "U", "*END STEP"]
+        Path("job.inp").write_text("\n".join(lines) + "\n")
+        return {"nodes": len(nodes), "elements": len(elements), "element": "S8R",
+                "nominal_shell_dofs": 6*len(nodes), "loaded_edges": loaded_edges,
+                "net_axial_load_n": sum(loads.values()), "bottom_nodes": len(bottom),
+                "top_nodes": len(top), "mesh_sha256": digest("mesh.msh"), "deck_sha256": digest("job.inp")}
+    finally:
+        gmsh.finalize()
+
+
 def sphere_mesh(case, divisions):
     """Six spherical Gmsh patches, shared arcs, quadratic quadrilaterals."""
     import gmsh
@@ -209,7 +312,12 @@ def job(args):
         if digest("job.inp") != record["mesh"]["deck_sha256"]:
             raise RuntimeError("Fixed deck differs from its frozen mesh definition")
     else:
-        record["mesh"] = sphere_deck(case, case["mesh_divisions"][args.mesh_index])
+        if case["benchmark"] == "classical-sphere":
+            record["mesh"] = sphere_deck(case, case["mesh_divisions"][args.mesh_index])
+        elif case["benchmark"] == "sp8007-cylinder":
+            record["mesh"] = cylinder_deck(case, args.mesh_index)
+        else:
+            raise ValueError(f"Unknown benchmark: {case['benchmark']}")
         save("mesh-definition.json", record["mesh"])
     save("run.json", record)
     started = time.monotonic()
@@ -241,10 +349,12 @@ def job(args):
                    "average_cpu_cores": (usage.ru_utime + usage.ru_stime) / elapsed,
                    "factors": factors, "eigenproblem_completed": complete,
                    "status": "COMPLETED" if complete else "FAILED_SOLVE",
-                   "pressure_pa": min(factors)*case["reference_pressure_pa"] if complete else None,
                    "cgroup_memory_peak_bytes": int((Path(measured["path"])/"memory.peak").read_text()),
                    "memory_events": (Path(measured["path"])/"memory.events").read_text(),
                    "equations": re.findall(r"number of equations\s*:?\s*(\d+)", stdout, re.I)})
+    for quantity in ("pressure_pa", "line_load_n_per_m"):
+        if "reference_" + quantity in case:
+            record[quantity] = min(factors)*case["reference_" + quantity] if complete else None
     save("run.json", record)
     print(json.dumps(record), flush=True)
     return 0 if complete else 2
@@ -259,6 +369,7 @@ def launch(args):
     if free < 5 * 1024**3:
         raise RuntimeError("Fewer than 5 GiB free on the run filesystem")
     shutil.copyfile(args.case, run / "case.json")
+    shutil.copyfile(Path(__file__).resolve(), run / "runner.py")
     if args.deck:
         source = home_path(args.deck)
         shutil.copyfile(source / "job.inp", run / "job.inp")
@@ -276,7 +387,7 @@ def launch(args):
     command = ["systemd-run", "--user", "--scope", "--unit="+unit,
                "-p", "CPUQuota=800%", "-p", "MemoryMax=40G", "-p", "MemorySwapMax=0",
                "-p", "RuntimeMaxSec=7200", "timeout", "--signal=TERM", "--kill-after=10s",
-               "7200s", sys.executable, str(Path(__file__).resolve()), "_job",
+               "7200s", sys.executable, str(run / "runner.py"), "_job",
                "--run-dir", str(run), "--threads", str(args.threads),
                "--mesh-index", str(args.mesh_index)]
     if args.deck:
