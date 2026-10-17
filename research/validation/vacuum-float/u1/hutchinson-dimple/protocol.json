@@ -1,0 +1,267 @@
+{
+  "title": "Hutchinson Figure 7(a): one deterministic numerical protocol completion",
+  "status": "PROTOCOL_PROPOSED_FOR_SCIENCES_FREEZE; NO_IMPLEMENTATION_TEST_OR_RESPONSE_SOLVE",
+  "authority": "ord-sciences-g1-fourth-hutchinson-protocol-complete-1017",
+  "accepted_source_proposal": {
+    "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/notes/vacuum-u1-fourth-source-proposal-1017/proposal.json",
+    "sha256": "10abf65a8118563350af9eb3645d5875d8b03729b617ee07ee5c26f8f1848304"
+  },
+  "head_disposition": {
+    "path": "/home/tyler/data/helm/ship-workspaces/sciences-p-10151529/.ship/notes/vacuum-float-1016/U1-FOURTH-HUTCHINSON-SOURCE-DISPOSITION-1017.json",
+    "sha256": "27276acbd974b70268b6870a6cfa42566b2be06337a7eb8ac02b1244d651f1d2"
+  },
+  "precedence": "The accepted source proposal is embedded unchanged for a complete record. The numerical definitions below resolve its previously unspecified norms, initialization, branch checks and peak decisions. They do not change its physical model, point, meshes, tolerances, evaluation/time/resource ceilings or source qualifications. Head acceptance of D and dead pressure supersedes the earlier pending-source-decision labels only. Final execution freeze is still withheld.",
+  "fixed_case_and_limits": {
+    "point": "Hutchinson2016 Fig7(a), R/t100,nu0.3,B1.5,delta/t1; graph comparator0.250 and immutable interval[0.247,0.253]",
+    "model": "Accepted imperfect full sphere with two stress-free Gaussian dimples and equatorial reflection; moderate-rotation axisymmetric energy; explicitly corrected D=Et^3/[12(1-nu^2)]; original-area radial dead pressure, with Figure7's missing pressure label retained as a source qualification.",
+    "R_m": 1,
+    "t_m": 0.01,
+    "E_Pa": 1,
+    "epsilon_t_over_R": 0.01,
+    "intervals": [
+      64,
+      128,
+      256
+    ],
+    "nodes": [
+      65,
+      129,
+      257
+    ],
+    "unknowns_at_fixed_q": [
+      127,
+      255,
+      511
+    ],
+    "quadrature_points_per_interval": 16,
+    "q_step": 0.05,
+    "q_ceiling": 5.0,
+    "max_newton_iterations_per_state": 20,
+    "backtracking_factors": [
+      1,
+      0.5,
+      0.25,
+      0.125,
+      0.0625,
+      0.03125,
+      0.015625,
+      0.0078125
+    ],
+    "max_new_refinement_equilibrium_states_per_mesh": 24,
+    "max_equilibrium_states_per_mesh_including_zero_and_failed_attempts": 126,
+    "residual_infinity_tolerance": 1e-10,
+    "undamped_correction_relative_infinity_tolerance": 1e-09,
+    "required_descending_coarse_samples": 3,
+    "maximum_final_q_bracket_width": 0.001,
+    "maximum_last_four_peak_estimates_relative_span": 0.001,
+    "both_adjacent_mesh_relative_changes_maximum": 0.01,
+    "fine_nominal_and_both_graph_endpoint_relative_errors_maximum": 0.05,
+    "future_envelope": "One owned sequential three-mesh job, total7200s,1CPU affinity/CPUQuota100%,8GiB,swap0,oneBLAS/OpenMP thread,/home-only work/temp/cache/results. No overlaps, installs, GPU, workers, retries or ceiling reset. This remains a proposed future ceiling, not current execution authority or demonstrated feasibility."
+  },
+  "exact_scaling": {
+    "notation": "N is the number of meridional intervals. Interior nodal indices are i=1,...,N-1. epsilon=t/R. U=u_theta/R, W=w/R and V=dW/dtheta. Wp=W(pi/2). Natural cubic interpolants U,V have zero endpoint values and zero endpoint second derivatives; W(theta)=Wp-integral_theta^(pi/2)V(s)ds. All these definitions and the imperfection remain those in the accepted proposal.",
+    "pressure": "pC=2*E*epsilon^2/sqrt(3*(1-nu^2)); lambda=p/pC; gamma=pC*R/(E*t)=2*epsilon/sqrt(3*(1-nu^2)). Neither comparator0.250 nor a previous response enters any normalization or initial guess.",
+    "independent_q_and_unknown_order": "q=-Wp/epsilon is prescribed. The m=2*N-1 unknown vector is x=(U_1/epsilon,...,U_(N-1)/epsilon,V_1/epsilon,...,V_(N-1)/epsilon,lambda). Displacement-like entries are in thickness units; pressure is in classical-pressure units. Wp=-epsilon*q is substituted after differentiating the energy.",
+    "original_variational_coordinate_order": "a=(U_1,...,U_(N-1),V_1,...,V_(N-1),Wp), length m. The last component is Wp, not lambda.",
+    "energy": "Psi=Pi/(2*pi*E*t*R^2)=integral_0^(pi/2) cos(theta)*{[Etheta^2+Eomega^2+2*nu*Etheta*Eomega]/[2*(1-nu^2)]+epsilon^2*[kappa_theta^2+kappa_omega^2+2*nu*kappa_theta*kappa_omega]/[24*(1-nu^2)]+gamma*lambda*W} dtheta. Here phi=U-V, Etheta=W+U'+0.5*phi^2-WI'*phi, Eomega=W-U*tan(theta), kappa_theta=phi', kappa_omega=-tan(theta)*phi. Quadrature and spline integration are the accepted fixed discretization.",
+    "residual": "F(x,q)=gradient_a(Psi), evaluated at a=(epsilon*x_displacement,-epsilon*q), pressure lambda fixed during a derivatives. All m original-coordinate gradient components, including dPsi/dWp, are retained with unit row scaling. No multiplication by epsilon, division by element length, nodal-force renormalization or state-dependent residual scaling is allowed. Do not replace the Wp stationarity equation by dPsi/dlambda=0.",
+    "residual_norm": "r(x,q)=max_i abs(F_i(x,q)); require r<=1e-10.",
+    "jacobian": "J=partial F/partial x at fixed q. With H=partial^2 Psi/partial a^2 at fixed lambda, its displacement columns are epsilon*H[:,a_displacement]; its last column is partial F/partial lambda. The q derivative is Fq=-epsilon*H[:,Wp]. J is the pressure-augmented equilibrium Jacobian, not a stiffness-eigenvalue problem.",
+    "update_norm": "At the current iterate x, solve J*c=-F for the full undamped Newton correction c. Define D(x)=max(1,||x||_infinity) and u=||c||_infinity/D(x). Require u<=1e-9 at the same iterate that satisfies the residual test. The denominator is exactly1 at zero. The accepted damped step alpha*c is logged separately and never used to satisfy the update tolerance.",
+    "finite_values": "All energy, residual, Jacobian, corrections, pressure, sampled fields, slopes, norms and merit values must be finite binary64 values. No clipping of nonfinite values or signs. Positive-q accepted states must have lambda>0; only the prescribed zero state has q=lambda=0."
+  },
+  "linear_algebra_and_slope": {
+    "factorization": "Use deterministic partial-pivot LU of J with single-thread numerical libraries; exact software/build and source are pinned before any future solve. A zero pivot, nonfinite factorization, or estimated reciprocal1-norm condition rcond1(J)<=1e-12 gives UNRESOLVED_JACOBIAN. Estimate the condition from this LU; do not invoke a modal/eigenvalue campaign.",
+    "linear_residual": "For every solve J*v=b require ||J*v-b||_infinity/(||J||_infinity*||v||_infinity+||b||_infinity)<=1e-12. If numerator and denominator are both zero, define the ratio as zero; a zero denominator with nonzero numerator fails. The calculation uses the original J and b, not rounded display values. No second right-hand-side solve is used to change the selected state.",
+    "accepted_state_slope": "At the accepted state, reuse its current J factorization to solve J*xq=-Fq. Then s=d(lambda)/dq=xq_last and dp/dq=pC*s. Retain the Wp force row in both solves. The Newton correction c and its pressure entry c_lambda are retained at that same state as local correction/error indicators. No finite-difference or secant slope substitutes for s.",
+    "slope_sign_threshold": 1e-08,
+    "slope_signs": "s>1e-8 is positive; s<-1e-8 is negative; abs(s)<=1e-8 is neutral. A neutral interior sample may be near a maximum; a neutral endpoint cannot certify a peak bracket.",
+    "qualification": "The conditioning rule and derivative solve provide local branch evidence. They are not a proof of global uniqueness, a bound on all unsampled turning points, or all-mode physical stability. Failure to produce the stated certificate is UNRESOLVED and cannot be called a peak."
+  },
+  "newton_and_backtracking": {
+    "merit": "M(x;q)=sum_i F_i(x,q)^2/(2*m), including the Wp force residual with the same unit weight as every other residual.",
+    "directional_derivative": "d=(F^T*J*c)/m, evaluated from the current arrays. It should be negative for a nonzero Newton residual. If the state does not already pass both convergence tests and d is nonfinite or d>=0, stop UNRESOLVED_NON_DESCENT; do not replace the direction.",
+    "armijo_constant": 0.0001,
+    "trial_rule": "Try alpha=1,1/2,...,1/128 in exactly that order. At fixed q, xt=x+alpha*c is eligible only if its sampled state lies inside the fixed predictor tube defined below, and all trial quantities are finite. Accept the first eligible trial satisfying M(xt;q)<=M(x;q)+1e-4*alpha*d. A nonfinite or out-of-tube trial is rejected and the next listed factor is considered. If none of the eight works, stop UNRESOLVED_BACKTRACKING. No ninth factor, direction change, seed change or q-step reduction.",
+    "iteration_accounting": "Each current-iterate residual/Jacobian evaluation, LU, Newton correction and convergence decision counts as one Newton iteration. For iteration1 through20, test r and the full undamped u at that current iterate before trying a step. If both pass, accept that same iterate. If iteration20 does not pass, stop without taking an uncertifiable last step. Thus at most20 Newton iterations and19 accepted correction steps occur per nonzero-q state. The slope right-hand-side solve reuses the accepted J and is not an extra Newton correction or equilibrium attempt; it still consumes the same global wall budget.",
+    "zero_state": "For each mesh independently set q=0 and x=0 exactly. Evaluate F,J,c and both convergence tests once at that state; verify conditioning/linear residual and compute xq. If any check fails, report UNRESOLVED_ZERO_STATE; do not correct the known zero state or seed it from another mesh. Require s0>1e-8. This state consumes one equilibrium-state slot and one Newton evaluation; it performs no Newton update.",
+    "intermediate_state_logging": "Retain each Newton iteration, undamped correction, r,u,M,d, trial alpha and rejection reason. Intermediate line-search iterates are not converged equilibrium states and cannot enter the cache, continuation or peak comparisons."
+  },
+  "deterministic_continuation_and_branch_guards": {
+    "cache": "Per mesh, cache only fully accepted equilibrium states with q,x,F,J diagnostics,c,xq,s and sampled state Z. Every mesh starts from its own zero state; no interpolation from a different mesh and no output-dependent initial perturbation.",
+    "sample_vector": "Let Q be the sorted union of that mesh's N+1 nodes and its16 Gauss points in each interval. Define the ordered vector Z(x,q)=(q,lambda,{U(theta)/epsilon,V(theta)/epsilon,W(theta)/epsilon for theta in Q in increasing order}). It is linear in x and q. Its derivative T=dZ/dq is obtained from xq and q'=1 using the same spline and integration operators. The first T component is1, so its norms are nonzero. These fixed sampling points define the guards, not a continuum supremum proof.",
+    "coarse_predictor": "For q_j=j/20,j=1,...,100, initialize exactly once from the immediately preceding accepted coarse state i: x_pred=x_i+(q_j-q_i)*xq_i. The fixed rational indexing avoids accumulated q-step drift. No random perturbation, previous-mesh seed, multistart, corrector restart or adaptive q stepping.",
+    "refinement_predictor": "For a new golden-section q strictly inside the active bracket, select the cached accepted state minimizing abs(q-q_i); an exact distance tie selects lower q. Set x_pred=x_i+(q-q_i)*xq_i once. Retained golden points are reused without a new equilibrium attempt. A newly generated q equal in binary64 to a cached q, or not strictly inside its required open interval, gives UNRESOLVED_Q_COLLISION; do not nudge it.",
+    "fixed_predictor_tube": "For a nonzero-q attempt from seed i, define h=q-q_i, Zpred=Z_i+h*T_i and radius=0.25*abs(h)*max(1,||T_i||_infinity). Every accepted Newton iterate and line-search trial must satisfy ||Z(x,q)-Zpred||_infinity<=radius. The tube is fixed for the whole attempt and is not recentered on a corrected iterate. If the initial predictor is nonfinite or violates this identity beyond binary64 comparison, stop. The zero-state check has no tube and allows no update.",
+    "accepted_state_neighbor_checks": "After convergence and the Jacobian slope solve, check the candidate against each immediately adjacent cached state in q: the preceding state for a new coarse point, and both enclosing cached neighbors for a refinement point. For each neighbor i and candidate j, h=q_j-q_i is signed; S=(Z_j-Z_i)/h. Require ||S-T_i||_infinity<=0.25*max(1,||T_i||_infinity), ||S-T_j||_infinity<=0.25*max(1,||T_j||_infinity), and ||T_j-T_i||_infinity<=0.50*max(1,||T_i||_infinity,||T_j||_infinity). Also require cos(S,T_i)>=0.5, cos(S,T_j)>=0.5 and cos(T_i,T_j)>=0.5, where cos(A,B)=(A dot B)/(||A||_2*||B||_2). The q component makes these denominators nonzero. Check both neighbors; choosing only the more favorable side is forbidden.",
+    "branch_rejection": "Any failed tube, neighbor, tangent, orientation, conditioning or finite-value check makes that attempted state UNRESOLVED_BRANCH and stops the mesh/three-mesh job. Converged residuals cannot override a failed branch check. No same-q second seed or reduced step is tried. A competing/colliding branch that makes these checks ambiguous is not chosen by closeness to the source pressure.",
+    "derivative_order_guard": "For accepted samples sorted in q, discard neutral slope labels and require the remaining labels to consist of positives followed by negatives, with no negative-to-positive return. Once a negative slope is certified, a later positive slope is UNRESOLVED_MULTIPLE_TURNING_BEHAVIOR. Neutral samples do not justify declaring a peak; endpoint and pressure tests below remain mandatory.",
+    "scope": "These predeclared local safeguards intentionally may reject a valid but insufficiently resolved continuation. Such rejection is returned without tuning. Passing them documents the traced sequence from zero; it is not mathematical certification of every possible equilibrium branch."
+  },
+  "pressure_comparisons_and_ambiguity": {
+    "machine_epsilon": "u64=2^-52 for binary64",
+    "comparison_margin": "For two distinct accepted states i,j define eta_ij=10*(abs(c_lambda_i)+abs(c_lambda_j))+64*u64*max(1,abs(lambda_i),abs(lambda_j)). The c values are the full Newton corrections at their accepted iterates, already retained for convergence; they are not applied to change the reported pressures. This is a fixed local-error-indicator rule, not a rigorous interval bound or a source-dependent tolerance.",
+    "ordered_comparison": "A pressure increase is lambda_j-lambda_i>eta_ij; a decrease is lambda_i-lambda_j>eta_ij. A difference within [-eta_ij,+eta_ij] in any comparison used to choose a coarse bracket, its middle maximum, a descending sample or a golden-section direction is UNRESOLVED_PRESSURE_TIE. Do not break a pressure tie by q, iteration order, source proximity or extra solves.",
+    "flatness": "A flat or insufficiently resolved top that prevents a strict pressure witness and positive/negative endpoint slopes, or yields an ambiguous golden pressure comparison, is UNRESOLVED_FLAT_OR_AMBIGUOUS_PEAK. No arbitrary pressure plateau endpoint is reported as a maximum. A neutral slope at a single interior witness is allowed if the remaining strict certificate holds.",
+    "no_source_feedback": "The nominal0.250, graph interval, eventual5% comparison and other mesh results are unavailable to all seed, line-search, branch, slope and peak decisions; use them only in the final unchanged postprocessing acceptance."
+  },
+  "ordered_coarse_peak_certificate": {
+    "find_first_bracket": "Advance q_j=j/20 from zero. Each pressure edge before the first decrease must be a resolved increase. At the first resolved decrease from state k-1 to k, require k>=2 and set L=k-2,M=k-1,R=k. Require qL<qM<qR and lambdaM greater than each endpoint by its comparison margin. Require sL>1e-8 and sR<-1e-8; every earlier coarse state through L must also have positive slope. sM may be positive, neutral or negative. If any requirement is absent or contradicts the derivative-order guard, return UNRESOLVED_PEAK_BRACKET rather than skipping to a later maximum.",
+    "descending_corroboration": "R is descending sample1. Obtain the next two fixed coarse states, with each successive pressure a resolved decrease and each slope<-1e-8. Thus three successive sampled states beyond M lie on a resolved descending segment. All three must pass the same branch guards. Preserve the original L,M,R as the initial interior-maximum bracket. No further coarse states are generated once this certificate is complete.",
+    "ceiling": "If q=5 is reached before the complete bracket plus three descending coarse samples, return UNRESOLVED_Q_CEILING. A failed solve, q=5 endpoint or last converged state is never substituted for a peak."
+  },
+  "golden_refinement_and_final_certificate": {
+    "initialization": "Set a=qL,b=qR, rho=(sqrt(5)-1)/2. Set c=b-rho*(b-a) and d=a+rho*(b-a), so a<c<d<b. Evaluate c then d using the one-seed predictor and both-neighbor branch guards. These consume the first two of at most24 new refinement states. Keep the coarse bracket, all descending evidence and the entire accepted cache.",
+    "middle_witness": "After every newly accepted refinement state, determine the largest pressure among all cached states strictly inside (a,b) using the resolved pressure comparison; a tie for this maximum is UNRESOLVED_PRESSURE_TIE. Its state is M. Require lambdaM greater than both current endpoints by their comparison margins, and sa>1e-8,sb<-1e-8. This is an ordered three-state interior-maximum bracket, not just two endpoint slopes. Its witness may be a retained coarse or refinement state.",
+    "direction_and_update": "If lambda_c is resolved smaller than lambda_d, propose a=c, retain the old d as the new c, and generate new d=a+rho*(b-a). Require the new left endpoint slope>1e-8. If lambda_c is resolved larger, propose b=d, retain the old c as the new d, and generate new c=b-rho*(b-a); require the new right endpoint slope<-1e-8. A pressure tie, neutral/wrong-sign new endpoint, or exclusion of the already highest-pressure cached witness from the new open bracket gives UNRESOLVED. Never discard a higher known sample to make the bracket appear valid. Check the bracket with all existing samples before evaluating the one new point. Then evaluate that point using the same cache/predictor/branch rules and repeat.",
+    "running_estimates": "After each newly accepted refinement state record K_l as the resolved largest lambda among all accepted states in the current bracket. The maximum witness must remain inside every subsequent bracket. Preserve the full K history, both endpoint slopes and the pressure margins; no parabolic pressure fit or target matching.",
+    "stop_rule": "After at least four new refinement states, return a numerical peak estimate only if: the ordered a,M,b certificate holds; b-a<=0.001; K_last>0; and (max(last4 K)-min(last4 K))/abs(K_last)<=0.001. Test this conjunction after each new accepted refinement state and after a certified interval reduction before deciding whether a further new state is needed. Report k=K_last, qM, [a,b], endpoint/middle pressures and slopes, all branch/condition diagnostics and the three descending coarse states.",
+    "ties_at_stop": "A tie or branch/flatness failure already encountered is terminal and cannot be erased because width or pressure-span tolerances would otherwise pass. If the stop conjunction already passes at a certified boundary, stop without an unnecessary further pressure comparison or response solve.",
+    "budget_failure": "If24 new refinement states or126 total equilibrium-state attempts would be exceeded before certification, return UNRESOLVED_REFINEMENT_BUDGET. Retained-point reuse does not spend a new state; failed attempts do. No off-grid corroboration solve, second seed, change of q step/range or additional refinement beyond the cap."
+  },
+  "deterministic_pseudocode": [
+    "PROTOCOL ONLY: the following is non-executable specification, not an implementation or an execution request.",
+    "Start one overall7200s future job only after Sciences freeze and exact governed implementation pins exist. Fix all accepted case constants, mesh sequence64/128/256, linear-algebra settings and resource controls before any response.",
+    "For each N in64,128,256 independently: construct only the accepted spline/quadrature operators; clear this mesh's state cache, coarse list, peak-history list and counters.",
+    "ZERO_CHECK: reserve one state slot. Set q=0,x=0. Evaluate F,J; enforce finite/LU/conditioning checks; solve J*c=-F and enforce its linear residual. Require r<=1e-10 and ||c||inf/max(1,||x||inf)<=1e-9 without updating x. Reuse J to solve J*xq=-Fq; enforce its linear residual and s0>1e-8. Cache the certified zero state and its Z,T,c.",
+    "SOLVE_NEW(q,seed): reserve one state slot before work and fail if it exceeds126. Form xpred=seed.x+(q-seed.q)*seed.xq and its fixed predictor tube. Set x=xpred. Do not change the seed or tube during this call.",
+    "For iteration=1..20: compute F,J and r at x; enforce finite, LU, condition and linear-residual checks; solve J*c=-F; compute u=||c||inf/max(1,||x||inf).",
+    "If r<=1e-10 and u<=1e-9: keep x unchanged; reuse this J to compute xq and s; enforce the slope linear residual, positive pressure for positive q, fixed tube, both available adjacent-cache branch checks and derivative-order guard. Cache only if all pass; return this one accepted state. Its c is the retained pressure-error indicator.",
+    "If iteration=20 without convergence, stop UNRESOLVED_NEWTON_BUDGET. Otherwise compute merit M and directional derivative d. Require d<0. For the eight alpha values in fixed order, reject nonfinite/out-of-tube trials, then accept only the first satisfying the specified squared-residual Armijo inequality. If all fail, stop UNRESOLVED_BACKTRACKING. Set x to that trial and continue; it is not yet a cached equilibrium.",
+    "COARSE: for j=1..100 use q=j/20 and the preceding accepted coarse state as the unique seed. Call SOLVE_NEW once. Require resolved pressure increases until the first decrease. At that first decrease construct L,M,R exactly as specified, require strict pressure witness and derivative certificate, then obtain exactly two additional decreasing coarse states with negative slopes. Any contradiction, tie, failure or q ceiling stops the whole job UNRESOLVED.",
+    "REFINE: establish a,b,c,d from that first certified bracket. Evaluate c then d with the nearest cached state (lower-q distance tie) as seed; each new q calls SOLVE_NEW once and is checked from both enclosing cached neighbors. Count these two states against24.",
+    "After each new state update the strict interior maximum witness and K history, retaining all samples and the derivative-order guard. Check the complete stopping conjunction when at least four refinement states exist.",
+    "If not certified, compare lambda_c and lambda_d with the fixed correction-aware pressure margin. A tie stops UNRESOLVED. Apply the one specified golden interval reduction, require its new endpoint slope and retention of the existing maximum witness, and recheck the ordered bracket. If it now meets the full stopping conjunction, return without another solve. Otherwise generate the one new golden q, enforce collision and budget rules, solve it once, and continue.",
+    "On the first mesh, linear-algebra, Newton, branch, peak, resource or budget failure: preserve all raw state/iteration evidence and stop the entire job; do not proceed to another mesh or restart. No numeric peak is assigned to an uncertified mesh.",
+    "Only after all three meshes have independently certified peaks, compute both unchanged adjacent-mesh changes, nominal source error and errors against both graph endpoints. Preserve any convergence or comparator failure as measured; do not change the point, conventions, mesh, method, tolerances, pressure reading or budgets. Una verification and CO disposition remain separate."
+  ],
+  "budget_and_certificate_accounting": {
+    "equilibrium_slots": "The coarse grid including q0 has at most101 states; at most24 new golden states give at most125 under this deterministic path, within the unchanged126-state cap. The unused slot authorizes no retry, alternative seed or corroboration point. Each failed attempted q consumes a slot and stops the job.",
+    "what_is_not_an_extra_equilibrium": "Residual/energy evaluations for the at most8 backtracking factors within a Newton iteration, LU condition estimation and the one slope right-hand-side solve reuse the same physical case and prescribed q. They all count against the same wall/memory envelope and are logged. They cannot be used to launch a new branch or enlarge the outer-state budget.",
+    "required_future_raw_record": "Accepted immutable source/protocol/code/governance pins; physical constants and normalization; every mesh and q attempt; seed identity/prediction/tube; every Newton norm/correction/merit/alpha; LU condition and linear residual; full accepted vectors and Jacobian-derived slopes; cache-neighbor secants and orientation guards; pressure comparison margins and witness choices; ordered brackets and all running peaks; limits/process/accounting/stdout/stderr/exits/cleanup; any exact UNRESOLVED reason. Retain original source graph qualifications even on numerical agreement.",
+    "failure_semantics": "UNRESOLVED means this fixed procedure did not establish its branch/peak certificate; it is not a measured critical pressure, a source refutation or proof of nonexistence. A certified numerical series still must meet both mesh and comparator acceptance tests before any benchmark PASS claim.",
+    "current_turn_boundary": "Only this prose/JSON protocol and its provenance/hash are produced now. No solver implementation, unit test, response solve, new paper, alternative model or all-mode eigenvalue calculation. The one-thread ccx rule, no-TA01/Haynie-work boundary, U2/U4 gates and exact35d31db2 landing/signature priority remain."
+  },
+  "accepted_source_proposal_unchanged": {
+    "status": "ONE_SOURCE_POINT_PROPOSED; SCIENCES_EXECUTION_FREEZE_REQUIRED; NO_RESPONSE_SOLVE",
+    "orders": [
+      "ord-sciences-g1-vacuum-amendment1-benchmark-solver-1017",
+      "ord-sciences-g1-sphere-replay-hold-independent-u1-1017"
+    ],
+    "paper": {
+      "citation": "J. W. Hutchinson (2016), Buckling of spherical shells revisited, Proceedings of the Royal Society A 472:20160577",
+      "doi": "https://doi.org/10.1098/rspa.2016.0577",
+      "author_pdf": "https://groups.seas.harvard.edu/hutchinson/papers/RevisitingSphericalShells-2016.pdf",
+      "pdf_sha256": "f57e144f3ac9609e001a058707596913af9e47dd08287f1da4ff9755a86151c9",
+      "papers_opened": 1,
+      "Lee2016": "Not opened; no second paper or alternate point needed."
+    },
+    "single_point": {
+      "locator": "Figure 7(a), printed/PDF page 15; section 6 and equations (6.1)-(6.2), page 14",
+      "R_over_t": 100,
+      "poisson_ratio": 0.3,
+      "B": 1.5,
+      "delta_over_t": 1.0,
+      "quantity": "First nonlinear static pressure maximum divided by the classical perfect-sphere buckling pressure",
+      "graph_comparator": 0.25,
+      "graph_reading_interval": [
+        0.247,
+        0.253
+      ],
+      "graph_qualification": "A value extracted from a printed curve, not a tabulated datum. Pinned vector centerline gives 0.25005530357146194; normalized half-stroke is 0.0013900458542511723. Conservative reading allowance is +/-0.003, not a statistical confidence interval.",
+      "true_peak": "Figure 7 caption places this case among those with a genuine pressure maximum before additional inward pole displacement reaches 5t. Its B=2, delta/t>1.6 cutoff exception does not apply.",
+      "selection_before_extraction": "point-selection.json fixes this point before extracting its ordinate; no model output informed selection."
+    },
+    "physical_definition": {
+      "geometry": "Complete spherical shell, constant thickness, stress-free radial imperfection of the middle surface; two identical inward pole dimples and equatorial reflection symmetry. R is the perfect midsurface radius, not outer radius.",
+      "coordinate": "Upper hemisphere theta in [0,pi/2], equator at 0 and pole at pi/2; azimuth-independent response. Full sphere is obtained by reflection.",
+      "imperfection": "wI(theta)=-delta*exp(-((theta-pi/2)/betaI)^2), with betaI=B/(sqrt(1-nu^2)*R/t)^(1/2); lower hemisphere reflected. No eigenmode admixture, thickness imperfection or residual stress.",
+      "betaI_radians": 0.1535786730840033,
+      "material": "Homogeneous isotropic linear elastic thin shell; geometrical nonlinearity uses the paper's small-strain/moderate-rotation theory. No plasticity, damage, density, thermal load, dynamics or damping enters this static case.",
+      "normalization_proposed_by_builder": {
+        "R_m": 1,
+        "t_m": 0.01,
+        "delta_m": 0.01,
+        "E_Pa": 1,
+        "nu": 0.3,
+        "provenance": "Absolute R and E are not printed case inputs. These are explicit unit-scale choices; the stated elastic model depends on R/t, nu, B and delta/t, and pmax/pC is invariant to R and E scaling. They are not fitted physical measurements."
+      },
+      "pC": "2*E*(t/R)^2/sqrt(3*(1-nu^2)); equations (3.1)/(3.6), pages 7-8",
+      "pressure_choice_proposed": "Uniform inward dead pressure p per original midsurface area, directed along the original spherical radial normal; external potential p*integral(w dS), equation (2.9), page 5. This is not a follower load or a pole point force.",
+      "pressure_provenance_limit": "Figure 7 does not explicitly label live versus dead pressure. The paper describes near agreement, not identity, of the two conventions, and Appendix A supplies the dead-pressure equations. Selecting dead pressure is an explicit interpretation for Sciences to freeze; it is not claimed as an unambiguous figure label.",
+      "boundary_conditions": "No physical clamp on the full sphere. In the symmetry-reduced variational model U=u_theta/R=0 and V=d(w/R)/dtheta=0 at equator and pole. Smooth odd extension of U,V gives their second derivatives zero at both ends; hence phi=U-V=0 and phi''=0, matching Appendix A. Prescribed additional inward Wpole=-q*t/R is a continuation coordinate; pressure is unknown and the Wpole equilibrium equation is retained, so there is no artificial pole actuator reaction.",
+      "boundary_locators": "Appendix A, pages 21-22; Appendix B, pages 22-23",
+      "axisymmetry_limit": "The paper reports no earlier non-axisymmetric bifurcation for these dimple cases (section 7). The proposed benchmark tests the axisymmetric pressure peak only; it creates no new all-mode stability certification."
+    },
+    "source_notation_decisions_requiring_freeze": [
+      {
+        "issue": "The visible first line of page 5 prints D=E*t^3/[12*(1-nu)^2].",
+        "proposed_resolution": "Use isotropic D=E*t^3/[12*(1-nu^2)], consistent with the isotropic membrane constitutive form and the stated classical pressure. Record this as a mathematical consistency correction to a printed expression, not a claim that the PDF prints the corrected expression.",
+        "decision_owner": "Sciences"
+      },
+      {
+        "issue": "Figure 7 pressure convention is not explicitly tagged; Appendix A's force-resultant scaling also needs care if transcribed directly.",
+        "proposed_resolution": "Freeze the dead-pressure convention above and derive the discrete residual directly from the stated strain energy and pressure potential. Do not transcribe ambiguous scaled-resultant expressions or silently switch to follower pressure.",
+        "decision_owner": "Sciences"
+      }
+    ],
+    "proposed_numerical_method": {
+      "family": "Source-based one-dimensional axisymmetric variational shell discretization with prescribed pole-deflection continuation and unknown pressure, following the Appendix B continuation construction but using the moderate-rotation energy. This is an implementation proposal, not existing validated CalculiX nonlinear capability.",
+      "software": "Existing Python with numpy2.3.5 and scipy1.17.1; no installation. No ccx invocation in this proposed point. Implementation and source pinning follow only after Sciences accepts the method/freeze.",
+      "variables": "U=u_theta/R, W=w/R, WI=wI/R, V=W', phi=U-V. Let W(theta)=Wpole-integral_theta^(pi/2) V(s) ds.",
+      "strains": "Etheta=W+U'+0.5*phi^2-WI'*phi; Eomega=W-U*tan(theta); kappa_theta=phi'; kappa_omega=-tan(theta)*phi. Physical curvatures are kappa/R. These follow Appendix A's strain definitions.",
+      "energy": "With dS=2*pi*R^2*cos(theta)dtheta, use SE=integral[Et/(2*(1-nu^2))*(Etheta^2+Eomega^2+2*nu*Etheta*Eomega)+D/(2*R^2)*(kappa_theta^2+kappa_omega^2+2*nu*kappa_theta*kappa_omega)]dS and Pi=SE+p*integral(R*W dS). Using one hemisphere multiplies all equilibrium equations by the same omitted reflection factor.",
+      "discretization": "Uniform meridional intervals. Represent nodal U,V with natural cubic interpolating splines, zero endpoint values and zero endpoint second derivatives. Integrate V analytically as a spline to form W. Use 16-point Gauss-Legendre quadrature on each interval, evaluating strictly inside intervals; use analytic pole limits for any endpoint diagnostics.",
+      "three_meshes_intervals": [
+        64,
+        128,
+        256
+      ],
+      "three_meshes_nodes": [
+        65,
+        129,
+        257
+      ],
+      "unknowns_per_prescribed_q": [
+        127,
+        255,
+        511
+      ],
+      "mesh_rule": "Same exact geometry, material, imperfection, pressure law, quadrature order and solver tolerances for all three meshes. No remeshing, alternate point or mesh count chosen after seeing output.",
+      "equilibrium_equations": "Stationarity with respect to every interior U,V value and Wpole. At each fixed q, solve the interior values and p; retaining the Wpole residual enforces zero artificial pole force. Evaluate analytic residual and tangent from the discrete energy; normalize energy by 2*pi*E*t*R^2.",
+      "newton_limits": "At most 20 Newton iterations per prescribed q, deterministic backtracking factors 1,1/2,...,1/128 within an iteration. Require max absolute dimensionless residual<=1e-10 and relative update<=1e-9. Record residual/update histories. A singular tangent or failure to meet the bounds is a reported failure of this frozen method, not a buckling pressure.",
+      "implementation_boundary": "No solver implementation or response solve was performed during this source pass. Before any future response solve, pin and govern the exact implementation and preserve the accepted source/method/mesh/tolerance freeze. If a change is needed, return for a revised freeze rather than tune against 0.250."
+    },
+    "continuation_and_peak_resolution": {
+      "coordinate": "q=-Wpole/(t/R), additional inward pole displacement measured from the imperfect stress-free configuration",
+      "initial_state": "q=0,p=0,U=V=0",
+      "coarse_step": 0.05,
+      "q_ceiling": 5.0,
+      "peak_bracket": "Follow the primary branch from zero; bracket the first pressure maximum between increasing and decreasing samples, then retain at least three successive coarse samples on its descending side. No solver crash, last converged state or q=5 cutoff can stand in for a pressure maximum.",
+      "refinement": "Use bounded golden-section refinement inside the first-peak bracket, solving the same equilibrium equations at each prescribed q from the nearest converged state. At most 24 additional equilibrium evaluations per mesh; no altered physics, mesh or q-range.",
+      "accept_peak_only_if": "Final q bracket width<=0.001; last four refined maximum-pressure estimates span<=0.1% of the estimated peak; converged states exist on both sides and the required descending samples are retained.",
+      "total_equilibrium_evaluations_cap_per_mesh": 126,
+      "failure": "Stop and report if any equilibrium fails, no genuine first maximum is bracketed before q=5, or peak-resolution/caps fail. No automatic rerun or change of point."
+    },
+    "acceptance_proposed": {
+      "mesh_convergence": "For k=pmax/pC, both abs(k128-k64)/abs(k128)<=0.01 and abs(k256-k128)/abs(k256)<=0.01. Passing only the last pair is insufficient.",
+      "nominal_source_error": "abs(k256-0.250)/0.250<=0.05, reported explicitly with the graph-reading allowance.",
+      "conservative_graph_check": "Also require max(abs(k256-0.247)/0.247,abs(k256-0.253)/0.253)<=0.05 to pass across the entire proposed reading interval. Otherwise report the comparator uncertainty; do not narrow it using simulation output.",
+      "scope": "All three equilibrium and peak-resolution requirements must pass. This is one proposed fourth benchmark and one point. Una verifies, CO controls any eventual landing/credit; no independent analytical award, validated map point or U1 completion is claimed."
+    },
+    "proposed_execution_envelope": {
+      "one_owned_job": true,
+      "cpu_quota_percent": 100,
+      "cpu_affinity_count": 1,
+      "memory_max_bytes": 8589934592,
+      "memory_swap_max_bytes": 0,
+      "runtime_max_seconds_total_for_three_meshes": 7200,
+      "blas_openmp_threads": 1,
+      "execution": "Three meshes sequentially, one frozen attempt each, within one total deadline; measured cgroup controls, full stdout/stderr/residual histories, raw states, exit codes and cleanup. All work/temp/cache/results under this seat's /home .ship. No gate/FEA overlap, worker, GPU, installation, restart or ceiling reset. This is a requested future envelope, not a launched job.",
+      "existing_rule": "Any separately authorized future ccx eigen job remains one configured thread; this proposal does not revise that rule."
+    },
+    "required_sciences_disposition": "Accept or reject this single point, graph comparator/allowance, explicit corrected D and dead-pressure interpretation, custom variational method and fixed three-mesh/peak/resource protocol before any response solve. If literal unambiguous source pressure/D provenance is required, those two named interpretation gaps are the precise blocker; do not substitute Lee or another point without direction.",
+    "continuing_limits": "Sphere exact35d31db2 gate/sign/landing route and cylinder/Akhmeteli individual handoffs remain separate. TA01/Haynie retained closed blockers; no further work on them. No source response solve, science result, credit, U1 closure, U2 or U4."
+  },
+  "prepared_at": "2026-10-17T05:18:06.530452-07:00"
+}

@@ -1,0 +1,104 @@
+{
+  "status": "CASE_AND_NUMERICAL_PROTOCOL_FROZEN_BEFORE_IMPLEMENTATION_OR_FIRST_RESPONSE; EXECUTION_CONDITIONAL_ON_NAMED_PREFLIGHT",
+  "frozen_at": "2026-10-17T05:23:56-07:00",
+  "decision_owner": "sciences-p-10151529",
+  "authority": [
+    "ord-co27-sci-vacuum-amendment-1-u1-fourth-benchmark-1017",
+    "ord-admiral-rr2-boyce-vacuum-float-amendment-1-1017"
+  ],
+  "scope": "One replacement fourth U1 benchmark, not TA01/Haynie revival. This immutable case hash binds the source/model decisions and complete numerical protocol by the following pins. It authorizes no separate provider review or extra worker.",
+  "binding_documents": {
+    "source_disposition": {
+      "path": "/home/tyler/data/helm/ship-workspaces/sciences-p-10151529/.ship/notes/vacuum-float-1016/U1-FOURTH-HUTCHINSON-SOURCE-DISPOSITION-1017.json",
+      "sha256": "27276acbd974b70268b6870a6cfa42566b2be06337a7eb8ac02b1244d651f1d2"
+    },
+    "complete_protocol": {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/notes/vacuum-u1-fourth-protocol-1017/protocol.json",
+      "sha256": "86b6abca429983c9e907b0bf99cc8923361c5e08cc316d4e59a1f3ce6548590c"
+    },
+    "protocol_provenance": {
+      "path": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/notes/vacuum-u1-fourth-protocol-1017/manifest.json",
+      "sha256": "5b284c403e55f859b4ce2f9f90831ec93e87c028e03b5159a0a147e737724e22"
+    }
+  },
+  "precedence": "This freeze replaces pending-head-acceptance/no-implementation labels in the two pinned proposal documents, without changing their mathematical definitions, guard thresholds, meshes, acceptance tolerances or response ceilings. Earlier source proposal is retained unchanged as provenance; its two source decisions are resolved explicitly by the pinned Sciences disposition. All other authority and resource restrictions persist.",
+  "source": {
+    "citation": "J. W. Hutchinson (2016), Buckling of spherical shells revisited, Proc. R. Soc. A 472:20160577",
+    "doi": "10.1098/rspa.2016.0577",
+    "locator": "Figure7(a), printed/PDFpage15, B=1.5 curve at delta/t=1; imperfection equations6.1-6.2/page14",
+    "pdf_sha256": "f57e144f3ac9609e001a058707596913af9e47dd08287f1da4ff9755a86151c9",
+    "value": 0.25,
+    "value_kind": "Printed curve reading, not tabulated numerical datum",
+    "fixed_reading_interval": [
+      0.247,
+      0.253
+    ],
+    "centerline_extraction": 0.25005530357146194
+  },
+  "physical_case": {
+    "R_over_t": 100,
+    "nu": 0.3,
+    "B": 1.5,
+    "delta_over_t": 1,
+    "R_m": 1,
+    "t_m": 0.01,
+    "E_Pa": 1,
+    "delta_m": 0.01,
+    "normalization": "Absolute R/E/t/delta are explicit scale choices, not printed physical measurements or fits.",
+    "geometry": "Full sphere, stress-free two-pole Gaussian dimples, equatorial reflection, theta=0 equator to pi/2 pole; no physical clamp.",
+    "quantity": "First nonlinear static axisymmetric equilibrium pressure maximum divided by pC=2E(t/R)^2/sqrt(3(1-nu^2))",
+    "qualifications": [
+      "Use D=Et^3/[12(1-nu^2)] as the explicit mathematical correction to the printed page5 denominator(1-nu)^2.",
+      "Use printed dead-pressure energy, fixed original-area radial load; Figure7 does not label pressure convention. Near agreement discussed in paper is not proof of exact identity.",
+      "Custom source-based variational discretization; no claim of validated CalculiX nonlinear capability or all-mode stability."
+    ]
+  },
+  "numerical_acceptance": "Accept protocol86b6abca unchanged. Original-coordinate energy-gradient residual includes Wpole stationarity; thickness-scaled unknowns and lambda=p/pC; J columns and Fq=-epsilon*H[:,Wp] follow the chain rule. Same-iterate undamped correction test, fixed Armijo/linear-algebra guards, unique tangent predictor, fixed tube and both-neighbor branch checks, signed first-peak bracket and ordered golden refinement are explicit. Conservative local checks may reject valid responses and are not proven globally complete or empirically feasible.",
+  "unchanged_response_limits": {
+    "meshes_intervals": [
+      64,
+      128,
+      256
+    ],
+    "quadrature_per_interval": 16,
+    "q_step": 0.05,
+    "q_ceiling": 5,
+    "newton_evaluations_per_state_max": 20,
+    "corrective_updates_per_state_max": 19,
+    "backtracking_factors": [
+      1,
+      0.5,
+      0.25,
+      0.125,
+      0.0625,
+      0.03125,
+      0.015625,
+      0.0078125
+    ],
+    "new_refinement_states_max": 24,
+    "equilibrium_attempts_per_mesh_cap": 126,
+    "fixed_path_max_attempts": 125,
+    "descending_coarse_samples": 3,
+    "final_q_bracket_width_max": 0.001,
+    "last_four_peak_estimates_relative_span_max": 0.001,
+    "residual_inf_max": 1e-10,
+    "undamped_update_relative_inf_max": 1e-09,
+    "adjacent_mesh_relative_changes_both_max": 0.01,
+    "fine_error_nominal_and_each_graph_endpoint_max": 0.05
+  },
+  "implementation_authority": {
+    "owner": "lead-sciences-1228320beb59564c",
+    "scope": "Implement only the pinned method in its owned governed Airships U1 runner/test/benchmark namespace; preserve existing sphere/cylinder/Akhmeteli artifacts and keep separate handoffs. Existing installed Python/numpy/scipy only. No library install or alternate solver/model.",
+    "bounded_nonresponse_checks": "Before any physical continuation, demonstrate spline/integration operators, analytic energy/residual/Jacobian/Fq consistency at fixed synthetic non-equilibrium states, original-coordinate scaling/Wpole row, and controller guard/peak/budget behavior on deterministic toy fixtures. No target-pressure fitting, physical equilibrium scan, extra mesh response or all-mode campaign. These checks certify implementation mechanics only.",
+    "check_envelope": "All numerical implementation checks share one cumulative <=1800s allocation, <=1CPU/8GiB/swap0, single-thread libraries, /home-only, measured scope/timeout and complete receipts; no overlap with any other heavy check/solve. Routine implementation defects may be corrected and only affected nonresponse checks repeated within that same cumulative allocation, preserving every failure. No physical continuation, frozen-protocol alteration or budget reset. Unresolved check failure or exhausted allocation is a blocker before response. Ordinary code edits do not create a new compute allocation.",
+    "before_first_response": "Govern and pin exact executable source/commit/tree, case/protocol, software/build/BLAS and runner/guard, clean-source status, test receipts and measured resource controls. Queue a pre-solve manifest to Sciences ccUna/CO referencing this freeze and the execution order. This is already-conditional authority: no additional head wait is required if every prerequisite is demonstrably met unchanged; any missing evidence, implementation deviation or need to alter the frozen method returns a precise blocker before solving."
+  },
+  "single_response_authority": {
+    "release_condition": "Only after cylinder landing handoff has been returned and its heavy gate job is inactive, implementation checks pass, exact governed pre-solve pins and measured controls exist, and the pre-solve queue manifest is filed.",
+    "job": "Exactly one owned sequential64/128/256 response job; total7200s including setup, zero states, continuation, refinement and all linear algebra. Enforce CPUQuota100% and one CPU affinity, MemoryMax8589934592, MemorySwapMax0 and wall timeout within any stricter parent. Set all BLAS/OpenMP controls1. All work/temp/cache/raw/results under /home.",
+    "failure": "First failed solve/branch/condition/peak/resource/budget check stops the entire job and remaining meshes. Preserve all evidence as UNRESOLVED. No restart, same-q second seed, extra state, parameter/guard tuning, automatic infrastructure retry or ceiling reset; any retry requires separately frozen authority.",
+    "success": "Only three certified peaks permit both adjacent convergence and nominal/endpoint source comparisons. Preserve measured FAIL distinctly from UNRESOLVED. No builder self-verification or award.",
+    "output": "Full attempt/state/iteration/condition/tangent/branch/pressure-margin/bracket/raw resource/log/exit/cleanup evidence under protocol; immutable governed candidate/source/base/range/tip/tree and applicable gates returned to Sciences for separate Una verification/signature and CO landing."
+  },
+  "programme_limits": "TA01/Haynie closed blockers, no more hours/standalone landings. Sphere first+15 already credited under Una disposition at landing91; cylinder+15 pending its own landing. This fourth slot earns nothing yet. No map-clock reset/U1 completion/U2/U4 release. Engineering repair and U3 remain separate."
+}
