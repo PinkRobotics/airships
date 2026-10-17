@@ -21,7 +21,10 @@ Only exact figure-free `## Landing N — <title>` headings in the landing file a
 by shape. The sibling rule, in that file only: a `| field | value |` table directly under
 such a heading, whose field column is exactly a row sequence the lander writes, is history
 by shape. Rebase, Governance records and Foreign route are optional, and only in the
-lander's positions. Any other table there, or any extra or renamed row, needs the usual
+lander's positions. A Rebase row is only the lander's own cell: its exact provenance
+sentence, one blank line, then a fenced range-diff whose every pair is `=`. That blank line
+splits the table into two blocks, and each passes only as its exact part of the whole. Any
+other table there, a Rebase row on one line, or any extra or renamed row, needs the usual
 disposition. New hits do not pass by matching an unrelated number. A prose block can bind
 explicitly with:
   <!-- float-ledger: CASE_ID ; field=at.seaLevel.liftToMass ; value=0.558 -->
@@ -323,6 +326,53 @@ def exact_lander_row_set(fields):
     return index==len(fields)
 
 
+# The lander's Rebase cell: its provenance sentence, one blank line, and the range-diff in a fence
+# whose every pair is `=` (helm ship/tools/land.py writes nothing else into that row).
+_REBASE_OPEN=re.compile(
+    r'\| Rebase \| law I\.3c\.5, mechanised: the signed object `[0-9a-f]{40}` was rebased off `[0-9a-f]{40}` '
+    r'onto the moved main `[0-9a-f]{40}`, landing as `[0-9a-f]{40}`\. `git range-diff` showed every pair `=`; '
+    r'each new commit was re-governed mechanically with that pair as its reason\. The gate below honours the '
+    r"OLD sha's EXISTING record — no fresh signature was asked or given\. Range-diff:")
+_RANGE_DIFF_PAIR=re.compile(r' {0,3}[0-9]+: +[0-9a-f]{7,40} = +[0-9]+: +[0-9a-f]{7,40}(?: .*)?')
+
+
+def rebased_lander_table(lines, index):
+    """(header, fence, end, fields) for the lander table with a fenced Rebase cell that has one of its
+    two blocks at line `index` (0-based), or None. `fence` is the line holding the opening fence and
+    `end` the line after the last row, which must be blank or the end of the file."""
+    if not 0 <= index < len(lines):
+        return None
+    if lines[index]=='```':
+        if index<2 or lines[index-1]!='' or not _REBASE_OPEN.fullmatch(lines[index-2]):
+            return None
+        index-=2
+        while index>0 and lines[index-1].startswith('|'):
+            index-=1
+    if lines[index:index+2]!=['| field | value |','|---|---|']:
+        return None
+    header, row, fence, fields = index, index+2, None, []
+    while row<len(lines) and lines[row].startswith('|'):
+        if _REBASE_OPEN.fullmatch(lines[row]):
+            if fence is not None or lines[row+1:row+3]!=['','```']:
+                return None
+            pair=row+3
+            while pair<len(lines) and _RANGE_DIFF_PAIR.fullmatch(lines[pair]):
+                pair+=1
+            if pair==row+3 or pair>=len(lines) or lines[pair]!='``` |':
+                return None
+            fence, row = row+2, pair+1
+            fields.append('Rebase')
+            continue
+        match=re.fullmatch(r'\| ([^|]*?) \| (.*) \|', lines[row])
+        if not match:
+            return None
+        fields.append(match.group(1))
+        row+=1
+    if fence is None or (row<len(lines) and lines[row].strip()):
+        return None
+    return header, fence, row, tuple(fields)
+
+
 def figure_free_landing_heading(line):
     match=re.fullmatch(r'## Landing [0-9]+ — ([^\n]+)', line.strip())
     return bool(match and not NUM.search(match.group(1)))
@@ -343,9 +393,26 @@ def attestation_table_by_shape(path, line, raw, file_text):
     if path!='docs/governance/landing-attestations.md':
         return False
     fields=lander_field_column(raw)
-    if fields is None or not exact_lander_row_set(fields):
+    if fields is not None:
+        # One block, so no fenced cell: the lander never writes its Rebase row on one line.
+        if 'Rebase' in fields or not exact_lander_row_set(fields):
+            return False
+        return directly_under_figure_free_heading(file_text, line)
+    lines=file_text.splitlines()
+    found=rebased_lander_table(lines, line-1)
+    if found is None:
         return False
-    return directly_under_figure_free_heading(file_text, line)
+    header, fence, end, fields = found
+    if line-1==header:
+        piece=lines[header:fence-1]
+    elif line-1==fence:
+        piece=lines[fence:end]
+    else:
+        return False
+    # The inventoried block is exactly its own part of that table, and nothing more.
+    if raw.strip('\n').splitlines()!=piece or not exact_lander_row_set(fields):
+        return False
+    return directly_under_figure_free_heading(file_text, header+1)
 
 
 def inspect_block(path,line,text,raw,rows,ledger,cat):
@@ -374,7 +441,7 @@ def inspect_block(path,line,text,raw,rows,ledger,cat):
     if path=='docs/governance/landing-attestations.md' and heading and not NUM.search(heading[1]):
         hit.update(status='ALLOW',disposition='history',reason='Exact figure-free landing heading; history by shape.')
         return hit
-    if path=='docs/governance/landing-attestations.md' and raw.lstrip().startswith('|'):
+    if path=='docs/governance/landing-attestations.md' and raw.lstrip().startswith(('|','```')):
         page=(ROOT/path).read_text(encoding='utf-8')
         if attestation_table_by_shape(path,line,raw,page):
             hit.update(status='ALLOW',disposition='history',

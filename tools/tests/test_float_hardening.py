@@ -56,6 +56,23 @@ def specs():
     cases['M5-landing-table-extra'] = dict(append=('docs/governance/landing-attestations.md',
         '\n## Landing 995 — Shape rule extra row\n\n' + shape_table(shape_fields + ('Note',)) + '\n'))
     cases['M5-landing-table-elsewhere'] = dict(append=('docs/FLOAT.md', '\n' + exact_table + '\n'))
+    # The lander's own rebased entry, whose Rebase cell's blank line splits the table, passes with no
+    # hand record; each copy broken in one way does not (cases in test_attestation_shape.py).
+    from test_attestation_shape import REBASED_ENTRY, REBASED_HEADING, REBASED_ONE_LINE
+    attest = 'docs/governance/landing-attestations.md'
+    cases['M5-landing-table-rebase'] = dict(append=(attest, REBASED_ENTRY), green=True)
+    cases['M5-landing-table-rebase-renamed'] = dict(append=(attest,
+        REBASED_ENTRY.replace('| Landed |', '| Arrived |')))
+    cases['M5-landing-table-rebase-extra'] = dict(append=(attest,
+        REBASED_ENTRY + '| Note | Unit `ci-float-claims-1015` keeps this float marker. |\n'))
+    cases['M5-landing-table-rebase-elsewhere'] = dict(append=('docs/FLOAT.md', REBASED_ENTRY))
+    cases['M5-landing-table-rebase-figure'] = dict(append=(attest,
+        REBASED_ENTRY.replace(REBASED_HEADING, '## Landing 993 — Rebase cell shape rule 3')))
+    cases['M5-landing-table-blank-cell'] = dict(append=(attest,
+        REBASED_ENTRY.replace(' preserved. Unit', ' preserved.\n\nUnit')))
+    cases['M5-landing-table-rebase-provenance'] = dict(append=(attest,
+        REBASED_ENTRY.replace('every pair `=`', 'every pair `!`')))
+    cases['M5-landing-table-rebase-oneline'] = dict(append=(attest, REBASED_ONE_LINE))
     # Each A5 sentence must fail independently; an aggregate red hides missing sentences.
     phrasings = ['The 52 m hull floats.', 'The 52 m hull is neutrally buoyant at sea level.',
         'The 52 m hull is lighter than the air it displaces.',
