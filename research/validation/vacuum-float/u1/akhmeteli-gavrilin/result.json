@@ -1,0 +1,394 @@
+{
+  "benchmark": "akhmeteli-gavrilin",
+  "status": "FAIL",
+  "verification": "PENDING_UNA",
+  "landed": false,
+  "points": null,
+  "benchmark_count": 1,
+  "source_case_sha256": "15e891d622dd9abec28654fcd2518a36c69dda0a269081357c94e34f69d21c31",
+  "analytic_component": {
+    "equation9_full_at_fig5_rounded_geometry_pa": 139019.6268,
+    "equation9_approx_at_fig5_rounded_geometry_pa": 137373.48,
+    "equation9_full_ratio_at_fig5_rounded_geometry": 1.3764319485148515,
+    "equation9_approx_ratio_at_fig5_rounded_geometry": 1.3601334653465347,
+    "analytic_optimum_from_eq8_to12": {
+      "face_ratio": 3.87e-05,
+      "core_ratio": 0.00387,
+      "thin_face_pressure_pa": 137787.48,
+      "pressure_over_atmosphere": 1.3642324752475248,
+      "published_approx_pressure_over_atmosphere": 1.37,
+      "relative_error": 0.004209872082098776
+    },
+    "nominal_q": 0.1,
+    "q_implied_by_printed_fig5_ratios": 0.0976744186046512,
+    "component_status": "PASS analytical reproduction only",
+    "separate_eigenvalue_target": 2.65,
+    "interpretation": "Eq9 semi-empirical estimate is not the Fig5 ideal eigenvalue; these are two components of one benchmark, never two points."
+  },
+  "ideal_eigenvalue_component": {
+    "status": "FAIL",
+    "published_eigenvalue_approx": 2.65,
+    "finest_eigenvalue": 5.177265,
+    "finest_relative_error": 0.9536849056603776,
+    "adjacent_mesh_relative_changes": [
+      2.7042532108183453e-05,
+      4.539076133827131e-05
+    ],
+    "mesh_converged": true,
+    "thresholds": {
+      "relative_error": 0.05,
+      "each_adjacent_mesh_change": 0.01
+    }
+  },
+  "runs": [
+    {
+      "started": "2026-10-17T07:51:24.479747+00:00",
+      "envelope": {
+        "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/vacuum-u1-b1b79e54ead568b2.scope",
+        "limits": [
+          {
+            "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/vacuum-u1-b1b79e54ead568b2.scope",
+            "cpu.max": "800000 100000",
+            "memory.max": "42949672960"
+          },
+          {
+            "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice",
+            "cpu.max": "max 100000",
+            "memory.max": "max"
+          },
+          {
+            "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service",
+            "cpu.max": "max 100000",
+            "memory.max": "max"
+          },
+          {
+            "path": "/sys/fs/cgroup/user.slice/user-1000.slice",
+            "cpu.max": "max 100000",
+            "memory.max": "max"
+          },
+          {
+            "path": "/sys/fs/cgroup/user.slice",
+            "cpu.max": "max 100000",
+            "memory.max": "max"
+          }
+        ],
+        "swap_max": "0",
+        "runtime_max": "2h",
+        "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/vacuum-u1-b1b79e54ead568b2.scope"
+      },
+      "threads_requested": 1,
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "CCX_NPROC_STIFFNESS": "1",
+        "CCX_NPROC_EQUATION_SOLVER": "1",
+        "CCX_NPROC_RESULTS": "1",
+        "NUMBER_OF_CPUS": "1"
+      },
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "case_sha256": "15e891d622dd9abec28654fcd2518a36c69dda0a269081357c94e34f69d21c31",
+      "runner_sha256": "dff25a55b8d6de54ae47de063ca044faacd873a817d8b2319f1738302d21e6ca",
+      "solver": "/usr/bin/ccx",
+      "solver_sha256": "564ed098356c46f68120e2d6cc2a97c686b4d16ec31f3ef55b3182749ec60c3d",
+      "mesh": {
+        "nodes": 2573,
+        "elements": 768,
+        "element": "CAX8R",
+        "layer_elements": [
+          128,
+          512,
+          128
+        ],
+        "nominal_axisymmetric_dofs": 5146,
+        "pressure_edges": 128,
+        "pole_nodes": 13,
+        "equator_nodes": 13,
+        "mesh_sha256": "4e20a22af8833cab7f6e5e29b4df96c21855b85aa2bacbfe47347d9404c16941",
+        "deck_sha256": "eb9e9df54659b41fef8ec082b289e2308afd4957bf469c18db98f6d7cbea5299"
+      },
+      "solver_pid": 2114275,
+      "ended": "2026-10-17T07:51:25.294683+00:00",
+      "exit_code": 0,
+      "wall_seconds": 0.6030684090219438,
+      "cpu_seconds": 0.45037,
+      "peak_rss_kib": 87040,
+      "max_observed_threads": 2,
+      "average_cpu_cores": 0.7467975328543738,
+      "factors": [
+        5.17689,
+        5.1853,
+        5.280674,
+        5.286305,
+        5.44117,
+        5.558839,
+        5.650816,
+        5.822489
+      ],
+      "eigenproblem_completed": true,
+      "status": "COMPLETED",
+      "cgroup_memory_peak_bytes": 78389248,
+      "memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "equations": [
+        "5120"
+      ],
+      "pressure_pa": 522865.89,
+      "raw_directory": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/akhmeteli-n128",
+      "artifact_sha256": {
+        "case.json": "15e891d622dd9abec28654fcd2518a36c69dda0a269081357c94e34f69d21c31",
+        "runner.py": "dff25a55b8d6de54ae47de063ca044faacd873a817d8b2319f1738302d21e6ca",
+        "job.inp": "eb9e9df54659b41fef8ec082b289e2308afd4957bf469c18db98f6d7cbea5299",
+        "mesh.msh": "4e20a22af8833cab7f6e5e29b4df96c21855b85aa2bacbfe47347d9404c16941",
+        "job.dat": "8869770758db8be45f817a37789fda60aff2dcbfb74595008e5b7fed21fbda99",
+        "job.frd": "79ebc1034e5c55d56a28b2d03f19037ea7e5f2a78396939b21ddc87baf25bc84",
+        "run.json": "1979c762e8fc369d8f5b25daeccbb6e9e2be3245d97dd5bc2476d5fb6d906eff",
+        "launch.json": "d5edaaebaba3bb9efea23cdd2f27abfc7970629b1d474ea8576f9c881b0cd83a",
+        "solver.stdout": "551a064c666f1d6d52ccd995fe2ba8f2225929d3db2846b5dfd270f626d7fac4",
+        "solver.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "started": "2026-10-17T07:52:07.826578+00:00",
+      "envelope": {
+        "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/vacuum-u1-612bb5903e21ee72.scope",
+        "limits": [
+          {
+            "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/vacuum-u1-612bb5903e21ee72.scope",
+            "cpu.max": "800000 100000",
+            "memory.max": "42949672960"
+          },
+          {
+            "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice",
+            "cpu.max": "max 100000",
+            "memory.max": "max"
+          },
+          {
+            "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service",
+            "cpu.max": "max 100000",
+            "memory.max": "max"
+          },
+          {
+            "path": "/sys/fs/cgroup/user.slice/user-1000.slice",
+            "cpu.max": "max 100000",
+            "memory.max": "max"
+          },
+          {
+            "path": "/sys/fs/cgroup/user.slice",
+            "cpu.max": "max 100000",
+            "memory.max": "max"
+          }
+        ],
+        "swap_max": "0",
+        "runtime_max": "2h",
+        "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/vacuum-u1-612bb5903e21ee72.scope"
+      },
+      "threads_requested": 1,
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "CCX_NPROC_STIFFNESS": "1",
+        "CCX_NPROC_EQUATION_SOLVER": "1",
+        "CCX_NPROC_RESULTS": "1",
+        "NUMBER_OF_CPUS": "1"
+      },
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "case_sha256": "15e891d622dd9abec28654fcd2518a36c69dda0a269081357c94e34f69d21c31",
+      "runner_sha256": "dff25a55b8d6de54ae47de063ca044faacd873a817d8b2319f1738302d21e6ca",
+      "solver": "/usr/bin/ccx",
+      "solver_sha256": "564ed098356c46f68120e2d6cc2a97c686b4d16ec31f3ef55b3182749ec60c3d",
+      "mesh": {
+        "nodes": 6165,
+        "elements": 1920,
+        "element": "CAX8R",
+        "layer_elements": [
+          384,
+          1152,
+          384
+        ],
+        "nominal_axisymmetric_dofs": 12330,
+        "pressure_edges": 192,
+        "pole_nodes": 21,
+        "equator_nodes": 21,
+        "mesh_sha256": "bbdc3c64e894433f69639138af997515e18709b8bf0d159999950c897ef78891",
+        "deck_sha256": "d015dd0dac19f5e0fc6449be71fe26f17103985d3c423dc76030b3346daf50ed"
+      },
+      "solver_pid": 2123420,
+      "ended": "2026-10-17T07:52:10.294722+00:00",
+      "exit_code": 0,
+      "wall_seconds": 2.206998889101669,
+      "cpu_seconds": 1.983644,
+      "peak_rss_kib": 99156,
+      "max_observed_threads": 3,
+      "average_cpu_cores": 0.8987970088228803,
+      "factors": [
+        5.17703,
+        5.185204,
+        5.280229,
+        5.286613,
+        5.440186,
+        5.510774,
+        5.519167,
+        5.534266
+      ],
+      "eigenproblem_completed": true,
+      "status": "COMPLETED",
+      "cgroup_memory_peak_bytes": 134434816,
+      "memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "equations": [
+        "12288"
+      ],
+      "pressure_pa": 522880.03,
+      "raw_directory": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/akhmeteli-n192",
+      "artifact_sha256": {
+        "case.json": "15e891d622dd9abec28654fcd2518a36c69dda0a269081357c94e34f69d21c31",
+        "runner.py": "dff25a55b8d6de54ae47de063ca044faacd873a817d8b2319f1738302d21e6ca",
+        "job.inp": "d015dd0dac19f5e0fc6449be71fe26f17103985d3c423dc76030b3346daf50ed",
+        "mesh.msh": "bbdc3c64e894433f69639138af997515e18709b8bf0d159999950c897ef78891",
+        "job.dat": "b70fe9f72041ccfefc8144a45a1a3d93c4636ea95f42e985173618f644409990",
+        "job.frd": "7214c9b2c8b586a4f2a8191cec9c65f775569024eae1e7b23fb6864bf7e27c2e",
+        "run.json": "71f985036b49cec648992c6b5e9ebe10f428dbdee81a0017bc63f76b7140c3b5",
+        "launch.json": "848afec0fee89314488621bdbe1a55448e0bd47e206d149f7691482d1565acc7",
+        "solver.stdout": "23ba93239428ee7d9b7feec19bd042b405142dd612c9843defed3609b1908eea",
+        "solver.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "started": "2026-10-17T07:52:59.640503+00:00",
+      "envelope": {
+        "cgroup": "/user.slice/user-1000.slice/user@1000.service/app.slice/vacuum-u1-31a7efb1fa1b8f5e.scope",
+        "limits": [
+          {
+            "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/vacuum-u1-31a7efb1fa1b8f5e.scope",
+            "cpu.max": "800000 100000",
+            "memory.max": "42949672960"
+          },
+          {
+            "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice",
+            "cpu.max": "max 100000",
+            "memory.max": "max"
+          },
+          {
+            "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service",
+            "cpu.max": "max 100000",
+            "memory.max": "max"
+          },
+          {
+            "path": "/sys/fs/cgroup/user.slice/user-1000.slice",
+            "cpu.max": "max 100000",
+            "memory.max": "max"
+          },
+          {
+            "path": "/sys/fs/cgroup/user.slice",
+            "cpu.max": "max 100000",
+            "memory.max": "max"
+          }
+        ],
+        "swap_max": "0",
+        "runtime_max": "2h",
+        "path": "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/vacuum-u1-31a7efb1fa1b8f5e.scope"
+      },
+      "threads_requested": 1,
+      "thread_environment": {
+        "OMP_NUM_THREADS": "1",
+        "CCX_NPROC_STIFFNESS": "1",
+        "CCX_NPROC_EQUATION_SOLVER": "1",
+        "CCX_NPROC_RESULTS": "1",
+        "NUMBER_OF_CPUS": "1"
+      },
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "case_sha256": "15e891d622dd9abec28654fcd2518a36c69dda0a269081357c94e34f69d21c31",
+      "runner_sha256": "dff25a55b8d6de54ae47de063ca044faacd873a817d8b2319f1738302d21e6ca",
+      "solver": "/usr/bin/ccx",
+      "solver_sha256": "564ed098356c46f68120e2d6cc2a97c686b4d16ec31f3ef55b3182749ec60c3d",
+      "mesh": {
+        "nodes": 13567,
+        "elements": 4320,
+        "element": "CAX8R",
+        "layer_elements": [
+          864,
+          2592,
+          864
+        ],
+        "nominal_axisymmetric_dofs": 27134,
+        "pressure_edges": 288,
+        "pole_nodes": 31,
+        "equator_nodes": 31,
+        "mesh_sha256": "56e677283b9ee23556e240a71ed5970c8742f269b8341918b7f33959f9a71b83",
+        "deck_sha256": "fc609a160a96c00a6346c01d9ad6bb7ce2e5d8882718050f7281529846d6e601"
+      },
+      "solver_pid": 2133484,
+      "ended": "2026-10-17T07:53:06.969997+00:00",
+      "exit_code": 0,
+      "wall_seconds": 7.017593335127458,
+      "cpu_seconds": 6.797271,
+      "peak_rss_kib": 202572,
+      "max_observed_threads": 3,
+      "average_cpu_cores": 0.9686042885921294,
+      "factors": [
+        5.177265,
+        5.185647,
+        5.280975,
+        5.286696,
+        5.389662,
+        5.391571,
+        5.394152,
+        5.399442
+      ],
+      "eigenproblem_completed": true,
+      "status": "COMPLETED",
+      "cgroup_memory_peak_bytes": 245739520,
+      "memory_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "equations": [
+        "27072"
+      ],
+      "pressure_pa": 522903.765,
+      "raw_directory": "/home/tyler/data/helm/ship-workspaces/lead-sciences-1228320beb59564c/.ship/runs/vacuum-u1/akhmeteli-n288",
+      "artifact_sha256": {
+        "case.json": "15e891d622dd9abec28654fcd2518a36c69dda0a269081357c94e34f69d21c31",
+        "runner.py": "dff25a55b8d6de54ae47de063ca044faacd873a817d8b2319f1738302d21e6ca",
+        "job.inp": "fc609a160a96c00a6346c01d9ad6bb7ce2e5d8882718050f7281529846d6e601",
+        "mesh.msh": "56e677283b9ee23556e240a71ed5970c8742f269b8341918b7f33959f9a71b83",
+        "job.dat": "2eafaf14b6653be3775ecbc8dcaff67352d94ed05f14067e5795de189aeb905b",
+        "job.frd": "38621c75b0f1b705670db3c6d8d89a6fafa31b2dda1550f52224daea7c65b3f0",
+        "run.json": "6f8d7ee732f416db8f49d88ee618e7490dbc557b501a81a2f51f999c42e39af6",
+        "launch.json": "0eb1bef437aab09111563accee77980d9f8c0e5b1d5558ad3a5afc6be8823eed",
+        "solver.stdout": "d720b658ccd8dbf706823c51100882b3a4daa7dd1eff428d24aa5847118bfc21",
+        "solver.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "interpretation": "The analytical component reproduces Eq9; the reconstructed CalculiX ideal eigenvalue case fails the published Fig5 comparator despite mesh convergence. This is a numerical reproduction failure, not independent evidence that the paper or physical shell fails, and not a usable factor of safety.",
+  "method_limitations": [
+    "Reconstructed pole/equator symmetry from Fig4; original ANSYS deck unavailable.",
+    "CAX8R uses a fixed internal 2-degree wedge; core director is exact in the defining meridian but differs out of plane from a true spherical-coordinate field.",
+    "Published rounded thicknesses are literal; nominal q=.1 is kept as source context, with q_implied=.0976744186 explicitly shown.",
+    "Three independent Poisson ratios use1e-5 with reciprocal compliance; no unsupported equality of all six reciprocal values.",
+    "Only axisymmetric/equator-symmetric modes are represented."
+  ],
+  "next_hypothesis": "Isolate pressure/prestress and axisymmetric geometric-stiffness formulation with an independently known patch case; check the true spherical material director and original ANSYS boundary/deck if obtainable. These are untested hypotheses, not diagnosed causes. Do not adjust material, pressure, thickness or eigenvalue selection to force2.65. No new solve without further direction.",
+  "next": "Una independent verification and CO individual landing; one benchmark only, no self-award."
+}

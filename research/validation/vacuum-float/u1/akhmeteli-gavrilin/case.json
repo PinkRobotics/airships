@@ -1,0 +1,73 @@
+{
+  "benchmark": "akhmeteli-gavrilin",
+  "source": {
+    "title": "Vacuum balloon \u2014 a 350-year-old dream",
+    "authors": "A. Akhmeteli and A. V. Gavrilin",
+    "version": "arXiv:1903.05171v3, 2021-01-25 (initial version 2019)",
+    "url": "https://arxiv.org/abs/1903.05171v3",
+    "pdf_url": "https://arxiv.org/pdf/1903.05171v3",
+    "pdf_sha256": "3c2d77fb5389529770bfb919d88f0f41b16393860e42ff61b2bac428be083038",
+    "locator": "Eq9 pp7\u20138; Fig4 p9; Fig5 and material components p10"
+  },
+  "selection_order": "ord-sciences-g1-vacuum-u1-akhmeteli-selection-1017",
+  "quantity": "ONE benchmark: Eq9 analytical reproduction, plus separate ideal elastic Fig5 eigenvalue lambda. Neither is a nonlinear collapse or float test.",
+  "radius_m": 2.5,
+  "radius_basis": "Outer radius 2.5m, dimensional scale used in paper example; ratios govern elastic ideal comparison.",
+  "face_thickness_over_radius": 4.23e-05,
+  "core_thickness_over_radius": 0.00353,
+  "face_young_pa": 460000000000.0,
+  "face_poisson": 0.17,
+  "face_density_kg_per_m3": 2500,
+  "core_density_kg_per_m3": 50,
+  "core_engineering_constants": {
+    "axes": "1 radial through thickness, 2 meridian tangent, 3 circumferential",
+    "E1_pa": 670000000.0,
+    "E2_pa": 67,
+    "E3_pa": 67,
+    "nu12": 1e-05,
+    "nu13": 1e-05,
+    "nu23": 1e-05,
+    "G12_pa": 140000000.0,
+    "G13_pa": 140000000.0,
+    "G23_pa": 14
+  },
+  "material_orientation": "CalculiX cylindrical orientation about global z: local1 radial in x-y meridian, local2 meridian tangent, local3 globalz. Exact radial field in defining plane; CalculiX CAX8R internally expands a fixed 2-degree wedge. Its out-of-plane director approximation remains a disclosed method difference from ANSYS spherical coordinates.",
+  "core_reciprocity": "The three listed independent Poisson ratios are 1e-5; reciprocal ratios follow nu_ji/E_j=nu_ij/E_i. No claim that all six reciprocal components equal 1e-5.",
+  "reference_pressure_pa": 101000,
+  "air_density_kg_per_m3": 1.29,
+  "payload_fraction_nominal": 0.1,
+  "rounded_input_treatment": "Use printed Fig5 ratios literally; do not refit h1 to enforce Eq8. Thin-shell mass relation implies q=0.0976744186 for rounded geometry versus nominal0.1. Eq9 analytic optimum separately uses exact q=0.1 and density relations. No parameter tuning after solving.",
+  "analytical_checks": {
+    "equation9_exact": "p=2*Ef*(h1/R)*((h3+h1)/R)",
+    "equation9_thin_face": "p\u22482*Ef*(h1/R)*(h3/R)",
+    "equations11_12_optimum": "h3/R=(1-q)*rho_air/(6*rho_core); h1/R=(1-q)*rho_air/(12*rho_face)",
+    "published_optimum_pressure_ratio_approx": 1.37,
+    "analytic_comparison_relative_tolerance": 0.05
+  },
+  "published_eigenvalue_approx": 2.65,
+  "boundary_reconstruction": "Fig4 quadrant in x-y plane, revolution about y. x=0 pole edges ux=0, y=0 equator edges uy=0; all other in-plane DOFs free. Three bonded layers share nodes. Outer face receives inward distributed pressure; inner face free. This reconstructs axisymmetric hemisphere symmetry, without an unpublished clamp.",
+  "boundary_limitation": "Axisymmetric/equator-symmetric modes only, matching Fig4 modelling class; no independent claim about all possible 3D/asymmetric instabilities.",
+  "imperfection": "None for ideal eigenvalue comparison",
+  "element": "Gmsh quadratic eight-node mapped annular quads; CalculiX CAX8R axisymmetric solids",
+  "mesh_divisions_meridian": [
+    128,
+    192,
+    288
+  ],
+  "mesh_divisions_faces": [
+    1,
+    2,
+    3
+  ],
+  "mesh_divisions_core": [
+    4,
+    6,
+    9
+  ],
+  "threads": 1,
+  "eigenvalues_requested": 8,
+  "eigenvalue_relative_tolerance": 1e-06,
+  "mesh_convergence_rule": "Three frozen meshes, both adjacent abs(lambda_new-lambda_old)/abs(lambda_new)<=0.01; lowest positive eigenvalue, retain all extracted modes.",
+  "comparison": "Eq9 analytic reproduction plus abs(lambda_fine-2.65)/2.65<=0.05 and declared mesh convergence. A component cannot create another benchmark or point.",
+  "frozen_before_first_solve_utc": "2026-10-17T07:49:43.667891+00:00"
+}

@@ -281,6 +281,107 @@ def sphere_deck(case, divisions):
             "mesh_sha256": digest("mesh.msh"), "deck_sha256": digest("job.inp")}
 
 
+def sandwich_pressure(young, face_ratio, core_ratio):
+    """Akhmeteli--Gavrilin Eq9: full expression and thin-face approximation."""
+    return (2*young*face_ratio*(core_ratio+face_ratio),
+            2*young*face_ratio*core_ratio)
+
+
+def sandwich_deck(case, mesh_index):
+    """Fig4 meridional quadrant with shared, perfectly bonded solid layers."""
+    import gmsh
+    import numpy as np
+
+    radius = case["radius_m"]
+    face = radius*case["face_thickness_over_radius"]
+    core = radius*case["core_thickness_over_radius"]
+    radii = [radius-2*face-core, radius-face-core, radius-face, radius]
+    meridian = case["mesh_divisions_meridian"][mesh_index]
+    radial = [case["mesh_divisions_faces"][mesh_index],
+              case["mesh_divisions_core"][mesh_index],
+              case["mesh_divisions_faces"][mesh_index]]
+    gmsh.initialize([], readConfigFiles=False)
+    try:
+        gmsh.option.setNumber("General.NumThreads", 1)
+        gmsh.option.setNumber("Mesh.MaxNumThreads2D", 1)
+        gmsh.option.setNumber("Mesh.SecondOrderIncomplete", 1)
+        gmsh.model.add("sandwich")
+        geo = gmsh.model.geo
+        centre = geo.addPoint(0, 0, 0)
+        bottom = [geo.addPoint(r, 0, 0) for r in radii]
+        top = [geo.addPoint(0, r, 0) for r in radii]
+        arcs = [geo.addCircleArc(a, centre, b) for a, b in zip(bottom, top)]
+        bottom_edges = [geo.addLine(bottom[i], bottom[i+1]) for i in range(3)]
+        top_edges = [geo.addLine(top[i], top[i+1]) for i in range(3)]
+        surfaces = [geo.addPlaneSurface([geo.addCurveLoop(
+            [bottom_edges[i], arcs[i+1], -top_edges[i], -arcs[i]])]) for i in range(3)]
+        geo.synchronize()
+        for edge in arcs:
+            gmsh.model.mesh.setTransfiniteCurve(edge, meridian+1)
+        for i, divisions in enumerate(radial):
+            for edge in (bottom_edges[i], top_edges[i]):
+                gmsh.model.mesh.setTransfiniteCurve(edge, divisions+1)
+            gmsh.model.mesh.setTransfiniteSurface(surfaces[i])
+            gmsh.model.mesh.setRecombine(2, surfaces[i])
+        gmsh.model.mesh.generate(2)
+        gmsh.model.mesh.setOrder(2)
+        gmsh.write("mesh.msh")
+        tags, coordinates, _ = gmsh.model.mesh.getNodes()
+        positions = dict(zip(map(int, tags), coordinates.reshape(-1, 3)))
+        layers = []
+        for surface in surfaces:
+            types, element_tags, connectivity = gmsh.model.mesh.getElements(2, surface)
+            if list(types) != [16]:
+                raise RuntimeError(f"Expected quadratic eight-node quads; got {types}")
+            elements = dict(zip(map(int, element_tags[0]), connectivity[0].reshape(-1, 8)))
+            for tag, row in elements.items():
+                p = [positions[int(n)] for n in row[:3]]
+                if np.cross(p[1]-p[0], p[2]-p[0])[2] < 0:
+                    elements[tag] = row[[0,3,2,1,7,6,5,4]]
+            layers.append(elements)
+        used = sorted({int(n) for layer in layers for row in layer.values() for n in row})
+        nodes = {n: positions[n] for n in used}
+        node_sets = [{int(n) for row in layer.values() for n in row} for layer in layers]
+        if any(len(node_sets[i] & node_sets[i+1]) != 2*meridian+1 for i in (0,1)):
+            raise RuntimeError("Layer interfaces do not share the full quadratic meridian")
+        pole = [n for n, p in nodes.items() if abs(p[0]) < radius*1e-10]
+        equator = [n for n, p in nodes.items() if abs(p[1]) < radius*1e-10]
+        loads = []
+        for tag, row in layers[2].items():
+            for label, (a, b, mid) in enumerate(((0,1,4),(1,2,5),(2,3,6),(3,0,7)), 1):
+                if all(abs(np.linalg.norm(nodes[int(row[j])])-radius)<radius*1e-9
+                       for j in (a,b,mid)):
+                    loads.append((tag, label))
+        if len(loads) != meridian:
+            raise RuntimeError("The entire outer meridian must carry pressure")
+        lines = ["*HEADING", "U1 Akhmeteli Fig4/5 reconstruction, SI, ideal eigenvalue", "*NODE"]
+        lines += [f"{tag}, " + ", ".join(f"{v:.12e}" for v in xyz) for tag, xyz in nodes.items()]
+        for name, layer in zip(("INNER", "CORE", "OUTER"), layers):
+            lines += [f"*ELEMENT, TYPE=CAX8R, ELSET={name}"]
+            lines += [f"{tag}, " + ", ".join(map(str, row)) for tag, row in layer.items()]
+        constants = case["core_engineering_constants"]
+        keys = ("E1_pa","E2_pa","E3_pa","nu12","nu13","nu23","G12_pa","G13_pa")
+        lines += ["*MATERIAL, NAME=FACE", "*ELASTIC",
+                  f"{case['face_young_pa']}, {case['face_poisson']}",
+                  "*MATERIAL, NAME=HONEYCOMB", "*ELASTIC, TYPE=ENGINEERING CONSTANTS",
+                  ", ".join(str(constants[key]) for key in keys), str(constants["G23_pa"]),
+                  "*ORIENTATION, NAME=RADIAL, SYSTEM=CYLINDRICAL", "0., 0., 0., 0., 0., 1.",
+                  "*SOLID SECTION, ELSET=INNER, MATERIAL=FACE", "",
+                  "*SOLID SECTION, ELSET=CORE, MATERIAL=HONEYCOMB, ORIENTATION=RADIAL", "",
+                  "*SOLID SECTION, ELSET=OUTER, MATERIAL=FACE", "", "*BOUNDARY"]
+        lines += [f"{node}, 1, 1" for node in pole] + [f"{node}, 2, 2" for node in equator]
+        lines += ["*STEP", "*BUCKLE, SOLVER=SPOOLES", "8, 0.000001, 64, 1000", "*DLOAD"]
+        lines += [f"{tag}, P{label}, {case['reference_pressure_pa']}" for tag, label in loads]
+        lines += ["*NODE FILE, OUTPUT=2D", "U", "*END STEP"]
+        Path("job.inp").write_text("\n".join(lines) + "\n")
+        return {"nodes": len(nodes), "elements": sum(map(len,layers)), "element": "CAX8R",
+                "layer_elements": list(map(len,layers)), "nominal_axisymmetric_dofs": 2*len(nodes),
+                "pressure_edges": len(loads), "pole_nodes": len(pole), "equator_nodes": len(equator),
+                "mesh_sha256": digest("mesh.msh"), "deck_sha256": digest("job.inp")}
+    finally:
+        gmsh.finalize()
+
+
 def parse_factors(text):
     match = re.search(r"B\s*U\s*C\s*K\s*L\s*I\s*N\s*G.*?F\s*A\s*C\s*T\s*O\s*R", text,
                       flags=re.IGNORECASE | re.DOTALL)
@@ -316,6 +417,8 @@ def job(args):
             record["mesh"] = sphere_deck(case, case["mesh_divisions"][args.mesh_index])
         elif case["benchmark"] == "sp8007-cylinder":
             record["mesh"] = cylinder_deck(case, args.mesh_index)
+        elif case["benchmark"] == "akhmeteli-gavrilin":
+            record["mesh"] = sandwich_deck(case, args.mesh_index)
         else:
             raise ValueError(f"Unknown benchmark: {case['benchmark']}")
         save("mesh-definition.json", record["mesh"])

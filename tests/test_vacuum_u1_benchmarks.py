@@ -48,6 +48,13 @@ class BenchmarkContracts(unittest.TestCase):
                                2*line_load)
         self.assertLess(abs(line_load/12_709_778.186044851 - 1), 1e-6)
 
+    def test_equation9_keeps_full_and_thin_face_expressions_separate(self):
+        full, thin = u1.sandwich_pressure(460e9, .0000423, .00353)
+        self.assertAlmostEqual(thin, 137373.48, places=6)
+        self.assertAlmostEqual(full, 139019.6268, places=6)
+        self.assertGreater(full, thin)
+        self.assertNotAlmostEqual(full/101000, 2.65)
+
     def test_missing_eigenvalue_section_is_not_a_result(self):
         self.assertEqual(u1.parse_factors("Job finished\n 1 123.000E+02\n"), [])
         self.assertEqual(u1.parse_factors("*ERROR reading *NODE"), [])
