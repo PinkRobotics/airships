@@ -1,0 +1,84 @@
+{
+  "schema": "float-claims/1",
+  "files": [
+    "research/validation/vacuum-float/u1/sp8007-cylinder/README.md"
+  ],
+  "entries": [
+    {
+      "file": "research/validation/vacuum-float/u1/sp8007-cylinder/README.md",
+      "key": "ef3b881e77c6b1b0",
+      "line": 7,
+      "class": "bound",
+      "reason": "Frozen ideal axial-cylinder benchmark outputs bound to its recorded series and thresholds; no hull buoyancy or nonlinear-collapse verdict.",
+      "bindings": [
+        {
+          "source": "research/validation/vacuum-float/u1/sp8007-cylinder/result.json",
+          "pointer": "/runs/0/line_load_n_per_m",
+          "shown": "12497780.00"
+        },
+        {
+          "source": "research/validation/vacuum-float/u1/sp8007-cylinder/result.json",
+          "pointer": "/runs/1/line_load_n_per_m",
+          "shown": "12433990.00"
+        },
+        {
+          "source": "research/validation/vacuum-float/u1/sp8007-cylinder/result.json",
+          "pointer": "/runs/2/line_load_n_per_m",
+          "shown": "12424140.00"
+        },
+        {
+          "source": "research/validation/vacuum-float/u1/sp8007-cylinder/result.json",
+          "pointer": "/adjacent_mesh_relative_changes/0",
+          "shown": "0.5130",
+          "scale": 100
+        },
+        {
+          "source": "research/validation/vacuum-float/u1/sp8007-cylinder/result.json",
+          "pointer": "/adjacent_mesh_relative_changes/1",
+          "shown": "0.0793",
+          "scale": 100
+        },
+        {
+          "source": "research/validation/vacuum-float/u1/sp8007-cylinder/result.json",
+          "pointer": "/thresholds/each_adjacent_mesh_change",
+          "shown": "1",
+          "scale": 100
+        },
+        {
+          "source": "research/validation/vacuum-float/u1/sp8007-cylinder/result.json",
+          "pointer": "/finest_relative_error",
+          "shown": "2.2475",
+          "scale": 100
+        },
+        {
+          "source": "research/validation/vacuum-float/u1/sp8007-cylinder/result.json",
+          "pointer": "/thresholds/relative_error",
+          "shown": "5",
+          "scale": 100
+        }
+      ],
+      "context": [
+        "64",
+        "24",
+        "96",
+        "36",
+        "144",
+        "54"
+      ]
+    },
+    {
+      "file": "research/validation/vacuum-float/u1/sp8007-cylinder/README.md",
+      "key": "6e13d43eeb605d09",
+      "line": 11,
+      "class": "method",
+      "reason": "Replay procedure only. The float cue is in a validation path; numbers are mesh indices, thread count and recorded tool versions, not a design result.",
+      "context": [
+        "0",
+        "1",
+        "2",
+        "2.21",
+        "4.14"
+      ]
+    }
+  ]
+}
