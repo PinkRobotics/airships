@@ -946,26 +946,34 @@ class HeartbeatAndStalls(unittest.TestCase):
         # Their absence is schema-invalid, not silently deferred work.
         import io
         import contextlib
+        import copy
         self._seeded_delivery()
+        # every case starts from a FRESH valid snapshot: a rejected file is
+        # preserved byte-identical, so reusing the live document would let
+        # one case's corruption mask the next case's intended field
+        clean = copy.deepcopy(self._delivery())
         cases = (
-            {'id': 'vf-stall-a-48h', 'type': 'diagnosis-report',
-             'created_at': 't', 'attempts': 0, 'admitted': False,
-             'body': 'b'},                                  # no episode_key
-            {'id': 'vf-stall-b-5d', 'type': 'admiral-decision-card',
-             'created_at': 't', 'attempts': 0, 'admitted': False,
-             'body': 'b', 'episode_key': 'e'},              # no deadline
-            {'id': 'vf-line-9-q', 'type': 'line', 'seq': 9,
-             'created_at': 't', 'attempts': 0, 'admitted': False},  # no body
+            ({'id': 'vf-stall-a-48h', 'type': 'diagnosis-report',
+              'created_at': 't', 'attempts': 0, 'admitted': False,
+              'body': 'b'},                                  # no episode_key
+             'episode_key'),
+            ({'id': 'vf-stall-b-5d', 'type': 'admiral-decision-card',
+              'created_at': 't', 'attempts': 0, 'admitted': False,
+              'body': 'b', 'episode_key': 'e'},              # no deadline
+             'deadline'),
+            ({'id': 'vf-line-9-q', 'type': 'line', 'seq': 9,
+              'created_at': 't', 'attempts': 0, 'admitted': False},  # no body
+             'body'),
         )
-        for extra in cases:
-            doc = self._delivery()
+        for extra, field in cases:
+            doc = copy.deepcopy(clean)
             doc['items'][extra['id']] = dict(extra)
             self._rewrite(doc)
             err = io.StringIO()
             with contextlib.redirect_stderr(err):
                 rc = self._heartbeat('2026-10-17T12:00:00+00:00')
             self.assertEqual(rc, 2, extra['id'])
-            self.assertIn('lacks required field', err.getvalue(),
+            self.assertIn(f'lacks required field {field!r}', err.getvalue(),
                           extra['id'])
 
     def test_absent_admitted_flag_means_pending(self):
@@ -1460,12 +1468,23 @@ class RebuiltConsumedValueValidation(unittest.TestCase):
                 for item in doc['items'].values():
                     item['attempts'] = bad
             self._fail_closed_case(mutate, 'attempts')
-        # absent attempts keeps the documented zero default and still works
+        # absent attempts on a PENDING item keeps the documented zero
+        # default AND delivers: exactly one extra fake post, under the
+        # SAME item id, admitted, with the counter starting at one
         doc = self._clean_doc()
+        item_id = next(iter(doc['items']))
+        posts_before = len(self._posted_lines())
         for item in doc['items'].values():
+            item.pop('admitted', None)
             item.pop('attempts', None)
         self._rewrite(doc)
-        self.assertEqual(self._heartbeat('2026-10-17T12:00:00+00:00'), 0)
+        rc = self._heartbeat('2026-10-17T12:00:00+00:00')
+        self.assertEqual(rc, 0)
+        self.assertEqual(len(self._posted_lines()), posts_before + 1)
+        self.assertEqual(json.loads(self._posted_lines()[-1])['id'], item_id)
+        after = self._delivery()['items'][item_id]
+        self.assertTrue(after['admitted'])
+        self.assertEqual(after['attempts'], 1)
 
     def test_card_deadline_is_mandatory_aware_iso(self):
         # U3-D4: the admiral decision card's deadline is mandatory and must
@@ -1485,6 +1504,12 @@ class RebuiltConsumedValueValidation(unittest.TestCase):
                 card(doc, deadline=bad)
             self._fail_closed_case(mutate, 'deadline')
         # naive-only is rejected even though it parses as ISO
+        # the OMITTED case too: a card with no deadline key at all is
+        # rejected the same way — zero synthetic calls, byte-identical
+        # delivery and cursor evidence (asserted by _fail_closed_case)
+        def mutate_omitted(doc):
+            card(doc)                       # no deadline key whatsoever
+        self._fail_closed_case(mutate_omitted, 'deadline')
 
     def test_optional_deadline_on_other_types_validates(self):
         # U3-D4: deadline is OPTIONAL for lines and diagnoses, but when the

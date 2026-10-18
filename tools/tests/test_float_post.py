@@ -525,20 +525,33 @@ class RebuiltAdmissionSemantics(unittest.TestCase):
         # U3-D2: Python == is not JSON equality. bool/int, float/int and
         # drift nested inside containers must all be conflicts.
         expected = fpost.expected_stored(self.envelope)
-        for field, drift in (('priority', True),        # bool vs int 5
-                             ('priority', 5.0),          # float vs int 5
-                             ('seq_like_nested', None)):
-            stored = dict(expected)
-            if field in stored:
-                stored[field] = drift
-                self.assertNotEqual(
-                    fpost.admission_differs(stored, self.envelope), [],
-                    f'{field}: {drift!r} must be a type conflict')
-        # nested drift: a body list whose second element changes type
-        env2 = dict(self.envelope, body=['vf', 1])
-        stored2 = fpost.expected_stored(env2)
-        stored2['body'] = ['vf', True]                  # == but not ===
-        self.assertNotEqual(fpost.admission_differs(stored2, env2), [])
+        # the ISOLATING bool/int case: the envelope authors links_none
+        # True while the store carries 1 — equal under Python ==, a
+        # conflict under JSON types (priority True vs 5 differs under ==
+        # too, so it does not isolate the defect)
+        stored = dict(expected)
+        stored['links_none'] = 1
+        self.assertNotEqual(
+            fpost.admission_differs(stored, self.envelope), [],
+            'links_none True vs 1 must be a type conflict')
+        stored = dict(expected)
+        stored['priority'] = 5.0                     # 5 == 5.0 under ==
+        self.assertNotEqual(
+            fpost.admission_differs(stored, self.envelope), [],
+            'priority 5 vs 5.0 must be a type conflict')
+        # nested drift inside an AUTHORED container: a links list whose
+        # member dict carries 1 where the envelope authored 1 and the
+        # store mutated it to True, deep-copied before mutation so the
+        # envelope itself is never aliased
+        import copy
+        env_links = dict(self.envelope, links_none=False,
+                         links=[{'rel': 'closes', 'id': 1,
+                                 'part': 'completion'}])
+        stored_links = copy.deepcopy(fpost.expected_stored(env_links))
+        stored_links['links'][0]['id'] = True            # == but not ===
+        self.assertNotEqual(
+            fpost.admission_differs(stored_links, env_links), [],
+            'nested 1 vs True must be a type conflict')
         # and the equal case stays equal (control)
         self.assertEqual(fpost.admission_differs(
             fpost.expected_stored(self.envelope), self.envelope), [])
