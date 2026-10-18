@@ -1427,3 +1427,23 @@
 | Order | sha256 `0669a92fe0f8c8dd…` (informational) |
 | Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
 
+## Landing 96 — Read the lander's fenced Rebase cell as history by shape
+
+| field | value |
+|---|---|
+| Landed | 2026-10-17 18:52:22 PDT by the lander using `ship/tools/land.py`, a pure **FAST-FORWARD**: main `65b833a419a9cb860462f89a3a6bc4925e1ba3bc` → `4bc3c8cd30f3b1d1d8c3612f300464232d7554ec`; pushed main-only, non-force, origin verified equal. The signed sha IS main; the landed tree equals the signed tree by identity. |
+| The object | SIGNED `4bc3c8cd30f3b1d1d8c3612f300464232d7554ec`, tree `49b219805ecae79a305654d92f2e9e96d530be76`, from branch `rebase-cell-1017`, parent `d28ca7f5d5484ccb39fabf6b30d31654c6fffae9`, governance `gov-3041d1690626` preserved. Unit `ci-rebase-cell-followup-1016`. |
+| Rebase | law I.3c.5, mechanised: the signed object `b8f334d721dfb320657c65d104173b26e83d94b6` was rebased off `a493dd5fa9fe526d11915c99830291142e1f88d5` onto the moved main `65b833a419a9cb860462f89a3a6bc4925e1ba3bc`, landing as `4bc3c8cd30f3b1d1d8c3612f300464232d7554ec`. `git range-diff` showed every pair `=`; each new commit was re-governed mechanically with that pair as its reason. The gate below honours the OLD sha's EXISTING record — no fresh signature was asked or given. Range-diff:
+
+```
+1:  4ed61139 = 1:  d28ca7f5 Read the lander's fenced Rebase cell as history by shape
+2:  b8f334d7 = 2:  4bc3c8cd Record the full plants pass for the rebase-cell shape rule
+``` |
+| Pre-checks under the lock | primary on main; HEAD == main == the named base; origin/main == the named base; merge-base(main, candidate) == main and candidate != main; tree == the named tree; Helm-Audit-ID on every commit in base..candidate; tracked tree clean; object imported exact from the source. |
+| Gate | `tools/land_gate.py b8f334d72…` → rc=0, HONOURED-XO b8f334d721dfb320657c65d104173b26e83d94b6 — the last record for this sha (store line 2091) is XO-SIGNED. (store `fo-verdicts.tsv`) |
+| Governance records | `d28ca7f5d` ← `gov-ack-d28ca7f5d548` (reconcile record; trailer `gov-c9ebe741953e` is bound to another sha); `4bc3c8cd3` ← `gov-ack-4bc3c8cd30f3` (reconcile record; trailer `gov-3041d1690626` is bound to another sha). Each record names the landed sha as the commit it governed. |
+| Evidence before landing | `PYTHONDONTWRITEBYTECODE=1 make readmecheck linkcheck buildercheck claimsrestore claimscheck ledgercheck portcheck` rc=0 (environment PATH set to host paths, not shown) (gate timeout 1200 s, named by the order) |
+| Tool | `ship/tools/land.py` sha256 `3f4d36dddae3efb1…` from helm (informational) |
+| Order | sha256 `bcf27a9d124cc3b3…` (informational) |
+| Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
+
