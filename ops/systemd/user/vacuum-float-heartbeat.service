@@ -1,0 +1,34 @@
+[Unit]
+Description=Vacuum Float heartbeat (U3): regenerate the scoreboard, post a changed line, file due stall notices
+Documentation=file://%h/dev/airships/research/program/vacuum-float/HEARTBEAT.md
+# Any item left undelivered exits nonzero, so a failed post pages the host instead of passing silently.
+# OnFailure belongs in [Unit]: under [Service] systemd ignores it.
+OnFailure=helm-notify-failure@%n.service
+# Enablement is a landing step on the CO's order, never a commit side effect. Operations installs it:
+#   install -d -m 0755 ~/data/pinkrobotics/vacuum-float/tmp
+#   install -D -m 0644 ops/systemd/user/vacuum-float-heartbeat.service ~/.config/systemd/user/
+#   install -D -m 0644 ops/systemd/user/vacuum-float-heartbeat.timer ~/.config/systemd/user/
+#   systemctl --user daemon-reload
+#   systemctl --user start vacuum-float-heartbeat.service   (one controlled first run: baseline line admitted)
+#   systemctl --user enable --now vacuum-float-heartbeat.timer
+# Before installing, confirm helm-notify-failure@.service exists. Enabling the timer alone proves no delivery.
+# Rollback is the same commands reversed (disable --now, remove both files, daemon-reload). The ledger stays.
+
+[Service]
+Type=oneshot
+# Never /tmp (a 45 GB RAM tmpfs) or /mnt/scratch (a small tmpfs): temporary files live beside the ledger on /home.
+Environment=TMPDIR=%h/data/pinkrobotics/vacuum-float/tmp
+Environment=PATH=/usr/bin:/bin
+WorkingDirectory=%h/dev/airships
+ExecStart=/usr/bin/python3 -I %h/dev/airships/tools/float_progress.py --ledger %h/data/pinkrobotics/vacuum-float/ledger heartbeat --post-command /usr/bin/python3 -I %h/dev/airships/tools/float_post.py --runtime %h/data/helm/ship --submit %h/dev/helm/ship/tools/submit.py --delivery-state %h/data/pinkrobotics/vacuum-float/ledger/delivery
+# Measured on U3 at de180a60 (2026-10-17): 0.05-0.08 s wall and about 25 MB peak memory per run, on an empty
+# ledger and on one with both stall notices due. The bounds leave over 100x headroom for ledger growth. The wall
+# bound covers at most three adapter calls per run (5-day card, then 48 h diagnosis, then the oldest pending line),
+# each held to 150 s by U3; submit.py itself is held to 120 s by the adapter. Re-measure the composed invocation,
+# delivery included, on the landed source before installing.
+CPUQuota=100%
+MemoryMax=512M
+TasksMax=32
+TimeoutStartSec=900
+Nice=10
+IOSchedulingClass=idle

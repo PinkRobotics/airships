@@ -1,0 +1,87 @@
+{
+ "authority_contract": {
+  "accepted_records": "/home/tyler/data/helm/ship/queue/submissions read-only, by exact id; the tool never writes runtime records",
+  "builders": "a builder filing is a nomination: no points, no scoreboard movement, reported with its precise reason",
+  "explicit_block": "record scope {programme: vacuum-float, award: {...}}, or an artifact named with path+sha256 whose JSON type is vacuum-float-award; a digest mismatch is never trusted",
+  "verifier": "Una, the XO seat: the configured verifier_seats plus the CURRENT binding principal for the verifier billet (binding/<billet>.json principal.seat), plus every seat already accepted as verifier authority (a later succession never invalidates a historical record)"
+ },
+ "delivery_contract": {
+  "adapter": "tools/float_post.py --runtime <ship-runtime> --submit <submit.py> --delivery-state <owned-dir>; one JSON item on stdin ({type, id, body, deadline?, now}); state file per item under the owned delivery dir",
+  "admission": "proven only by the stored submission carrying the COMPLETE authored semantic projection: every expected key PRESENT (the door writes authority, re and supersedes as explicit nulls \u2014 absence is a conflict), each value equal by recursive TYPE-SENSITIVE JSON equality (bool/int and float/int are distinct types; drift nested inside containers is a conflict), the door's documented stamps (at, ingested, from_seat, _vouched, links_schema, _intake_deferred, admiral_seat) excluded and nothing else, conditional keys the envelope never authored (standing, links, thread, also_thread, scope, via, door, next_owner, reservations, and deadline when unauthored) required ABSENT, and any stored key outside the envelope plus door contract an unexpected authored field that rejects; the receipt names the actual compared fields; an earlier identical admission of the same id is success; a conflicting payload under the same id is an error and revokes the admission claim",
+  "envelope_freeze": "addressee resolved ONCE per logical delivery from binding/<billet>.json principal.seat; the full envelope is frozen before the first submission and reused verbatim on retry \u2014 addressee and deadline never re-resolved; the 5-day card's DATE (creation + 48 h) is frozen at first creation and retained on late retries",
+  "exit_codes": {
+   "0": "admitted now or earlier identical admission",
+   "2": "conflict under the same id (fail closed)",
+   "3": "submit.py refused (documented rc 1) \u2014 definite no",
+   "4": "no admission evidence (crash, odd exit, timeout, filed nothing)",
+   "5": "addressee binding unresolved \u2014 nothing filed"
+  },
+  "routes": {
+   "admiral-decision-card": "billet co, asks admiral-decision, DEFAULT pause",
+   "diagnosis-report": "billet co, asks reply, next: carry to the Desk",
+   "line": "billet sciences, asks none, information only"
+  }
+ },
+ "derivation": {
+  "cap_rule": "window is ROLLING 168 hours of exact instants keyed on the verification instant (UTC, closed interval; no calendar boundary to stack across); an over-cap event is still verified and still occupies its window, scores 0, is never banked or rescored; excess events are preserved and listed; no new id, replay or map-version rollover widens a cap",
+  "caps": {
+   "benchmark": "once ever per benchmark_key",
+   "falsification": "3 per rolling 168 h per lane",
+   "material-card": "5 per rolling 168 h per lane"
+  },
+  "cost": "counts and measured cost shown separately until an agreed basis; the ratio denominator is the distinct count of admitted map-point identities (lifetime, correction-adjusted, audit-zero withdrawing the current map's count explicitly) \u2014 never the summed rubric score; zero map points means the ratio is unavailable, never zero or infinite; benchmarks, penalties and other kinds never create the denominator; the producing-model leaderboard (lane x model points, map points, award tallies) is derived beside the lane scores while caps stay per lane",
+  "heartbeat_publication": "the heartbeat writes scoreboard.json atomically (the exact line + generated_at) and tracks the last ADMITTED line separately from the last regenerated one; an unchanged already-admitted line files nothing; a changed line or a due stall notice becomes a pending delivery item with a stable id (vf-line-<seq>-<sha8(line)>, seq allocated at creation and never reused; vf-stall-<sha8(episode_key)>-48h / -5d); items are attempted through the post adapter at most 3 times per run in priority order 5-day card, 48 h diagnosis, oldest pending line (each adapter call held to 150 s, submit.py to 120 s), unattempted items stay pending \u2014 nothing is dropped or abandoned; any due item left undelivered (including budget-deferred) exits nonzero for the timer; retries happen only on the next scheduled run, never an in-run polling loop; without --post-command the run is a probe that records pending items and exits 0",
+  "scoreboard": "margin and material gap move only on verified map-point / scoreboard-improve events; otherwise UNVERIFIED / UNKNOWN",
+  "token_penalty": "cumulative per lane for the life of the programme from session-native records (latest snapshot per session, summed per lane; overhead excluded); crossings of each 100M multiple are OBSERVED and dated at the ledger regeneration that first sees them (map version current then, forward only, late records add when found); penalty points come ONLY from Una-verified tokens-100m awards, so observed-but-unawarded crossings pend as a displayed discrepancy, never auto-minted; measured-only with named unmeasured sessions, never zero-filled; an award above the observed crossings is never refused or rescored by the mechanism \u2014 the excess is surfaced as a displayed over-award discrepancy for the Scorer"
+ },
+ "doc": "Machine-readable companion of SCHEMA.md. The ledger is append-only JSONL: one event object per line, canonical JSON (sorted keys, compact separators). Derived views (scoreboard, balances, stall state) are recomputed from events and never stored inside the event log. Initial production state is EMPTY: no events, UNVERIFIED margin, UNKNOWN material gap, zero points.",
+ "event": {
+  "common_fields": {
+   "authority": {
+    "record_id": "accepted submission id",
+    "source": "scope.award | artifact"
+   },
+   "event_at": "ISO-8601 with offset, from the accepted record's own timestamp",
+   "event_id": "stable id; q-<accepted submission id> for queue-derived events. Identical replay is a no-op; the same id with a different payload is refused without a second award or overwrite.",
+   "event_type": "nomination | verification-award | audit-zero | map-version | rubric-change | cost-update",
+   "from_seat": "seat id of the accepted record's admitted filer",
+   "ingested_at": "ISO-8601 with offset, set by the ledger; excluded from the replay digest",
+   "lane": "lane attribution (builder-a, builder-b, ...)",
+   "model": "model attribution",
+   "note": "precise reason recorded when a filing stays a nomination",
+   "points": "integer; nonzero only on verification-award events",
+   "verified": "true only for verifier-filed typed blocks; a nomination is never verified"
+  },
+  "control_events": {
+   "audit-zero": "verifier-filed; award.lane and award.map_version required. Zeroes the named lane's CURRENT map version only; a stale or mismatched map reference is recorded and NOT applied to a newer map. Prior awards and earlier map versions are preserved.",
+   "correction": "verifier-filed; award.target_event_id must name an EXISTING earlier event and award.action is revoke|amend (amend carries integer new_points). Appends its disposition; the original event's bytes and historical views are preserved while derived balances recompute.",
+   "cost-update": "any seat; result.{tokens, coverage, interval, session, bucket, role}. Never an award, never points. tokens is the session-native-record CUMULATIVE total keyed by result.session; the view keeps the latest snapshot per session and sums sessions per lane, so a redelivered or stale record never double-counts and a late-found record adds in when found. coverage is 'measured' | 'unmeasured' (the session is named, never zero-filled). bucket 'overhead' (role: sciences-head | scorer | scorer-rerun | co | review) is excluded from every lane and reported as programme overhead.",
+   "map-version": "verifier-filed; award.map_version must advance the current version (forward-only).",
+   "rubric-change": "verifier-filed; award.rubric_version must advance (forward-only), at most one change per map version, and award.approvals must reference accepted records covering BOTH Una and an Admiral seat. No retrospective rescoring: existing awards keep their rubric_version."
+  },
+  "verification_award": {
+   "award": {
+    "benchmark_key": "required for kind=benchmark; credited once ever",
+    "evidence": [
+     {
+      "path": "...",
+      "sha256": "..."
+     }
+    ],
+    "kind": "map-point | scoreboard-improve | benchmark | falsification | material-card | claim-withdrawn | landing-no-number | envelope-breach | tokens-100m",
+    "nomination_id": "the nomination event this verifies, when applicable",
+    "result": "typed scientific payload: margin, material_gap_pct, value, units, uncertainty, tolerance, comparator. Present fields must carry their units; absent fields stay absent, never zero-filled.",
+    "units": "required for kind=tokens-100m (number of 100M-token units)"
+   },
+   "points_rule": "must equal the POINTS.md v0 table row for the kind (tokens-100m scales by units); a mismatch is refused and stays a nomination"
+  }
+ },
+ "schema": "vacuum-float-progress",
+ "scoring_policy": {
+  "caps_window": "rolling-168h-utc",
+  "note": "not a rubric version; no weight, event or cap number changed",
+  "source": "Una's Scorer conventions (v0), 2026-10-17, sha256 d9c2a6a289b91fb9f5f9acc1750f487d191ba0e80d837dff30d971f1604368ec, carried in research/program/POINTS.md; answered the previously pending week-window, timezone and token-accumulation questions",
+  "token_accumulation": "cumulative-per-lane-lifetime"
+ },
+ "version": 1
+}

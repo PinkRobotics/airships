@@ -34,6 +34,7 @@ excluded  research            evidence store and the reports written from it —
 excluded  tests               harnesses and golden files
 excluded  tools               development tooling, including the migration scripts
 excluded  pipeline            the Python data generators; they run on a server, not in a page
+excluded  ops                 systemd user units for host services (e.g. the vacuum-float heartbeat); they install on the host, not in a page
 excluded  .github             CI and templates
 excluded  .git                —
 excluded  .gitignore          —

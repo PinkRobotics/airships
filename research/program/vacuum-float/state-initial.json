@@ -1,0 +1,30 @@
+{
+ "_doc": "Initial production configuration and state for the vacuum-float progress machinery. The production ledger starts EMPTY: no events, no points, no awards, no material cards, no margin, no gap — UNVERIFIED and UNKNOWN, never zeros or inherited values. Copy this file to the owned live location and adjust only what Sciences binds; the ledger directory itself is passed explicitly on every invocation.",
+ "schema_version": 1,
+ "programme": "vacuum-float",
+ "map_version": "map-v0",
+ "rubric_version": "v0",
+ "verifier_billet": "xo",
+ "verifier_seats": ["xo-r-10111326"],
+ "admiral_seats": [],
+ "_admiral_seats_note": "Empty by default: the canonical register of minted Admiral role seats is not machine-readable from this repo. Sciences/Desk populate this list before any rubric change can validate; until then a rubric-change filing stays a nomination with that precise reason.",
+ "binding_dir": "/home/tyler/data/helm/ship/binding",
+ "submissions_dir": "/home/tyler/data/helm/ship/queue/submissions",
+ "programme_start": {
+  "_doc": "The accepted Sciences execution brief is the programme-start anchor (U3-BRIEF binding 2). Anchor id and its admitted-at timestamp; only an admitted Una-verified map point resets the scientific stall afterwards.",
+  "anchor": "accepted-execution-order",
+  "id": "ord-sciences-g1-vacuum-u3-builder-b-start-1017",
+  "at": "2026-10-17T00:14:57-07:00"
+ },
+ "scoring": {
+  "caps_window": "rolling-168h-utc",
+  "_doc": "Scorer conventions (v0) — Una's disposition of 2026-10-17 (sha256 d9c2a6a289b91fb9f5f9acc1750f487d191ba0e80d837dff30d971f1604368ec), carried in research/program/POINTS.md. The capped kinds admit while the lane has fewer than the cap verified in the ROLLING 168 hours ending at the verification instant (UTC, exact instants, no calendar week); over-cap events score 0 and are never banked or rescored."
+ },
+ "cost": {
+  "ratio_basis": "UNSET",
+  "interval": "UNSET",
+  "token_penalty_basis": "cumulative-per-lane-lifetime",
+  "session_keyed": true,
+  "_doc": "Cost per VERIFIED map point needs an explicit matching interval and coverage. Until the accounting basis is agreed (ratio_basis UNSET), views show counts and measured cost separately rather than a misleading ratio. Token accounting is session-keyed and cumulative per lane (latest native-record snapshot per session, summed per lane; overhead usage excluded and shown beside cost); crossings pend until Una awards them."
+ }
+}

@@ -1,0 +1,14 @@
+[Unit]
+Description=Run the vacuum-float heartbeat every six hours
+Documentation=file://%h/dev/airships/research/program/vacuum-float/HEARTBEAT.md
+
+[Timer]
+# Six hours, off the top of the hour. The 06:13 run lands before the 07:00 morning report reads the board.
+OnCalendar=*-*-* 00/6:13:00
+# A run missed while the host was down catches up at the next boot. A stall cap is still due then.
+Persistent=true
+AccuracySec=1min
+Unit=vacuum-float-heartbeat.service
+
+[Install]
+WantedBy=timers.target
