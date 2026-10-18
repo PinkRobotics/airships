@@ -15,7 +15,7 @@ their own assertions.
 ## Ledger layout
 
 The ledger lives in an OWNED directory passed explicitly on every invocation
-of `tools/float_progress.py --ledger <dir>` — never inside this repository and
+of `tools/vacuum_progress.py --ledger <dir>` — never inside this repository and
 never a hard-coded runtime path:
 
 ```

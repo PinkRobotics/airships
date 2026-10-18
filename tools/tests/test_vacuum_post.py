@@ -1,4 +1,4 @@
-"""Focused checks on tools/float_post.py, the vacuum-float delivery adapter.
+"""Focused checks on tools/vacuum_post.py, the vacuum-float delivery adapter.
 
 Everything here is unmistakably synthetic: a fake runtime tree (binding/ and
 queue/submissions/), a switchable fake submit.py stand-in, and the real
@@ -27,8 +27,8 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'tools'))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-import float_post as fpost  # noqa: E402
-from test_float_progress import Habitat  # noqa: E402
+import vacuum_post as fpost  # noqa: E402
+from test_vacuum_progress import Habitat  # noqa: E402
 
 FAKE_SUBMIT = '''#!/usr/bin/env python3
 """Test stand-in for the ship submit door. FAKE_MODE switches behavior:
@@ -95,9 +95,9 @@ WRAPPED_ADAPTER = '''#!/usr/bin/env python3
 import sys
 sys.path.insert(0, sys.argv[1])
 del sys.argv[1]
-import float_post
-float_post.SUBMIT_TIMEOUT_S = 1
-sys.exit(float_post.main())
+import vacuum_post
+vacuum_post.SUBMIT_TIMEOUT_S = 1
+sys.exit(vacuum_post.main())
 '''
 
 
@@ -109,7 +109,7 @@ class AdapterRun:
         self.runtime = self.tmp / 'fake-runtime'
         self.submit = self.tmp / 'fake-submit.py'
         self.submit.write_text(FAKE_SUBMIT)
-        self.adapter = ROOT / 'tools' / 'float_post.py'
+        self.adapter = ROOT / 'tools' / 'vacuum_post.py'
         self.delivery = self.tmp / 'fake-delivery'
         self.bind('sciences', 'sciences-p-1')
         self.bind('co', 'co-p-1')
@@ -351,7 +351,7 @@ class FloatPostAdapter(unittest.TestCase):
         # field has that field compared, and a differing stored value is
         # a conflict under the same id.
         sys.path.insert(0, str(ROOT / 'tools'))
-        import float_post
+        import vacuum_post
         envelope = {'id': 'vf-line-9-zz', 'kind': 'report',
                     'from': 'operator', 'to': 'sciences-p-1',
                     'unit': 'vacuum-float-heartbeat', 'completion': 'c',
@@ -360,10 +360,10 @@ class FloatPostAdapter(unittest.TestCase):
                     'scope': 'operations'}
         stored_ok = dict(envelope, at='t', ingested='t', authority=None,
                          re=None, supersedes=None)
-        self.assertEqual(float_post.admission_differs(stored_ok, envelope),
+        self.assertEqual(vacuum_post.admission_differs(stored_ok, envelope),
                          [])
         stored_bad = dict(stored_ok, scope='sciences')
-        problems = float_post.admission_differs(stored_bad, envelope)
+        problems = vacuum_post.admission_differs(stored_bad, envelope)
         self.assertTrue(any('scope' in p for p in problems), problems)
 
     def test_door_stamps_stay_excluded(self):

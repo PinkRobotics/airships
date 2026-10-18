@@ -1,4 +1,4 @@
-"""Focused checks on the externally visible contracts of tools/float_progress.py.
+"""Focused checks on the externally visible contracts of tools/vacuum_progress.py.
 
 Every fixture here is unmistakably synthetic: fake seats (SYN-XO, SYN-ADM,
 SYN-BUILDER), a fake submissions directory, a fake binding directory, injected
@@ -25,7 +25,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'tools'))
 
-import float_progress as fp  # noqa: E402
+import vacuum_progress as fp  # noqa: E402
 
 XO = 'SYN-XO'
 ADM = 'SYN-ADM'

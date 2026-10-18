@@ -1436,7 +1436,7 @@ def cmd_heartbeat(args, cfg: dict) -> int:
             # fail closed BEFORE any delivery write: the corrupt bytes stay
             # byte-identical on disk, no adapter call happens, no id or
             # sequence is reused, and the timer's OnFailure sees rc 2
-            print(f'float_progress: {exc}', file=sys.stderr)
+            print(f'vacuum_progress: {exc}', file=sys.stderr)
             return 2
         changed = line != hb_state.get('last_line')
         if changed:
@@ -1459,7 +1459,7 @@ def cmd_heartbeat(args, cfg: dict) -> int:
                 # with nothing written: the saved item is preserved, the
                 # colliding episode is not silently suppressed under it,
                 # and no adapter call happens this run.
-                print(f'float_progress: delivery id collision under {nid}: '
+                print(f'vacuum_progress: delivery id collision under {nid}: '
                       f'saved episode {item.get("episode_key")!r} type '
                       f'{item.get("type")!r} != incoming episode '
                       f'{stall.get("episode_key")!r} type {ptype!r}',

@@ -20,7 +20,7 @@ Type=oneshot
 Environment=TMPDIR=%h/data/pinkrobotics/vacuum-float/tmp
 Environment=PATH=/usr/bin:/bin
 WorkingDirectory=%h/dev/airships
-ExecStart=/usr/bin/python3 -I %h/dev/airships/tools/float_progress.py --ledger %h/data/pinkrobotics/vacuum-float/ledger heartbeat --post-command /usr/bin/python3 -I %h/dev/airships/tools/float_post.py --runtime %h/data/helm/ship --submit %h/dev/helm/ship/tools/submit.py --delivery-state %h/data/pinkrobotics/vacuum-float/ledger/delivery
+ExecStart=/usr/bin/python3 -I %h/dev/airships/tools/vacuum_progress.py --ledger %h/data/pinkrobotics/vacuum-float/ledger heartbeat --post-command /usr/bin/python3 -I %h/dev/airships/tools/vacuum_post.py --runtime %h/data/helm/ship --submit %h/dev/helm/ship/tools/submit.py --delivery-state %h/data/pinkrobotics/vacuum-float/ledger/delivery
 # Measured on U3 at de180a60 (2026-10-17): 0.05-0.08 s wall and about 25 MB peak memory per run, on an empty
 # ledger and on one with both stall notices due. The bounds leave over 100x headroom for ledger growth. The wall
 # bound covers at most three adapter calls per run (5-day card, then 48 h diagnosis, then the oldest pending line),

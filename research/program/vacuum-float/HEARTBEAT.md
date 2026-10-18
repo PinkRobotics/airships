@@ -8,7 +8,7 @@ receipt.
 
 ## Mechanism
 
-`tools/float_progress.py --ledger <owned-dir> heartbeat` is the entry point.
+`tools/vacuum_progress.py --ledger <owned-dir> heartbeat` is the entry point.
 One run:
 
 1. Regenerates the scoreboard from the ledger's events and writes
@@ -22,7 +22,7 @@ One run:
      lines (the seq comes from `delivery-pending.json` and never reuses a
      number), `vf-stall-<sha8(episode_key)>-48h` and
      `vf-stall-<sha8(episode_key)>-5d` for notices;
-   - **frozen envelopes**: the adapter (`tools/float_post.py`) resolves the
+   - **frozen envelopes**: the adapter (`tools/vacuum_post.py`) resolves the
      addressee from the runtime binding ONCE, freezes the full envelope in
      its owned delivery state BEFORE the first submission, and reuses it
      verbatim on every retry — addressee and deadline are never re-resolved;
@@ -54,7 +54,7 @@ Without `--post-command` the run is a probe: it regenerates, records pending
 delivery items and exits 0 — useful for inspecting what WOULD be delivered.
 The service unit always passes the adapter.
 
-## Adapter exit codes (`tools/float_post.py`)
+## Adapter exit codes (`tools/vacuum_post.py`)
 
 | rc | meaning | heartbeat treatment |
 |---|---|---|

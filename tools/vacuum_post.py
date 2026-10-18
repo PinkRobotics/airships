@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""float_post.py — the vacuum-float delivery adapter (U3 bindings, 2026-10-17).
+"""vacuum_post.py — the vacuum-float delivery adapter (U3 bindings, 2026-10-17).
 
 Reads ONE JSON object on stdin — {"type", "id", "body", "deadline"?} — and
 files it through the ship's submit.py door under the operator machinery
@@ -125,7 +125,7 @@ def json_type_equal(want, got) -> bool:
 
 def atomic_write_json(path: Path, obj: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    fd, tmp = tempfile.mkstemp(dir=str(path.parent), prefix='.float_post.')
+    fd, tmp = tempfile.mkstemp(dir=str(path.parent), prefix='.vacuum_post.')
     try:
         with os.fdopen(fd, 'w') as fh:
             json.dump(obj, fh, indent=1, sort_keys=True)
@@ -265,11 +265,11 @@ def main() -> int:
     try:
         payload = json.loads(sys.stdin.read())
     except ValueError as exc:
-        print(f'float_post: stdin is not JSON: {exc}', file=sys.stderr)
+        print(f'vacuum_post: stdin is not JSON: {exc}', file=sys.stderr)
         return 4
     item_id = payload.get('id')
     if not item_id or not payload.get('type') or payload.get('body') is None:
-        print('float_post: payload needs type, id and body', file=sys.stderr)
+        print('vacuum_post: payload needs type, id and body', file=sys.stderr)
         return 4
 
     runtime = Path(args.runtime)
@@ -283,7 +283,7 @@ def main() -> int:
             state = {}
         envelope = state.get('envelope')
         if not envelope:
-            print(f'float_post: delivery state for {item_id} is corrupt',
+            print(f'vacuum_post: delivery state for {item_id} is corrupt',
                   file=sys.stderr)
             return 2
         # U3-D1: the saved envelope is reused only for the SAME logical
@@ -297,7 +297,7 @@ def main() -> int:
                     'body': payload.get('body'),
                     'deadline': payload.get('deadline')}
         if incoming != frozen_identity:
-            print(f'float_post: CONFLICT under {item_id}: incoming request '
+            print(f'vacuum_post: CONFLICT under {item_id}: incoming request '
                   f'{incoming!r} != frozen identity {frozen_identity!r}',
                   file=sys.stderr)
             return 2
@@ -305,7 +305,7 @@ def main() -> int:
     else:
         envelope, why = build_envelope(payload, runtime)
         if envelope is None:
-            print(f'float_post: {why}', file=sys.stderr)
+            print(f'vacuum_post: {why}', file=sys.stderr)
             return 5
         state = {'id': item_id, 'type': payload['type'],
                  'frozen_at': None, 'attempts': 0, 'admitted': False}
@@ -328,9 +328,9 @@ def main() -> int:
                                     envelope)),
                                 'projection': PROJECTION}
             atomic_write_json(state_path, state)
-            print(f'float_post: {item_id} already admitted (identical payload)')
+            print(f'vacuum_post: {item_id} already admitted (identical payload)')
             return 0
-        print(f'float_post: CONFLICT under {item_id}: ' + '; '.join(problems),
+        print(f'vacuum_post: CONFLICT under {item_id}: ' + '; '.join(problems),
               file=sys.stderr)
         state['last_error'] = 'conflicting payload under the same id'
         state['admitted'] = False  # fail closed: the store no longer matches
@@ -361,9 +361,9 @@ def main() -> int:
                                     envelope)),
                                 'projection': PROJECTION}
             atomic_write_json(state_path, state)
-            print(f'float_post: {item_id} admitted')
+            print(f'vacuum_post: {item_id} admitted')
             return 0
-        print(f'float_post: CONFLICT under {item_id}: ' + '; '.join(problems),
+        print(f'vacuum_post: CONFLICT under {item_id}: ' + '; '.join(problems),
               file=sys.stderr)
         state['last_error'] = 'conflicting payload under the same id'
         state['admitted'] = False  # fail closed: the store no longer matches
@@ -379,7 +379,7 @@ def main() -> int:
         # a definite no (bad flag, unknown seat): kept pending, reported
         state['last_error'] = f'submit rc={proc.returncode}: {out.strip()[:300]}'
         atomic_write_json(state_path, state)
-        print(f'float_post: {item_id} refused: {out.strip()[:300]}',
+        print(f'vacuum_post: {item_id} refused: {out.strip()[:300]}',
               file=sys.stderr)
         return 3
     # filed nothing provable: rc 0 without a store entry, an immutable-exists
@@ -387,7 +387,7 @@ def main() -> int:
     # under the SAME id on the next scheduled run
     state['last_error'] = f'no admission evidence: {out.strip()[:300]}'
     atomic_write_json(state_path, state)
-    print(f'float_post: {item_id} pending (no admission evidence)',
+    print(f'vacuum_post: {item_id} pending (no admission evidence)',
           file=sys.stderr)
     return 4
 

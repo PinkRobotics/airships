@@ -5,9 +5,9 @@ Six-hour mechanism and activation state: [HEARTBEAT.md](HEARTBEAT.md).
 
 ## Tool
 
-`tools/float_progress.py` — the progress script. Stdlib-only Python 3. Every
+`tools/vacuum_progress.py` — the progress script. Stdlib-only Python 3. Every
 invocation names its OWNED ledger directory explicitly; the repository and
-the ship runtime are never written. `tools/float_post.py` is the delivery
+the ship runtime are never written. `tools/vacuum_post.py` is the delivery
 adapter the heartbeat calls through `--post-command`: it resolves the
 addressee from the runtime binding once, freezes the envelope in its owned
 delivery state, files through the ship submit door and proves admission by
@@ -15,14 +15,14 @@ comparing the stored submission's authored fields (exit codes 0/2/3/4/5 —
 see HEARTBEAT.md).
 
 ```
-python3 tools/float_progress.py --ledger <owned-dir> ingest --id <accepted-submission-id> [...]
-python3 tools/float_progress.py --ledger <owned-dir> scoreboard [--out LINE] [--json-out JSON]
-python3 tools/float_progress.py --ledger <owned-dir> heartbeat [--post-command <argv...>]
-python3 tools/float_progress.py --ledger <owned-dir> status
-python3 tools/float_progress.py --ledger <owned-dir> selfcheck
-python3 tools/float_progress.py --ledger <owned-dir> repair-tail
-python3 tools/float_progress.py schema
-python3 tools/float_post.py --runtime <ship-runtime> --submit <submit.py> --delivery-state <owned-dir>
+python3 tools/vacuum_progress.py --ledger <owned-dir> ingest --id <accepted-submission-id> [...]
+python3 tools/vacuum_progress.py --ledger <owned-dir> scoreboard [--out LINE] [--json-out JSON]
+python3 tools/vacuum_progress.py --ledger <owned-dir> heartbeat [--post-command <argv...>]
+python3 tools/vacuum_progress.py --ledger <owned-dir> status
+python3 tools/vacuum_progress.py --ledger <owned-dir> selfcheck
+python3 tools/vacuum_progress.py --ledger <owned-dir> repair-tail
+python3 tools/vacuum_progress.py schema
+python3 tools/vacuum_post.py --runtime <ship-runtime> --submit <submit.py> --delivery-state <owned-dir>
 ```
 
 `--config <json>` overrides the defaults in
@@ -64,7 +64,7 @@ where sufficient, never larger). Example for the focused checks:
 ```
 systemd-run --user --scope -p CPUQuota=800% -p MemoryMax=40G \
   --setenv=TMPDIR=/home/<you>/run/tmp \
-  timeout 7200 python3 -m unittest discover -s tools/tests -p 'test_float_progress.py' -v
+  timeout 7200 python3 -m unittest discover -s tools/tests -p 'test_vacuum_progress.py' -v
 ```
 
 Working trees, scratch, temporary output and results live on `/home`
@@ -78,13 +78,13 @@ No GPU. No physical work.
 ## Focused checks
 
 ```
-python3 -m unittest discover -s tools/tests -p 'test_float_progress.py' -v
-python3 -m unittest discover -s tools/tests -p 'test_float_post.py' -v
+python3 -m unittest discover -s tools/tests -p 'test_vacuum_progress.py' -v
+python3 -m unittest discover -s tools/tests -p 'test_vacuum_post.py' -v
 ```
 
 Tests use temporary owned directories and injected time/posting adapters;
 they send no real queue messages, alter no live ledger and wait for no real
-clock. The adapter tests run the real `float_post.py` as a subprocess against
+clock. The adapter tests run the real `vacuum_post.py` as a subprocess against
 a fake submit door and admission store inside the owned temp dir — no real
 queue filing ever happens. Fixtures are unmistakably synthetic.
 
