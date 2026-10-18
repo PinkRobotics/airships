@@ -2,6 +2,9 @@
 import json
 import os
 from pathlib import Path
+import re
+import shutil
+import subprocess
 import sys
 import tempfile
 from types import SimpleNamespace
@@ -10,6 +13,26 @@ from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import check_float_plants as gate
+
+# Run in a fresh interpreter whose cwd is a tree: load that tree's plant registry and report
+# every repository module it read, the case ids, and each appended payload.
+REGISTRY = '''
+import json, sys
+from pathlib import Path
+root = Path.cwd().resolve()
+sys.path.insert(0, str(root / 'tools/tests'))
+import test_float_hardening
+cases = test_float_hardening.specs()
+files = [Path(m.__file__).resolve() for m in list(sys.modules.values()) if getattr(m, '__file__', None)]
+print(json.dumps(dict(modules=sorted({f.relative_to(root).as_posix() for f in files if f.is_relative_to(root)}),
+                      cases=sorted(cases),
+                      appended={name: spec['append'][1] for name, spec in cases.items() if 'append' in spec})))
+'''
+
+
+def registry(root):
+    run = subprocess.run([sys.executable, '-B', '-c', REGISTRY], cwd=root, capture_output=True, text=True, check=True)
+    return json.loads(run.stdout)
 
 
 class PlantState(unittest.TestCase):
@@ -180,6 +203,45 @@ class PlantState(unittest.TestCase):
                 self.assertRaisesRegex(ValueError, 'changed during shard plants'):
             gate.run_shard('1/2', self.root)
         self.assertEqual(path.read_bytes(), before)
+
+
+class PlantPayloadFingerprint(unittest.TestCase):
+    """A plant built from another file's bytes must move the receipt's fingerprint when they change."""
+
+    def test_every_module_the_plant_registry_loads_is_fingerprinted(self):
+        loaded = registry(gate.ROOT)['modules']
+        hashed = {rel for rel in gate.snapshot()['files'] if not rel.startswith('Makefile#')}
+        self.assertIn('tools/tests/test_float_hardening.py', loaded)
+        self.assertEqual(sorted(set(loaded) - hashed), [])
+
+    def test_fixture_only_payload_change_refuses_the_old_receipt(self):
+        temporary = tempfile.TemporaryDirectory(prefix='plant-payload-')
+        self.addCleanup(temporary.cleanup)
+        root = Path(temporary.name)
+        inputs = {rel for rel in gate.snapshot()['files'] if not rel.startswith('Makefile#')}
+        for rel in sorted(inputs | set(registry(gate.ROOT)['modules']) | {'Makefile'}):
+            (root / rel).parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(gate.ROOT / rel, root / rel)
+        (root / gate.RECORD).parent.mkdir(parents=True)
+        (root / gate.RECORD).write_text(json.dumps(gate.snapshot(root)))
+        self.assertIsNone(gate.check(root))
+        before = registry(root)
+        # The positive control's own payload names the anchor: its first range-diff pair, = to !.
+        payload = before['appended']['M5-landing-table-rebase']
+        pair = next(line for line in payload.splitlines() if re.match(r'1:  [0-9a-f]+ = 1:  ', line))
+        fixture = root / 'tools/tests/test_attestation_shape.py'
+        original = fixture.read_text()
+        self.assertEqual(original.count(pair), 1)
+        fixture.write_text(original.replace(pair, pair.replace(' = ', ' ! ', 1)))
+        after = registry(root)
+        self.assertEqual(after['cases'], before['cases'])
+        self.assertNotEqual(after['appended']['M5-landing-table-rebase'], payload)
+        recorded = json.loads((root / gate.RECORD).read_text())
+        self.assertNotEqual(gate.snapshot(root)['sha256'], recorded['sha256'],
+                            'a fixture-only plant change left the full-plants fingerprint unchanged')
+        self.assertIn('tools/tests/test_attestation_shape.py; run make floatplants', gate.check(root))
+        fixture.write_text(original)
+        self.assertIsNone(gate.check(root))
 
 
 if __name__ == '__main__':

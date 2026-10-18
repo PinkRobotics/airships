@@ -26,6 +26,7 @@ REQUIRED = (
     'tools/update_float_records.py', 'tools/tests/float_plants.py',
     'tools/tests/test_float_hardening.py', 'tools/tests/test_float_motion.py',
     'tools/tests/test_float_plant_state.py',
+    'tools/tests/test_attestation_shape.py',
 )
 EXTRA = ('tools/float_dispositions.json', 'tools/float_verdict_templates.json',
          'tools/gen_float_pages.py', 'tools/gen_float_verdicts.py', 'tools/numeric_tokens.py')
