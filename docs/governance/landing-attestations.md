@@ -1461,3 +1461,17 @@
 | Order | sha256 `637d651953cb9340…` (informational) |
 | Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
 
+## Landing 98 — Deliver the programme heartbeat and progress tools
+
+| field | value |
+|---|---|
+| Landed | 2026-10-18 23:42:20 PDT by the lander using `ship/tools/land.py`, a pure **FAST-FORWARD**: main `3cada4b0cd5075e4e00d66a25362198d75fd9e5d` → `5f96f32e13f5e8724e8245eefbbf2b9b55feb55a`; pushed main-only, non-force, origin verified equal. The signed sha IS main; the landed tree equals the signed tree by identity. |
+| The object | SIGNED `5f96f32e13f5e8724e8245eefbbf2b9b55feb55a`, tree `a88437018a7884b2a871ed01358d94f0da92fc59`, from branch `u3-a3-replacement-1018`, parent `13f4b15f7c7f0720f84516d866ffd6595d3f3eff`, governance `gov-a5eae9ef1e3b` preserved. Unit `vacuum-u3-group-a-relaunch-1018`. |
+| Pre-checks under the lock | primary on main; HEAD == main == the named base; origin/main == the named base; merge-base(main, candidate) == main and candidate != main; tree == the named tree; Helm-Audit-ID on every commit in base..candidate; tracked tree clean; object imported exact from the source. |
+| Gate | `tools/land_gate.py 5f96f32e1…` → rc=0, HONOURED-XO 5f96f32e13f5e8724e8245eefbbf2b9b55feb55a — the last record for this sha (store line 2112) is XO-SIGNED. (store `fo-verdicts.tsv`) |
+| Governance records | `cc69f2e1d` ← `gov-486b3f2c9923` (its trailer); `13f4b15f7` ← `gov-39573c3831cb` (its trailer); `5f96f32e1` ← `gov-a5eae9ef1e3b` (its trailer). Each record names the landed sha as the commit it governed. |
+| Evidence before landing | `CI=true LANG=C.UTF-8 PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 MAKEFLAGS= MFLAGS= make -j1 readmecheck linkcheck buildercheck claimsrestore claimscheck ledgercheck floatplantcheck portcheck reposizecheck noticecheck floatpagecheck firstparty pdfcheck analysischeck fallbackcheck ciparity evaccheck` rc=0 (environment PATH, HOME, TMPDIR, AIRSHIPS_TMPDIR, XDG_CACHE_HOME, A3D_CHROME_PROFILE set to host paths, not shown) (gate timeout 1800 s, named by the order) |
+| Tool | `ship/tools/land.py` sha256 `8923f0793a3819d0…` from helm (informational) |
+| Order | sha256 `d24d3089c10f3689…` (informational) |
+| Foreign route | order-named preserve_paths `—` pinned — (the attestation post-conditions below refuse any mismatch); record `docs/governance/landing-attestations.md`. |
+
